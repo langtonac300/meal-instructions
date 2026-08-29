@@ -467,8 +467,181 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── TOP 10 OPERATIONAL GUIDES SPECIMEN SECTION ── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 py-10 w-full border-t border-hairline">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-accent mb-1">
+              <span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
+              <span className="font-bold">20 OPERATIONAL TOP 10 LISTS</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-black text-ink uppercase tracking-tight font-sans">
+              Battle-Tested Dad &amp; Home Cook Guides
+            </h2>
+          </div>
+          <Link
+            href="/guides"
+            className="font-mono text-xs text-ink hover:text-accent font-bold uppercase flex items-center gap-1 group"
+          >
+            <span>View All 20 Guides</span>
+            <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Link
+            href="/guides/things-i-wish-i-knew-cooking-for-family"
+            className="bg-paper-card hairline-border p-5 space-y-2.5 hover:border-ink transition-colors block group flex flex-col justify-between"
+          >
+            <div className="space-y-2">
+              <div className="text-[10px] text-accent font-bold uppercase font-mono">REF-01 // FAMILY LOGISTICS</div>
+              <h3 className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">
+                10 Things I Wish I Knew Before Cooking For A Family
+              </h3>
+              <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+                Timeline synchronizing, heat moderation, and why pan crowding boils meat.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-hairline/60 text-[10px] font-mono text-ink font-bold uppercase flex items-center justify-between">
+              <span>4 MIN READ</span>
+              <span>READ GUIDE →</span>
+            </div>
+          </Link>
+
+          <Link
+            href="/guides/rules-picky-kids-eat-real-food"
+            className="bg-paper-card hairline-border p-5 space-y-2.5 hover:border-ink transition-colors block group flex flex-col justify-between"
+          >
+            <div className="space-y-2">
+              <div className="text-[10px] text-accent font-bold uppercase font-mono">REF-02 // PICKY EATERS</div>
+              <h3 className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">
+                10 Rules for Getting Picky Kids to Eat Real Food
+              </h3>
+              <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+                Deconstruction plating, dip leverage, and ending short-order cooking.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-hairline/60 text-[10px] font-mono text-ink font-bold uppercase flex items-center justify-between">
+              <span>4 MIN READ</span>
+              <span>READ GUIDE →</span>
+            </div>
+          </Link>
+
+          <Link
+            href="/guides/cast-iron-mistakes-dads-make"
+            className="bg-paper-card hairline-border p-5 space-y-2.5 hover:border-ink transition-colors block group flex flex-col justify-between"
+          >
+            <div className="space-y-2">
+              <div className="text-[10px] text-accent font-bold uppercase font-mono">REF-03 // HARDWARE</div>
+              <h3 className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">
+                10 Cast Iron Mistakes Dads Make (And What Matters)
+              </h3>
+              <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+                Debunking the soap myth, preheating duration, and dry meat searing.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-hairline/60 text-[10px] font-mono text-ink font-bold uppercase flex items-center justify-between">
+              <span>4 MIN READ</span>
+              <span>READ GUIDE →</span>
+            </div>
+          </Link>
+
+          <Link
+            href="/guides/air-fryer-realities-nobody-tells-you"
+            className="bg-paper-card hairline-border p-5 space-y-2.5 hover:border-ink transition-colors block group flex flex-col justify-between"
+          >
+            <div className="space-y-2">
+              <div className="text-[10px] text-accent font-bold uppercase font-mono">REF-04 // CONVECTION</div>
+              <h3 className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">
+                10 Air Fryer Realities Nobody Puts in the Manual
+              </h3>
+              <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+                Stopping white smoke, single-layer airflow, and -25°F conversion math.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-hairline/60 text-[10px] font-mono text-ink font-bold uppercase flex items-center justify-between">
+              <span>4 MIN READ</span>
+              <span>READ GUIDE →</span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* ── 50 FIELD GUIDES & CULINARY SCIENCE SECTION ── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 py-12 w-full border-t border-hairline">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <div className="micro-label text-accent">50 PEER-REVIEWED REFERENCES</div>
+            <h2 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-ink font-sans">
+              Culinary Physics &amp; Field Guides
+            </h2>
+          </div>
+          <Link
+            href="/blog"
+            className="px-3.5 py-1.5 bg-ink text-paper rounded font-mono text-xs font-bold uppercase hover:bg-accent transition-colors shrink-0"
+          >
+            VIEW ALL 50 FIELD GUIDES →
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
+          <Link
+            href="/blog/maillard-reaction-steak-searing"
+            className="bg-paper-card hairline-border p-4 space-y-2 hover:border-ink transition-colors block group rounded"
+          >
+            <div className="text-[10px] text-accent font-bold uppercase">FOOD SCIENCE</div>
+            <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors leading-snug">
+              Why Wet Steaks Never Brown (Maillard Physics)
+            </div>
+            <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+              Water absorbs 2,260 J/g to vaporize. Stop steaming steaks at 212°F.
+            </p>
+          </Link>
+
+          <Link
+            href="/blog/air-fryer-convection-airflow-physics"
+            className="bg-paper-card hairline-border p-4 space-y-2 hover:border-ink transition-colors block group rounded"
+          >
+            <div className="text-[10px] text-accent font-bold uppercase">HARDWARE PHYSICS</div>
+            <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors leading-snug">
+              Air Fryer Convection &amp; Boundary Layers
+            </div>
+            <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+              How 2,000 RPM airflow strips the boundary layer to cook 20% faster.
+            </p>
+          </Link>
+
+          <Link
+            href="/blog/equilibrium-salting-diamond-vs-morton"
+            className="bg-paper-card hairline-border p-4 space-y-2 hover:border-ink transition-colors block group rounded"
+          >
+            <div className="text-[10px] text-accent font-bold uppercase">SALT DENSITY</div>
+            <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors leading-snug">
+              Equilibrium Salting (Diamond vs Morton)
+            </div>
+            <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+              Why a spoon of Morton salt is 70% saltier than Diamond Crystal.
+            </p>
+          </Link>
+
+          <Link
+            href="/blog/safe-internal-meat-temperatures-guide"
+            className="bg-paper-card hairline-border p-4 space-y-2 hover:border-ink transition-colors block group rounded"
+          >
+            <div className="text-[10px] text-accent font-bold uppercase">FOOD SAFETY</div>
+            <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors leading-snug">
+              USDA vs Chef Internal Temperatures
+            </div>
+            <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+              Why chicken is safe at 155°F with dwell time vs 165°F rubber.
+            </p>
+          </Link>
+        </div>
+      </section>
+
       {/* ── THE ZERO-FLUFF MANIFESTO STRIP ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8 py-12 w-full border-t border-hairline">
+
         <div className="bg-ink text-paper rounded-lg p-8 sm:p-12 relative overflow-hidden">
           <div className="max-w-3xl relative z-10">
             <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold block mb-2">

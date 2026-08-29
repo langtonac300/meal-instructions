@@ -96,12 +96,12 @@ export default function Navbar() {
               Kid Approved
             </Link>
             <Link
-              href="/guides"
+              href="/blog"
               className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname.startsWith('/guides') ? 'text-ink border-b-2 border-ink font-bold' : ''
+                pathname.startsWith('/blog') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
               }`}
             >
-              Top 10 Guides
+              Field Guides
             </Link>
             <Link
               href="/tools"
@@ -126,10 +126,10 @@ export default function Navbar() {
             <button
               onClick={() => setSearchOpen(true)}
               className="flex items-center gap-2 px-3 py-1.5 bg-paper-card hairline-border hover:border-ink transition-colors text-xs font-mono text-ink-muted hover:text-ink cursor-pointer"
-              title="Search recipes and cook time reference"
+              title="Search recipes, cook times, and 50 field guides"
             >
               <Search className="w-3.5 h-3.5 text-ink-subtle" />
-              <span className="hidden sm:inline">Search Reference</span>
+              <span className="hidden sm:inline">Search</span>
               <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] bg-paper-subtle hairline-border rounded text-ink-muted">
                 ⌘K
               </kbd>
@@ -178,18 +178,18 @@ export default function Navbar() {
               👶 Kid & Toddler Approved
             </Link>
             <Link
-              href="/guides"
+              href="/blog"
               onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 text-ink hover:text-accent font-bold"
+              className="block py-1.5 text-accent font-bold hover:underline"
             >
-              📚 Top 10 Guides (20)
+              🔬 50 Field Guides &amp; Science
             </Link>
             <Link
               href="/tools"
               onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 text-ink hover:text-accent font-bold text-accent"
+              className="block py-1.5 text-ink hover:text-accent"
             >
-              🛠️ Kitchen Tools &amp; Calculators (30)
+              🛠️ Kitchen Tools &amp; Calculators (11)
             </Link>
             <Link
               href="/cheat-sheet"
