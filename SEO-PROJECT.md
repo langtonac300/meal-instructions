@@ -254,14 +254,19 @@ Each proven by deliberately breaking the repo and watching the audit fail, then 
 
 ---
 
-### P7 — LLM & AI surface
+### P7 — LLM & AI surface ✅ COMPLETE (2026-08-29)
 
 | ID | Task | Status | Verify |
 |---|---|---|---|
-| SEO-024 | Verify `llms.txt` / `llms-full.txt` cover the `/how-long` corpus | TODO | content review |
-| SEO-025 | Decide whether the WebMCP origin-trial token stays | TODO | §7 D-3 |
+| SEO-024 | Verify `llms.txt` / `llms-full.txt` cover the `/how-long` corpus | **DONE** 2026-08-29 | 60 datasheets in both files |
+| SEO-025 | Decide whether the WebMCP origin-trial token stays | **BLOCKED** | §7 D-3 |
 
 This is the site's genuine differentiator (`llms.txt`, `llms-full.txt`, an MCP server, `.well-known/mcp/server-card.json`). It is deliberately last: it is worth little while 33% of pages lack canonicals and every recipe carries fake ratings. Revisit after P3.
+
+**SEO-024** — Both `llms.txt` and `llms-full.txt` completely omitted the 60 cook-time datasheets — the site's declared SEO/LLM engine. Fixed:
+- `llms.txt`: Added "Parametric Cook-Time Datasheets" section with all 60 datasheets grouped by appliance, each with temp/time/internal links. Updated AI usage guidelines to include `/how-long/` URL pattern. Added hub link. Grew from 318 → 395 lines.
+- `llms-full.txt`: Added PART 1 (datasheets moved ahead of guides/blog/recipes since they're the primary LLM content). Each datasheet outputs food, URL, appliance, cut/prep, state, temp, time, flip, internal target, rest, oil, doneness cue, pro tip, verification basis. Grew from 8,361 → 9,864 lines. Parts renumbered (guides → 2, blog → 3, recipes → 4).
+- MCP server card at `.well-known/mcp/server-card.json` already declares `get_cook_time` — no change needed.
 
 ---
 
@@ -321,8 +326,9 @@ grep -rn "aggregateRating" lib/ app/
 | 2026-08-29 | SEO-019 | Added image-on-disk assertion: parses all JSON-LD, extracts image/logo/thumbnailUrl URLs, verifies each resolves to a file in `public/`. 16 unique images verified. Proven: seeded `/fake-nonexistent-image.jpg` → audit failed | e1b15a1 | seeded break → caught |
 | 2026-08-29 | SEO-020 | Added aggregateRating ban: any page containing `aggregateRating` or `AggregateRating` in built HTML fails the audit. Proven: seeded rating on recipes → 70 errors | e1b15a1 | seeded break → caught |
 | 2026-08-29 | SEO-021 | Added canonical self-referential assertion: extracts canonical href, derives expected URL from file path, compares. Proven: seeded `/wrong-page` canonical on /about → audit failed | e1b15a1 | seeded break → caught |
-| 2026-08-29 | SEO-023 | Created 4 `opengraph-image.tsx` files using `next/og` for recipes (70), datasheets (60), blog (55), and guides (20) = 205 per-entity OG images pre-rendered at build time | pending | `npm run build` exits 0; 205 `.body` files in `.next/server/app/` |
-| 2026-08-29 | SEO-022 | Investigation complete: 166 files / 138 MB in `public/images/`, only 2 `next/image` usages, no `output: 'export'`. Flag likely a leftover. Blocked on D-2 for actual removal. | pending | documented in tracker |
+| 2026-08-29 | SEO-023 | Created 4 `opengraph-image.tsx` files using `next/og` for recipes (70), datasheets (60), blog (55), and guides (20) = 205 per-entity OG images pre-rendered at build time | baffc10 | `npm run build` exits 0; 205 `.body` files in `.next/server/app/` |
+| 2026-08-29 | SEO-022 | Investigation complete: 166 files / 138 MB in `public/images/`, only 2 `next/image` usages, no `output: 'export'`. Flag likely a leftover. Blocked on D-2 for actual removal. | baffc10 | documented in tracker |
+| 2026-08-29 | SEO-024 | Added 60 cook-time datasheets to `llms.txt` (grouped by appliance with links) and `llms-full.txt` (full structured content as new PART 1). Updated AI usage guidelines with `/how-long/` URL pattern. | pending | llms.txt 395 lines, llms-full.txt 9,864 lines |
 
 ---
 

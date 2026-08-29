@@ -2,18 +2,51 @@ import { NextResponse } from 'next/server';
 import { RECIPES } from '@/data/recipes';
 import { BLOG_POSTS } from '@/data/blog-posts';
 import { TOP_10_GUIDES } from '@/data/top-10-lists';
+import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { recipeToMarkdown } from '@/lib/recipe-utils';
 import { getSiteUrl, absoluteUrl } from '@/lib/site';
 
 export const dynamic = 'force-static';
 
 export async function GET() {
-  let content = `# MEAL INSTRUCTIONS // FULL CORPUS (${RECIPES.length} RECIPES, ${TOP_10_GUIDES.length} TOP 10 GUIDES, ${BLOG_POSTS.length} TECHNICAL FIELD GUIDES)
-Generated: 2026-08-29
+  let content = `# MEAL INSTRUCTIONS // FULL CORPUS (${COOK_TIME_DATASHEETS.length} COOK-TIME DATASHEETS, ${RECIPES.length} RECIPES, ${TOP_10_GUIDES.length} TOP 10 GUIDES, ${BLOG_POSTS.length} TECHNICAL FIELD GUIDES)
 License: Open AI Citation // ${getSiteUrl()}
 
 ================================================================================
-PART 1: 20 OPERATIONAL TOP 10 GUIDES (${TOP_10_GUIDES.length} GUIDES)
+PART 1: PARAMETRIC COOK-TIME DATASHEETS (${COOK_TIME_DATASHEETS.length} DATASHEETS)
+================================================================================
+`;
+
+  for (const d of COOK_TIME_DATASHEETS) {
+    content += `\n---\n
+# ${d.food}
+URL: ${absoluteUrl('/how-long/' + d.appliance + '/' + d.foodSlug)}
+Appliance: ${d.appliance.replace(/-/g, ' ')}
+Cut / Prep: ${d.cutOrPrep}
+State: ${d.state}
+
+## Parameters
+- Temperature: ${d.tempFormatted}
+- Time: ${d.timeFormatted}
+- Flip / Shake: ${d.flipAtMinutes > 0 ? d.flipAtMinutes + ' minutes' : 'No flip required'}
+- Internal Target: ${d.internalTempTargetFormatted}
+- Rest: ${d.restMinutes} min${d.restMinutes !== 1 ? 's' : ''}
+- Oil Spray: ${d.oilSprayRequired ? 'Required' : 'Not required'}
+
+## Doneness Cue
+${d.donenessCue}
+
+## Pro Tip
+${d.proTip}
+
+## Verification Basis
+${d.verificationBasis}
+`;
+  }
+
+  content += `
+================================================================================
+PART 2: 20 OPERATIONAL TOP 10 GUIDES (${TOP_10_GUIDES.length} GUIDES)
 ================================================================================
 `;
 
@@ -31,7 +64,7 @@ ${guide.items.map((item) => `### ${item.position}. ${item.headline} [${item.tag}
   }
 
   content += `\n================================================================================
-PART 2: TECHNICAL FIELD GUIDES & CULINARY SCIENCE (${BLOG_POSTS.length} GUIDES)
+PART 3: TECHNICAL FIELD GUIDES & CULINARY SCIENCE (${BLOG_POSTS.length} GUIDES)
 ================================================================================
 `;
 
@@ -51,7 +84,7 @@ ${post.contentMarkdown}
   }
 
   content += `\n================================================================================
-PART 3: QUALITY-GATED MEAL INSTRUCTIONS (${RECIPES.length} RECIPES)
+PART 4: QUALITY-GATED MEAL INSTRUCTIONS (${RECIPES.length} RECIPES)
 ================================================================================
 `;
 
