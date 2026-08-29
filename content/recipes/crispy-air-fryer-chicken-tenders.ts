@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 10,
   "totalMinutes": 15,
   "defaultServings": 4,
-  "basis": "Tested in 6-qt basket air fryer at 400°F with 1.5-inch raw tenderloins. USDA FSIS 165°F target.",
+  "basis": "Ninja Foodi AF100 Series Cooking Chart (Tenders 390°F–400°F, 10–12m); USDA FSIS 165°F standard.",
   "safeInternalTempF": 165,
   "restMinutes": 2,
   "cookTemp": "400°F (204°C)",
@@ -134,13 +134,6 @@ export default {
     "Fresh apple slices with peanut butter"
   ],
   "reheatInstructions": "Reheat in air fryer at 360°F for 3 minutes. Never microwave or the breading turns rubbery.",
-  "nutrition": {
-    "calories": 340,
-    "proteinGrams": 42,
-    "carbsGrams": 18,
-    "fatGrams": 11,
-    "source": "USDA FoodData Central #171077"
-  },
   "kidRating": 5,
   "difficulty": "Dead Simple",
   "keywords": [

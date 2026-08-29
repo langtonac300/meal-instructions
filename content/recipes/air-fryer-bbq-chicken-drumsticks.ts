@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 20,
   "totalMinutes": 25,
   "defaultServings": 4,
-  "basis": "Tested on 6 large bone-in chicken drumsticks in 6-qt basket air fryer at 380°F.",
+  "basis": "Cosori Pro II Drumsticks Guide (380°F, 20m); USDA FSIS Poultry 165°F standard.",
   "safeInternalTempF": 180,
   "restMinutes": 3,
   "cookTemp": "380°F (193°C)",
@@ -121,13 +121,6 @@ export default {
     "Crispy coleslaw"
   ],
   "reheatInstructions": "Reheat in air fryer at 360°F for 4 minutes to restore sticky crust.",
-  "nutrition": {
-    "calories": 380,
-    "proteinGrams": 36,
-    "carbsGrams": 14,
-    "fatGrams": 18,
-    "source": "USDA FoodData Central #171116"
-  },
   "kidRating": 5,
   "difficulty": "Dead Simple",
   "keywords": [

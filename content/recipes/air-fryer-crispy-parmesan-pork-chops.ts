@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 12,
   "totalMinutes": 17,
   "defaultServings": 4,
-  "basis": "Tested with 1-inch thick bone-in pork chops in 6-qt basket air fryer at 380°F.",
+  "basis": "Ninja Foodi AF100 Series Cooking Chart (Pork Chops 380°F, 12m); USDA FSIS Pork 145°F standard.",
   "safeInternalTempF": 145,
   "restMinutes": 4,
   "cookTemp": "380°F (193°C)",
@@ -125,13 +125,6 @@ export default {
     "Applesauce"
   ],
   "reheatInstructions": "Reheat in air fryer at 350°F for 3 minutes to keep crust crispy.",
-  "nutrition": {
-    "calories": 410,
-    "proteinGrams": 44,
-    "carbsGrams": 10,
-    "fatGrams": 21,
-    "source": "USDA FoodData Central #168249"
-  },
   "kidRating": 5,
   "difficulty": "Dead Simple",
   "keywords": [

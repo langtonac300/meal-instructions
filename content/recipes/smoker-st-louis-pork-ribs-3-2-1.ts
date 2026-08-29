@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 330,
   "totalMinutes": 345,
   "defaultServings": 6,
-  "basis": "Tested on 2 racks of St. Louis ribs at 225°F using hickory pellets on Traeger smoker.",
+  "basis": "Traeger / Pellet Smoker 3-2-1 Technical Guide (225°F Indirect Smoke, 6 hours total).",
   "safeInternalTempF": 202,
   "restMinutes": 15,
   "cookTemp": "225°F (107°C)",
@@ -123,13 +123,6 @@ export default {
     "Jalapeño cheddar cornbread"
   ],
   "reheatInstructions": "Wrap in foil with 1 tbsp butter and reheat in oven at 300°F for 15 minutes.",
-  "nutrition": {
-    "calories": 620,
-    "proteinGrams": 48,
-    "carbsGrams": 22,
-    "fatGrams": 38,
-    "source": "USDA FoodData Central #168249"
-  },
   "kidRating": 5,
   "difficulty": "Weekend Project",
   "keywords": [

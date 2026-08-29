@@ -9,23 +9,25 @@ const recipesJsonPath = path.join(__dirname, '../data/recipes.json');
 const appliancesPath = path.join(__dirname, '../data/appliances.ts');
 const categoriesPath = path.join(__dirname, '../data/categories.ts');
 const typesPath = path.join(__dirname, '../lib/types.ts');
+const cookTimesPath = path.join(__dirname, '../data/cook-times.ts');
 
 const recipes = JSON.parse(fs.readFileSync(recipesJsonPath, 'utf-8'));
 const typesContent = fs.readFileSync(typesPath, 'utf-8');
 const appliancesContent = fs.readFileSync(appliancesPath, 'utf-8');
 const categoriesContent = fs.readFileSync(categoriesPath, 'utf-8');
+const cookTimesContent = fs.readFileSync(cookTimesPath, 'utf-8');
 
 console.log(`\n--- RUNNING CONTENT AUDIT (npm run audit:content) ---`);
-console.log(`Auditing ${recipes.length} recipes...\n`);
+console.log(`Auditing ${recipes.length} recipes and parametric datasheets...\n`);
 
 let errors = [];
 
-// HR-5: Recipe count ceiling
+// 1. HR-5: Recipe count ceiling
 if (recipes.length > 150) {
   errors.push(`Hard Rule Violation: Total recipe count (${recipes.length}) exceeds 150 ceiling.`);
 }
 
-// Declared types from lib/types.ts
+// 2. Declared types contract from lib/types.ts
 const validAppliances = ['air-fryer', 'skillet', 'sheet-pan', 'cast-iron', 'grill', 'dutch-oven', 'slow-cooker', 'smoker'];
 const validCategories = ['15-minute', 'high-protein', 'kid-approved', 'budget', 'no-thaw', 'one-pan', 'five-ingredient', 'sides', 'snacks', 'game-day', 'breakfast', 'weekend'];
 
@@ -42,7 +44,7 @@ for (const cat of validCategories) {
   }
 }
 
-// Track uniqueness (HR-4)
+// 3. Track uniqueness and veracity across recipes (HR-4, HR-2)
 const taglines = new Map();
 const stepSequences = new Map();
 const dadProTips = new Map();
@@ -52,13 +54,13 @@ const kidAdjustments = new Map();
 for (const r of recipes) {
   const slug = r.slug || r.id;
 
-  // Check basis (HR-2)
+  // Check basis (HR-2: required non-empty verification basis)
   const basis = r.basis || r.cookTimeBasis;
   if (!basis || typeof basis !== 'string' || basis.trim().length === 0) {
     errors.push(`[${slug}] Missing required 'basis' field naming cook time verification.`);
   }
 
-  // Check nutrition source (HR-2)
+  // Check nutrition source (HR-2: required if nutrition object is present)
   if (r.nutrition) {
     if (!r.nutrition.source || typeof r.nutrition.source !== 'string' || r.nutrition.source.trim().length === 0) {
       errors.push(`[${slug}] Nutrition object present without a verified 'source' string.`);
@@ -121,11 +123,62 @@ for (const r of recipes) {
   }
 }
 
+// 4. Audit parametric datasheets in data/cook-times.ts (B8 requirement)
+const datasheetSlugs = new Set();
+const datasheetRegex = /{\s*id:\s*'([^']+)',\s*slug:\s*'([^']+)',\s*food:\s*'([^']+)',[\s\S]*?appliance:\s*'([^']+)',[\s\S]*?timeMinMinutes:\s*([0-9]+),[\s\S]*?timeMaxMinutes:\s*([0-9]+),[\s\S]*?internalTempTargetF:\s*([0-9]+),[\s\S]*?verificationBasis:\s*'([^']+)',/g;
+
+let match;
+let datasheetCount = 0;
+
+while ((match = datasheetRegex.exec(cookTimesContent)) !== null) {
+  datasheetCount++;
+  const [_, id, slug, food, appliance, timeMin, timeMax, internalTemp, basis] = match;
+
+  // Check duplicate slug
+  if (datasheetSlugs.has(slug)) {
+    errors.push(`[Datasheet: ${slug}] Duplicate slug across datasheets.`);
+  }
+  datasheetSlugs.add(slug);
+
+  // Check valid appliance
+  if (!validAppliances.includes(appliance)) {
+    errors.push(`[Datasheet: ${slug}] Invalid appliance '${appliance}'.`);
+  }
+
+  // Check valid time bounds
+  const minM = parseInt(timeMin, 10);
+  const maxM = parseInt(timeMax, 10);
+  if (minM <= 0 || maxM < minM) {
+    errors.push(`[Datasheet: ${slug}] Invalid time range (${minM}-${maxM} mins).`);
+  }
+
+  // Check verification basis
+  if (!basis || basis.trim().length === 0) {
+    errors.push(`[Datasheet: ${slug}] Missing verificationBasis.`);
+  }
+
+  // Check safe internal temperature for poultry/ground beef
+  const tempF = parseInt(internalTemp, 10);
+  const foodLower = food.toLowerCase();
+  if ((foodLower.includes('chicken') || foodLower.includes('turkey') || foodLower.includes('wings') || foodLower.includes('tenders') || foodLower.includes('poultry')) && tempF < 165) {
+    errors.push(`[Datasheet: ${slug}] Poultry internalTempTargetF (${tempF}°F) is below USDA safe minimum (165°F).`);
+  }
+  if ((foodLower.includes('burger') || foodLower.includes('ground beef') || foodLower.includes('meatball')) && tempF < 160) {
+    errors.push(`[Datasheet: ${slug}] Ground meat internalTempTargetF (${tempF}°F) is below USDA safe minimum (160°F).`);
+  }
+}
+
+if (datasheetCount < 20) {
+  errors.push(`Datasheet audit found only ${datasheetCount} datasheets in data/cook-times.ts. Expected 20+.`);
+}
+
+console.log(`Audited ${datasheetCount} parametric datasheets in data/cook-times.ts.`);
+
 if (errors.length > 0) {
-  console.error(`❌ CONTENT AUDIT FAILED with ${errors.length} error(s):\n`);
+  console.error(`\n❌ CONTENT AUDIT FAILED with ${errors.length} error(s):\n`);
   errors.forEach((err, idx) => console.error(`${idx + 1}. ${err}`));
   process.exit(1);
 } else {
-  console.log(`✅ CONTENT AUDIT PASSED: ${recipes.length} recipes verified against all hard rules.\n`);
+  console.log(`✅ CONTENT AUDIT PASSED: ${recipes.length} recipes and ${datasheetCount} datasheets verified.\n`);
   process.exit(0);
 }

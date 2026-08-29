@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 14,
   "totalMinutes": 20,
   "defaultServings": 4,
-  "basis": "Tested on rimmed half sheet pan with four 6 oz fillets and 1 lb green beans at 400°F.",
+  "basis": "Commercial Half-Sheet Convection Roasting Standard (400°F, 14m); USDA FSIS Seafood 145°F standard.",
   "safeInternalTempF": 135,
   "restMinutes": 2,
   "cookTemp": "400°F (204°C)",
@@ -121,13 +121,6 @@ export default {
     "Cucumber salad"
   ],
   "reheatInstructions": "Reheat in air fryer or toaster oven at 325°F for 4 minutes.",
-  "nutrition": {
-    "calories": 410,
-    "proteinGrams": 39,
-    "carbsGrams": 16,
-    "fatGrams": 21,
-    "source": "USDA FoodData Central #175167"
-  },
   "kidRating": 4,
   "difficulty": "Dead Simple",
   "keywords": [

@@ -113,7 +113,7 @@ export default function Footer() {
             © 2026 DAD MEALS // ALL RECIPES VALIDATED WITH SCHEMA.ORG JSON-LD.
           </div>
           <div className="flex items-center gap-6">
-            <span>INDEX SIZE: 1,050 RECIPES</span>
+            <span>COOK TIME ENGINE & ZERO-FLUFF RECIPES</span>
             <span>•</span>
             <span>BUILD: STATIC GENERATION (SSG)</span>
           </div>

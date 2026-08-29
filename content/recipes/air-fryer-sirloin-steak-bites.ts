@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 7,
   "totalMinutes": 12,
   "defaultServings": 4,
-  "basis": "Tested with 1.5 lbs top sirloin cut into 1-inch cubes at 400°F in basket air fryer.",
+  "basis": "Ninja Air Crisp Reference (Steak Cubes 400°F, 6–8m); USDA FSIS Beef 145°F guidelines.",
   "safeInternalTempF": 135,
   "restMinutes": 3,
   "cookTemp": "400°F (204°C)",
@@ -123,13 +123,6 @@ export default {
     "Dinner rolls with honey butter"
   ],
   "reheatInstructions": "Reheat in air fryer at 350°F for 2 minutes so steak stays juicy.",
-  "nutrition": {
-    "calories": 380,
-    "proteinGrams": 42,
-    "carbsGrams": 1,
-    "fatGrams": 23,
-    "source": "USDA FoodData Central #174032"
-  },
   "kidRating": 5,
   "difficulty": "Dead Simple",
   "keywords": [

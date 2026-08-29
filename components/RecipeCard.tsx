@@ -42,7 +42,7 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
 
         {/* Title */}
         <Link href={`/recipes/${recipe.slug}`} className="block focus:outline-none">
-          <h3 className="font-serif text-lg sm:text-xl font-bold tracking-tight text-ink group-hover:text-accent transition-colors leading-snug">
+          <h3 className="font-sans text-lg sm:text-xl font-bold tracking-tight text-ink group-hover:text-accent transition-colors leading-snug">
             {recipe.title}
           </h3>
         </Link>

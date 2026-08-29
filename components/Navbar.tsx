@@ -29,7 +29,7 @@ export default function Navbar() {
       <div className="bg-ink text-paper py-1.5 px-4 sm:px-8 text-[11px] font-mono tracking-wider flex justify-between items-center hairline-b">
         <div className="flex items-center gap-3">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="uppercase text-neutral-300">1,050 Battle-Tested Dad Recipes // Zero Life Stories</span>
+          <span className="uppercase text-neutral-300">Technical Cook-Time Reference & Quality-Gated Meals // Zero Life Stories</span>
         </div>
         <div className="hidden md:flex items-center gap-4 text-neutral-400">
           <Link href="/llms.txt" className="hover:text-paper transition-colors">
@@ -64,12 +64,12 @@ export default function Navbar() {
           {/* Center Links */}
           <nav className="hidden lg:flex items-center gap-6 font-mono text-xs tracking-wider uppercase text-ink-muted">
             <Link
-              href="/categories/air-fryer"
+              href="/appliances/air-fryer"
               className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname === '/categories/air-fryer' ? 'text-ink border-b-2 border-ink font-bold' : ''
+                pathname === '/appliances/air-fryer' ? 'text-ink border-b-2 border-ink font-bold' : ''
               }`}
             >
-              Air Fryer (300)
+              Air Fryer
             </Link>
             <Link
               href="/categories/15-minute"
@@ -110,10 +110,10 @@ export default function Navbar() {
             <button
               onClick={() => setSearchOpen(true)}
               className="flex items-center gap-2 px-3 py-1.5 bg-paper-card hairline-border hover:border-ink transition-colors text-xs font-mono text-ink-muted hover:text-ink cursor-pointer"
-              title="Search 1,050 recipes"
+              title="Search recipes and cook time reference"
             >
               <Search className="w-3.5 h-3.5 text-ink-subtle" />
-              <span className="hidden sm:inline">Search Recipes</span>
+              <span className="hidden sm:inline">Search Reference</span>
               <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] bg-paper-subtle hairline-border rounded text-ink-muted">
                 ⌘K
               </kbd>
@@ -134,11 +134,11 @@ export default function Navbar() {
         {mobileMenuOpen && (
           <div className="lg:hidden bg-paper-card hairline-t hairline-b p-4 space-y-3 font-mono text-xs uppercase tracking-wider">
             <Link
-              href="/categories/air-fryer"
+              href="/appliances/air-fryer"
               onClick={() => setMobileMenuOpen(false)}
               className="block py-1.5 text-ink hover:text-accent"
             >
-              ⚡ Air Fryer Staples (300)
+              ⚡ Air Fryer Engine
             </Link>
             <Link
               href="/categories/15-minute"

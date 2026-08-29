@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 9,
   "totalMinutes": 12,
   "defaultServings": 4,
-  "basis": "Tested on 1 lb ground pork and 14 oz coleslaw mix in 12-inch non-stick skillet.",
+  "basis": "Standard Skillet Sauté Curve (Medium-High 375°F, 10–12m); USDA FSIS Ground Pork 160°F standard.",
   "safeInternalTempF": 160,
   "restMinutes": 1,
   "cookTemp": "Medium-High (375°F / 190°C)",
@@ -127,13 +127,6 @@ export default {
     "Edamame with sea salt"
   ],
   "reheatInstructions": "Reheat in skillet over medium heat for 2 minutes to keep cabbage crisp.",
-  "nutrition": {
-    "calories": 340,
-    "proteinGrams": 28,
-    "carbsGrams": 8,
-    "fatGrams": 22,
-    "source": "USDA FoodData Central #168249"
-  },
   "kidRating": 5,
   "difficulty": "Dead Simple",
   "keywords": [

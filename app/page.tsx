@@ -57,7 +57,7 @@ export default function HomePage() {
               <span>THE ANTI-ESSAY COOKING PLATFORM</span>
             </div>
 
-            <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-ink uppercase leading-[0.95]">
+            <h1 className="font-sans text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-ink uppercase leading-[0.95]">
               ZERO FLUFF.
               <br />
               <span className="text-accent">JUST DIRECTIONS.</span>
@@ -277,7 +277,7 @@ export default function HomePage() {
                 <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold">
                   INSTANT REFERENCE
                 </span>
-                <h3 className="font-serif text-2xl font-bold text-ink uppercase mt-0.5">
+                <h3 className="font-sans text-2xl font-bold text-ink uppercase mt-0.5">
                   DAD AIR FRYER QUICK TEMPERATURE MATRIX
                 </h3>
               </div>
@@ -320,7 +320,7 @@ export default function HomePage() {
             <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold block mb-2">
               WHY DAD MEALS EXISTS
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight uppercase leading-tight">
+            <h2 className="font-sans text-3xl sm:text-4xl font-bold tracking-tight uppercase leading-tight">
               NO ESSAYS ABOUT GRANDMOTHER’S CABIN. NO 5-PAGE ADS.
             </h2>
             <p className="font-sans text-sm sm:text-base text-paper/80 mt-4 leading-relaxed">

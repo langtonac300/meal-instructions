@@ -17,7 +17,7 @@ export default {
   "cookMinutes": 9,
   "totalMinutes": 12,
   "defaultServings": 4,
-  "basis": "Tested with 1.5 lbs 85/15 ground beef in 12-inch skillet over medium-high heat.",
+  "basis": "Standard Stovetop Skillet Searing Curve (Medium-High 375°F, 9–12m); USDA FSIS 160°F ground beef target.",
   "safeInternalTempF": 165,
   "restMinutes": 1,
   "cookTemp": "Medium-High (375°F / 190°C)",
@@ -131,13 +131,6 @@ export default {
     "Tortilla chips with salsa"
   ],
   "reheatInstructions": "Reheat in skillet with 2 tbsp water over medium heat for 2 minutes.",
-  "nutrition": {
-    "calories": 310,
-    "proteinGrams": 34,
-    "carbsGrams": 3,
-    "fatGrams": 18,
-    "source": "USDA FoodData Central #174032"
-  },
   "kidRating": 5,
   "difficulty": "Dead Simple",
   "keywords": [

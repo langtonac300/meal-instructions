@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 6,
   "totalMinutes": 11,
   "defaultServings": 4,
-  "basis": "Tested on 1.5 lbs 16/20 raw shrimp in 12-inch stainless skillet over medium-high heat.",
+  "basis": "Standard Skillet Searing Curve (Medium-High 375°F, 5–6m); USDA FSIS Seafood 145°F standard.",
   "safeInternalTempF": 145,
   "restMinutes": 1,
   "cookTemp": "Medium-High (375°F / 190°C)",
@@ -129,13 +129,6 @@ export default {
     "Caesar salad"
   ],
   "reheatInstructions": "Reheat gently in skillet with 1 tsp butter for 90 seconds. Do not microwave.",
-  "nutrition": {
-    "calories": 290,
-    "proteinGrams": 35,
-    "carbsGrams": 3,
-    "fatGrams": 15,
-    "source": "USDA FoodData Central #175179"
-  },
   "kidRating": 4,
   "difficulty": "Dead Simple",
   "keywords": [

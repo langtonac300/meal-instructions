@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 15,
   "totalMinutes": 23,
   "defaultServings": 4,
-  "basis": "Tested on rimmed half sheet pan lined with parchment at 425°F convection.",
+  "basis": "Commercial Half-Sheet Convection Roasting Standard (425°F, 15m); USDA FSIS Poultry 165°F target.",
   "safeInternalTempF": 165,
   "restMinutes": 2,
   "cookTemp": "425°F (218°C)",
@@ -147,13 +147,6 @@ export default {
     "Fresh guacamole & chips"
   ],
   "reheatInstructions": "Reheat in skillet over medium-high for 3 minutes to maintain sizzle.",
-  "nutrition": {
-    "calories": 390,
-    "proteinGrams": 42,
-    "carbsGrams": 28,
-    "fatGrams": 12,
-    "source": "USDA FoodData Central #171077"
-  },
   "kidRating": 5,
   "difficulty": "Dead Simple",
   "keywords": [

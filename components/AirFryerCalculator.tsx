@@ -32,7 +32,7 @@ export default function AirFryerCalculator() {
         <div className="flex items-center justify-between flex-wrap gap-2">
           <div className="flex items-center gap-2">
             <Zap className="w-5 h-5 text-accent" />
-            <h2 className="font-serif text-xl sm:text-2xl font-bold text-ink">
+            <h2 className="font-sans text-xl sm:text-2xl font-bold text-ink">
               OVEN TO AIR FRYER CONVERSION CALCULATOR
             </h2>
           </div>
