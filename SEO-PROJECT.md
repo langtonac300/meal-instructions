@@ -292,10 +292,10 @@ grep -rn "aggregateRating" lib/ app/
 |---|---|---|---|---|
 | 2026-08-29 | — | Baseline measured; this file created | — | build + both audits run |
 | 2026-08-29 | SEO-001 | `npm install`; added gitignored `.env.local`. Build + both audits now pass locally. **Not closed** — CI still needs D-1. | uncommitted | `npm run build` exit 0 |
-| 2026-08-29 | SEO-004 | Removed hardcoded `aggregateRating` (4.9 / 128 reviews) from `lib/recipe-utils.ts`; left an HR-2 comment so it is not re-added | uncommitted | **70 → 0** pages emit `aggregateRating` in built HTML; sitewide grep for `ratingValue`/`reviewCount`/`Review` clean |
-| 2026-08-29 | SEO-005 | Repointed schema images off the non-existent `/og-image.jpg` → `/opengraph-image.png` (1200×630); publisher logo → `/logo-512.png`. 3 refs in `lib/recipe-utils.ts` + `lib/blog-utils.ts` | uncommitted | **125 → 0** pages reference `og-image.jpg`; all **17** distinct image URLs across 296 built pages resolve to real files in `public/` |
-| 2026-08-29 | SEO-003 | Updated `AGENTS.md` §6 — replaced "do not exist yet" with note that all three scripts exist and pass; referenced SEO-018 for coverage gaps | uncommitted | Doc review ✓ |
-| 2026-08-29 | SEO-026 | Created `.gitattributes` with `eol=lf` for `*.json`, `*.ts`, `*.tsx`, `*.mjs`, `*.js`, `*.css`, `*.md` — prevents `build:content` from dirtying tracked files with CRLF on Windows | uncommitted | Build no longer shows false diffs |
+| 2026-08-29 | SEO-004 | Removed hardcoded `aggregateRating` (4.9 / 128 reviews) from `lib/recipe-utils.ts`; left an HR-2 comment so it is not re-added | d0e0805 | **70 → 0** pages emit `aggregateRating` in built HTML; sitewide grep for `ratingValue`/`reviewCount`/`Review` clean |
+| 2026-08-29 | SEO-005 | Repointed schema images off the non-existent `/og-image.jpg` → `/opengraph-image.png` (1200×630); publisher logo → `/logo-512.png`. 3 refs in `lib/recipe-utils.ts` + `lib/blog-utils.ts` | d0e0805 | **125 → 0** pages reference `og-image.jpg`; all **17** distinct image URLs across 296 built pages resolve to real files in `public/` |
+| 2026-08-29 | SEO-003 | Updated `AGENTS.md` §6 — replaced "do not exist yet" with note that all three scripts exist and pass; referenced SEO-018 for coverage gaps | d0e0805 | Doc review ✓ |
+| 2026-08-29 | SEO-026 | Created `.gitattributes` with `eol=lf` for `*.json`, `*.ts`, `*.tsx`, `*.mjs`, `*.js`, `*.css`, `*.md` — prevents `build:content` from dirtying tracked files with CRLF on Windows | d0e0805 | Build no longer shows false diffs |
 
 ---
 
