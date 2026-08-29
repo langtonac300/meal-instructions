@@ -37,6 +37,10 @@ export default function Navbar() {
             AI SCRAPER (LLMS.TXT)
           </Link>
           <span>/</span>
+          <Link href="/shop" className="hover:text-paper text-emerald-400 font-bold transition-colors">
+            ★ MERCH STORE (15 SPECS)
+          </Link>
+          <span>/</span>
           <Link href="/cheat-sheet" className="hover:text-paper transition-colors">
             AIR FRYER CHEATSHEET
           </Link>
@@ -101,6 +105,15 @@ export default function Navbar() {
               }`}
             >
               Tools &amp; Calcs
+            </Link>
+            <Link
+              href="/shop"
+              className={`hover:text-ink transition-colors pb-0.5 flex items-center gap-1 ${
+                pathname.startsWith('/shop') || pathname.startsWith('/merch') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
+              }`}
+            >
+              <span>Merch Supply</span>
+              <span className="text-[9px] px-1 py-0.2 bg-ink text-paper font-bold">15</span>
             </Link>
             <Link
               href="/cheat-sheet"
@@ -188,6 +201,13 @@ export default function Navbar() {
               className="block py-1.5 text-ink hover:text-accent"
             >
               📋 Air Fryer Temp Cheatsheet
+            </Link>
+            <Link
+              href="/shop"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-1.5 text-accent font-bold hover:underline"
+            >
+              👕 Merch Supply &amp; Uniforms (15 Specs)
             </Link>
             <Link
               href="/about"

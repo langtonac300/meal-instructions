@@ -5,6 +5,7 @@ import { APPLIANCES } from '@/data/appliances';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { BLOG_POSTS } from '@/data/blog-posts';
 import { TOP_10_GUIDES } from '@/data/top-10-lists';
+import { MERCH_PRODUCTS } from '@/data/merch';
 import { getSiteUrl, absoluteUrl } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -17,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1.0,
+    },
+    {
+      url: absoluteUrl('/shop'),
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.9,
     },
     {
       url: absoluteUrl('/guides'),
@@ -292,6 +299,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
+  // Merch Supply & Hardware Specimen pages
+  const merchPages: MetadataRoute.Sitemap = MERCH_PRODUCTS.map((item) => ({
+    url: absoluteUrl(`/shop/${item.id}`),
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.85,
+  }));
+
   return [
     ...staticPages,
     ...categoryPages,
@@ -301,6 +316,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...recipePages,
     ...blogPages,
     ...guidePages,
+    ...merchPages,
   ];
 }
 

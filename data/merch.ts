@@ -1,0 +1,360 @@
+export interface MerchProduct {
+  id: string;
+  sku: string;
+  title: string;
+  subtitle: string;
+  price: number;
+  category: 'apparel' | 'kitchen' | 'prints' | 'accessories';
+  badge?: string;
+  productImage: string;
+  modelImage?: string;
+  modelCaption?: string;
+  colorOptions: string[];
+  sizes: string[];
+  description: string;
+  punchline: string;
+  specs: { label: string; value: string }[];
+  inStock: boolean;
+  printArea?: string;
+  weightGsm?: string;
+}
+
+export const MERCH_CATEGORIES = [
+  { id: 'all', label: 'All Items (15)' },
+  { id: 'apparel', label: 'Apparel & Uniforms' },
+  { id: 'kitchen', label: 'Kitchen Gear & Towels' },
+  { id: 'prints', label: 'Datasheets & Prints' },
+  { id: 'accessories', label: 'Magnets & Hard Goods' },
+] as const;
+
+export const MERCH_PRODUCTS: MerchProduct[] = [
+  {
+    id: '01-skip-to-recipe',
+    sku: 'SPEC-TEE-001',
+    title: 'Skip to Recipe Heavyweight Tee',
+    subtitle: 'Zero Fluff // Anti-Blogger Uniform',
+    price: 34,
+    category: 'apparel',
+    badge: 'BESTSELLER // FLAGSHIP',
+    productImage: '/images/merch/skip-to-recipe-tee.jpg',
+    modelImage: '/images/merch/skip-to-recipe-model.jpg',
+    modelCaption: 'Dave (38), weeknight air fryer nugget extraction unit',
+    colorOptions: ['Ink Black', 'Vintage Bone', 'Washed Charcoal'],
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+    description:
+      'For anyone who has ever scrolled past 1,800 words about someone’s 2014 trip to Tuscany just to find out what temperature to bake salmon. Single-ink Swiss typography on ultra-heavyweight combed cotton.',
+    punchline: 'HTTP 204: No Content. Just the instructions.',
+    specs: [
+      { label: 'FABRIC', value: '100% Combed Ring-Spun Cotton' },
+      { label: 'WEIGHT', value: '6.5 oz / 220 GSM Heavyweight' },
+      { label: 'INK', value: 'Water-based discharge screenprint' },
+      { label: 'PRINT AREA', value: '12" × 15" Chest Alignment' },
+      { label: 'FIT', value: 'Standard architectural boxy cut' },
+      { label: 'CARE', value: 'Machine wash cold, air or tumble low' },
+    ],
+    inStock: true,
+  },
+  {
+    id: '02-tongs-calibration',
+    sku: 'SPEC-TEE-002',
+    title: 'Tongs Protocol & Acoustic Calibration Tee',
+    subtitle: 'Equipment Acceptance Criteria // FIG 1.0',
+    price: 34,
+    category: 'apparel',
+    badge: 'ENGINEERING SPEC',
+    productImage: '/images/merch/tongs-protocol-tee.jpg',
+    modelImage: '/images/merch/tongs-protocol-model.jpg',
+    modelCaption: 'Mark (40), verifying 85dB acoustic resonance at the kettle grill',
+    colorOptions: ['Vintage Bone', 'Ink Black', 'Cement Heather'],
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+    description:
+      'Tongs must be clicked exactly twice before touching meat. It is physical law. Features full vector acoustic telemetry and schematic callouts for dual-pulse acoustic verification (85dB @ 1m).',
+    punchline: 'CLICK 1: Pass. CLICK 2: Ready for operational deployment.',
+    specs: [
+      { label: 'FABRIC', value: '100% Combed Ring-Spun Cotton' },
+      { label: 'WEIGHT', value: '6.5 oz / 220 GSM Heavyweight' },
+      { label: 'GRAPHIC', value: 'Vector schematic + acoustic wave' },
+      { label: 'PRINT AREA', value: '12" × 15" Center Chest' },
+      { label: 'TOLERANCE', value: 'Dual click mandatory' },
+    ],
+    inStock: true,
+  },
+  {
+    id: '15-apron-cheatsheet-inverted',
+    sku: 'SPEC-APRN-015',
+    title: 'The Inverted Cheatsheet Canvas Apron',
+    subtitle: 'Upside-Down Hem Print for Direct Chef Readout',
+    price: 48,
+    category: 'kitchen',
+    badge: 'PATENT-WORTHY UTILITY',
+    productImage: '/images/merch/apron-cheatsheet-model.jpg',
+    modelImage: '/images/merch/apron-cheatsheet-model.jpg',
+    modelCaption: 'Brad (42), looking down to verify steak pull temp while deglazing',
+    colorOptions: ['Washed Charcoal Canvas', 'Raw Bone Duck Canvas'],
+    sizes: ['One Size (Adjustable Brass Straps)'],
+    description:
+      'The entire cooking reference matrix and liquid conversion chart is screenprinted UPSIDE DOWN on the lower hem. When you look down while standing over a sizzling skillet, the numbers are right-side up for you. Do not let the printer "fix" it.',
+    punchline: 'Look down. Pull at 130°F. Never overcook steak again.',
+    specs: [
+      { label: 'MATERIAL', value: '14 oz Heavy Duty Cotton Duck Canvas' },
+      { label: 'HARDWARE', value: 'Solid brass grommets & clasp' },
+      { label: 'PRINT ORIENTATION', value: '180° Inverted (Chef POV)' },
+      { label: 'POCKETS', value: 'Dedicated probe thermometer slot + 2 tool bays' },
+      { label: 'DIMENSIONS', value: '30" W × 34" L full coverage' },
+    ],
+    inStock: true,
+  },
+  {
+    id: '11-internal-temp-chart',
+    sku: 'SPEC-TOWL-011',
+    title: 'Master Internal Temp Linen Tea Towel',
+    subtitle: '18" × 28" Swiss Culinary Reference Cloth',
+    price: 24,
+    category: 'kitchen',
+    badge: 'DAILY ESSENTIAL',
+    productImage: '/images/merch/internal-temp-towel.jpg',
+    modelImage: '/images/merch/internal-temp-towel.jpg',
+    modelCaption: 'Oven handle hanging deployment in home kitchen',
+    colorOptions: ['Natural Oatmeal Linen', 'Crisp White Cotton'],
+    sizes: ['18" × 28" (Standard Kitchen Spec)'],
+    description:
+      'A dense, high-contrast Swiss tabular reference of every food’s exact internal temperature, USDA safe zones, chef pull marks, and carryover thermal climb allowances. Hangs over your oven door.',
+    punchline: 'Internal temperature is the only truth in cooking.',
+    specs: [
+      { label: 'MATERIAL', value: '55% French Linen / 45% Combed Cotton' },
+      { label: 'DIMENSIONS', value: '18" × 28" Finished Hem' },
+      { label: 'ABSORBENCY', value: 'High GSM lint-free weave' },
+      { label: 'DATA MATRIX', value: 'Beef, Pork, Poultry, Fish, Rest Times' },
+    ],
+    inStock: true,
+  },
+  {
+    id: '14-calibrated-cook-hoodie',
+    sku: 'SPEC-HOOD-014',
+    title: 'Specification Division Heavyweight Hoodie',
+    subtitle: '450 GSM Ultra-Dense Cross-Grain Fleece',
+    price: 68,
+    category: 'apparel',
+    badge: 'COLD WEATHER SPEC',
+    productImage: '/images/merch/specification-hoodie.jpg',
+    modelImage: '/images/merch/specification-hoodie.jpg',
+    modelCaption: 'Saturday morning coffee & brisket prep duty',
+    colorOptions: ['Washed Black', 'Heather Charcoal'],
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+    description:
+      'Built for 5:30 AM brisket chimney lighting in 30-degree weather. Double-rib side panels, 3-panel hood with heavyweight cotton drawcords, and custom sleeve spec label reading "MEAL INSTRUCTIONS // TOLERANCE ±0.5°F".',
+    punchline: 'Engineered for morning smoke and winter kitchen sessions.',
+    specs: [
+      { label: 'FABRIC', value: '70% Cotton / 30% Polyester Cross-Grain Fleece' },
+      { label: 'WEIGHT', value: '13.5 oz / 450 GSM Ultra-Heavy' },
+      { label: 'DETAILS', value: 'Ribbed side gussets, antique brass eyelets' },
+      { label: 'SLEEVE PRINT', value: 'Technical calibration micro-label' },
+    ],
+    inStock: true,
+  },
+  {
+    id: '03-six-fifteen-pm',
+    sku: 'SPEC-TEE-003',
+    title: '6:15 PM Tuesday Recovery Flowchart Tee',
+    subtitle: 'Emergency Weeknight Operational Protocol',
+    price: 34,
+    category: 'apparel',
+    badge: 'SURVIVAL PROTOCOL',
+    productImage: '/images/merch/skip-to-recipe-tee.jpg',
+    colorOptions: ['Ink Black', 'Vintage Bone'],
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+    description:
+      'The definitive crisis flowchart. Step 1: Kids are screaming. Step 2: Did you defrost chicken 4 days ago? Step 3: Sniff test. Step 4: Air Fryer at 400°F for 18m. Dinner saved.',
+    punchline: 'A logical decision tree for weeknight parental sanity.',
+    specs: [
+      { label: 'FABRIC', value: '100% Combed Ring-Spun Cotton' },
+      { label: 'WEIGHT', value: '6.5 oz / 220 GSM' },
+      { label: 'PRINT', value: 'High-density flowchart matrix on back' },
+    ],
+    inStock: true,
+  },
+  {
+    id: '04-internal-temp-truth',
+    sku: 'SPEC-TEE-004',
+    title: 'The Truth Table Heavyweight Tee',
+    subtitle: 'Color is a Lie. Time is an Estimate.',
+    price: 34,
+    category: 'apparel',
+    badge: 'THERMODYNAMIC FACT',
+    productImage: '/images/merch/skip-to-recipe-tee.jpg',
+    colorOptions: ['Ink Black', 'Vintage Bone', 'Slate'],
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+    description:
+      'Poke tests are superstition. Cutting into a steak to check color drains the juices. The probe thermometer is the only objective reality in the universe.',
+    punchline: 'Stop guessing. Use a thermometer.',
+    specs: [
+      { label: 'FABRIC', value: '100% Combed Ring-Spun Cotton' },
+      { label: 'WEIGHT', value: '6.5 oz / 220 GSM' },
+      { label: 'DATA', value: 'Complete USDA & Chef temperature thresholds' },
+    ],
+    inStock: true,
+  },
+  {
+    id: '05-minimum-dirty-dishes',
+    sku: 'SPEC-TEE-005',
+    title: 'Minimum Dirty Dishes Architecture Tee',
+    subtitle: 'One Pan Max // Sink Optimization',
+    price: 34,
+    category: 'apparel',
+    badge: 'CLEAN SINK INITIATIVE',
+    productImage: '/images/merch/tongs-protocol-tee.jpg',
+    colorOptions: ['Vintage Bone', 'Ink Black'],
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+    description:
+      'Cooking dinner with 6 separate pots and pans is an architectural failure. This shirt celebrates the engineering elegance of the single sheet pan and cast iron skillet.',
+    punchline: 'Less cleanup. More couch.',
+    specs: [
+      { label: 'FABRIC', value: '100% Combed Ring-Spun Cotton' },
+      { label: 'WEIGHT', value: '6.5 oz / 220 GSM' },
+      { label: 'MAX POTS', value: 'Exactly 1.0' },
+    ],
+    inStock: true,
+  },
+  {
+    id: '06-smoke-detector-timer',
+    sku: 'SPEC-TEE-006',
+    title: 'Smoke Detector Warning Tee',
+    subtitle: 'Not a Cooking Timer // High-Heat Management',
+    price: 34,
+    category: 'apparel',
+    badge: 'SAFETY PROTOCOL',
+    productImage: '/images/merch/skip-to-recipe-tee.jpg',
+    colorOptions: ['Ink Black', 'Vintage Bone'],
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+    description:
+      'Warning: The ceiling smoke detector is an emergency life safety device, not a notification that your steak crust is finished searing. Open a window next time.',
+    punchline: 'Acoustic sear notification is not recommended by the NFPA.',
+    specs: [
+      { label: 'FABRIC', value: '100% Combed Ring-Spun Cotton' },
+      { label: 'WEIGHT', value: '6.5 oz / 220 GSM' },
+    ],
+    inStock: true,
+  },
+  {
+    id: '07-dad-pro-tip',
+    sku: 'SPEC-TEE-007',
+    title: 'Do Not Touch The Steak For 8 Minutes Tee',
+    subtitle: 'Thermal Rest Period Non-Negotiable',
+    price: 34,
+    category: 'apparel',
+    badge: 'REST PROTOCOL',
+    productImage: '/images/merch/tongs-protocol-tee.jpg',
+    colorOptions: ['Vintage Bone', 'Ink Black'],
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+    description:
+      'If you slice into a hot steak the second it comes off the cast iron, all that intramuscular moisture pools onto the cutting board. Put the knife down and step away.',
+    punchline: 'Step away from the cutting board.',
+    specs: [
+      { label: 'FABRIC', value: '100% Combed Ring-Spun Cotton' },
+      { label: 'WEIGHT', value: '6.5 oz / 220 GSM' },
+    ],
+    inStock: true,
+  },
+  {
+    id: '08-air-fryer-400',
+    sku: 'SPEC-TEE-008',
+    title: '400°F / 14 MIN / FLIP AT 7 Tee',
+    subtitle: 'The Universal Culinary Constant',
+    price: 34,
+    category: 'apparel',
+    badge: 'UNIVERSAL CONSTANT',
+    productImage: '/images/merch/skip-to-recipe-tee.jpg',
+    colorOptions: ['Ink Black', 'Vintage Bone'],
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+    description:
+      'Chicken thighs, broccoli florets, frozen dumplings, salmon fillets, pork chops. 400°F for 14 minutes with a shake at halfway solves the majority of domestic evening crises.',
+    punchline: 'The speed of light is 3×10⁸ m/s. The speed of dinner is 400°F @ 14m.',
+    specs: [
+      { label: 'FABRIC', value: '100% Combed Ring-Spun Cotton' },
+      { label: 'WEIGHT', value: '6.5 oz / 220 GSM' },
+    ],
+    inStock: true,
+  },
+  {
+    id: '09-llms-txt-spec',
+    sku: 'SPEC-TEE-009',
+    title: 'HTTP 200 /llms.txt Architecture Tee',
+    subtitle: 'AI Scraper Standard // Clean Markdown Only',
+    price: 34,
+    category: 'apparel',
+    badge: 'DEV SPEC',
+    productImage: '/images/merch/tongs-protocol-tee.jpg',
+    colorOptions: ['Vintage Bone', 'Ink Black'],
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+    description:
+      'For developers and engineers who appreciate that this cooking platform exposes a pure, machine-readable /llms.txt feed for AI agents without client-side hydration or cookie walls.',
+    punchline: 'curl -s https://mealinstructions.com/llms.txt | dinner',
+    specs: [
+      { label: 'FABRIC', value: '100% Combed Ring-Spun Cotton' },
+      { label: 'WEIGHT', value: '6.5 oz / 220 GSM' },
+    ],
+    inStock: true,
+  },
+  {
+    id: '10-meat-math-ratio',
+    sku: 'SPEC-TEE-010',
+    title: 'Meat Math: Rest Time Ratio Tee',
+    subtitle: 'Rest Time = Cook Time × 0.20 (Min 8 min)',
+    price: 34,
+    category: 'apparel',
+    badge: 'PARAMETRIC FORMULA',
+    productImage: '/images/merch/skip-to-recipe-tee.jpg',
+    colorOptions: ['Ink Black', 'Vintage Bone'],
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+    description:
+      'A formal mathematical formula for protein resting. Intramuscular pressure equilibrium equation plotted in clean monospace typography.',
+    punchline: 'Math is delicious.',
+    specs: [
+      { label: 'FABRIC', value: '100% Combed Ring-Spun Cotton' },
+      { label: 'WEIGHT', value: '6.5 oz / 220 GSM' },
+    ],
+    inStock: true,
+  },
+  {
+    id: '12-kitchen-param-magnet',
+    sku: 'SPEC-MAG-012',
+    title: 'Parametric Air Fryer & Instant Pot Fridge Magnet',
+    subtitle: 'Heavy 3" × 4" Matte Metal Specimen Plate',
+    price: 16,
+    category: 'accessories',
+    badge: 'KITCHEN HARDWARE',
+    productImage: '/images/merch/internal-temp-towel.jpg',
+    colorOptions: ['Matte Black Aluminum', 'Brushed Steel'],
+    sizes: ['3" × 4" (Heavy Gauge Magnet)'],
+    description:
+      'Thick, heavy magnetic sheet engineered to stay flat on your refrigerator or range hood. Exact cook times, temperatures, and shake intervals for 24 core weeknight proteins and vegetables.',
+    punchline: 'Never unlock your phone with raw chicken hands again.',
+    specs: [
+      { label: 'MATERIAL', value: 'Heavyweight matte flexible magnet plate' },
+      { label: 'DIMENSIONS', value: '3.0" × 4.0" × 0.04"' },
+      { label: 'FINISH', value: 'Grease & splash-resistant UV matte coat' },
+    ],
+    inStock: true,
+  },
+  {
+    id: '13-master-smoke-point-print',
+    sku: 'SPEC-PRNT-013',
+    title: 'Master Smoke Point & Lipid Matrix Blueprint',
+    subtitle: 'Museum-Grade A3 / 18" × 24" Architectural Poster',
+    price: 28,
+    category: 'prints',
+    badge: 'ARCHITECTURAL PRINT',
+    productImage: '/images/merch/skip-to-recipe-tee.jpg',
+    colorOptions: ['Architectural Warm White', 'Blueprint Charcoal'],
+    sizes: ['A3 (11.7" × 16.5")', '18" × 24" Large Spec'],
+    description:
+      'Ghee, Beef Tallow, Avocado Oil, Duck Fat, Extra Virgin Olive Oil, and Butter plotted across thermal degradation curves and smoke points in high-contrast Swiss grid layout.',
+    punchline: 'High-heat searing requires thermal discipline.',
+    specs: [
+      { label: 'PAPER', value: '250 GSM Museum-Grade Archival Cotton Rag' },
+      { label: 'PRINT', value: 'Archival Giclée Pigment Inks' },
+      { label: 'SHIPPING', value: 'Rolled in heavy-wall kraft tube' },
+    ],
+    inStock: true,
+  },
+];

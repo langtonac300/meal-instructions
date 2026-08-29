@@ -35,6 +35,11 @@ export default function Footer() {
             <h4 className="micro-label mb-4 text-accent">Kitchen Engines</h4>
             <ul className="space-y-1.5 text-xs font-mono">
               <li>
+                <Link href="/shop" className="text-accent font-bold hover:underline uppercase">
+                  👕 Merch Store (15 Specs)
+                </Link>
+              </li>
+              <li>
                 <Link href="/tools" className="text-ink font-bold hover:underline uppercase">
                   🛠️ All Tools (30 Engines)
                 </Link>
