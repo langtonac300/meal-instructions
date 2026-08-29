@@ -7,6 +7,8 @@ import {
   Zap, BookOpen, Clock, Flame, Share2, Printer, Check, 
   Copy, Play, Pause, RotateCcw, ShieldCheck, ArrowLeft, ArrowUpRight
 } from 'lucide-react';
+import Lean5SMatrix from '@/components/Lean5SMatrix';
+import { LeanForkIcon, LeanFlipIcon, LeanClockIcon, LeanUtensilsIcon } from '@/components/icons/Lean5SIcons';
 import { Recipe } from '@/lib/types';
 import { RECIPES } from '@/data/recipes';
 import { formatScaledAmount, buildSmsShareText, recipeToMarkdown } from '@/lib/recipe-utils';
@@ -205,25 +207,14 @@ export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
           </div>
         )}
 
-        {/* Quick Specs Matrix */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-paper p-4 hairline-border font-mono text-xs text-ink">
-          <div className="space-y-0.5">
-            <span className="text-[10px] text-ink-subtle uppercase block">Cook Temp</span>
-            <span className="font-bold text-sm text-accent">{recipe.cookTemp}</span>
-          </div>
-          <div className="space-y-0.5">
-            <span className="text-[10px] text-ink-subtle uppercase block">Total Time</span>
-            <span className="font-bold text-sm">{recipe.totalMinutes} mins</span>
-          </div>
-          <div className="space-y-0.5">
-            <span className="text-[10px] text-ink-subtle uppercase block">Protein / Serv</span>
-            <span className="font-bold text-sm">{recipe.nutrition?.proteinGrams ?? 30}g</span>
-          </div>
-          <div className="space-y-0.5">
-            <span className="text-[10px] text-ink-subtle uppercase block">Difficulty</span>
-            <span className="font-bold text-sm text-emerald-800">{recipe.difficulty}</span>
-          </div>
-        </div>
+        {/* Lean 5S Process Metrics Matrix */}
+        <Lean5SMatrix
+          cookTemp={recipe.cookTemp}
+          totalMinutes={recipe.totalMinutes}
+          proteinGrams={recipe.nutrition?.proteinGrams ?? 30}
+          flipMinutes={recipe.quickVersion.flipAtMinutes}
+          servings={recipe.defaultServings}
+        />
 
         {/* HR-7: THE STICKY INLINE SEGMENTED MODE SELECTOR */}
         <div className="space-y-2 no-print sticky top-18 z-20 bg-paper-card py-2 hairline-b">
@@ -354,13 +345,18 @@ export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
       {/* INGREDIENTS CHECKLIST & PORTION SCALER */}
       <section className="bg-paper-card hairline-border p-6 sm:p-8 space-y-6">
         <div className="flex flex-wrap justify-between items-center gap-4 hairline-b pb-4">
-          <div>
-            <h2 className="text-lg sm:text-xl font-bold text-ink uppercase tracking-tight font-sans">
-              Ingredients
-            </h2>
-            <p className="text-xs text-ink-muted font-sans">
-              Base recipe calibrated for {recipe.defaultServings} adults.
-            </p>
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-paper hairline-border">
+              <LeanUtensilsIcon size={24} className="text-ink" />
+            </div>
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-ink uppercase tracking-tight font-sans">
+                Ingredients
+              </h2>
+              <p className="text-xs text-ink-muted font-sans">
+                Base recipe calibrated for {recipe.defaultServings} adults.
+              </p>
+            </div>
           </div>
 
           {/* Portion Multiplier Controls */}
@@ -445,9 +441,14 @@ export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
         </div>
 
         {recipe.quickVersion.flipAtMinutes && (
-          <div className="p-3 bg-paper hairline-border text-ink font-mono text-xs flex items-center gap-2">
-            <span className="font-bold uppercase text-accent">⏱️ Critical Flip Mark:</span>
-            <span>Flip at exactly <strong>{recipe.quickVersion.flipAtMinutes} minutes</strong>.</span>
+          <div className="p-3 bg-paper hairline-border text-ink font-mono text-xs flex items-center gap-2.5">
+            <div className="p-1 bg-paper-card hairline-border text-accent">
+              <LeanFlipIcon size={18} />
+            </div>
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <span className="font-bold uppercase text-accent">Critical Flip Mark:</span>
+              <span>Flip at exactly <strong>{recipe.quickVersion.flipAtMinutes} minutes</strong>.</span>
+            </div>
           </div>
         )}
       </div>

@@ -1,4 +1,4 @@
-import type { CookTimeDatasheet } from '../lib/types.ts';
+import type { CookTimeDatasheet } from '@/lib/types';
 
 export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
   // ── AIR FRYER POULTRY ──

@@ -6,6 +6,7 @@ import { APPLIANCES } from '@/data/appliances';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { absoluteUrl } from '@/lib/site';
 import PrintButton from '@/components/PrintButton';
+import { LeanIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon } from '@/components/icons/Lean5SIcons';
 
 export const metadata: Metadata = {
   title: 'Air Fryer & Dad Cooking Cheat Sheet (Printable)',
@@ -52,9 +53,14 @@ export default function CheatSheetPage() {
           return (
             <section key={app.slug} className="bg-paper-card hairline-border p-6 space-y-4">
               <div className="flex justify-between items-center hairline-b pb-3">
-                <h2 className="text-lg font-bold uppercase tracking-tight text-ink font-sans">
-                  {app.name}
-                </h2>
+                <div className="flex items-center gap-3">
+                  <div className="p-1.5 bg-paper hairline-border">
+                    <LeanIcon name={app.slug} size={28} className="text-ink" />
+                  </div>
+                  <h2 className="text-lg font-bold uppercase tracking-tight text-ink font-sans">
+                    {app.name}
+                  </h2>
+                </div>
                 <Link
                   href={`/charts/${app.slug}`}
                   className="font-mono text-xs text-ink hover:underline uppercase"
@@ -69,17 +75,24 @@ export default function CheatSheetPage() {
                     <Link
                       key={item.id}
                       href={`/how-long/${item.appliance}/${item.foodSlug}`}
-                      className="bg-paper p-3.5 hairline-border space-y-1 hover:border-ink transition-colors block group"
+                      className="bg-paper p-3.5 hairline-border space-y-2 hover:border-ink transition-colors block group"
                     >
                       <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">
                         {item.food}
                       </div>
-                      <div className="flex justify-between text-ink-muted text-xs">
-                        <span>Temp: <strong className="text-ink">{item.tempFormatted}</strong></span>
-                        <span>Time: <strong className="text-ink">{item.timeFormatted}</strong></span>
+                      <div className="grid grid-cols-2 gap-2 text-ink-muted text-xs pt-1 border-t border-hairline/60">
+                        <div className="flex items-center gap-1">
+                          <LeanHeatWavesIcon size={16} className="text-accent shrink-0" />
+                          <span><strong className="text-ink">{item.tempFormatted}</strong></span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <LeanClockIcon size={16} className="text-ink-muted shrink-0" />
+                          <span><strong className="text-ink">{item.timeFormatted}</strong></span>
+                        </div>
                       </div>
-                      <div className="text-[11px] text-accent font-bold pt-0.5">
-                        ↻ {item.flipAtMinutes > 0 ? `Flip at ${item.flipAtMinutes}m` : 'No Flip'}
+                      <div className="text-[11px] text-accent font-bold pt-1 border-t border-hairline/40 flex items-center gap-1.5">
+                        <LeanFlipIcon size={14} className="shrink-0" />
+                        <span>{item.flipAtMinutes > 0 ? `Flip at ${item.flipAtMinutes}m` : 'No Flip'}</span>
                       </div>
                     </Link>
                   ))}

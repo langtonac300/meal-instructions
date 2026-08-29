@@ -11,8 +11,8 @@
     "build": "npm run build:content && next build",
     "start": "next start",
     "lint": "next lint",
-    "mcp": "node bin/dadmeals-mcp.mjs",
-    "test:mcp": "node scripts/test-mcp.mjs",
+    "mcp": "tsx bin/dadmeals-mcp.ts",
+    "test:mcp": "tsx scripts/test-mcp.ts",
     "audit:content": "node scripts/audit-content.mjs",
     "audit:seo": "node scripts/audit-seo.mjs"
   },
@@ -33,6 +33,7 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
+    "tsx": "^4.23.12",
     "typescript": "^5.7.3"
   }
 }

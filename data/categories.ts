@@ -1,4 +1,4 @@
-import type { CategoryMeta } from '../lib/types.ts';
+import type { CategoryMeta } from '@/lib/types';
 
 export const CATEGORIES: CategoryMeta[] = [
   {

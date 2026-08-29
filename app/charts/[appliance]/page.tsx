@@ -2,10 +2,11 @@ import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, Clock, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { APPLIANCES } from '@/data/appliances';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { absoluteUrl } from '@/lib/site';
+import { LeanIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon, LeanProbeIcon } from '@/components/icons/Lean5SIcons';
 
 interface ChartPageProps {
   params: Promise<{ appliance: string }>;
@@ -67,11 +68,18 @@ export default async function ChartPage({ params }: ChartPageProps) {
       </div>
 
       {/* Hero */}
-      <section className="bg-paper-card hairline-border p-6 sm:p-10 space-y-3">
-        <div className="micro-label text-accent">VERIFIED TIME & TEMP MATRIX</div>
-        <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-ink uppercase font-sans">
-          {appMeta.name} Cooking Chart
-        </h1>
+      <section className="bg-paper-card hairline-border p-6 sm:p-10 space-y-4">
+        <div className="flex items-center gap-3">
+          <div className="p-2 bg-paper hairline-border">
+            <LeanIcon name={appMeta.slug} size={28} className="text-accent" />
+          </div>
+          <div>
+            <div className="micro-label text-accent">VERIFIED TIME & TEMP MATRIX</div>
+            <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-ink uppercase font-sans">
+              {appMeta.name} Cooking Chart
+            </h1>
+          </div>
+        </div>
         <p className="text-sm sm:text-base text-ink-muted max-w-2xl font-sans">
           Parametric reference guide for cooking meats, seafood, vegetables, and frozen foods in the {appMeta.name}.
         </p>
@@ -85,10 +93,30 @@ export default async function ChartPage({ params }: ChartPageProps) {
               <th className="py-3.5 px-4 w-16">ID</th>
               <th className="py-3.5 px-4">Food & Cut Specification</th>
               <th className="py-3.5 px-4 w-28">State</th>
-              <th className="py-3.5 px-4 w-36">Temp</th>
-              <th className="py-3.5 px-4 w-32">Time</th>
-              <th className="py-3.5 px-4 w-28">Flip Mark</th>
-              <th className="py-3.5 px-4 w-36 hidden sm:table-cell">Internal Temp</th>
+              <th className="py-3.5 px-4 w-36">
+                <div className="flex items-center gap-1.5">
+                  <LeanHeatWavesIcon size={14} className="text-accent" />
+                  <span>Temp</span>
+                </div>
+              </th>
+              <th className="py-3.5 px-4 w-32">
+                <div className="flex items-center gap-1.5">
+                  <LeanClockIcon size={14} className="text-ink-subtle" />
+                  <span>Time</span>
+                </div>
+              </th>
+              <th className="py-3.5 px-4 w-28">
+                <div className="flex items-center gap-1.5">
+                  <LeanFlipIcon size={14} className="text-ink-subtle" />
+                  <span>Flip Mark</span>
+                </div>
+              </th>
+              <th className="py-3.5 px-4 w-36 hidden sm:table-cell">
+                <div className="flex items-center gap-1.5">
+                  <LeanProbeIcon size={14} className="text-emerald-800" />
+                  <span>Internal Temp</span>
+                </div>
+              </th>
               <th className="py-3.5 px-4 w-24 text-right">Details</th>
             </tr>
           </thead>

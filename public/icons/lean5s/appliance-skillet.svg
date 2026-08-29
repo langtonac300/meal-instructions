@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Cast Iron Skillet Icon -->
+  <ellipse cx="12" cy="14" rx="9" ry="7" stroke-width="2" fill="currentColor" fill-opacity="0.08" />
+  <!-- Pan Spout / Helper Tab -->
+  <path d="M3 14h-1.5" stroke-width="2" />
+  <!-- Cast Iron Handle with hanging hole -->
+  <path d="M21 14h5a1 1 0 0 1 1 1v0a1 1 0 0 1-1 1h-5" stroke-width="1.8" />
+  <circle cx="25.5" cy="15" r="0.8" fill="currentColor" />
+</svg>

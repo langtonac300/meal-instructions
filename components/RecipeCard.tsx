@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { Recipe } from '@/lib/types';
+import { LeanHeatWavesIcon, LeanClockIcon, LeanForkIcon } from './icons/Lean5SIcons';
 
 interface RecipeCardProps {
   recipe: Recipe;
@@ -66,19 +67,22 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
           {recipe.tagline}
         </p>
 
-        {/* Fast Specs Matrix */}
+        {/* Fast Specs Matrix with 28x28 Lean 5S Visual Icons */}
         <div className="mt-4 pt-3 border-t border-hairline grid grid-cols-3 gap-2 text-center font-mono">
-          <div className="bg-paper-100 p-1.5 rounded border border-hairline/60">
+          <div className="bg-paper-100 p-2 rounded border border-hairline/60 flex flex-col items-center justify-between">
+            <LeanHeatWavesIcon size={20} className="text-ink-muted mb-1" />
             <span className="block text-[8px] uppercase tracking-wider text-ink-subtle">TEMP</span>
             <span className="text-[11px] font-bold text-ink">{recipe.cookTemp.split(' ')[0]}</span>
           </div>
 
-          <div className="bg-paper-100 p-1.5 rounded border border-hairline/60">
+          <div className="bg-paper-100 p-2 rounded border border-hairline/60 flex flex-col items-center justify-between">
+            <LeanClockIcon size={20} className="text-ink-muted mb-1" />
             <span className="block text-[8px] uppercase tracking-wider text-ink-subtle">TIME</span>
             <span className="text-[11px] font-bold text-ink">{recipe.totalMinutes} MIN</span>
           </div>
 
-          <div className="bg-paper-100 p-1.5 rounded border border-hairline/60">
+          <div className="bg-paper-100 p-2 rounded border border-hairline/60 flex flex-col items-center justify-between">
+            <LeanForkIcon size={20} className="text-accent mb-1" />
             <span className="block text-[8px] uppercase tracking-wider text-ink-subtle">PROTEIN</span>
             <span className="text-[11px] font-bold text-accent">
               {recipe.nutrition?.proteinGrams ?? 30}G

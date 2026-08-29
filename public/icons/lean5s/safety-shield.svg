@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- USDA Verified Safety Temp Shield -->
+  <path d="M14 3L4 7v7c0 6.5 4.3 11 10 12 5.7-1 10-5.5 10-12V7L14 3z" stroke-width="2" fill="currentColor" fill-opacity="0.08" />
+  <polyline points="9.5 14 12.5 17 18.5 10.5" stroke-width="2.2" />
+</svg>

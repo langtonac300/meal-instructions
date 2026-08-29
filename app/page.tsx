@@ -20,6 +20,7 @@ import RecipeTable from '@/components/RecipeTable';
 import RecipeScrubber from '@/components/RecipeScrubber';
 import CategoryGrid from '@/components/CategoryGrid';
 import AirFryerCalculator from '@/components/AirFryerCalculator';
+import { LeanAirFryerIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon } from '@/components/icons/Lean5SIcons';
 
 export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -289,13 +290,18 @@ export default function HomePage() {
         <section className="max-w-7xl mx-auto px-4 sm:px-8 py-10 w-full">
           <div className="bg-paper-100 border border-hairline rounded-lg p-6 sm:p-8">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-hairline pb-4 mb-6">
-              <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold">
-                  INSTANT REFERENCE
-                </span>
-                <h3 className="font-sans text-2xl font-bold text-ink uppercase mt-0.5">
-                  DAD AIR FRYER QUICK TEMPERATURE MATRIX
-                </h3>
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-paper hairline-border">
+                  <LeanAirFryerIcon size={28} className="text-accent" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold">
+                    INSTANT REFERENCE
+                  </span>
+                  <h3 className="font-sans text-xl sm:text-2xl font-bold text-ink uppercase mt-0.5">
+                    DAD AIR FRYER QUICK TEMPERATURE MATRIX
+                  </h3>
+                </div>
               </div>
               <Link
                 href="/cheat-sheet"
@@ -310,17 +316,24 @@ export default function HomePage() {
                 <Link
                   key={m.id}
                   href={`/how-long/${m.appliance}/${m.foodSlug}`}
-                  className="bg-paper-50 p-3 rounded border border-hairline flex flex-col justify-between hover:border-ink transition-colors block"
+                  className="bg-paper-50 p-3 rounded border border-hairline flex flex-col justify-between hover:border-ink transition-colors block group"
                 >
-                  <span className="text-[10px] font-bold text-ink-subtle uppercase truncate">
+                  <span className="text-[10px] font-bold text-ink-subtle uppercase truncate block">
                     {m.food}
                   </span>
-                  <div className="my-1.5">
-                    <span className="text-base font-black text-ink block">{m.tempFormatted.split(' ')[0]}</span>
-                    <span className="text-xs font-bold text-accent">{m.timeFormatted}</span>
+                  <div className="my-2 space-y-0.5">
+                    <div className="flex items-center justify-center gap-1 text-base font-black text-ink">
+                      <LeanHeatWavesIcon size={16} className="text-accent" />
+                      <span>{m.tempFormatted.split(' ')[0]}</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-1 text-xs font-bold text-ink-muted">
+                      <LeanClockIcon size={13} className="text-ink-subtle" />
+                      <span>{m.timeFormatted}</span>
+                    </div>
                   </div>
-                  <span className="text-[9px] text-ink-muted bg-paper-200 px-1 py-0.5 rounded">
-                    {m.flipAtMinutes > 0 ? `Flip ${m.flipAtMinutes}m` : 'No Flip'}
+                  <span className="text-[9px] text-accent font-bold bg-paper-200 px-1.5 py-0.5 rounded flex items-center justify-center gap-1">
+                    <LeanFlipIcon size={11} />
+                    <span>{m.flipAtMinutes > 0 ? `Flip ${m.flipAtMinutes}m` : 'No Flip'}</span>
                   </span>
                 </Link>
               ))}

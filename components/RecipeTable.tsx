@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { ArrowUpDown, ArrowRight } from 'lucide-react';
 import { Recipe } from '@/lib/types';
+import { LeanHeatWavesIcon, LeanClockIcon, LeanForkIcon, LeanIcon } from './icons/Lean5SIcons';
 
 interface RecipeTableProps {
   recipes: Recipe[];

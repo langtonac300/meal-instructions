@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Precision Balance Scale / Weight Grams -->
+  <line x1="14" y1="4" x2="14" y2="23" stroke-width="2.2" />
+  <line x1="8" y1="23" x2="20" y2="23" stroke-width="2.4" />
+  <line x1="5" y1="8" x2="23" y2="8" stroke-width="2" />
+  <!-- Left Pan -->
+  <path d="M5 8l-2 5h6l-2-5" />
+  <path d="M3 13a3 3 0 0 0 6 0" stroke-width="1.8" />
+  <!-- Right Pan -->
+  <path d="M23 8l-2 5h6l-2-5" />
+  <path d="M21 13a3 3 0 0 0 6 0" stroke-width="1.8" />
+</svg>

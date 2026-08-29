@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'Dad Meals Kitchen' }],
   creator: 'Dad Meals',
   publisher: 'Dad Meals',
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
   robots: {
     index: true,
     follow: true,

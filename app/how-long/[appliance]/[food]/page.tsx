@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Flame, ShieldCheck, Zap, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import LeanSpecBadge from '@/components/LeanSpecBadge';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { absoluteUrl } from '@/lib/site';
 
@@ -121,26 +122,33 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
           </p>
         </div>
 
-        {/* Big Numbers Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-paper p-6 hairline-border font-mono text-xs text-ink">
-          <div className="space-y-1">
-            <span className="text-[10px] text-ink-subtle uppercase block">Target Temp</span>
-            <span className="font-bold text-lg sm:text-xl text-accent">{sheet.tempFormatted}</span>
-          </div>
-          <div className="space-y-1">
-            <span className="text-[10px] text-ink-subtle uppercase block">Total Time</span>
-            <span className="font-bold text-lg sm:text-xl">{sheet.timeFormatted}</span>
-          </div>
-          <div className="space-y-1">
-            <span className="text-[10px] text-ink-subtle uppercase block">Flip Mark</span>
-            <span className="font-bold text-lg sm:text-xl">
-              {sheet.flipAtMinutes > 0 ? `${sheet.flipAtMinutes}m` : 'No Flip'}
-            </span>
-          </div>
-          <div className="space-y-1">
-            <span className="text-[10px] text-ink-subtle uppercase block">Internal Safe Temp</span>
-            <span className="font-bold text-lg sm:text-xl text-emerald-800">{sheet.internalTempTargetFormatted}</span>
-          </div>
+        {/* Big Numbers Grid with Lean 5S Visual Badges */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <LeanSpecBadge
+            type="temp"
+            label="Target Temp"
+            value={sheet.tempFormatted}
+            sub="Convection Heat"
+            accent
+          />
+          <LeanSpecBadge
+            type="time"
+            label="Total Time"
+            value={sheet.timeFormatted}
+            sub="Total Cook Window"
+          />
+          <LeanSpecBadge
+            type="flip"
+            label="Flip Mark"
+            value={sheet.flipAtMinutes > 0 ? `${sheet.flipAtMinutes}m` : 'No Flip'}
+            sub={sheet.flipAtMinutes > 0 ? 'Turnover Point' : 'Continuous Cook'}
+          />
+          <LeanSpecBadge
+            type="probe"
+            label="Internal Safe Temp"
+            value={sheet.internalTempTargetFormatted}
+            sub="USDA Safe Pull"
+          />
         </div>
 
         {/* Execution Directions */}

@@ -1,4 +1,4 @@
-import type { ApplianceMeta } from '../lib/types.ts';
+import type { ApplianceMeta } from '@/lib/types';
 
 export const APPLIANCES: ApplianceMeta[] = [
   {

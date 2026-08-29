@@ -1,16 +1,16 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
-import { COOK_TIME_DATASHEETS } from '../../data/cook-times.ts';
-import recipesData from '../../data/recipes.json' with { type: 'json' };
-import type { Recipe, CookTimeDatasheet } from '../types.ts';
-import { absoluteUrl } from '../site.ts';
+import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
+import recipesData from '@/data/recipes.json';
+import type { Recipe, CookTimeDatasheet } from '@/lib/types';
+import { absoluteUrl } from '@/lib/site';
 import {
   REHEAT_ITEMS,
   FROZEN_ITEMS,
   MEAT_MATH_PROFILES,
   INTERNAL_TEMP_SPECS,
   TROUBLESHOOT_ISSUES,
-} from '../../data/tools-data.ts';
+} from '@/data/tools-data';
 
 const RECIPES = recipesData as Recipe[];
 
