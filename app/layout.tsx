@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import WebMCPClient from '@/components/WebMCPClient';
 import { SITE_URL, SITE_NAME, abs } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -93,6 +94,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-paper text-ink" suppressHydrationWarning>
       <head>
+        {/* Google Chrome WebMCP Origin Trial Token */}
+        <meta
+          httpEquiv="origin-trial"
+          content="ArL4YLS8ktXkeiF8xEjzRJEQLvHmy4QZkd8aQbVsrQSLyVqY3bOT3r4c48sWteNjfHETXLE0EI4mk+B9ttHALwwAAABYeyJvcmlnaW4iOiJodHRwczovL3d3dy5tZWFsaW5zdHJ1Y3Rpb25zLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViTUNQIiwiZXhwaXJ5IjoxNzk0ODczNjAwfQ=="
+        />
         <script
           dangerouslySetInnerHTML={{ __html: modeInitScript }}
         />
@@ -102,6 +108,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col font-sans selection:bg-ink selection:text-paper text-ink bg-paper">
+        <WebMCPClient />
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
