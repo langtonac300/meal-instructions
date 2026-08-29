@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --paper: #f5f4f0;
+    --ink: #111111;
+  }
+
+  html {
+    background-color: #f5f4f0;
+    color: #111111;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #f5f4f0;
+    color: #111111;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  ::selection {
+    background-color: #c84b2c;
+    color: #ffffff;
+  }
+}
+
+/* Custom Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f4f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #dfdcce;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #111111;
+}
+
+/* Print Styles: Clean 1-page paper output for kitchen use */
+@media print {
+  header, footer, nav, button, .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+
+  article {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+}
