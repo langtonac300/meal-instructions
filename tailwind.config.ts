@@ -9,36 +9,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        ground: "#F5F4F0",
         paper: {
-          DEFAULT: "#f5f4f0",
-          50: "#faf9f6",
-          100: "#f5f4f0",
-          200: "#ece9e1",
-          300: "#ded9cd",
+          DEFAULT: "#F5F4F0",
+          50: "#FAF9F6",
+          100: "#F5F4F0",
+          200: "#ECE9E1",
+          300: "#DED9CD",
         },
         ink: {
           DEFAULT: "#111111",
-          light: "#2a2a2a",
-          muted: "#5a5854",
-          subtle: "#8e8a82",
+          light: "#2A2A2A",
+          muted: "#5A5854",
+          subtle: "#8E8A82",
         },
         hairline: {
-          DEFAULT: "#dfdcce",
+          DEFAULT: "#DFDCCE",
           dark: "#111111",
-          light: "#eae7dd",
+          light: "#EAE7DD",
         },
+        // Single accent token for live/interactive state only (timer, active mode)
         accent: {
-          DEFAULT: "#c84b2c", // burnt terracotta flame
-          dark: "#a5371c",
-          light: "#f7eeea",
-        },
-        forest: {
-          DEFAULT: "#384d3b",
-          light: "#ebf0eb",
-        },
-        mustard: {
-          DEFAULT: "#b08832",
-          light: "#f8f4ea",
+          DEFAULT: "#C84B2C",
+          dark: "#A5371C",
+          light: "#F7EEEA",
         },
       },
       fontFamily: {
@@ -58,7 +52,9 @@ const config: Config = {
           "Consolas",
           "monospace",
         ],
-        serif: ['"Editorial New"', '"Georgia"', "serif"],
+      },
+      fontSize: {
+        body: ["13px", "1.5"],
       },
       letterSpacing: {
         tightest: "-0.04em",

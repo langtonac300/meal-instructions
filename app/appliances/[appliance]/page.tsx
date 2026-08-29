@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { ArrowLeft, Clock, ArrowUpRight } from 'lucide-react';
 import { APPLIANCES } from '@/data/appliances';
 import { getRecipesByAppliance } from '@/data/recipes';
+import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
+import { absoluteUrl } from '@/lib/site';
 
 interface AppliancePageProps {
   params: Promise<{ appliance: string }>;
@@ -25,16 +27,19 @@ export async function generateMetadata({ params }: AppliancePageProps): Promise<
   }
 
   const recipes = getRecipesByAppliance(appliance);
-  const title = `${appMeta.name} Recipes & Temp Guide (${recipes.length} Meals)`;
+  const title = `${appMeta.name} Recipes & Cook Time Guide (${recipes.length} Meals)`;
   const description = `${appMeta.shortDescription} Full time, temperature, and shake guide plus ${recipes.length} battle-tested dad recipes.`;
 
   return {
     title,
     description,
+    alternates: {
+      canonical: absoluteUrl(`/appliances/${appliance}`),
+    },
     openGraph: {
       title,
       description,
-      url: `https://dadmeals.com/appliances/${appliance}`,
+      url: absoluteUrl(`/appliances/${appliance}`),
     },
   };
 }
@@ -48,6 +53,7 @@ export default async function AppliancePage({ params }: AppliancePageProps) {
   }
 
   const recipes = getRecipesByAppliance(appliance);
+  const datasheets = COOK_TIME_DATASHEETS.filter((d) => d.appliance === appliance);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
@@ -68,33 +74,49 @@ export default async function AppliancePage({ params }: AppliancePageProps) {
 
       {/* Appliance Hero */}
       <section className="bg-paper-card hairline-border p-6 sm:p-10 space-y-4">
-        <div className="micro-label text-accent">APPLIANCE WORKFLOW</div>
+        <div className="micro-label text-accent">APPLIANCE SPECIFICATION</div>
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-ink uppercase font-sans">
           {appMeta.name}
         </h1>
         <p className="text-sm sm:text-base text-ink-muted max-w-2xl font-sans leading-relaxed">
           {appMeta.shortDescription}
         </p>
+        <div className="hairline-t pt-4 font-mono text-xs text-ink-muted flex items-center gap-4">
+          <span>TEMP RANGE: <strong className="text-ink">{appMeta.tempRange}</strong></span>
+          <span>•</span>
+          <Link href={`/charts/${appMeta.slug}`} className="text-accent underline font-bold">
+            VIEW FULL {appMeta.name.toUpperCase()} CHART →
+          </Link>
+        </div>
       </section>
 
-      {/* Temperature & Timing Guide Table */}
-      {appMeta.tempGuide.length > 0 && (
+      {/* Verified Datasheets */}
+      {datasheets.length > 0 && (
         <section className="bg-paper-card hairline-border p-6 space-y-4">
-          <h2 className="text-lg font-bold uppercase tracking-tight text-ink font-sans hairline-b pb-3">
-            {appMeta.name} Time & Temperature Cheatsheet
-          </h2>
+          <div className="flex justify-between items-center hairline-b pb-3">
+            <h2 className="text-lg font-bold uppercase tracking-tight text-ink font-sans">
+              Verified {appMeta.name} Cook Time Datasheets
+            </h2>
+            <Link href={`/charts/${appMeta.slug}`} className="font-mono text-xs text-ink hover:underline uppercase">
+              View Chart Matrix →
+            </Link>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-mono text-xs">
-            {appMeta.tempGuide.map((item, idx) => (
-              <div key={idx} className="bg-paper p-4 hairline-border space-y-1.5">
-                <div className="font-bold text-ink text-sm font-sans">{item.food}</div>
+            {datasheets.slice(0, 6).map((sheet) => (
+              <Link
+                key={sheet.id}
+                href={`/how-long/${sheet.appliance}/${sheet.foodSlug}`}
+                className="bg-paper p-4 hairline-border hover:border-ink transition-colors space-y-1.5 block group"
+              >
+                <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">{sheet.food}</div>
                 <div className="flex justify-between text-ink-muted">
-                  <span>Temp: <strong className="text-ink">{item.temp}</strong></span>
-                  <span>Time: <strong className="text-ink">{item.time}</strong></span>
+                  <span>Temp: <strong className="text-ink">{sheet.tempFormatted}</strong></span>
+                  <span>Time: <strong className="text-ink">{sheet.timeFormatted}</strong></span>
                 </div>
                 <div className="text-[11px] text-accent font-bold">
-                  ↻ {item.shake}
+                  ↻ {sheet.flipAtMinutes > 0 ? `Flip at ${sheet.flipAtMinutes}m` : 'No Flip'}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </section>

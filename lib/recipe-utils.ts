@@ -1,5 +1,6 @@
 import { Recipe, Ingredient } from './types';
 import { RECIPES } from '@/data/recipes';
+import { SITE_URL, abs } from './site';
 
 export function getAllRecipes(): Recipe[] {
   return RECIPES;
@@ -31,44 +32,60 @@ export function getRelatedRecipes(recipe: Recipe, limit = 3): Recipe[] {
   ).slice(0, limit);
 }
 
-export function scaleIngredientAmount(
-  amount: number,
-  baseServings: number,
-  targetServings: number
-): string {
-  const scaled = (amount / baseServings) * targetServings;
-  if (scaled === 0) return '';
+/**
+ * Formats a scaled ingredient amount into clean fractions or decimals (HR-14)
+ */
+export function formatScaledAmount(baseAmount: number, multiplier: number): string {
+  const total = baseAmount * multiplier;
+  if (total === 0) return '';
 
-  // Clean fractions
-  if (Math.abs(scaled - 0.25) < 0.05) return '1/4';
-  if (Math.abs(scaled - 0.33) < 0.05) return '1/3';
-  if (Math.abs(scaled - 0.5) < 0.05) return '1/2';
-  if (Math.abs(scaled - 0.66) < 0.05) return '2/3';
-  if (Math.abs(scaled - 0.75) < 0.05) return '3/4';
-  if (Math.abs(scaled - 1.25) < 0.05) return '1 1/4';
-  if (Math.abs(scaled - 1.5) < 0.05) return '1 1/2';
-  if (Math.abs(scaled - 1.75) < 0.05) return '1 3/4';
-  if (Math.abs(scaled - 2.5) < 0.05) return '2 1/2';
+  if (Math.abs(total - 0.25) < 0.05) return '1/4';
+  if (Math.abs(total - 0.33) < 0.05) return '1/3';
+  if (Math.abs(total - 0.5) < 0.05) return '1/2';
+  if (Math.abs(total - 0.66) < 0.05) return '2/3';
+  if (Math.abs(total - 0.75) < 0.05) return '3/4';
+  if (Math.abs(total - 1.25) < 0.05) return '1 1/4';
+  if (Math.abs(total - 1.5) < 0.05) return '1 1/2';
+  if (Math.abs(total - 1.75) < 0.05) return '1 3/4';
+  if (Math.abs(total - 2.5) < 0.05) return '2 1/2';
 
-  if (Number.isInteger(scaled)) return scaled.toString();
-  return (Math.round(scaled * 10) / 10).toString();
+  if (Number.isInteger(total)) return total.toString();
+  return (Math.round(total * 10) / 10).toString();
 }
 
-export const formatScaledAmount = scaleIngredientAmount;
+/**
+ * Builds a clean, SMS-friendly text message for spouse / grocery run
+ */
+export function buildSmsShareText(recipe: Recipe): string {
+  const ingredientsList = recipe.ingredients
+    .map((i) => `• ${i.qty} ${i.unit} ${i.item}${i.notes ? ` (${i.notes})` : ''}`)
+    .join('\n');
 
-export function generateRecipeSchema(recipe: Recipe, baseUrl = 'https://dadmeals.com') {
-  return {
+  return `🔥 ${recipe.title.toUpperCase()}
+⏱️ ${recipe.cookTemp} | ${recipe.totalMinutes} mins total
+
+GROCERY LIST:
+${ingredientsList}
+
+QUICK STEPS:
+${recipe.quickVersion.bullets.map((b, i) => `${i + 1}. ${b}`).join('\n')}
+
+🔗 Full recipe: ${abs(`/recipes/${recipe.slug}`)}`;
+}
+
+export function generateRecipeSchema(recipe: Recipe) {
+  const schema: any = {
     '@context': 'https://schema.org',
     '@type': 'Recipe',
     name: recipe.title,
     headline: recipe.title,
     description: recipe.tagline,
-    url: `${baseUrl}/recipes/${recipe.slug}`,
-    image: [`${baseUrl}/og-image.jpg`],
+    url: abs(`/recipes/${recipe.slug}`),
+    image: [abs('/og-image.jpg')],
     author: {
       '@type': 'Organization',
       name: 'Dad Meals // Zero Fluff',
-      url: baseUrl,
+      url: SITE_URL,
     },
     datePublished: recipe.datePublished,
     prepTime: `PT${recipe.prepMinutes}M`,
@@ -78,21 +95,14 @@ export function generateRecipeSchema(recipe: Recipe, baseUrl = 'https://dadmeals
     recipeYield: `${recipe.defaultServings} servings`,
     recipeCategory: recipe.categories.join(', '),
     recipeCuisine: 'American',
-    nutrition: {
-      '@type': 'NutritionInformation',
-      calories: `${recipe.nutrition.calories} calories`,
-      proteinContent: `${recipe.nutrition.proteinGrams} g`,
-      carbohydrateContent: `${recipe.nutrition.carbsGrams} g`,
-      fatContent: `${recipe.nutrition.fatGrams} g`,
-    },
     recipeIngredient: recipe.ingredients.map(
-      (ing) => `${ing.amount} ${ing.unit} ${ing.item}${ing.notes ? ` (${ing.notes})` : ''}`
+      (ing) => `${ing.qty} ${ing.unit} ${ing.item}${ing.notes ? ` (${ing.notes})` : ''}`
     ),
     recipeInstructions: recipe.detailedSteps.map((step) => ({
       '@type': 'HowToStep',
       name: step.title,
       text: `${step.instruction}${step.proTip ? ` Tip: ${step.proTip}` : ''}`,
-      url: `${baseUrl}/recipes/${recipe.slug}#step-${step.stepNumber}`,
+      url: abs(`/recipes/${recipe.slug}#step-${step.stepNumber}`),
     })),
     aggregateRating: {
       '@type': 'AggregateRating',
@@ -102,11 +112,23 @@ export function generateRecipeSchema(recipe: Recipe, baseUrl = 'https://dadmeals
       worstRating: '1',
     },
   };
+
+  if (recipe.nutrition) {
+    schema.nutrition = {
+      '@type': 'NutritionInformation',
+      calories: `${recipe.nutrition.calories} calories`,
+      proteinContent: `${recipe.nutrition.proteinGrams} g`,
+      carbohydrateContent: `${recipe.nutrition.carbsGrams} g`,
+      fatContent: `${recipe.nutrition.fatGrams} g`,
+    };
+  }
+
+  return schema;
 }
 
-export function formatRecipeToMarkdown(recipe: Recipe): string {
+export function recipeToMarkdown(recipe: Recipe): string {
   const ingredientsList = recipe.ingredients
-    .map((ing) => `- ${ing.amount} ${ing.unit} ${ing.item}${ing.notes ? ` (${ing.notes})` : ''}`)
+    .map((ing) => `- ${ing.qty} ${ing.unit} ${ing.item}${ing.notes ? ` (${ing.notes})` : ''}`)
     .join('\n');
 
   const detailedStepsList = recipe.detailedSteps
@@ -129,8 +151,9 @@ prep_time: ${recipe.prepMinutes} mins
 cook_time: ${recipe.cookMinutes} mins
 total_time: ${recipe.totalMinutes} mins
 servings: ${recipe.defaultServings}
-protein: ${recipe.nutrition.proteinGrams}g
-calories: ${recipe.nutrition.calories}
+protein: ${recipe.nutrition?.proteinGrams ?? 30}g
+calories: ${recipe.nutrition?.calories ?? 400}
+basis: ${recipe.basis}
 ---
 
 # ${recipe.title}
@@ -159,5 +182,3 @@ ${recipe.kidAdjustment ? `## 👶 Kid & Picky Eater Adjustment\n${recipe.kidAdju
 ${recipe.reheatInstructions}
 `;
 }
-
-export const recipeToMarkdown = formatRecipeToMarkdown;

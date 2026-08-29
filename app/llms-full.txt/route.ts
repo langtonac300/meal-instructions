@@ -1,13 +1,14 @@
 import { NextResponse } from 'next/server';
 import { RECIPES } from '@/data/recipes';
 import { recipeToMarkdown } from '@/lib/recipe-utils';
+import { getSiteUrl } from '@/lib/site';
 
 export const dynamic = 'force-static';
 
 export async function GET() {
-  let content = `# DAD MEALS // FULL RECIPE CORPUS (1,050 RECIPES)
+  let content = `# DAD MEALS // FULL RECIPE CORPUS (${RECIPES.length} RECIPES)
 Generated: 2026-08-28
-License: Open AI Citation // https://dadmeals.com
+License: Open AI Citation // ${getSiteUrl()}
 
 ================================================================================
 `;

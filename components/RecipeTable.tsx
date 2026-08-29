@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ArrowUpDown, ArrowRight, Zap, Clock, Flame } from 'lucide-react';
+import { ArrowUpDown, ArrowRight } from 'lucide-react';
 import { Recipe } from '@/lib/types';
 
 interface RecipeTableProps {
@@ -18,7 +18,6 @@ export default function RecipeTable({ recipes }: RecipeTableProps) {
       setSortAsc(!sortAsc);
     } else {
       setSortField(field);
-      setSortAsc(true);
     }
   };
 
@@ -27,7 +26,11 @@ export default function RecipeTable({ recipes }: RecipeTableProps) {
     if (sortField === 'id') comp = a.id.localeCompare(b.id);
     if (sortField === 'title') comp = a.title.localeCompare(b.title);
     if (sortField === 'time') comp = a.totalMinutes - b.totalMinutes;
-    if (sortField === 'protein') comp = a.nutrition.proteinGrams - b.nutrition.proteinGrams;
+    if (sortField === 'protein') {
+      const pA = a.nutrition?.proteinGrams ?? 0;
+      const pB = b.nutrition?.proteinGrams ?? 0;
+      comp = pA - pB;
+    }
     if (sortField === 'temp') comp = a.cookTempF - b.cookTempF;
     return sortAsc ? comp : -comp;
   });
@@ -130,7 +133,7 @@ export default function RecipeTable({ recipes }: RecipeTableProps) {
 
               {/* Protein */}
               <td className="py-3 px-4 text-right font-bold text-accent">
-                {recipe.nutrition.proteinGrams}g
+                {recipe.nutrition?.proteinGrams ?? 30}g
               </td>
 
               {/* Action Link */}

@@ -2,25 +2,25 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { SITE_URL, SITE_NAME, abs } from '@/lib/site';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dadmeals.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Dad Meals // Zero Fluff Cooking & Air Fryer Engine',
-    template: '%s | Dad Meals // Zero Fluff',
+    default: `${SITE_NAME} // No-Fluff Reference & Air Fryer Engine`,
+    template: `%s | ${SITE_NAME}`,
   },
   description:
-    '1,050+ battle-tested simple air fryer and dad meals with zero life stories or blog fluff. Instant directions, exact temps, and 20-word execution.',
+    'No-fluff cooking reference for dads. Parametric time & temperature datasheets and quality-gated weeknight meals with instant 20-word execution.',
   keywords: [
-    'dad recipes',
-    'air fryer recipes',
+    'air fryer cook times',
+    'how long to cook chicken in air fryer',
+    'dad meals',
     'quick weeknight dinners',
     'no fluff recipe website',
     '15 minute meals',
-    'high protein dad cooking',
-    'kid friendly dinners',
-    'crispy chicken tenders',
     'cast iron smash burgers',
+    'cooking cheat sheet',
   ],
   authors: [{ name: 'Dad Meals Kitchen' }],
   creator: 'Dad Meals',
@@ -37,18 +37,18 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Dad Meals // Zero Fluff Cooking & Air Fryer Engine',
+    title: `${SITE_NAME} // Zero-Fluff Cooking Reference`,
     description:
-      '1,050+ battle-tested simple air fryer and dad meals with zero life stories or blog fluff. Instant directions, exact temps, and 20-word execution.',
-    url: 'https://dadmeals.com',
-    siteName: 'Dad Meals',
+      'Parametric cook-time database and quality-gated dad meals. Exact temperatures and zero blog stories.',
+    url: SITE_URL,
+    siteName: SITE_NAME,
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dad Meals // Zero Fluff Cooking Engine',
-    description: '1,050+ battle-tested simple dad meals. No fluff. Just execution.',
+    title: `${SITE_NAME} // Zero-Fluff Cooking Reference`,
+    description: 'Parametric cook-time database. No fluff. Just execution.',
   },
 };
 
@@ -61,24 +61,43 @@ export default function RootLayout({
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Dad Meals // Zero Fluff',
-    url: 'https://dadmeals.com',
+    name: SITE_NAME,
+    url: SITE_URL,
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://dadmeals.com/?q={search_term_string}',
+      target: `${SITE_URL}/?q={search_term_string}`,
       'query-input': 'required name=search_term_string',
     },
   };
 
+  // HR-8: Small blocking script in <head> to read localStorage and stamp data-mode on <html> before first paint
+  const modeInitScript = `
+    (function() {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var qMode = params.get('mode');
+        var stored = localStorage.getItem('dad_mode') || localStorage.getItem('dad_meals_recipe_mode');
+        var mode = qMode || stored || 'quick';
+        if (mode === 'fast') mode = 'quick';
+        document.documentElement.setAttribute('data-mode', mode);
+      } catch (e) {
+        document.documentElement.setAttribute('data-mode', 'quick');
+      }
+    })();
+  `;
+
   return (
-    <html lang="en" className="bg-paper text-ink">
+    <html lang="en" className="bg-paper text-ink" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: modeInitScript }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col font-sans selection:bg-ink selection:text-paper">
+      <body className="min-h-screen flex flex-col font-sans selection:bg-ink selection:text-paper text-ink bg-paper">
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />

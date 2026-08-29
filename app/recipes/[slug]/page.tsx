@@ -1,22 +1,21 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { RECIPES } from '@/data/recipes';
-import { getRecipeBySlug, getRelatedRecipes, generateRecipeSchema } from '@/lib/recipe-utils';
-import RecipeClient from './RecipeClient';
+import { RECIPES, getRecipeBySlug } from '@/data/recipes';
+import { generateRecipeSchema } from '@/lib/recipe-utils';
+import { absoluteUrl } from '@/lib/site';
+import RecipeClientView from './RecipeClientView';
 
 interface RecipePageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Generate static params for all recipes
 export async function generateStaticParams() {
   return RECIPES.map((recipe) => ({
     slug: recipe.slug,
   }));
 }
 
-// Generate dynamic SEO Metadata with OpenGraph and Twitter cards
 export async function generateMetadata({ params }: RecipePageProps): Promise<Metadata> {
   const { slug } = await params;
   const recipe = getRecipeBySlug(slug);
@@ -27,13 +26,16 @@ export async function generateMetadata({ params }: RecipePageProps): Promise<Met
     };
   }
 
-  const title = `${recipe.title} (${recipe.cookTemp.split(' ')[0]}, ${recipe.totalMinutes} Mins) | No Fluff Recipe`;
+  const title = `${recipe.title} (${recipe.cookTemp}, ${recipe.totalMinutes} Mins)`;
   const description = `${recipe.tagline} No fluff, exact directions for ${recipe.appliance}. Ready in ${recipe.totalMinutes} minutes.`;
 
   return {
     title,
     description,
     keywords: recipe.keywords,
+    alternates: {
+      canonical: absoluteUrl(`/recipes/${recipe.slug}`),
+    },
     openGraph: {
       title,
       description,
@@ -41,15 +43,12 @@ export async function generateMetadata({ params }: RecipePageProps): Promise<Met
       publishedTime: recipe.datePublished,
       modifiedTime: recipe.lastUpdated,
       tags: recipe.keywords,
-      url: `https://dadmeals.com/recipes/${recipe.slug}`,
+      url: absoluteUrl(`/recipes/${recipe.slug}`),
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-    },
-    alternates: {
-      canonical: `https://dadmeals.com/recipes/${recipe.slug}`,
     },
   };
 }
@@ -62,8 +61,6 @@ export default async function RecipePage({ params }: RecipePageProps) {
     notFound();
   }
 
-  const relatedRecipes = getRelatedRecipes(recipe, 3);
-  // Schema.org JSON-LD structured data for Google Recipe snippet cards
   const schemaJsonLd = generateRecipeSchema(recipe);
 
   return (
@@ -72,7 +69,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}
       />
-      <RecipeClient recipe={recipe} relatedRecipes={relatedRecipes} />
+      <RecipeClientView recipe={recipe} />
     </>
   );
 }

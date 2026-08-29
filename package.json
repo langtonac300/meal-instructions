@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npm run build:content && next dev",
+    "build:content": "node scripts/build-recipes.mjs",
+    "build": "npm run build:content && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "audit:content": "node scripts/audit-content.mjs",
+    "audit:seo": "node scripts/audit-seo.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

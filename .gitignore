@@ -1,30 +1,31 @@
+
 # deps
-node_modules/
-.pnp
-.pnp.js
-
-# next
-.next/
-out/
-build/
-dist/
-
+# editors / agents
 # env
+# misc
+# next
+# ts
+*.pem
+*.tsbuildinfo
+.DS_Store
+.claude/worktrees/
 .env
 .env*.local
-
-# misc
-.DS_Store
-*.pem
+.idea/
+.next/
+.pnp
+.pnp.js
+.vercel
+.vscode/
+_quarantine/
+build/
+dist/
+next-env.d.ts
+node_modules/
 npm-debug.log*
+out/
 yarn-error.log*
 
-# editors / agents
-.claude/worktrees/
-.vercel
-.idea/
-.vscode/
-
-# ts
-*.tsbuildinfo
-next-env.d.ts
+# editor junk
+*.swp
+*.swo

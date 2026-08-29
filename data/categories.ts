@@ -2,91 +2,91 @@ import { CategoryMeta } from '@/lib/types';
 
 export const CATEGORIES: CategoryMeta[] = [
   {
-    slug: 'air-fryer',
-    name: 'Air Fryer Staples',
-    shortDescription: 'Zero oil mess. Maximum crunch in under 15 minutes.',
-    fullDescription: 'Every battle-tested air fryer recipe engineered for maximum crispiness, zero grease splatter, and under-15-minute table times. No preheating 500-degree ovens.',
-    iconName: 'Zap',
-    heroTag: 'FAST // CRISPY // NO MESS',
-  },
-  {
     slug: '15-minute',
     name: '15-Minute Meals',
-    shortDescription: 'From fridge to table before the kids start melting down.',
-    fullDescription: 'High-speed weeknight survival recipes. Minimum prep, fast cooking, and maximum flavor for when homework is late and everyone is starving.',
-    iconName: 'Clock',
-    heroTag: 'RUSH HOUR // RAPID DEPLOYMENT',
+    shortDescription: 'From cold fridge to hot dinner table in 15 minutes flat. High-speed dinners before meltdown.',
+    fullDescription: 'Every meal here is engineered for maximum speed. No marinating, no multi-pot choreography, no extended prep. Just high heat, simple seasoning, and dinner on the table.',
+    heroTag: 'SUB-15 MINUTE EXECUTION'
   },
   {
     slug: 'high-protein',
     name: 'High Protein / Lean',
-    shortDescription: 'Steak, chicken, salmon, and ground beef macros that fill the family.',
-    fullDescription: 'Protein-forward dinners built for active dads and growing kids. 30g+ protein per serving without complex culinary gymnastics.',
-    iconName: 'Flame',
-    heroTag: '30G+ PROTEIN // ZERO EMPTY FILLER',
+    shortDescription: 'Steak, chicken, salmon, and ground beef macros that fill the family with 30g+ protein per serving.',
+    fullDescription: 'High-protein dinners built around whole muscle meats, poultry, and fish. Low filler, zero starch sludge, high satiety.',
+    heroTag: '30G+ PROTEIN PER SERVING'
   },
   {
     slug: 'kid-approved',
     name: 'Kid & Toddler Approved',
-    shortDescription: 'Unanimous dinner table approvals. Zero vegetable negotiations.',
-    fullDescription: 'Tried and true family favorites tested on the pickiest eaters. No green garnishes they will pick off, just pure flavor.',
-    iconName: 'CheckCircle2',
-    heroTag: 'PICKY EATER TESTED // 100% CLEAN PLATES',
+    shortDescription: 'Unanimous dinner table approvals. Zero vegetable negotiations and easy modifications.',
+    fullDescription: 'Meals tested on real kids. Includes plain-flavor adjustments, sauce separation tips, and picky-eater modifications that keep everyone eating from one meal.',
+    heroTag: 'UNANIMOUS TABLE APPROVAL'
   },
   {
     slug: 'budget',
     name: 'Budget & Pantry Staples',
-    shortDescription: 'Under $12 total meal costs using everyday ingredients.',
-    fullDescription: 'Delicious family dinners built on ground beef, eggs, frozen veggies, potatoes, and pantry staples. Maximum economy, zero compromise on taste.',
-    iconName: 'DollarSign',
-    heroTag: 'UNDER $12 TOTAL // VALUE OPTIMIZED',
+    shortDescription: 'Under $12 total family meal costs using everyday grocery staples with zero specialty imports.',
+    fullDescription: 'Cost-effective dinners utilizing ground beef, chicken thighs, canned tomatoes, potatoes, and pantry spices to deliver restaurant-level satisfaction under $3/serving.',
+    heroTag: 'UNDER $12 FAMILY MEAL'
   },
   {
-    slug: 'breakfast',
-    name: 'Dad Weekend Breakfast',
-    shortDescription: 'Pancakes, crispy bacon, hashbrowns, and loaded breakfast sandwiches.',
-    fullDescription: 'Heavy-hitter breakfast feasts that get everyone out of bed on Saturday morning. Big portions, crispy edges, and flawless diner eggs.',
-    iconName: 'Sun',
-    heroTag: 'SATURDAY MORNING // DINER STYLE',
+    slug: 'no-thaw',
+    name: 'No-Thaw / From Frozen',
+    shortDescription: 'Forgot to thaw the meat? Cook chicken tenders, salmon, and burgers straight from frozen with zero prep.',
+    fullDescription: 'Specific air fryer and convection time curves calibrated to thaw the center and crisp the exterior simultaneously without drying out.',
+    heroTag: 'ZERO DEFROST REQUIRED'
+  },
+  {
+    slug: 'one-pan',
+    name: 'One-Pan & Sheet Pan',
+    shortDescription: 'Cook the protein and side simultaneously on a single pan or skillet. Zero sink full of pots.',
+    fullDescription: 'Single-vessel cooking workflows using rimmed sheet pans, large skillets, or Dutch ovens so cleanup takes under 2 minutes.',
+    heroTag: 'SINGLE VESSEL CLEANUP'
+  },
+  {
+    slug: 'five-ingredient',
+    name: 'Five-Ingredient Staples',
+    shortDescription: 'Short grocery lists using 5 core ingredients or less plus pantry salt, pepper, and cooking oil.',
+    fullDescription: 'Minimalist recipes where high cooking technique and proper temperature control replace long ingredient lists.',
+    heroTag: '5 INGREDIENTS OR FEWER'
+  },
+  {
+    slug: 'sides',
+    name: 'Rapid Sides & Veggies',
+    shortDescription: 'Crispy broccoli, asparagus, fries, baked potatoes, and garlic toast ready in under 10 minutes.',
+    fullDescription: 'Vegetable and starch side dishes that cook in parallel with your main or take under 10 minutes in the air fryer.',
+    heroTag: 'UNDER 10-MIN SIDES'
+  },
+  {
+    slug: 'snacks',
+    name: 'Late Night Snacks',
+    shortDescription: 'Quick bites, mozzarella sticks, taquitos, and quesadillas for late-night cravings.',
+    fullDescription: 'Quick single-serving or late-night family snacks that deliver maximum crunch with zero oil splatter.',
+    heroTag: 'INSTANT LATE NIGHT BITES'
   },
   {
     slug: 'game-day',
     name: 'Game Day & Finger Foods',
-    shortDescription: 'Wings, sliders, loaded nachos, and finger foods for the tailgate.',
-    fullDescription: 'Crowd-pleaser platters engineered for kickoff. High crunch, bold sauces, and easy grab-and-go finger foods.',
-    iconName: 'Trophy',
-    heroTag: 'KICKOFF SNACKS // CROWD FEEDER',
+    shortDescription: 'Wings, smash burgers, nachos, and sliders built for crowd feeding and game day watch parties.',
+    fullDescription: 'High-volume finger foods and party appetizers engineered to stay crispy on the platter.',
+    heroTag: 'CROWD-FEEDING APPETIZERS'
   },
   {
-    slug: 'meal-prep',
-    name: 'Sunday Meal Prep',
-    shortDescription: 'Cook once on Sunday, eat healthy lunches and dinners all week.',
-    fullDescription: 'High-yield batch recipes designed to reheat cleanly without drying out or getting soggy. Containers packed in under 45 minutes.',
-    iconName: 'Layers',
-    heroTag: 'BATCH COOK // WORKWEEK FUEL',
+    slug: 'breakfast',
+    name: 'Dad Weekend Breakfast',
+    shortDescription: 'Buttermilk pancakes, diner hash, crispy air-fryer bacon, and breakfast tacos.',
+    fullDescription: 'Weekend breakfast and brunch classics perfected on cast iron griddles and air fryer trays.',
+    heroTag: 'WEEKEND GRIDDLE CLASSICS'
   },
   {
-    slug: 'sides',
-    name: 'Speed Sides & Veggies',
-    shortDescription: 'Veggies and starches that actually get eaten.',
-    fullDescription: 'Fast, seasoned sides that cook in under 10 minutes while your main protein rests. Broccoli, smashed potatoes, garlic corn, and more.',
-    iconName: 'Sparkles',
-    heroTag: 'FAST SIDES // ZERO WASTE',
-  },
-  {
-    slug: 'snacks',
-    name: 'Late-Night Snacks',
-    shortDescription: 'Single-serving midnight snacks after the house goes quiet.',
-    fullDescription: 'Quick 5-minute fixes when you need real food late at night without waking the kids or dirtying a mountain of dishes.',
-    iconName: 'Moon',
-    heroTag: 'LATE NIGHT // QUIET PREP',
-  },
-  {
-    slug: 'weekend-dad',
-    name: 'Weekend Projects & Smoker',
-    shortDescription: 'Low and slow ribs, reverse-seared steaks, and cast-iron mastery.',
-    fullDescription: 'When you actually have 2 hours on Sunday to dial in wood smoke, crust, and temperature perfection with a cold drink in hand.',
-    iconName: 'ChefHat',
-    heroTag: 'SUNDAY SLOW // WOOD & CHARCOAL',
-  },
+    slug: 'weekend',
+    name: 'Weekend Project Cooks',
+    shortDescription: 'Smoked ribs, reverse-sear thick steaks, and slow-braised chuck roasts for relaxed weekend cooking.',
+    fullDescription: 'Rewarding multi-hour cooks for when you have time to tend the smoker, fire up the grill, or slow-braise a roast.',
+    heroTag: 'RELAXED WEEKEND MASTERY'
+  }
 ];
+
+export function getCategoryMeta(slug: string): CategoryMeta | undefined {
+  return CATEGORIES.find((c) => c.slug === slug);
+}

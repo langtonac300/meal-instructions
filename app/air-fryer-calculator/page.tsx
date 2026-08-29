@@ -4,6 +4,7 @@ import { ChevronLeft, Zap, ArrowRight } from 'lucide-react';
 import AirFryerCalculator from '@/components/AirFryerCalculator';
 import { RECIPES } from '@/data/recipes';
 import RecipeCard from '@/components/RecipeCard';
+import { absoluteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Air Fryer Conversion Calculator // Oven to Air Fryer Times & Temps',
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     'air fryer cook times calculator',
   ],
   alternates: {
-    canonical: 'https://dadmeals.com/air-fryer-calculator',
+    canonical: absoluteUrl('/air-fryer-calculator'),
   },
 };
 
@@ -42,8 +43,8 @@ export default function CalculatorPage() {
       <AirFryerCalculator />
 
       {/* The Engineering Explanation */}
-      <section className="mt-12 bg-paper-100 border border-hairline rounded-lg p-6 sm:p-8 font-mono text-xs">
-        <h3 className="font-serif text-xl font-bold uppercase text-ink mb-3 font-sans">
+      <section className="mt-12 bg-paper-card border border-hairline p-6 sm:p-8 font-mono text-xs">
+        <h3 className="text-xl font-bold uppercase text-ink mb-3 font-sans">
           HOW CONVECTION HEAT CONVERSION WORKS
         </h3>
         <p className="font-sans text-sm text-ink-muted leading-relaxed mb-4">
@@ -53,7 +54,7 @@ export default function CalculatorPage() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 font-sans text-xs">
-          <div className="bg-paper-50 p-4 rounded border border-hairline">
+          <div className="bg-paper p-4 border border-hairline">
             <strong className="text-ink font-mono uppercase block mb-1">
               RULE 1: REDUCE TEMP BY 25°F (-15°C)
             </strong>
@@ -63,7 +64,7 @@ export default function CalculatorPage() {
             </span>
           </div>
 
-          <div className="bg-paper-50 p-4 rounded border border-hairline">
+          <div className="bg-paper p-4 border border-hairline">
             <strong className="text-ink font-mono uppercase block mb-1">
               RULE 2: REDUCE TIME BY 20% TO 25%
             </strong>
@@ -78,14 +79,14 @@ export default function CalculatorPage() {
       {/* Top Air Fryer Recipes */}
       <section className="mt-12">
         <div className="flex items-center justify-between border-b border-hairline pb-3 mb-6">
-          <h3 className="font-serif text-2xl font-bold uppercase text-ink">
+          <h3 className="text-2xl font-bold uppercase text-ink font-sans">
             FEATURED AIR FRYER RECIPES
           </h3>
           <Link
-            href="/categories/air-fryer"
+            href="/categories/15-minute"
             className="font-mono text-xs text-accent font-bold uppercase hover:underline"
           >
-            VIEW ALL AIR FRYER MEALS →
+            VIEW 15-MINUTE MEALS →
           </Link>
         </div>
 

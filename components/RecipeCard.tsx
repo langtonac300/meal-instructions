@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Clock, Zap, Flame, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { Recipe } from '@/lib/types';
 
 interface RecipeCardProps {
@@ -15,7 +15,7 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
       case 'air-fryer':
         return 'bg-accent/10 text-accent border-accent/20';
       case 'sheet-pan':
-        return 'bg-amber-100/60 text-amber-800 border-amber-300';
+        return 'bg-paper-200 text-ink border-hairline';
       case 'cast-iron':
         return 'bg-zinc-200 text-zinc-800 border-zinc-300';
       default:
@@ -67,7 +67,7 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
           <div className="bg-paper-100 p-1.5 rounded border border-hairline/60">
             <span className="block text-[8px] uppercase tracking-wider text-ink-subtle">PROTEIN</span>
             <span className="text-[11px] font-bold text-accent">
-              {recipe.nutrition.proteinGrams}G
+              {recipe.nutrition?.proteinGrams ?? 30}G
             </span>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
       {/* Card Footer & Action */}
       <div className="mt-4 pt-3 border-t border-hairline/60 flex items-center justify-between text-[11px] font-mono">
         <div className="flex items-center gap-1.5 text-ink-muted text-[10px]">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-forest" />
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-700" />
           <span>{recipe.difficulty}</span>
         </div>
 

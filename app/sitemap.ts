@@ -2,9 +2,11 @@ import { MetadataRoute } from 'next';
 import { RECIPES } from '@/data/recipes';
 import { CATEGORIES } from '@/data/categories';
 import { APPLIANCES } from '@/data/appliances';
+import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
+import { getSiteUrl, absoluteUrl } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://dadmeals.com';
+  const baseUrl = getSiteUrl();
 
   // Core static pages
   const staticPages: MetadataRoute.Sitemap = [
@@ -15,54 +17,77 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/cheat-sheet`,
+      url: absoluteUrl('/cheat-sheet'),
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/about`,
+      url: absoluteUrl('/about'),
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/llms.txt`,
+      url: absoluteUrl('/llms.txt'),
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/llms-full.txt`,
+      url: absoluteUrl('/llms-full.txt'),
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
   ];
 
-  // Category pages
+  // Category hubs
   const categoryPages: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
-    url: `${baseUrl}/categories/${cat.slug}`,
+    url: absoluteUrl(`/categories/${cat.slug}`),
     lastModified: new Date(),
     changeFrequency: 'daily',
     priority: 0.85,
   }));
 
-  // Appliance pages
+  // Appliance hubs
   const appliancePages: MetadataRoute.Sitemap = APPLIANCES.map((app) => ({
-    url: `${baseUrl}/appliances/${app.slug}`,
+    url: absoluteUrl(`/appliances/${app.slug}`),
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.8,
   }));
 
-  // All 1,050 Recipe detail pages
-  const recipePages: MetadataRoute.Sitemap = RECIPES.map((recipe) => ({
-    url: `${baseUrl}/recipes/${recipe.slug}`,
-    lastModified: new Date(recipe.lastUpdated),
+  // Parametric Charts
+  const chartPages: MetadataRoute.Sitemap = APPLIANCES.map((app) => ({
+    url: absoluteUrl(`/charts/${app.slug}`),
+    lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.9,
   }));
 
-  return [...staticPages, ...categoryPages, ...appliancePages, ...recipePages];
+  // Parametric Cook-Time Datasheets (The SEO / LLM volume driver)
+  const datasheetPages: MetadataRoute.Sitemap = COOK_TIME_DATASHEETS.map((sheet) => ({
+    url: absoluteUrl(`/how-long/${sheet.appliance}/${sheet.foodSlug}`),
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.95,
+  }));
+
+  // Quality-gated Recipe detail pages
+  const recipePages: MetadataRoute.Sitemap = RECIPES.map((recipe) => ({
+    url: absoluteUrl(`/recipes/${recipe.slug}`),
+    lastModified: new Date(recipe.lastUpdated),
+    changeFrequency: 'weekly',
+    priority: 0.85,
+  }));
+
+  return [
+    ...staticPages,
+    ...categoryPages,
+    ...appliancePages,
+    ...chartPages,
+    ...datasheetPages,
+    ...recipePages,
+  ];
 }

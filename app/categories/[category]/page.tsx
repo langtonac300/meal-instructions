@@ -2,10 +2,10 @@ import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, Clock, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { CATEGORIES } from '@/data/categories';
-import { getRecipesByCategory, RECIPES } from '@/data/recipes';
-import { Category } from '@/lib/types';
+import { getRecipesByCategory } from '@/data/recipes';
+import { absoluteUrl } from '@/lib/site';
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
@@ -26,16 +26,19 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   }
 
   const count = getRecipesByCategory(category).length;
-  const title = `${catMeta.name} (${count} Fast & No-Fluff Recipes)`;
+  const title = `${catMeta.name} (${count} No-Fluff Dad Recipes)`;
   const description = `${catMeta.fullDescription} 100% fluff-free execution. Exact temperatures and times.`;
 
   return {
     title,
     description,
+    alternates: {
+      canonical: absoluteUrl(`/categories/${category}`),
+    },
     openGraph: {
       title,
       description,
-      url: `https://dadmeals.com/categories/${category}`,
+      url: absoluteUrl(`/categories/${category}`),
     },
   };
 }
@@ -61,7 +64,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       '@type': 'ListItem',
       position: idx + 1,
       name: recipe.title,
-      url: `https://dadmeals.com/recipes/${recipe.slug}`,
+      url: absoluteUrl(`/recipes/${recipe.slug}`),
     })),
   };
 

@@ -1,115 +1,99 @@
+import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ChevronLeft, Zap, Flame } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { APPLIANCES } from '@/data/appliances';
+import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
+import { absoluteUrl } from '@/lib/site';
 import PrintButton from '@/components/PrintButton';
 
 export const metadata: Metadata = {
-  title: 'Air Fryer Temperature & Time Cheat Sheet // 1-Page Printable Guide',
-  description:
-    'Complete 1-page reference chart for air fryer cooking times and temperatures. Poultry, beef, pork, seafood, frozen snacks, and vegetables. Zero fluff.',
-  keywords: [
-    'air fryer cheat sheet',
-    'air fryer cooking times chart',
-    'printable air fryer temperature chart',
-    'air fryer quick reference',
-    'how long to cook in air fryer',
-  ],
+  title: 'Air Fryer & Dad Cooking Cheat Sheet (Printable)',
+  description: 'The ultimate zero-fluff cooking temperature, timing, and basket-shake cheat sheet for air fryers, sheet pans, skillets, and grills.',
   alternates: {
-    canonical: 'https://dadmeals.com/cheat-sheet',
+    canonical: absoluteUrl('/cheat-sheet'),
   },
 };
 
 export default function CheatSheetPage() {
-  const airFryerGuide = APPLIANCES.find((a) => a.slug === 'air-fryer')?.tempGuide || [];
-
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-8 py-10">
-      {/* Breadcrumb & Print Action */}
-      <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-ink-muted border-b border-hairline pb-3 mb-8 no-print">
+    <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      
+      {/* Breadcrumb & Actions */}
+      <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link
           href="/"
-          className="flex items-center gap-1 hover:text-accent transition-colors group"
+          className="inline-flex items-center gap-1 hover:text-ink transition-colors uppercase"
         >
-          <ChevronLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
-          <span>BACK TO ALL MEALS</span>
+          <ArrowLeft className="w-3.5 h-3.5" />
+          <span>Back to Home</span>
         </Link>
-
-        <PrintButton />
+        <PrintButton
+          label="PRINT CHEATSHEET"
+          className="flex items-center gap-1.5 px-3 py-1.5 bg-paper-card hairline-border hover:border-ink uppercase text-ink cursor-pointer font-mono text-xs"
+        />
       </div>
 
-      {/* Header */}
-      <div className="border-b border-hairline pb-6 mb-8">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="font-mono text-xs font-bold text-accent uppercase tracking-widest">
-            MASTER REFERENCE SHEET // REFRIGERATOR MAGNET EDITION
-          </span>
-        </div>
-
-        <h1 className="font-serif text-3xl sm:text-5xl font-black text-ink uppercase tracking-tight">
-          AIR FRYER TIME & TEMP CHEAT SHEET
+      {/* Hero Header */}
+      <section className="bg-paper-card hairline-border p-6 sm:p-10 space-y-3">
+        <div className="micro-label text-accent">PRINTABLE REFERENCE MATRIX</div>
+        <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-ink uppercase font-sans">
+          The Zero-Fluff Cooking Cheatsheet
         </h1>
-
-        <p className="text-sm sm:text-base text-ink-muted font-sans mt-2 max-w-2xl">
-          Keep this page open on your phone or print and tape it to the inside of your kitchen cabinet.
-          Never Google &ldquo;how long do chicken tenders go in the air fryer&rdquo; again.
+        <p className="text-sm sm:text-base text-ink-muted max-w-2xl font-sans">
+          Hang this on the fridge. Exact times, temps, and flip marks so you never have to Google &ldquo;how long do chicken tenders take in the air fryer&rdquo; again.
         </p>
+      </section>
+
+      {/* Appliance Sections */}
+      <div className="space-y-8">
+        {APPLIANCES.map((app) => {
+          const datasheets = COOK_TIME_DATASHEETS.filter((d) => d.appliance === app.slug);
+          return (
+            <section key={app.slug} className="bg-paper-card hairline-border p-6 space-y-4">
+              <div className="flex justify-between items-center hairline-b pb-3">
+                <h2 className="text-lg font-bold uppercase tracking-tight text-ink font-sans">
+                  {app.name}
+                </h2>
+                <Link
+                  href={`/charts/${app.slug}`}
+                  className="font-mono text-xs text-ink hover:underline uppercase"
+                >
+                  View Full Chart ({datasheets.length}) →
+                </Link>
+              </div>
+
+              {datasheets.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 font-mono text-xs">
+                  {datasheets.map((item) => (
+                    <Link
+                      key={item.id}
+                      href={`/how-long/${item.appliance}/${item.foodSlug}`}
+                      className="bg-paper p-3.5 hairline-border space-y-1 hover:border-ink transition-colors block group"
+                    >
+                      <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">
+                        {item.food}
+                      </div>
+                      <div className="flex justify-between text-ink-muted text-xs">
+                        <span>Temp: <strong className="text-ink">{item.tempFormatted}</strong></span>
+                        <span>Time: <strong className="text-ink">{item.timeFormatted}</strong></span>
+                      </div>
+                      <div className="text-[11px] text-accent font-bold pt-0.5">
+                        ↻ {item.flipAtMinutes > 0 ? `Flip at ${item.flipAtMinutes}m` : 'No Flip'}
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-xs text-ink-muted font-mono">
+                  Standard operating range: {app.tempRange}
+                </p>
+              )}
+            </section>
+          );
+        })}
       </div>
 
-      {/* Master Grid Table */}
-      <div className="overflow-hidden bg-paper-50 border border-hairline rounded-lg shadow-subtle font-mono text-xs">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="border-b-2 border-hairline bg-paper-200 text-[11px] uppercase tracking-widest text-ink font-bold">
-              <th className="py-3.5 px-4">FOOD ITEM</th>
-              <th className="py-3.5 px-4 text-accent">TEMP (°F / °C)</th>
-              <th className="py-3.5 px-4">TOTAL TIME</th>
-              <th className="py-3.5 px-4">SHAKE / FLIP MARK</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-hairline">
-            {airFryerGuide.map((item, idx) => (
-              <tr key={idx} className="hover:bg-paper-100/80 transition-colors">
-                <td className="py-3 px-4 font-bold text-ink text-sm font-sans">{item.food}</td>
-                <td className="py-3 px-4 font-bold text-accent">{item.temp}</td>
-                <td className="py-3 px-4 font-bold text-ink">{item.time}</td>
-                <td className="py-3 px-4 text-ink-muted">{item.shake}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* 4 Golden Dad Air Fryer Laws */}
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 font-mono text-xs">
-        <div className="bg-paper-100 p-4 rounded border border-hairline">
-          <span className="text-accent font-bold block mb-1">LAW 1: PREHEAT 2 MINS</span>
-          <span className="text-ink-muted font-sans text-xs">
-            A screaming hot basket sears food immediately upon contact and prevents breading from sticking.
-          </span>
-        </div>
-
-        <div className="bg-paper-100 p-4 rounded border border-hairline">
-          <span className="text-accent font-bold block mb-1">LAW 2: NEVER OVERCROWD</span>
-          <span className="text-ink-muted font-sans text-xs">
-            Trapped steam is the enemy of crunch. If food overlaps, cook in two quick batches.
-          </span>
-        </div>
-
-        <div className="bg-paper-100 p-4 rounded border border-hairline">
-          <span className="text-accent font-bold block mb-1">LAW 3: SHAKE AT 50%</span>
-          <span className="text-ink-muted font-sans text-xs">
-            Redistribute fries and nuggets halfway through so high-velocity convection air touches all sides.
-          </span>
-        </div>
-
-        <div className="bg-paper-100 p-4 rounded border border-hairline">
-          <span className="text-accent font-bold block mb-1">LAW 4: OIL SPRAY = CRUNCH</span>
-          <span className="text-ink-muted font-sans text-xs">
-            A quick mist of avocado or olive oil spray makes dry coatings turn golden and shatteringly crisp.
-          </span>
-        </div>
-      </div>
     </div>
   );
 }

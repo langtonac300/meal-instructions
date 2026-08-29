@@ -3,21 +3,54 @@
 @tailwind utilities;
 
 :root {
-  --paper: #f5f4f0;
-  --paper-card: #faf9f6;
-  --paper-subtle: #ece9e1;
+  --paper: #F5F4F0;
+  --paper-card: #FAF9F6;
+  --paper-subtle: #ECE9E1;
   --ink: #111111;
-  --ink-muted: #5a5854;
-  --ink-subtle: #8e8a82;
-  --hairline: #dfdcce;
+  --ink-muted: #5A5854;
+  --ink-subtle: #8E8A82;
+  --hairline: #DFDCCE;
+  --accent: #C84B2C;
 }
 
 body {
   background-color: var(--paper);
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* HR-6: Both modes in SSR HTML, switching is CSS visibility only */
+html[data-mode="quick"] [data-mode-panel="detailed"],
+html[data-mode="fast"] [data-mode-panel="detailed"] {
+  display: none !important;
+}
+
+html[data-mode="detailed"] [data-mode-panel="quick"],
+html[data-mode="detailed"] [data-mode-panel="fast"] {
+  display: none !important;
+}
+
+/* Default fallback when no data-mode is set (show quick by default) */
+html:not([data-mode]) [data-mode-panel="detailed"] {
+  display: none !important;
+}
+
+/* Active Segmented Switcher styling via parent attribute */
+html[data-mode="quick"] [data-mode-btn="quick"],
+html[data-mode="fast"] [data-mode-btn="quick"] {
+  background-color: var(--ink) !important;
+  color: var(--paper) !important;
+  font-weight: 700 !important;
+}
+
+html[data-mode="detailed"] [data-mode-btn="detailed"] {
+  background-color: var(--ink) !important;
+  color: var(--paper) !important;
+  font-weight: 700 !important;
 }
 
 /* Kellerstöckl Architectural Hairline Borders */
@@ -51,7 +84,7 @@ body {
   letter-spacing: -0.02em;
 }
 
-/* Smooth minimal scrollbar */
+/* Minimal scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -60,28 +93,28 @@ body {
   background: var(--paper);
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4d0c2;
+  background: #D4D0C2;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #bab5a4;
+  background: #BAB5A4;
 }
 
-/* Print Optimization for Recipe Cards (Clean single page print) */
+/* Print Optimization for Recipe Cards */
 @media print {
   body {
     background: #ffffff !important;
     color: #000000 !important;
-    font-size: 12pt;
+    font-size: 11pt;
   }
   header, footer, nav, .no-print, button, .interactive-timer {
     display: none !important;
   }
-  .print-page {
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
+  [data-mode-panel="detailed"] {
+    display: block !important;
+  }
+  [data-mode-panel="quick"] {
+    display: block !important;
   }
   .hairline-border {
     border: 1px solid #cccccc !important;

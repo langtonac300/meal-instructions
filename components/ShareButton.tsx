@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Copy, Check, MessageSquare, Printer } from 'lucide-react';
 import { Recipe } from '@/lib/types';
+import { absoluteUrl } from '@/lib/site';
 
 interface ShareButtonProps {
   recipe: Recipe;
@@ -22,13 +23,11 @@ ${recipe.quickVersion.bullets.map((b, i) => `${i + 1}. ${b}`).join('\n')}
 ${recipe.ingredients
   .map(
     (ing) =>
-      `• ${((ing.amount / recipe.defaultServings) * servings).toFixed(1).replace(/\.0$/, '')} ${
-        ing.unit
-      } ${ing.item}`
+      `• ${ing.qty} ${ing.unit} ${ing.item}`
   )
   .join('\n')}
 
-🔗 Link: https://dadmeals.com/recipes/${recipe.slug}`;
+🔗 Link: ${absoluteUrl(`/recipes/${recipe.slug}`)}`;
 
     try {
       await navigator.clipboard.writeText(text);
@@ -48,13 +47,13 @@ ${recipe.ingredients
       <button
         onClick={handleCopySMS}
         type="button"
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-paper-100 hover:bg-paper-200 border border-hairline text-ink transition-colors cursor-pointer"
+        className="flex items-center gap-1.5 px-3 py-1.5 bg-paper hover:bg-paper-card border border-hairline text-ink transition-colors cursor-pointer"
         title="Copy short text for SMS / iMessage"
       >
         {copied ? (
           <>
-            <Check className="w-3.5 h-3.5 text-forest" />
-            <span className="text-forest font-bold">COPIED FOR SMS!</span>
+            <Check className="w-3.5 h-3.5 text-emerald-600" />
+            <span className="text-emerald-800 font-bold">COPIED FOR SMS!</span>
           </>
         ) : (
           <>
@@ -67,7 +66,7 @@ ${recipe.ingredients
       <button
         onClick={handlePrint}
         type="button"
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-paper-100 hover:bg-paper-200 border border-hairline text-ink transition-colors cursor-pointer"
+        className="flex items-center gap-1.5 px-3 py-1.5 bg-paper hover:bg-paper-card border border-hairline text-ink transition-colors cursor-pointer"
         title="Print clean 1-page recipe card"
       >
         <Printer className="w-3.5 h-3.5 text-ink-muted" />
