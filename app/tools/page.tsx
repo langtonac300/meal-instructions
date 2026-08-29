@@ -1,7 +1,19 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, Zap, Flame, Clock, Users, Thermometer, Split, Scale, Wrench, FileText } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
+import {
+  LeanAirFryerIcon,
+  LeanHeatWavesIcon,
+  LeanSafetyShieldIcon,
+  LeanClockIcon,
+  LeanForkIcon,
+  LeanProbeIcon,
+  LeanScaleIcon,
+  LeanPlateIcon,
+  LeanPanHeatIcon,
+  LeanStopwatchIcon,
+} from '@/components/icons/Lean5SIcons';
 import { absoluteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -15,70 +27,70 @@ export const metadata: Metadata = {
 const TOOLS = [
   {
     href: '/air-fryer-calculator',
-    icon: Zap,
+    icon: LeanAirFryerIcon,
     title: 'Oven to Air Fryer Converter',
     badge: 'CORE CONVERTER',
     description: 'Convert conventional oven temps and cook times using the convection 25° / 20% rule.',
   },
   {
     href: '/reheat',
-    icon: Flame,
+    icon: LeanHeatWavesIcon,
     title: 'Takeout & Leftover Revive Engine',
     badge: 'CRISP RESTORATION',
     description: 'Restore fries, pizza, wings, and tenders to fresh-out-of-the-fryer crunch without microwave mush.',
   },
   {
     href: '/frozen-cook',
-    icon: Flame,
+    icon: LeanSafetyShieldIcon,
     title: 'Forgot to Thaw? Freezer Matrix',
     badge: 'USDA SAFETY PROTOCOL',
     description: 'Direct-from-frozen cooking times, banned appliances, and rapid cold-water submersion timelines.',
   },
   {
     href: '/dinner-sync',
-    icon: Clock,
+    icon: LeanClockIcon,
     title: 'Two-Appliance Dinner Sync',
     badge: 'REVERSE TIMELINE',
     description: 'Coordinate multiple appliances so protein, roasted veggies, and carbs finish piping hot at the same minute.',
   },
   {
     href: '/meat-math',
-    icon: Users,
+    icon: LeanForkIcon,
     title: 'Feed The Crew Meat Math',
     badge: 'COSTCO & BBQ SCALER',
     description: 'Calculate raw butcher weights factoring in 25-50% shrinkage, bones, and buns for any headcount.',
   },
   {
     href: '/internal-temp',
-    icon: Thermometer,
+    icon: LeanProbeIcon,
     title: 'Thermometer Pull Temp Guide',
     badge: 'THERMAL CARRYOVER',
     description: 'Exact temperatures to pull meat off the heat to account for the resting rise and prevent dry meat.',
   },
   {
     href: '/salt-math',
-    icon: Scale,
+    icon: LeanScaleIcon,
     title: 'Equilibrium Salting & Dry Brine',
     badge: 'DENSITY CONVERSION',
     description: 'Convert salt weight to volume accurately across Diamond Crystal, Morton, table salt, and sea salt.',
   },
   {
     href: '/kid-split',
-    icon: Split,
+    icon: LeanPlateIcon,
     title: 'Picky Kid Meal Deconstructor',
     badge: 'ZERO DOUBLE COOKING',
     description: '60-second plating and sauce-separation blueprints to feed toddlers and adults from one pan.',
   },
   {
     href: '/troubleshoot',
-    icon: Wrench,
+    icon: LeanPanHeatIcon,
     title: 'Fix My Cook // 5-Sec Rescue',
     badge: 'EMERGENCY TRIAGE',
     description: '1-click fixes for smoking air fryers, soggy veggies, gray steak, and slipped breading.',
   },
   {
     href: '/cheat-sheet',
-    icon: FileText,
+    icon: LeanStopwatchIcon,
     title: 'Printable Cooking Cheatsheet',
     badge: 'FRIDGE REFERENCE',
     description: 'Full time and temperature matrix for air fryers, sheet pans, skillets, and grills.',
@@ -137,7 +149,9 @@ export default function ToolsPage() {
                   <span className="micro-label text-accent font-mono">
                     {tool.badge}
                   </span>
-                  <Icon className="w-4 h-4 text-ink-muted group-hover:text-accent transition-colors" />
+                  <div className="p-1.5 bg-paper hairline-border">
+                    <Icon size={24} className="text-ink-muted group-hover:text-accent transition-colors" />
+                  </div>
                 </div>
                 <h2 className="text-xl font-bold text-ink uppercase tracking-tight font-sans group-hover:text-accent transition-colors">
                   {tool.title}

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { MEAT_MATH_PROFILES, MeatMathProfile } from '@/data/tools-data';
 import { Users, ShoppingBag, Flame, Copy, Check, Info } from 'lucide-react';
+import { LeanForkIcon, LeanScaleIcon, LeanUtensilsIcon } from '@/components/icons/Lean5SIcons';
 
 export default function MeatMathScaler() {
   const [adults, setAdults] = useState<number>(6);
@@ -190,10 +191,13 @@ export default function MeatMathScaler() {
           </button>
         </div>
 
-        {/* Primary Metric Displays */}
+        {/* Primary Metric Displays with Lean 5S Icons */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="bg-paper hairline-border p-4 space-y-1 font-mono bg-paper-100 border-2 border-ink">
-            <div className="micro-label text-accent font-bold">RAW WEIGHT TO BUY (BUTCHER)</div>
+            <div className="micro-label text-accent font-bold flex items-center gap-1.5">
+              <LeanScaleIcon size={16} className="text-accent" />
+              <span>RAW WEIGHT TO BUY (BUTCHER)</span>
+            </div>
             <div className="text-3xl sm:text-4xl font-bold text-ink">
               {rawLbsRoundedUp} LBS
             </div>
@@ -203,7 +207,10 @@ export default function MeatMathScaler() {
           </div>
 
           <div className="bg-paper hairline-border p-4 space-y-1 font-mono">
-            <div className="micro-label text-ink-muted">ESTIMATED COOKED YIELD</div>
+            <div className="micro-label text-ink-muted flex items-center gap-1.5">
+              <LeanForkIcon size={16} className="text-accent" />
+              <span>ESTIMATED COOKED YIELD</span>
+            </div>
             <div className="text-3xl sm:text-4xl font-bold text-ink">
               ~{cookedLbs} LBS
             </div>
@@ -213,7 +220,10 @@ export default function MeatMathScaler() {
           </div>
 
           <div className="bg-paper hairline-border p-4 space-y-1 font-mono">
-            <div className="micro-label text-ink-muted">SERVING BASIS</div>
+            <div className="micro-label text-ink-muted flex items-center gap-1.5">
+              <LeanUtensilsIcon size={16} className="text-accent" />
+              <span>SERVING BASIS</span>
+            </div>
             <div className="text-xl sm:text-2xl font-bold text-accent uppercase">
               {activeProfile.servingUnitName}
             </div>

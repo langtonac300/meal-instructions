@@ -64,7 +64,8 @@ export default function RecipeTable({ recipes }: RecipeTableProps) {
               className="py-3 px-4 cursor-pointer hover:text-accent select-none text-right"
               onClick={() => handleSort('temp')}
             >
-              <div className="flex items-center justify-end gap-1">
+              <div className="flex items-center justify-end gap-1.5">
+                <LeanHeatWavesIcon size={14} className="text-accent" />
                 <span>TEMP</span>
                 <ArrowUpDown className="w-3 h-3 text-ink-subtle" />
               </div>
@@ -73,7 +74,8 @@ export default function RecipeTable({ recipes }: RecipeTableProps) {
               className="py-3 px-4 cursor-pointer hover:text-accent select-none text-right"
               onClick={() => handleSort('time')}
             >
-              <div className="flex items-center justify-end gap-1">
+              <div className="flex items-center justify-end gap-1.5">
+                <LeanClockIcon size={14} className="text-ink-subtle" />
                 <span>TIME</span>
                 <ArrowUpDown className="w-3 h-3 text-ink-subtle" />
               </div>
@@ -82,7 +84,8 @@ export default function RecipeTable({ recipes }: RecipeTableProps) {
               className="py-3 px-4 cursor-pointer hover:text-accent select-none text-right"
               onClick={() => handleSort('protein')}
             >
-              <div className="flex items-center justify-end gap-1">
+              <div className="flex items-center justify-end gap-1.5">
+                <LeanForkIcon size={14} className="text-accent" />
                 <span>PROTEIN</span>
                 <ArrowUpDown className="w-3 h-3 text-ink-subtle" />
               </div>
@@ -115,10 +118,11 @@ export default function RecipeTable({ recipes }: RecipeTableProps) {
                 </span>
               </td>
 
-              {/* Appliance */}
+              {/* Appliance with 28x28 icon */}
               <td className="py-3 px-4">
-                <span className="inline-block px-2 py-0.5 rounded text-[9px] uppercase bg-paper border border-hairline text-ink-muted">
-                  {recipe.appliance.replace('-', ' ')}
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[9px] uppercase bg-paper border border-hairline text-ink">
+                  <LeanIcon name={recipe.appliance} size={14} className="text-ink-muted" />
+                  <span>{recipe.appliance.replace('-', ' ')}</span>
                 </span>
               </td>
 

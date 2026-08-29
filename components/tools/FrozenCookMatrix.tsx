@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { FROZEN_ITEMS, FrozenItem } from '@/data/tools-data';
 import { ShieldCheck, ShieldAlert, Clock, Flame, Droplets, ArrowRight, AlertOctagon, Check } from 'lucide-react';
+import { LeanSafetyShieldIcon, LeanClockIcon, LeanProbeIcon, LeanHeatWavesIcon } from '@/components/icons/Lean5SIcons';
 
 export default function FrozenCookMatrix() {
   const [selectedId, setSelectedId] = useState<string>(FROZEN_ITEMS[0].id);
@@ -98,10 +99,13 @@ export default function FrozenCookMatrix() {
           </div>
         </div>
 
-        {/* The 50% Time Rule Comparison */}
+        {/* The 50% Time Rule Comparison with Lean 5S Icons */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="bg-paper hairline-border p-4 space-y-1 font-mono">
-            <div className="micro-label text-ink-muted">FRESH / THAWED COOK TIME</div>
+            <div className="micro-label text-ink-muted flex items-center gap-1.5">
+              <LeanClockIcon size={14} className="text-ink-subtle" />
+              <span>FRESH / THAWED COOK TIME</span>
+            </div>
             <div className="text-2xl sm:text-3xl font-bold text-ink-muted">
               {activeItem.freshCookMinutes} MINS
             </div>
@@ -109,7 +113,10 @@ export default function FrozenCookMatrix() {
           </div>
 
           <div className="bg-paper hairline-border p-4 space-y-1 font-mono bg-paper-100">
-            <div className="micro-label text-accent font-bold">DIRECT FROZEN TIME (+50%)</div>
+            <div className="micro-label text-accent font-bold flex items-center gap-1.5">
+              <LeanClockIcon size={14} className="text-accent" />
+              <span>DIRECT FROZEN TIME (+50%)</span>
+            </div>
             <div className="text-2xl sm:text-3xl font-bold text-ink">
               {activeItem.frozenCookMinutes} MINS
             </div>
@@ -117,7 +124,10 @@ export default function FrozenCookMatrix() {
           </div>
 
           <div className="bg-paper hairline-border p-4 space-y-1 font-mono">
-            <div className="micro-label text-ink-muted">USDA INTERNAL TARGET</div>
+            <div className="micro-label text-ink-muted flex items-center gap-1.5">
+              <LeanProbeIcon size={14} className="text-emerald-800" />
+              <span>USDA INTERNAL TARGET</span>
+            </div>
             <div className="text-2xl sm:text-3xl font-bold text-ink">
               {activeItem.internalTargetTemp}°F
             </div>

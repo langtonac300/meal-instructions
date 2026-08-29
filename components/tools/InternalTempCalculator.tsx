@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { INTERNAL_TEMP_SPECS, InternalTempSpec } from '@/data/tools-data';
 import { Thermometer, Clock, ShieldCheck, Flame, ArrowRight, Activity, Sparkles } from 'lucide-react';
+import { LeanProbeIcon, LeanRestIcon, LeanSafetyShieldIcon } from '@/components/icons/Lean5SIcons';
 
 export default function InternalTempCalculator() {
   const [selectedSpecId, setSelectedSpecId] = useState<string>(INTERNAL_TEMP_SPECS[0].id);
@@ -83,13 +84,13 @@ export default function InternalTempCalculator() {
           </div>
         </div>
 
-        {/* The Core Carryover Math Trio */}
+        {/* The Core Carryover Math Trio with Lean 5S Icons */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {/* Pull Temperature */}
           <div className="bg-paper hairline-border p-5 space-y-1 font-mono border-2 border-accent bg-paper-50">
             <div className="micro-label text-accent font-bold flex items-center gap-1.5">
-              <Thermometer className="w-4 h-4 text-accent" />
-              PULL FROM HEAT AT
+              <LeanProbeIcon size={18} className="text-accent" />
+              <span>PULL FROM HEAT AT</span>
             </div>
             <div className="text-4xl sm:text-5xl font-bold text-accent tracking-tight">
               {activeLevel.pullTemp}°F
@@ -102,8 +103,8 @@ export default function InternalTempCalculator() {
           {/* Resting Duration & Rise */}
           <div className="bg-paper hairline-border p-5 space-y-1 font-mono">
             <div className="micro-label text-ink-muted flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-accent" />
-              REST TENTED (FOIL)
+              <LeanRestIcon size={18} className="text-accent" />
+              <span>REST TENTED (FOIL)</span>
             </div>
             <div className="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
               {activeLevel.restMinutes} MINS
@@ -116,8 +117,8 @@ export default function InternalTempCalculator() {
           {/* Final Rested Temperature */}
           <div className="bg-paper hairline-border p-5 space-y-1 font-mono">
             <div className="micro-label text-ink-muted flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-accent" />
-              FINAL SERVE TARGET
+              <LeanSafetyShieldIcon size={18} className="text-emerald-800" />
+              <span>FINAL SERVE TARGET</span>
             </div>
             <div className="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
               {activeLevel.finalTargetTemp}°F

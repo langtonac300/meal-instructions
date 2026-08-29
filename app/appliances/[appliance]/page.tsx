@@ -2,11 +2,12 @@ import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, Clock, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { APPLIANCES } from '@/data/appliances';
 import { getRecipesByAppliance } from '@/data/recipes';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { absoluteUrl } from '@/lib/site';
+import { LeanIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon } from '@/components/icons/Lean5SIcons';
 
 interface AppliancePageProps {
   params: Promise<{ appliance: string }>;
@@ -74,10 +75,17 @@ export default async function AppliancePage({ params }: AppliancePageProps) {
 
       {/* Appliance Hero */}
       <section className="bg-paper-card hairline-border p-6 sm:p-10 space-y-4">
-        <div className="micro-label text-accent">APPLIANCE SPECIFICATION</div>
-        <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-ink uppercase font-sans">
-          {appMeta.name}
-        </h1>
+        <div className="flex items-center gap-3">
+          <div className="p-2 bg-paper hairline-border">
+            <LeanIcon name={appMeta.slug} size={28} className="text-accent" />
+          </div>
+          <div>
+            <div className="micro-label text-accent">APPLIANCE SPECIFICATION</div>
+            <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-ink uppercase font-sans">
+              {appMeta.name}
+            </h1>
+          </div>
+        </div>
         <p className="text-sm sm:text-base text-ink-muted max-w-2xl font-sans leading-relaxed">
           {appMeta.shortDescription}
         </p>
@@ -106,15 +114,22 @@ export default async function AppliancePage({ params }: AppliancePageProps) {
               <Link
                 key={sheet.id}
                 href={`/how-long/${sheet.appliance}/${sheet.foodSlug}`}
-                className="bg-paper p-4 hairline-border hover:border-ink transition-colors space-y-1.5 block group"
+                className="bg-paper p-4 hairline-border hover:border-ink transition-colors space-y-2 block group"
               >
                 <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">{sheet.food}</div>
-                <div className="flex justify-between text-ink-muted">
-                  <span>Temp: <strong className="text-ink">{sheet.tempFormatted}</strong></span>
-                  <span>Time: <strong className="text-ink">{sheet.timeFormatted}</strong></span>
+                <div className="grid grid-cols-2 gap-2 text-ink-muted text-xs pt-1 border-t border-hairline/60">
+                  <div className="flex items-center gap-1">
+                    <LeanHeatWavesIcon size={14} className="text-accent shrink-0" />
+                    <span><strong className="text-ink">{sheet.tempFormatted}</strong></span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <LeanClockIcon size={14} className="text-ink-subtle shrink-0" />
+                    <span><strong className="text-ink">{sheet.timeFormatted}</strong></span>
+                  </div>
                 </div>
-                <div className="text-[11px] text-accent font-bold">
-                  ↻ {sheet.flipAtMinutes > 0 ? `Flip at ${sheet.flipAtMinutes}m` : 'No Flip'}
+                <div className="text-[11px] text-accent font-bold pt-1 border-t border-hairline/40 flex items-center gap-1.5">
+                  <LeanFlipIcon size={12} className="shrink-0" />
+                  <span>{sheet.flipAtMinutes > 0 ? `Flip at ${sheet.flipAtMinutes}m` : 'No Flip'}</span>
                 </div>
               </Link>
             ))}

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Flame, Clock, ArrowRight, Zap, RefreshCw } from 'lucide-react';
+import { LeanAirFryerIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon } from './icons/Lean5SIcons';
 import { RECIPES } from '@/data/recipes';
 
 export default function AirFryerCalculator() {
@@ -30,8 +31,10 @@ export default function AirFryerCalculator() {
       {/* Header */}
       <div className="border-b border-hairline pb-4 mb-6">
         <div className="flex items-center justify-between flex-wrap gap-2">
-          <div className="flex items-center gap-2">
-            <Zap className="w-5 h-5 text-accent" />
+          <div className="flex items-center gap-2.5">
+            <div className="p-1.5 bg-paper-100 rounded border border-hairline">
+              <LeanAirFryerIcon size={24} className="text-accent" />
+            </div>
             <h2 className="font-sans text-xl sm:text-2xl font-bold text-ink">
               OVEN TO AIR FRYER CONVERSION CALCULATOR
             </h2>
@@ -125,8 +128,11 @@ export default function AirFryerCalculator() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 my-2">
           {/* Target Temp */}
-          <div>
-            <span className="text-[10px] text-ink-subtle block uppercase">SET TEMPERATURE TO</span>
+          <div className="flex flex-col items-center">
+            <div className="flex items-center gap-1.5 text-[10px] text-ink-subtle uppercase mb-1">
+              <LeanHeatWavesIcon size={16} className="text-accent" />
+              <span>SET TEMPERATURE TO</span>
+            </div>
             <span className="text-3xl sm:text-4xl font-black text-ink">
               {airFryerTemp}°{unit}
             </span>
@@ -138,16 +144,20 @@ export default function AirFryerCalculator() {
           <div className="text-2xl text-ink-subtle hidden sm:block">×</div>
 
           {/* Target Time */}
-          <div>
-            <span className="text-[10px] text-ink-subtle block uppercase">SET COOK TIME TO</span>
+          <div className="flex flex-col items-center">
+            <div className="flex items-center gap-1.5 text-[10px] text-ink-subtle uppercase mb-1">
+              <LeanClockIcon size={16} className="text-accent" />
+              <span>SET COOK TIME TO</span>
+            </div>
             <span className="text-3xl sm:text-4xl font-black text-accent">
               {airFryerMinTime === airFryerMaxTime
                 ? `${airFryerMinTime}`
                 : `${airFryerMinTime}-${airFryerMaxTime}`}{' '}
               MINS
             </span>
-            <span className="text-[10px] text-ink-muted block mt-0.5">
-              (Shake or Flip at {flipTime} mins)
+            <span className="text-[10px] text-ink-muted flex items-center gap-1 mt-0.5">
+              <LeanFlipIcon size={12} className="text-accent" />
+              <span>Shake or Flip at {flipTime} mins</span>
             </span>
           </div>
         </div>

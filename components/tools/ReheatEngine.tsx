@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { REHEAT_ITEMS, ReheatItem } from '@/data/tools-data';
 import { Zap, Flame, AlertTriangle, CheckCircle2, RotateCcw, Clock, Copy, Check } from 'lucide-react';
+import { LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon } from '@/components/icons/Lean5SIcons';
 
 export default function ReheatEngine() {
   const [selectedId, setSelectedId] = useState<string>(REHEAT_ITEMS[0].id);
@@ -100,12 +101,12 @@ export default function ReheatEngine() {
           </button>
         </div>
 
-        {/* Primary Air Fryer Data Matrix */}
+        {/* Primary Air Fryer Data Matrix with Lean 5S Icons */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-paper hairline-border p-4 space-y-1">
             <div className="micro-label text-ink-muted flex items-center gap-1.5">
-              <Flame className="w-3.5 h-3.5 text-accent" />
-              AIR FRYER TEMP
+              <LeanHeatWavesIcon size={16} className="text-accent" />
+              <span>AIR FRYER TEMP</span>
             </div>
             <div className="text-3xl sm:text-4xl font-bold font-mono text-ink tracking-tight">
               {activeItem.airFryerTemp}°F
@@ -117,8 +118,8 @@ export default function ReheatEngine() {
 
           <div className="bg-paper hairline-border p-4 space-y-1">
             <div className="micro-label text-ink-muted flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-accent" />
-              TARGET TIME
+              <LeanClockIcon size={16} className="text-accent" />
+              <span>TARGET TIME</span>
             </div>
             <div className="text-3xl sm:text-4xl font-bold font-mono text-ink tracking-tight">
               {activeItem.airFryerMinutes} MINS
@@ -130,8 +131,8 @@ export default function ReheatEngine() {
 
           <div className="bg-paper hairline-border p-4 space-y-1">
             <div className="micro-label text-ink-muted flex items-center gap-1.5">
-              <RotateCcw className="w-3.5 h-3.5 text-accent" />
-              SHAKE / FLIP MARK
+              <LeanFlipIcon size={16} className="text-accent" />
+              <span>SHAKE / FLIP MARK</span>
             </div>
             <div className="text-2xl sm:text-3xl font-bold font-mono text-accent tracking-tight">
               {activeItem.shakeAtMinute ? `AT ${activeItem.shakeAtMinute} MINS` : 'NO FLIP NEEDED'}

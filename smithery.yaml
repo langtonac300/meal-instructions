@@ -1,0 +1,23 @@
+# Smithery.ai configuration file for Dad Meals / Meal Instructions MCP Server
+# https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: "stdio"
+  config:
+    command: "npx"
+    args:
+      - "-y"
+      - "tsx"
+      - "bin/dadmeals-mcp.ts"
+
+configSchema:
+  type: "object"
+  properties: {}
+
+commandFunction: |-
+  (config) => ({
+    command: "npx",
+    args: ["-y", "tsx", "bin/dadmeals-mcp.ts"]
+  })
+
+exampleConfig: {}
