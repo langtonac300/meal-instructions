@@ -238,7 +238,7 @@ Each proven by deliberately breaking the repo and watching the audit fail, then 
 
 | ID | Task | Status | Verify |
 |---|---|---|---|
-| SEO-022 | Review `images: { unoptimized: true }` in `next.config.ts` | **BLOCKED** | §7 D-2 |
+| SEO-022 | Review `images: { unoptimized: true }` in `next.config.ts` | **DONE** 2026-08-29 | Removed flag; all 7 components already use `next/image` with `fill`+`sizes`; Vercel handles optimization |
 | SEO-023 | Per-entity OG images (currently one static image sitewide) | **DONE** 2026-08-29 | 205 OG images generated across 4 route groups |
 
 **SEO-022** — `next.config.ts:6` disables Next's image optimisation globally. With 25 merch products shipping "high-detail product photos" (commit `c746dca`), this is a live LCP/bandwidth risk. Measure before changing — it may have been set deliberately for a static export target. *See §7 D-2.*
@@ -350,6 +350,7 @@ grep -rn "aggregateRating" lib/ app/
 | 2026-08-29 | SEO-021 | Added canonical self-referential assertion: extracts canonical href, derives expected URL from file path, compares. Proven: seeded `/wrong-page` canonical on /about → audit failed | e1b15a1 | seeded break → caught |
 | 2026-08-29 | SEO-023 | Created 4 `opengraph-image.tsx` files using `next/og` for recipes (70), datasheets (60), blog (55), and guides (20) = 205 per-entity OG images pre-rendered at build time | baffc10 | `npm run build` exits 0; 205 `.body` files in `.next/server/app/` |
 | 2026-08-29 | SEO-022 | Investigation complete: 166 files / 138 MB in `public/images/`, only 2 `next/image` usages, no `output: 'export'`. Flag likely a leftover. Blocked on D-2 for actual removal. | baffc10 | documented in tracker |
+| 2026-08-29 | SEO-022 | Removed `images: { unoptimized: true }` from `next.config.ts`. All 7 components already use `next/image` with `fill`+`sizes`. Vercel now auto-converts to WebP/AVIF, responsive srcset, lazy loading. D-2 resolved. | pending | build passes; 82 homepage images + 14 shop images route through `/_next/image` |
 | 2026-08-29 | SEO-024 | Added 60 cook-time datasheets to `llms.txt` (grouped by appliance with links) and `llms-full.txt` (full structured content as new PART 1). Updated AI usage guidelines with `/how-long/` URL pattern. | pending | llms.txt 395 lines, llms-full.txt 9,864 lines |
 | 2026-08-29 | SEO-027 | Recipe → Datasheet cross-links: 25 recipe pages now render "Verified Cook-Time Datasheet" callout with temp/time/internal/flip/rest/doneness + `isBasedOn` JSON-LD. Fully bidirectional with existing datasheet→recipe links. | pending | 25 HTML pages with `/how-long/` link + `isBasedOn` |
 | 2026-08-29 | SEO-028 | Expanded `relatedRecipeSlug` from 25 → 46 datasheets (+21 new links). All 35 unlinked datasheets cross-referenced against 70 recipes; 21 matches found, 14 have no viable recipe. Coverage: 42% → 77%. | pending | 46 HTML pages with `/how-long/` link + `isBasedOn` |
@@ -365,9 +366,9 @@ Per `AGENTS.md` §7, these are escalations, not guesses.
 
 Owner confirmed: **`https://www.mealinstructions.com`**. Committed `.env.production` with `NEXT_PUBLIC_SITE_URL=https://www.mealinstructions.com`. All canonicals, sitemap, schema, and `llms.txt` already use this value.
 
-**D-2 — Is `images.unoptimized: true` deliberate?** *(blocks SEO-022)*
+**D-2 — Is `images.unoptimized: true` deliberate?** *(blocks SEO-022)* **RESOLVED 2026-08-29**
 
-Was this set for a static-export / non-Vercel deployment target, or is it leftover? Changes the whole P6 approach.
+Flag was a leftover — no `output: 'export'` in config, site deploys on Vercel which supports image optimization natively. Removed `images: { unoptimized: true }` from `next.config.ts`. All 7 components already use `next/image` with `fill` + `sizes` props. Vercel now auto-converts to WebP/AVIF, generates responsive `srcset`, and lazy-loads below-fold images.
 
 **D-3 — Does the WebMCP origin trial still matter?** *(blocks SEO-025)*
 
