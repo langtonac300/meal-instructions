@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { RECIPES, getRecipeBySlug } from '@/data/recipes';
 import { generateRecipeSchema } from '@/lib/recipe-utils';
 import { absoluteUrl } from '@/lib/site';
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import RecipeClientView from './RecipeClientView';
 
 interface RecipePageProps {
@@ -62,12 +63,19 @@ export default async function RecipePage({ params }: RecipePageProps) {
   }
 
   const schemaJsonLd = generateRecipeSchema(recipe);
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: recipe.title, path: `/recipes/${recipe.slug}` },
+  ]);
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
       <RecipeClientView recipe={recipe} />
     </>

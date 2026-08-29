@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import SmokePointsMatrix from '@/components/tools/SmokePointsMatrix';
 import { SMOKE_POINTS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Cooking Oil Smoke Point Chart & Cast Iron Searing Matrix',
   description: 'Complete culinary oil smoke point index: Avocado, Ghee, Beef Tallow, Duck Fat, Peanut, and Olive Oil. Fat compositions, acrolein thresholds, and cast iron ratings.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function SmokePointsPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Cooking Oil Smoke Point Chart & Cast Iron Searing Matrix', path: '/smoke-points' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function SmokePointsPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

@@ -5,6 +5,7 @@ import { MERCH_PRODUCTS } from '@/data/merch';
 import ProductDetailClient from '@/components/merch/ProductDetailClient';
 import { CartProvider } from '@/components/merch/CartContext';
 import { SITE_NAME, SITE_URL, absoluteUrl } from '@/lib/site';
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -74,8 +75,17 @@ export default async function ProductDetailPage({ params }: Props) {
     },
   };
 
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: 'Shop', path: '/shop' },
+    { name: product.title, path: `/shop/${product.id}` },
+  ]);
+
   return (
     <CartProvider>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}

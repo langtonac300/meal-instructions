@@ -6,6 +6,8 @@ import { absoluteUrl } from '@/lib/site';
 import PrintButton from '@/components/PrintButton';
 import DinnerSyncTimeline from '@/components/tools/DinnerSyncTimeline';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Multi-Appliance Dinner Sync Timeline — Reverse Cook Orchestrator',
   description: 'Reverse-engineer your dinner prep timeline so the air fryer protein, oven roasted vegetables, and stovetop carbs all finish hot at the exact same minute.',
@@ -15,6 +17,8 @@ export const metadata: Metadata = {
 };
 
 export default function DinnerSyncPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Multi-Appliance Dinner Sync Timeline', path: '/dinner-sync' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -27,6 +31,10 @@ export default function DinnerSyncPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">

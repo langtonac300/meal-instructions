@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import FoodCostCalculator from '@/components/tools/FoodCostCalculator';
 import { FOOD_COST_PRESETS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Meal Prep Batch Cost & Portion Calculator — Grocery Savings Math',
   description: 'Calculate exact ingredient costs, total batch price, cost per serving, and restaurant takeout savings for weekly meal prepping and family dinners.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function FoodCostCalculatorPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Meal Prep Batch Cost & Portion Calculator', path: '/food-cost-calculator' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function FoodCostCalculatorPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

@@ -6,6 +6,8 @@ import { absoluteUrl } from '@/lib/site';
 import ToolsDirectory from '@/components/tools/ToolsDirectory';
 import { ALL_TOOLS } from '@/data/tools-directory';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Zero-Fluff Kitchen Calculators & Cooking Tools Directory (30 Engines)',
   description: 'Precision cooking utilities for busy cooks and dads: oven-to-air fryer converters, oil smoke points, reverse sear timers, baker percentages, turkey thaw math, and dinner sync timelines.',
@@ -15,6 +17,8 @@ export const metadata: Metadata = {
 };
 
 export default function ToolsPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -25,6 +29,10 @@ export default function ToolsPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10 font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       
       {/* Breadcrumb */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">

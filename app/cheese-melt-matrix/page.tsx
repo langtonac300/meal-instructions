@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import CheeseMeltMatrix from '@/components/tools/CheeseMeltMatrix';
 import { CHEESE_MELT_SPECS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Cheese Melting Point Chart & Sodium Citrate Emulsion Calculator',
   description: 'Melting temperatures, moisture percentages, and stretch ratings for 24 cheeses. Calculate sodium citrate ratios (3%) for ultra-smooth cheese sauces that never break or oil off.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function CheeseMeltMatrixPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Cheese Melting Point Chart & Sodium Citrate Emulsion Calculator', path: '/cheese-melt-matrix' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function CheeseMeltMatrixPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import GrillFuelEstimator from '@/components/tools/GrillFuelEstimator';
 import { GRILL_FUEL_SPECS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'BBQ Charcoal, Wood & Propane Burn Rate Calculator',
   description: 'Calculate exact charcoal chimneys, lump charcoal pounds, and propane tank percentage for low-and-slow smoking (225°F) or direct high searing (500°F).',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function GrillFuelEstimatorPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'BBQ Charcoal, Wood & Propane Burn Rate Calculator', path: '/grill-fuel-estimator' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function GrillFuelEstimatorPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

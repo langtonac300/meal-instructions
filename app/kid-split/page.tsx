@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import KidSplitter from '@/components/tools/KidSplitter';
 import { KID_SPLIT_STRATEGIES } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Picky Kid Meal Deconstructor — The Anti-Double-Cooking Blueprint',
   description: 'How to cook one delicious, flavorful dinner for adults while seamlessly plating a deconstructed, non-spicy, kid-approved version in 60 seconds without making two meals.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function KidSplitPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Picky Kid Meal Deconstructor', path: '/kid-split' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function KidSplitPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">

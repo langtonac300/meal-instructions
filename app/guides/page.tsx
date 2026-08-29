@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ArrowLeft, BookOpen, Clock, ArrowRight } from 'lucide-react';
 import { TOP_10_GUIDES, GuideCategory } from '@/data/top-10-lists';
 import { absoluteUrl } from '@/lib/site';
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 
 export const metadata: Metadata = {
   title: '20 Zero-Fluff Top 10 Guides for Dads & Real Home Cooks',
@@ -35,8 +36,18 @@ export default function GuidesIndexPage() {
       'A technical collection of 20 top 10 lists detailing heat management, kid dining psychology, meat science, cast iron mechanics, and emergency dinners.',
   };
 
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Guides', path: '/guides' }]);
+
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10 font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       
       {/* Breadcrumb */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
@@ -101,11 +112,6 @@ export default function GuidesIndexPage() {
         ))}
       </div>
 
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
 
     </div>
   );

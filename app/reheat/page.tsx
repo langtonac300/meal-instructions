@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import ReheatEngine from '@/components/tools/ReheatEngine';
 import { REHEAT_ITEMS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Leftover & Takeout Revive Engine — Zero-Fluff Reheat Times & Temps',
   description: 'Exact air fryer and skillet reheat times, temperatures, and crisp-restoration protocols for pizza, French fries, wings, burgers, and takeout.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function ReheatPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Leftover & Takeout Revive Engine', path: '/reheat' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function ReheatPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">

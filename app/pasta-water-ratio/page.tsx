@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import GrainWaterRatioMatrix from '@/components/tools/GrainWaterRatioMatrix';
 import { GRAIN_WATER_SPECS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Rice, Grains & Pasta Water-to-Grain Ratio Matrix — Stovetop & Instant Pot',
   description: 'Exact liquid absorption ratios and simmer times for Jasmine rice, Basmati, Brown rice, Quinoa, Steel-cut oats, and Pasta. Stovetop and pressure cooker calculations.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function PastaWaterRatioPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Rice, Grains & Pasta Water-to-Grain Ratio Matrix', path: '/pasta-water-ratio' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function PastaWaterRatioPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

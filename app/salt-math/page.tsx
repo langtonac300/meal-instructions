@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import SaltMathCalculator from '@/components/tools/SaltMathCalculator';
 import { SALT_BRANDS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Equilibrium Salting & Dry-Brine Calculator — Diamond Crystal vs Morton Conversions',
   description: 'Convert salt weight to volume accurately across Diamond Crystal, Morton Kosher, Table Salt, and Sea Salt. Calculate 1.0% to 1.2% equilibrium salinity and dry-brine timing.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function SaltMathPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Equilibrium Salting & Dry-Brine Calculator', path: '/salt-math' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function SaltMathPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">

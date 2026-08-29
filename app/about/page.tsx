@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, CheckCircle2, XCircle, Zap, ShieldCheck } from 'lucide-react';
 import { absoluteUrl } from '@/lib/site';
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'The Zero-Fluff Manifesto | Meal Instructions',
@@ -11,8 +12,14 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'About', path: '/about' }]);
+
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-8 py-8 sm:py-16 space-y-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       
       {/* Breadcrumb */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle">

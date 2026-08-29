@@ -5,6 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 import { APPLIANCES } from '@/data/appliances';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { absoluteUrl } from '@/lib/site';
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import PrintButton from '@/components/PrintButton';
 import { LeanIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon } from '@/components/icons/Lean5SIcons';
 
@@ -17,8 +18,14 @@ export const metadata: Metadata = {
 };
 
 export default function CheatSheetPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Cheat Sheet', path: '/cheat-sheet' }]);
+
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">

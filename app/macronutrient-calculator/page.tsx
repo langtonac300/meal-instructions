@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import MacroTargetMeatScaler from '@/components/tools/MacroTargetMeatScaler';
 import { MACRO_PROTEIN_SOURCES } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Protein Target Meat Scaler — Raw to Cooked Macro Weight Calculator',
   description: 'Calculate exact raw butcher scale weight vs cooked plate weight to hit target protein goals: Chicken breast, 93/7 beef, salmon, pork tenderloin, and egg whites. Water loss shrinkage included.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function MacronutrientCalculatorPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Protein Target Meat Scaler', path: '/macronutrient-calculator' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function MacronutrientCalculatorPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

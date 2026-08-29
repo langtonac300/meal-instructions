@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import MarinadeRatioCalculator from '@/components/tools/MarinadeRatioCalculator';
 import { MARINADE_PROFILES } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Golden Marinade Ratio Calculator — Acid to Oil Formula & Timing',
   description: 'The definitive 3:1 fat-to-acid marinade formula with exact salinity math (1.2%), emulsifiers, and maximum safe marination hours to prevent mealy chicken and ceviche mush.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function MarinadeRatioPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Golden Marinade Ratio Calculator', path: '/marinade-ratio' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function MarinadeRatioPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import SousVideCalculator from '@/components/tools/SousVideCalculator';
 import { SOUS_VIDE_SPECS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Sous Vide Time & Temperature Immersion Calculator — Baldwin Pasteurization',
   description: 'Precision water bath temperatures and minimum immersion times based on meat thickness: Ribeye steak, chicken breast, pork tenderloin, and salmon. Pasteurization hold tables included.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function SousVideCalculatorPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Sous Vide Time & Temperature Immersion Calculator', path: '/sous-vide-calculator' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function SousVideCalculatorPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

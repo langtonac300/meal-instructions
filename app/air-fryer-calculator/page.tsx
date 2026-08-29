@@ -6,6 +6,8 @@ import { RECIPES } from '@/data/recipes';
 import RecipeCard from '@/components/RecipeCard';
 import { absoluteUrl } from '@/lib/site';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Air Fryer Conversion Calculator // Oven to Air Fryer Times & Temps',
   description:
@@ -25,8 +27,14 @@ export const metadata: Metadata = {
 export default function CalculatorPage() {
   const topAirFryerRecipes = RECIPES.filter((r) => r.appliance === 'air-fryer').slice(0, 6);
 
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Air Fryer Conversion Calculator', path: '/air-fryer-calculator' }]);
+
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb */}
       <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-ink-muted border-b border-hairline pb-3 mb-8">
         <Link

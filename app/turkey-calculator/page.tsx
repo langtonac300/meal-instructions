@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import TurkeyRoasterCalculator from '@/components/tools/TurkeyRoasterCalculator';
 import { TURKEY_METHODS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Turkey Roaster & Thawing Calculator — Spatchcock vs Traditional Times',
   description: 'Calculate exact turkey roasting times, refrigerator thaw days, rapid cold-water submersion timelines, dry-brine salt math, and pull temperatures for birds 6 to 26 lbs.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function TurkeyCalculatorPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Turkey Roaster & Thawing Calculator', path: '/turkey-calculator' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function TurkeyCalculatorPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

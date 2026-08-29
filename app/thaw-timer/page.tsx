@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import ThawTimerCalculator from '@/components/tools/ThawTimerCalculator';
 import { THAW_SPECS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Meat Thawing & Defrost Time Calculator — Fridge, Cold Water & Microwave',
   description: 'Calculate exact USDA safe thawing times for ground beef, chicken breasts, steaks, roasts, and whole turkeys. Refrigerator hours, 30-minute cold water bath cycles, and microwave power settings.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function ThawTimerPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Meat Thawing & Defrost Time Calculator', path: '/thaw-timer' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function ThawTimerPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

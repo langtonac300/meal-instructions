@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import BrisketSmokeTimeline from '@/components/tools/BrisketSmokeTimeline';
 import { BRISKET_TIMELINE_SPECS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'BBQ Brisket Timeline & Stall Calculator — Backwards Scheduled Alarm Clock',
   description: 'Backwards schedule your 14-hour Texas brisket or pork butt smoke session. Calculate exact wake-up alarm times, butcher paper wrap milestones during the stall, pull temperatures, and cooler rest windows.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function BrisketTimelinePage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'BBQ Brisket Timeline & Stall Calculator', path: '/brisket-timeline' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function BrisketTimelinePage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

@@ -6,6 +6,7 @@ import { ArrowLeft, Clock, Flame, ShieldCheck, Zap, ArrowUpRight, CheckCircle2 }
 import LeanSpecBadge from '@/components/LeanSpecBadge';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { absoluteUrl } from '@/lib/site';
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 
 interface HowLongPageProps {
   params: Promise<{ appliance: string; food: string }>;
@@ -52,6 +53,12 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
   }
 
   // HowTo / Technical FAQ Schema.org JSON-LD
+  const applianceName = sheet.appliance.replace('-', ' ');
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: 'Cook Times', path: '/cheat-sheet' },
+    { name: sheet.food, path: `/how-long/${sheet.appliance}/${sheet.foodSlug}` },
+  ]);
+
   const schemaJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
@@ -79,6 +86,10 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}

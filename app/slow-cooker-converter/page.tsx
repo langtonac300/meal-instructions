@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import SlowCookerConverter from '@/components/tools/SlowCookerConverter';
 import { SLOW_COOKER_TIME_MAP } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Slow Cooker to Oven Conversion Calculator — High vs Low Times',
   description: 'Convert between Slow Cooker LOW, Slow Cooker HIGH, Dutch Oven, and Conventional 350°F Oven. Liquid reduction formulas, dairy addition timing, and meat tenderness rules.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function SlowCookerConverterPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Slow Cooker to Oven Conversion Calculator', path: '/slow-cooker-converter' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function SlowCookerConverterPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

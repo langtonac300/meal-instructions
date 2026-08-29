@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { BLOG_POSTS } from '@/data/blog-posts';
 import { absoluteUrl, SITE_NAME, SITE_URL } from '@/lib/site';
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import BlogIndexClient from './BlogIndexClient';
 
 export const dynamic = 'force-static';
@@ -62,11 +63,17 @@ export default function BlogIndexPage() {
     },
   };
 
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Blog', path: '/blog' }]);
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
       <BlogIndexClient posts={BLOG_POSTS} />
     </>

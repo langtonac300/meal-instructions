@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import SteakDonenessTimer from '@/components/tools/SteakDonenessTimer';
 import { STEAK_DONENESS_TARGETS, STEAK_CUT_SPECS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Reverse Sear Steak Calculator & Doneness Pull Temperature Guide',
   description: 'Precision reverse sear timing and thermometer pull temperatures for thick Ribeye, NY Strip, Filet Mignon, and Tomahawk steaks. Thermal carryover math included.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function SteakTimerPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Reverse Sear Steak Calculator & Doneness Pull Temperature Guide', path: '/steak-timer' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function SteakTimerPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

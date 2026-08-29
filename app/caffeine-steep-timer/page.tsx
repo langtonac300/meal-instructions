@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import CoffeeExtractionCalculator from '@/components/tools/CoffeeExtractionCalculator';
 import { COFFEE_EXTRACTION_PROFILES } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Coffee & Tea Extraction Ratio Calculator — French Press, Pour Over & AeroPress',
   description: 'Precision coffee-to-water ratios (1:15 to 1:17), exact kettle water temperatures (°F/°C), grind size specifications, and live extraction timers for coffee and tea.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function CaffeineSteepTimerPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Coffee & Tea Extraction Ratio Calculator', path: '/caffeine-steep-timer' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function CaffeineSteepTimerPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

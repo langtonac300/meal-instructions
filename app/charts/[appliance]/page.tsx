@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { APPLIANCES } from '@/data/appliances';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { absoluteUrl } from '@/lib/site';
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { LeanIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon, LeanProbeIcon } from '@/components/icons/Lean5SIcons';
 
 interface ChartPageProps {
@@ -48,9 +49,17 @@ export default async function ChartPage({ params }: ChartPageProps) {
   }
 
   const datasheets = COOK_TIME_DATASHEETS.filter((d) => d.appliance === appliance);
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: 'Charts', path: '/cheat-sheet' },
+    { name: `${appMeta.name} Chart`, path: `/charts/${appMeta.slug}` },
+  ]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       
       {/* Breadcrumb */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle">

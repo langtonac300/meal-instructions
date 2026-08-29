@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import BakersPercentageCalculator from '@/components/tools/BakersPercentageCalculator';
 import { BAKERS_PRESETS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: "Baker's Percentage & Dough Hydration Calculator — Pizza & Bread Math",
   description: 'Precision baker percentage and hydration calculator for Neapolitan pizza, Detroit pan pizza, sourdough boules, and sandwich loaves. Real-time gram scale scaling.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function BakersPercentagePage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: "Baker's Percentage & Dough Hydration Calculator", path: '/bakers-percentage' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function BakersPercentagePage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

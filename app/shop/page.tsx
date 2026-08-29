@@ -7,6 +7,7 @@ import MerchCatalog from '@/components/merch/MerchCatalog';
 import CartDrawer from '@/components/merch/CartDrawer';
 import { CartProvider } from '@/components/merch/CartContext';
 import { SITE_NAME, absoluteUrl } from '@/lib/site';
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Merch & Equipment Supply | Meal Instructions',
@@ -16,8 +17,14 @@ export const metadata: Metadata = {
 };
 
 export default function ShopPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Shop', path: '/shop' }]);
+
   return (
     <CartProvider>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-16 space-y-12">
         
         {/* Breadcrumb & Spec Status */}

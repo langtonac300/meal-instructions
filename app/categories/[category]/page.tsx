@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { CATEGORIES } from '@/data/categories';
 import { getRecipesByCategory } from '@/data/recipes';
 import { absoluteUrl } from '@/lib/site';
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
@@ -68,11 +69,19 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     })),
   };
 
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: catMeta.name, path: `/categories/${category}` },
+  ]);
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
 
       {/* Breadcrumb */}

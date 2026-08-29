@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import IngredientSubstitutionsEngine from '@/components/tools/IngredientSubstitutionsEngine';
 import { INGREDIENT_SUBSTITUTIONS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Emergency Kitchen Ingredient Substitutions Engine — Exact Conversion Ratios',
   description: 'Instant culinary substitutes for buttermilk, heavy cream, cornstarch, eggs in baking, baking powder, brown sugar, tomato paste, and mirin. Physical chemistry explanations and ratio math.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function SubstitutionsPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Emergency Kitchen Ingredient Substitutions Engine', path: '/substitutions' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function SubstitutionsPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import RecipePanScaler from '@/components/tools/RecipePanScaler';
 import { PAN_SPECS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Recipe Pan Size Converter & Baking Dish Area Scaler',
   description: 'Convert recipe ingredients and baking times across different pan sizes: 8x8 square to 9x13 rectangle, 8" round cake to 10" cast iron skillet. Exact geometric surface area multipliers.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function RecipeScalerPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Recipe Pan Size Converter & Baking Dish Area Scaler', path: '/recipe-scaler' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function RecipeScalerPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import DutchOvenBreadTimer from '@/components/tools/DutchOvenBreadTimer';
 import { DUTCH_OVEN_BREAD_SPECS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'No-Knead Dutch Oven Bread Timer — Steam, Crust & Internal Temp Guide',
   description: 'Precision timing for artisan Dutch oven sourdough and country boules: 450°F cast iron preheat, lid-on steam expansion minutes, lid-off Maillard browning, and 208°F internal pull temp.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function DutchOvenBreadTimerPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'No-Knead Dutch Oven Bread Timer', path: '/dutch-oven-bread-timer' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function DutchOvenBreadTimerPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

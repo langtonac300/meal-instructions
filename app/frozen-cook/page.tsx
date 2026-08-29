@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import FrozenCookMatrix from '@/components/tools/FrozenCookMatrix';
 import { FROZEN_ITEMS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Cook From Frozen & Emergency Thaw Matrix — Safe Cooking Rules',
   description: 'Can you cook rock-frozen chicken, steak, ground beef, or salmon directly? USDA FSIS safety rules, +50% cook time curves, and cold-water rapid thaw protocols.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function FrozenCookPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Cook From Frozen & Emergency Thaw Matrix', path: '/frozen-cook' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function FrozenCookPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">

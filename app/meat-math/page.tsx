@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import MeatMathScaler from '@/components/tools/MeatMathScaler';
 import { MEAT_MATH_PROFILES } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Meat Math & BBQ Party Scaler — Raw Butcher Weight & Group Calculator',
   description: 'Hosting a backyard BBQ, game day party, or family cookout? Calculate exact raw meat poundage to buy at Costco or butcher, factoring in 25-45% cooking shrinkage, bones, and buns.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function MeatMathPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Meat Math & BBQ Party Scaler', path: '/meat-math' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function MeatMathPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">

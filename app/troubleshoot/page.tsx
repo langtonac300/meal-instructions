@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import TroubleshootMatrix from '@/components/tools/TroubleshootMatrix';
 import { TROUBLESHOOT_ISSUES } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Kitchen Troubleshooter & Dinner Rescue — 5-Second Fixes for Cooking Disasters',
   description: 'Air fryer smoking? Fries soggy? Steak gray with no crust? Breading sliding off? Instant 5-second diagnostic fixes for common kitchen emergencies.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function TroubleshootPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Kitchen Troubleshooter & Dinner Rescue', path: '/troubleshoot' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function TroubleshootPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">

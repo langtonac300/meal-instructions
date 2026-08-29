@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import GroundBeefFatMatrix from '@/components/tools/GroundBeefFatMatrix';
 import { GROUND_BEEF_FAT_SPECS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Ground Beef Lean-to-Fat Yield & Calorie Matrix — 80/20 vs 93/7',
   description: 'Calculate cooked weight yield, rendered liquid fat ounces, and drained vs undrained calories across 73/27, 80/20, 85/15, 90/10, and 93/7 ground beef blends.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function GroundBeefFatRatioPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Ground Beef Lean-to-Fat Yield & Calorie Matrix', path: '/ground-beef-fat-ratio' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function GroundBeefFatRatioPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
         <Link

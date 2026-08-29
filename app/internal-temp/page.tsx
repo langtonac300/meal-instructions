@@ -7,6 +7,8 @@ import PrintButton from '@/components/PrintButton';
 import InternalTempCalculator from '@/components/tools/InternalTempCalculator';
 import { INTERNAL_TEMP_SPECS } from '@/data/tools-data';
 
+import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
 export const metadata: Metadata = {
   title: 'Meat Thermometer Pull Temp & Thermal Carryover Chart — Safe Rest Targets',
   description: 'When to pull steak, chicken, pork, and salmon off the heat. Accounts for +5°F to +8°F thermal carryover resting rise to achieve peak juiciness while satisfying USDA pasteurization standards.',
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function InternalTempPage() {
+  const breadcrumbs = generateBreadcrumbSchema([{ name: 'Tools', path: '/tools' }, { name: 'Meat Thermometer Pull Temp & Thermal Carryover Chart', path: '/internal-temp' }]);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -28,6 +32,10 @@ export default function InternalTempPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       
       {/* Breadcrumb & Actions */}
       <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
