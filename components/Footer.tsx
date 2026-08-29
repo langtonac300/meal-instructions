@@ -151,7 +151,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/blog" className="text-accent font-bold hover:underline">
-                  🔬 Field Guides (50)
+                  🔬 Field Guides (55)
                 </Link>
               </li>
               <li>
@@ -162,6 +162,11 @@ export default function Footer() {
               <li>
                 <Link href="/llms-full.txt" className="text-ink hover:underline">
                   📚 /llms-full.txt (Markdown)
+                </Link>
+              </li>
+              <li>
+                <Link href="/.well-known/mcp/server-card.json" className="text-ink hover:underline">
+                  🔌 MCP Server Card (AI Tools)
                 </Link>
               </li>
               <li>

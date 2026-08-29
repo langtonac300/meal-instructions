@@ -6,7 +6,7 @@ import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'The Zero-Fluff Manifesto | Meal Instructions',
+  title: 'The Zero-Fluff Manifesto',
   description: 'Why we built the cleanest, fastest cooking platform on earth with zero blog stories, popups, or filler.',
   alternates: { canonical: absoluteUrl('/about') },
 };
