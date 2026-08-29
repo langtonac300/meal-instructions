@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getRecipeBySlug, formatRecipeToMarkdown } from '@/lib/recipe-utils';
+import { getRecipeBySlug, recipeToMarkdown } from '@/lib/recipe-utils';
 
 export async function GET(
   request: NextRequest,
@@ -12,22 +12,16 @@ export async function GET(
     return NextResponse.json({ error: 'Recipe not found' }, { status: 404 });
   }
 
-  // Check if caller wants markdown
-  const acceptHeader = request.headers.get('accept') || '';
-  const searchParams = request.nextUrl.searchParams;
+  const { searchParams } = new URL(request.url);
   const format = searchParams.get('format');
 
-  if (format === 'markdown' || format === 'md' || acceptHeader.includes('text/markdown')) {
-    return new NextResponse(formatRecipeToMarkdown(recipe), {
+  if (format === 'md' || format === 'markdown') {
+    return new NextResponse(recipeToMarkdown(recipe), {
       headers: {
         'Content-Type': 'text/markdown; charset=utf-8',
       },
     });
   }
 
-  return NextResponse.json(recipe, {
-    headers: {
-      'Cache-Control': 'public, max-age=3600',
-    },
-  });
+  return NextResponse.json(recipe);
 }

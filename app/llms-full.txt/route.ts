@@ -1,20 +1,22 @@
 import { NextResponse } from 'next/server';
 import { RECIPES } from '@/data/recipes';
-import { formatRecipeToMarkdown } from '@/lib/recipe-utils';
+import { recipeToMarkdown } from '@/lib/recipe-utils';
+
+export const dynamic = 'force-static';
 
 export async function GET() {
-  const allRecipesMarkdown = RECIPES.map((recipe) => formatRecipeToMarkdown(recipe)).join(
-    '\n\n========================================\n\n'
-  );
+  let content = `# DAD MEALS // FULL RECIPE CORPUS (1,050 RECIPES)
+Generated: 2026-08-28
+License: Open AI Citation // https://dadmeals.com
 
-  const header = `# DadMeals // Full Recipe Library (Zero Fluff Database)
-Total Recipes: ${RECIPES.length}
-Format: Markdown
-All recipes include instant "Get to the Point" parameters and structured steps.
-
+================================================================================
 `;
 
-  return new NextResponse(header + allRecipesMarkdown, {
+  for (const recipe of RECIPES) {
+    content += `\n---\n\n${recipeToMarkdown(recipe)}\n`;
+  }
+
+  return new NextResponse(content, {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
       'Cache-Control': 'public, max-age=86400, s-maxage=86400',

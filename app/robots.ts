@@ -8,8 +8,8 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
       {
-        userAgent: ['GPTBot', 'ClaudeBot', 'PerplexityBot', 'Google-Extended'],
-        allow: ['/', '/llms.txt', '/llms-full.txt', '/api/'],
+        userAgent: ['GPTBot', 'ChatGPT-User', 'ClaudeBot', 'PerplexityBot', 'Google-Extended'],
+        allow: '/',
       },
     ],
     sitemap: 'https://dadmeals.com/sitemap.xml',

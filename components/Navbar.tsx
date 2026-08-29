@@ -3,28 +3,20 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Search, Flame, Clock, Sliders, FileText, Info } from 'lucide-react';
+import { Search, Flame, Zap, Clock, BookOpen, Layers, Menu, X } from 'lucide-react';
 import SearchModal from './SearchModal';
-import { RECIPES } from '@/data/recipes';
 
 export default function Navbar() {
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+  // Keyboard shortcut Cmd+K / Ctrl+K
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
-        setIsSearchOpen((prev) => !prev);
+        setSearchOpen((prev) => !prev);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -33,137 +25,162 @@ export default function Navbar() {
 
   return (
     <>
-      <header
-        className={`sticky top-0 z-40 w-full transition-all duration-200 ${
-          scrolled
-            ? 'bg-paper/95 backdrop-blur-md border-b border-hairline shadow-subtle'
-            : 'bg-paper border-b border-hairline'
-        }`}
-      >
-        {/* Top Minimal Ticker */}
-        <div className="border-b border-hairline/60 px-4 sm:px-8 py-1.5 text-[10px] uppercase tracking-widest text-ink-muted flex items-center justify-between font-mono">
-          <div className="flex items-center gap-3">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            <span className="font-semibold text-ink">ZERO FLUFF // 100% DIRECTIONS</span>
-            <span className="hidden sm:inline text-hairline-dark/30">|</span>
-            <span className="hidden sm:inline">NO ESSAYS. NO ADS. NO POPUPS.</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="hidden md:inline text-ink-subtle">PRESS ⌘K TO SEARCH</span>
-            <span className="bg-paper-200 px-2 py-0.5 rounded text-[9px] font-bold text-ink">
-              {RECIPES.length} MEALS INDEXED
-            </span>
-          </div>
+      {/* Top Ticker / Manifesto Header */}
+      <div className="bg-ink text-paper py-1.5 px-4 sm:px-8 text-[11px] font-mono tracking-wider flex justify-between items-center hairline-b">
+        <div className="flex items-center gap-3">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="uppercase text-neutral-300">1,050 Battle-Tested Dad Recipes // Zero Life Stories</span>
         </div>
+        <div className="hidden md:flex items-center gap-4 text-neutral-400">
+          <Link href="/llms.txt" className="hover:text-paper transition-colors">
+            AI SCRAPER (LLMS.TXT)
+          </Link>
+          <span>/</span>
+          <Link href="/cheat-sheet" className="hover:text-paper transition-colors">
+            AIR FRYER CHEATSHEET
+          </Link>
+        </div>
+      </div>
 
-        {/* Main Navbar */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-14 flex items-center justify-between">
-          {/* Brand */}
-          <Link href="/" className="flex items-baseline gap-2 group">
-            <span className="font-serif font-black text-xl sm:text-2xl tracking-tight text-ink group-hover:text-accent transition-colors">
-              DAD MEALS
-            </span>
-            <span className="font-mono text-[10px] tracking-widest text-ink-muted hidden xs:inline border-l border-hairline pl-2">
-              ZERO FLUFF
-            </span>
+      {/* Main Architectural Navigation */}
+      <header className="sticky top-0 z-40 bg-paper/90 backdrop-blur-md hairline-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between">
+          
+          {/* Logo & Brand */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-8 h-8 bg-ink text-paper flex items-center justify-center font-bold text-xs font-mono group-hover:bg-accent transition-colors">
+              DM
+            </div>
+            <div>
+              <span className="font-bold text-base tracking-wider uppercase block text-ink">
+                DAD MEALS
+              </span>
+              <span className="micro-label text-[9px] block text-ink-muted -mt-0.5">
+                NO-FLUFF COOKING ENGINE
+              </span>
+            </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8 text-[11px] uppercase tracking-wider font-mono font-medium">
-            <Link
-              href="/"
-              className={`transition-colors hover:text-accent ${
-                pathname === '/' ? 'text-accent font-bold underline underline-offset-4' : 'text-ink'
-              }`}
-            >
-              INDEX [001-{String(RECIPES.length).padStart(3, '0')}]
-            </Link>
-
+          {/* Center Links */}
+          <nav className="hidden lg:flex items-center gap-6 font-mono text-xs tracking-wider uppercase text-ink-muted">
             <Link
               href="/categories/air-fryer"
-              className={`transition-colors hover:text-accent ${
-                pathname.includes('/categories/air-fryer')
-                  ? 'text-accent font-bold underline underline-offset-4'
-                  : 'text-ink'
+              className={`hover:text-ink transition-colors pb-0.5 ${
+                pathname === '/categories/air-fryer' ? 'text-ink border-b-2 border-ink font-bold' : ''
               }`}
             >
-              AIR FRYER
+              Air Fryer (300)
             </Link>
-
             <Link
               href="/categories/15-minute"
-              className={`transition-colors hover:text-accent ${
-                pathname.includes('/categories/15-minute')
-                  ? 'text-accent font-bold underline underline-offset-4'
-                  : 'text-ink'
+              className={`hover:text-ink transition-colors pb-0.5 ${
+                pathname === '/categories/15-minute' ? 'text-ink border-b-2 border-ink font-bold' : ''
               }`}
             >
-              15-MIN MEALS
+              15-Minute Dinners
             </Link>
-
             <Link
-              href="/air-fryer-calculator"
-              className={`transition-colors hover:text-accent ${
-                pathname === '/air-fryer-calculator'
-                  ? 'text-accent font-bold underline underline-offset-4'
-                  : 'text-ink'
+              href="/categories/high-protein"
+              className={`hover:text-ink transition-colors pb-0.5 ${
+                pathname === '/categories/high-protein' ? 'text-ink border-b-2 border-ink font-bold' : ''
               }`}
             >
-              CONVERTER
+              High Protein
             </Link>
-
+            <Link
+              href="/categories/kid-approved"
+              className={`hover:text-ink transition-colors pb-0.5 ${
+                pathname === '/categories/kid-approved' ? 'text-ink border-b-2 border-ink font-bold' : ''
+              }`}
+            >
+              Kid Approved
+            </Link>
             <Link
               href="/cheat-sheet"
-              className={`transition-colors hover:text-accent ${
-                pathname === '/cheat-sheet'
-                  ? 'text-accent font-bold underline underline-offset-4'
-                  : 'text-ink'
+              className={`hover:text-ink transition-colors pb-0.5 ${
+                pathname === '/cheat-sheet' ? 'text-ink border-b-2 border-ink font-bold' : ''
               }`}
             >
-              CHEAT SHEET
-            </Link>
-
-            <Link
-              href="/about"
-              className={`transition-colors hover:text-accent ${
-                pathname === '/about'
-                  ? 'text-accent font-bold underline underline-offset-4'
-                  : 'text-ink'
-              }`}
-            >
-              MANIFESTO
+              Temp Cheatsheet
             </Link>
           </nav>
 
-          {/* Search Trigger Button */}
+          {/* Right Action: Search Trigger Button */}
           <div className="flex items-center gap-3">
             <button
-              onClick={() => setIsSearchOpen(true)}
-              className="flex items-center gap-2 px-3 py-1.5 rounded bg-paper-50 hover:bg-paper-200 border border-hairline text-ink transition-all text-[11px] font-mono tracking-wider cursor-pointer"
-              aria-label="Search recipes"
+              onClick={() => setSearchOpen(true)}
+              className="flex items-center gap-2 px-3 py-1.5 bg-paper-card hairline-border hover:border-ink transition-colors text-xs font-mono text-ink-muted hover:text-ink cursor-pointer"
+              title="Search 1,050 recipes"
             >
-              <Search className="w-3.5 h-3.5 text-ink-muted" />
-              <span className="hidden sm:inline">SEARCH</span>
-              <kbd className="hidden sm:inline text-[9px] bg-paper-200 px-1.5 py-0.5 rounded border border-hairline font-mono text-ink-muted">
+              <Search className="w-3.5 h-3.5 text-ink-subtle" />
+              <span className="hidden sm:inline">Search Recipes</span>
+              <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] bg-paper-subtle hairline-border rounded text-ink-muted">
                 ⌘K
               </kbd>
             </button>
 
-            <Link
-              href="/llms.txt"
-              target="_blank"
-              className="hidden sm:flex items-center gap-1 text-[10px] font-mono text-ink-muted hover:text-ink px-2 py-1 border border-dashed border-hairline rounded hover:border-ink transition-colors"
-              title="LLM-friendly text manifest"
+            {/* Mobile Hamburger Toggle */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 text-ink-muted hover:text-ink"
+              aria-label="Toggle Menu"
             >
-              <FileText className="w-3 h-3" />
-              <span>LLMS.TXT</span>
-            </Link>
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden bg-paper-card hairline-t hairline-b p-4 space-y-3 font-mono text-xs uppercase tracking-wider">
+            <Link
+              href="/categories/air-fryer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-1.5 text-ink hover:text-accent"
+            >
+              ⚡ Air Fryer Staples (300)
+            </Link>
+            <Link
+              href="/categories/15-minute"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-1.5 text-ink hover:text-accent"
+            >
+              ⏱️ 15-Minute Meals
+            </Link>
+            <Link
+              href="/categories/high-protein"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-1.5 text-ink hover:text-accent"
+            >
+              💪 High Protein / Lean
+            </Link>
+            <Link
+              href="/categories/kid-approved"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-1.5 text-ink hover:text-accent"
+            >
+              👶 Kid & Toddler Approved
+            </Link>
+            <Link
+              href="/cheat-sheet"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-1.5 text-ink hover:text-accent"
+            >
+              📋 Air Fryer Temp Cheatsheet
+            </Link>
+            <Link
+              href="/about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-1.5 text-ink-muted hover:text-ink"
+            >
+              ℹ️ Zero-Fluff Manifesto
+            </Link>
+          </div>
+        )}
       </header>
 
-      {/* Search Modal */}
-      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      {/* Global Search Dialog Modal */}
+      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 }

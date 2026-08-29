@@ -6,24 +6,23 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   metadataBase: new URL('https://dadmeals.com'),
   title: {
-    default: 'Dad Meals // Zero Fluff Air Fryer & Quick Family Dinners',
-    template: '%s | Dad Meals Zero Fluff',
+    default: 'Dad Meals // Zero Fluff Cooking & Air Fryer Engine',
+    template: '%s | Dad Meals // Zero Fluff',
   },
   description:
-    'No life stories, zero blog fluff, 100% specific cooking directions. High-speed air fryer, 15-minute skillet, and sheet pan meals engineered for busy dads.',
+    '1,050+ battle-tested simple air fryer and dad meals with zero life stories or blog fluff. Instant directions, exact temps, and 20-word execution.',
   keywords: [
+    'dad recipes',
     'air fryer recipes',
-    'quick dad meals',
-    'no fluff recipes',
-    '15 minute dinners',
-    'easy family meals',
-    'air fryer chicken tenders',
-    'air fryer burgers',
-    'air fryer salmon',
-    'crispy air fryer recipes',
-    'dad cooking guide',
+    'quick weeknight dinners',
+    'no fluff recipe website',
+    '15 minute meals',
+    'high protein dad cooking',
+    'kid friendly dinners',
+    'crispy chicken tenders',
+    'cast iron smash burgers',
   ],
-  authors: [{ name: 'Dad Meals Zero Fluff Team' }],
+  authors: [{ name: 'Dad Meals Kitchen' }],
   creator: 'Dad Meals',
   publisher: 'Dad Meals',
   robots: {
@@ -38,21 +37,18 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://dadmeals.com',
-    siteName: 'Dad Meals Zero Fluff',
-    title: 'Dad Meals // Zero Fluff Air Fryer & Quick Family Dinners',
+    title: 'Dad Meals // Zero Fluff Cooking & Air Fryer Engine',
     description:
-      'No life stories. 0 popups. Instant dual-mode directions (Get to the Point vs Step-by-Step). Over 40+ tested dad meals.',
+      '1,050+ battle-tested simple air fryer and dad meals with zero life stories or blog fluff. Instant directions, exact temps, and 20-word execution.',
+    url: 'https://dadmeals.com',
+    siteName: 'Dad Meals',
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dad Meals // Zero Fluff Cooking',
-    description: '100% directions. 0 fluff. Quick air fryer & weeknight family recipes.',
-  },
-  alternates: {
-    canonical: 'https://dadmeals.com',
+    title: 'Dad Meals // Zero Fluff Cooking Engine',
+    description: '1,050+ battle-tested simple dad meals. No fluff. Just execution.',
   },
 };
 
@@ -61,15 +57,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
+  // Global WebSite & Organization JSON-LD Schema
+  const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Dad Meals // Zero Fluff',
     url: 'https://dadmeals.com',
-    description: 'High-speed, zero-fluff cooking instructions for air fryer and quick dad meals.',
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://dadmeals.com/recipes?q={search_term_string}',
+      target: 'https://dadmeals.com/?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
   };
@@ -77,15 +73,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-paper text-ink">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="bg-paper text-ink flex flex-col min-h-screen">
+      <body className="min-h-screen flex flex-col font-sans selection:bg-ink selection:text-paper">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>

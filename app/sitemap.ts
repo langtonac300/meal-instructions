@@ -5,61 +5,64 @@ import { APPLIANCES } from '@/data/appliances';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://dadmeals.com';
-  const currentDate = new Date().toISOString();
 
-  const staticRoutes: MetadataRoute.Sitemap = [
+  // Core static pages
+  const staticPages: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}/`,
-      lastModified: currentDate,
+      url: baseUrl,
+      lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/recipes`,
-      lastModified: currentDate,
-      changeFrequency: 'daily',
+      url: `${baseUrl}/cheat-sheet`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/air-fryer-calculator`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/cheat-sheet`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/about`,
-      lastModified: currentDate,
+      lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/llms.txt`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/llms-full.txt`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
   ];
 
-  const categoryRoutes: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
+  // Category pages
+  const categoryPages: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
     url: `${baseUrl}/categories/${cat.slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly',
+    lastModified: new Date(),
+    changeFrequency: 'daily',
     priority: 0.85,
   }));
 
-  const applianceRoutes: MetadataRoute.Sitemap = APPLIANCES.map((app) => ({
+  // Appliance pages
+  const appliancePages: MetadataRoute.Sitemap = APPLIANCES.map((app) => ({
     url: `${baseUrl}/appliances/${app.slug}`,
-    lastModified: currentDate,
+    lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.8,
   }));
 
-  const recipeRoutes: MetadataRoute.Sitemap = RECIPES.map((recipe) => ({
+  // All 1,050 Recipe detail pages
+  const recipePages: MetadataRoute.Sitemap = RECIPES.map((recipe) => ({
     url: `${baseUrl}/recipes/${recipe.slug}`,
-    lastModified: recipe.lastUpdated || currentDate,
+    lastModified: new Date(recipe.lastUpdated),
     changeFrequency: 'weekly',
-    priority: 0.95,
+    priority: 0.9,
   }));
 
-  return [...staticRoutes, ...categoryRoutes, ...applianceRoutes, ...recipeRoutes];
+  return [...staticPages, ...categoryPages, ...appliancePages, ...recipePages];
 }

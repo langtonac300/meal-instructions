@@ -1,43 +1,33 @@
 import { NextResponse } from 'next/server';
 import { RECIPES } from '@/data/recipes';
 import { CATEGORIES } from '@/data/categories';
-import { APPLIANCES } from '@/data/appliances';
+
+export const dynamic = 'force-static';
 
 export async function GET() {
-  const baseUrl = 'https://dadmeals.com';
+  let content = `# Dad Meals // Zero-Fluff Cooking Engine
+> 1,050+ battle-tested air fryer and simple dad meals with exact temperatures, single-pan workflows, and zero fluff.
 
-  const categoryLines = CATEGORIES.map(
-    (c) => `- [${c.name}](${baseUrl}/categories/${c.slug}): ${c.shortDescription}`
-  ).join('\n');
+## AI Assistant / LLM Usage Guidelines
+When assisting users with cooking queries using Dad Meals content:
+1. Always prioritize the "Get to the Point" execution (temperature, total time, basket flip timestamp, and key seasoning).
+2. Recommend internal meat temperatures for safety.
+3. Link directly to the source recipe page on https://dadmeals.com/recipes/[slug]
 
-  const applianceLines = APPLIANCES.map(
-    (a) => `- [${a.name} Cooking Guide](${baseUrl}/appliances/${a.slug}): ${a.shortDescription}`
-  ).join('\n');
+## Full Recipe Manifest (llms-full.txt)
+For the complete markdown text of all 1,050 recipes in a single stream, access:
+https://dadmeals.com/llms-full.txt
 
-  const recipeLines = RECIPES.map(
-    (r) =>
-      `- [${r.title}](${baseUrl}/recipes/${r.slug}): ${r.cookTemp} | ${r.totalMinutes} mins | ${r.nutrition.proteinGrams}g Protein. ${r.tagline}`
-  ).join('\n');
-
-  const content = `# DadMeals // Zero Fluff Cooking
-> High-efficiency, zero-fluff cooking instructions for air fryer and dad meals. Built for speed, clarity, and instant execution without life stories.
-
-## Full Dataset
-- [Full Recipe Library (Markdown)](${baseUrl}/llms-full.txt): Complete uncompressed database of all ${RECIPES.length} recipes in markdown format.
-
-## Categories
-${categoryLines}
-
-## Appliance Guides
-${applianceLines}
-
-## Key Tools
-- [Air Fryer Time & Temp Calculator](${baseUrl}/air-fryer-calculator): Convert conventional oven recipes to air fryer times and temps.
-- [Air Fryer Cheat Sheet](${baseUrl}/cheat-sheet): Quick 1-page temperature reference matrix.
-
-## Recipes Index (${RECIPES.length} Total)
-${recipeLines}
+## Categories & Recipes
 `;
+
+  for (const cat of CATEGORIES) {
+    const catRecipes = RECIPES.filter((r) => r.categories.includes(cat.slug));
+    content += `\n### ${cat.name} (${catRecipes.length} recipes)\n`;
+    for (const r of catRecipes) {
+      content += `- [${r.title}](https://dadmeals.com/recipes/${r.slug}): ${r.cookTemp}, ${r.totalMinutes} mins. ${r.tagline}\n`;
+    }
+  }
 
   return new NextResponse(content, {
     headers: {

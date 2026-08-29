@@ -2,70 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --paper: #f5f4f0;
-    --ink: #111111;
-  }
-
-  html {
-    background-color: #f5f4f0;
-    color: #111111;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    background-color: #f5f4f0;
-    color: #111111;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  ::selection {
-    background-color: #c84b2c;
-    color: #ffffff;
-  }
+:root {
+  --paper: #f5f4f0;
+  --paper-card: #faf9f6;
+  --paper-subtle: #ece9e1;
+  --ink: #111111;
+  --ink-muted: #5a5854;
+  --ink-subtle: #8e8a82;
+  --hairline: #dfdcce;
 }
 
-/* Custom Minimalist Scrollbar */
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Kellerstöckl Architectural Hairline Borders */
+.hairline-b {
+  border-bottom: 1px solid var(--hairline);
+}
+.hairline-t {
+  border-top: 1px solid var(--hairline);
+}
+.hairline-r {
+  border-right: 1px solid var(--hairline);
+}
+.hairline-l {
+  border-left: 1px solid var(--hairline);
+}
+.hairline-border {
+  border: 1px solid var(--hairline);
+}
+
+/* Micro-typography */
+.micro-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.mono-num {
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: -0.02em;
+}
+
+/* Smooth minimal scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f5f4f0;
+  background: var(--paper);
 }
 ::-webkit-scrollbar-thumb {
-  background: #dfdcce;
+  background: #d4d0c2;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #111111;
+  background: #bab5a4;
 }
 
-/* Print Styles: Clean 1-page paper output for kitchen use */
+/* Print Optimization for Recipe Cards (Clean single page print) */
 @media print {
-  header, footer, nav, button, .no-print {
-    display: none !important;
-  }
-
   body {
     background: #ffffff !important;
     color: #000000 !important;
-    font-size: 11pt !important;
+    font-size: 12pt;
   }
-
-  article {
+  header, footer, nav, .no-print, button, .interactive-timer {
+    display: none !important;
+  }
+  .print-page {
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
+    margin: 0 !important;
   }
-
-  .print-only {
-    display: block !important;
+  .hairline-border {
+    border: 1px solid #cccccc !important;
   }
 }

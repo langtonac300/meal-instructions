@@ -1,20 +1,23 @@
+import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { RECIPES } from '@/data/recipes';
 import { getRecipeBySlug, getRelatedRecipes, generateRecipeSchema } from '@/lib/recipe-utils';
 import RecipeClient from './RecipeClient';
 
+interface RecipePageProps {
+  params: Promise<{ slug: string }>;
+}
+
+// Generate static params for all recipes
 export async function generateStaticParams() {
   return RECIPES.map((recipe) => ({
     slug: recipe.slug,
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+// Generate dynamic SEO Metadata with OpenGraph and Twitter cards
+export async function generateMetadata({ params }: RecipePageProps): Promise<Metadata> {
   const { slug } = await params;
   const recipe = getRecipeBySlug(slug);
 
@@ -24,8 +27,8 @@ export async function generateMetadata({
     };
   }
 
-  const title = `${recipe.title} (${recipe.cookTemp.split(' ')[0]} / ${recipe.totalMinutes} Mins) | No Fluff Recipe`;
-  const description = `${recipe.tagline} No life stories, zero fluff. Quick temp, exact cook time, and step-by-step instructions.`;
+  const title = `${recipe.title} (${recipe.cookTemp.split(' ')[0]}, ${recipe.totalMinutes} Mins) | No Fluff Recipe`;
+  const description = `${recipe.tagline} No fluff, exact directions for ${recipe.appliance}. Ready in ${recipe.totalMinutes} minutes.`;
 
   return {
     title,
@@ -35,10 +38,10 @@ export async function generateMetadata({
       title,
       description,
       type: 'article',
-      url: `https://dadmeals.com/recipes/${recipe.slug}`,
       publishedTime: recipe.datePublished,
       modifiedTime: recipe.lastUpdated,
       tags: recipe.keywords,
+      url: `https://dadmeals.com/recipes/${recipe.slug}`,
     },
     twitter: {
       card: 'summary_large_image',
@@ -51,11 +54,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function RecipePage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function RecipePage({ params }: RecipePageProps) {
   const { slug } = await params;
   const recipe = getRecipeBySlug(slug);
 
@@ -64,13 +63,14 @@ export default async function RecipePage({
   }
 
   const relatedRecipes = getRelatedRecipes(recipe, 3);
-  const schemaJson = generateRecipeSchema(recipe);
+  // Schema.org JSON-LD structured data for Google Recipe snippet cards
+  const schemaJsonLd = generateRecipeSchema(recipe);
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJson) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}
       />
       <RecipeClient recipe={recipe} relatedRecipes={relatedRecipes} />
     </>

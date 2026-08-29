@@ -10,7 +10,7 @@ export function getRecipeBySlug(slug: string): Recipe | undefined {
 }
 
 export function getRecipesByCategory(category: string): Recipe[] {
-  return RECIPES.filter((r) => r.categories.includes(category as any));
+  return RECIPES.filter((r) => (r.categories as string[]).includes(category));
 }
 
 export function getRecipesByAppliance(appliance: string): Recipe[] {
@@ -26,7 +26,7 @@ export function getRelatedRecipes(recipe: Recipe, limit = 3): Recipe[] {
     (r) =>
       r.slug !== recipe.slug &&
       (r.appliance === recipe.appliance ||
-        r.categories.some((c) => recipe.categories.includes(c)) ||
+        r.categories.some((c) => (recipe.categories as string[]).includes(c)) ||
         r.protein === recipe.protein)
   ).slice(0, limit);
 }
@@ -38,32 +38,36 @@ export function scaleIngredientAmount(
 ): string {
   const scaled = (amount / baseServings) * targetServings;
   if (scaled === 0) return '';
-  
-  // Format nicely to fractions or 1-2 decimal spots
+
+  // Clean fractions
   if (Math.abs(scaled - 0.25) < 0.05) return '1/4';
   if (Math.abs(scaled - 0.33) < 0.05) return '1/3';
   if (Math.abs(scaled - 0.5) < 0.05) return '1/2';
   if (Math.abs(scaled - 0.66) < 0.05) return '2/3';
   if (Math.abs(scaled - 0.75) < 0.05) return '3/4';
-  if (scaled % 1 === 0) return scaled.toString();
-  
-  return scaled.toFixed(1).replace(/\.0$/, '');
+  if (Math.abs(scaled - 1.25) < 0.05) return '1 1/4';
+  if (Math.abs(scaled - 1.5) < 0.05) return '1 1/2';
+  if (Math.abs(scaled - 1.75) < 0.05) return '1 3/4';
+  if (Math.abs(scaled - 2.5) < 0.05) return '2 1/2';
+
+  if (Number.isInteger(scaled)) return scaled.toString();
+  return (Math.round(scaled * 10) / 10).toString();
 }
+
+export const formatScaledAmount = scaleIngredientAmount;
 
 export function generateRecipeSchema(recipe: Recipe, baseUrl = 'https://dadmeals.com') {
   return {
     '@context': 'https://schema.org',
     '@type': 'Recipe',
     name: recipe.title,
+    headline: recipe.title,
     description: recipe.tagline,
     url: `${baseUrl}/recipes/${recipe.slug}`,
-    image: [
-      `${baseUrl}/og-image.jpg`,
-      `${baseUrl}/recipes/${recipe.slug}/opengraph-image`,
-    ],
+    image: [`${baseUrl}/og-image.jpg`],
     author: {
       '@type': 'Organization',
-      name: 'DadMeals Zero Fluff',
+      name: 'Dad Meals // Zero Fluff',
       url: baseUrl,
     },
     datePublished: recipe.datePublished,
@@ -73,7 +77,7 @@ export function generateRecipeSchema(recipe: Recipe, baseUrl = 'https://dadmeals
     keywords: recipe.keywords.join(', '),
     recipeYield: `${recipe.defaultServings} servings`,
     recipeCategory: recipe.categories.join(', '),
-    recipeCuisine: 'American / Fast Family',
+    recipeCuisine: 'American',
     nutrition: {
       '@type': 'NutritionInformation',
       calories: `${recipe.nutrition.calories} calories`,
@@ -114,7 +118,7 @@ export function formatRecipeToMarkdown(recipe: Recipe): string {
     )
     .join('\n\n');
 
-  const quickBullets = recipe.quickVersion.bullets.map((b) => `- ${b}`).join('\n');
+  const quickBullets = recipe.quickVersion.bullets.map((b, i) => `${i + 1}. ${b}`).join('\n');
 
   return `---
 title: ${recipe.title}
@@ -155,3 +159,5 @@ ${recipe.kidAdjustment ? `## 👶 Kid & Picky Eater Adjustment\n${recipe.kidAdju
 ${recipe.reheatInstructions}
 `;
 }
+
+export const recipeToMarkdown = formatRecipeToMarkdown;
