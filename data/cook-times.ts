@@ -25,6 +25,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     proTip: 'Pat completely dry before breading. Spray top with oil to eliminate dry white flour spots.',
     verificationBasis: 'Ninja Foodi AF100 Series Cooking Chart; USDA FSIS 165°F standard.',
     relatedRecipeSlug: 'crispy-air-fryer-chicken-tenders',
+    keywords: ['how long to air fry chicken tenders', 'chicken tenders air fryer time', 'chicken tenders air fryer temperature', 'air fryer chicken tenders', 'chicken tenders internal temp'],
+    metaDescription: 'How long to cook chicken tenders in the air fryer: 400°F (204°C) for 10–12 mins. Internal target 165°F (74°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-002',
@@ -48,6 +50,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'No pre-thawing needed. Keep space between tenders so air circulates underneath.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+    keywords: ['how long to air fry chicken tenders', 'chicken tenders air fryer time', 'chicken tenders air fryer temperature', 'air fryer chicken tenders', 'frozen chicken tenders air fryer', 'how long to air fry frozen chicken tenders', 'chicken tenders internal temp'],
+    metaDescription: 'How long to cook chicken tenders from frozen in the air fryer: 390°F (199°C) for 10–12 mins. Internal target 165°F (74°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-003',
@@ -72,6 +76,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     proTip: 'Start at 380°F to render sub-cutaneous fat, then bump to 400°F for last 5 mins to blister skin.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
     relatedRecipeSlug: 'air-fryer-crispy-garlic-parm-wings',
+    keywords: ['how long to air fry chicken wings', 'chicken wings air fryer time', 'chicken wings air fryer temperature', 'air fryer chicken wings', 'chicken wings internal temp'],
+    metaDescription: 'How long to cook chicken wings in the air fryer: 380°F for 15m, then 400°F for 5m for 20 mins total. Internal target 175°F–185°F (tender collagen breakdown). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-004',
@@ -95,6 +101,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Pound to uniform thickness so the tapered tail does not dry out before center finishes.',
     verificationBasis: 'Cosori Pro II Technical Guide; USDA FSIS 165°F standard.',
+    keywords: ['how long to air fry chicken breast', 'chicken breast air fryer time', 'chicken breast air fryer temperature', 'air fryer chicken breast', 'chicken breast internal temp'],
+    metaDescription: 'How long to cook chicken breast in the air fryer: 380°F (193°C) for 12–15 mins. Internal target 165°F (74°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-005',
@@ -118,6 +126,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Dark meat thighs taste best at 175°F+ internal where connective tissue melts into juice.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+    keywords: ['how long to air fry chicken thighs', 'chicken thighs air fryer time', 'chicken thighs air fryer temperature', 'air fryer chicken thighs', 'chicken thighs internal temp'],
+    metaDescription: 'How long to cook chicken thighs in the air fryer: 390°F (199°C) for 14–16 mins. Internal target 175°F (79°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-006',
@@ -143,6 +153,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'air-fryer-crispy-bone-in-chicken-thighs',
+    keywords: ['how long to air fry chicken thighs', 'chicken thighs air fryer time', 'chicken thighs air fryer temperature', 'air fryer chicken thighs', 'chicken thighs internal temp'],
+    metaDescription: 'How long to cook chicken thighs in the air fryer: 380°F (193°C) for 22–24 mins. Internal target 180°F (82°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-007',
@@ -168,6 +180,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'air-fryer-bbq-chicken-drumsticks',
+    keywords: ['how long to air fry chicken drumsticks', 'chicken drumsticks air fryer time', 'chicken drumsticks air fryer temperature', 'air fryer chicken drumsticks', 'chicken drumsticks internal temp'],
+    metaDescription: 'How long to cook chicken drumsticks in the air fryer: 380°F (193°C) for 20–22 mins. Internal target 180°F (82°C). Verified times, no guesswork.',
   },
 
   // ── AIR FRYER BEEF & BURGERS ──
@@ -194,6 +208,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     proTip: 'Add cheese slice in the last 60 seconds with unit turned OFF so fan doesn\'t blow cheese.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
     relatedRecipeSlug: 'air-fryer-juicy-bacon-cheeseburgers',
+    keywords: ['how long to air fry burgers', 'burgers air fryer time', 'burgers air fryer temperature', 'air fryer burgers', 'burgers internal temp'],
+    metaDescription: 'How long to cook burgers in the air fryer: 375°F (190°C) for 10 mins. Internal target 160°F (71°C) for medium-well. Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-009',
@@ -217,6 +233,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Season with salt and pepper halfway through after flipping when surface ice melts.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+    keywords: ['how long to air fry burgers', 'burgers air fryer time', 'burgers air fryer temperature', 'air fryer burgers', 'frozen burgers air fryer', 'how long to air fry frozen burgers', 'burgers internal temp'],
+    metaDescription: 'How long to cook burgers from frozen in the air fryer: 375°F (190°C) for 14 mins. Internal target 160°F (71°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-010',
@@ -241,6 +259,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     proTip: 'Toss immediately with 2 tbsp melted garlic butter and parsley in a warm bowl after removing.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
     relatedRecipeSlug: 'air-fryer-sirloin-steak-bites',
+    keywords: ['how long to air fry steak bites', 'steak bites air fryer time', 'steak bites air fryer temperature', 'air fryer steak bites', 'steak bites internal temp'],
+    metaDescription: 'How long to cook steak bites in the air fryer: 400°F (204°C) for 6–8 mins. Internal target 135°F (medium-rare) / 145°F (medium). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-011',
@@ -264,6 +284,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Air frying gives meatballs a browned crust on all sides without flattening on a pan.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+    keywords: ['how long to air fry meatballs', 'meatballs air fryer time', 'meatballs air fryer temperature', 'air fryer meatballs', 'meatballs internal temp'],
+    metaDescription: 'How long to cook meatballs in the air fryer: 380°F (193°C) for 10–12 mins. Internal target 165°F (74°C). Verified times, no guesswork.',
   },
 
   // ── AIR FRYER SEAFOOD ──
@@ -290,6 +312,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     proTip: 'Place skin-side DOWN. Do NOT flip salmon—the convection air crisps the top glaze.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
     relatedRecipeSlug: 'air-fryer-10-minute-garlic-butter-salmon',
+    keywords: ['how long to air fry salmon', 'salmon air fryer time', 'salmon air fryer temperature', 'air fryer salmon', 'salmon internal temp'],
+    metaDescription: 'How long to cook salmon in the air fryer: 400°F (204°C) for 8–10 mins. Internal target 135°F (flaky medium) -> 140°F rest. Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-013',
@@ -313,6 +337,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Cook 6 mins dry to thaw surface, then brush with olive oil and spices at the flip mark.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+    keywords: ['how long to air fry salmon', 'salmon air fryer time', 'salmon air fryer temperature', 'air fryer salmon', 'frozen salmon air fryer', 'how long to air fry frozen salmon', 'salmon internal temp'],
+    metaDescription: 'How long to cook salmon from frozen in the air fryer: 380°F (193°C) for 14–16 mins. Internal target 138°F–142°F. Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-014',
@@ -336,6 +362,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Shrimp cook fast! Check at 6 minutes; pull as soon as the center turns opaque white.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+    keywords: ['how long to air fry shrimp', 'shrimp air fryer time', 'shrimp air fryer temperature', 'air fryer shrimp', 'shrimp internal temp'],
+    metaDescription: 'How long to cook shrimp in the air fryer: 400°F (204°C) for 6–8 mins. Internal target 145°F (63°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-015',
@@ -361,6 +389,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'air-fryer-cod-fish-sticks',
+    keywords: ['how long to air fry cod', 'cod air fryer time', 'cod air fryer temperature', 'air fryer cod', 'cod internal temp'],
+    metaDescription: 'How long to cook cod in the air fryer: 390°F (199°C) for 9–11 mins. Internal target 145°F (63°C). Verified times, no guesswork.',
   },
 
   // ── AIR FRYER PORK & SAUSAGE ──
@@ -388,6 +418,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'air-fryer-crispy-parmesan-pork-chops',
+    keywords: ['how long to air fry buffalo cauliflower', 'buffalo cauliflower air fryer time', 'buffalo cauliflower air fryer temperature', 'air fryer buffalo cauliflower', 'buffalo cauliflower internal temp'],
+    metaDescription: 'How long to cook buffalo cauliflower in the air fryer: 390°F (199°C) for 12–15 mins. Internal target 165°F (tender with charred edges). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-017',
@@ -413,6 +445,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Manufacturer Appliance Reference & USDA FSIS Safe Internal Temperature Standard.',
 
     relatedRecipeSlug: 'air-fryer-bacon-no-splatter',
+    keywords: ['how long to air fry hard boiled eggs', 'hard boiled eggs air fryer time', 'hard boiled eggs air fryer temperature', 'air fryer hard boiled eggs', 'hard boiled eggs internal temp'],
+    metaDescription: 'How long to cook hard boiled eggs in the air fryer: 270°F (132°C) for 13–15 mins. Internal target 160°F (set yolk). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-018',
@@ -436,6 +470,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Never poke holes in fresh sausages—it lets all internal moisture drain out.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+    keywords: ['how long to air fry bratwurst', 'bratwurst air fryer time', 'bratwurst air fryer temperature', 'air fryer bratwurst', 'bratwurst internal temp'],
+    metaDescription: 'How long to cook bratwurst in the air fryer: 375°F (190°C) for 12–15 mins. Internal target 160°F (71°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-019',
@@ -461,6 +497,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'air-fryer-pork-tenderloin',
+    keywords: ['how long to air fry pork tenderloin', 'pork tenderloin air fryer time', 'pork tenderloin air fryer temperature', 'air fryer pork tenderloin', 'pork tenderloin internal temp'],
+    metaDescription: 'How long to cook pork tenderloin in the air fryer: 400°F (204°C) for 18–20 mins. Internal target 140°F (pull) -> 145°F (after 10m rest). Verified times, no guesswork.',
   },
 
   // ── AIR FRYER VEGETABLES & SIDES ──
@@ -488,6 +526,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Manufacturer Appliance Reference & USDA FSIS Safe Internal Temperature Standard.',
 
     relatedRecipeSlug: 'air-fryer-frozen-chicken-nuggets-and-fries',
+    keywords: ['how long to air fry french fries', 'french fries air fryer time', 'french fries air fryer temperature', 'air fryer french fries', 'frozen french fries air fryer', 'how long to air fry frozen french fries'],
+    metaDescription: 'How long to cook french fries from frozen in the air fryer: 400°F (204°C) for 14–16 mins. Internal target Piping hot & golden. Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-021',
@@ -513,6 +553,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'air-fryer-crispy-broccoli',
+    keywords: ['how long to air fry broccoli', 'broccoli air fryer time', 'broccoli air fryer temperature', 'air fryer broccoli', 'broccoli internal temp'],
+    metaDescription: 'How long to cook broccoli in the air fryer: 380°F (193°C) for 8 mins. Internal target Tender-crisp with charred tips. Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-022',
@@ -538,6 +580,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'air-fryer-loaded-baked-potatoes',
+    keywords: ['how long to air fry baked potatoes', 'baked potatoes air fryer time', 'baked potatoes air fryer temperature', 'air fryer baked potatoes'],
+    metaDescription: 'How long to cook baked potatoes in the air fryer: 400°F (204°C) for 40–45 mins. Internal target 205°F–210°F (fluffiest texture). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-023',
@@ -563,6 +607,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'air-fryer-frozen-mozzarella-sticks',
+    keywords: ['how long to air fry mozzarella sticks', 'mozzarella sticks air fryer time', 'mozzarella sticks air fryer temperature', 'air fryer mozzarella sticks', 'frozen mozzarella sticks air fryer', 'how long to air fry frozen mozzarella sticks', 'mozzarella sticks internal temp'],
+    metaDescription: 'How long to cook mozzarella sticks from frozen in the air fryer: 380°F (193°C) for 5–6 mins. Internal target Melted cheese stretch. Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-024',
@@ -588,6 +634,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'air-fryer-frozen-gyoza-potstickers',
+    keywords: ['how long to air fry dumplings', 'dumplings air fryer time', 'dumplings air fryer temperature', 'air fryer dumplings', 'frozen dumplings air fryer', 'how long to air fry frozen dumplings', 'dumplings internal temp'],
+    metaDescription: 'How long to cook dumplings from frozen in the air fryer: 380°F (193°C) for 8–10 mins. Internal target 165°F (74°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-025',
@@ -611,6 +659,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Snap off woody ends by hand where they naturally break before seasoning.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+    keywords: ['how long to air fry asparagus', 'asparagus air fryer time', 'asparagus air fryer temperature', 'air fryer asparagus', 'asparagus internal temp'],
+    metaDescription: 'How long to cook asparagus in the air fryer: 390°F (199°C) for 6–8 mins. Internal target Tender crisp. Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-026',
@@ -636,6 +686,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'air-fryer-tater-tot-breakfast-casserole',
+    keywords: ['how long to air fry green beans', 'green beans air fryer time', 'green beans air fryer temperature', 'air fryer green beans', 'green beans internal temp'],
+    metaDescription: 'How long to cook green beans in the air fryer: 380°F (193°C) for 8–10 mins. Internal target Fork tender with blistered skin. Verified times, no guesswork.',
   },
 
   // ── CAST IRON DATASHEETS ──
@@ -662,6 +714,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     proTip: 'Use a stiff metal spatula with no bevel. Press hard for 10s to lock crust to iron.',
     verificationBasis: 'Ninja Air Crisp Reference & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
     relatedRecipeSlug: 'cast-iron-lacy-edge-smash-burgers',
+    keywords: ['how long to cook smash burgers', 'smash burgers cast iron skillet time', 'smash burgers cast iron skillet temperature', 'cast iron skillet smash burgers', 'smash burgers internal temp'],
+    metaDescription: 'How long to cook smash burgers in the cast iron skillet: High Heat / Searing (450°F+) for 3–4 mins total. Internal target Lacy browned crust. Verified times, no guesswork.',
   },
   {
     id: 'CT-CI-002',
@@ -686,6 +740,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     proTip: 'Flip every 60 seconds for even heat, add 3 tbsp butter, garlic cloves, and thyme in final 2 minutes to baste.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
     relatedRecipeSlug: 'cast-iron-butter-basted-ribeye',
+    keywords: ['how long to cook ribeye steak', 'ribeye steak cast iron skillet time', 'ribeye steak cast iron skillet temperature', 'cast iron skillet ribeye steak', 'ribeye steak internal temp'],
+    metaDescription: 'How long to cook ribeye steak in the cast iron skillet: Smoking Hot Sear + Medium-Low Butter Baste for 7–9 mins. Internal target 130°F (pull) -> 135°F (medium-rare after 8m rest). Verified times, no guesswork.',
   },
   {
     id: 'CT-CI-003',
@@ -709,6 +765,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Press firmly with fish spatula for first 30 seconds to keep skin flat.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+    keywords: ['how long to cook salmon', 'salmon cast iron skillet time', 'salmon cast iron skillet temperature', 'cast iron skillet salmon', 'salmon internal temp'],
+    metaDescription: 'How long to cook salmon in the cast iron skillet: Medium-High (400°F / 204°C) for 6–8 mins (5m skin down, 2m flip). Internal target 135°F (flaky tender). Verified times, no guesswork.',
   },
 
   // ── SHEET PAN DATASHEETS ──
@@ -735,6 +793,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     proTip: 'Finish under HIGH broiler for 2 minutes for authentic sizzling platter char.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
     relatedRecipeSlug: 'sheet-pan-chicken-fajitas',
+    keywords: ['how long to bake chicken fajitas', 'chicken fajitas sheet pan time', 'chicken fajitas sheet pan temperature', 'sheet pan chicken fajitas', 'chicken fajitas internal temp'],
+    metaDescription: 'How long to cook chicken fajitas in the sheet pan: 425°F (218°C) Convection for 15–18 mins. Internal target 165°F (74°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-SP-002',
@@ -759,6 +819,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     proTip: 'Dice potatoes to uniform 1/2-inch cubes so they finish at the exact same time as the sausage.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
     relatedRecipeSlug: 'sheet-pan-smoked-sausage-peppers-potatoes',
+    keywords: ['how long to bake smoked sausage and potatoes', 'smoked sausage and potatoes sheet pan time', 'smoked sausage and potatoes sheet pan temperature', 'sheet pan smoked sausage and potatoes', 'smoked sausage and potatoes internal temp'],
+    metaDescription: 'How long to cook smoked sausage and potatoes in the sheet pan: 400°F (204°C) for 22–25 mins. Internal target Potatoes fork tender. Verified times, no guesswork.',
   },
 
   // ── OUTDOOR GRILL DATASHEETS ──
@@ -786,6 +848,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'backyard-grilled-burgers',
+    keywords: ['how long to grill burgers', 'burgers grill time', 'burgers grill temperature', 'grill burgers', 'burgers internal temp', 'grilled burgers'],
+    metaDescription: 'How long to cook burgers in the grill: Medium-High Direct Heat (450°F / 232°C) for 8–10 mins (4m per side). Internal target 160°F (71°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-GR-002',
@@ -811,6 +875,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'grilled-bbq-chicken-breasts',
+    keywords: ['how long to grill bbq chicken', 'bbq chicken grill time', 'bbq chicken grill temperature', 'grill bbq chicken', 'bbq chicken internal temp', 'grilled bbq chicken'],
+    metaDescription: 'How long to cook bbq chicken in the grill: Medium Indirect Heat (400°F / 204°C) for 14–16 mins. Internal target 165°F (74°C). Verified times, no guesswork.',
   },
 
   // ── SMOKER DATASHEETS ──
@@ -838,6 +904,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'smoker-st-louis-pork-ribs-3-2-1',
+    keywords: ['how long to smoke pork ribs', 'pork ribs smoker time', 'pork ribs smoker temperature', 'smoker pork ribs', 'smoked pork ribs'],
+    metaDescription: 'How long to cook pork ribs in the smoker: 225°F (107°C) for 5.5–6 hours (3h smoke, 2h wrap, 30m glaze). Internal target 202°F–205°F (probe tender). Verified times, no guesswork.',
   },
   {
     id: 'CT-SM-002',
@@ -861,6 +929,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Wrap in butcher paper or foil when internal temp hits 165°F stall to power through to 203°F.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+    keywords: ['how long to smoke pulled pork', 'pulled pork smoker time', 'pulled pork smoker temperature', 'smoker pulled pork', 'smoked pulled pork'],
+    metaDescription: 'How long to cook pulled pork in the smoker: 250°F (121°C) for 8–10 hours (approx 75 mins per lb). Internal target 203°F–205°F (shreds effortlessly). Verified times, no guesswork.',
   },
 
   // ── SKILLET DATASHEETS ──
@@ -887,6 +957,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     proTip: 'Drain excess fat leaving 1 tbsp in the pan to emulsify with spices and tomato paste.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
     relatedRecipeSlug: '15-minute-skillet-beef-taco-meat',
+    keywords: ['how long to cook taco meat', 'taco meat skillet time', 'taco meat skillet temperature', 'skillet taco meat', 'taco meat internal temp'],
+    metaDescription: 'How long to cook taco meat in the skillet: Medium-High (375°F / 190°C) for 10–12 mins. Internal target 165°F (74°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-SK-002',
@@ -912,6 +984,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Standard Skillet Searing Reference & USDA FSIS 145°F Seafood Standard.',
 
     relatedRecipeSlug: '15-minute-lemon-garlic-butter-shrimp',
+    keywords: ['how long to cook garlic butter shrimp', 'garlic butter shrimp skillet time', 'garlic butter shrimp skillet temperature', 'skillet garlic butter shrimp', 'garlic butter shrimp internal temp'],
+    metaDescription: 'How long to cook garlic butter shrimp in the skillet: Medium-High Heat for 5 mins (2.5m per side). Internal target 145°F (63°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-026',
@@ -958,6 +1032,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Rub with butter and salt before air frying to get caramelized roasted corn flavor.',
     verificationBasis: 'Manufacturer Appliance Reference & USDA FSIS Safe Internal Temperature Standard.',
+    keywords: ['how long to air fry corn on the cob', 'corn on the cob air fryer time', 'corn on the cob air fryer temperature', 'air fryer corn on the cob', 'corn on the cob internal temp'],
+    metaDescription: 'How long to cook corn on the cob in the air fryer: 400°F (204°C) for 12–15 mins. Internal target Juicy, plump kernels. Verified times, no guesswork.',
   },
   {
     id: 'CT-AF-028',
@@ -983,6 +1059,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'air-fryer-frozen-taquitos',
+    keywords: ['how long to air fry taquitos', 'taquitos air fryer time', 'taquitos air fryer temperature', 'air fryer taquitos', 'frozen taquitos air fryer', 'how long to air fry frozen taquitos', 'taquitos internal temp'],
+    metaDescription: 'How long to cook taquitos from frozen in the air fryer: 380°F (193°C) for 7–9 mins. Internal target 165°F (74°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-CI-005',
@@ -1008,6 +1086,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'cast-iron-filet-mignon',
+    keywords: ['how long to cook filet mignon', 'filet mignon cast iron skillet time', 'filet mignon cast iron skillet temperature', 'cast iron skillet filet mignon', 'filet mignon internal temp'],
+    metaDescription: 'How long to cook filet mignon in the cast iron skillet: Smoking Hot High Heat (450°F+) for 8–10 mins. Internal target 130°F (medium-rare) -> 135°F rested. Verified times, no guesswork.',
   },
   {
     id: 'CT-CI-006',
@@ -1031,6 +1111,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Start skin-side down in a cold skillet on medium-low heat to render 100% of the skin fat into shatter-crisp crunch.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+    keywords: ['how long to cook chicken thighs', 'chicken thighs cast iron skillet time', 'chicken thighs cast iron skillet temperature', 'cast iron skillet chicken thighs', 'chicken thighs internal temp'],
+    metaDescription: 'How long to cook chicken thighs in the cast iron skillet: Medium Heat Stovetop to 400°F Oven for 20–25 mins. Internal target 180°F (82°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-GR-005',
@@ -1056,6 +1138,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'grilled-reverse-sear-ribeye',
+    keywords: ['how long to grill ribeye steak', 'ribeye steak grill time', 'ribeye steak grill temperature', 'grill ribeye steak', 'ribeye steak internal temp', 'grilled ribeye steak'],
+    metaDescription: 'How long to cook ribeye steak in the grill: 450°F–500°F Two-Zone Direct/Indirect for 8–10 mins. Internal target 130°F (medium-rare). Verified times, no guesswork.',
   },
   {
     id: 'CT-SM-004',
@@ -1081,6 +1165,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
 
     relatedRecipeSlug: 'smoked-texas-style-beef-brisket',
+    keywords: ['how long to smoke brisket', 'brisket smoker time', 'brisket smoker temperature', 'smoker brisket', 'smoked brisket'],
+    metaDescription: 'How long to cook brisket in the smoker: 225°F–250°F (107°C–121°C) for 10–12 hours. Internal target 203°F (95°C) probe tender like warm butter. Verified times, no guesswork.',
   },
   {
     id: 'CT-SC-003',
@@ -1105,6 +1191,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     proTip: 'Sear chuck roast on high in a skillet for 3 minutes per side before placing into slow cooker for rich gravy body.',
     verificationBasis: 'Ninja Air Crisp Reference & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
     relatedRecipeSlug: 'slow-cooker-pot-roast',
+    keywords: ['how long to slow cook pot roast', 'pot roast slow cooker time', 'slow cooker pot roast', 'crockpot pot roast'],
+    metaDescription: 'How long to cook pot roast in the slow cooker: LOW (8 hrs) or HIGH (4.5 hrs) for 8 hours on LOW. Internal target 200°F (pull-apart fork tender). Verified times, no guesswork.',
   },
 
   // ── NEW EXPANSION DATASHEETS (QUEUE 50) ──
@@ -1178,7 +1266,9 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Brown meat completely and drain any liquid before pouring in sauce so it thickens rapidly.',
     verificationBasis: 'USDA FSIS 165°F standard for poultry; All-Clad 12-inch tri-ply skillet testing.',
-    relatedRecipeSlug: '15-minute-skillet-turkey-sloppy-joes'
+    relatedRecipeSlug: '15-minute-skillet-turkey-sloppy-joes',
+    keywords: ['how long to cook sloppy joes', 'sloppy joes skillet time', 'sloppy joes skillet temperature', 'skillet sloppy joes', 'sloppy joes internal temp'],
+    metaDescription: 'How long to cook sloppy joes in the skillet: Medium-High then Medium Simmer for 12–15 mins. Internal target 165°F (74°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-SK-006',
@@ -1202,7 +1292,9 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Use day-old cold rice straight from fridge; warm fresh rice turns to mush in the skillet.',
     verificationBasis: 'Wok & Skillet Thermal Heat Test; USDA 165°F reheat standard.',
-    relatedRecipeSlug: 'dads-skillet-fried-rice'
+    relatedRecipeSlug: 'dads-skillet-fried-rice',
+    keywords: ['how long to cook fried rice', 'fried rice skillet time', 'fried rice skillet temperature', 'skillet fried rice', 'fried rice internal temp'],
+    metaDescription: 'How long to cook fried rice in the skillet: High Heat for 8–10 mins. Internal target 165°F (steaming hot). Verified times, no guesswork.',
   },
   {
     id: 'CT-SK-007',
@@ -1226,7 +1318,9 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Sear sausage first to render fat, then cook peppers directly in rendered pork fat for intense flavor.',
     verificationBasis: 'USDA FSIS 160°F pork sausage guideline; 12-inch cast-iron/stainless test.',
-    relatedRecipeSlug: 'skillet-sausage-and-peppers'
+    relatedRecipeSlug: 'skillet-sausage-and-peppers',
+    keywords: ['how long to cook sausage and peppers', 'sausage and peppers skillet time', 'sausage and peppers skillet temperature', 'skillet sausage and peppers', 'sausage and peppers internal temp'],
+    metaDescription: 'How long to cook sausage and peppers in the skillet: Medium-High for 12–15 mins. Internal target 160°F (71°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-SK-008',
@@ -1250,7 +1344,9 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Lightly butter or oil the pan rather than the tortilla for uniform blistered crispness.',
     verificationBasis: 'Standard griddle test 350°F; melted cheese core metric.',
-    relatedRecipeSlug: 'skillet-black-bean-corn-quesadillas'
+    relatedRecipeSlug: 'skillet-black-bean-corn-quesadillas',
+    keywords: ['how long to cook quesadillas', 'quesadillas skillet time', 'quesadillas skillet temperature', 'skillet quesadillas', 'quesadillas internal temp'],
+    metaDescription: 'How long to cook quesadillas in the skillet: Medium Heat for 6–8 mins. Internal target 160°F (melted cheese center). Verified times, no guesswork.',
   },
   {
     id: 'CT-SP-005',
@@ -1274,7 +1370,9 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Toast rolls on sheet pan for 2 minutes before filling to keep bottom crust from getting soggy from sauce.',
     verificationBasis: 'Half-sheet commercial pan convection oven test; USDA 165°F poultry reheat standard.',
-    relatedRecipeSlug: 'sheet-pan-turkey-meatball-sub-melts'
+    relatedRecipeSlug: 'sheet-pan-turkey-meatball-sub-melts',
+    keywords: ['how long to bake meatball subs', 'meatball subs sheet pan time', 'meatball subs sheet pan temperature', 'sheet pan meatball subs', 'meatball subs internal temp'],
+    metaDescription: 'How long to cook meatball subs in the sheet pan: 425°F (218°C) + Broil for 8–10 mins. Internal target 165°F (74°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-SP-006',
@@ -1298,7 +1396,9 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Roast potatoes and sausage first for 15 minutes, make small wells, crack eggs in, and finish for 6-8 mins.',
     verificationBasis: 'USDA FSIS 160°F egg/pork standard; Half-sheet pan 400°F testing.',
-    relatedRecipeSlug: 'sheet-pan-sausage-egg-breakfast-hash'
+    relatedRecipeSlug: 'sheet-pan-sausage-egg-breakfast-hash',
+    keywords: ['how long to bake breakfast hash', 'breakfast hash sheet pan time', 'breakfast hash sheet pan temperature', 'sheet pan breakfast hash', 'breakfast hash internal temp'],
+    metaDescription: 'How long to cook breakfast hash in the sheet pan: 400°F (204°C) for 22–24 mins. Internal target 160°F (egg whites set, sausage 160°F). Verified times, no guesswork.',
   },
   {
     id: 'CT-SP-007',
@@ -1322,7 +1422,9 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Do NOT boil the gnocchi first! Pour straight from package onto sheet pan with olive oil for crispy outside and soft chewy interior.',
     verificationBasis: 'De Cecco / Delallo Shelf-Stable Gnocchi roasting profile; convection 425°F.',
-    relatedRecipeSlug: 'sheet-pan-crispy-gnocchi-vegetables'
+    relatedRecipeSlug: 'sheet-pan-crispy-gnocchi-vegetables',
+    keywords: ['how long to bake gnocchi', 'sheet pan gnocchi recipe', 'crispy gnocchi oven temperature', 'roasted gnocchi and vegetables', 'gnocchi internal temp'],
+    metaDescription: 'How long to bake crispy sheet pan gnocchi: 425°F (218°C) for 20 mins. Crispy outside, pillowy inside. Verified times, no guesswork.',
   },
   {
     id: 'CT-GR-006',
@@ -1346,7 +1448,9 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Soak wooden skewers in water for 30 minutes before grilling to prevent charring; chicken thighs stay juicier than breast on the grill.',
     verificationBasis: 'Weber Spirit II E-310 direct grill testing; USDA FSIS 165°F poultry guideline.',
-    relatedRecipeSlug: 'grilled-chicken-kebabs'
+    relatedRecipeSlug: 'grilled-chicken-kebabs',
+    keywords: ['how long to grill chicken kebabs', 'chicken kebabs grill time', 'chicken kebabs grill temperature', 'grill chicken kebabs', 'chicken kebabs internal temp', 'grilled chicken kebabs'],
+    metaDescription: 'How long to cook chicken kebabs in the grill: 400°F Medium-High Direct Heat for 12–15 mins. Internal target 165°F–175°F (74°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-GR-007',
@@ -1370,7 +1474,9 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Chill formed patties for 20 minutes before grilling and oil grill grates well so turkey doesn\'t stick or crumble.',
     verificationBasis: 'USDA FSIS 165°F poultry requirement; Weber Genesis II gas grill test.',
-    relatedRecipeSlug: 'grilled-turkey-burgers'
+    relatedRecipeSlug: 'grilled-turkey-burgers',
+    keywords: ['how long to grill turkey burgers', 'turkey burgers grill time', 'turkey burgers grill temperature', 'grill turkey burgers', 'turkey burgers internal temp', 'grilled turkey burgers'],
+    metaDescription: 'How long to cook turkey burgers in the grill: 375°F Medium Direct Heat for 10–12 mins. Internal target 165°F (74°C). Verified times, no guesswork.',
   },
   {
     id: 'CT-SC-004',
@@ -1394,7 +1500,9 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Can be cooked from frozen chicken breasts — add 1 hour on LOW. Shred in the salsa juice for juicy tacos.',
     verificationBasis: 'Crock-Pot 6-Qt Slow Cooker thermal guideline; USDA 165°F poultry rule.',
-    relatedRecipeSlug: '3-ingredient-slow-cooker-salsa-chicken'
+    relatedRecipeSlug: '3-ingredient-slow-cooker-salsa-chicken',
+    keywords: ['how long to slow cook salsa chicken', 'salsa chicken slow cooker time', 'slow cooker salsa chicken', 'salsa chicken internal temp', 'crockpot salsa chicken'],
+    metaDescription: 'How long to cook salsa chicken in the slow cooker: LOW (4-5 hrs) or HIGH (2.5 hrs) for 4–5 hours on LOW. Internal target 165°F (shred-ready tender). Verified times, no guesswork.',
   },
   {
     id: 'CT-SC-005',
@@ -1418,7 +1526,9 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Mash 1 cup of beans with a fork before adding to thicken the chili broth naturally without cornstarch.',
     verificationBasis: 'USDA FSIS 165°F poultry guideline; Crock-Pot 6-Qt temperature profile.',
-    relatedRecipeSlug: 'slow-cooker-turkey-white-bean-chili'
+    relatedRecipeSlug: 'slow-cooker-turkey-white-bean-chili',
+    keywords: ['how long to slow cook white chicken chili', 'white chicken chili slow cooker time', 'slow cooker white chicken chili', 'white chicken chili internal temp', 'crockpot white chicken chili'],
+    metaDescription: 'How long to cook white chicken chili in the slow cooker: LOW (6 hrs) or HIGH (3.5 hrs) for 6 hours on LOW. Internal target 165°F (thick & creamy stew). Verified times, no guesswork.',
   },
   {
     id: 'CT-SC-006',
@@ -1442,7 +1552,9 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Never cook broccoli for 4 hours — add florets in the last 25 minutes of cooking so they stay vibrant green and crisp.',
     verificationBasis: 'Hamilton Beach 6-Qt Slow Cooker test matrix; USDA beef doneness standards.',
-    relatedRecipeSlug: 'slow-cooker-beef-and-broccoli'
+    relatedRecipeSlug: 'slow-cooker-beef-and-broccoli',
+    keywords: ['how long to slow cook beef and broccoli', 'beef and broccoli slow cooker time', 'slow cooker beef and broccoli', 'beef and broccoli internal temp', 'crockpot beef and broccoli'],
+    metaDescription: 'How long to cook beef and broccoli in the slow cooker: LOW (4 hrs) or HIGH (2.5 hrs) for 4 hours on LOW. Internal target 160°F (melt-in-mouth beef). Verified times, no guesswork.',
   },
   {
     id: 'CT-SC-007',
@@ -1466,7 +1578,9 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Butter or spray the inside ceramic insert well before adding oats to prevent sticking along the edges.',
     verificationBasis: 'Slow Cooker Porridge Testing Matrix; 8-hr overnight thermal hold.',
-    relatedRecipeSlug: 'slow-cooker-overnight-steel-cut-oats'
+    relatedRecipeSlug: 'slow-cooker-overnight-steel-cut-oats',
+    keywords: ['how long to slow cook steel cut oats', 'steel cut oats slow cooker time', 'slow cooker steel cut oats', 'steel cut oats internal temp', 'crockpot steel cut oats'],
+    metaDescription: 'How long to cook steel cut oats in the slow cooker: LOW (7-8 hrs / WARM) for 7–8 hours on LOW. Internal target 165°F (thick & creamy porridge). Verified times, no guesswork.',
   }
 ];
 

@@ -177,6 +177,8 @@ export interface CookTimeDatasheet {
   proTip: string;
   verificationBasis: string; // HR-2: Source / tested hardware
   relatedRecipeSlug?: string;
+  keywords?: string[];
+  metaDescription?: string;
 }
 
 export type BlogCategory =
