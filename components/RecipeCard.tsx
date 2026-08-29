@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { Recipe } from '@/lib/types';
 
@@ -39,6 +40,19 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
             {recipe.appliance.replace('-', ' ')}
           </span>
         </div>
+
+        {/* Thumbnail Image if available */}
+        {recipe.image && (
+          <Link href={`/recipes/${recipe.slug}`} className="block relative w-full h-36 mb-3 overflow-hidden rounded border border-hairline/80 bg-paper-200">
+            <Image
+              src={recipe.image}
+              alt={recipe.title}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          </Link>
+        )}
 
         {/* Title */}
         <Link href={`/recipes/${recipe.slug}`} className="block focus:outline-none">

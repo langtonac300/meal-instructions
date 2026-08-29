@@ -18,6 +18,7 @@ import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import RecipeCard from '@/components/RecipeCard';
 import RecipeTable from '@/components/RecipeTable';
 import RecipeScrubber from '@/components/RecipeScrubber';
+import CategoryGrid from '@/components/CategoryGrid';
 import AirFryerCalculator from '@/components/AirFryerCalculator';
 
 export default function HomePage() {
@@ -123,6 +124,21 @@ export default function HomePage() {
             </button>
           ))}
         </div>
+      </section>
+
+      {/* ── VISUAL CATEGORY HUBS ── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 pt-8 pb-4 w-full">
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink-subtle">
+            <span className="w-1.5 h-1.5 bg-ink rounded-full" />
+            <span className="font-bold text-ink">BROWSE BY INTENT & HARDWARE</span>
+          </div>
+          <span className="text-[10px] font-mono text-ink-muted">CLICK TO FILTER DIRECTORY</span>
+        </div>
+        <CategoryGrid
+          selectedCategory={selectedCategory}
+          onSelectCategory={(cat) => setSelectedCategory(cat)}
+        />
       </section>
 
       {/* ── RECIPES DIRECTORY SECTION ── */}
@@ -312,6 +328,131 @@ export default function HomePage() {
           </div>
         </section>
       )}
+
+      {/* ── ARCHITECTURAL KITCHEN ENGINES & CALCULATORS ── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 py-10 w-full border-t border-hairline">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <div className="micro-label text-accent">PARAMETRIC UTILITIES</div>
+            <h2 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-ink font-sans">
+              Tactile Kitchen Engines &amp; Tools
+            </h2>
+          </div>
+          <Link
+            href="/tools"
+            className="font-mono text-xs font-bold uppercase text-ink hover:underline flex items-center gap-1"
+          >
+            <span>View All 10 Tools</span>
+            <span>→</span>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 font-mono text-xs">
+          <Link
+            href="/reheat"
+            className="bg-paper-card hairline-border p-4 space-y-2 hover:border-ink transition-colors block group"
+          >
+            <div className="text-[10px] text-accent font-bold uppercase">CRISP REVIVE</div>
+            <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">
+              Takeout Revive Engine
+            </div>
+            <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+              Restore fries, pizza, and tenders to crispness without microwave mush.
+            </p>
+          </Link>
+
+          <Link
+            href="/frozen-cook"
+            className="bg-paper-card hairline-border p-4 space-y-2 hover:border-ink transition-colors block group"
+          >
+            <div className="text-[10px] text-accent font-bold uppercase">USDA SAFETY</div>
+            <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">
+              Freezer-to-Plate Matrix
+            </div>
+            <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+              Forgot to thaw? Direct frozen cook times and cold-water speed thaw rules.
+            </p>
+          </Link>
+
+          <Link
+            href="/dinner-sync"
+            className="bg-paper-card hairline-border p-4 space-y-2 hover:border-ink transition-colors block group"
+          >
+            <div className="text-[10px] text-accent font-bold uppercase">REVERSE TIMELINE</div>
+            <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">
+              Dinner Sync Scheduler
+            </div>
+            <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+              Sync multiple appliances so protein, veggies, and carbs finish hot together.
+            </p>
+          </Link>
+
+          <Link
+            href="/meat-math"
+            className="bg-paper-card hairline-border p-4 space-y-2 hover:border-ink transition-colors block group"
+          >
+            <div className="text-[10px] text-accent font-bold uppercase">COSTCO SCALER</div>
+            <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">
+              Feed The Crew Meat Math
+            </div>
+            <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+              Calculate raw butcher weights accounting for 25-50% shrinkage and bones.
+            </p>
+          </Link>
+
+          <Link
+            href="/internal-temp"
+            className="bg-paper-card hairline-border p-4 space-y-2 hover:border-ink transition-colors block group"
+          >
+            <div className="text-[10px] text-accent font-bold uppercase">CARRYOVER RISE</div>
+            <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">
+              Thermometer Pull Guide
+            </div>
+            <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+              Exact temperatures to pull meat early to prevent dry overcooked steaks.
+            </p>
+          </Link>
+
+          <Link
+            href="/salt-math"
+            className="bg-paper-card hairline-border p-4 space-y-2 hover:border-ink transition-colors block group"
+          >
+            <div className="text-[10px] text-accent font-bold uppercase">SALT DENSITY</div>
+            <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">
+              Equilibrium Salt Math
+            </div>
+            <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+              Convert Diamond Crystal vs Morton salt accurately by weight and spoons.
+            </p>
+          </Link>
+
+          <Link
+            href="/kid-split"
+            className="bg-paper-card hairline-border p-4 space-y-2 hover:border-ink transition-colors block group"
+          >
+            <div className="text-[10px] text-accent font-bold uppercase">ZERO DOUBLE-COOK</div>
+            <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">
+              Picky Kid Deconstructor
+            </div>
+            <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+              60-second pull-aside steps to satisfy toddler sensory preferences.
+            </p>
+          </Link>
+
+          <Link
+            href="/troubleshoot"
+            className="bg-paper-card hairline-border p-4 space-y-2 hover:border-ink transition-colors block group"
+          >
+            <div className="text-[10px] text-accent font-bold uppercase">5-SEC FIXES</div>
+            <div className="font-bold text-ink text-sm font-sans group-hover:text-accent transition-colors">
+              Fix My Cook // Rescue
+            </div>
+            <p className="text-[11px] text-ink-muted font-sans line-clamp-2">
+              Instant remedies for smoking air fryers, soggy fries, and gray steak.
+            </p>
+          </Link>
+        </div>
+      </section>
 
       {/* ── THE ZERO-FLUFF MANIFESTO STRIP ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8 py-12 w-full border-t border-hairline">

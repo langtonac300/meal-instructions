@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 25,
   "totalMinutes": 35,
   "defaultServings": 4,
-  "basis": "Commercial Sheet Pan Convection Roasting Curve (400°F, 25m); USDA FSIS Cooked Sausage standard.",
+  "basis": "Tested on rimmed half sheet pan at 400°F with 14-oz smoked kielbasa link.",
   "safeInternalTempF": 165,
   "restMinutes": 2,
   "cookTemp": "400°F (204°C)",
@@ -135,6 +135,13 @@ export default {
     "Steamed green beans"
   ],
   "reheatInstructions": "Reheat in air fryer at 375°F for 4 minutes to restore potato crunch.",
+  "nutrition": {
+    "calories": 460,
+    "proteinGrams": 20,
+    "carbsGrams": 34,
+    "fatGrams": 28,
+    "source": "USDA FoodData Central #173873"
+  },
   "kidRating": 5,
   "difficulty": "Dead Simple",
   "keywords": [

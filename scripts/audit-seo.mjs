@@ -122,11 +122,50 @@ if (!fs.existsSync(recipesJsonPath)) {
   console.log(`Audited ${auditedCount} recipe HTML pages for canonicals, dual-mode SSR, and JSON-LD.`);
 }
 
+// 4. Audit all 10 dedicated tool pages in .next build output
+const toolRoutes = [
+  'tools',
+  'air-fryer-calculator',
+  'cheat-sheet',
+  'reheat',
+  'frozen-cook',
+  'dinner-sync',
+  'meat-math',
+  'internal-temp',
+  'salt-math',
+  'kid-split',
+  'troubleshoot',
+];
+
+let auditedToolsCount = 0;
+for (const toolSlug of toolRoutes) {
+  const toolHtmlPath = path.join(nextAppServerDir, `${toolSlug}.html`);
+  if (!fs.existsSync(toolHtmlPath)) {
+    errors.push(`[Tool: /${toolSlug}] Built HTML file missing at ${toolHtmlPath}`);
+    continue;
+  }
+
+  const html = fs.readFileSync(toolHtmlPath, 'utf-8');
+  auditedToolsCount++;
+
+  // Check canonical link tag
+  if (!html.includes('<link rel="canonical"') && !html.includes('<link rel=\\"canonical\\"')) {
+    errors.push(`[Tool: /${toolSlug}] Missing canonical link tag in built HTML.`);
+  }
+
+  // Check Schema.org JSON-LD
+  if (!html.includes('schema.org')) {
+    errors.push(`[Tool: /${toolSlug}] Missing Schema.org JSON-LD structured data.`);
+  }
+}
+
+console.log(`Audited ${auditedToolsCount} dedicated tool HTML pages for canonicals and Schema.org JSON-LD.`);
+
 if (errors.length > 0) {
   console.error(`\n❌ SEO AUDIT FAILED with ${errors.length} error(s):\n`);
   errors.forEach((err, idx) => console.error(`${idx + 1}. ${err}`));
   process.exit(1);
 } else {
-  console.log(`✅ SEO AUDIT PASSED: All canonicals, dual-mode SSR HTML, and schemas verified.\n`);
+  console.log(`✅ SEO AUDIT PASSED: All canonicals, dual-mode SSR HTML, tool pages, and schemas verified.\n`);
   process.exit(0);
 }

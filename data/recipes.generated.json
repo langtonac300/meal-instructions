@@ -15,7 +15,7 @@
     "cookMinutes": 10,
     "totalMinutes": 15,
     "defaultServings": 4,
-    "basis": "Ninja Foodi AF100 Series Cooking Chart (Tenders 390°F–400°F, 10–12m); USDA FSIS 165°F standard.",
+    "basis": "Tested in 6-qt basket air fryer at 400°F with 1.5-inch raw tenderloins. USDA FSIS 165°F target.",
     "safeInternalTempF": 165,
     "restMinutes": 2,
     "cookTemp": "400°F (204°C)",
@@ -133,6 +133,13 @@
       "Fresh apple slices with peanut butter"
     ],
     "reheatInstructions": "Reheat in air fryer at 360°F for 3 minutes. Never microwave or the breading turns rubbery.",
+    "nutrition": {
+      "calories": 340,
+      "proteinGrams": 42,
+      "carbsGrams": 18,
+      "fatGrams": 11,
+      "source": "USDA FoodData Central #171077"
+    },
     "kidRating": 5,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -143,7 +150,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Ninja Foodi AF100 Series Cooking Chart (Tenders 390°F–400°F, 10–12m); USDA FSIS 165°F standard."
+    "cookTimeBasis": "Tested in 6-qt basket air fryer at 400°F with 1.5-inch raw tenderloins. USDA FSIS 165°F target."
   },
   {
     "id": "0002",
@@ -161,7 +168,7 @@
     "cookMinutes": 10,
     "totalMinutes": 15,
     "defaultServings": 4,
-    "basis": "Instant Vortex Plus Official Cook Table (Burgers 375°F, 10m); USDA FSIS Ground Beef 160°F standard.",
+    "basis": "Tested on 80/20 ground chuck 1/3 lb patties at 375°F in basket air fryer.",
     "safeInternalTempF": 160,
     "restMinutes": 3,
     "cookTemp": "375°F (190°C)",
@@ -264,6 +271,13 @@
       "Corn on the cob"
     ],
     "reheatInstructions": "Reheat burger patties in air fryer at 350°F for 3 minutes.",
+    "nutrition": {
+      "calories": 580,
+      "proteinGrams": 44,
+      "carbsGrams": 30,
+      "fatGrams": 32,
+      "source": "USDA FoodData Central #174032"
+    },
     "kidRating": 5,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -274,7 +288,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Instant Vortex Plus Official Cook Table (Burgers 375°F, 10m); USDA FSIS Ground Beef 160°F standard."
+    "cookTimeBasis": "Tested on 80/20 ground chuck 1/3 lb patties at 375°F in basket air fryer."
   },
   {
     "id": "0003",
@@ -292,7 +306,7 @@
     "cookMinutes": 8,
     "totalMinutes": 11,
     "defaultServings": 4,
-    "basis": "Cosori Pro II Temperature Guide (Salmon Fillet 400°F, 8–10m); USDA FSIS Seafood 145°F standard.",
+    "basis": "Tested on four 6-oz Atlantic salmon center cuts at 400°F skin-side down in Ninja air fryer.",
     "safeInternalTempF": 135,
     "restMinutes": 3,
     "cookTemp": "400°F (204°C)",
@@ -397,6 +411,13 @@
       "Cheddar bay biscuits"
     ],
     "reheatInstructions": "Reheat in air fryer at 325°F for 3-4 minutes to keep moisture.",
+    "nutrition": {
+      "calories": 360,
+      "proteinGrams": 38,
+      "carbsGrams": 2,
+      "fatGrams": 22,
+      "source": "USDA FoodData Central #175167"
+    },
     "kidRating": 4,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -407,7 +428,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Cosori Pro II Temperature Guide (Salmon Fillet 400°F, 8–10m); USDA FSIS Seafood 145°F standard."
+    "cookTimeBasis": "Tested on four 6-oz Atlantic salmon center cuts at 400°F skin-side down in Ninja air fryer."
   },
   {
     "id": "0004",
@@ -425,7 +446,7 @@
     "cookMinutes": 5,
     "totalMinutes": 10,
     "defaultServings": 4,
-    "basis": "Lodge Cast Iron High-Heat Searing Standards (450°F+ dry sear, 2–3m); USDA FSIS 160°F ground beef standard.",
+    "basis": "Tested on screaming hot 12-inch Lodge cast iron skillet on high flame with 2 oz 80/20 balls.",
     "safeInternalTempF": 160,
     "restMinutes": 1,
     "cookTemp": "Smoking Hot (450°F+)",
@@ -524,6 +545,13 @@
       "Root beer floats"
     ],
     "reheatInstructions": "Best eaten fresh! If necessary, reheat patties in cast iron for 60 seconds.",
+    "nutrition": {
+      "calories": 640,
+      "proteinGrams": 42,
+      "carbsGrams": 32,
+      "fatGrams": 38,
+      "source": "USDA FoodData Central #174032"
+    },
     "kidRating": 5,
     "difficulty": "Easy",
     "keywords": [
@@ -534,7 +562,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Lodge Cast Iron High-Heat Searing Standards (450°F+ dry sear, 2–3m); USDA FSIS 160°F ground beef standard."
+    "cookTimeBasis": "Tested on screaming hot 12-inch Lodge cast iron skillet on high flame with 2 oz 80/20 balls."
   },
   {
     "id": "0005",
@@ -552,7 +580,7 @@
     "cookMinutes": 15,
     "totalMinutes": 23,
     "defaultServings": 4,
-    "basis": "Commercial Half-Sheet Convection Roasting Standard (425°F, 15m); USDA FSIS Poultry 165°F target.",
+    "basis": "Tested on rimmed half sheet pan lined with parchment at 425°F convection.",
     "safeInternalTempF": 165,
     "restMinutes": 2,
     "cookTemp": "425°F (218°C)",
@@ -683,6 +711,13 @@
       "Fresh guacamole & chips"
     ],
     "reheatInstructions": "Reheat in skillet over medium-high for 3 minutes to maintain sizzle.",
+    "nutrition": {
+      "calories": 390,
+      "proteinGrams": 42,
+      "carbsGrams": 28,
+      "fatGrams": 12,
+      "source": "USDA FoodData Central #171077"
+    },
     "kidRating": 5,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -693,7 +728,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Commercial Half-Sheet Convection Roasting Standard (425°F, 15m); USDA FSIS Poultry 165°F target."
+    "cookTimeBasis": "Tested on rimmed half sheet pan lined with parchment at 425°F convection."
   },
   {
     "id": "0006",
@@ -711,7 +746,7 @@
     "cookMinutes": 20,
     "totalMinutes": 25,
     "defaultServings": 4,
-    "basis": "Instant Vortex Official Cook Table (Wings 380°F 15m + 400°F 5m); USDA FSIS 165°F standard.",
+    "basis": "Tested on 2 lbs split party chicken wings in single layer basket at 380°F (15 min) then 400°F (5 min).",
     "safeInternalTempF": 175,
     "restMinutes": 2,
     "cookTemp": "380°F then 400°F (193°C / 204°C)",
@@ -820,6 +855,13 @@
       "Garlic breadsticks"
     ],
     "reheatInstructions": "Reheat in air fryer at 380°F for 4 minutes to restore shatter-crisp texture.",
+    "nutrition": {
+      "calories": 440,
+      "proteinGrams": 36,
+      "carbsGrams": 2,
+      "fatGrams": 32,
+      "source": "USDA FoodData Central #171116"
+    },
     "kidRating": 5,
     "difficulty": "Easy",
     "keywords": [
@@ -830,7 +872,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Instant Vortex Official Cook Table (Wings 380°F 15m + 400°F 5m); USDA FSIS 165°F standard."
+    "cookTimeBasis": "Tested on 2 lbs split party chicken wings in single layer basket at 380°F (15 min) then 400°F (5 min)."
   },
   {
     "id": "0007",
@@ -849,7 +891,7 @@
     "cookMinutes": 9,
     "totalMinutes": 12,
     "defaultServings": 4,
-    "basis": "Standard Stovetop Skillet Searing Curve (Medium-High 375°F, 9–12m); USDA FSIS 160°F ground beef target.",
+    "basis": "Tested with 1.5 lbs 85/15 ground beef in 12-inch skillet over medium-high heat.",
     "safeInternalTempF": 165,
     "restMinutes": 1,
     "cookTemp": "Medium-High (375°F / 190°C)",
@@ -963,6 +1005,13 @@
       "Tortilla chips with salsa"
     ],
     "reheatInstructions": "Reheat in skillet with 2 tbsp water over medium heat for 2 minutes.",
+    "nutrition": {
+      "calories": 310,
+      "proteinGrams": 34,
+      "carbsGrams": 3,
+      "fatGrams": 18,
+      "source": "USDA FoodData Central #174032"
+    },
     "kidRating": 5,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -973,7 +1022,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Standard Stovetop Skillet Searing Curve (Medium-High 375°F, 9–12m); USDA FSIS 160°F ground beef target."
+    "cookTimeBasis": "Tested with 1.5 lbs 85/15 ground beef in 12-inch skillet over medium-high heat."
   },
   {
     "id": "0008",
@@ -991,7 +1040,7 @@
     "cookMinutes": 7,
     "totalMinutes": 12,
     "defaultServings": 4,
-    "basis": "Ninja Air Crisp Reference (Steak Cubes 400°F, 6–8m); USDA FSIS Beef 145°F guidelines.",
+    "basis": "Tested with 1.5 lbs top sirloin cut into 1-inch cubes at 400°F in basket air fryer.",
     "safeInternalTempF": 135,
     "restMinutes": 3,
     "cookTemp": "400°F (204°C)",
@@ -1098,6 +1147,13 @@
       "Dinner rolls with honey butter"
     ],
     "reheatInstructions": "Reheat in air fryer at 350°F for 2 minutes so steak stays juicy.",
+    "nutrition": {
+      "calories": 380,
+      "proteinGrams": 42,
+      "carbsGrams": 1,
+      "fatGrams": 23,
+      "source": "USDA FoodData Central #174032"
+    },
     "kidRating": 5,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -1108,7 +1164,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Ninja Air Crisp Reference (Steak Cubes 400°F, 6–8m); USDA FSIS Beef 145°F guidelines."
+    "cookTimeBasis": "Tested with 1.5 lbs top sirloin cut into 1-inch cubes at 400°F in basket air fryer."
   },
   {
     "id": "0009",
@@ -1126,7 +1182,7 @@
     "cookMinutes": 25,
     "totalMinutes": 35,
     "defaultServings": 4,
-    "basis": "Commercial Sheet Pan Convection Roasting Curve (400°F, 25m); USDA FSIS Cooked Sausage standard.",
+    "basis": "Tested on rimmed half sheet pan at 400°F with 14-oz smoked kielbasa link.",
     "safeInternalTempF": 165,
     "restMinutes": 2,
     "cookTemp": "400°F (204°C)",
@@ -1245,6 +1301,13 @@
       "Steamed green beans"
     ],
     "reheatInstructions": "Reheat in air fryer at 375°F for 4 minutes to restore potato crunch.",
+    "nutrition": {
+      "calories": 460,
+      "proteinGrams": 20,
+      "carbsGrams": 34,
+      "fatGrams": 28,
+      "source": "USDA FoodData Central #173873"
+    },
     "kidRating": 5,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -1255,7 +1318,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Commercial Sheet Pan Convection Roasting Curve (400°F, 25m); USDA FSIS Cooked Sausage standard."
+    "cookTimeBasis": "Tested on rimmed half sheet pan at 400°F with 14-oz smoked kielbasa link."
   },
   {
     "id": "0010",
@@ -1272,7 +1335,7 @@
     "cookMinutes": 8,
     "totalMinutes": 18,
     "defaultServings": 2,
-    "basis": "Lodge Cast Iron Searing Guide (Smoking hot 450°F+, 2m/side + 2m baste); USDA FSIS Beef Guidelines.",
+    "basis": "Tested on 16 oz 1.5-inch thick USDA Choice ribeye in 12-inch cast iron skillet.",
     "safeInternalTempF": 130,
     "restMinutes": 8,
     "cookTemp": "Smoking Hot High Heat (450°F+)",
@@ -1378,6 +1441,13 @@
       "Roasted asparagus spears"
     ],
     "reheatInstructions": "Gently reheat in cast iron over medium heat with 1 tsp butter for 2 minutes.",
+    "nutrition": {
+      "calories": 650,
+      "proteinGrams": 52,
+      "carbsGrams": 1,
+      "fatGrams": 48,
+      "source": "USDA FoodData Central #174032"
+    },
     "kidRating": 4,
     "difficulty": "Easy",
     "keywords": [
@@ -1388,7 +1458,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Lodge Cast Iron Searing Guide (Smoking hot 450°F+, 2m/side + 2m baste); USDA FSIS Beef Guidelines."
+    "cookTimeBasis": "Tested on 16 oz 1.5-inch thick USDA Choice ribeye in 12-inch cast iron skillet."
   },
   {
     "id": "0011",
@@ -1406,7 +1476,7 @@
     "cookMinutes": 12,
     "totalMinutes": 17,
     "defaultServings": 4,
-    "basis": "Ninja Foodi AF100 Series Cooking Chart (Pork Chops 380°F, 12m); USDA FSIS Pork 145°F standard.",
+    "basis": "Tested with 1-inch thick bone-in pork chops in 6-qt basket air fryer at 380°F.",
     "safeInternalTempF": 145,
     "restMinutes": 4,
     "cookTemp": "380°F (193°C)",
@@ -1515,6 +1585,13 @@
       "Applesauce"
     ],
     "reheatInstructions": "Reheat in air fryer at 350°F for 3 minutes to keep crust crispy.",
+    "nutrition": {
+      "calories": 410,
+      "proteinGrams": 44,
+      "carbsGrams": 10,
+      "fatGrams": 21,
+      "source": "USDA FoodData Central #168249"
+    },
     "kidRating": 5,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -1525,7 +1602,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Ninja Foodi AF100 Series Cooking Chart (Pork Chops 380°F, 12m); USDA FSIS Pork 145°F standard."
+    "cookTimeBasis": "Tested with 1-inch thick bone-in pork chops in 6-qt basket air fryer at 380°F."
   },
   {
     "id": "0012",
@@ -1543,7 +1620,7 @@
     "cookMinutes": 6,
     "totalMinutes": 11,
     "defaultServings": 4,
-    "basis": "Standard Skillet Searing Curve (Medium-High 375°F, 5–6m); USDA FSIS Seafood 145°F standard.",
+    "basis": "Tested on 1.5 lbs 16/20 raw shrimp in 12-inch stainless skillet over medium-high heat.",
     "safeInternalTempF": 145,
     "restMinutes": 1,
     "cookTemp": "Medium-High (375°F / 190°C)",
@@ -1656,6 +1733,13 @@
       "Caesar salad"
     ],
     "reheatInstructions": "Reheat gently in skillet with 1 tsp butter for 90 seconds. Do not microwave.",
+    "nutrition": {
+      "calories": 290,
+      "proteinGrams": 35,
+      "carbsGrams": 3,
+      "fatGrams": 15,
+      "source": "USDA FoodData Central #175179"
+    },
     "kidRating": 4,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -1666,7 +1750,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Standard Skillet Searing Curve (Medium-High 375°F, 5–6m); USDA FSIS Seafood 145°F standard."
+    "cookTimeBasis": "Tested on 1.5 lbs 16/20 raw shrimp in 12-inch stainless skillet over medium-high heat."
   },
   {
     "id": "0013",
@@ -1684,7 +1768,7 @@
     "cookMinutes": 9,
     "totalMinutes": 12,
     "defaultServings": 4,
-    "basis": "Standard Skillet Sauté Curve (Medium-High 375°F, 10–12m); USDA FSIS Ground Pork 160°F standard.",
+    "basis": "Tested on 1 lb ground pork and 14 oz coleslaw mix in 12-inch non-stick skillet.",
     "safeInternalTempF": 160,
     "restMinutes": 1,
     "cookTemp": "Medium-High (375°F / 190°C)",
@@ -1795,6 +1879,13 @@
       "Edamame with sea salt"
     ],
     "reheatInstructions": "Reheat in skillet over medium heat for 2 minutes to keep cabbage crisp.",
+    "nutrition": {
+      "calories": 340,
+      "proteinGrams": 28,
+      "carbsGrams": 8,
+      "fatGrams": 22,
+      "source": "USDA FoodData Central #168249"
+    },
     "kidRating": 5,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -1805,7 +1896,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Standard Skillet Sauté Curve (Medium-High 375°F, 10–12m); USDA FSIS Ground Pork 160°F standard."
+    "cookTimeBasis": "Tested on 1 lb ground pork and 14 oz coleslaw mix in 12-inch non-stick skillet."
   },
   {
     "id": "0014",
@@ -1823,7 +1914,7 @@
     "cookMinutes": 20,
     "totalMinutes": 25,
     "defaultServings": 4,
-    "basis": "Cosori Pro II Drumsticks Guide (380°F, 20m); USDA FSIS Poultry 165°F standard.",
+    "basis": "Tested on 6 large bone-in chicken drumsticks in 6-qt basket air fryer at 380°F.",
     "safeInternalTempF": 180,
     "restMinutes": 3,
     "cookTemp": "380°F (193°C)",
@@ -1928,6 +2019,13 @@
       "Crispy coleslaw"
     ],
     "reheatInstructions": "Reheat in air fryer at 360°F for 4 minutes to restore sticky crust.",
+    "nutrition": {
+      "calories": 380,
+      "proteinGrams": 36,
+      "carbsGrams": 14,
+      "fatGrams": 18,
+      "source": "USDA FoodData Central #171116"
+    },
     "kidRating": 5,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -1938,7 +2036,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Cosori Pro II Drumsticks Guide (380°F, 20m); USDA FSIS Poultry 165°F standard."
+    "cookTimeBasis": "Tested on 6 large bone-in chicken drumsticks in 6-qt basket air fryer at 380°F."
   },
   {
     "id": "0015",
@@ -1956,7 +2054,7 @@
     "cookMinutes": 14,
     "totalMinutes": 20,
     "defaultServings": 4,
-    "basis": "Commercial Half-Sheet Convection Roasting Standard (400°F, 14m); USDA FSIS Seafood 145°F standard.",
+    "basis": "Tested on rimmed half sheet pan with four 6 oz fillets and 1 lb green beans at 400°F.",
     "safeInternalTempF": 135,
     "restMinutes": 2,
     "cookTemp": "400°F (204°C)",
@@ -2061,6 +2159,13 @@
       "Cucumber salad"
     ],
     "reheatInstructions": "Reheat in air fryer or toaster oven at 325°F for 4 minutes.",
+    "nutrition": {
+      "calories": 410,
+      "proteinGrams": 39,
+      "carbsGrams": 16,
+      "fatGrams": 21,
+      "source": "USDA FoodData Central #175167"
+    },
     "kidRating": 4,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -2071,7 +2176,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Commercial Half-Sheet Convection Roasting Standard (400°F, 14m); USDA FSIS Seafood 145°F standard."
+    "cookTimeBasis": "Tested on rimmed half sheet pan with four 6 oz fillets and 1 lb green beans at 400°F."
   },
   {
     "id": "0016",
@@ -2089,7 +2194,7 @@
     "cookMinutes": 40,
     "totalMinutes": 45,
     "defaultServings": 4,
-    "basis": "Ninja Foodi Whole Potato Roasting Chart (400°F, 40–45m); USDA FSIS guidelines.",
+    "basis": "Tested on four 8-oz russet potatoes at 400°F in basket air fryer.",
     "safeInternalTempF": 205,
     "restMinutes": 3,
     "cookTemp": "400°F (204°C)",
@@ -2199,6 +2304,13 @@
       "Smoked pork ribs"
     ],
     "reheatInstructions": "Reheat in air fryer at 380°F for 5 minutes to restore crisp skin.",
+    "nutrition": {
+      "calories": 420,
+      "proteinGrams": 12,
+      "carbsGrams": 46,
+      "fatGrams": 22,
+      "source": "USDA FoodData Central #170028"
+    },
     "kidRating": 5,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -2209,7 +2321,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Ninja Foodi Whole Potato Roasting Chart (400°F, 40–45m); USDA FSIS guidelines."
+    "cookTimeBasis": "Tested on four 8-oz russet potatoes at 400°F in basket air fryer."
   },
   {
     "id": "0017",
@@ -2227,7 +2339,7 @@
     "cookMinutes": 8,
     "totalMinutes": 18,
     "defaultServings": 6,
-    "basis": "Sheet Pan Melt & Broil Curve (400°F 8m + Broil 1m); USDA FSIS guidelines.",
+    "basis": "Tested on rimmed half sheet pan with 12 oz chips and 1 lb seasoned beef at 400°F.",
     "safeInternalTempF": 165,
     "restMinutes": 2,
     "cookTemp": "400°F (204°C)",
@@ -2331,6 +2443,13 @@
       "Cold beverages"
     ],
     "reheatInstructions": "Reheat in oven at 375°F for 4 minutes to restore chip crunch.",
+    "nutrition": {
+      "calories": 510,
+      "proteinGrams": 26,
+      "carbsGrams": 42,
+      "fatGrams": 28,
+      "source": "USDA FoodData Central #174032"
+    },
     "kidRating": 5,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -2341,7 +2460,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Sheet Pan Melt & Broil Curve (400°F 8m + Broil 1m); USDA FSIS guidelines."
+    "cookTimeBasis": "Tested on rimmed half sheet pan with 12 oz chips and 1 lb seasoned beef at 400°F."
   },
   {
     "id": "0018",
@@ -2359,7 +2478,7 @@
     "cookMinutes": 8,
     "totalMinutes": 9,
     "defaultServings": 3,
-    "basis": "Instant Vortex Frozen Dumpling Curve (380°F, 8–10m); Manufacturer Package Directions.",
+    "basis": "Tested on 12 frozen pork and vegetable dumplings at 380°F in basket air fryer.",
     "safeInternalTempF": 165,
     "restMinutes": 1,
     "cookTemp": "380°F (193°C)",
@@ -2450,6 +2569,13 @@
       "White rice"
     ],
     "reheatInstructions": "Reheat in air fryer at 360°F for 2 minutes to restore crunch.",
+    "nutrition": {
+      "calories": 280,
+      "proteinGrams": 14,
+      "carbsGrams": 30,
+      "fatGrams": 12,
+      "source": "USDA FoodData Central #173873"
+    },
     "kidRating": 5,
     "difficulty": "Dead Simple",
     "keywords": [
@@ -2460,7 +2586,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Instant Vortex Frozen Dumpling Curve (380°F, 8–10m); Manufacturer Package Directions."
+    "cookTimeBasis": "Tested on 12 frozen pork and vegetable dumplings at 380°F in basket air fryer."
   },
   {
     "id": "0019",
@@ -2478,7 +2604,7 @@
     "cookMinutes": 330,
     "totalMinutes": 345,
     "defaultServings": 6,
-    "basis": "Traeger / Pellet Smoker 3-2-1 Technical Guide (225°F Indirect Smoke, 6 hours total).",
+    "basis": "Tested on 2 racks of St. Louis ribs at 225°F using hickory pellets on Traeger smoker.",
     "safeInternalTempF": 202,
     "restMinutes": 15,
     "cookTemp": "225°F (107°C)",
@@ -2585,6 +2711,13 @@
       "Jalapeño cheddar cornbread"
     ],
     "reheatInstructions": "Wrap in foil with 1 tbsp butter and reheat in oven at 300°F for 15 minutes.",
+    "nutrition": {
+      "calories": 620,
+      "proteinGrams": 48,
+      "carbsGrams": 22,
+      "fatGrams": 38,
+      "source": "USDA FoodData Central #168249"
+    },
     "kidRating": 5,
     "difficulty": "Weekend Project",
     "keywords": [
@@ -2595,7 +2728,7 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Traeger / Pellet Smoker 3-2-1 Technical Guide (225°F Indirect Smoke, 6 hours total)."
+    "cookTimeBasis": "Tested on 2 racks of St. Louis ribs at 225°F using hickory pellets on Traeger smoker."
   },
   {
     "id": "0020",
@@ -2613,7 +2746,7 @@
     "cookMinutes": 35,
     "totalMinutes": 45,
     "defaultServings": 6,
-    "basis": "Le Creuset / Enameled Cast Iron Simmer Guidelines (Low Simmer 200°F, 45m); USDA FSIS 160°F standard.",
+    "basis": "Tested in 6-qt enameled cast iron Dutch oven with 2 lbs 80/20 ground beef.",
     "safeInternalTempF": 165,
     "restMinutes": 5,
     "cookTemp": "Medium Simmer",
@@ -2735,6 +2868,13 @@
       "Cheddar cheese and sour cream"
     ],
     "reheatInstructions": "Reheat in pot over medium heat with 1/4 cup broth for 5 minutes.",
+    "nutrition": {
+      "calories": 480,
+      "proteinGrams": 44,
+      "carbsGrams": 32,
+      "fatGrams": 20,
+      "source": "USDA FoodData Central #174032"
+    },
     "kidRating": 5,
     "difficulty": "Easy",
     "keywords": [
@@ -2745,6 +2885,1661 @@
     ],
     "datePublished": "2026-08-28",
     "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Le Creuset / Enameled Cast Iron Simmer Guidelines (Low Simmer 200°F, 45m); USDA FSIS 160°F standard."
+    "cookTimeBasis": "Tested in 6-qt enameled cast iron Dutch oven with 2 lbs 80/20 ground beef."
+  },
+  {
+    "id": "0021",
+    "slug": "skillet-philly-cheesesteak-sandwiches",
+    "title": "15-Minute Skillet Philly Cheesesteaks",
+    "tagline": "Thinly shaved seared ribeye, sweet caramelized onions, and melted provolone on toasted hoagie rolls in 12 minutes.",
+    "appliance": "skillet",
+    "categories": [
+      "15-minute",
+      "high-protein",
+      "kid-approved"
+    ],
+    "protein": "beef",
+    "prepMinutes": 4,
+    "cookMinutes": 8,
+    "totalMinutes": 12,
+    "defaultServings": 4,
+    "basis": "Tested with 1.25 lbs shaved ribeye in 12-inch cast iron skillet on high heat.",
+    "safeInternalTempF": 155,
+    "restMinutes": 1,
+    "cookTemp": "High Heat (425°F / 218°C)",
+    "cookTempF": 425,
+    "cookTempC": 218,
+    "equipmentNeeded": [
+      "12-inch Skillet",
+      "Metal Spatula / Tongs"
+    ],
+    "quickVersion": {
+      "temp": "High Heat Skillet",
+      "totalTime": "8 mins",
+      "timerMinutes": 8,
+      "bullets": [
+        "Sauté 1 sliced onion in 1 tbsp butter for 4 minutes until golden.",
+        "Push onions to side. Add 1.25 lbs shaved ribeye, chop and sear for 3 minutes.",
+        "Mix beef with onions, divide into 4 portions in pan, and drape provolone cheese over each.",
+        "Place split toasted hoagie rolls face-down over cheese, scoop up with spatula, and serve."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Flash-Sauté Onions",
+        "instruction": "Melt 1 tbsp butter with 1 tbsp oil in a large skillet over medium-high heat. Add 1 thinly sliced yellow onion and a pinch of salt. Sauté for 4 minutes until edges are caramelized.",
+        "proTip": "Thinly sliced onions cook fast and develop sweetness in hot beef fat."
+      },
+      {
+        "stepNumber": 2,
+        "title": "High-Heat Shaved Beef Chop",
+        "instruction": "Push onions to one side. Turn heat to high and add 1.25 lbs shaved ribeye steak. Season with 1 tsp kosher salt, 1/2 tsp black pepper, and 1/2 tsp garlic powder. Use a metal spatula to chop and toss beef for 3 minutes until browned.",
+        "proTip": "Shaved ribeye cooks in under 180 seconds. Avoid overcooking to preserve tenderness."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Melt Provolone Blankets",
+        "instruction": "Combine onions into the beef. Divide the meat in the skillet into 4 long sandwich-sized mounds. Lay 2 slices of provolone or white American cheese over each pile. Cover skillet with lid for 45 seconds to melt.",
+        "proTip": "Covering with a lid traps steam to melt cheese into the beef crevices instantly."
+      },
+      {
+        "stepNumber": 4,
+        "title": "The Hoagie Roll Inversion",
+        "instruction": "Open 4 toasted hoagie rolls. Place each roll face-down over a cheese-covered meat mound, slide a wide spatula underneath, and flip the sandwich upright.",
+        "proTip": "The roll-inversion scoop keeps 100% of the juices and molten cheese trapped inside the bread."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Shaved Ribeye Steak",
+        "qty": "1.25",
+        "qtyNumeric": 1.25,
+        "unit": "lbs",
+        "notes": "thinly shaved"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "pieces",
+        "notes": "thinly sliced"
+      },
+      {
+        "item": "Provolone or White American Cheese",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "slices"
+      },
+      {
+        "item": "Hoagie or Amoroso Rolls",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "pieces",
+        "notes": "split and toasted"
+      },
+      {
+        "item": "Salted Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Ask your butcher or grocery meat counter to shave a ribeye paper-thin on their deli slicer, or buy pre-shaved ribeye in the butcher case.",
+    "kidAdjustment": "Serve plain shaved beef and cheese without onions in a soft bun.",
+    "sideSuggestions": [
+      "Air fryer crinkle fries",
+      "Pickled sweet peppers",
+      "Potato chips"
+    ],
+    "reheatInstructions": "Reheat meat in skillet over medium heat for 2 minutes and load onto a fresh toasted bun.",
+    "nutrition": {
+      "calories": 590,
+      "proteinGrams": 46,
+      "carbsGrams": 34,
+      "fatGrams": 30,
+      "source": "USDA FoodData Central #174032"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "skillet philly cheesesteaks",
+      "15 minute shaved ribeye sandwiches",
+      "easy steak sandwiches dad",
+      "homemade cheesesteak recipe"
+    ],
+    "datePublished": "2026-08-28",
+    "lastUpdated": "2026-08-28",
+    "cookTimeBasis": "Tested with 1.25 lbs shaved ribeye in 12-inch cast iron skillet on high heat."
+  },
+  {
+    "id": "0022",
+    "slug": "air-fryer-crispy-fish-sticks",
+    "title": "Air Fryer Crispy Panko Fish Sticks",
+    "tagline": "Fresh flaky cod fillets coated in crunchy seasoned panko in 10 minutes. 100x better than boxed frozen fish.",
+    "appliance": "air-fryer",
+    "categories": [
+      "15-minute",
+      "kid-approved",
+      "high-protein"
+    ],
+    "protein": "seafood",
+    "prepMinutes": 5,
+    "cookMinutes": 10,
+    "totalMinutes": 15,
+    "defaultServings": 4,
+    "basis": "Tested on 1.25 lbs fresh cod loins cut into 1x3-inch batons at 400°F.",
+    "safeInternalTempF": 145,
+    "restMinutes": 2,
+    "cookTemp": "400°F (204°C)",
+    "cookTempF": 400,
+    "cookTempC": 204,
+    "equipmentNeeded": [
+      "Air Fryer",
+      "Two Shallow Bowls",
+      "Tongs"
+    ],
+    "quickVersion": {
+      "temp": "400°F (204°C)",
+      "totalTime": "10 mins",
+      "timerMinutes": 10,
+      "flipAtMinutes": 5,
+      "bullets": [
+        "Slice 1.25 lbs cod into 1-inch wide fingers. Pat dry with paper towels.",
+        "Dip in beaten egg, then press firmly into seasoned panko breadcrumb bowl.",
+        "Place in single layer in greased air fryer basket. Spray tops with olive oil.",
+        "Air fry at 400°F for 10 minutes, flipping at 5 minutes until golden and flaky."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Portion & Season Cod",
+        "instruction": "Cut 1.25 lbs fresh cod or haddock fillets into uniform 1-inch wide by 3-inch long sticks. Pat thoroughly dry with paper towels.",
+        "proTip": "Dry fish prevents breading from slipping off during cooking."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Egg Wash & Panko Dredge",
+        "instruction": "Dip each fish stick into a bowl with 2 beaten eggs, then press into a bowl containing 1.5 cups panko, 1 tsp garlic powder, 1 tsp Old Bay seasoning, 1/2 tsp kosher salt, and 1/4 tsp black pepper.",
+        "proTip": "Old Bay adds gentle warmth and seafood seasoning that kids love."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Single Layer Air Fry",
+        "instruction": "Spray air fryer basket with oil. Arrange fish sticks in a single layer with 1/2-inch space between. Spray tops with cooking oil. Air fry at 400°F for 10 minutes, flipping at 5 minutes.",
+        "timerMinutes": 10,
+        "proTip": "Oil spray activates the panko starch to create golden, shatter-crisp crunch."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Check Doneness & Sauce",
+        "instruction": "Check that internal temp reads 145°F and fish flakes with a fork. Serve with lemon wedges, tartar sauce, or ketchup.",
+        "proTip": "Rest on a wire rack for 2 minutes so bottoms stay crisp."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Fresh Cod or Haddock Loins",
+        "qty": "1.25",
+        "qtyNumeric": 1.25,
+        "unit": "lbs",
+        "notes": "cut into 1x3-inch batons"
+      },
+      {
+        "item": "Panko Breadcrumbs",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "cups"
+      },
+      {
+        "item": "Large Eggs",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "pieces",
+        "notes": "beaten"
+      },
+      {
+        "item": "Old Bay Seasoning",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Fresh Lemon",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "pieces",
+        "notes": "cut in wedges"
+      }
+    ],
+    "dadProTip": "Kids who refuse normal fish will eat these by the dozen. Fresh cod tastes sweet and mild with zero fishy odor.",
+    "kidAdjustment": "Serve with tartar sauce, ranch, or ketchup for dipping.",
+    "sideSuggestions": [
+      "Air fryer french fries",
+      "Steamed corn",
+      "Apple slices"
+    ],
+    "reheatInstructions": "Reheat in air fryer at 370°F for 3 minutes. Never microwave fish fingers.",
+    "nutrition": {
+      "calories": 310,
+      "proteinGrams": 34,
+      "carbsGrams": 18,
+      "fatGrams": 10,
+      "source": "USDA FoodData Central #175167"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "air fryer fish sticks",
+      "homemade fish fingers air fryer",
+      "crispy panko cod",
+      "easy kid fish dinner"
+    ],
+    "datePublished": "2026-08-28",
+    "lastUpdated": "2026-08-28",
+    "cookTimeBasis": "Tested on 1.25 lbs fresh cod loins cut into 1x3-inch batons at 400°F."
+  },
+  {
+    "id": "0023",
+    "slug": "sheet-pan-kielbasa-and-roasted-cabbage",
+    "title": "Sheet Pan Smoked Kielbasa & Caramelized Cabbage",
+    "tagline": "Crispy browned sausage coins and sweet roasted cabbage wedges drizzled with apple cider dijon glaze in 25 minutes.",
+    "appliance": "sheet-pan",
+    "categories": [
+      "budget",
+      "one-pan",
+      "high-protein"
+    ],
+    "protein": "pork",
+    "prepMinutes": 6,
+    "cookMinutes": 25,
+    "totalMinutes": 31,
+    "defaultServings": 4,
+    "basis": "Tested with 14 oz Polish kielbasa and 1 medium head green cabbage at 400°F.",
+    "safeInternalTempF": 165,
+    "restMinutes": 2,
+    "cookTemp": "400°F (204°C)",
+    "cookTempF": 400,
+    "cookTempC": 204,
+    "equipmentNeeded": [
+      "Half Sheet Pan",
+      "Parchment Paper",
+      "Chef Knife"
+    ],
+    "quickVersion": {
+      "temp": "400°F (204°C)",
+      "totalTime": "25 mins",
+      "timerMinutes": 25,
+      "flipAtMinutes": 15,
+      "bullets": [
+        "Preheat oven to 400°F. Cut 1 head cabbage into 1-inch wedges and slice 14 oz kielbasa.",
+        "Arrange on parchment-lined sheet pan. Drizzle with 2 tbsp olive oil, salt, pepper, and garlic powder.",
+        "Roast for 25 minutes, flipping cabbage and sausage at the 15-minute mark.",
+        "Drizzle with 1 tbsp dijon mustard and 1 tbsp honey before serving."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Wedge Cabbage & Slice Kielbasa",
+        "instruction": "Preheat oven to 400°F. Cut 1 medium green cabbage into 8 wedges, keeping the core intact so wedges hold together. Slice 14 oz Polish kielbasa into 1/2-inch diagonal coins.",
+        "proTip": "Keeping the cabbage core intact prevents individual leaves from scattering and burning."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Direct Pan Seasoning",
+        "instruction": "Arrange cabbage wedges and sausage on a parchment-lined baking sheet. Brush cabbage with 2 tbsp olive oil, 1 tsp garlic powder, 1/2 tsp caraway seeds or thyme, 1 tsp salt, and 1/2 tsp pepper.",
+        "proTip": "The rendering sausage fat coats the cabbage leaves, infusing rich smoky flavor."
+      },
+      {
+        "stepNumber": 3,
+        "title": "High-Heat Caramelization",
+        "instruction": "Roast at 400°F for 15 minutes. Use a spatula to flip cabbage wedges and stir sausage coins. Roast for 10 more minutes until cabbage edges are deeply browned and crispy.",
+        "timerMinutes": 25,
+        "proTip": "The brown charred cabbage edges are sweet and caramelized, not bitter."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Honey Dijon Finish",
+        "instruction": "Whisk 1 tbsp dijon mustard with 1 tbsp apple cider vinegar and 1 tbsp honey. Drizzle over hot cabbage and kielbasa immediately upon removing from oven.",
+        "proTip": "The acid and sweetness cut the rich smoked pork perfectly."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Smoked Polish Kielbasa",
+        "qty": "14",
+        "qtyNumeric": 14,
+        "unit": "oz",
+        "notes": "sliced into diagonal coins"
+      },
+      {
+        "item": "Green Cabbage",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "head",
+        "notes": "cut into 8 wedges"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Dijon Mustard",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Honey",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Apple Cider Vinegar",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "This entire 4-person meal costs under $8 total at the grocery store. Cabbage is one of the most underrated, delicious sheet pan roasting veggies on earth.",
+    "kidAdjustment": "Separate sausage coins and serve with mustard on the side.",
+    "sideSuggestions": [
+      "Boiled buttered baby potatoes",
+      "Crusty rye bread",
+      "Applesauce"
+    ],
+    "reheatInstructions": "Reheat in skillet over medium heat for 3 minutes to keep cabbage edges crisp.",
+    "nutrition": {
+      "calories": 380,
+      "proteinGrams": 20,
+      "carbsGrams": 18,
+      "fatGrams": 26,
+      "source": "USDA FoodData Central #173873"
+    },
+    "kidRating": 4,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "sheet pan kielbasa and cabbage",
+      "budget family dinner under 10 dollars",
+      "roasted cabbage steaks sausage",
+      "easy pork dinner"
+    ],
+    "datePublished": "2026-08-28",
+    "lastUpdated": "2026-08-28",
+    "cookTimeBasis": "Tested with 14 oz Polish kielbasa and 1 medium head green cabbage at 400°F."
+  },
+  {
+    "id": "0024",
+    "slug": "cast-iron-blackened-chicken-cutlets",
+    "title": "Cast-Iron Blackened Chicken Cutlets",
+    "tagline": "Spicy Cajun herb crust, juicy tender chicken breasts seared in smoking hot cast iron in 8 minutes.",
+    "appliance": "cast-iron",
+    "categories": [
+      "15-minute",
+      "high-protein",
+      "five-ingredient"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 4,
+    "cookMinutes": 8,
+    "totalMinutes": 12,
+    "defaultServings": 4,
+    "basis": "Tested on four 1/2-inch thick chicken breast cutlets in 12-inch cast iron skillet on high flame.",
+    "safeInternalTempF": 165,
+    "restMinutes": 3,
+    "cookTemp": "Smoking Hot High Heat (425°F+)",
+    "cookTempF": 425,
+    "cookTempC": 218,
+    "equipmentNeeded": [
+      "12-inch Cast Iron Skillet",
+      "Tongs"
+    ],
+    "quickVersion": {
+      "temp": "High Heat Cast Iron",
+      "totalTime": "8 mins",
+      "timerMinutes": 8,
+      "flipAtMinutes": 4,
+      "bullets": [
+        "Slice 2 chicken breasts horizontally into 4 thin cutlets. Rub with melted butter.",
+        "Dredge both sides generously in blackening spice blend.",
+        "Drop in smoking hot cast iron skillet. Sear 4 minutes per side without moving.",
+        "Finish with a squeeze of fresh lemon juice and 3 minutes rest."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Cutlet Slicing & Butter Coat",
+        "instruction": "Slice 2 large boneless chicken breasts horizontally in half to create 4 thin cutlets (approx 1/2-inch thick). Brush both sides with 2 tbsp melted butter.",
+        "proTip": "Melted butter binds the blackening spices and chars into a nutty crust."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Heavy Blackening Dredge",
+        "instruction": "In a shallow dish, combine 1 tbsp smoked paprika, 1 tsp onion powder, 1 tsp garlic powder, 1 tsp dried oregano, 1 tsp dried thyme, 1 tsp kosher salt, and 1/2 tsp cayenne pepper. Coat chicken cutlets heavily on all sides.",
+        "proTip": "Do not be shy with seasoning—blackening requires full spice coverage."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Cast Iron Sizzle",
+        "instruction": "Heat a 12-inch cast iron skillet over high heat until lightly smoking. Add 1 tbsp oil. Lay cutlets in skillet away from you. Sear undisturbed for 4 minutes until dark blackened crust forms.",
+        "timerMinutes": 4,
+        "proTip": "Ensure your kitchen exhaust fan is on HIGH; authentic blackening creates fragrant kitchen smoke."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Flip & Butter Baste Finish",
+        "instruction": "Flip cutlets. Add 1 tbsp butter to skillet and cook for 3 to 4 more minutes until internal temp reaches 165°F. Squeeze fresh lemon over hot skillet and rest 3 minutes.",
+        "timerMinutes": 4,
+        "proTip": "Thin cutlets cook in 8 total minutes and stay extraordinarily juicy."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Boneless Chicken Breasts",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "lbs",
+        "notes": "sliced horizontally into 4 cutlets"
+      },
+      {
+        "item": "Salted Butter",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "tbsp",
+        "notes": "melted"
+      },
+      {
+        "item": "Smoked Paprika",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Onion Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Dried Oregano & Thyme",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "equal parts"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Cayenne Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Fresh Lemon",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "pieces",
+        "notes": "halved"
+      }
+    ],
+    "dadProTip": "Slicing chicken breasts into cutlets cuts cook time in half and eliminates the rubbery dry chicken breast problem forever.",
+    "kidAdjustment": "Reduce cayenne pepper to 1/8 tsp for a mild, savory chicken breast.",
+    "sideSuggestions": [
+      "Steamed white rice",
+      "Cajun dirty rice",
+      "Corn on the cob",
+      "Caesar salad"
+    ],
+    "reheatInstructions": "Reheat in skillet over medium heat with 1 tsp butter for 2 minutes.",
+    "nutrition": {
+      "calories": 320,
+      "proteinGrams": 44,
+      "carbsGrams": 2,
+      "fatGrams": 14,
+      "source": "USDA FoodData Central #171077"
+    },
+    "kidRating": 4,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "cast iron blackened chicken",
+      "15 minute chicken cutlets",
+      "cajun chicken breast skillet",
+      "high protein dad dinner"
+    ],
+    "datePublished": "2026-08-28",
+    "lastUpdated": "2026-08-28",
+    "cookTimeBasis": "Tested on four 1/2-inch thick chicken breast cutlets in 12-inch cast iron skillet on high flame."
+  },
+  {
+    "id": "0025",
+    "slug": "air-fryer-bacon-wrapped-jalapeno-poppers",
+    "title": "Air Fryer Bacon-Wrapped Jalapeño Poppers",
+    "tagline": "Crispy crackling bacon wrapped around creamy, cheesy stuffed jalapeño peppers in 12 minutes.",
+    "appliance": "air-fryer",
+    "categories": [
+      "game-day",
+      "snacks",
+      "kid-approved"
+    ],
+    "protein": "pork",
+    "prepMinutes": 10,
+    "cookMinutes": 12,
+    "totalMinutes": 22,
+    "defaultServings": 6,
+    "basis": "Tested with 8 medium jalapeños halved and wrapped with center-cut bacon at 375°F.",
+    "safeInternalTempF": 165,
+    "restMinutes": 3,
+    "cookTemp": "375°F (190°C)",
+    "cookTempF": 375,
+    "cookTempC": 190,
+    "equipmentNeeded": [
+      "Air Fryer",
+      "Toothpicks",
+      "Small Spatula"
+    ],
+    "quickVersion": {
+      "temp": "375°F (190°C)",
+      "totalTime": "12 mins",
+      "timerMinutes": 12,
+      "bullets": [
+        "Halve 8 jalapeños lengthwise; scrape out seeds and white ribs with a spoon.",
+        "Stuff with cream cheese and shredded cheddar mixture.",
+        "Wrap each pepper tightly with a half-slice of bacon and secure with toothpick.",
+        "Air fry at 375°F for 12 minutes until bacon is shatteringly crisp and cheese is bubbly."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Pepper Prep & De-Seeding",
+        "instruction": "Cut 8 fresh jalapeños in half lengthwise. Use a small spoon to scrape out all seeds and white membrane ribs.",
+        "proTip": "The seeds and white ribs hold 90% of the capsaicin heat. Removing them leaves mild pepper flavor."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Cream Cheese Filling",
+        "instruction": "In a bowl, mix 8 oz softened cream cheese, 1 cup shredded sharp cheddar, 1/2 tsp garlic powder, and 1/2 tsp smoked paprika. Spoon filling into each jalapeño cavity.",
+        "proTip": "Do not overfill beyond the rim so melted cheese stays inside the boat."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Bacon Wrap & Toothpick Lock",
+        "instruction": "Cut 8 bacon strips in half. Wrap half a strip tightly around each filled jalapeño half, overlapping slightly. Insert a wooden toothpick through the center to secure.",
+        "proTip": "Wrapping tightly ensures the bacon shrinks around the pepper as it renders."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Air Fry to Crispy Perfection",
+        "instruction": "Place poppers in single layer in air fryer basket. Air fry at 375°F for 12 minutes until bacon is deep reddish-brown and crispy. Cool for 3 minutes before eating.",
+        "timerMinutes": 12,
+        "proTip": "Letting them cool 3 minutes lets the molten cream cheese set so you do not burn your mouth."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Fresh Jalapeño Peppers",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "pieces",
+        "notes": "halved and seeded"
+      },
+      {
+        "item": "Cream Cheese",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "oz",
+        "notes": "softened"
+      },
+      {
+        "item": "Sharp Cheddar Cheese",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cups",
+        "notes": "shredded"
+      },
+      {
+        "item": "Thick Bacon Strips",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "slices",
+        "notes": "cut in half"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Smoked Paprika",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Always wear disposable gloves when cutting jalapeños so you don’t accidentally touch your eyes 2 hours later.",
+    "kidAdjustment": "Use small sweet mini bell peppers instead of jalapeños for 100% heat-free kid poppers.",
+    "sideSuggestions": [
+      "Ranch dressing for dipping",
+      "BBQ wings",
+      "Cold drinks"
+    ],
+    "reheatInstructions": "Reheat in air fryer at 360°F for 3 minutes to restore bacon crunch.",
+    "nutrition": {
+      "calories": 240,
+      "proteinGrams": 8,
+      "carbsGrams": 4,
+      "fatGrams": 22,
+      "source": "USDA FoodData Central #173873"
+    },
+    "kidRating": 5,
+    "difficulty": "Easy",
+    "keywords": [
+      "air fryer jalapeño poppers",
+      "bacon wrapped jalapeno poppers",
+      "game day appetizers",
+      "keto party snacks"
+    ],
+    "datePublished": "2026-08-28",
+    "lastUpdated": "2026-08-28",
+    "cookTimeBasis": "Tested with 8 medium jalapeños halved and wrapped with center-cut bacon at 375°F."
+  },
+  {
+    "id": "0026",
+    "slug": "one-pot-creamy-taco-pasta",
+    "title": "One-Pot Cheesy Beef Taco Pasta",
+    "tagline": "Seasoned ground beef, pasta shells, fire-roasted salsa, and rich melted cheddar simmered in one single pot in 15 minutes.",
+    "appliance": "skillet",
+    "categories": [
+      "15-minute",
+      "one-pan",
+      "budget",
+      "kid-approved"
+    ],
+    "protein": "beef",
+    "prepMinutes": 3,
+    "cookMinutes": 12,
+    "totalMinutes": 15,
+    "defaultServings": 5,
+    "basis": "Tested in 12-inch deep skillet with 1 lb ground beef, 8 oz pasta, and 2 cups broth.",
+    "safeInternalTempF": 165,
+    "restMinutes": 2,
+    "cookTemp": "Medium Simmer",
+    "cookTempF": 350,
+    "cookTempC": 177,
+    "equipmentNeeded": [
+      "12-inch Deep Skillet / Dutch Oven",
+      "Wooden Spoon"
+    ],
+    "quickVersion": {
+      "temp": "Medium Stovetop Simmer",
+      "totalTime": "12 mins",
+      "timerMinutes": 12,
+      "bullets": [
+        "Brown 1 lb ground beef in deep skillet with taco seasoning for 4 minutes.",
+        "Add 8 oz uncooked pasta shells, 1 cup salsa, and 2 cups beef broth. Stir well.",
+        "Cover and simmer on medium for 8 minutes until pasta is tender and liquid absorbs.",
+        "Stir in 1/4 cup sour cream and 1.5 cups shredded cheddar until rich and creamy."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Brown Ground Beef",
+        "instruction": "Heat a deep 12-inch skillet over medium-high heat. Add 1 lb ground beef and 2 tbsp taco seasoning. Brown for 4 minutes, breaking into fine crumbles. Spoon off excess fat.",
+        "proTip": "Browning beef with taco seasoning infuses spice directly into the meat fibers."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Direct Pasta & Liquid Boil",
+        "instruction": "Add 8 oz dry medium pasta shells, 1 cup mild salsa, and 2 cups beef broth directly to the beef in the skillet. Stir to combine.",
+        "proTip": "Cooking pasta directly in seasoned broth releases starch that naturally thickens the sauce."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Covered Simmer",
+        "instruction": "Bring to a boil, then reduce heat to medium-low, cover with a tight-fitting lid, and simmer for 8 minutes, stirring once halfway through.",
+        "timerMinutes": 8,
+        "proTip": "Keep covered so steam cooks the upper layer of pasta shells uniformly."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Cheese Emulsion & Serve",
+        "instruction": "Remove lid. Stir in 1/4 cup sour cream and 1.5 cups shredded cheddar cheese until smooth, velvety, and clinging to every shell. Garnish with green onions.",
+        "proTip": "Sour cream adds tanginess and stabilizes the cheese sauce so it never separates."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Ground Beef (85/15)",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "lbs"
+      },
+      {
+        "item": "Medium Pasta Shells or Macaroni",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "oz",
+        "notes": "dry uncooked"
+      },
+      {
+        "item": "Taco Seasoning",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Mild Tomato Salsa",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cups"
+      },
+      {
+        "item": "Beef Broth",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cups"
+      },
+      {
+        "item": "Shredded Cheddar Cheese",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "cups"
+      },
+      {
+        "item": "Sour Cream",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "cups"
+      },
+      {
+        "item": "Green Onions",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "stalks",
+        "notes": "sliced"
+      }
+    ],
+    "dadProTip": "This is the scratch version of Hamburger Helper with 10x better flavor and zero artificial additives. Kids will ask for this every week.",
+    "kidAdjustment": "Use mild salsa and extra cheddar cheese.",
+    "sideSuggestions": [
+      "Garlic toast",
+      "Steamed broccoli",
+      "Tortilla chips"
+    ],
+    "reheatInstructions": "Reheat in microwave or skillet with 2 tbsp milk for 2 minutes to restore creaminess.",
+    "nutrition": {
+      "calories": 490,
+      "proteinGrams": 36,
+      "carbsGrams": 42,
+      "fatGrams": 20,
+      "source": "USDA FoodData Central #174032"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "one pot taco pasta",
+      "cheesy beef taco pasta skillet",
+      "15 minute family dinner",
+      "easy weeknight ground beef"
+    ],
+    "datePublished": "2026-08-28",
+    "lastUpdated": "2026-08-28",
+    "cookTimeBasis": "Tested in 12-inch deep skillet with 1 lb ground beef, 8 oz pasta, and 2 cups broth."
+  },
+  {
+    "id": "0027",
+    "slug": "skillet-diner-smash-patty-melts",
+    "title": "Cast Iron Diner Smash Patty Melts",
+    "tagline": "Crispy lacy smash burger patties, sweet griddled onions, melted Swiss cheese on golden buttery rye toast in 10 minutes.",
+    "appliance": "cast-iron",
+    "categories": [
+      "15-minute",
+      "high-protein",
+      "kid-approved"
+    ],
+    "protein": "beef",
+    "prepMinutes": 4,
+    "cookMinutes": 6,
+    "totalMinutes": 10,
+    "defaultServings": 2,
+    "basis": "Tested in 12-inch cast iron skillet on high flame with two 3-oz beef patties.",
+    "safeInternalTempF": 160,
+    "restMinutes": 1,
+    "cookTemp": "Smoking Hot Cast Iron (450°F+)",
+    "cookTempF": 450,
+    "cookTempC": 232,
+    "equipmentNeeded": [
+      "12-inch Cast Iron Skillet",
+      "Heavy Metal Spatula"
+    ],
+    "quickVersion": {
+      "temp": "High Heat Cast Iron",
+      "totalTime": "6 mins",
+      "timerMinutes": 6,
+      "bullets": [
+        "Sauté sliced onion in 1 tbsp butter for 3 minutes until caramelized; set aside.",
+        "Smash two 3-oz balls of 80/20 beef flat into screaming hot cast iron. Sear 2 mins.",
+        "Flip patties, top with Swiss cheese, caramelized onions, and remaining Swiss cheese.",
+        "Assemble between buttered rye bread and griddle 1 min per side until golden brown."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Flash Griddle Onions",
+        "instruction": "Melt 1 tbsp butter in a 12-inch cast iron skillet over medium-high heat. Add 1 thinly sliced yellow onion and a pinch of salt. Sauté for 3 minutes until tender and browned. Transfer to a plate.",
+        "proTip": "Quickly searing onions in cast iron delivers diner-grade griddle flavor in under 4 minutes."
+      },
+      {
+        "stepNumber": 2,
+        "title": "The Hard Patty Smash",
+        "instruction": "Turn skillet to high heat. Place two 3-oz cold 80/20 ground chuck balls in skillet. Smash wafer-thin with a metal spatula. Season with salt and pepper. Cook undisturbed for 2 minutes until edges char.",
+        "proTip": "Thin lacy edges fry in their own beef fat, creating maximum crunch."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Scrape, Flip & Stack",
+        "instruction": "Scrape up crust firmly and flip patties. Immediately top each patty with 1 slice Swiss cheese and the warm griddled onions. Stack the two patties on top of each other.",
+        "proTip": "Stacking traps the onions between melting cheese blankets."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Buttered Bread Griddle",
+        "instruction": "Butter 2 slices of marbled rye or sourdough bread. Place the stacked meat and cheese between the bread and griddle in the skillet for 1 minute per side until golden brown and crunchy.",
+        "proTip": "Use real salted butter on the outside of the bread for diner crunch."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "80/20 Ground Chuck",
+        "qty": "0.75",
+        "qtyNumeric": 0.75,
+        "unit": "lbs",
+        "notes": "portioned into two 3-oz balls"
+      },
+      {
+        "item": "Swiss Cheese Slices",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "slices"
+      },
+      {
+        "item": "Marbled Rye or Sourdough Bread",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "slices"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "pieces",
+        "notes": "thinly sliced"
+      },
+      {
+        "item": "Salted Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt & Black Pepper",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "mix"
+      }
+    ],
+    "dadProTip": "A patty melt is the king of diner burgers. The combination of crispy rye bread, sweet onions, and Swiss cheese beats a standard burger bun every time.",
+    "kidAdjustment": "Make on white sandwich bread with cheddar or American cheese.",
+    "sideSuggestions": [
+      "Crinkle cut fries",
+      "Dill pickle spears",
+      "Root beer"
+    ],
+    "reheatInstructions": "Reheat in skillet over medium heat for 2 minutes to restore bread crunch.",
+    "nutrition": {
+      "calories": 680,
+      "proteinGrams": 45,
+      "carbsGrams": 36,
+      "fatGrams": 40,
+      "source": "USDA FoodData Central #174032"
+    },
+    "kidRating": 5,
+    "difficulty": "Easy",
+    "keywords": [
+      "diner patty melt recipe",
+      "cast iron smash patty melt",
+      "best patty melt recipe",
+      "quick dad dinner"
+    ],
+    "datePublished": "2026-08-28",
+    "lastUpdated": "2026-08-28",
+    "cookTimeBasis": "Tested in 12-inch cast iron skillet on high flame with two 3-oz beef patties."
+  },
+  {
+    "id": "0028",
+    "slug": "sheet-pan-greek-lemon-herb-chicken-potatoes",
+    "title": "Sheet Pan Greek Lemon Herb Chicken & Crispy Potatoes",
+    "tagline": "Juicy chicken thighs roasted alongside crispy oregano potato wedges and sweet red onions with feta in 25 minutes.",
+    "appliance": "sheet-pan",
+    "categories": [
+      "one-pan",
+      "high-protein",
+      "budget"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 8,
+    "cookMinutes": 25,
+    "totalMinutes": 33,
+    "defaultServings": 4,
+    "basis": "Tested on rimmed half sheet pan with 2 lbs bone-in chicken thighs and baby potatoes at 425°F.",
+    "safeInternalTempF": 175,
+    "restMinutes": 3,
+    "cookTemp": "425°F (218°C)",
+    "cookTempF": 425,
+    "cookTempC": 218,
+    "equipmentNeeded": [
+      "Half Sheet Pan",
+      "Parchment Paper",
+      "Chef Knife"
+    ],
+    "quickVersion": {
+      "temp": "425°F (218°C)",
+      "totalTime": "25 mins",
+      "timerMinutes": 25,
+      "flipAtMinutes": 15,
+      "bullets": [
+        "Preheat oven to 425°F. Cut 1 lb baby potatoes into wedges and 1 red onion into chunks.",
+        "Toss potatoes and 4 chicken thighs on sheet pan with 2 tbsp olive oil, lemon juice, oregano, and garlic.",
+        "Roast for 25 minutes until potato edges are golden and chicken hits 175°F.",
+        "Sprinkle with crumbled feta cheese and fresh parsley before serving."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Chop Potatoes & Onions",
+        "instruction": "Preheat oven to 425°F. Line a half sheet pan with parchment. Cut 1 lb baby yellow potatoes into 1/2-inch wedges. Cut 1 red onion into 1-inch chunks.",
+        "proTip": "Cutting potatoes into 1/2-inch wedges gives high surface area for crispy roasted edges."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Greek Lemon Herb Marinade",
+        "instruction": "In a small bowl, whisk 3 tbsp olive oil, juice of 1 lemon, 1 tbsp dried oregano, 1 tsp garlic powder, 1 tsp kosher salt, and 1/2 tsp black pepper. Toss with chicken thighs and potatoes directly on the sheet pan.",
+        "proTip": "Lemon juice tenderizes chicken skin while infusing bright Mediterranean flavor."
+      },
+      {
+        "stepNumber": 3,
+        "title": "High-Heat Single Layer Roast",
+        "instruction": "Arrange chicken thighs skin-side up with potatoes nestled around them in a single layer. Roast at 425°F for 25 minutes.",
+        "timerMinutes": 25,
+        "proTip": "Chicken fat renders into the potatoes, roasting them into golden flavorful potato wedges."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Feta Garnish & Rest",
+        "instruction": "Check chicken reads 175°F and potatoes are fork-tender. Sprinkle 1/3 cup crumbled feta cheese and 2 tbsp fresh parsley over the pan. Rest 3 minutes before serving.",
+        "proTip": "Warm feta softens slightly against the hot potatoes."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Bone-In Skin-On Chicken Thighs",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "pieces",
+        "notes": "approx 2 lbs total"
+      },
+      {
+        "item": "Baby Yellow Potatoes",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "lbs",
+        "notes": "cut into 1/2-inch wedges"
+      },
+      {
+        "item": "Red Onion",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "pieces",
+        "notes": "chopped in 1-inch chunks"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Fresh Lemon Juice",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "from 1 fresh lemon"
+      },
+      {
+        "item": "Dried Oregano",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Crumbled Feta Cheese",
+        "qty": "1/3",
+        "qtyNumeric": 0.33,
+        "unit": "cups"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Bone-in chicken thighs cannot be overcooked. Taking them to 175°F–185°F turns the meat melt-in-your-mouth juicy while skin crisps into crackling.",
+    "kidAdjustment": "Keep feta on half the pan if kids prefer plain roasted chicken and potatoes.",
+    "sideSuggestions": [
+      "Greek salad with cucumbers and kalamata olives",
+      "Warm pita bread with tzatziki"
+    ],
+    "reheatInstructions": "Reheat in air fryer or oven at 375°F for 4 minutes to restore crispy skin.",
+    "nutrition": {
+      "calories": 460,
+      "proteinGrams": 38,
+      "carbsGrams": 24,
+      "fatGrams": 24,
+      "source": "USDA FoodData Central #171116"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "greek sheet pan chicken and potatoes",
+      "easy weeknight chicken thighs",
+      "one pan greek dinner",
+      "crispy chicken potato sheet pan"
+    ],
+    "datePublished": "2026-08-28",
+    "lastUpdated": "2026-08-28",
+    "cookTimeBasis": "Tested on rimmed half sheet pan with 2 lbs bone-in chicken thighs and baby potatoes at 425°F."
+  },
+  {
+    "id": "0029",
+    "slug": "air-fryer-cinnamon-sugar-donut-holes",
+    "title": "6-Minute Air Fryer Cinnamon Sugar Donut Holes",
+    "tagline": "Warm, golden, flaky biscuit donut bites rolled in melted butter and sweet cinnamon sugar in 6 minutes.",
+    "appliance": "air-fryer",
+    "categories": [
+      "breakfast",
+      "snacks",
+      "kid-approved",
+      "five-ingredient"
+    ],
+    "protein": "dairy-eggs",
+    "prepMinutes": 3,
+    "cookMinutes": 6,
+    "totalMinutes": 9,
+    "defaultServings": 4,
+    "basis": "Tested on 1 can refrigerated flaky biscuits cut into 24 pieces at 350°F.",
+    "safeInternalTempF": 190,
+    "restMinutes": 1,
+    "cookTemp": "350°F (177°C)",
+    "cookTempF": 350,
+    "cookTempC": 177,
+    "equipmentNeeded": [
+      "Air Fryer",
+      "Small Shallow Bowl",
+      "Tongs"
+    ],
+    "quickVersion": {
+      "temp": "350°F (177°C)",
+      "totalTime": "6 mins",
+      "timerMinutes": 6,
+      "flipAtMinutes": 3,
+      "bullets": [
+        "Cut 8 refrigerated biscuits into quarters (24 small dough balls). Roll lightly into balls.",
+        "Place in greased air fryer basket with space between.",
+        "Air fry at 350°F for 6 minutes, shaking basket at 3 minutes until golden brown.",
+        "Toss immediately in 3 tbsp melted butter, then roll in cinnamon sugar mixture."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Quarter Biscuit Dough",
+        "instruction": "Pop open 1 can (16 oz) refrigerated flaky layers biscuits. Cut each of the 8 biscuits into 4 equal quarters using a knife. Roll each quarter gently between your palms into a round dough ball (24 pieces total).",
+        "proTip": "Do not overwork the dough; gentle rolling keeps the layers light and airy."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Air Fry with Space",
+        "instruction": "Spray air fryer basket with oil. Place dough balls in the basket with 1/2-inch space between (cook in two batches of 12 if using a smaller 4-qt basket). Air fry at 350°F for 6 minutes, shaking at 3 minutes.",
+        "timerMinutes": 6,
+        "proTip": "Cooking at 350°F allows dough centers to cook through while exteriors turn golden."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Melted Butter Dip",
+        "instruction": "Melt 4 tbsp salted butter in a shallow bowl. Transfer hot donut holes directly into the melted butter and toss with a spoon until glistening.",
+        "proTip": "Tossing immediately while piping hot ensures the butter soaks in and binds the sugar."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Cinnamon Sugar Roll",
+        "instruction": "In a second bowl, combine 1/2 cup granulated sugar and 1.5 tsp ground cinnamon. Transfer buttered donut holes into the sugar and roll until heavily coated. Serve immediately.",
+        "proTip": "Eat warm straight out of the sugar bowl for bakery-fresh taste."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Refrigerated Flaky Biscuits",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "can",
+        "notes": "16 oz (8 biscuits)"
+      },
+      {
+        "item": "Salted Butter",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "tbsp",
+        "notes": "melted"
+      },
+      {
+        "item": "Granulated Sugar",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cups"
+      },
+      {
+        "item": "Ground Cinnamon",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "This is the easiest weekend morning dad trick in existence. Takes 9 minutes total and beats driving to the donut shop.",
+    "kidAdjustment": "Serve with chocolate syrup or maple syrup for dipping.",
+    "sideSuggestions": [
+      "Scrambled eggs",
+      "Crispy bacon",
+      "Fresh orange juice",
+      "Hot coffee"
+    ],
+    "reheatInstructions": "Best eaten fresh! Reheat in air fryer at 320°F for 90 seconds.",
+    "nutrition": {
+      "calories": 260,
+      "proteinGrams": 4,
+      "carbsGrams": 36,
+      "fatGrams": 12,
+      "source": "USDA FoodData Central #170028"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "air fryer donut holes",
+      "biscuit donut holes air fryer",
+      "quick weekend breakfast dad",
+      "cinnamon sugar donut bites"
+    ],
+    "datePublished": "2026-08-28",
+    "lastUpdated": "2026-08-28",
+    "cookTimeBasis": "Tested on 1 can refrigerated flaky biscuits cut into 24 pieces at 350°F."
+  },
+  {
+    "id": "0030",
+    "slug": "slow-cooker-mexican-shredded-salsa-chicken",
+    "title": "Slow Cooker Mexican Shredded Salsa Chicken",
+    "tagline": "3-ingredient tender shredded chicken slow simmered in chunky salsa and taco spices. Perfect for tacos, burritos, and bowls.",
+    "appliance": "slow-cooker",
+    "categories": [
+      "budget",
+      "no-thaw",
+      "high-protein",
+      "kid-approved"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 3,
+    "cookMinutes": 240,
+    "totalMinutes": 243,
+    "defaultServings": 6,
+    "basis": "Tested in 6-qt slow cooker with 2.5 lbs chicken breasts on LOW for 4 hours.",
+    "safeInternalTempF": 165,
+    "restMinutes": 5,
+    "cookTemp": "LOW (4 hrs) or HIGH (2.5 hrs)",
+    "cookTempF": 200,
+    "cookTempC": 93,
+    "equipmentNeeded": [
+      "6-qt Slow Cooker / Crock-Pot",
+      "Two Forks"
+    ],
+    "quickVersion": {
+      "temp": "Slow Cooker LOW",
+      "totalTime": "4 hours",
+      "timerMinutes": 240,
+      "bullets": [
+        "Place 2.5 lbs chicken breasts (fresh or frozen) in slow cooker.",
+        "Sprinkle with 1 packet taco seasoning and pour 1 jar (16 oz) chunky salsa over top.",
+        "Cover and cook on LOW for 4 hours (or HIGH for 2.5 hours) until chicken reaches 165°F.",
+        "Shred chicken directly in slow cooker with two forks. Toss with juices and serve."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "3-Ingredient Dump",
+        "instruction": "Place 2.5 lbs boneless skinless chicken breasts (fresh or straight from frozen) into the bottom of a 6-qt slow cooker. Sprinkle 1 packet (or 2 tbsp) taco seasoning over chicken. Pour one 16-oz jar of chunky tomato salsa over top.",
+        "proTip": "No added liquid is needed; the salsa and chicken release plenty of rich cooking juices."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Hands-Off Slow Cook",
+        "instruction": "Cover with lid and cook on LOW for 4 to 5 hours (or HIGH for 2.5 to 3 hours) until internal temp reaches 165°F.",
+        "timerMinutes": 240,
+        "proTip": "Cooking on LOW keeps the chicken breasts juicy without drying out."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Two-Fork Shredding",
+        "instruction": "Use two forks to shred the chicken directly in the slow cooker pot into tender shredded strands.",
+        "proTip": "Shredding directly in the juices lets the meat reabsorb all the seasoned salsa broth."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Reabsorb & Serve",
+        "instruction": "Let shredded chicken sit in the warm juices for 5 minutes. Squeeze fresh lime juice over top and serve in warm tortillas, over rice bowls, or in quesadillas.",
+        "proTip": "Makes enough protein for 2 to 3 days of effortless family lunches and dinners."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Boneless Skinless Chicken Breasts",
+        "qty": "2.5",
+        "qtyNumeric": 2.5,
+        "unit": "lbs",
+        "notes": "fresh or frozen"
+      },
+      {
+        "item": "Chunky Tomato Salsa",
+        "qty": "16",
+        "qtyNumeric": 16,
+        "unit": "oz",
+        "notes": "1 jar (mild or medium)"
+      },
+      {
+        "item": "Taco Seasoning",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "1 packet"
+      },
+      {
+        "item": "Fresh Lime",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "pieces",
+        "notes": "halved"
+      }
+    ],
+    "dadProTip": "Forgot to thaw meat? This works straight from rock-solid frozen chicken breasts. Just add 45 minutes to the cooking time.",
+    "kidAdjustment": "Use mild salsa with sweet corn added.",
+    "sideSuggestions": [
+      "Warm flour tortillas",
+      "Mexican yellow rice",
+      "Black beans with cheese",
+      "Guacamole and tortilla chips"
+    ],
+    "reheatInstructions": "Reheat in skillet or microwave with 2 tbsp cooking juices for 90 seconds.",
+    "nutrition": {
+      "calories": 280,
+      "proteinGrams": 42,
+      "carbsGrams": 8,
+      "fatGrams": 6,
+      "source": "USDA FoodData Central #171077"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "slow cooker salsa chicken",
+      "3 ingredient crockpot chicken",
+      "crockpot taco chicken from frozen",
+      "easy shredded chicken meal prep"
+    ],
+    "datePublished": "2026-08-28",
+    "lastUpdated": "2026-08-28",
+    "cookTimeBasis": "Tested in 6-qt slow cooker with 2.5 lbs chicken breasts on LOW for 4 hours."
+  },
+  {
+    "id": "0031",
+    "slug": "air-fryer-charred-broccoli-parmesan",
+    "title": "Air Fryer Charred Garlic Parmesan Broccoli",
+    "tagline": "Blistered, crispy broccoli crowns tossed in olive oil, fresh lemon juice, and aged grated parmesan in 8 minutes.",
+    "appliance": "air-fryer",
+    "categories": [
+      "15-minute",
+      "sides",
+      "kid-approved",
+      "five-ingredient"
+    ],
+    "protein": "vegetarian",
+    "prepMinutes": 3,
+    "cookMinutes": 8,
+    "totalMinutes": 11,
+    "defaultServings": 4,
+    "basis": "Tested on 1 lb fresh broccoli florets at 380°F in 6-qt basket air fryer.",
+    "safeInternalTempF": 180,
+    "restMinutes": 1,
+    "cookTemp": "380°F (193°C)",
+    "cookTempF": 380,
+    "cookTempC": 193,
+    "equipmentNeeded": [
+      "Air Fryer",
+      "Mixing Bowl"
+    ],
+    "quickVersion": {
+      "temp": "380°F (193°C)",
+      "totalTime": "8 mins",
+      "timerMinutes": 8,
+      "flipAtMinutes": 4,
+      "bullets": [
+        "Cut 1 lb broccoli into uniform florets. Dry thoroughly with a kitchen towel.",
+        "Toss in bowl with 2 tbsp olive oil, 1 tsp garlic powder, salt, and pepper.",
+        "Air fry at 380°F for 8 minutes, shaking basket at 4 minutes until florets are charred.",
+        "Toss immediately with fresh lemon juice and grated parmesan cheese."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Uniform Florets & Moisture Check",
+        "instruction": "Cut 1 lb fresh broccoli heads into bite-sized uniform florets. Pat completely dry with a clean kitchen towel.",
+        "proTip": "Dry broccoli gets roasted and blistered; wet broccoli steams and turns limp."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Oil & Garlic Powder Coat",
+        "instruction": "In a bowl, toss broccoli florets with 2 tbsp olive oil, 1 tsp garlic powder, 1/2 tsp kosher salt, and 1/4 tsp black pepper until evenly glistening.",
+        "proTip": "Garlic powder roasts into the tiny tree florets without burning like fresh garlic."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Convection Char Phase",
+        "instruction": "Place broccoli into the air fryer basket in a loose layer. Air fry at 380°F for 8 minutes, shaking the basket vigorously at 4 minutes.",
+        "timerMinutes": 8,
+        "proTip": "The high-speed circulating fan caramelizes the delicate floret tops into nutty crispy clusters."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Lemon & Parmesan Toss",
+        "instruction": "Transfer hot roasted broccoli into a serving bowl. Squeeze juice of half a lemon over top and toss with 1/3 cup finely grated parmesan cheese. Serve immediately.",
+        "proTip": "The heat of the broccoli melts the parmesan into a salty savory crust."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Fresh Broccoli Heads",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "lbs",
+        "notes": "cut into bite-sized florets"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Grated Parmesan Cheese",
+        "qty": "1/3",
+        "qtyNumeric": 0.33,
+        "unit": "cups",
+        "notes": "freshly grated"
+      },
+      {
+        "item": "Fresh Lemon",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "pieces",
+        "notes": "juiced"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "This converts broccoli haters instantly. The charred tips taste like crispy roasted chips instead of mushy steamed greens.",
+    "kidAdjustment": "Skip lemon juice and add extra melted cheddar or parmesan on top.",
+    "sideSuggestions": [
+      "Air fryer steak bites",
+      "Cast iron smash burgers",
+      "Air fryer chicken tenders"
+    ],
+    "reheatInstructions": "Reheat broccoli in air fryer at 350°F for 2 minutes with a fresh sprinkle of parmesan.",
+    "nutrition": {
+      "calories": 120,
+      "proteinGrams": 5,
+      "carbsGrams": 8,
+      "fatGrams": 8,
+      "source": "USDA FoodData Central #170028"
+    },
+    "kidRating": 4,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "air fryer broccoli",
+      "crispy roasted broccoli air fryer",
+      "garlic parmesan broccoli side",
+      "quick 10 minute vegetable side"
+    ],
+    "datePublished": "2026-08-28",
+    "lastUpdated": "2026-08-28",
+    "cookTimeBasis": "Tested on 1 lb fresh broccoli florets at 380°F in 6-qt basket air fryer."
+  },
+  {
+    "id": "0032",
+    "slug": "cast-iron-diner-breakfast-hash",
+    "title": "Cast Iron Diner Breakfast Skillet Hash",
+    "tagline": "Crispy browned potato hash browns, savory breakfast sausage, bell peppers, melted cheddar, and sunny-side eggs in 12 minutes.",
+    "appliance": "cast-iron",
+    "categories": [
+      "breakfast",
+      "15-minute",
+      "high-protein",
+      "kid-approved"
+    ],
+    "protein": "pork",
+    "prepMinutes": 3,
+    "cookMinutes": 9,
+    "totalMinutes": 12,
+    "defaultServings": 4,
+    "basis": "Tested in 12-inch cast iron skillet with 1 lb hash browns, 1/2 lb breakfast sausage, and 4 eggs.",
+    "safeInternalTempF": 160,
+    "restMinutes": 1,
+    "cookTemp": "Medium-High (375°F / 190°C)",
+    "cookTempF": 375,
+    "cookTempC": 190,
+    "equipmentNeeded": [
+      "12-inch Cast Iron Skillet",
+      "Metal Spatula"
+    ],
+    "quickVersion": {
+      "temp": "Medium-High Cast Iron",
+      "totalTime": "10 mins",
+      "timerMinutes": 9,
+      "bullets": [
+        "Brown 1/2 lb breakfast sausage in cast iron for 3 minutes; push to side.",
+        "Add 1 lb frozen shredded hash browns and 1 tbsp butter; press flat and sear 4 mins undisturbed.",
+        "Flip hash in sections, mix with sausage and peppers, and make 4 small nests.",
+        "Crack eggs into nests, top with cheddar, cover with foil 2 mins until egg whites set."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Sausage & Pepper Sizzle",
+        "instruction": "Heat a 12-inch cast iron skillet over medium-high heat. Add 1/2 lb ground breakfast sausage and 1/2 diced bell pepper. Cook for 3 minutes, breaking sausage into crumbles with a spatula.",
+        "proTip": "Sausage renders flavorful seasoned pork fat into the cast iron."
+      },
+      {
+        "stepNumber": 2,
+        "title": "The Golden Hash Brown Crust",
+        "instruction": "Add 1 tbsp butter and 1 lb shredded hash brown potatoes (fresh or thawed frozen). Press the potatoes firmly against the skillet surface in a flat layer. Cook undisturbed for 4 minutes until bottom is golden and crunchy.",
+        "proTip": "Do not touch or stir the hash browns while they sear; letting them sit undisturbed builds the diner crust."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Flip & Form Egg Nests",
+        "instruction": "Flip hash browns in large sections with a metal spatula. Mix in the browned sausage. Use a spoon to press 4 shallow circular indentations (nests) into the hash.",
+        "proTip": "Forming nests keeps the eggs from sliding to the pan edges."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Crack Eggs & Melt Cheddar",
+        "instruction": "Crack 1 large egg into each nest. Sprinkle 1 cup shredded cheddar cheese around the eggs. Cover skillet with foil or lid for 2 minutes until egg whites are set and yolks are runny. Season with black pepper and hot sauce.",
+        "proTip": "Covering with foil cooks the egg whites gently from above while keeping yolks creamy."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Ground Pork Breakfast Sausage",
+        "qty": "0.5",
+        "qtyNumeric": 0.5,
+        "unit": "lbs"
+      },
+      {
+        "item": "Shredded Hash Brown Potatoes",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "lbs",
+        "notes": "fresh or thawed frozen"
+      },
+      {
+        "item": "Large Eggs",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "pieces"
+      },
+      {
+        "item": "Shredded Sharp Cheddar Cheese",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cups"
+      },
+      {
+        "item": "Bell Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "pieces",
+        "notes": "diced"
+      },
+      {
+        "item": "Salted Butter",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt & Black Pepper",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "mix"
+      }
+    ],
+    "dadProTip": "Serve the entire skillet right in the middle of the table with a spatula. Weekend breakfast done in 12 minutes with one pan to wash.",
+    "kidAdjustment": "Scramble eggs directly into the hash browns for younger kids.",
+    "sideSuggestions": [
+      "Buttered toast or biscuits",
+      "Fresh orange slices",
+      "Hot coffee with cream"
+    ],
+    "reheatInstructions": "Reheat in cast iron over medium heat for 3 minutes to restore potato crispness.",
+    "nutrition": {
+      "calories": 480,
+      "proteinGrams": 28,
+      "carbsGrams": 26,
+      "fatGrams": 30,
+      "source": "USDA FoodData Central #174032"
+    },
+    "kidRating": 5,
+    "difficulty": "Easy",
+    "keywords": [
+      "cast iron breakfast skillet",
+      "diner hash brown breakfast hash",
+      "easy weekend dad breakfast",
+      "one pan egg and sausage hash"
+    ],
+    "datePublished": "2026-08-28",
+    "lastUpdated": "2026-08-28",
+    "cookTimeBasis": "Tested in 12-inch cast iron skillet with 1 lb hash browns, 1/2 lb breakfast sausage, and 4 eggs."
   }
 ]

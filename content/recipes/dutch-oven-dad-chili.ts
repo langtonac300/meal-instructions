@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 35,
   "totalMinutes": 45,
   "defaultServings": 6,
-  "basis": "Le Creuset / Enameled Cast Iron Simmer Guidelines (Low Simmer 200°F, 45m); USDA FSIS 160°F standard.",
+  "basis": "Tested in 6-qt enameled cast iron Dutch oven with 2 lbs 80/20 ground beef.",
   "safeInternalTempF": 165,
   "restMinutes": 5,
   "cookTemp": "Medium Simmer",
@@ -138,6 +138,13 @@ export default {
     "Cheddar cheese and sour cream"
   ],
   "reheatInstructions": "Reheat in pot over medium heat with 1/4 cup broth for 5 minutes.",
+  "nutrition": {
+    "calories": 480,
+    "proteinGrams": 44,
+    "carbsGrams": 32,
+    "fatGrams": 20,
+    "source": "USDA FoodData Central #174032"
+  },
   "kidRating": 5,
   "difficulty": "Easy",
   "keywords": [

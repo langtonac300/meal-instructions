@@ -29,3 +29,4 @@ yarn-error.log*
 # editor junk
 *.swp
 *.swo
+.env*

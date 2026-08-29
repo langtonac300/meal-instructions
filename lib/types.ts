@@ -127,6 +127,7 @@ export interface Recipe {
   keywords: string[];
   datePublished: string;
   lastUpdated: string;
+  image?: string; // e.g. "/images/hero/air-fryer-tenders.jpg"
 }
 
 export interface CategoryMeta {
@@ -135,6 +136,7 @@ export interface CategoryMeta {
   shortDescription: string;
   fullDescription: string;
   heroTag: string;
+  image?: string;
 }
 
 export interface ApplianceMeta {

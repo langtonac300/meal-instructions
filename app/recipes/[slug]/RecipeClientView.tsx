@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   Zap, BookOpen, Clock, Flame, Share2, Printer, Check, 
   Copy, Play, Pause, RotateCcw, ShieldCheck, ArrowLeft, ArrowUpRight
@@ -189,6 +190,20 @@ export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
             {recipe.tagline}
           </p>
         </div>
+
+        {/* Recipe Editorial Photo */}
+        {recipe.image && (
+          <div className="relative w-full h-64 sm:h-96 rounded overflow-hidden hairline-border bg-paper">
+            <Image
+              src={recipe.image}
+              alt={recipe.title}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 800px"
+              className="object-cover"
+            />
+          </div>
+        )}
 
         {/* Quick Specs Matrix */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-paper p-4 hairline-border font-mono text-xs text-ink">

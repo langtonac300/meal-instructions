@@ -172,13 +172,42 @@ if (datasheetCount < 20) {
   errors.push(`Datasheet audit found only ${datasheetCount} datasheets in data/cook-times.ts. Expected 20+.`);
 }
 
-console.log(`Audited ${datasheetCount} parametric datasheets in data/cook-times.ts.`);
+// 5. Audit Tools Dataset in data/tools-data.ts
+const toolsDataPath = path.join(__dirname, '../data/tools-data.ts');
+if (!fs.existsSync(toolsDataPath)) {
+  errors.push('Missing data/tools-data.ts');
+} else {
+  const toolsContent = fs.readFileSync(toolsDataPath, 'utf-8');
+
+  // Verify REHEAT_ITEMS presence
+  if (!toolsContent.includes('REHEAT_ITEMS')) {
+    errors.push('REHEAT_ITEMS missing from data/tools-data.ts');
+  }
+
+  // Verify FROZEN_ITEMS USDA temps
+  if (toolsContent.includes('chicken-breast-boneless') && !toolsContent.includes('internalTargetTemp: 165')) {
+    errors.push('Frozen chicken breast internal target temp must be 165°F (USDA FSIS).');
+  }
+
+  // Verify SALT_BRANDS physical densities
+  if (!toolsContent.includes('gramsPerTeaspoon: 2.8')) {
+    errors.push('Diamond Crystal density must be calibrated to 2.8g/tsp.');
+  }
+  if (!toolsContent.includes('gramsPerTeaspoon: 4.8')) {
+    errors.push('Morton Kosher density must be calibrated to 4.8g/tsp.');
+  }
+  if (!toolsContent.includes('gramsPerTeaspoon: 5.7')) {
+    errors.push('Table salt density must be calibrated to 5.7g/tsp.');
+  }
+
+  console.log('Audited quick tools dataset (Reheat, Frozen, Meat Math, Internal Temp, Salt, Troubleshoot).');
+}
 
 if (errors.length > 0) {
   console.error(`\n❌ CONTENT AUDIT FAILED with ${errors.length} error(s):\n`);
   errors.forEach((err, idx) => console.error(`${idx + 1}. ${err}`));
   process.exit(1);
 } else {
-  console.log(`✅ CONTENT AUDIT PASSED: ${recipes.length} recipes and ${datasheetCount} datasheets verified.\n`);
+  console.log(`✅ CONTENT AUDIT PASSED: ${recipes.length} recipes, ${datasheetCount} datasheets, and tools dataset verified.\n`);
   process.exit(0);
 }

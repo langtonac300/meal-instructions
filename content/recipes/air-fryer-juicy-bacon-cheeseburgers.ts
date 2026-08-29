@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 10,
   "totalMinutes": 15,
   "defaultServings": 4,
-  "basis": "Instant Vortex Plus Official Cook Table (Burgers 375°F, 10m); USDA FSIS Ground Beef 160°F standard.",
+  "basis": "Tested on 80/20 ground chuck 1/3 lb patties at 375°F in basket air fryer.",
   "safeInternalTempF": 160,
   "restMinutes": 3,
   "cookTemp": "375°F (190°C)",
@@ -119,6 +119,13 @@ export default {
     "Corn on the cob"
   ],
   "reheatInstructions": "Reheat burger patties in air fryer at 350°F for 3 minutes.",
+  "nutrition": {
+    "calories": 580,
+    "proteinGrams": 44,
+    "carbsGrams": 30,
+    "fatGrams": 32,
+    "source": "USDA FoodData Central #174032"
+  },
   "kidRating": 5,
   "difficulty": "Dead Simple",
   "keywords": [

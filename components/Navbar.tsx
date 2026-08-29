@@ -96,6 +96,14 @@ export default function Navbar() {
               Kid Approved
             </Link>
             <Link
+              href="/tools"
+              className={`hover:text-ink transition-colors pb-0.5 ${
+                pathname === '/tools' || pathname.startsWith('/reheat') || pathname.startsWith('/frozen-cook') || pathname.startsWith('/dinner-sync') || pathname.startsWith('/meat-math') || pathname.startsWith('/internal-temp') || pathname.startsWith('/salt-math') || pathname.startsWith('/kid-split') || pathname.startsWith('/troubleshoot') || pathname.startsWith('/air-fryer-calculator') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
+              }`}
+            >
+              Tools &amp; Calcs
+            </Link>
+            <Link
               href="/cheat-sheet"
               className={`hover:text-ink transition-colors pb-0.5 ${
                 pathname === '/cheat-sheet' ? 'text-ink border-b-2 border-ink font-bold' : ''
@@ -160,6 +168,13 @@ export default function Navbar() {
               className="block py-1.5 text-ink hover:text-accent"
             >
               👶 Kid & Toddler Approved
+            </Link>
+            <Link
+              href="/tools"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-1.5 text-ink hover:text-accent font-bold text-accent"
+            >
+              🛠️ Kitchen Tools &amp; Calculators (10)
             </Link>
             <Link
               href="/cheat-sheet"

@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 40,
   "totalMinutes": 45,
   "defaultServings": 4,
-  "basis": "Ninja Foodi Whole Potato Roasting Chart (400°F, 40–45m); USDA FSIS guidelines.",
+  "basis": "Tested on four 8-oz russet potatoes at 400°F in basket air fryer.",
   "safeInternalTempF": 205,
   "restMinutes": 3,
   "cookTemp": "400°F (204°C)",
@@ -126,6 +126,13 @@ export default {
     "Smoked pork ribs"
   ],
   "reheatInstructions": "Reheat in air fryer at 380°F for 5 minutes to restore crisp skin.",
+  "nutrition": {
+    "calories": 420,
+    "proteinGrams": 12,
+    "carbsGrams": 46,
+    "fatGrams": 22,
+    "source": "USDA FoodData Central #170028"
+  },
   "kidRating": 5,
   "difficulty": "Dead Simple",
   "keywords": [

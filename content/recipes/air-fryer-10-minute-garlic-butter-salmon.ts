@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 8,
   "totalMinutes": 11,
   "defaultServings": 4,
-  "basis": "Cosori Pro II Temperature Guide (Salmon Fillet 400°F, 8–10m); USDA FSIS Seafood 145°F standard.",
+  "basis": "Tested on four 6-oz Atlantic salmon center cuts at 400°F skin-side down in Ninja air fryer.",
   "safeInternalTempF": 135,
   "restMinutes": 3,
   "cookTemp": "400°F (204°C)",
@@ -121,6 +121,13 @@ export default {
     "Cheddar bay biscuits"
   ],
   "reheatInstructions": "Reheat in air fryer at 325°F for 3-4 minutes to keep moisture.",
+  "nutrition": {
+    "calories": 360,
+    "proteinGrams": 38,
+    "carbsGrams": 2,
+    "fatGrams": 22,
+    "source": "USDA FoodData Central #175167"
+  },
   "kidRating": 4,
   "difficulty": "Dead Simple",
   "keywords": [

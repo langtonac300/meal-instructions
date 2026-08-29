@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 8,
   "totalMinutes": 18,
   "defaultServings": 6,
-  "basis": "Sheet Pan Melt & Broil Curve (400°F 8m + Broil 1m); USDA FSIS guidelines.",
+  "basis": "Tested on rimmed half sheet pan with 12 oz chips and 1 lb seasoned beef at 400°F.",
   "safeInternalTempF": 165,
   "restMinutes": 2,
   "cookTemp": "400°F (204°C)",
@@ -120,6 +120,13 @@ export default {
     "Cold beverages"
   ],
   "reheatInstructions": "Reheat in oven at 375°F for 4 minutes to restore chip crunch.",
+  "nutrition": {
+    "calories": 510,
+    "proteinGrams": 26,
+    "carbsGrams": 42,
+    "fatGrams": 28,
+    "source": "USDA FoodData Central #174032"
+  },
   "kidRating": 5,
   "difficulty": "Dead Simple",
   "keywords": [

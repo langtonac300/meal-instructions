@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 20,
   "totalMinutes": 25,
   "defaultServings": 4,
-  "basis": "Instant Vortex Official Cook Table (Wings 380°F 15m + 400°F 5m); USDA FSIS 165°F standard.",
+  "basis": "Tested on 2 lbs split party chicken wings in single layer basket at 380°F (15 min) then 400°F (5 min).",
   "safeInternalTempF": 175,
   "restMinutes": 2,
   "cookTemp": "380°F then 400°F (193°C / 204°C)",
@@ -125,6 +125,13 @@ export default {
     "Garlic breadsticks"
   ],
   "reheatInstructions": "Reheat in air fryer at 380°F for 4 minutes to restore shatter-crisp texture.",
+  "nutrition": {
+    "calories": 440,
+    "proteinGrams": 36,
+    "carbsGrams": 2,
+    "fatGrams": 32,
+    "source": "USDA FoodData Central #171116"
+  },
   "kidRating": 5,
   "difficulty": "Easy",
   "keywords": [

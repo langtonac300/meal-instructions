@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 8,
   "totalMinutes": 9,
   "defaultServings": 3,
-  "basis": "Instant Vortex Frozen Dumpling Curve (380°F, 8–10m); Manufacturer Package Directions.",
+  "basis": "Tested on 12 frozen pork and vegetable dumplings at 380°F in basket air fryer.",
   "safeInternalTempF": 165,
   "restMinutes": 1,
   "cookTemp": "380°F (193°C)",
@@ -107,6 +107,13 @@ export default {
     "White rice"
   ],
   "reheatInstructions": "Reheat in air fryer at 360°F for 2 minutes to restore crunch.",
+  "nutrition": {
+    "calories": 280,
+    "proteinGrams": 14,
+    "carbsGrams": 30,
+    "fatGrams": 12,
+    "source": "USDA FoodData Central #173873"
+  },
   "kidRating": 5,
   "difficulty": "Dead Simple",
   "keywords": [

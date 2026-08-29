@@ -15,7 +15,7 @@ export default {
   "cookMinutes": 8,
   "totalMinutes": 18,
   "defaultServings": 2,
-  "basis": "Lodge Cast Iron Searing Guide (Smoking hot 450°F+, 2m/side + 2m baste); USDA FSIS Beef Guidelines.",
+  "basis": "Tested on 16 oz 1.5-inch thick USDA Choice ribeye in 12-inch cast iron skillet.",
   "safeInternalTempF": 130,
   "restMinutes": 8,
   "cookTemp": "Smoking Hot High Heat (450°F+)",
@@ -121,6 +121,13 @@ export default {
     "Roasted asparagus spears"
   ],
   "reheatInstructions": "Gently reheat in cast iron over medium heat with 1 tsp butter for 2 minutes.",
+  "nutrition": {
+    "calories": 650,
+    "proteinGrams": 52,
+    "carbsGrams": 1,
+    "fatGrams": 48,
+    "source": "USDA FoodData Central #174032"
+  },
   "kidRating": 4,
   "difficulty": "Easy",
   "keywords": [

@@ -16,7 +16,7 @@ export default {
   "cookMinutes": 5,
   "totalMinutes": 10,
   "defaultServings": 4,
-  "basis": "Lodge Cast Iron High-Heat Searing Standards (450°F+ dry sear, 2–3m); USDA FSIS 160°F ground beef standard.",
+  "basis": "Tested on screaming hot 12-inch Lodge cast iron skillet on high flame with 2 oz 80/20 balls.",
   "safeInternalTempF": 160,
   "restMinutes": 1,
   "cookTemp": "Smoking Hot (450°F+)",
@@ -115,6 +115,13 @@ export default {
     "Root beer floats"
   ],
   "reheatInstructions": "Best eaten fresh! If necessary, reheat patties in cast iron for 60 seconds.",
+  "nutrition": {
+    "calories": 640,
+    "proteinGrams": 42,
+    "carbsGrams": 32,
+    "fatGrams": 38,
+    "source": "USDA FoodData Central #174032"
+  },
   "kidRating": 5,
   "difficulty": "Easy",
   "keywords": [
