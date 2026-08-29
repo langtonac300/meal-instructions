@@ -144,6 +144,7 @@ export interface ApplianceMeta {
   name: string;
   shortDescription: string;
   tempRange: string;
+  image?: string;
   tempGuide?: {
     food: string;
     temp: string;

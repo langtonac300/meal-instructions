@@ -1,4 +1,4 @@
-import { Recipe } from '@/lib/types';
+import type { Recipe } from '../lib/types.ts';
 import recipesJson from './recipes.json';
 
 export const RECIPES: Recipe[] = recipesJson as Recipe[];
