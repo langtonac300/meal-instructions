@@ -36,7 +36,7 @@ export default function Footer() {
             <ul className="space-y-1.5 text-xs font-mono">
               <li>
                 <Link href="/shop" className="text-accent font-bold hover:underline uppercase">
-                  👕 Merch Store (15 Specs)
+                  👕 Merch &amp; Useless Tools (24 Specs)
                 </Link>
               </li>
               <li>

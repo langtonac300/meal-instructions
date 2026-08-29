@@ -108,8 +108,8 @@ export default function Navbar() {
                 pathname.startsWith('/shop') || pathname.startsWith('/merch') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
               }`}
             >
-              <span>Merch Supply</span>
-              <span className="text-[9px] px-1 py-0.2 bg-ink text-paper font-bold">15</span>
+              <span>Merch &amp; Tools</span>
+              <span className="text-[9px] px-1 py-0.2 bg-ink text-paper font-bold">24</span>
             </Link>
             <Link
               href="/cheat-sheet"
@@ -203,7 +203,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="block py-1.5 text-accent font-bold hover:underline"
             >
-              👕 Merch Supply &amp; Uniforms (15 Specs)
+              👕 Merch &amp; Useless Tools (24 Specs)
             </Link>
             <Link
               href="/about"

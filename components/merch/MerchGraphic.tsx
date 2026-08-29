@@ -109,6 +109,141 @@ export default function MerchGraphic({
     );
   }
 
+  if (product.id === '16-knuckle-radiation') {
+    return (
+      <div className={`w-full h-full relative overflow-hidden bg-paper ${className}`}>
+        <Image
+          src="/images/merch/knuckle-radiation-tee.jpg"
+          alt={product.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          priority={priority}
+        />
+      </div>
+    );
+  }
+
+  if (product.id === '17-smoker-lid-protocol') {
+    return (
+      <div className={`w-full h-full relative overflow-hidden bg-paper ${className}`}>
+        <Image
+          src="/images/merch/smoker-lid-protocol-tee.jpg"
+          alt={product.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          priority={priority}
+        />
+      </div>
+    );
+  }
+
+  if (product.id === '18-cast-iron-soap') {
+    return (
+      <div className={`w-full h-full relative overflow-hidden bg-paper ${className}`}>
+        <Image
+          src="/images/merch/cast-iron-soap-heresy-tee.jpg"
+          alt={product.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          priority={priority}
+        />
+      </div>
+    );
+  }
+
+  if (product.id === '19-costco-reserve') {
+    return (
+      <div className={`w-full h-full relative overflow-hidden bg-paper ${className}`}>
+        <Image
+          src="/images/merch/costco-reserve-tee.jpg"
+          alt={product.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          priority={priority}
+        />
+      </div>
+    );
+  }
+
+  if (product.id === '20-sniff-test-protocol') {
+    return (
+      <div className={`w-full h-full relative overflow-hidden bg-paper ${className}`}>
+        <Image
+          src="/images/merch/sniff-test-protocol-tee.jpg"
+          alt={product.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          priority={priority}
+        />
+      </div>
+    );
+  }
+
+  if (product.id === '21-caution-cones') {
+    return (
+      <div className={`w-full h-full relative overflow-hidden bg-paper ${className}`}>
+        <Image
+          src="/images/merch/resting-meat-caution-cones.jpg"
+          alt={product.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          priority={priority}
+        />
+      </div>
+    );
+  }
+
+  if (product.id === '22-smoke-alarm-stick') {
+    return (
+      <div className={`w-full h-full relative overflow-hidden bg-paper ${className}`}>
+        <Image
+          src="/images/merch/smoke-alarm-dismissal-stick.jpg"
+          alt={product.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          priority={priority}
+        />
+      </div>
+    );
+  }
+
+  if (product.id === '23-toddler-border-patrol') {
+    return (
+      <div className={`w-full h-full relative overflow-hidden bg-paper ${className}`}>
+        <Image
+          src="/images/merch/toddler-food-border-patrol.jpg"
+          alt={product.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          priority={priority}
+        />
+      </div>
+    );
+  }
+
+  if (product.id === '24-tongs-compliance-counter') {
+    return (
+      <div className={`w-full h-full relative overflow-hidden bg-paper ${className}`}>
+        <Image
+          src="/images/merch/tongs-compliance-counter.jpg"
+          alt={product.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          priority={priority}
+        />
+      </div>
+    );
+  }
+
   // Bespoke Vector Graphic Mockups for all other individual items:
   // Each renders a unique, authentic high-contrast Swiss garment/hardware graphic!
   return (

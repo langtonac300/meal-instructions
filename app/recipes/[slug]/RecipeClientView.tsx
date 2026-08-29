@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { useScrollToResults } from '@/lib/use-scroll-to-results';
+import { useScrollToTarget } from '@/lib/use-scroll-to-results';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
@@ -43,6 +43,10 @@ export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
   const handleModeChange = (newMode: 'fast' | 'detailed') => {
     setCurrentMode(newMode);
     document.documentElement.setAttribute('data-mode', newMode);
+    // Triggered here rather than from an effect: the panel is roughly two
+    // screens below this control, and firing on the click itself cannot be
+    // cancelled by an unrelated re-render.
+    revealPanels();
     try {
       localStorage.setItem('meal_instructions_mode', newMode);
       localStorage.setItem('recipe_mode', newMode);
@@ -53,7 +57,7 @@ export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
   // The mode selector sits above the equipment and ingredients blocks, so the
   // panel it switches is roughly two screens down. Offset clears the 64px header
   // plus the sticky selector itself.
-  const panelsRef = useScrollToResults<HTMLDivElement>([currentMode], {
+  const [panelsRef, revealPanels] = useScrollToTarget<HTMLDivElement>({
     offset: 168,
   });
 
@@ -226,48 +230,6 @@ export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
           servings={recipe.defaultServings}
         />
 
-        {/* HR-7: THE STICKY INLINE SEGMENTED MODE SELECTOR */}
-        <div className="space-y-2 no-print sticky top-18 z-20 bg-paper-card py-2 hairline-b">
-          <div className="flex justify-between items-center text-[10px] font-mono text-ink-subtle uppercase">
-            <span>Execution Mode</span>
-            <span>Applied via CSS Visibility</span>
-          </div>
-
-          <div className="grid grid-cols-2 gap-2 p-1 bg-paper hairline-border font-mono text-xs">
-            <button
-              type="button"
-              onClick={() => handleModeChange('fast')}
-              className={`py-2.5 px-4 flex items-center justify-center gap-2 uppercase tracking-wider transition-all cursor-pointer ${
-                currentMode === 'fast'
-                  ? 'bg-ink text-paper font-bold shadow-sm'
-                  : 'text-ink-muted hover:text-ink hover:bg-paper-card'
-              }`}
-            >
-              <Zap className="w-3.5 h-3.5 text-accent" />
-              <span>⚡ GET TO THE POINT</span>
-              <span className="hidden sm:inline text-[10px] font-normal opacity-70">
-                (20 Words)
-              </span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleModeChange('detailed')}
-              className={`py-2.5 px-4 flex items-center justify-center gap-2 uppercase tracking-wider transition-all cursor-pointer ${
-                currentMode === 'detailed'
-                  ? 'bg-ink text-paper font-bold shadow-sm'
-                  : 'text-ink-muted hover:text-ink hover:bg-paper-card'
-              }`}
-            >
-              <BookOpen className="w-3.5 h-3.5 text-ink-subtle" />
-              <span>📖 STEP-BY-STEP</span>
-              <span className="hidden sm:inline text-[10px] font-normal opacity-70">
-                (Guided Steps)
-              </span>
-            </button>
-          </div>
-        </div>
-
         {/* Action Toolbar */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-2 hairline-t no-print font-mono text-xs">
           <div className="flex items-center gap-2">
@@ -299,6 +261,54 @@ export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
         </div>
 
       </section>
+
+      {/* Sticky mode selector stays pinned from here through the end of the
+          instructions: this wrapper is its containing block, so it releases
+          once the reader is past the steps rather than following them down
+          the whole page. */}
+      <div className="space-y-8">
+
+      {/* HR-7: THE STICKY INLINE SEGMENTED MODE SELECTOR */}
+      <div className="space-y-2 no-print sticky top-16 z-30 bg-paper-card/95 backdrop-blur-sm py-3 hairline-b">
+        <div className="flex justify-between items-center text-[10px] font-mono text-ink-subtle uppercase">
+          <span>Execution Mode</span>
+          <span>Applied via CSS Visibility</span>
+        </div>
+
+        <div className="grid grid-cols-2 gap-2 p-1 bg-paper hairline-border font-mono text-xs">
+          <button
+            type="button"
+            onClick={() => handleModeChange('fast')}
+            className={`py-2.5 px-4 flex items-center justify-center gap-2 uppercase tracking-wider transition-all cursor-pointer ${
+              currentMode === 'fast'
+                ? 'bg-ink text-paper font-bold shadow-sm'
+                : 'text-ink-muted hover:text-ink hover:bg-paper-card'
+            }`}
+          >
+            <Zap className="w-3.5 h-3.5 text-accent" />
+            <span>⚡ GET TO THE POINT</span>
+            <span className="hidden sm:inline text-[10px] font-normal opacity-70">
+              (20 Words)
+            </span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => handleModeChange('detailed')}
+            className={`py-2.5 px-4 flex items-center justify-center gap-2 uppercase tracking-wider transition-all cursor-pointer ${
+              currentMode === 'detailed'
+                ? 'bg-ink text-paper font-bold shadow-sm'
+                : 'text-ink-muted hover:text-ink hover:bg-paper-card'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5 text-ink-subtle" />
+            <span>📖 STEP-BY-STEP</span>
+            <span className="hidden sm:inline text-[10px] font-normal opacity-70">
+              (Guided Steps)
+            </span>
+          </button>
+        </div>
+      </div>
 
       {/* APPLIANCE TIMER WIDGET */}
       <section className="bg-paper-card hairline-border p-6 space-y-4 no-print">
@@ -524,6 +534,8 @@ export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
             );
           })}
         </div>
+      </div>
+
       </div>
 
       </div>

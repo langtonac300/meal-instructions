@@ -80,7 +80,7 @@ export default function MerchCatalog() {
         <div className="hairline-t pt-3 flex items-center justify-between font-mono text-[11px] text-ink-muted">
           <div className="flex items-center gap-2">
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-500" />
-            <span>INDEX STATUS: 15 / 15 PRODUCTION ARTWORK SPECS LOADED</span>
+            <span>INDEX STATUS: {MERCH_PRODUCTS.length} / {MERCH_PRODUCTS.length} HARDWARE &amp; MERCH SPECS LOADED</span>
           </div>
           <div>
             <span>SHOWING {filteredProducts.length} SPECIMENS</span>
