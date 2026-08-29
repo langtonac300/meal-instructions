@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ShoppingBag, Eye, Check, Sparkles, UserCheck, Shield } from 'lucide-react';
 import { MerchProduct } from '@/data/merch';
 import { useCart } from './CartContext';
+import MerchGraphic from './MerchGraphic';
 
 interface ProductCardProps {
   product: MerchProduct;
@@ -20,7 +20,6 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
   const [addedAnimation, setAddedAnimation] = useState(false);
 
   const hasModelImage = Boolean(product.modelImage && product.modelImage !== product.productImage);
-  const currentImage = viewMode === 'model' && product.modelImage ? product.modelImage : product.productImage;
 
   const handleAddToCart = () => {
     addToCart(product, selectedSize, selectedColor, 1);
@@ -36,13 +35,7 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
         
         {/* Product / Model Image (Clickable Link) */}
         <Link href={`/shop/${product.id}`} className="block w-full h-full relative transition-transform duration-300 group-hover:scale-[1.02]">
-          <Image
-            src={currentImage}
-            alt={`${product.title} - ${viewMode === 'model' ? 'Field Fit' : 'Product Spec'}`}
-            fill
-            className="object-cover"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
+          <MerchGraphic product={product} viewMode={viewMode} />
         </Link>
 
         {/* Top Badges */}

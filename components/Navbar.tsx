@@ -33,16 +33,12 @@ export default function Navbar() {
           <span className="uppercase text-neutral-300">Technical Cook-Time Reference & Quality-Gated Meals // No Fluff, Just the Instructions</span>
         </div>
         <div className="hidden md:flex items-center gap-4 text-neutral-400">
+          <Link href="/about" className="hover:text-paper transition-colors">
+            MANIFESTO
+          </Link>
+          <span>/</span>
           <Link href="/llms.txt" className="hover:text-paper transition-colors">
             AI SCRAPER (LLMS.TXT)
-          </Link>
-          <span>/</span>
-          <Link href="/shop" className="hover:text-paper text-emerald-400 font-bold transition-colors">
-            ★ MERCH STORE (15 SPECS)
-          </Link>
-          <span>/</span>
-          <Link href="/cheat-sheet" className="hover:text-paper transition-colors">
-            AIR FRYER CHEATSHEET
           </Link>
         </div>
       </div>

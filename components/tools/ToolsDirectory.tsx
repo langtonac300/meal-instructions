@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useScrollToResults } from '@/lib/use-scroll-to-results';
 import Link from 'next/link';
 import {
   Search,
@@ -35,6 +36,9 @@ export type { ToolEntry };
 export default function ToolsDirectory() {
   const [selectedCat, setSelectedCat] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+
+  // Category only — not the search box.
+  const resultsRef = useScrollToResults<HTMLDivElement>([selectedCat]);
 
   const categories = [
     { id: 'all', label: 'All 30 Engines' },
@@ -114,7 +118,11 @@ export default function ToolsDirectory() {
       </div>
 
       {/* Grid of Tools */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div
+        ref={resultsRef}
+        id="tools-results"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 scroll-mt-20"
+      >
         {filteredTools.map((tool) => {
           const Icon = getIcon(tool.iconName);
           return (

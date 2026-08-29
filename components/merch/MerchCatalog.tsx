@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import { useScrollToResults } from '@/lib/use-scroll-to-results';
 import { MERCH_PRODUCTS, MERCH_CATEGORIES, MerchProduct } from '@/data/merch';
 import ProductCard from './ProductCard';
 import { Search, Filter, ShoppingBag, SlidersHorizontal, Sparkles } from 'lucide-react';
@@ -9,6 +10,9 @@ import { useCart } from './CartContext';
 export default function MerchCatalog() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Category only — scrolling on every search keystroke would be miserable.
+  const resultsRef = useScrollToResults<HTMLDivElement>([selectedCategory]);
   const { openCart, itemCount } = useCart();
 
   const filteredProducts = useMemo(() => {
@@ -85,7 +89,8 @@ export default function MerchCatalog() {
       </div>
 
       {/* Product Specimen Grid */}
-      {filteredProducts.length === 0 ? (
+      <div ref={resultsRef} id="specimens" className="scroll-mt-20">
+        {filteredProducts.length === 0 ? (
         <div className="p-16 text-center bg-paper-card hairline-border space-y-3 font-mono">
           <div className="text-2xl text-ink-subtle">∅</div>
           <div className="text-sm font-bold text-ink uppercase">No matching specimens found</div>
@@ -102,13 +107,14 @@ export default function MerchCatalog() {
             Reset Filters
           </button>
         </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      )}
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
+      </div>
 
       {/* Floating Requisition Button (Bottom Right) */}
       {itemCount > 0 && (

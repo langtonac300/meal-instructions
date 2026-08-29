@@ -8,6 +8,7 @@ import { MerchProduct, MERCH_PRODUCTS } from '@/data/merch';
 import { useCart } from './CartContext';
 import CartDrawer from './CartDrawer';
 import ProductCard from './ProductCard';
+import MerchGraphic from './MerchGraphic';
 
 export default function ProductDetailClient({ product }: { product: MerchProduct }) {
   const { addToCart, openCart } = useCart();
@@ -19,8 +20,6 @@ export default function ProductDetailClient({ product }: { product: MerchProduct
   const [added, setAdded] = useState(false);
 
   const hasModel = Boolean(product.modelImage && product.modelImage !== product.productImage);
-  const currentImageUrl =
-    selectedImage === 'model' && product.modelImage ? product.modelImage : product.productImage;
 
   const handleAdd = () => {
     addToCart(product, selectedSize, selectedColor, quantity);
@@ -53,27 +52,20 @@ export default function ProductDetailClient({ product }: { product: MerchProduct
           
           {/* Main Photo Viewport */}
           <div className="bg-paper-card hairline-border aspect-square relative overflow-hidden">
-            <Image
-              src={currentImageUrl}
-              alt={`${product.title} - ${selectedImage === 'model' ? 'Field Fit' : 'Product Spec'}`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 60vw"
-              priority
-            />
+            <MerchGraphic product={product} viewMode={selectedImage} priority />
 
-            <div className="absolute top-4 left-4 font-mono text-xs px-2.5 py-1 bg-ink text-paper font-bold uppercase">
+            <div className="absolute top-4 left-4 font-mono text-xs px-2.5 py-1 bg-ink text-paper font-bold uppercase z-10">
               {product.sku}
             </div>
 
             {product.badge && (
-              <div className="absolute top-4 right-4 font-mono text-xs px-2.5 py-1 bg-paper-card hairline-border text-accent font-bold uppercase shadow-xs">
+              <div className="absolute top-4 right-4 font-mono text-xs px-2.5 py-1 bg-paper-card hairline-border text-accent font-bold uppercase shadow-xs z-10">
                 {product.badge}
               </div>
             )}
 
             {selectedImage === 'model' && product.modelCaption && (
-              <div className="absolute bottom-4 left-4 right-4 bg-ink/85 text-paper text-xs font-mono p-2.5 backdrop-blur-xs">
+              <div className="absolute bottom-4 left-4 right-4 bg-ink/85 text-paper text-xs font-mono p-2.5 backdrop-blur-xs z-10">
                 📷 {product.modelCaption}
               </div>
             )}
@@ -90,13 +82,7 @@ export default function ProductDetailClient({ product }: { product: MerchProduct
               }`}
             >
               <div className="w-12 h-12 bg-paper hairline-border relative flex-shrink-0 overflow-hidden">
-                <Image
-                  src={product.productImage}
-                  alt="Flat Lay Spec"
-                  fill
-                  className="object-cover"
-                  sizes="48px"
-                />
+                <MerchGraphic product={product} viewMode="product" />
               </div>
               <div>
                 <div className="uppercase text-ink font-bold text-[11px]">View 01: Product Spec</div>

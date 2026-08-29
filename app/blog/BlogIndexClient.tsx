@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useScrollToResults } from '@/lib/use-scroll-to-results';
 import Link from 'next/link';
 import { BlogPost, BlogCategory } from '@/lib/types';
 import { BLOG_CATEGORIES } from '@/data/blog-posts';
@@ -13,6 +14,9 @@ interface BlogIndexClientProps {
 export default function BlogIndexClient({ posts }: BlogIndexClientProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+
+  // Category only — not the search box.
+  const resultsRef = useScrollToResults<HTMLDivElement>([selectedCategory]);
 
   const filteredPosts = posts.filter((post) => {
     const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory;
@@ -89,7 +93,11 @@ export default function BlogIndexClient({ posts }: BlogIndexClientProps) {
       </div>
 
       {/* Grid of Articles */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div
+        ref={resultsRef}
+        id="articles"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 scroll-mt-20"
+      >
         {filteredPosts.map((post) => (
           <Link
             key={post.id}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
+import { useScrollToResults } from '@/lib/use-scroll-to-results';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
@@ -48,6 +49,13 @@ export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
       localStorage.setItem('dad_meals_recipe_mode', newMode);
     } catch (e) {}
   };
+
+  // The mode selector sits above the equipment and ingredients blocks, so the
+  // panel it switches is roughly two screens down. Offset clears the 64px header
+  // plus the sticky selector itself.
+  const panelsRef = useScrollToResults<HTMLDivElement>([currentMode], {
+    offset: 168,
+  });
 
   // Web Audio Chime Sound Player
   const playTimerChime = () => {
@@ -411,7 +419,9 @@ export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
       </section>
 
       {/* HR-6: BOTH MODES PRESENT IN SSR HTML SIMULTANEOUSLY */}
-      
+      {/* Wrapper is a scroll target only — panel visibility stays pure CSS. */}
+      <div ref={panelsRef} id="instructions" className="space-y-6 scroll-mt-40">
+
       {/* PANEL 1: ⚡ GET TO THE POINT (SSR Present) */}
       <div data-mode-panel="fast" className="bg-paper-card hairline-border p-6 sm:p-8 space-y-6">
         <div className="flex items-center justify-between hairline-b pb-4">
@@ -514,6 +524,8 @@ export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
             );
           })}
         </div>
+      </div>
+
       </div>
 
       {/* DAD KNOWLEDGE & PRACTICAL NOTES */}

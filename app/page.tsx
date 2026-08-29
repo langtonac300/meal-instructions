@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useScrollToResults } from '@/lib/use-scroll-to-results';
 import Link from 'next/link';
 import {
   Zap,
@@ -27,6 +28,13 @@ export default function HomePage() {
   const [selectedAppliance, setSelectedAppliance] = useState<string>('all');
   const [maxMinutes, setMaxMinutes] = useState<number | null>(null);
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
+
+  // Filter controls sit a screen above the directory; bring it into view on change.
+  const resultsRef = useScrollToResults<HTMLElement>([
+    selectedCategory,
+    selectedAppliance,
+    maxMinutes,
+  ]);
 
   // Filter recipes based on time budget, category, & appliance
   const filteredRecipes = RECIPES.filter((recipe) => {
@@ -143,7 +151,12 @@ export default function HomePage() {
       </section>
 
       {/* ── RECIPES DIRECTORY SECTION ── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8 py-8 w-full">
+      <section
+        ref={resultsRef}
+        id="directory"
+        aria-label="Recipe directory"
+        className="max-w-7xl mx-auto px-4 sm:px-8 py-8 w-full scroll-mt-20"
+      >
         
         {/* Active Filter Status Bar (if any filter active) */}
         {(maxMinutes !== null || selectedCategory !== 'all' || selectedAppliance !== 'all') && (
