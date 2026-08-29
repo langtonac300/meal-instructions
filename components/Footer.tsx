@@ -120,6 +120,14 @@ export default function Footer() {
               ))}
               <li className="pt-2">
                 <Link
+                  href="/how-long"
+                  className="text-accent font-bold hover:underline uppercase"
+                >
+                  🔥 All Cook Times (60)
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/cheat-sheet"
                   className="text-accent font-bold hover:underline uppercase"
                 >

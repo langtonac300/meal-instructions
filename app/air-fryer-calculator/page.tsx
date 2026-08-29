@@ -47,6 +47,11 @@ export default function CalculatorPage() {
         <span>TOOL // CONVERSION CALCULATOR</span>
       </div>
 
+      {/* Page Title */}
+      <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink uppercase font-sans mb-8">
+        Air Fryer Conversion Calculator
+      </h1>
+
       {/* Main Interactive Tool */}
       <AirFryerCalculator />
 

@@ -112,6 +112,14 @@ export default function Navbar() {
               <span className="text-[9px] px-1 py-0.2 bg-ink text-paper font-bold">24</span>
             </Link>
             <Link
+              href="/how-long"
+              className={`hover:text-ink transition-colors pb-0.5 ${
+                pathname.startsWith('/how-long') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
+              }`}
+            >
+              Cook Times
+            </Link>
+            <Link
               href="/cheat-sheet"
               className={`hover:text-ink transition-colors pb-0.5 ${
                 pathname === '/cheat-sheet' ? 'text-ink border-b-2 border-ink font-bold' : ''
@@ -190,6 +198,13 @@ export default function Navbar() {
               className="block py-1.5 text-ink hover:text-accent"
             >
               🛠️ Kitchen Tools &amp; Calculators (11)
+            </Link>
+            <Link
+              href="/how-long"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-1.5 text-accent font-bold hover:underline"
+            >
+              🔥 Cook Times (60 Datasheets)
             </Link>
             <Link
               href="/cheat-sheet"

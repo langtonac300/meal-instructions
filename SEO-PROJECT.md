@@ -198,14 +198,14 @@ Should print only `_not-found`.
 
 ---
 
-### P4 — Crawl architecture
+### P4 — Crawl architecture ✅ COMPLETE (2026-08-29)
 
 | ID | Task | Status | Verify |
 |---|---|---|---|
-| SEO-014 | Build a `/how-long` hub index page | TODO | hub exists + linked from nav |
+| SEO-014 | Build a `/how-long` hub index page | **DONE** 2026-08-29 | hub exists + linked from nav |
 | SEO-015 | Homepage: split client shell so it can export metadata | **DONE** 2026-08-29 | canonical + metadata in HTML |
-| SEO-016 | Add missing `<h1>` on 3 pages | TODO | 1 h1 per page |
-| SEO-017 | Sitemap hygiene pass | TODO | review |
+| SEO-016 | Add missing `<h1>` on 3 pages | **DONE** 2026-08-29 | 1 h1 per page |
+| SEO-017 | Sitemap hygiene pass | **DONE** 2026-08-29 | review |
 
 **SEO-014 — The SEO engine is nearly orphaned.**
 
@@ -302,9 +302,12 @@ grep -rn "aggregateRating" lib/ app/
 | 2026-08-29 | SEO-009 | Added `alternates.canonical` to `/about/page.tsx` and `/shop/page.tsx`; `/merch` and `/recipes` handled by SEO-010 redirects; `/` done via SEO-015 | 79001a8 | as above |
 | 2026-08-29 | SEO-010 | Moved `/merch` → `/shop` and `/recipes` → `/` from runtime `redirect()` to `next.config.ts` permanent redirects; deleted `app/merch/page.tsx` and `app/recipes/page.tsx` | 79001a8 | Config redirects in place, page files removed |
 | 2026-08-29 | SEO-011 | Created shared `lib/breadcrumbs.ts` and wired BreadcrumbList JSON-LD into all 41 page files across every route group | b9a4b29 | **221 → 2** pages missing BreadcrumbList (only `/` and `_not-found`) |
-| 2026-08-29 | SEO-012 | Upgraded `/how-long` HowTo schema with `url`, `image`, `mainEntityOfPage`; improved description with applianceName variable | pending | Rich Results Test validated fields |
-| 2026-08-29 | SEO-015 | Split homepage into server `app/page.tsx` + client `app/HomePageClient.tsx`; server exports metadata with canonical and renders JSON-LD | pending | canonical + BreadcrumbList in built HTML |
-| 2026-08-29 | SEO-013 | Added CollectionPage + ItemList schema (70 recipes) and BreadcrumbList to homepage via new server component | pending | JSON-LD present in built HTML |
+| 2026-08-29 | SEO-012 | Upgraded `/how-long` HowTo schema with `url`, `image`, `mainEntityOfPage`; improved description with applianceName variable | 33fdc1e | Rich Results Test validated fields |
+| 2026-08-29 | SEO-015 | Split homepage into server `app/page.tsx` + client `app/HomePageClient.tsx`; server exports metadata with canonical and renders JSON-LD | 33fdc1e | canonical + BreadcrumbList in built HTML |
+| 2026-08-29 | SEO-013 | Added CollectionPage + ItemList schema (70 recipes) and BreadcrumbList to homepage via new server component | 33fdc1e | JSON-LD present in built HTML |
+| 2026-08-29 | SEO-014 | Created `/how-long` hub index page with CollectionPage/ItemList schema (60 datasheets), canonical, breadcrumbs; added "Cook Times" link to Navbar and Footer | pending | hub exists, linked from nav + footer |
+| 2026-08-29 | SEO-016 | Added `<h1>` to `/air-fryer-calculator/page.tsx`; `/merch` and `/recipes` pages were deleted in SEO-010, no longer need h1 | pending | h1 present in built HTML |
+| 2026-08-29 | SEO-017 | Removed `/llms.txt` and `/llms-full.txt` from sitemap; differentiated priorities (datasheets 0.95, hubs 0.8-0.85, tools 0.7, about 0.5); removed fake `lastModified: new Date()` from static pages; added `/how-long` hub | pending | sitemap review ✓ |
 
 ---
 

@@ -11,271 +11,218 @@ import { getSiteUrl, absoluteUrl } from '@/lib/site';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = getSiteUrl();
 
-  // Core static pages
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1.0,
     },
     {
-      url: absoluteUrl('/shop'),
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/guides'),
-      lastModified: new Date(),
-      changeFrequency: 'daily',
+      url: absoluteUrl('/how-long'),
+      changeFrequency: 'weekly',
       priority: 0.95,
-    },
-    {
-      url: absoluteUrl('/blog'),
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.9,
     },
     {
       url: absoluteUrl('/cheat-sheet'),
-      lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.85,
+    },
+    {
+      url: absoluteUrl('/guides'),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: absoluteUrl('/blog'),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: absoluteUrl('/shop'),
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
       url: absoluteUrl('/tools'),
-      lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.95,
+      priority: 0.8,
     },
     {
       url: absoluteUrl('/air-fryer-calculator'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/reheat'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/frozen-cook'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/dinner-sync'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/meat-math'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/internal-temp'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/salt-math'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/kid-split'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/troubleshoot'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/smoke-points'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/steak-timer'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/turkey-calculator'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/bakers-percentage'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/recipe-scaler'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/slow-cooker-converter'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/sous-vide-calculator'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/grill-fuel-estimator'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/egg-timer'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/pasta-water-ratio'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/marinade-ratio'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/substitutions'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/thaw-timer'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/food-cost-calculator'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/macronutrient-calculator'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/caffeine-steep-timer'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/brisket-timeline'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/ground-beef-fat-ratio'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/dutch-oven-bread-timer'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/cheese-melt-matrix'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl('/about'),
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: absoluteUrl('/llms.txt'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
+      url: absoluteUrl('/reheat'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
     {
-      url: absoluteUrl('/llms-full.txt'),
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
+      url: absoluteUrl('/frozen-cook'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/dinner-sync'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/meat-math'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/internal-temp'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/salt-math'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/kid-split'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/troubleshoot'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/smoke-points'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/steak-timer'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/turkey-calculator'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/bakers-percentage'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/recipe-scaler'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/slow-cooker-converter'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/sous-vide-calculator'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/grill-fuel-estimator'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/egg-timer'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/pasta-water-ratio'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/marinade-ratio'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/substitutions'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/thaw-timer'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/food-cost-calculator'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/macronutrient-calculator'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/caffeine-steep-timer'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/brisket-timeline'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/ground-beef-fat-ratio'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/dutch-oven-bread-timer'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/cheese-melt-matrix'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl('/about'),
+      changeFrequency: 'monthly',
+      priority: 0.5,
     },
   ];
 
-  // Category hubs
   const categoryPages: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
     url: absoluteUrl(`/categories/${cat.slug}`),
-    lastModified: new Date(),
-    changeFrequency: 'daily',
-    priority: 0.85,
-  }));
-
-  // Appliance hubs
-  const appliancePages: MetadataRoute.Sitemap = APPLIANCES.map((app) => ({
-    url: absoluteUrl(`/appliances/${app.slug}`),
-    lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.8,
   }));
 
-  // Parametric Charts
-  const chartPages: MetadataRoute.Sitemap = APPLIANCES.map((app) => ({
-    url: absoluteUrl(`/charts/${app.slug}`),
-    lastModified: new Date(),
+  const appliancePages: MetadataRoute.Sitemap = APPLIANCES.map((app) => ({
+    url: absoluteUrl(`/appliances/${app.slug}`),
     changeFrequency: 'weekly',
-    priority: 0.9,
+    priority: 0.8,
   }));
 
-  // Parametric Cook-Time Datasheets (The SEO / LLM volume driver)
+  const chartPages: MetadataRoute.Sitemap = APPLIANCES.map((app) => ({
+    url: absoluteUrl(`/charts/${app.slug}`),
+    changeFrequency: 'weekly',
+    priority: 0.85,
+  }));
+
   const datasheetPages: MetadataRoute.Sitemap = COOK_TIME_DATASHEETS.map((sheet) => ({
     url: absoluteUrl(`/how-long/${sheet.appliance}/${sheet.foodSlug}`),
-    lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.95,
   }));
 
-  // Quality-gated Recipe detail pages
   const recipePages: MetadataRoute.Sitemap = RECIPES.map((recipe) => ({
     url: absoluteUrl(`/recipes/${recipe.slug}`),
     lastModified: new Date(recipe.lastUpdated),
@@ -283,28 +230,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  // 50 Field Guides & Culinary Physics Articles (SEO & LLM authority engine)
   const blogPages: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
     url: absoluteUrl(`/blog/${post.slug}`),
     lastModified: new Date(post.lastUpdated),
-    changeFrequency: 'weekly',
+    changeFrequency: 'monthly',
     priority: 0.8,
   }));
 
-  // 20 Top 10 Guides & Operational Lists (SEO & LLM Authority)
   const guidePages: MetadataRoute.Sitemap = TOP_10_GUIDES.map((guide) => ({
     url: absoluteUrl(`/guides/${guide.slug}`),
     lastModified: new Date(guide.lastUpdated),
-    changeFrequency: 'weekly',
-    priority: 0.9,
+    changeFrequency: 'monthly',
+    priority: 0.8,
   }));
 
-  // Merch Supply & Hardware Specimen pages
   const merchPages: MetadataRoute.Sitemap = MERCH_PRODUCTS.map((item) => ({
     url: absoluteUrl(`/shop/${item.id}`),
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: 0.85,
+    changeFrequency: 'monthly',
+    priority: 0.7,
   }));
 
   return [
@@ -319,5 +262,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...merchPages,
   ];
 }
-
-
