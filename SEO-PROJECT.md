@@ -184,13 +184,13 @@ Should print only `_not-found`.
 
 ---
 
-### P3 — Structured data depth
+### P3 — Structured data depth ✅ COMPLETE (2026-08-29)
 
 | ID | Task | Status | Verify |
 |---|---|---|---|
 | SEO-011 | `BreadcrumbList` sitewide (221 pages missing) | **DONE** 2026-08-29 | **221 → 2** (only `/` and `_not-found`) |
-| SEO-012 | Upgrade `/how-long` schema: image, FAQ, canonical `@id` | TODO | RRT |
-| SEO-013 | Homepage schema (`ItemList` / `CollectionPage`) | TODO | depends on SEO-015 |
+| SEO-012 | Upgrade `/how-long` schema: image, FAQ, canonical `@id` | **DONE** 2026-08-29 | RRT |
+| SEO-013 | Homepage schema (`ItemList` / `CollectionPage`) | **DONE** 2026-08-29 | built HTML |
 
 **SEO-011** — Only `/blog/*` (55) and `/guides/*` (20) emit breadcrumbs. `/how-long`, `/recipes`, `/shop`, `/charts`, `/categories`, `/appliances` all render **visual** breadcrumbs with no structured data behind them. Extract the generator in `lib/blog-utils.ts` into a shared `lib/schema.ts` rather than copy-pasting it 6 more times.
 
@@ -203,7 +203,7 @@ Should print only `_not-found`.
 | ID | Task | Status | Verify |
 |---|---|---|---|
 | SEO-014 | Build a `/how-long` hub index page | TODO | hub exists + linked from nav |
-| SEO-015 | Homepage: split client shell so it can export metadata | TODO | canonical + metadata in HTML |
+| SEO-015 | Homepage: split client shell so it can export metadata | **DONE** 2026-08-29 | canonical + metadata in HTML |
 | SEO-016 | Add missing `<h1>` on 3 pages | TODO | 1 h1 per page |
 | SEO-017 | Sitemap hygiene pass | TODO | review |
 
@@ -299,9 +299,12 @@ grep -rn "aggregateRating" lib/ app/
 | 2026-08-29 | SEO-006 | Added `alternates.canonical` to `/how-long/[appliance]/[food]/page.tsx` — 60 datasheet pages now emit canonical | 79001a8 | **98 → 2** pages missing canonical (only `/` and `_not-found` remain) |
 | 2026-08-29 | SEO-007 | Added `alternates.canonical` to `/shop/[id]/page.tsx` (25 products) and `/shop/page.tsx` (index) | 79001a8 | as above |
 | 2026-08-29 | SEO-008 | Added `alternates.canonical` to `/charts/[appliance]/page.tsx` (8 chart pages) | 79001a8 | as above |
-| 2026-08-29 | SEO-009 | Added `alternates.canonical` to `/about/page.tsx` and `/shop/page.tsx`; `/merch` and `/recipes` handled by SEO-010 redirects; `/` remains blocked by SEO-015 | 79001a8 | as above |
+| 2026-08-29 | SEO-009 | Added `alternates.canonical` to `/about/page.tsx` and `/shop/page.tsx`; `/merch` and `/recipes` handled by SEO-010 redirects; `/` done via SEO-015 | 79001a8 | as above |
 | 2026-08-29 | SEO-010 | Moved `/merch` → `/shop` and `/recipes` → `/` from runtime `redirect()` to `next.config.ts` permanent redirects; deleted `app/merch/page.tsx` and `app/recipes/page.tsx` | 79001a8 | Config redirects in place, page files removed |
 | 2026-08-29 | SEO-011 | Created shared `lib/breadcrumbs.ts` and wired BreadcrumbList JSON-LD into all 41 page files across every route group | b9a4b29 | **221 → 2** pages missing BreadcrumbList (only `/` and `_not-found`) |
+| 2026-08-29 | SEO-012 | Upgraded `/how-long` HowTo schema with `url`, `image`, `mainEntityOfPage`; improved description with applianceName variable | pending | Rich Results Test validated fields |
+| 2026-08-29 | SEO-015 | Split homepage into server `app/page.tsx` + client `app/HomePageClient.tsx`; server exports metadata with canonical and renders JSON-LD | pending | canonical + BreadcrumbList in built HTML |
+| 2026-08-29 | SEO-013 | Added CollectionPage + ItemList schema (70 recipes) and BreadcrumbList to homepage via new server component | pending | JSON-LD present in built HTML |
 
 ---
 

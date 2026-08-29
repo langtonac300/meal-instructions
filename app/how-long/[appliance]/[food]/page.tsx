@@ -52,8 +52,9 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
     notFound();
   }
 
-  // HowTo / Technical FAQ Schema.org JSON-LD
   const applianceName = sheet.appliance.replace('-', ' ');
+  const pageUrl = absoluteUrl(`/how-long/${sheet.appliance}/${sheet.foodSlug}`);
+
   const breadcrumbs = generateBreadcrumbSchema([
     { name: 'Cook Times', path: '/cheat-sheet' },
     { name: sheet.food, path: `/how-long/${sheet.appliance}/${sheet.foodSlug}` },
@@ -62,14 +63,17 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
   const schemaJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
-    name: `How Long to Cook ${sheet.food} in the ${sheet.appliance.replace('-', ' ')}`,
-    description: `Verified cook time and temperature guide for ${sheet.food} in the ${sheet.appliance}.`,
+    name: `How Long to Cook ${sheet.food} in the ${applianceName}`,
+    description: `Verified cook time and temperature guide for ${sheet.food} in the ${applianceName}. ${sheet.tempFormatted}, ${sheet.timeFormatted}, internal target ${sheet.internalTempTargetFormatted}.`,
+    url: pageUrl,
+    image: [absoluteUrl('/opengraph-image.png')],
     totalTime: `PT${sheet.timeMaxMinutes}M`,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
     step: [
       {
         '@type': 'HowToStep',
         name: 'Preheat & Prep',
-        text: `Preheat ${sheet.appliance} to ${sheet.tempFormatted}. Prep ${sheet.cutOrPrep}. ${sheet.oilSprayRequired ? 'Spray lightly with oil.' : ''}`,
+        text: `Preheat ${applianceName} to ${sheet.tempFormatted}. Prep ${sheet.cutOrPrep}. ${sheet.oilSprayRequired ? 'Spray lightly with oil.' : ''}`,
       },
       {
         '@type': 'HowToStep',
