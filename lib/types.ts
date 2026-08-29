@@ -211,5 +211,6 @@ export interface BlogPost {
     description: string;
   }[];
   relatedRecipeSlugs?: string[];
+  relatedDatasheetSlugs?: string[];
 }
 

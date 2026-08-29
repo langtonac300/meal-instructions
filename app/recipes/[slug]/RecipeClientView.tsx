@@ -10,15 +10,16 @@ import {
 } from 'lucide-react';
 import Lean5SMatrix from '@/components/Lean5SMatrix';
 import { LeanForkIcon, LeanFlipIcon, LeanClockIcon, LeanUtensilsIcon } from '@/components/icons/Lean5SIcons';
-import { Recipe } from '@/lib/types';
+import { Recipe, CookTimeDatasheet } from '@/lib/types';
 import { RECIPES } from '@/data/recipes';
 import { formatScaledAmount, buildSmsShareText, recipeToMarkdown } from '@/lib/recipe-utils';
 
 interface RecipeClientViewProps {
   recipe: Recipe;
+  relatedDatasheets?: CookTimeDatasheet[];
 }
 
-export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
+export default function RecipeClientView({ recipe, relatedDatasheets = [] }: RecipeClientViewProps) {
   // Mode state: syncs with document.documentElement's data-mode
   const [currentMode, setCurrentMode] = useState<'fast' | 'detailed'>('fast');
   const [portionMultiplier, setPortionMultiplier] = useState<number>(1);
@@ -261,6 +262,81 @@ export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
         </div>
 
       </section>
+
+      {/* VERIFIED COOK-TIME DATASHEET CROSS-LINKS */}
+      {relatedDatasheets.length > 0 && (
+        <section className="space-y-3">
+          {relatedDatasheets.map((ds) => (
+            <Link
+              key={ds.id}
+              href={`/how-long/${ds.appliance}/${ds.foodSlug}`}
+              className="block bg-paper-card hairline-border border-l-2 border-l-emerald-700 hover:border-ink transition-colors group"
+            >
+              <div className="p-5 sm:p-6 space-y-4">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-emerald-700" />
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-emerald-800">
+                      Verified Cook-Time Datasheet
+                    </span>
+                    {ds.state !== 'fresh' && (
+                      <span className="px-1.5 py-0.5 bg-blue-50 text-blue-800 text-[10px] font-mono font-bold uppercase hairline-border">
+                        {ds.state}
+                      </span>
+                    )}
+                  </div>
+                  <span className="flex items-center gap-1 font-mono text-[10px] text-ink-muted group-hover:text-accent transition-colors uppercase">
+                    View Full Datasheet <ArrowUpRight className="w-3 h-3" />
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-bold text-ink font-sans uppercase tracking-tight">
+                    {ds.food}
+                  </h3>
+                  <p className="text-xs text-ink-muted font-sans mt-0.5">{ds.cutOrPrep}</p>
+                </div>
+
+                <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                  <div className="bg-paper p-2.5 hairline-border text-center">
+                    <div className="font-mono text-base sm:text-lg font-bold text-ink">{ds.tempF}°F</div>
+                    <div className="text-[9px] font-mono text-ink-subtle uppercase mt-0.5">Temp</div>
+                  </div>
+                  <div className="bg-paper p-2.5 hairline-border text-center">
+                    <div className="font-mono text-base sm:text-lg font-bold text-ink">{ds.timeFormatted}</div>
+                    <div className="text-[9px] font-mono text-ink-subtle uppercase mt-0.5">Cook Time</div>
+                  </div>
+                  <div className="bg-paper p-2.5 hairline-border text-center">
+                    <div className="font-mono text-base sm:text-lg font-bold text-accent">{ds.internalTempTargetF}°F</div>
+                    <div className="text-[9px] font-mono text-ink-subtle uppercase mt-0.5">Internal</div>
+                  </div>
+                  {ds.flipAtMinutes > 0 && (
+                    <div className="bg-paper p-2.5 hairline-border text-center hidden sm:block">
+                      <div className="font-mono text-base sm:text-lg font-bold text-ink">{ds.flipAtMinutes}m</div>
+                      <div className="text-[9px] font-mono text-ink-subtle uppercase mt-0.5">Flip At</div>
+                    </div>
+                  )}
+                  {ds.restMinutes > 0 && (
+                    <div className="bg-paper p-2.5 hairline-border text-center hidden sm:block">
+                      <div className="font-mono text-base sm:text-lg font-bold text-ink">{ds.restMinutes}m</div>
+                      <div className="text-[9px] font-mono text-ink-subtle uppercase mt-0.5">Rest</div>
+                    </div>
+                  )}
+                </div>
+
+                <div className="text-xs font-sans text-ink-muted bg-paper p-3 hairline-border leading-relaxed">
+                  <span className="font-mono text-[10px] font-bold text-ink uppercase">Doneness: </span>
+                  {ds.donenessCue}
+                </div>
+
+                <div className="font-mono text-[10px] text-ink-subtle hairline-t pt-2">
+                  {ds.verificationBasis}
+                </div>
+              </div>
+            </Link>
+          ))}
+        </section>
+      )}
 
       {/* Sticky mode selector stays pinned from here through the end of the
           instructions: this wrapper is its containing block, so it releases

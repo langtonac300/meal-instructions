@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { RECIPES, getRecipeBySlug } from '@/data/recipes';
+import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { generateRecipeSchema } from '@/lib/recipe-utils';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
@@ -66,6 +67,16 @@ export default async function RecipePage({ params }: RecipePageProps) {
   const breadcrumbs = generateBreadcrumbSchema([
     { name: recipe.title, path: `/recipes/${recipe.slug}` },
   ]);
+  const relatedDatasheets = COOK_TIME_DATASHEETS.filter(
+    (d) => d.relatedRecipeSlug === recipe.slug
+  );
+  if (relatedDatasheets.length > 0) {
+    schemaJsonLd.isBasedOn = relatedDatasheets.map((d) => ({
+      '@type': 'WebPage',
+      name: `${d.food} — Verified Cook-Time Datasheet`,
+      url: absoluteUrl(`/how-long/${d.appliance}/${d.foodSlug}`),
+    }));
+  }
 
   return (
     <>
@@ -77,7 +88,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      <RecipeClientView recipe={recipe} />
+      <RecipeClientView recipe={recipe} relatedDatasheets={relatedDatasheets} />
     </>
   );
 }

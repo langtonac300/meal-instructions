@@ -64,6 +64,7 @@ True 15-minute cooking requires an **engineered sequence** where every second pe
       },
     ],
     relatedRecipeSlugs: ['15-minute-skillet-turkey-sloppy-joes', '15-minute-skillet-beef-taco-meat', '15-minute-skillet-shrimp-tacos'],
+    relatedDatasheetSlugs: ['air-fryer/chicken-tenders-fresh', 'skillet/garlic-butter-shrimp', 'skillet/ground-beef-taco-meat'],
   },
   {
     id: 'blog-042',
@@ -138,6 +139,7 @@ $$\\text{Raw Weight} = \\frac{16 \\times 6}{0.50 \\times 16} = \\frac{96}{8} = 1
       },
     ],
     relatedRecipeSlugs: ['slow-cooker-pulled-pork', 'smoked-texas-style-beef-brisket', 'smoker-st-louis-pork-ribs-3-2-1'],
+    relatedDatasheetSlugs: ['smoker/pork-butt-pulled-pork', 'smoker/st-louis-pork-ribs', 'smoker/texas-style-beef-brisket'],
   },
   {
     id: 'blog-043',
@@ -201,6 +203,7 @@ You should **never** cook two separate meals (e.g., chicken nuggets for the kids
       },
     ],
     relatedRecipeSlugs: ['sheet-pan-turkey-meatball-sub-melts', '15-minute-egg-roll-in-a-bowl', 'one-pot-creamy-sausage-tortellini'],
+    relatedDatasheetSlugs: ['air-fryer/chicken-tenders-fresh', 'skillet/black-bean-quesadillas', 'air-fryer/frozen-mozzarella-sticks'],
   },
   {
     id: 'blog-044',
@@ -268,6 +271,7 @@ This is a well-documented chemical degradation known as **Warmed-Over Flavor (WO
       },
     ],
     relatedRecipeSlugs: ['air-fryer-turkey-meatballs', 'sheet-pan-chicken-thighs-root-vegetables', 'slow-cooker-turkey-white-bean-chili'],
+    relatedDatasheetSlugs: ['air-fryer/chicken-breast-boneless', 'air-fryer/chicken-thighs-boneless'],
   },
   {
     id: 'blog-045',
@@ -332,6 +336,7 @@ When you roast packaged gnocchi directly from the package **without boiling**:
       },
     ],
     relatedRecipeSlugs: ['sheet-pan-crispy-gnocchi-vegetables', 'sheet-pan-smoked-sausage-peppers-potatoes'],
+    relatedDatasheetSlugs: ['sheet-pan/crispy-gnocchi-vegetables'],
   },
   {
     id: 'blog-046',
@@ -402,6 +407,7 @@ While "fall-off-the-bone" sounds appealing in casual marketing, in culinary phys
       },
     ],
     relatedRecipeSlugs: ['smoker-st-louis-pork-ribs-3-2-1', 'smoked-texas-style-beef-brisket'],
+    relatedDatasheetSlugs: ['smoker/st-louis-pork-ribs'],
   },
   {
     id: 'blog-047',
@@ -463,6 +469,7 @@ While "fall-off-the-bone" sounds appealing in casual marketing, in culinary phys
       },
     ],
     relatedRecipeSlugs: ['15-minute-skillet-beef-taco-meat', '15-minute-skillet-shrimp-tacos', 'skillet-chicken-thigh-fajita-bowls'],
+    relatedDatasheetSlugs: ['skillet/ground-beef-taco-meat', 'air-fryer/corn-on-the-cob'],
   },
   {
     id: 'blog-048',
@@ -534,6 +541,7 @@ Sous-vide (precision water bath cooking) solves this by **decoupling the two pro
       },
     ],
     relatedRecipeSlugs: ['cast-iron-filet-mignon', 'cast-iron-butter-basted-ribeye'],
+    relatedDatasheetSlugs: ['cast-iron/ribeye-steak-butter-basted', 'cast-iron/filet-mignon-cast-iron'],
   },
   {
     id: 'blog-049',
@@ -599,6 +607,7 @@ When meat sits in a strong acidic marinade (pH < 4.0, such as lemon juice, pinea
       },
     ],
     relatedRecipeSlugs: ['grilled-chicken-kebabs', 'sheet-pan-chicken-fajitas', 'air-fryer-bbq-chicken-drumsticks'],
+    relatedDatasheetSlugs: ['air-fryer/chicken-thighs-boneless', 'grill/grilled-chicken-kebabs'],
   },
   {
     id: 'blog-050',
@@ -948,6 +957,7 @@ When protein is anchored, snacking cravings resolve naturally without counting c
       'air-fryer-10-minute-garlic-butter-salmon',
       'cast-iron-butter-basted-ribeye',
     ],
+    relatedDatasheetSlugs: ['air-fryer/chicken-breast-boneless', 'air-fryer/chicken-thighs-boneless'],
   },
   {
     id: 'blog-054',
@@ -1048,6 +1058,7 @@ With one initial cooking session and one cutting board to wash, you get three fr
       'smoker-st-louis-pork-ribs-3-2-1',
       'air-fryer-sirloin-steak-bites',
     ],
+    relatedDatasheetSlugs: ['air-fryer/chicken-breast-boneless', 'sheet-pan/crispy-gnocchi-vegetables'],
   },
   {
     id: 'blog-055',

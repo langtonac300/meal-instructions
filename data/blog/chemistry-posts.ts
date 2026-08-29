@@ -82,6 +82,7 @@ For flawless, repeatable seasoning of whole proteins (steaks, roasts, chicken, p
       },
     ],
     relatedRecipeSlugs: ['cast-iron-butter-basted-ribeye', 'smoked-texas-style-beef-brisket', 'dutch-oven-dad-chili'],
+    relatedDatasheetSlugs: ['air-fryer/chicken-breast-boneless', 'air-fryer/pork-chops-bone-in', 'cast-iron/ribeye-steak-butter-basted'],
   },
   {
     id: 'blog-022',
@@ -154,6 +155,7 @@ If butter burns at 320°F, why do top steakhouses baste steaks with butter in sc
       },
     ],
     relatedRecipeSlugs: ['cast-iron-butter-basted-ribeye', 'cast-iron-lacy-edge-smash-burgers', 'air-fryer-10-minute-garlic-butter-salmon'],
+    relatedDatasheetSlugs: ['cast-iron/ribeye-steak-butter-basted', 'cast-iron/crispy-skin-salmon'],
   },
   {
     id: 'blog-023',
@@ -225,6 +227,7 @@ Mushrooms are **90% water** held in a chitin sponge. To achieve golden, carameli
       },
     ],
     relatedRecipeSlugs: ['skillet-steak-bites-and-potatoes', 'backyard-grilled-burgers', 'one-pot-dutch-oven-mac-and-cheese'],
+    relatedDatasheetSlugs: ['air-fryer/broccoli-florets-fresh', 'air-fryer/asparagus-spears', 'air-fryer/chicken-breast-boneless'],
   },
   {
     id: 'blog-024',
@@ -370,6 +373,7 @@ $$\\text{Pan Fond} + \\text{Aromatics} + \\text{Deglaze/Reduce} + \\text{Cold Bu
       },
     ],
     relatedRecipeSlugs: ['cast-iron-filet-mignon', '15-minute-lemon-garlic-butter-shrimp', 'air-fryer-crispy-parmesan-pork-chops'],
+    relatedDatasheetSlugs: ['cast-iron/ribeye-steak-butter-basted', 'skillet/garlic-butter-shrimp'],
   },
   {
     id: 'blog-026',
@@ -431,6 +435,7 @@ Why ground turkey struggles:
       },
     ],
     relatedRecipeSlugs: ['15-minute-skillet-turkey-sloppy-joes', 'sheet-pan-turkey-meatball-sub-melts', 'air-fryer-turkey-meatballs'],
+    relatedDatasheetSlugs: ['skillet/turkey-sloppy-joes', 'grill/grilled-turkey-burgers', 'sheet-pan/turkey-meatball-subs'],
   },
   {
     id: 'blog-027',
@@ -576,6 +581,7 @@ If hard-boiled yolks have a chalky texture with an unappetizing dark green-gray 
       },
     ],
     relatedRecipeSlugs: ['air-fryer-hard-boiled-eggs', 'cast-iron-breakfast-hash-and-eggs'],
+    relatedDatasheetSlugs: ['air-fryer/hard-boiled-eggs'],
   },
   {
     id: 'blog-029',
@@ -637,6 +643,7 @@ Jasmine rice sits in the middle (~15% amylose), offering aromatic softness with 
       },
     ],
     relatedRecipeSlugs: ['dads-skillet-fried-rice', 'skillet-chicken-thigh-fajita-bowls'],
+    relatedDatasheetSlugs: ['skillet/skillet-fried-rice'],
   },
   {
     id: 'blog-030',

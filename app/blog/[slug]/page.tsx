@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BLOG_POSTS, getBlogPostBySlug, getRelatedBlogPosts } from '@/data/blog-posts';
 import { getRecipeBySlug } from '@/data/recipes';
+import { getDatasheetByCompositeSlug } from '@/data/cook-times';
 import { absoluteUrl, SITE_NAME } from '@/lib/site';
 import {
   generateBlogPostingSchema,
@@ -11,7 +12,7 @@ import {
   generateBlogFaqSchema,
   formatBlogMarkdownToHtml,
 } from '@/lib/blog-utils';
-import { Clock, Calendar, ArrowLeft, ArrowRight, CheckCircle2, Wrench, BookOpen, Share2 } from 'lucide-react';
+import { Clock, Calendar, ArrowLeft, ArrowRight, CheckCircle2, Wrench, BookOpen, Share2, ShieldCheck } from 'lucide-react';
 import RecipeCard from '@/components/RecipeCard';
 
 interface BlogPostPageProps {
@@ -78,6 +79,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   // Resolve related recipes if present
   const relatedRecipes = (post.relatedRecipeSlugs || [])
     .map((s) => getRecipeBySlug(s))
+    .filter(Boolean);
+
+  // Resolve related datasheets if present
+  const relatedDatasheets = (post.relatedDatasheetSlugs || [])
+    .map((s) => getDatasheetByCompositeSlug(s))
     .filter(Boolean);
 
   return (
@@ -241,6 +247,50 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {relatedRecipes.map((recipe) => (
                   <RecipeCard key={recipe!.id} recipe={recipe!} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Related Verified Cook-Time Datasheets */}
+          {relatedDatasheets.length > 0 && (
+            <section className="mt-12 pt-8 border-t border-hairline">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="font-sans text-2xl font-bold uppercase tracking-tight text-ink">
+                  Verified Cook-Time Datasheets
+                </h2>
+                <span className="font-mono text-xs text-ink-muted uppercase">
+                  LAB-TESTED // EXACT SPECS
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {relatedDatasheets.map((ds) => (
+                  <Link
+                    key={ds!.id}
+                    href={`/how-long/${ds!.appliance}/${ds!.foodSlug}`}
+                    className="p-5 bg-paper-card hairline-border border-l-2 border-l-emerald-700 hover:border-ink transition-colors block group"
+                  >
+                    <div className="flex items-center gap-1.5 mb-2">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
+                      <span className="font-mono text-[10px] text-emerald-700 font-bold uppercase">
+                        Verified Datasheet
+                      </span>
+                    </div>
+                    <h3 className="font-sans text-sm font-bold text-ink group-hover:text-accent transition-colors leading-snug">
+                      {ds!.food}
+                    </h3>
+                    <div className="mt-3 flex items-center gap-4 font-mono text-xs text-ink-muted">
+                      <span>{ds!.tempFormatted}</span>
+                      <span className="text-hairline">|</span>
+                      <span>{ds!.timeFormatted}</span>
+                      {ds!.internalTempTargetF && (
+                        <>
+                          <span className="text-hairline">|</span>
+                          <span className="text-accent font-bold">{ds!.internalTempTargetF}°F pull</span>
+                        </>
+                      )}
+                    </div>
+                  </Link>
                 ))}
               </div>
             </section>

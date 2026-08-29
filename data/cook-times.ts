@@ -141,6 +141,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Start skin-side DOWN for 12 mins, then flip skin-side UP to finish crisping.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'air-fryer-crispy-bone-in-chicken-thighs',
   },
   {
     id: 'CT-AF-007',
@@ -164,6 +166,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Brush with barbecue sauce only in the last 3 minutes so sugars do not burn.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'air-fryer-bbq-chicken-drumsticks',
   },
 
   // ── AIR FRYER BEEF & BURGERS ──
@@ -355,6 +359,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Do not flip delicate whitefish; use a wide fish spatula to lift out in one piece.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'air-fryer-cod-fish-sticks',
   },
 
   // ── AIR FRYER PORK & SAUSAGE ──
@@ -380,6 +386,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'USDA updated pork guidelines to 145°F. Overcooking to 165°F ruins pork chops.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'air-fryer-crispy-parmesan-pork-chops',
   },
   {
     id: 'CT-AF-017',
@@ -403,6 +411,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Pour 2 tbsp water into the bottom drip pan before cooking to prevent bacon grease smoke.',
     verificationBasis: 'Manufacturer Appliance Reference & USDA FSIS Safe Internal Temperature Standard.',
+
+    relatedRecipeSlug: 'air-fryer-bacon-no-splatter',
   },
   {
     id: 'CT-AF-018',
@@ -449,6 +459,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Tenderloin is extremely lean. Pull at 140°F and rest under foil for 10 minutes.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'air-fryer-pork-tenderloin',
   },
 
   // ── AIR FRYER VEGETABLES & SIDES ──
@@ -474,6 +486,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Do not fill basket more than half full. Shake vigorously at 5m and 10m.',
     verificationBasis: 'Manufacturer Appliance Reference & USDA FSIS Safe Internal Temperature Standard.',
+
+    relatedRecipeSlug: 'air-fryer-frozen-chicken-nuggets-and-fries',
   },
   {
     id: 'CT-AF-021',
@@ -497,6 +511,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Ensure broccoli is completely dry after washing; wet florets turn mushy.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'air-fryer-crispy-broccoli',
   },
   {
     id: 'CT-AF-022',
@@ -520,6 +536,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: '205°F internal temperature is the secret to bakery-style fluffy baked potatoes.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'air-fryer-loaded-baked-potatoes',
   },
   {
     id: 'CT-AF-023',
@@ -543,6 +561,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Keep a close eye after 4 mins. Pull immediately when you see first cheese bubble.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'air-fryer-frozen-mozzarella-sticks',
   },
   {
     id: 'CT-AF-024',
@@ -566,6 +586,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Spray oil on both sides of each dumpling. Dip in 50/50 soy sauce and chili crisp.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'air-fryer-frozen-gyoza-potstickers',
   },
   {
     id: 'CT-AF-025',
@@ -612,6 +634,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Shake basket at 6 and 10 minutes for 360-degree crunch.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'air-fryer-tater-tot-breakfast-casserole',
   },
 
   // ── CAST IRON DATASHEETS ──
@@ -760,6 +784,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Never press down on patties with a spatula on the grill—it flares grease and squeezes out moisture.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'backyard-grilled-burgers',
   },
   {
     id: 'CT-GR-002',
@@ -783,6 +809,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Cook over indirect heat first; move to direct flame only during the last 2 minutes after saucing.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'grilled-bbq-chicken-breasts',
   },
 
   // ── SMOKER DATASHEETS ──
@@ -808,6 +836,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Wrap tightly in heavy foil with 2 tbsp butter, brown sugar, and apple juice at 3 hours.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'smoker-st-louis-pork-ribs-3-2-1',
   },
   {
     id: 'CT-SM-002',
@@ -880,6 +910,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Add minced garlic only in the last 60 seconds of cooking so it does not burn or turn bitter.',
     verificationBasis: 'Standard Skillet Searing Reference & USDA FSIS 145°F Seafood Standard.',
+
+    relatedRecipeSlug: '15-minute-lemon-garlic-butter-shrimp',
   },
   {
     id: 'CT-AF-026',
@@ -949,6 +981,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'A light mist of oil ensures the corn tortilla stays crunchy and doesn’t split.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'air-fryer-frozen-taquitos',
   },
   {
     id: 'CT-CI-005',
@@ -972,6 +1006,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Sear 2 minutes per side, then baste with garlic thyme butter and finish in a 400°F oven for 3 mins if needed.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'cast-iron-filet-mignon',
   },
   {
     id: 'CT-CI-006',
@@ -1018,6 +1054,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: true,
     proTip: 'Sear 2 mins over direct flame, rotate 45 degrees for crosshatch marks, flip, and finish on indirect heat zone.',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'grilled-reverse-sear-ribeye',
   },
   {
     id: 'CT-SM-004',
@@ -1041,6 +1079,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Season with 50/50 coarse kosher salt and 16-mesh coarse black pepper. Wrap in butcher paper at 165°F (the stall).',
     verificationBasis: 'Instant Vortex Plus & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
+
+    relatedRecipeSlug: 'smoked-texas-style-beef-brisket',
   },
   {
     id: 'CT-SC-003',
@@ -1064,8 +1104,8 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Sear chuck roast on high in a skillet for 3 minutes per side before placing into slow cooker for rich gravy body.',
     verificationBasis: 'Ninja Air Crisp Reference & Manufacturer Technical Guide; USDA FSIS Safe Food Handling Standard.',
-  }
-,
+    relatedRecipeSlug: 'slow-cooker-pot-roast',
+  },
 
   // ── NEW EXPANSION DATASHEETS (QUEUE 50) ──
   {
@@ -1438,3 +1478,8 @@ export function getCookTimesByAppliance(appliance: string): CookTimeDatasheet[] 
   return COOK_TIME_DATASHEETS.filter((d) => d.appliance === appliance);
 }
 
+
+export function getDatasheetByCompositeSlug(compositeSlug: string): CookTimeDatasheet | undefined {
+  const [appliance, foodSlug] = compositeSlug.split('/');
+  return COOK_TIME_DATASHEETS.find((d) => d.appliance === appliance && d.foodSlug === foodSlug);
+}

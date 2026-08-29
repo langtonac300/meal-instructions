@@ -90,6 +90,7 @@ When a dry-brined steak hits 450°F cast iron with a thin film of high-smoke-poi
       },
     ],
     relatedRecipeSlugs: ['cast-iron-butter-basted-ribeye', 'cast-iron-filet-mignon', 'grilled-reverse-sear-ribeye'],
+    relatedDatasheetSlugs: ['cast-iron/ribeye-steak-butter-basted', 'cast-iron/smash-burger-patties'],
   },
   {
     id: 'blog-002',
@@ -174,6 +175,7 @@ Tightly sealed foil traps escaping steam, condensates on the meat surface, and d
       },
     ],
     relatedRecipeSlugs: ['cast-iron-butter-basted-ribeye', 'grilled-reverse-sear-ribeye', 'air-fryer-pork-tenderloin'],
+    relatedDatasheetSlugs: ['cast-iron/ribeye-steak-butter-basted', 'cast-iron/filet-mignon-cast-iron', 'grill/grilled-ribeye-steak'],
   },
   {
     id: 'blog-003',
@@ -258,6 +260,7 @@ Place the chicken breast inside a zip-top bag and gently strike the thick should
       },
     ],
     relatedRecipeSlugs: ['crispy-air-fryer-chicken-tenders', 'grilled-bbq-chicken-breasts', 'air-fryer-crispy-bone-in-chicken-thighs'],
+    relatedDatasheetSlugs: ['air-fryer/chicken-breast-boneless', 'grill/bbq-chicken-breasts'],
   },
   {
     id: 'blog-004',
@@ -330,6 +333,7 @@ When cooked, the unwound protein matrix holds tightly to moisture that would oth
       },
     ],
     relatedRecipeSlugs: ['cast-iron-butter-basted-ribeye', 'smoked-turkey-breast', 'air-fryer-crispy-bone-in-chicken-thighs'],
+    relatedDatasheetSlugs: ['air-fryer/chicken-breast-boneless', 'air-fryer/chicken-thighs-boneless', 'air-fryer/pork-chops-bone-in'],
   },
   {
     id: 'blog-005',
@@ -400,6 +404,7 @@ In 2011, the USDA updated its safety guidelines:
       },
     ],
     relatedRecipeSlugs: ['air-fryer-pork-tenderloin', 'air-fryer-crispy-parmesan-pork-chops', 'sheet-pan-pork-chops-and-apples'],
+    relatedDatasheetSlugs: ['air-fryer/pork-tenderloin', 'air-fryer/pork-chops-bone-in'],
   },
   {
     id: 'blog-006',
@@ -453,6 +458,7 @@ By increasing the surface-area-to-volume ratio, every single mouthful delivers a
       },
     ],
     relatedRecipeSlugs: ['cast-iron-lacy-edge-smash-burgers', 'backyard-grilled-burgers', 'air-fryer-juicy-bacon-cheeseburgers'],
+    relatedDatasheetSlugs: ['cast-iron/smash-burger-patties', 'air-fryer/beef-burgers-fresh'],
   },
   {
     id: 'blog-007',
@@ -519,6 +525,7 @@ Toss thoroughly in a bowl, arrange on a wire rack over a baking sheet, and refri
       },
     ],
     relatedRecipeSlugs: ['air-fryer-crispy-garlic-parm-wings', 'smoked-chicken-wings-crispy-skin'],
+    relatedDatasheetSlugs: ['air-fryer/chicken-wings-fresh', 'air-fryer/chicken-drumsticks'],
   },
   {
     id: 'blog-008',
@@ -579,6 +586,7 @@ As the skin crisps and water vaporizes, the proteins contract and break their te
       },
     ],
     relatedRecipeSlugs: ['air-fryer-10-minute-garlic-butter-salmon', 'cast-iron-blackened-cod', 'sheet-pan-honey-garlic-salmon-green-beans'],
+    relatedDatasheetSlugs: ['cast-iron/crispy-skin-salmon', 'air-fryer/salmon-fillets-fresh', 'air-fryer/cod-whitefish-fillet'],
   },
   {
     id: 'blog-009',
@@ -718,5 +726,6 @@ However, when subjected to steady, moist heat:
       },
     ],
     relatedRecipeSlugs: ['dutch-oven-beef-stew', 'slow-cooker-pot-roast', 'dutch-oven-dad-chili'],
+    relatedDatasheetSlugs: ['slow-cooker/slow-cooker-pot-roast', 'slow-cooker/slow-cooker-beef-and-broccoli'],
   },
 ];

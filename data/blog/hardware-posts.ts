@@ -88,6 +88,7 @@ If you stack chicken thighs or pile fries three layers deep:
       },
     ],
     relatedRecipeSlugs: ['air-fryer-crispy-garlic-parm-wings', 'air-fryer-10-minute-garlic-butter-salmon', 'air-fryer-crispy-bone-in-chicken-thighs'],
+    relatedDatasheetSlugs: ['air-fryer/chicken-wings-fresh', 'air-fryer/frozen-french-fries', 'air-fryer/broccoli-florets-fresh'],
   },
   {
     id: 'blog-012',
@@ -154,6 +155,7 @@ Carbon steel is composed of 99% iron and 1% carbon (pressed thin rather than cas
       },
     ],
     relatedRecipeSlugs: ['cast-iron-butter-basted-ribeye', 'cast-iron-lacy-edge-smash-burgers', 'one-pot-dutch-oven-mac-and-cheese'],
+    relatedDatasheetSlugs: ['cast-iron/ribeye-steak-butter-basted', 'cast-iron/crispy-skin-salmon', 'cast-iron/crispy-skin-chicken-thighs'],
   },
   {
     id: 'blog-013',
@@ -222,6 +224,7 @@ Oils are categorized by their **iodine value** (the measure of unsaturation / av
       },
     ],
     relatedRecipeSlugs: ['cast-iron-filet-mignon', 'cast-iron-breakfast-hash-and-eggs', 'cast-iron-blackened-cod'],
+    relatedDatasheetSlugs: ['cast-iron/smash-burger-patties', 'cast-iron/ribeye-steak-butter-basted'],
   },
   {
     id: 'blog-014',
@@ -358,6 +361,7 @@ Never spray standard nonstick aerosol cans (like PAM) directly into an air fryer
       },
     ],
     relatedRecipeSlugs: ['air-fryer-crispy-broccoli', 'air-fryer-buffalo-cauliflower-bites', 'crispy-air-fryer-chicken-tenders'],
+    relatedDatasheetSlugs: ['air-fryer/chicken-wings-fresh', 'air-fryer/salmon-fillets-fresh'],
   },
   {
     id: 'blog-016',
@@ -488,6 +492,7 @@ The root cause is almost always:
       },
     ],
     relatedRecipeSlugs: ['cast-iron-butter-basted-ribeye', 'cast-iron-lacy-edge-smash-burgers', 'cast-iron-filet-mignon'],
+    relatedDatasheetSlugs: ['cast-iron/ribeye-steak-butter-basted', 'cast-iron/smash-burger-patties'],
   },
   {
     id: 'blog-018',
@@ -553,6 +558,7 @@ This is **fond**. It is not burnt food—it is the most concentrated reservoir o
       },
     ],
     relatedRecipeSlugs: ['cast-iron-filet-mignon', '15-minute-lemon-garlic-butter-shrimp', 'skillet-steak-bites-and-potatoes'],
+    relatedDatasheetSlugs: ['cast-iron/ribeye-steak-butter-basted', 'skillet/garlic-butter-shrimp'],
   },
   {
     id: 'blog-019',
@@ -615,6 +621,7 @@ Set your target dinner bell at **T = 0 minutes** (e.g., 6:30 PM). Work backwards
       },
     ],
     relatedRecipeSlugs: ['skillet-steak-bites-and-potatoes', 'air-fryer-crispy-broccoli', 'sheet-pan-smoked-sausage-peppers-potatoes'],
+    relatedDatasheetSlugs: ['sheet-pan/chicken-fajita-strips', 'air-fryer/broccoli-florets-fresh'],
   },
   {
     id: 'blog-020',
@@ -676,5 +683,6 @@ If you slice a raw potato and throw it straight into an air fryer or hot oil:
       },
     ],
     relatedRecipeSlugs: ['air-fryer-frozen-chicken-nuggets-and-fries', 'crispy-air-fryer-chicken-tenders'],
+    relatedDatasheetSlugs: ['air-fryer/frozen-french-fries', 'air-fryer/tater-tots-frozen'],
   },
 ];

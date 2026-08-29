@@ -70,6 +70,7 @@ While chicken breast dries out above 158°F, **dark meat (thighs, drumsticks, wi
       },
     ],
     relatedRecipeSlugs: ['air-fryer-crispy-bone-in-chicken-thighs', 'cast-iron-butter-basted-ribeye', 'smoked-texas-style-beef-brisket'],
+    relatedDatasheetSlugs: ['air-fryer/chicken-breast-boneless', 'cast-iron/ribeye-steak-butter-basted', 'air-fryer/pork-chops-bone-in', 'air-fryer/salmon-fillets-fresh'],
   },
   {
     id: 'blog-032',
@@ -134,6 +135,7 @@ Culinary food labs have demonstrated that searing a **rock-hard frozen 1.5-inch 
       },
     ],
     relatedRecipeSlugs: ['air-fryer-frozen-chicken-nuggets-and-fries', 'air-fryer-frozen-gyoza-potstickers', '15-minute-skillet-beef-taco-meat'],
+    relatedDatasheetSlugs: ['air-fryer/chicken-tenders-frozen', 'air-fryer/beef-burgers-frozen', 'air-fryer/salmon-fillets-frozen', 'air-fryer/frozen-french-fries'],
   },
   {
     id: 'blog-033',
@@ -194,6 +196,7 @@ Here is the exact microbiological mechanism behind this rule:
       },
     ],
     relatedRecipeSlugs: ['slow-cooker-pot-roast', 'slow-cooker-pulled-pork', '3-ingredient-slow-cooker-salsa-chicken'],
+    relatedDatasheetSlugs: ['slow-cooker/slow-cooker-pot-roast', 'slow-cooker/slow-cooker-salsa-chicken', 'slow-cooker/slow-cooker-turkey-white-bean-chili'],
   },
   {
     id: 'blog-034',
@@ -262,6 +265,7 @@ When you submerge meat in a cold water bath:
       },
     ],
     relatedRecipeSlugs: ['15-minute-skillet-beef-taco-meat', 'crispy-air-fryer-chicken-tenders'],
+    relatedDatasheetSlugs: ['air-fryer/salmon-fillets-frozen', 'air-fryer/beef-burgers-frozen', 'air-fryer/chicken-tenders-frozen'],
   },
   {
     id: 'blog-035',
@@ -333,6 +337,7 @@ Reverse-searing (popularized by food scientist J. Kenji López-Alt) flips the se
       },
     ],
     relatedRecipeSlugs: ['grilled-reverse-sear-ribeye', 'cast-iron-butter-basted-ribeye', 'cast-iron-filet-mignon'],
+    relatedDatasheetSlugs: ['cast-iron/ribeye-steak-butter-basted', 'cast-iron/filet-mignon-cast-iron', 'grill/grilled-ribeye-steak'],
   },
   {
     id: 'blog-036',
@@ -397,6 +402,7 @@ Spatchcocking is the culinary technique of cutting out the backbone with heavy-d
       },
     ],
     relatedRecipeSlugs: ['air-fryer-crispy-bone-in-chicken-thighs', 'grilled-chicken-kebabs', 'smoked-turkey-breast'],
+    relatedDatasheetSlugs: ['air-fryer/chicken-thighs-bone-in', 'air-fryer/chicken-drumsticks', 'cast-iron/crispy-skin-chicken-thighs'],
   },
   {
     id: 'blog-037',
@@ -462,6 +468,7 @@ When cold bacon hits a hot 375°F pan:
       },
     ],
     relatedRecipeSlugs: ['air-fryer-bacon-no-splatter', 'cast-iron-breakfast-hash-and-eggs', 'air-fryer-loaded-baked-potatoes'],
+    relatedDatasheetSlugs: ['air-fryer/bacon-thick-cut'],
   },
   {
     id: 'blog-038',
@@ -647,5 +654,6 @@ The thermodynamic reality:
       },
     ],
     relatedRecipeSlugs: ['sheet-pan-honey-garlic-salmon-green-beans', 'sheet-pan-chicken-fajitas', 'sheet-pan-smoked-sausage-peppers-potatoes'],
+    relatedDatasheetSlugs: ['sheet-pan/chicken-fajita-strips', 'sheet-pan/smoked-sausage-potatoes', 'sheet-pan/crispy-gnocchi-vegetables'],
   },
 ];

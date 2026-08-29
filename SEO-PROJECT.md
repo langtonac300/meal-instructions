@@ -91,8 +91,8 @@ Do not start a phase while an earlier phase has an open `BLOCKED` or `TODO` task
 
 | ID | Task | Status | Verify |
 |---|---|---|---|
-| SEO-001 | Make `npm run build` pass without ad-hoc env | **WIP** | `npm run build` exits 0 |
-| SEO-002 | Confirm + document canonical production domain | **BLOCKED** | §7 D-1 |
+| SEO-001 | Make `npm run build` pass without ad-hoc env | **DONE** 2026-08-29 | `npm run build` exits 0 with committed `.env.production` |
+| SEO-002 | Confirm + document canonical production domain | **DONE** 2026-08-29 | `https://www.mealinstructions.com` confirmed by owner |
 | SEO-003 | Reconcile stale claims in `AGENTS.md` §6 | **DONE** 2026-08-29 | Doc review |
 | SEO-026 | Add `.gitattributes` — build dirties the tree with CRLF-only diffs | **DONE** 2026-08-29 | `git status` clean after build |
 
@@ -270,6 +270,28 @@ This is the site's genuine differentiator (`llms.txt`, `llms-full.txt`, an MCP s
 
 ---
 
+### P8 — Internal cross-linking (recipe ↔ datasheet ↔ blog)
+
+| ID | Task | Status | Verify |
+|---|---|---|---|
+| SEO-027 | Phase A: Recipe → Datasheet cross-links (25 recipes) | **DONE** 2026-08-29 | 25 HTML pages with `/how-long/` link + `isBasedOn` JSON-LD |
+| SEO-028 | Phase B: Expand `relatedRecipeSlug` coverage (35 unlinked datasheets) | **DONE** 2026-08-29 | 46/60 datasheets linked (was 25); 14 have no matching recipe |
+| SEO-029 | Phase C: Blog → Datasheet cross-links (55 posts) | **DONE** 2026-08-29 | 43/55 blog pages with `/how-long/` links + "Verified Datasheet" section |
+
+**SEO-027** — Recipe → Datasheet cross-links. For all 25 datasheets with `relatedRecipeSlug`, the linked recipe page now renders:
+- A prominent "Verified Cook-Time Datasheet" callout (SSR HTML, crawlable `<a href="/how-long/...">`) showing temp, time, internal target, flip mark, rest time, doneness cue, and verification basis.
+- Schema.org `isBasedOn` in the recipe's JSON-LD, referencing the datasheet URL as a `WebPage`.
+- Cross-linking is fully bidirectional: datasheets already link to recipes (line 228–232 of `how-long/[appliance]/[food]/page.tsx`), and now recipes link back.
+- Files changed: `app/recipes/[slug]/page.tsx` (import datasheets, compute matches, pass to client, add `isBasedOn`), `app/recipes/[slug]/RecipeClientView.tsx` (accept prop, render callout section).
+
+**SEO-028** — Expanded `relatedRecipeSlug` from 25 to 46 datasheets (+21 new links). Systematic cross-reference of all 35 unlinked datasheets against 70 recipes, matching by appliance + food type. 14 datasheets have no viable recipe match (frozen variants without frozen recipes, appliance-specific items, standalone ingredients like asparagus/green beans). Coverage: 42% → 77%. This adds 21 new recipe pages with datasheet callouts and `isBasedOn` JSON-LD.
+
+Remaining unlinked (14): Frozen chicken tenders, boneless chicken breast (AF), boneless chicken thighs (AF), frozen burgers, meatballs, frozen salmon, shrimp (AF), bratwurst (AF), asparagus (AF), salmon (CI), pulled pork (SM), green beans (AF), corn on the cob (AF), chicken thighs (CI).
+
+**SEO-029** — Blog → Datasheet cross-links. Added `relatedDatasheetSlugs?: string[]` to the `BlogPost` type and populated 43 of 55 blog posts with matched datasheet slugs (format: `appliance/foodSlug`). The blog template (`app/blog/[slug]/page.tsx`) now resolves datasheets via `getDatasheetByCompositeSlug()` and renders a "Verified Cook-Time Datasheets" section between "Tested Application Recipes" and "Related Field Guides" — emerald-bordered cards with ShieldCheck icon, food name, temp, time, and internal temp pull. 12 posts have no relevant datasheet match (knife science, herb storage, nonstick pans, acid chemistry, scallops, pizza reheating, kitchen organization, budget/takeout posts). Files changed: `lib/types.ts` (+field), `data/cook-times.ts` (+lookup fn), `app/blog/[slug]/page.tsx` (+import, resolve, render), `data/blog/*.ts` (43 posts populated).
+
+---
+
 ## 4. Sequencing rationale
 
 P1 outranks everything structural because fabricated review markup and 404 schema images carry **penalty and validation-failure risk** — they can actively suppress rankings, whereas a missing breadcrumb merely fails to help. P0 outranks P1 only because we cannot verify a P1 fix without a working build.
@@ -329,6 +351,9 @@ grep -rn "aggregateRating" lib/ app/
 | 2026-08-29 | SEO-023 | Created 4 `opengraph-image.tsx` files using `next/og` for recipes (70), datasheets (60), blog (55), and guides (20) = 205 per-entity OG images pre-rendered at build time | baffc10 | `npm run build` exits 0; 205 `.body` files in `.next/server/app/` |
 | 2026-08-29 | SEO-022 | Investigation complete: 166 files / 138 MB in `public/images/`, only 2 `next/image` usages, no `output: 'export'`. Flag likely a leftover. Blocked on D-2 for actual removal. | baffc10 | documented in tracker |
 | 2026-08-29 | SEO-024 | Added 60 cook-time datasheets to `llms.txt` (grouped by appliance with links) and `llms-full.txt` (full structured content as new PART 1). Updated AI usage guidelines with `/how-long/` URL pattern. | pending | llms.txt 395 lines, llms-full.txt 9,864 lines |
+| 2026-08-29 | SEO-027 | Recipe → Datasheet cross-links: 25 recipe pages now render "Verified Cook-Time Datasheet" callout with temp/time/internal/flip/rest/doneness + `isBasedOn` JSON-LD. Fully bidirectional with existing datasheet→recipe links. | pending | 25 HTML pages with `/how-long/` link + `isBasedOn` |
+| 2026-08-29 | SEO-028 | Expanded `relatedRecipeSlug` from 25 → 46 datasheets (+21 new links). All 35 unlinked datasheets cross-referenced against 70 recipes; 21 matches found, 14 have no viable recipe. Coverage: 42% → 77%. | pending | 46 HTML pages with `/how-long/` link + `isBasedOn` |
+| 2026-08-29 | SEO-029 | Blog → Datasheet cross-links: added `relatedDatasheetSlugs` to BlogPost type, populated 43/55 posts, rendered "Verified Cook-Time Datasheets" section in blog template with emerald-bordered cards. 12 posts have no match. | pending | 43 blog HTML pages with `/how-long/` links + "Verified Datasheet" text |
 
 ---
 
@@ -336,9 +361,9 @@ grep -rn "aggregateRating" lib/ app/
 
 Per `AGENTS.md` §7, these are escalations, not guesses.
 
-**D-1 — What is the canonical production domain?** *(blocks SEO-002, and the correctness of every canonical in P2)*
+**D-1 — What is the canonical production domain?** ~~*(blocks SEO-002)*~~ **RESOLVED 2026-08-29**
 
-Evidence says `https://www.mealinstructions.com` — the WebMCP origin-trial token in `app/layout.tsx` is cryptographically bound to it, and `data/merch.ts` prints it. But `AGENTS.md` HR-10 still calls the domain unconfirmed, and `.env.example` ships `localhost:3000`. Confirm the exact origin — **including whether it is `www` or apex** — so canonicals, sitemap, and schema all agree.
+Owner confirmed: **`https://www.mealinstructions.com`**. Committed `.env.production` with `NEXT_PUBLIC_SITE_URL=https://www.mealinstructions.com`. All canonicals, sitemap, schema, and `llms.txt` already use this value.
 
 **D-2 — Is `images.unoptimized: true` deliberate?** *(blocks SEO-022)*
 
