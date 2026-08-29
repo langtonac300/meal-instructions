@@ -29,10 +29,10 @@ export function createDadMealsMcpServer() {
   // ─────────────────────────────────────────────────────────────
   server.tool(
     'get_cook_time',
-    'Get exact cooking temperatures, time ranges, flip schedules, target internal temperatures, and hardware pro tips for meat, seafood, and vegetables across air fryer, skillet, grill, smoker, slow cooker, Dutch oven, cast iron, and sheet pan.',
+    'Get exact cooking temperatures, time ranges, flip schedules, target internal temperatures, and hardware pro tips for meat, seafood, and vegetables across oven, air fryer, Instant Pot, skillet, grill, smoker, slow cooker, Dutch oven, cast iron, and sheet pan.',
     {
       food: z.string().describe('Food item or slug (e.g. "salmon-fillet", "chicken-tenders-fresh", "pork-chops", "bone-in-thighs", "bacon", "broccoli", "ribeye", "burgers")'),
-      appliance: z.string().optional().describe('Appliance: "air-fryer" | "skillet" | "sheet-pan" | "cast-iron" | "grill" | "dutch-oven" | "slow-cooker" | "smoker"'),
+      appliance: z.string().optional().describe('Appliance: "air-fryer" | "oven" | "instant-pot" | "skillet" | "sheet-pan" | "cast-iron" | "grill" | "dutch-oven" | "slow-cooker" | "smoker"'),
       state: z.enum(['fresh', 'frozen', 'refrigerated']).optional().describe('Food state (fresh vs frozen)'),
     },
     async ({ food, appliance, state }) => {
@@ -81,9 +81,11 @@ export function createDadMealsMcpServer() {
               text: JSON.stringify(
                 {
                   status: 'not_found',
-                  message: `No exact cook-time datasheet found for "${food}". Available appliances: air-fryer, skillet, sheet-pan, cast-iron, grill, dutch-oven, slow-cooker, smoker.`,
+                  message: `No exact cook-time datasheet found for "${food}". Available appliances: air-fryer, oven, instant-pot, skillet, sheet-pan, cast-iron, grill, dutch-oven, slow-cooker, smoker.`,
                   sampleSuggestions: [
                     'air-fryer: chicken-tenders-fresh, chicken-wings-fresh, salmon-fillet, pork-chops-bone-in, bacon, frozen-french-fries',
+                    'oven: chicken-breast-boneless, salmon-fillet, baked-potato, bacon-sheet-pan, pork-chops-bone-in',
+                    'instant-pot: white-rice, chicken-breast-fresh, hard-boiled-eggs, pot-roast, pulled-pork',
                     'grill: backyard-burgers, ribeye-steak-reverse-sear, chicken-breasts, corn-on-the-cob',
                     'cast-iron: ribeye-steak-basted, smash-burgers, blackened-cod, filet-mignon',
                     'smoker: texas-brisket, chicken-wings-crispy, pork-ribs-3-2-1, turkey-breast',
@@ -230,7 +232,7 @@ export function createDadMealsMcpServer() {
     {
       query: z.string().optional().describe('Search keyword matching title, tagline, ingredients, or keywords (e.g. "tacos", "steak", "pasta", "cauliflower")'),
       protein: z.enum(['chicken', 'beef', 'pork', 'seafood', 'turkey', 'vegetarian', 'dairy-eggs']).optional().describe('Protein category'),
-      appliance: z.enum(['air-fryer', 'skillet', 'sheet-pan', 'cast-iron', 'grill', 'dutch-oven', 'slow-cooker', 'smoker']).optional().describe('Cooking appliance hardware'),
+      appliance: z.enum(['air-fryer', 'oven', 'instant-pot', 'skillet', 'sheet-pan', 'cast-iron', 'grill', 'dutch-oven', 'slow-cooker', 'smoker']).optional().describe('Cooking appliance hardware'),
       category: z.enum(['15-minute', 'high-protein', 'kid-approved', 'budget', 'no-thaw', 'one-pan', 'five-ingredient', 'sides', 'snacks', 'game-day', 'breakfast', 'weekend']).optional().describe('Intent / constraint category'),
       max_total_minutes: z.number().optional().describe('Maximum allowed prep + cook time in minutes (e.g. 15 for lightning meals, 30 for standard weeknight)'),
     },

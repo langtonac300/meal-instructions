@@ -757,6 +757,41 @@ export function LeanSmokerIcon({
   );
 }
 
+/** Oven Hardware Icon */
+export function LeanOvenIcon({
+  size = 28,
+  className = '',
+  strokeWidth = 2,
+  title = 'Oven',
+  ...props
+}: LeanIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 28 28"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      role="img"
+      aria-label={title}
+      {...props}
+    >
+      {title && <title>{title}</title>}
+      <rect x="4" y="3" width="20" height="22" rx="2" />
+      <line x1="4" y1="9" x2="24" y2="9" />
+      <rect x="7" y="12" width="14" height="10" rx="1" strokeWidth={Math.max(1.2, strokeWidth - 0.3)} />
+      <circle cx="9" cy="6" r="1.2" strokeWidth={Math.max(1, strokeWidth - 0.5)} />
+      <circle cx="14" cy="6" r="1.2" strokeWidth={Math.max(1, strokeWidth - 0.5)} />
+      <circle cx="19" cy="6" r="1.2" strokeWidth={Math.max(1, strokeWidth - 0.5)} />
+    </svg>
+  );
+}
+
 /** Dynamic Lean Icon Component */
 export type LeanIconName =
   | 'fork'
@@ -775,6 +810,7 @@ export type LeanIconName =
   | 'oil-spray'
   | 'safety'
   | 'air-fryer'
+  | 'oven'
   | 'sheet-pan'
   | 'skillet'
   | 'grill'
@@ -829,6 +865,9 @@ export function LeanIcon({
       return <LeanSafetyShieldIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
     case 'air-fryer':
       return <LeanAirFryerIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
+    case 'oven':
+    case 'dutch-oven':
+      return <LeanOvenIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
     case 'sheet-pan':
       return <LeanSheetPanIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
     case 'skillet':

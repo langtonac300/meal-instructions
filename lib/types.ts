@@ -1,5 +1,7 @@
 export type Appliance =
   | 'air-fryer'
+  | 'oven'
+  | 'instant-pot'
   | 'skillet'
   | 'sheet-pan'
   | 'cast-iron'
@@ -179,6 +181,8 @@ export interface CookTimeDatasheet {
   relatedRecipeSlug?: string;
   keywords?: string[];
   metaDescription?: string;
+  pressureMinutes?: number;
+  releaseMethod?: 'natural' | 'quick' | '10-min-natural';
 }
 
 export type BlogCategory =

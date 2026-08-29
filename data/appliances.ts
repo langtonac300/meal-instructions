@@ -24,6 +24,37 @@ export const APPLIANCES: ApplianceMeta[] = [
     ]
   },
   {
+    slug: 'oven',
+    name: 'Standard Home Oven',
+    shortDescription: 'Preheated radiant-element baking and roasting at 325–450°F. The most common cooking appliance in the U.S.',
+    tempRange: '325°F – 450°F (163°C – 232°C)',
+    tempGuide: [
+      { food: 'Chicken Breast (Boneless)', temp: '400°F (204°C)', time: '20-25 mins', shake: 'No flip, rest 5 mins' },
+      { food: 'Salmon Fillet (Skin-On)', temp: '400°F (204°C)', time: '12-15 mins', shake: 'No flip' },
+      { food: 'Baked Potato (Whole Russet)', temp: '400°F (204°C)', time: '50-60 mins', shake: 'Pierce & flip at 30 mins' },
+      { food: 'Bacon (Thick-Cut, Sheet Pan)', temp: '400°F (204°C)', time: '18-22 mins', shake: 'No flip, wire rack' },
+      { food: 'Pork Chops (Bone-In, 1")', temp: '400°F (204°C)', time: '18-22 mins', shake: 'Flip at 12 mins' },
+      { food: 'Chicken Thighs (Bone-In)', temp: '425°F (218°C)', time: '35-45 mins', shake: 'No flip, skin up' },
+      { food: 'Meatloaf (2 lb Loaf)', temp: '350°F (177°C)', time: '55-65 mins', shake: 'Glaze at 45 mins' },
+      { food: 'Brussels Sprouts (Halved)', temp: '425°F (218°C)', time: '20-25 mins', shake: 'Toss at 12 mins' }
+    ]
+  },
+  {
+    slug: 'instant-pot',
+    name: 'Instant Pot / Pressure Cooker',
+    shortDescription: 'Electric pressure cooking at 10–12 PSI for dramatically faster braises, grains, beans, and one-pot meals.',
+    tempRange: 'High Pressure (239°F / 115°C)',
+    tempGuide: [
+      { food: 'White Rice (Long Grain)', temp: 'High Pressure', time: '3 min + 10 min NR', shake: '1:1 water ratio' },
+      { food: 'Chicken Breast (Fresh)', temp: 'High Pressure', time: '8-10 min + QR', shake: '1 cup liquid minimum' },
+      { food: 'Hard-Boiled Eggs (5-5-5)', temp: 'Low Pressure', time: '5 min + 5 min NR', shake: 'Ice bath 5 mins' },
+      { food: 'Pot Roast (3-4 lb Chuck)', temp: 'High Pressure', time: '60-75 min + 15 min NR', shake: 'Sear first for crust' },
+      { food: 'Pulled Pork (Pork Butt)', temp: 'High Pressure', time: '60-80 min + 15 min NR', shake: 'Halve for faster cook' },
+      { food: 'Dried Beans (No Soak)', temp: 'High Pressure', time: '25-30 min + 15 min NR', shake: 'Never fill past 2/3' },
+      { food: 'Baby Back Ribs (Halved)', temp: 'High Pressure', time: '25-30 min + 10 min NR', shake: 'Broil 3 min to finish' }
+    ]
+  },
+  {
     slug: 'skillet',
     name: '12-Inch Skillet / Non-Stick',
     shortDescription: 'High-speed weeknight stovetop pan cooking for quick ground meats, stir-fries, pan sauces, and eggs.',
