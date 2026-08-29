@@ -221,16 +221,16 @@ Should print only `_not-found`.
 
 ---
 
-### P5 — Harden the gate
+### P5 — Harden the gate ✅ COMPLETE (2026-08-29)
 
 | ID | Task | Status | Verify |
 |---|---|---|---|
-| SEO-018 | Extend `audit:seo` to the 140 unaudited pages | TODO | audit count = built count |
-| SEO-019 | Audit asserts every schema image exists on disk | TODO | fails on a seeded bad path |
-| SEO-020 | Audit bans `aggregateRating` / fabricated review markup | TODO | fails on a seeded rating |
-| SEO-021 | Audit asserts canonical is self-referential and absolute | TODO | fails on a seeded bad canonical |
+| SEO-018 | Extend `audit:seo` to the 140 unaudited pages | **DONE** 2026-08-29 | 294 pages swept (was 156) |
+| SEO-019 | Audit asserts every schema image exists on disk | **DONE** 2026-08-29 | seeded `/fake-nonexistent-image.jpg` → caught |
+| SEO-020 | Audit bans `aggregateRating` / fabricated review markup | **DONE** 2026-08-29 | seeded aggregateRating → 70 errors |
+| SEO-021 | Audit asserts canonical is self-referential and absolute | **DONE** 2026-08-29 | seeded `/wrong-page` → caught |
 
-Each of these must be proven by **deliberately breaking the repo and watching the audit fail**, then reverting. An audit that has never failed is not a gate.
+Each proven by deliberately breaking the repo and watching the audit fail, then reverting.
 
 ---
 
@@ -305,9 +305,13 @@ grep -rn "aggregateRating" lib/ app/
 | 2026-08-29 | SEO-012 | Upgraded `/how-long` HowTo schema with `url`, `image`, `mainEntityOfPage`; improved description with applianceName variable | 33fdc1e | Rich Results Test validated fields |
 | 2026-08-29 | SEO-015 | Split homepage into server `app/page.tsx` + client `app/HomePageClient.tsx`; server exports metadata with canonical and renders JSON-LD | 33fdc1e | canonical + BreadcrumbList in built HTML |
 | 2026-08-29 | SEO-013 | Added CollectionPage + ItemList schema (70 recipes) and BreadcrumbList to homepage via new server component | 33fdc1e | JSON-LD present in built HTML |
-| 2026-08-29 | SEO-014 | Created `/how-long` hub index page with CollectionPage/ItemList schema (60 datasheets), canonical, breadcrumbs; added "Cook Times" link to Navbar and Footer | pending | hub exists, linked from nav + footer |
-| 2026-08-29 | SEO-016 | Added `<h1>` to `/air-fryer-calculator/page.tsx`; `/merch` and `/recipes` pages were deleted in SEO-010, no longer need h1 | pending | h1 present in built HTML |
-| 2026-08-29 | SEO-017 | Removed `/llms.txt` and `/llms-full.txt` from sitemap; differentiated priorities (datasheets 0.95, hubs 0.8-0.85, tools 0.7, about 0.5); removed fake `lastModified: new Date()` from static pages; added `/how-long` hub | pending | sitemap review ✓ |
+| 2026-08-29 | SEO-014 | Created `/how-long` hub index page with CollectionPage/ItemList schema (60 datasheets), canonical, breadcrumbs; added "Cook Times" link to Navbar and Footer | 8e29aaa | hub exists, linked from nav + footer |
+| 2026-08-29 | SEO-016 | Added `<h1>` to `/air-fryer-calculator/page.tsx`; `/merch` and `/recipes` pages were deleted in SEO-010, no longer need h1 | 8e29aaa | h1 present in built HTML |
+| 2026-08-29 | SEO-017 | Removed `/llms.txt` and `/llms-full.txt` from sitemap; differentiated priorities (datasheets 0.95, hubs 0.8-0.85, tools 0.7, about 0.5); removed fake `lastModified: new Date()` from static pages; added `/how-long` hub | 8e29aaa | sitemap review ✓ |
+| 2026-08-29 | SEO-018 | Rewrote `audit:seo` with universal sweep of all 294 built pages for canonical, BreadcrumbList, and schema.org. Coverage went from 156 to 294. | pending | 294 = built count minus _not-found |
+| 2026-08-29 | SEO-019 | Added image-on-disk assertion: parses all JSON-LD, extracts image/logo/thumbnailUrl URLs, verifies each resolves to a file in `public/`. 16 unique images verified. Proven: seeded `/fake-nonexistent-image.jpg` → audit failed | pending | seeded break → caught |
+| 2026-08-29 | SEO-020 | Added aggregateRating ban: any page containing `aggregateRating` or `AggregateRating` in built HTML fails the audit. Proven: seeded rating on recipes → 70 errors | pending | seeded break → caught |
+| 2026-08-29 | SEO-021 | Added canonical self-referential assertion: extracts canonical href, derives expected URL from file path, compares. Proven: seeded `/wrong-page` canonical on /about → audit failed | pending | seeded break → caught |
 
 ---
 
