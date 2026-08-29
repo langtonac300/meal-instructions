@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { CATEGORIES } from '@/data/categories';
 import { APPLIANCES } from '@/data/appliances';
+import Logo from '@/components/Logo';
 
 export default function Footer() {
   return (
@@ -13,14 +14,9 @@ export default function Footer() {
           
           {/* Brand Manifesto */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-ink text-paper flex items-center justify-center font-bold text-xs font-mono">
-                MI
-              </div>
-              <span className="font-bold text-sm tracking-wider uppercase font-mono">
-                MEAL INSTRUCTIONS
-              </span>
-            </div>
+            <Link href="/" className="group inline-flex items-center">
+              <Logo size="sm" variant="horizontal" />
+            </Link>
             <p className="text-xs text-ink-muted leading-relaxed font-sans">
               Engineered for busy cooks and parents. Instant directions, exact temps, and 20-word execution. No popups, no ads, no 12-paragraph essays about childhood summers. No fluff, just the instructions.
             </p>

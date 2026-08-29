@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Search, Flame, Zap, Clock, BookOpen, Layers, Menu, X } from 'lucide-react';
 import SearchModal from './SearchModal';
+import Logo from '@/components/Logo';
 
 export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -47,18 +48,8 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between">
           
           {/* Logo & Brand */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 bg-ink text-paper flex items-center justify-center font-bold text-xs font-mono group-hover:bg-accent transition-colors">
-              MI
-            </div>
-            <div>
-              <span className="font-bold text-base tracking-wider uppercase block text-ink">
-                MEAL INSTRUCTIONS
-              </span>
-              <span className="micro-label text-[9px] block text-ink-muted -mt-0.5">
-                NO FLUFF, JUST THE INSTRUCTIONS
-              </span>
-            </div>
+          <Link href="/" className="group inline-flex items-center">
+            <Logo size="md" variant="horizontal" />
           </Link>
 
           {/* Center Links */}

@@ -49,12 +49,33 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        alt: `${SITE_NAME} — No Fluff, Just the Instructions`,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${SITE_NAME} — No Fluff, Just the Instructions`,
     description: 'Parametric cook-time database. No fluff, just the instructions.',
+    images: ['/twitter-image.png'],
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: '/manifest.webmanifest',
 };
 
 export default function RootLayout({
@@ -74,6 +95,17 @@ export default function RootLayout({
       'query-input': 'required name=search_term_string',
     },
   };
+
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo-512.png`,
+    image: `${SITE_URL}/opengraph-image.png`,
+    description: 'Precision parametric cooking reference, cook-time datasheets, and quality-gated meals.',
+  };
+
 
   // HR-8: Small blocking script in <head> to read localStorage and stamp data-mode on <html> before first paint
   const modeInitScript = `
@@ -105,6 +137,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
       <body className="min-h-screen flex flex-col font-sans selection:bg-ink selection:text-paper text-ink bg-paper">
