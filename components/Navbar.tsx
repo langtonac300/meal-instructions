@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <>
       {/* Top Ticker / Manifesto Header */}
-      <div className="bg-ink text-paper py-1.5 px-4 sm:px-8 text-[11px] font-mono tracking-wider flex justify-between items-center hairline-b">
+      <div className="bg-ink text-paper py-1.5 px-4 sm:px-8 text-[11px] font-mono tracking-wider flex justify-between items-center hairline-b no-print">
         <div className="flex items-center gap-3">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           <span className="uppercase text-neutral-300">Technical Cook-Time Reference & Quality-Gated Meals // No Fluff, Just the Instructions</span>

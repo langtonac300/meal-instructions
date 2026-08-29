@@ -106,17 +106,106 @@ html[data-mode="detailed"] [data-mode-btn="detailed"] {
     background: #ffffff !important;
     color: #000000 !important;
     font-size: 11pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
+
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
   header, footer, nav, .no-print, button, .interactive-timer {
     display: none !important;
   }
-  [data-mode-panel="detailed"] {
+
+  /* Respect the user's chosen mode: show only the active panel */
+  html[data-mode="fast"] [data-mode-panel="detailed"],
+  html[data-mode="quick"] [data-mode-panel="detailed"],
+  html:not([data-mode]) [data-mode-panel="detailed"] {
+    display: none !important;
+  }
+  html[data-mode="fast"] [data-mode-panel="fast"],
+  html[data-mode="quick"] [data-mode-panel="fast"],
+  html:not([data-mode]) [data-mode-panel="fast"] {
     display: block !important;
   }
-  [data-mode-panel="quick"] {
+  html[data-mode="detailed"] [data-mode-panel="fast"] {
+    display: none !important;
+  }
+  html[data-mode="detailed"] [data-mode-panel="detailed"] {
     display: block !important;
   }
+
   .hairline-border {
     border: 1px solid #cccccc !important;
+  }
+
+  /* Kill sticky positioning and backdrops */
+  .sticky {
+    position: static !important;
+  }
+  .backdrop-blur-sm {
+    backdrop-filter: none !important;
+  }
+
+  /* Tighter spacing */
+  .max-w-4xl {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Card backgrounds → white for ink savings */
+  .bg-paper-card, .bg-paper, .bg-paper-50, .bg-paper-100, .bg-paper-200 {
+    background: #ffffff !important;
+  }
+
+  /* Keep accent color for critical temps */
+  .text-accent {
+    color: #C84B2C !important;
+  }
+  .text-emerald-700, .text-emerald-800 {
+    color: #047857 !important;
+  }
+
+  /* Recipe image: constrain height for print */
+  .relative.w-full.h-64,
+  .relative.w-full.h-96,
+  .sm\:h-96 {
+    height: 200px !important;
+    max-height: 200px !important;
+  }
+
+  /* Page break management */
+  section, [data-mode-panel] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  h1, h2, h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Print header: show recipe URL for reference */
+  .print-url::after {
+    content: " — mealinstructions.com" !important;
+    display: inline !important;
+    font-size: 9pt;
+    color: #666666;
+    font-weight: normal;
+    text-transform: none;
+  }
+
+  /* Hide navigational cross-links (datasheets, related recipes) */
+  a[href*="/how-long/"].block,
+  a[href*="/recipes/"].bg-paper-card {
+    display: none !important;
+  }
+
+  /* Links: don't underline, show as plain text */
+  a {
+    color: #000000 !important;
+    text-decoration: none !important;
   }
 }

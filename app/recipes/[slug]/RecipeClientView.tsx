@@ -200,7 +200,7 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [] }: Rec
 
         {/* Title & Tagline */}
         <div className="space-y-2">
-          <h1 className="text-2xl sm:text-4xl font-bold text-ink tracking-tight font-sans uppercase">
+          <h1 className="text-2xl sm:text-4xl font-bold text-ink tracking-tight font-sans uppercase print-url">
             {recipe.title}
           </h1>
           <p className="text-sm sm:text-base text-ink-muted font-sans leading-relaxed">
@@ -265,7 +265,7 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [] }: Rec
 
       {/* VERIFIED COOK-TIME DATASHEET CROSS-LINKS */}
       {relatedDatasheets.length > 0 && (
-        <section className="space-y-3">
+        <section className="space-y-3 no-print">
           {relatedDatasheets.map((ds) => (
             <Link
               key={ds.id}
