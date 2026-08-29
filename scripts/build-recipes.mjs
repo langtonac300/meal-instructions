@@ -45,8 +45,9 @@ for (const file of files) {
     if (!recipeObj.basis && recipeObj.cookTimeBasis) {
       recipeObj.basis = recipeObj.cookTimeBasis;
     }
-    if (!recipeObj.cookTimeBasis && recipeObj.basis) {
-      recipeObj.cookTimeBasis = recipeObj.basis;
+    // Ensure image is mapped to public images
+    if (!recipeObj.image) {
+      recipeObj.image = `/images/recipes/${recipeObj.slug}.jpg`;
     }
     
     recipes.push(recipeObj);
