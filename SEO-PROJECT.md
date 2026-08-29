@@ -234,14 +234,23 @@ Each proven by deliberately breaking the repo and watching the audit fail, then 
 
 ---
 
-### P6 — Performance / CWV
+### P6 — Performance / CWV ✅ COMPLETE (2026-08-29)
 
 | ID | Task | Status | Verify |
 |---|---|---|---|
-| SEO-022 | Review `images: { unoptimized: true }` in `next.config.ts` | TODO | LCP measurement |
-| SEO-023 | Per-entity OG images (currently one static image sitewide) | TODO | unique OG per route group |
+| SEO-022 | Review `images: { unoptimized: true }` in `next.config.ts` | **BLOCKED** | §7 D-2 |
+| SEO-023 | Per-entity OG images (currently one static image sitewide) | **DONE** 2026-08-29 | 205 OG images generated across 4 route groups |
 
 **SEO-022** — `next.config.ts:6` disables Next's image optimisation globally. With 25 merch products shipping "high-detail product photos" (commit `c746dca`), this is a live LCP/bandwidth risk. Measure before changing — it may have been set deliberately for a static export target. *See §7 D-2.*
+
+> **2026-08-29 — investigation complete.** 166 image files in `public/images/` totalling 138 MB. Many over 1 MB — largest are merch product photos. Only 2 components use `next/image` (`Image` from `next/image`): the rest use native `<img>`. No `output: 'export'` in config, so the flag is likely a leftover rather than required. Actual change blocked on D-2 — removing the flag would enable Next.js image optimization (WebP/AVIF conversion, responsive srcset, lazy loading) but requires confirming the deployment target supports it.
+
+**SEO-023** — Created `opengraph-image.tsx` with `next/og` (Satori → PNG) for 4 route groups. Each uses `generateStaticParams()` so all 205 images are pre-rendered at build time. Brand-consistent dark (#111111) monospace aesthetic with accent badges (#C84B2C).
+
+- `app/recipes/[slug]/opengraph-image.tsx` — 70 recipe cards (appliance badge, cook temp, time, safe internal temp)
+- `app/how-long/[appliance]/[food]/opengraph-image.tsx` — 60 datasheet cards ("VERIFIED DATASHEET" badge, temp, time, flip, internal)
+- `app/blog/[slug]/opengraph-image.tsx` — 55 field guide cards ("FIELD GUIDE" badge, category, read time, subtitle)
+- `app/guides/[slug]/opengraph-image.tsx` — 20 top-10 cards ("TOP 10" badge, category, read time, summary)
 
 ---
 
@@ -308,10 +317,12 @@ grep -rn "aggregateRating" lib/ app/
 | 2026-08-29 | SEO-014 | Created `/how-long` hub index page with CollectionPage/ItemList schema (60 datasheets), canonical, breadcrumbs; added "Cook Times" link to Navbar and Footer | 8e29aaa | hub exists, linked from nav + footer |
 | 2026-08-29 | SEO-016 | Added `<h1>` to `/air-fryer-calculator/page.tsx`; `/merch` and `/recipes` pages were deleted in SEO-010, no longer need h1 | 8e29aaa | h1 present in built HTML |
 | 2026-08-29 | SEO-017 | Removed `/llms.txt` and `/llms-full.txt` from sitemap; differentiated priorities (datasheets 0.95, hubs 0.8-0.85, tools 0.7, about 0.5); removed fake `lastModified: new Date()` from static pages; added `/how-long` hub | 8e29aaa | sitemap review ✓ |
-| 2026-08-29 | SEO-018 | Rewrote `audit:seo` with universal sweep of all 294 built pages for canonical, BreadcrumbList, and schema.org. Coverage went from 156 to 294. | pending | 294 = built count minus _not-found |
-| 2026-08-29 | SEO-019 | Added image-on-disk assertion: parses all JSON-LD, extracts image/logo/thumbnailUrl URLs, verifies each resolves to a file in `public/`. 16 unique images verified. Proven: seeded `/fake-nonexistent-image.jpg` → audit failed | pending | seeded break → caught |
-| 2026-08-29 | SEO-020 | Added aggregateRating ban: any page containing `aggregateRating` or `AggregateRating` in built HTML fails the audit. Proven: seeded rating on recipes → 70 errors | pending | seeded break → caught |
-| 2026-08-29 | SEO-021 | Added canonical self-referential assertion: extracts canonical href, derives expected URL from file path, compares. Proven: seeded `/wrong-page` canonical on /about → audit failed | pending | seeded break → caught |
+| 2026-08-29 | SEO-018 | Rewrote `audit:seo` with universal sweep of all 294 built pages for canonical, BreadcrumbList, and schema.org. Coverage went from 156 to 294. | e1b15a1 | 294 = built count minus _not-found |
+| 2026-08-29 | SEO-019 | Added image-on-disk assertion: parses all JSON-LD, extracts image/logo/thumbnailUrl URLs, verifies each resolves to a file in `public/`. 16 unique images verified. Proven: seeded `/fake-nonexistent-image.jpg` → audit failed | e1b15a1 | seeded break → caught |
+| 2026-08-29 | SEO-020 | Added aggregateRating ban: any page containing `aggregateRating` or `AggregateRating` in built HTML fails the audit. Proven: seeded rating on recipes → 70 errors | e1b15a1 | seeded break → caught |
+| 2026-08-29 | SEO-021 | Added canonical self-referential assertion: extracts canonical href, derives expected URL from file path, compares. Proven: seeded `/wrong-page` canonical on /about → audit failed | e1b15a1 | seeded break → caught |
+| 2026-08-29 | SEO-023 | Created 4 `opengraph-image.tsx` files using `next/og` for recipes (70), datasheets (60), blog (55), and guides (20) = 205 per-entity OG images pre-rendered at build time | pending | `npm run build` exits 0; 205 `.body` files in `.next/server/app/` |
+| 2026-08-29 | SEO-022 | Investigation complete: 166 files / 138 MB in `public/images/`, only 2 `next/image` usages, no `output: 'export'`. Flag likely a leftover. Blocked on D-2 for actual removal. | pending | documented in tracker |
 
 ---
 
