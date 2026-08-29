@@ -29,14 +29,13 @@ export async function generateMetadata({ params }: ChartPageProps): Promise<Meta
   const title = `${appMeta.name} Cooking Times & Temperatures Chart (Verified Datasheets)`;
   const description = `Complete verified technical cook time, temperature, and basket flip chart for ${appMeta.name}. Includes chicken, beef, pork, salmon, and frozen foods.`;
 
+  const url = absoluteUrl(`/charts/${appMeta.slug}`);
+
   return {
     title,
     description,
-    openGraph: {
-      title,
-      description,
-      url: absoluteUrl(`/charts/${appMeta.slug}`),
-    },
+    alternates: { canonical: url },
+    openGraph: { title, description, url },
   };
 }
 

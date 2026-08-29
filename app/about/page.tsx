@@ -2,10 +2,12 @@ import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, CheckCircle2, XCircle, Zap, ShieldCheck } from 'lucide-react';
+import { absoluteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'The Zero-Fluff Manifesto | Meal Instructions',
   description: 'Why we built the cleanest, fastest cooking platform on earth with zero blog stories, popups, or filler.',
+  alternates: { canonical: absoluteUrl('/about') },
 };
 
 export default function AboutPage() {

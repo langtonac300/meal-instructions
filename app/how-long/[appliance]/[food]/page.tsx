@@ -31,14 +31,13 @@ export async function generateMetadata({ params }: HowLongPageProps): Promise<Me
   const title = `How Long to Cook ${sheet.food} in the ${sheet.appliance.replace('-', ' ')} (${sheet.tempFormatted}, ${sheet.timeFormatted})`;
   const description = `Exact verified cooking time, temperature (${sheet.tempFormatted}), flip mark (${sheet.flipAtMinutes} mins), and internal target temp (${sheet.internalTempTargetFormatted}) for ${sheet.food}. Verified on real hardware. Zero fluff.`;
 
+  const url = absoluteUrl(`/how-long/${sheet.appliance}/${sheet.foodSlug}`);
+
   return {
     title,
     description,
-    openGraph: {
-      title,
-      description,
-      url: absoluteUrl(`/how-long/${sheet.appliance}/${sheet.foodSlug}`),
-    },
+    alternates: { canonical: url },
+    openGraph: { title, description, url },
   };
 }
 

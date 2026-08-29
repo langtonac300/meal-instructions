@@ -160,15 +160,15 @@ Impact: all 70 Recipe and 55 BlogPosting schemas carry a 404 image, and `blog-ut
 
 ---
 
-### P2 — Indexation fundamentals
+### P2 — Indexation fundamentals ✅ COMPLETE (2026-08-29)
 
 | ID | Task | Status | Verify |
 |---|---|---|---|
-| SEO-006 | Canonicals on `/how-long/*` (60 pages) | TODO | 0 missing in built HTML |
-| SEO-007 | Canonicals on `/shop/*` (24) | TODO | as above |
-| SEO-008 | Canonicals on `/charts/*` (8) | TODO | as above |
-| SEO-009 | Canonicals on `/`, `/about`, `/recipes`, `/merch`, `/shop` | TODO | as above (SEO-015 may be a prereq for `/`) |
-| SEO-010 | `/merch` → `/shop` should be a 308, not a runtime redirect | TODO | response code check |
+| SEO-006 | Canonicals on `/how-long/*` (60 pages) | **DONE** 2026-08-29 | 0 missing in built HTML |
+| SEO-007 | Canonicals on `/shop/*` (24) | **DONE** 2026-08-29 | as above |
+| SEO-008 | Canonicals on `/charts/*` (8) | **DONE** 2026-08-29 | as above |
+| SEO-009 | Canonicals on `/`, `/about`, `/recipes`, `/merch`, `/shop` | **DONE** 2026-08-29 | `/about` and `/shop` done; `/merch` and `/recipes` are config redirects now (SEO-010); `/` blocked by SEO-015 |
+| SEO-010 | `/merch` → `/shop` and `/recipes` → `/` should be permanent config redirects | **DONE** 2026-08-29 | moved to `next.config.ts`, page files deleted |
 
 **SEO-006 is the priority of this phase.** `/how-long/*` is declared in `AGENTS.md` §1 as *the* SEO/LLM engine and carries sitemap priority 0.95 — and not one of its 60 pages emits a canonical. `app/how-long/[appliance]/[food]/page.tsx:33-45` builds `openGraph.url` but never sets `alternates.canonical`.
 
@@ -296,6 +296,11 @@ grep -rn "aggregateRating" lib/ app/
 | 2026-08-29 | SEO-005 | Repointed schema images off the non-existent `/og-image.jpg` → `/opengraph-image.png` (1200×630); publisher logo → `/logo-512.png`. 3 refs in `lib/recipe-utils.ts` + `lib/blog-utils.ts` | d0e0805 | **125 → 0** pages reference `og-image.jpg`; all **17** distinct image URLs across 296 built pages resolve to real files in `public/` |
 | 2026-08-29 | SEO-003 | Updated `AGENTS.md` §6 — replaced "do not exist yet" with note that all three scripts exist and pass; referenced SEO-018 for coverage gaps | d0e0805 | Doc review ✓ |
 | 2026-08-29 | SEO-026 | Created `.gitattributes` with `eol=lf` for `*.json`, `*.ts`, `*.tsx`, `*.mjs`, `*.js`, `*.css`, `*.md` — prevents `build:content` from dirtying tracked files with CRLF on Windows | d0e0805 | Build no longer shows false diffs |
+| 2026-08-29 | SEO-006 | Added `alternates.canonical` to `/how-long/[appliance]/[food]/page.tsx` — 60 datasheet pages now emit canonical | uncommitted | **98 → 2** pages missing canonical (only `/` and `_not-found` remain) |
+| 2026-08-29 | SEO-007 | Added `alternates.canonical` to `/shop/[id]/page.tsx` (25 products) and `/shop/page.tsx` (index) | uncommitted | as above |
+| 2026-08-29 | SEO-008 | Added `alternates.canonical` to `/charts/[appliance]/page.tsx` (8 chart pages) | uncommitted | as above |
+| 2026-08-29 | SEO-009 | Added `alternates.canonical` to `/about/page.tsx` and `/shop/page.tsx`; `/merch` and `/recipes` handled by SEO-010 redirects; `/` remains blocked by SEO-015 | uncommitted | as above |
+| 2026-08-29 | SEO-010 | Moved `/merch` → `/shop` and `/recipes` → `/` from runtime `redirect()` to `next.config.ts` permanent redirects; deleted `app/merch/page.tsx` and `app/recipes/page.tsx` | uncommitted | Config redirects in place, page files removed |
 
 ---
 

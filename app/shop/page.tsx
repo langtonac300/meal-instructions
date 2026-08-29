@@ -6,12 +6,13 @@ import { ArrowLeft, ShieldCheck, Truck, RotateCcw, Sparkles, CheckCircle2 } from
 import MerchCatalog from '@/components/merch/MerchCatalog';
 import CartDrawer from '@/components/merch/CartDrawer';
 import { CartProvider } from '@/components/merch/CartContext';
-import { SITE_NAME } from '@/lib/site';
+import { SITE_NAME, absoluteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Merch & Equipment Supply | Meal Instructions',
   description:
     'Over-engineered kitchen uniforms, Swiss culinary graphic tees, inverted cheatsheet aprons, and linen internal temp towels. Zero fluff.',
+  alternates: { canonical: absoluteUrl('/shop') },
 };
 
 export default function ShopPage() {

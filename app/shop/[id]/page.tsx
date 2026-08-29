@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { MERCH_PRODUCTS } from '@/data/merch';
 import ProductDetailClient from '@/components/merch/ProductDetailClient';
 import { CartProvider } from '@/components/merch/CartContext';
-import { SITE_NAME, SITE_URL } from '@/lib/site';
+import { SITE_NAME, SITE_URL, absoluteUrl } from '@/lib/site';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -29,9 +29,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${product.title} (${product.sku}) | ${SITE_NAME} Supply`,
     description: product.description,
+    alternates: { canonical: absoluteUrl(`/shop/${product.id}`) },
     openGraph: {
       title: `${product.title} | ${SITE_NAME}`,
       description: product.description,
+      url: absoluteUrl(`/shop/${product.id}`),
       images: [
         {
           url: product.productImage,

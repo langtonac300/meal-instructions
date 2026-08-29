@@ -12,6 +12,16 @@ const nextConfig: NextConfig = {
         destination: '/appliances/air-fryer',
         permanent: true,
       },
+      {
+        source: '/merch',
+        destination: '/shop',
+        permanent: true,
+      },
+      {
+        source: '/recipes',
+        destination: '/',
+        permanent: true,
+      },
     ];
   },
 };
