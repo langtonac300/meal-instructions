@@ -16,6 +16,7 @@ export default {
   "prepMinutes": 3,
   "cookMinutes": 9,
   "totalMinutes": 12,
+  "image": "/images/recipes/15-minute-skillet-beef-taco-meat.jpg",
   "defaultServings": 4,
   "basis": "Tested with 1.5 lbs 85/15 ground beef in 12-inch skillet over medium-high heat.",
   "safeInternalTempF": 165,

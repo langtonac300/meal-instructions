@@ -142,5 +142,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/recipes/recipe_hibachi_rice.jpg"
+  "image": "/images/recipes/dads-skillet-fried-rice.jpg"
 } satisfies Recipe;

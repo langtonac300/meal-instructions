@@ -147,5 +147,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/categories/late-night-quesadilla.jpg"
+  "image": "/images/recipes/skillet-black-bean-corn-quesadillas.jpg"
 } satisfies Recipe;

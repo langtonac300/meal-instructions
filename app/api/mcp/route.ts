@@ -28,7 +28,7 @@ const TOOLS_METADATA = [
   },
   {
     name: 'get_recipe',
-    description: 'Retrieve a complete curated recipe from the Dad Meals catalog by slug in "quick" or "detailed" mode with portion scaling.',
+    description: 'Retrieve a complete curated recipe from the Meal Instructions catalog by slug in "quick" or "detailed" mode with portion scaling.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -130,9 +130,9 @@ export async function OPTIONS() {
 export async function GET() {
   return NextResponse.json(
     {
-      name: 'dad-meals',
+      name: 'meal-instructions',
       version: '1.0.0',
-      description: 'No-fluff culinary physics, cook times, and recipe reference for dads and AI assistants.',
+      description: 'No-fluff culinary physics, cook times, and recipe reference for AI assistants.',
       protocolVersion: '2024-11-05',
       capabilities: {
         tools: { listChanged: false },
@@ -160,7 +160,7 @@ export async function POST(req: NextRequest) {
               tools: { listChanged: false },
             },
             serverInfo: {
-              name: 'dad-meals',
+              name: 'meal-instructions',
               version: '1.0.0',
             },
           },

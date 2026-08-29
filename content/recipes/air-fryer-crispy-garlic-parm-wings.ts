@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 5,
   "cookMinutes": 20,
   "totalMinutes": 25,
+  "image": "/images/recipes/air-fryer-crispy-garlic-parm-wings.jpg",
   "defaultServings": 4,
   "basis": "Tested on 2 lbs split party chicken wings in single layer basket at 380°F (15 min) then 400°F (5 min).",
   "safeInternalTempF": 175,

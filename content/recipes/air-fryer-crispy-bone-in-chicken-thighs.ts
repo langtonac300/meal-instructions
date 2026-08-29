@@ -138,6 +138,6 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/hero/air-fryer-tenders.jpg",
+  "image": "/images/recipes/air-fryer-crispy-bone-in-chicken-thighs.jpg",
   "defaultServings": 4
 } satisfies Recipe;

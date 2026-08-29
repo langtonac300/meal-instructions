@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 10,
   "cookMinutes": 35,
   "totalMinutes": 45,
+  "image": "/images/recipes/dutch-oven-dad-chili.jpg",
   "defaultServings": 6,
   "basis": "Tested in 6-qt enameled cast iron Dutch oven with 2 lbs 80/20 ground beef.",
   "safeInternalTempF": 165,

@@ -9,7 +9,7 @@ import PrintButton from '@/components/PrintButton';
 import { LeanIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon } from '@/components/icons/Lean5SIcons';
 
 export const metadata: Metadata = {
-  title: 'Air Fryer & Dad Cooking Cheat Sheet (Printable)',
+  title: 'Air Fryer & Kitchen Cooking Cheat Sheet (Printable)',
   description: 'The ultimate zero-fluff cooking temperature, timing, and basket-shake cheat sheet for air fryers, sheet pans, skillets, and grills.',
   alternates: {
     canonical: absoluteUrl('/cheat-sheet'),

@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 5,
   "cookMinutes": 12,
   "totalMinutes": 17,
+  "image": "/images/recipes/air-fryer-crispy-parmesan-pork-chops.jpg",
   "defaultServings": 4,
   "basis": "Tested with 1-inch thick bone-in pork chops in 6-qt basket air fryer at 380°F.",
   "safeInternalTempF": 145,

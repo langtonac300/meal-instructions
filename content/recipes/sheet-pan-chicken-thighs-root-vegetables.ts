@@ -157,5 +157,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/hero/sheet-pan-fajitas.jpg"
+  "image": "/images/recipes/sheet-pan-chicken-thighs-root-vegetables.jpg"
 } satisfies Recipe;

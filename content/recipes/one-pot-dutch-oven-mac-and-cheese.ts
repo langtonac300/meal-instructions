@@ -150,5 +150,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/categories/kid-approved-nuggets.jpg"
+  "image": "/images/recipes/one-pot-dutch-oven-mac-and-cheese.jpg"
 } satisfies Recipe;

@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 5,
   "cookMinutes": 6,
   "totalMinutes": 11,
+  "image": "/images/recipes/15-minute-lemon-garlic-butter-shrimp.jpg",
   "defaultServings": 4,
   "basis": "Tested on 1.5 lbs 16/20 raw shrimp in 12-inch stainless skillet over medium-high heat.",
   "safeInternalTempF": 145,

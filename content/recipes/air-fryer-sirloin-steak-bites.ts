@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 5,
   "cookMinutes": 7,
   "totalMinutes": 12,
+  "image": "/images/recipes/air-fryer-sirloin-steak-bites.jpg",
   "defaultServings": 4,
   "basis": "Tested with 1.5 lbs top sirloin cut into 1-inch cubes at 400°F in basket air fryer.",
   "safeInternalTempF": 135,

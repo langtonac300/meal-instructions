@@ -12,7 +12,10 @@ interface RecipeModeSwitchProps {
 
 export default function RecipeModeSwitch({ mode, onChange }: RecipeModeSwitchProps) {
   useEffect(() => {
-    const saved = localStorage.getItem('dad_recipe_mode');
+    const saved =
+      localStorage.getItem('meal_instructions_mode') ||
+      localStorage.getItem('recipe_mode') ||
+      localStorage.getItem('dad_recipe_mode');
     if (saved === 'quick' || saved === 'detailed') {
       onChange(saved);
     }
@@ -20,7 +23,8 @@ export default function RecipeModeSwitch({ mode, onChange }: RecipeModeSwitchPro
 
   const handleSelect = (newMode: RecipeMode) => {
     onChange(newMode);
-    localStorage.setItem('dad_recipe_mode', newMode);
+    localStorage.setItem('meal_instructions_mode', newMode);
+    localStorage.setItem('recipe_mode', newMode);
   };
 
   return (
@@ -81,7 +85,7 @@ export default function RecipeModeSwitch({ mode, onChange }: RecipeModeSwitchPro
             </span>
           </div>
           <span className="text-[11px] text-ink-muted mt-1 hidden sm:block">
-            Fluff-free guided instructions with doneness cues and pro dad tips.
+            Fluff-free guided instructions with doneness cues and pro tips.
           </span>
         </button>
       </div>

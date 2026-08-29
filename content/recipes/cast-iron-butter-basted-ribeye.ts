@@ -14,6 +14,7 @@ export default {
   "prepMinutes": 10,
   "cookMinutes": 8,
   "totalMinutes": 18,
+  "image": "/images/recipes/cast-iron-butter-basted-ribeye.jpg",
   "defaultServings": 2,
   "basis": "Tested on 16 oz 1.5-inch thick USDA Choice ribeye in 12-inch cast iron skillet.",
   "safeInternalTempF": 130,

@@ -118,6 +118,6 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/recipes/recipe_taquitos.jpg",
+  "image": "/images/recipes/air-fryer-frozen-taquitos.jpg",
   "defaultServings": 4
 } satisfies Recipe;

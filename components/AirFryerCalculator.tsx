@@ -162,9 +162,9 @@ export default function AirFryerCalculator() {
           </div>
         </div>
 
-        {/* Dad Quick Advice */}
+        {/* Quick Advice */}
         <div className="mt-4 pt-4 border-t border-hairline text-xs font-sans text-ink-muted max-w-xl mx-auto">
-          <strong>Dad Rule of Thumb:</strong> Check food at the {airFryerMinTime}-minute mark. Air
+          <strong>Pro Rule of Thumb:</strong> Check food at the {airFryerMinTime}-minute mark. Air
           fryers circulate dry heat rapidly; food browns 2-3x faster than still oven air.
         </div>
       </div>

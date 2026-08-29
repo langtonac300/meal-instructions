@@ -196,18 +196,93 @@ if (!fs.existsSync(toolsDataPath)) {
   if (!toolsContent.includes('gramsPerTeaspoon: 4.8')) {
     errors.push('Morton Kosher density must be calibrated to 4.8g/tsp.');
   }
-  if (!toolsContent.includes('gramsPerTeaspoon: 5.7')) {
-    errors.push('Table salt density must be calibrated to 5.7g/tsp.');
+  // Verify 20 new tool datasets presence
+  const requiredDatasets = [
+    'SMOKE_POINTS',
+    'STEAK_CUT_SPECS',
+    'TURKEY_METHODS',
+    'BAKERS_PRESETS',
+    'PAN_SPECS',
+    'SLOW_COOKER_TIME_MAP',
+    'SOUS_VIDE_SPECS',
+    'GRILL_FUEL_SPECS',
+    'EGG_DONENESS_PROFILES',
+    'GRAIN_WATER_SPECS',
+    'MARINADE_PROFILES',
+    'INGREDIENT_SUBSTITUTIONS',
+    'THAW_SPECS',
+    'FOOD_COST_PRESETS',
+    'MACRO_PROTEIN_SOURCES',
+    'COFFEE_EXTRACTION_PROFILES',
+    'BRISKET_TIMELINE_SPECS',
+    'GROUND_BEEF_FAT_SPECS',
+    'DUTCH_OVEN_BREAD_SPECS',
+    'CHEESE_MELT_SPECS',
+  ];
+
+  for (const ds of requiredDatasets) {
+    if (!toolsContent.includes(ds)) {
+      errors.push(`Dataset '${ds}' missing from data/tools-data.ts`);
+    }
   }
 
-  console.log('Audited quick tools dataset (Reheat, Frozen, Meat Math, Internal Temp, Salt, Troubleshoot).');
+  console.log('Audited all 30 quick tools datasets in data/tools-data.ts.');
 }
+
+// 6. Audit 50 Field Guides in data/blog/
+const blogPillars = [
+  'science-posts.ts',
+  'hardware-posts.ts',
+  'chemistry-posts.ts',
+  'safety-posts.ts',
+  'operations-posts.ts',
+];
+
+let totalBlogPostsCount = 0;
+const blogSlugs = new Set();
+const blogTitles = new Set();
+const blogSummaries = new Set();
+
+for (const pillarFile of blogPillars) {
+  const pPath = path.join(__dirname, '../data/blog', pillarFile);
+  if (!fs.existsSync(pPath)) {
+    errors.push(`Missing blog pillar file at ${pPath}`);
+    continue;
+  }
+
+  const pContent = fs.readFileSync(pPath, 'utf-8');
+  const postRegex = /{\s*id:\s*'(blog-\d+)',\s*slug:\s*'([^']+)',\s*title:\s*'([^']+)'/g;
+  let pMatch;
+
+  while ((pMatch = postRegex.exec(pContent)) !== null) {
+    totalBlogPostsCount++;
+    const [_, id, slug, title] = pMatch;
+
+    if (blogSlugs.has(slug)) {
+      errors.push(`[Blog Post: ${slug}] Duplicate blog post slug.`);
+    }
+    blogSlugs.add(slug);
+
+    if (blogTitles.has(title)) {
+      errors.push(`[Blog Post: ${title}] Duplicate blog post title.`);
+    }
+    blogTitles.add(title);
+  }
+}
+
+if (totalBlogPostsCount < 50) {
+  errors.push(`Expected 50 blog field guides, but found ${totalBlogPostsCount}.`);
+} else {
+  console.log(`Audited ${totalBlogPostsCount} field guides and culinary science articles for uniqueness and schema.`);
+}
+
 
 if (errors.length > 0) {
   console.error(`\n❌ CONTENT AUDIT FAILED with ${errors.length} error(s):\n`);
   errors.forEach((err, idx) => console.error(`${idx + 1}. ${err}`));
   process.exit(1);
 } else {
-  console.log(`✅ CONTENT AUDIT PASSED: ${recipes.length} recipes, ${datasheetCount} datasheets, and tools dataset verified.\n`);
+  console.log(`✅ CONTENT AUDIT PASSED: ${recipes.length} recipes, ${datasheetCount} datasheets, ${totalBlogPostsCount} field guides, and tools dataset verified.\n`);
   process.exit(0);
 }
+

@@ -1,6 +1,6 @@
-# Dad Meals Model Context Protocol (MCP) Server
+# Meal Instructions Model Context Protocol (MCP) Server
 
-The **Dad Meals MCP Server** provides AI assistants (Claude Desktop, Cursor, Google Antigravity, Raycast, and ChatGPT) with direct, typed, zero-fluff programmatic access to our verified kitchen datasets.
+The **Meal Instructions MCP Server** provides AI assistants (Claude Desktop, Cursor, Google Antigravity, Raycast, and ChatGPT) with direct, typed, zero-fluff programmatic access to our verified kitchen datasets.
 
 ---
 
@@ -30,7 +30,7 @@ Add the following entry to your `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "dad-meals": {
+    "meal-instructions": {
       "command": "node",
       "args": [
         "--experimental-strip-types",
@@ -49,7 +49,7 @@ Add to your project's `.cursor/mcp.json` or Global Cursor Settings:
 ```json
 {
   "mcpServers": {
-    "dad-meals": {
+    "meal-instructions": {
       "command": "node",
       "args": [
         "--experimental-strip-types",

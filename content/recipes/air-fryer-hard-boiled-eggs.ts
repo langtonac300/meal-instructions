@@ -113,6 +113,6 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/categories/weekend-breakfast-feasts.jpg",
+  "image": "/images/recipes/air-fryer-hard-boiled-eggs.jpg",
   "defaultServings": 4
 } satisfies Recipe;

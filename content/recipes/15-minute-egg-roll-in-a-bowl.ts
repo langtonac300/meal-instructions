@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 3,
   "cookMinutes": 9,
   "totalMinutes": 12,
+  "image": "/images/recipes/15-minute-egg-roll-in-a-bowl.jpg",
   "defaultServings": 4,
   "basis": "Tested on 1 lb ground pork and 14 oz coleslaw mix in 12-inch non-stick skillet.",
   "safeInternalTempF": 160,

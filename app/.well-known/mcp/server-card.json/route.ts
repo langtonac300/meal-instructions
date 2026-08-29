@@ -8,8 +8,8 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   const serverCard = {
     serverInfo: {
-      name: 'dad-meals',
-      title: 'Meal Instructions & Dad Meals Cooking Intelligence',
+      name: 'meal-instructions',
+      title: 'Meal Instructions Cooking Intelligence',
       version: '1.0.0',
       description: 'No-fluff culinary physics, cook times across 8 appliances, dual-mode recipes, and kitchen troubleshooting tools.',
     },
@@ -32,7 +32,7 @@ export async function GET() {
       },
       {
         name: 'get_recipe',
-        description: 'Retrieve a complete curated recipe from the Dad Meals catalog by slug in "quick" or "detailed" mode with portion scaling.',
+        description: 'Retrieve a complete curated recipe from the Meal Instructions catalog by slug in "quick" or "detailed" mode with portion scaling.',
         inputSchema: {
           type: 'object',
           properties: {

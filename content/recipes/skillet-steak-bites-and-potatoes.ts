@@ -145,5 +145,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/hero/steak-bites.jpg"
+  "image": "/images/recipes/skillet-steak-bites-and-potatoes.jpg"
 } satisfies Recipe;

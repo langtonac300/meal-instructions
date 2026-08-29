@@ -139,5 +139,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/hero/buffalo-wings.jpg"
+  "image": "/images/recipes/smoked-chicken-wings-crispy-skin.jpg"
 } satisfies Recipe;

@@ -142,6 +142,6 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/recipes/recipe_salmon.jpg",
+  "image": "/images/recipes/air-fryer-cod-fish-sticks.jpg",
   "defaultServings": 4
 } satisfies Recipe;

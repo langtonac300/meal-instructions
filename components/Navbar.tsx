@@ -29,7 +29,7 @@ export default function Navbar() {
       <div className="bg-ink text-paper py-1.5 px-4 sm:px-8 text-[11px] font-mono tracking-wider flex justify-between items-center hairline-b">
         <div className="flex items-center gap-3">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="uppercase text-neutral-300">Technical Cook-Time Reference & Quality-Gated Meals // Zero Life Stories</span>
+          <span className="uppercase text-neutral-300">Technical Cook-Time Reference & Quality-Gated Meals // No Fluff, Just the Instructions</span>
         </div>
         <div className="hidden md:flex items-center gap-4 text-neutral-400">
           <Link href="/llms.txt" className="hover:text-paper transition-colors">
@@ -49,14 +49,14 @@ export default function Navbar() {
           {/* Logo & Brand */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-8 h-8 bg-ink text-paper flex items-center justify-center font-bold text-xs font-mono group-hover:bg-accent transition-colors">
-              DM
+              MI
             </div>
             <div>
               <span className="font-bold text-base tracking-wider uppercase block text-ink">
-                DAD MEALS
+                MEAL INSTRUCTIONS
               </span>
               <span className="micro-label text-[9px] block text-ink-muted -mt-0.5">
-                NO-FLUFF COOKING ENGINE
+                NO FLUFF, JUST THE INSTRUCTIONS
               </span>
             </div>
           </Link>
@@ -94,6 +94,14 @@ export default function Navbar() {
               }`}
             >
               Kid Approved
+            </Link>
+            <Link
+              href="/guides"
+              className={`hover:text-ink transition-colors pb-0.5 ${
+                pathname.startsWith('/guides') ? 'text-ink border-b-2 border-ink font-bold' : ''
+              }`}
+            >
+              Top 10 Guides
             </Link>
             <Link
               href="/tools"
@@ -170,11 +178,18 @@ export default function Navbar() {
               👶 Kid & Toddler Approved
             </Link>
             <Link
+              href="/guides"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-1.5 text-ink hover:text-accent font-bold"
+            >
+              📚 Top 10 Guides (20)
+            </Link>
+            <Link
               href="/tools"
               onClick={() => setMobileMenuOpen(false)}
               className="block py-1.5 text-ink hover:text-accent font-bold text-accent"
             >
-              🛠️ Kitchen Tools &amp; Calculators (10)
+              🛠️ Kitchen Tools &amp; Calculators (30)
             </Link>
             <Link
               href="/cheat-sheet"

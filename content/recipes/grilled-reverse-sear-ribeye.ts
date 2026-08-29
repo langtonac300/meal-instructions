@@ -119,5 +119,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/hero/sizzling-steak-bites.jpg"
+  "image": "/images/recipes/grilled-reverse-sear-ribeye.jpg"
 } satisfies Recipe;

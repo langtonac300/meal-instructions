@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 5,
   "cookMinutes": 10,
   "totalMinutes": 15,
+  "image": "/images/recipes/crispy-air-fryer-chicken-tenders.jpg",
   "defaultServings": 4,
   "basis": "Tested in 6-qt basket air fryer at 400°F with 1.5-inch raw tenderloins. USDA FSIS 165°F target.",
   "safeInternalTempF": 165,
@@ -146,7 +147,7 @@ export default {
   "keywords": [
     "air fryer chicken tenders",
     "crispy chicken tenders no oil",
-    "quick dad meals",
+    "quick weeknight dinners",
     "15 minute kid dinner"
   ],
   "datePublished": "2026-08-28",

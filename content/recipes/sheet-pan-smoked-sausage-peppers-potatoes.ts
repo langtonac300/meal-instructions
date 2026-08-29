@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 10,
   "cookMinutes": 25,
   "totalMinutes": 35,
+  "image": "/images/recipes/sheet-pan-smoked-sausage-peppers-potatoes.jpg",
   "defaultServings": 4,
   "basis": "Tested on rimmed half sheet pan at 400°F with 14-oz smoked kielbasa link.",
   "safeInternalTempF": 165,

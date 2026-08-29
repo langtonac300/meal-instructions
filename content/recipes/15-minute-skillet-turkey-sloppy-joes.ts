@@ -155,5 +155,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/recipes/recipe_sloppy_joes.jpg"
+  "image": "/images/recipes/15-minute-skillet-turkey-sloppy-joes.jpg"
 } satisfies Recipe;

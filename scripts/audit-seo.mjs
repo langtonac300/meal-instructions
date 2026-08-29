@@ -122,7 +122,7 @@ if (!fs.existsSync(recipesJsonPath)) {
   console.log(`Audited ${auditedCount} recipe HTML pages for canonicals, dual-mode SSR, and JSON-LD.`);
 }
 
-// 4. Audit all 10 dedicated tool pages in .next build output
+// 4. Audit all 30 dedicated tool pages in .next build output
 const toolRoutes = [
   'tools',
   'air-fryer-calculator',
@@ -135,6 +135,26 @@ const toolRoutes = [
   'salt-math',
   'kid-split',
   'troubleshoot',
+  'smoke-points',
+  'steak-timer',
+  'turkey-calculator',
+  'bakers-percentage',
+  'recipe-scaler',
+  'slow-cooker-converter',
+  'sous-vide-calculator',
+  'grill-fuel-estimator',
+  'egg-timer',
+  'pasta-water-ratio',
+  'marinade-ratio',
+  'substitutions',
+  'thaw-timer',
+  'food-cost-calculator',
+  'macronutrient-calculator',
+  'caffeine-steep-timer',
+  'brisket-timeline',
+  'ground-beef-fat-ratio',
+  'dutch-oven-bread-timer',
+  'cheese-melt-matrix',
 ];
 
 let auditedToolsCount = 0;
@@ -161,11 +181,60 @@ for (const toolSlug of toolRoutes) {
 
 console.log(`Audited ${auditedToolsCount} dedicated tool HTML pages for canonicals and Schema.org JSON-LD.`);
 
+// 5. Audit 50 Blog Field Guides in .next build output
+const blogServerDir = path.join(nextAppServerDir, 'blog');
+let auditedBlogCount = 0;
+
+// Check /blog index page
+const blogIndexHtmlPath = path.join(nextAppServerDir, 'blog.html');
+if (fs.existsSync(blogIndexHtmlPath)) {
+  const indexHtml = fs.readFileSync(blogIndexHtmlPath, 'utf-8');
+  if (!indexHtml.includes('<link rel="canonical"') && !indexHtml.includes('<link rel=\\"canonical\\"')) {
+    errors.push(`[/blog] Missing canonical link tag in built HTML.`);
+  }
+  if (!indexHtml.includes('schema.org')) {
+    errors.push(`[/blog] Missing Schema.org structured data.`);
+  }
+} else {
+  errors.push(`Built HTML file missing for /blog at ${blogIndexHtmlPath}`);
+}
+
+// Audit all 50 individual blog post HTML files
+if (fs.existsSync(blogServerDir)) {
+  const blogFiles = fs.readdirSync(blogServerDir).filter((f) => f.endsWith('.html'));
+  auditedBlogCount = blogFiles.length;
+
+  for (const bFile of blogFiles) {
+    const slug = bFile.replace(/\.html$/, '');
+    const bHtml = fs.readFileSync(path.join(blogServerDir, bFile), 'utf-8');
+
+    // Check canonical
+    if (!bHtml.includes('<link rel="canonical"') && !bHtml.includes('<link rel=\\"canonical\\"')) {
+      errors.push(`[Blog: /blog/${slug}] Missing canonical link tag in built HTML.`);
+    }
+
+    // Check BlogPosting Schema
+    if (!bHtml.includes('BlogPosting') && !bHtml.includes('Article')) {
+      errors.push(`[Blog: /blog/${slug}] Missing BlogPosting or Article Schema.org JSON-LD.`);
+    }
+
+    // Check Breadcrumbs Schema
+    if (!bHtml.includes('BreadcrumbList')) {
+      errors.push(`[Blog: /blog/${slug}] Missing BreadcrumbList Schema.org JSON-LD.`);
+    }
+  }
+
+  console.log(`Audited ${auditedBlogCount} blog field guide HTML pages for canonicals, breadcrumbs, and BlogPosting JSON-LD.`);
+} else {
+  errors.push(`Missing built blog directory at ${blogServerDir}`);
+}
+
 if (errors.length > 0) {
   console.error(`\n❌ SEO AUDIT FAILED with ${errors.length} error(s):\n`);
   errors.forEach((err, idx) => console.error(`${idx + 1}. ${err}`));
   process.exit(1);
 } else {
-  console.log(`✅ SEO AUDIT PASSED: All canonicals, dual-mode SSR HTML, tool pages, and schemas verified.\n`);
+  console.log(`✅ SEO AUDIT PASSED: All canonicals, dual-mode SSR HTML, tool pages, ${auditedBlogCount} blog pages, and schemas verified.\n`);
   process.exit(0);
 }
+

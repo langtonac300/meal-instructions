@@ -142,5 +142,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/recipes/recipe_shrimp.jpg"
+  "image": "/images/recipes/15-minute-skillet-shrimp-tacos.jpg"
 } satisfies Recipe;

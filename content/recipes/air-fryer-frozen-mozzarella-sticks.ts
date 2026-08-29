@@ -111,6 +111,6 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/categories/late-night-quesadilla.jpg",
+  "image": "/images/recipes/air-fryer-frozen-mozzarella-sticks.jpg",
   "defaultServings": 4
 } satisfies Recipe;

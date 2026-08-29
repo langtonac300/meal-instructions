@@ -15,14 +15,14 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 bg-ink text-paper flex items-center justify-center font-bold text-xs font-mono">
-                DM
+                MI
               </div>
               <span className="font-bold text-sm tracking-wider uppercase font-mono">
-                DAD MEALS // ZERO FLUFF
+                MEAL INSTRUCTIONS
               </span>
             </div>
             <p className="text-xs text-ink-muted leading-relaxed font-sans">
-              Engineered for busy parents. Instant directions, exact temps, and 20-word execution. No popups, no ads, no 12-paragraph essays about childhood summers.
+              Engineered for busy cooks and parents. Instant directions, exact temps, and 20-word execution. No popups, no ads, no 12-paragraph essays about childhood summers. No fluff, just the instructions.
             </p>
             <div className="pt-2">
               <Link
@@ -40,7 +40,7 @@ export default function Footer() {
             <ul className="space-y-1.5 text-xs font-mono">
               <li>
                 <Link href="/tools" className="text-ink font-bold hover:underline uppercase">
-                  🛠️ All Tools (10)
+                  🛠️ All Tools (30 Engines)
                 </Link>
               </li>
               <li>
@@ -136,6 +136,16 @@ export default function Footer() {
             </p>
             <ul className="space-y-1.5 text-xs font-mono">
               <li>
+                <Link href="/guides" className="text-ink font-bold hover:underline">
+                  📚 Top 10 Guides (20)
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-accent font-bold hover:underline">
+                  🔬 Field Guides (50)
+                </Link>
+              </li>
+              <li>
                 <Link href="/llms.txt" className="text-ink hover:underline">
                   📄 /llms.txt (AI Index)
                 </Link>
@@ -159,10 +169,11 @@ export default function Footer() {
           </div>
         </div>
 
+
         {/* Bottom Colophon Bar */}
         <div className="hairline-t mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] font-mono text-ink-subtle gap-4">
           <div>
-            © 2026 DAD MEALS // ALL RECIPES VALIDATED WITH SCHEMA.ORG JSON-LD.
+            © 2026 MEAL INSTRUCTIONS // ALL RECIPES VALIDATED WITH SCHEMA.ORG JSON-LD.
           </div>
           <div className="flex items-center gap-6">
             <span>COOK TIME ENGINE & ZERO-FLUFF RECIPES</span>

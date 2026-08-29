@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 3,
   "cookMinutes": 8,
   "totalMinutes": 11,
+  "image": "/images/recipes/air-fryer-10-minute-garlic-butter-salmon.jpg",
   "defaultServings": 4,
   "basis": "Tested on four 6-oz Atlantic salmon center cuts at 400°F skin-side down in Ninja air fryer.",
   "safeInternalTempF": 135,
@@ -133,7 +134,7 @@ export default {
   "keywords": [
     "air fryer salmon",
     "10 minute salmon recipe",
-    "healthy dad meals",
+    "healthy weeknight meals",
     "air fryer garlic butter fish"
   ],
   "datePublished": "2026-08-28",

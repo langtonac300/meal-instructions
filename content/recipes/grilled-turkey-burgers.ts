@@ -156,5 +156,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/hero/smash-burger.jpg"
+  "image": "/images/recipes/grilled-turkey-burgers.jpg"
 } satisfies Recipe;

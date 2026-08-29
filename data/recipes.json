@@ -14,6 +14,7 @@
     "prepMinutes": 5,
     "cookMinutes": 10,
     "totalMinutes": 15,
+    "image": "/images/recipes/crispy-air-fryer-chicken-tenders.jpg",
     "defaultServings": 4,
     "basis": "Tested in 6-qt basket air fryer at 400°F with 1.5-inch raw tenderloins. USDA FSIS 165°F target.",
     "safeInternalTempF": 165,
@@ -145,12 +146,11 @@
     "keywords": [
       "air fryer chicken tenders",
       "crispy chicken tenders no oil",
-      "quick dad meals",
+      "quick weeknight dinners",
       "15 minute kid dinner"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested in 6-qt basket air fryer at 400°F with 1.5-inch raw tenderloins. USDA FSIS 165°F target."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0002",
@@ -167,6 +167,7 @@
     "prepMinutes": 5,
     "cookMinutes": 10,
     "totalMinutes": 15,
+    "image": "/images/recipes/air-fryer-juicy-bacon-cheeseburgers.jpg",
     "defaultServings": 4,
     "basis": "Tested on 80/20 ground chuck 1/3 lb patties at 375°F in basket air fryer.",
     "safeInternalTempF": 160,
@@ -287,8 +288,7 @@
       "juicy burgers in air fryer"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on 80/20 ground chuck 1/3 lb patties at 375°F in basket air fryer."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0003",
@@ -305,6 +305,7 @@
     "prepMinutes": 3,
     "cookMinutes": 8,
     "totalMinutes": 11,
+    "image": "/images/recipes/air-fryer-10-minute-garlic-butter-salmon.jpg",
     "defaultServings": 4,
     "basis": "Tested on four 6-oz Atlantic salmon center cuts at 400°F skin-side down in Ninja air fryer.",
     "safeInternalTempF": 135,
@@ -423,12 +424,11 @@
     "keywords": [
       "air fryer salmon",
       "10 minute salmon recipe",
-      "healthy dad meals",
+      "healthy weeknight meals",
       "air fryer garlic butter fish"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on four 6-oz Atlantic salmon center cuts at 400°F skin-side down in Ninja air fryer."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0004",
@@ -445,6 +445,7 @@
     "prepMinutes": 5,
     "cookMinutes": 5,
     "totalMinutes": 10,
+    "image": "/images/recipes/cast-iron-lacy-edge-smash-burgers.jpg",
     "defaultServings": 4,
     "basis": "Tested on screaming hot 12-inch Lodge cast iron skillet on high flame with 2 oz 80/20 balls.",
     "safeInternalTempF": 160,
@@ -561,8 +562,7 @@
       "dad smash burgers"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on screaming hot 12-inch Lodge cast iron skillet on high flame with 2 oz 80/20 balls."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0005",
@@ -579,6 +579,7 @@
     "prepMinutes": 8,
     "cookMinutes": 15,
     "totalMinutes": 23,
+    "image": "/images/recipes/sheet-pan-chicken-fajitas.jpg",
     "defaultServings": 4,
     "basis": "Tested on rimmed half sheet pan lined with parchment at 425°F convection.",
     "safeInternalTempF": 165,
@@ -727,8 +728,7 @@
       "healthy sheet pan meal"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on rimmed half sheet pan lined with parchment at 425°F convection."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0006",
@@ -745,6 +745,7 @@
     "prepMinutes": 5,
     "cookMinutes": 20,
     "totalMinutes": 25,
+    "image": "/images/recipes/air-fryer-crispy-garlic-parm-wings.jpg",
     "defaultServings": 4,
     "basis": "Tested on 2 lbs split party chicken wings in single layer basket at 380°F (15 min) then 400°F (5 min).",
     "safeInternalTempF": 175,
@@ -871,8 +872,7 @@
       "keto chicken wings"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on 2 lbs split party chicken wings in single layer basket at 380°F (15 min) then 400°F (5 min)."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0007",
@@ -890,6 +890,7 @@
     "prepMinutes": 3,
     "cookMinutes": 9,
     "totalMinutes": 12,
+    "image": "/images/recipes/15-minute-skillet-beef-taco-meat.jpg",
     "defaultServings": 4,
     "basis": "Tested with 1.5 lbs 85/15 ground beef in 12-inch skillet over medium-high heat.",
     "safeInternalTempF": 165,
@@ -1021,8 +1022,7 @@
       "homemade taco seasoning"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested with 1.5 lbs 85/15 ground beef in 12-inch skillet over medium-high heat."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0008",
@@ -1039,6 +1039,7 @@
     "prepMinutes": 5,
     "cookMinutes": 7,
     "totalMinutes": 12,
+    "image": "/images/recipes/air-fryer-sirloin-steak-bites.jpg",
     "defaultServings": 4,
     "basis": "Tested with 1.5 lbs top sirloin cut into 1-inch cubes at 400°F in basket air fryer.",
     "safeInternalTempF": 135,
@@ -1163,8 +1164,7 @@
       "keto steak bites"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested with 1.5 lbs top sirloin cut into 1-inch cubes at 400°F in basket air fryer."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0009",
@@ -1181,6 +1181,7 @@
     "prepMinutes": 10,
     "cookMinutes": 25,
     "totalMinutes": 35,
+    "image": "/images/recipes/sheet-pan-smoked-sausage-peppers-potatoes.jpg",
     "defaultServings": 4,
     "basis": "Tested on rimmed half sheet pan at 400°F with 14-oz smoked kielbasa link.",
     "safeInternalTempF": 165,
@@ -1317,8 +1318,7 @@
       "budget family dinner"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on rimmed half sheet pan at 400°F with 14-oz smoked kielbasa link."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0010",
@@ -1334,6 +1334,7 @@
     "prepMinutes": 10,
     "cookMinutes": 8,
     "totalMinutes": 18,
+    "image": "/images/recipes/cast-iron-butter-basted-ribeye.jpg",
     "defaultServings": 2,
     "basis": "Tested on 16 oz 1.5-inch thick USDA Choice ribeye in 12-inch cast iron skillet.",
     "safeInternalTempF": 130,
@@ -1457,8 +1458,7 @@
       "reverse sear vs pan sear"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on 16 oz 1.5-inch thick USDA Choice ribeye in 12-inch cast iron skillet."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0011",
@@ -1475,6 +1475,7 @@
     "prepMinutes": 5,
     "cookMinutes": 12,
     "totalMinutes": 17,
+    "image": "/images/recipes/air-fryer-crispy-parmesan-pork-chops.jpg",
     "defaultServings": 4,
     "basis": "Tested with 1-inch thick bone-in pork chops in 6-qt basket air fryer at 380°F.",
     "safeInternalTempF": 145,
@@ -1601,8 +1602,7 @@
       "bone in pork chops air fryer"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested with 1-inch thick bone-in pork chops in 6-qt basket air fryer at 380°F."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0012",
@@ -1619,6 +1619,7 @@
     "prepMinutes": 5,
     "cookMinutes": 6,
     "totalMinutes": 11,
+    "image": "/images/recipes/15-minute-lemon-garlic-butter-shrimp.jpg",
     "defaultServings": 4,
     "basis": "Tested on 1.5 lbs 16/20 raw shrimp in 12-inch stainless skillet over medium-high heat.",
     "safeInternalTempF": 145,
@@ -1749,8 +1750,7 @@
       "keto shrimp recipe"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on 1.5 lbs 16/20 raw shrimp in 12-inch stainless skillet over medium-high heat."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0013",
@@ -1767,6 +1767,7 @@
     "prepMinutes": 3,
     "cookMinutes": 9,
     "totalMinutes": 12,
+    "image": "/images/recipes/15-minute-egg-roll-in-a-bowl.jpg",
     "defaultServings": 4,
     "basis": "Tested on 1 lb ground pork and 14 oz coleslaw mix in 12-inch non-stick skillet.",
     "safeInternalTempF": 160,
@@ -1895,8 +1896,7 @@
       "crack slaw recipe"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on 1 lb ground pork and 14 oz coleslaw mix in 12-inch non-stick skillet."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0014",
@@ -1913,6 +1913,7 @@
     "prepMinutes": 5,
     "cookMinutes": 20,
     "totalMinutes": 25,
+    "image": "/images/recipes/air-fryer-bbq-chicken-drumsticks.jpg",
     "defaultServings": 4,
     "basis": "Tested on 6 large bone-in chicken drumsticks in 6-qt basket air fryer at 380°F.",
     "safeInternalTempF": 180,
@@ -2035,8 +2036,7 @@
       "crispy chicken drumsticks"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on 6 large bone-in chicken drumsticks in 6-qt basket air fryer at 380°F."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0015",
@@ -2053,6 +2053,7 @@
     "prepMinutes": 6,
     "cookMinutes": 14,
     "totalMinutes": 20,
+    "image": "/images/recipes/sheet-pan-honey-garlic-salmon-green-beans.jpg",
     "defaultServings": 4,
     "basis": "Tested on rimmed half sheet pan with four 6 oz fillets and 1 lb green beans at 400°F.",
     "safeInternalTempF": 135,
@@ -2175,8 +2176,7 @@
       "easy seafood weeknight"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on rimmed half sheet pan with four 6 oz fillets and 1 lb green beans at 400°F."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0016",
@@ -2193,6 +2193,7 @@
     "prepMinutes": 5,
     "cookMinutes": 40,
     "totalMinutes": 45,
+    "image": "/images/recipes/air-fryer-loaded-baked-potatoes.jpg",
     "defaultServings": 4,
     "basis": "Tested on four 8-oz russet potatoes at 400°F in basket air fryer.",
     "safeInternalTempF": 205,
@@ -2320,8 +2321,7 @@
       "loaded baked potatoes"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on four 8-oz russet potatoes at 400°F in basket air fryer."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0017",
@@ -2338,6 +2338,7 @@
     "prepMinutes": 10,
     "cookMinutes": 8,
     "totalMinutes": 18,
+    "image": "/images/recipes/sheet-pan-loaded-game-day-nachos.jpg",
     "defaultServings": 6,
     "basis": "Tested on rimmed half sheet pan with 12 oz chips and 1 lb seasoned beef at 400°F.",
     "safeInternalTempF": 165,
@@ -2459,8 +2460,7 @@
       "easy party food"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on rimmed half sheet pan with 12 oz chips and 1 lb seasoned beef at 400°F."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0018",
@@ -2477,6 +2477,7 @@
     "prepMinutes": 1,
     "cookMinutes": 8,
     "totalMinutes": 9,
+    "image": "/images/recipes/air-fryer-frozen-gyoza-potstickers.jpg",
     "defaultServings": 3,
     "basis": "Tested on 12 frozen pork and vegetable dumplings at 380°F in basket air fryer.",
     "safeInternalTempF": 165,
@@ -2585,8 +2586,7 @@
       "quick late night snacks"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on 12 frozen pork and vegetable dumplings at 380°F in basket air fryer."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0019",
@@ -2603,6 +2603,7 @@
     "prepMinutes": 15,
     "cookMinutes": 330,
     "totalMinutes": 345,
+    "image": "/images/recipes/smoker-st-louis-pork-ribs-3-2-1.jpg",
     "defaultServings": 6,
     "basis": "Tested on 2 racks of St. Louis ribs at 225°F using hickory pellets on Traeger smoker.",
     "safeInternalTempF": 202,
@@ -2727,8 +2728,7 @@
       "best smoked ribs dad"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested on 2 racks of St. Louis ribs at 225°F using hickory pellets on Traeger smoker."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0020",
@@ -2745,6 +2745,7 @@
     "prepMinutes": 10,
     "cookMinutes": 35,
     "totalMinutes": 45,
+    "image": "/images/recipes/dutch-oven-dad-chili.jpg",
     "defaultServings": 6,
     "basis": "Tested in 6-qt enameled cast iron Dutch oven with 2 lbs 80/20 ground beef.",
     "safeInternalTempF": 165,
@@ -2884,8 +2885,7 @@
       "easy weeknight chili"
     ],
     "datePublished": "2026-08-28",
-    "lastUpdated": "2026-08-28",
-    "cookTimeBasis": "Tested in 6-qt enameled cast iron Dutch oven with 2 lbs 80/20 ground beef."
+    "lastUpdated": "2026-08-28"
   },
   {
     "id": "0021",
@@ -3007,8 +3007,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/kid-approved-nuggets.jpg",
-    "cookTimeBasis": "Ninja Foodi AF100 400°F frozen convection matrix; Tyson & Ore-Ida tested."
+    "image": "/images/recipes/air-fryer-frozen-chicken-nuggets-and-fries.jpg"
   },
   {
     "id": "0022",
@@ -3157,9 +3156,8 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_meatballs.jpg",
-    "defaultServings": 4,
-    "cookTimeBasis": "Ninja Air Fryer 380°F ground poultry test; USDA FSIS 165°F guideline."
+    "image": "/images/recipes/air-fryer-turkey-meatballs.jpg",
+    "defaultServings": 4
   },
   {
     "id": "0023",
@@ -3296,9 +3294,8 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/game-day-nachos.jpg",
-    "defaultServings": 4,
-    "cookTimeBasis": "Instant Vortex Plus 390°F vegetable roasting curve."
+    "image": "/images/recipes/air-fryer-buffalo-cauliflower-bites.jpg",
+    "defaultServings": 4
   },
   {
     "id": "0024",
@@ -3404,9 +3401,8 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/hero/bacon-grilled-cheese.jpg",
-    "defaultServings": 4,
-    "cookTimeBasis": "Cosori Pro II 375°F bacon rendering cycle; tested thick-cut pork bacon."
+    "image": "/images/recipes/air-fryer-bacon-no-splatter.jpg",
+    "defaultServings": 4
   },
   {
     "id": "0025",
@@ -3521,9 +3517,8 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/weekend-breakfast-feasts.jpg",
-    "defaultServings": 4,
-    "cookTimeBasis": "Ninja Air Fryer 270°F egg matrix; tested 12 large Grade A eggs."
+    "image": "/images/recipes/air-fryer-hard-boiled-eggs.jpg",
+    "defaultServings": 4
   },
   {
     "id": "0026",
@@ -3636,9 +3631,8 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/late-night-quesadilla.jpg",
-    "defaultServings": 4,
-    "cookTimeBasis": "Ninja Air Fryer 380°F frozen cheese test; Farm Rich / TGI Fridays verified."
+    "image": "/images/recipes/air-fryer-frozen-mozzarella-sticks.jpg",
+    "defaultServings": 4
   },
   {
     "id": "0027",
@@ -3778,9 +3772,8 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/hero/air-fryer-tenders.jpg",
-    "defaultServings": 4,
-    "cookTimeBasis": "Instant Vortex Plus 380°F chicken thigh test; USDA FSIS 165°F (cooked to 180°F internal)."
+    "image": "/images/recipes/air-fryer-crispy-bone-in-chicken-thighs.jpg",
+    "defaultServings": 4
   },
   {
     "id": "0028",
@@ -3919,9 +3912,8 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_pork_chops.jpg",
-    "defaultServings": 4,
-    "cookTimeBasis": "Ninja Foodi 400°F whole tenderloin test; USDA FSIS 145°F pork guideline."
+    "image": "/images/recipes/air-fryer-pork-tenderloin.jpg",
+    "defaultServings": 4
   },
   {
     "id": "0029",
@@ -4041,9 +4033,8 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_taquitos.jpg",
-    "defaultServings": 4,
-    "cookTimeBasis": "Instant Vortex Plus 400°F frozen Mexican snack matrix; Delimex / El Monterey verified."
+    "image": "/images/recipes/air-fryer-frozen-taquitos.jpg",
+    "defaultServings": 4
   },
   {
     "id": "0030",
@@ -4180,9 +4171,8 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/speed-sides-broccoli.jpg",
-    "defaultServings": 4,
-    "cookTimeBasis": "Ninja Foodi 380°F fresh vegetable roasting matrix."
+    "image": "/images/recipes/air-fryer-crispy-broccoli.jpg",
+    "defaultServings": 4
   },
   {
     "id": "0031",
@@ -4326,9 +4316,8 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_salmon.jpg",
-    "defaultServings": 4,
-    "cookTimeBasis": "Instant Vortex Plus 400°F fish stick test; USDA FSIS 145°F seafood guideline."
+    "image": "/images/recipes/air-fryer-cod-fish-sticks.jpg",
+    "defaultServings": 4
   },
   {
     "id": "0032",
@@ -4465,9 +4454,8 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/weekend-breakfast-feasts.jpg",
-    "defaultServings": 4,
-    "cookTimeBasis": "Ninja Foodi 375°F breakfast bake test; 7-inch cake pan accessory."
+    "image": "/images/recipes/air-fryer-tater-tot-breakfast-casserole.jpg",
+    "defaultServings": 4
   },
   {
     "id": "0033",
@@ -4624,8 +4612,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_sloppy_joes.jpg",
-    "cookTimeBasis": "All-Clad 12-inch Tri-Ply Skillet 375°F simmer test; USDA FSIS 165°F standard."
+    "image": "/images/recipes/15-minute-skillet-turkey-sloppy-joes.jpg"
   },
   {
     "id": "0034",
@@ -4785,8 +4772,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/hero/sheet-pan-fajitas.jpg",
-    "cookTimeBasis": "12-inch Cast Iron / Skillet High-Heat Fajita test; USDA FSIS 165°F standard."
+    "image": "/images/recipes/skillet-chicken-thigh-fajita-bowls.jpg"
   },
   {
     "id": "0035",
@@ -4930,8 +4916,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_hibachi_rice.jpg",
-    "cookTimeBasis": "12-Inch Nonstick Skillet high-heat wok simulation; tested cold jasmine rice."
+    "image": "/images/recipes/dads-skillet-fried-rice.jpg"
   },
   {
     "id": "0036",
@@ -5078,8 +5063,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/hero/steak-bites.jpg",
-    "cookTimeBasis": "12-Inch Cast Iron / Stainless Skillet High Heat Test; USDA FSIS 145°F steak standard."
+    "image": "/images/recipes/skillet-steak-bites-and-potatoes.jpg"
   },
   {
     "id": "0037",
@@ -5230,8 +5214,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/game-day-nachos.jpg",
-    "cookTimeBasis": "12-Inch Cast Iron Skillet 375°F pork sausage test; USDA FSIS 160°F guideline."
+    "image": "/images/recipes/skillet-sausage-and-peppers.jpg"
   },
   {
     "id": "0038",
@@ -5375,8 +5358,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_shrimp.jpg",
-    "cookTimeBasis": "12-Inch Stainless Skillet High Heat Shrimp test; USDA FSIS 145°F seafood standard."
+    "image": "/images/recipes/15-minute-skillet-shrimp-tacos.jpg"
   },
   {
     "id": "0039",
@@ -5525,8 +5507,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/late-night-quesadilla.jpg",
-    "cookTimeBasis": "12-Inch Nonstick Skillet 350°F griddle test; tested flour tortillas and black beans."
+    "image": "/images/recipes/skillet-black-bean-corn-quesadillas.jpg"
   },
   {
     "id": "0040",
@@ -5684,8 +5665,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_pork_chops.jpg",
-    "cookTimeBasis": "12-Inch Skillet high heat sear + simmer test; USDA FSIS 165°F standard."
+    "image": "/images/recipes/one-pan-skillet-chicken-parm-no-breading.jpg"
   },
   {
     "id": "0041",
@@ -5818,8 +5798,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_meatballs.jpg",
-    "cookTimeBasis": "Half-sheet commercial pan convection oven test at 425°F; USDA FSIS 165°F standard."
+    "image": "/images/recipes/sheet-pan-turkey-meatball-sub-melts.jpg"
   },
   {
     "id": "0042",
@@ -5978,8 +5957,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/hero/sheet-pan-fajitas.jpg",
-    "cookTimeBasis": "Half-sheet convection roast at 400°F; USDA FSIS 165°F poultry standard (pulled at 180°F internal)."
+    "image": "/images/recipes/sheet-pan-chicken-thighs-root-vegetables.jpg"
   },
   {
     "id": "0043",
@@ -6137,8 +6115,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/weekend-breakfast-feasts.jpg",
-    "cookTimeBasis": "Half-sheet commercial pan 400°F convection roast; USDA FSIS 160°F pork/egg standard."
+    "image": "/images/recipes/sheet-pan-sausage-egg-breakfast-hash.jpg"
   },
   {
     "id": "0044",
@@ -6295,8 +6272,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_shrimp.jpg",
-    "cookTimeBasis": "Half-sheet pan 400°F convection roast; USDA FSIS 145°F seafood / 160°F sausage standard."
+    "image": "/images/recipes/sheet-pan-shrimp-boil-no-pot.jpg"
   },
   {
     "id": "0045",
@@ -6451,8 +6427,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/15-minute-skillet.jpg",
-    "cookTimeBasis": "Half-sheet commercial pan 425°F convection roast; shelf-stable gnocchi roasting profile."
+    "image": "/images/recipes/sheet-pan-crispy-gnocchi-vegetables.jpg"
   },
   {
     "id": "0046",
@@ -6609,8 +6584,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_pork_chops.jpg",
-    "cookTimeBasis": "Half-sheet commercial pan convection roast at 400°F; USDA FSIS 145°F pork standard."
+    "image": "/images/recipes/sheet-pan-pork-chops-and-apples.jpg"
   },
   {
     "id": "0047",
@@ -6748,8 +6722,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/hero/smash-burger.jpg",
-    "cookTimeBasis": "Weber Spirit II Gas Grill 450°F direct heat burger matrix; USDA FSIS 160°F ground beef standard."
+    "image": "/images/recipes/backyard-grilled-burgers.jpg"
   },
   {
     "id": "0048",
@@ -6888,8 +6861,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_tenders.jpg",
-    "cookTimeBasis": "2-Zone Gas/Charcoal Grill 375°F chicken breast testing; USDA FSIS 165°F standard."
+    "image": "/images/recipes/grilled-bbq-chicken-breasts.jpg"
   },
   {
     "id": "0049",
@@ -7015,8 +6987,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/sunday-meal-prep.jpg",
-    "cookTimeBasis": "Weber Spirit direct grill test at 400°F; husk-off direct char matrix."
+    "image": "/images/recipes/grilled-corn-on-the-cob.jpg"
   },
   {
     "id": "0050",
@@ -7156,8 +7127,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/game-day-nachos.jpg",
-    "cookTimeBasis": "Weber Spirit grill 350°F medium direct heat test; USDA FSIS 160°F pork sausage standard."
+    "image": "/images/recipes/grilled-brats-with-beer-onions.jpg"
   },
   {
     "id": "0051",
@@ -7317,8 +7287,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_tenders.jpg",
-    "cookTimeBasis": "Weber Genesis II 400°F direct heat skewer test; USDA FSIS 165°F standard."
+    "image": "/images/recipes/grilled-chicken-kebabs.jpg"
   },
   {
     "id": "0052",
@@ -7439,8 +7408,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/hero/sizzling-steak-bites.jpg",
-    "cookTimeBasis": "Weber 2-Zone Reverse Sear Test (225°F indirect + 600°F direct sear); USDA FSIS 145°F beef guideline (pulled at 130°F for medium-rare)."
+    "image": "/images/recipes/grilled-reverse-sear-ribeye.jpg"
   },
   {
     "id": "0053",
@@ -7598,8 +7566,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/hero/smash-burger.jpg",
-    "cookTimeBasis": "Weber Gas Grill 375°F direct heat poultry burger test; USDA FSIS 165°F standard."
+    "image": "/images/recipes/grilled-turkey-burgers.jpg"
   },
   {
     "id": "0054",
@@ -7756,8 +7723,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/sunday-meal-prep.jpg",
-    "cookTimeBasis": "Crock-Pot 6-Qt Slow Cooker 8-hour LOW braise; USDA FSIS beef tenderness metric (200°F internal)."
+    "image": "/images/recipes/slow-cooker-pot-roast.jpg"
   },
   {
     "id": "0055",
@@ -7915,8 +7881,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/hero/smoked-ribs.jpg",
-    "cookTimeBasis": "Hamilton Beach 6-Qt Slow Cooker 8-hour LOW braise; USDA FSIS 145°F pork standard (cooked to 203°F internal for shredding)."
+    "image": "/images/recipes/slow-cooker-pulled-pork.jpg"
   },
   {
     "id": "0056",
@@ -8038,8 +8003,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/budget-taco-skillet.jpg",
-    "cookTimeBasis": "Crock-Pot 6-Qt 4-hour LOW test (fresh or frozen chicken); USDA FSIS 165°F standard."
+    "image": "/images/recipes/3-ingredient-slow-cooker-salsa-chicken.jpg"
   },
   {
     "id": "0057",
@@ -8206,8 +8170,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/game-day-nachos.jpg",
-    "cookTimeBasis": "6-Qt Slow Cooker 6-hour LOW simmer; USDA FSIS 165°F standard for poultry."
+    "image": "/images/recipes/slow-cooker-turkey-white-bean-chili.jpg"
   },
   {
     "id": "0058",
@@ -8363,8 +8326,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/15-minute-skillet.jpg",
-    "cookTimeBasis": "Hamilton Beach 6-Qt Slow Cooker 4-hour LOW test; USDA FSIS beef guideline."
+    "image": "/images/recipes/slow-cooker-beef-and-broccoli.jpg"
   },
   {
     "id": "0059",
@@ -8517,8 +8479,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/weekend-breakfast-feasts.jpg",
-    "cookTimeBasis": "Crock-Pot 6-Qt 8-hour LOW overnight porridge testing."
+    "image": "/images/recipes/slow-cooker-overnight-steel-cut-oats.jpg"
   },
   {
     "id": "0060",
@@ -8689,8 +8650,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_tenders.jpg",
-    "cookTimeBasis": "Lodge 6-Qt Enameled Cast Iron Dutch Oven simmer test; USDA FSIS 165°F standard."
+    "image": "/images/recipes/dutch-oven-chicken-and-dumplings.jpg"
   },
   {
     "id": "0061",
@@ -8842,8 +8802,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/kid-approved-nuggets.jpg",
-    "cookTimeBasis": "Dutch Oven Starch Emulsion Protocol; tested 1 lb elbow macaroni."
+    "image": "/images/recipes/one-pot-dutch-oven-mac-and-cheese.jpg"
   },
   {
     "id": "0062",
@@ -9011,8 +8970,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/sunday-meal-prep.jpg",
-    "cookTimeBasis": "Lodge 6-Qt Dutch Oven 325°F oven braise test; USDA FSIS beef tenderness metric."
+    "image": "/images/recipes/dutch-oven-beef-stew.jpg"
   },
   {
     "id": "0063",
@@ -9163,8 +9121,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/15-minute-skillet.jpg",
-    "cookTimeBasis": "Dutch Oven rapid simmer test; USDA FSIS 160°F pork sausage standard."
+    "image": "/images/recipes/one-pot-creamy-sausage-tortellini.jpg"
   },
   {
     "id": "0064",
@@ -9286,8 +9243,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/sunday-meal-prep.jpg",
-    "cookTimeBasis": "Jim Lahey / Artisan Bread in 5 Dutch Oven steam bake protocol at 450°F."
+    "image": "/images/recipes/dutch-oven-no-knead-bread.jpg"
   },
   {
     "id": "0065",
@@ -9425,8 +9381,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/hero/sizzling-steak-bites.jpg",
-    "cookTimeBasis": "Lodge 12-inch Cast Iron Pan High-Heat Butter Basting Matrix; USDA FSIS 145°F beef guideline (pulled at 125°F for medium-rare)."
+    "image": "/images/recipes/cast-iron-filet-mignon.jpg"
   },
   {
     "id": "0066",
@@ -9581,8 +9536,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/categories/weekend-breakfast-feasts.jpg",
-    "cookTimeBasis": "Lodge 12-inch Cast Iron Pan 375°F hash test; USDA FSIS 160°F egg white safety standard."
+    "image": "/images/recipes/cast-iron-breakfast-hash-and-eggs.jpg"
   },
   {
     "id": "0067",
@@ -9710,8 +9664,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/recipes/recipe_salmon.jpg",
-    "cookTimeBasis": "Lodge 12-inch Cast Iron High-Heat Blackening Test (425°F); USDA FSIS 145°F seafood standard."
+    "image": "/images/recipes/cast-iron-blackened-cod.jpg"
   },
   {
     "id": "0068",
@@ -9839,8 +9792,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/hero/smoked-ribs.jpg",
-    "cookTimeBasis": "Traeger Pellet & Offset Smoker 225°F 12-hour oak smoke test; USDA FSIS beef collagen breakdown (203°F internal probe-tender)."
+    "image": "/images/recipes/smoked-texas-style-beef-brisket.jpg"
   },
   {
     "id": "0069",
@@ -9981,8 +9933,7 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/hero/buffalo-wings.jpg",
-    "cookTimeBasis": "Traeger Pro 575 2-Temp Smoke Curve (225°F 60m + 400°F 15m); USDA FSIS 165°F standard."
+    "image": "/images/recipes/smoked-chicken-wings-crispy-skin.jpg"
   },
   {
     "id": "0070",
@@ -10124,7 +10075,6 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
-    "image": "/images/hero/smoked-ribs.jpg",
-    "cookTimeBasis": "Traeger Pellet Smoker 250°F applewood smoke test; USDA FSIS 165°F standard."
+    "image": "/images/recipes/smoked-turkey-breast.jpg"
   }
 ]

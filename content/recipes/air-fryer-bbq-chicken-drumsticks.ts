@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 5,
   "cookMinutes": 20,
   "totalMinutes": 25,
+  "image": "/images/recipes/air-fryer-bbq-chicken-drumsticks.jpg",
   "defaultServings": 4,
   "basis": "Tested on 6 large bone-in chicken drumsticks in 6-qt basket air fryer at 380°F.",
   "safeInternalTempF": 180,

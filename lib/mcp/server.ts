@@ -15,13 +15,13 @@ import {
 const RECIPES = recipesData as Recipe[];
 
 /**
- * Factory function creating a fully configured Dad Meals MCP Server instance.
+ * Factory function creating a fully configured Meal Instructions MCP Server instance.
  */
 export function createDadMealsMcpServer() {
   const server = new McpServer({
-    name: 'dad-meals',
+    name: 'meal-instructions',
     version: '1.0.0',
-    description: 'No-fluff culinary physics, cook times, and recipe reference for dads and AI assistants.',
+    description: 'No-fluff culinary physics, cook times, and recipe reference for AI assistants.',
   });
 
   // ─────────────────────────────────────────────────────────────
@@ -122,7 +122,7 @@ export function createDadMealsMcpServer() {
   // ─────────────────────────────────────────────────────────────
   server.tool(
     'get_recipe',
-    'Retrieve a complete curated recipe from the Dad Meals catalog by slug. Supports "quick" mode (20-word punchy telegram execution) or "detailed" mode (full step-by-step guidance), with automatic portion/ingredient scaling.',
+    'Retrieve a complete curated recipe from the Meal Instructions catalog by slug. Supports "quick" mode (20-word punchy telegram execution) or "detailed" mode (full step-by-step guidance), with automatic portion/ingredient scaling.',
     {
       slug: z.string().describe('The recipe slug (e.g. "crispy-air-fryer-chicken-tenders", "backyard-grilled-burgers", "slow-cooker-pot-roast", "cast-iron-butter-basted-ribeye")'),
       mode: z.enum(['quick', 'detailed']).optional().default('quick').describe('Reading mode: "quick" for rapid execution bullets, "detailed" for full step-by-step'),
@@ -680,3 +680,6 @@ function formatCookTimeDatasheet(d: CookTimeDatasheet) {
     canonicalUrl: absoluteUrl(`/how-long/${d.appliance}/${d.slug}`),
   };
 }
+
+export const createMealInstructionsMcpServer = createDadMealsMcpServer;
+

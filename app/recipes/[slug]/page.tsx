@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: RecipePageProps): Promise<Met
 
   if (!recipe) {
     return {
-      title: 'Recipe Not Found | Dad Meals',
+      title: 'Recipe Not Found | Meal Instructions',
     };
   }
 

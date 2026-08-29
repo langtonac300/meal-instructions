@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ArrowLeft, CheckCircle2, XCircle, Zap, ShieldCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'The Zero-Fluff Manifesto | Dad Meals',
+  title: 'The Zero-Fluff Manifesto | Meal Instructions',
   description: 'Why we built the cleanest, fastest cooking platform on earth with zero blog stories, popups, or filler.',
 };
 

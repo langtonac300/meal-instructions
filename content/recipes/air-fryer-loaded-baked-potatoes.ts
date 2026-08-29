@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 5,
   "cookMinutes": 40,
   "totalMinutes": 45,
+  "image": "/images/recipes/air-fryer-loaded-baked-potatoes.jpg",
   "defaultServings": 4,
   "basis": "Tested on four 8-oz russet potatoes at 400°F in basket air fryer.",
   "safeInternalTempF": 205,

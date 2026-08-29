@@ -120,5 +120,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/categories/budget-taco-skillet.jpg"
+  "image": "/images/recipes/3-ingredient-slow-cooker-salsa-chicken.jpg"
 } satisfies Recipe;

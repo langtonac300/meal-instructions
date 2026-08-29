@@ -77,7 +77,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
           <input
             ref={inputRef}
             type="text"
-            placeholder="Search 1,050 dad recipes (e.g. wings, salmon, burger, 10 min)..."
+            placeholder="Search recipes & cook-time reference (e.g. wings, salmon, burger, 10 min)..."
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);

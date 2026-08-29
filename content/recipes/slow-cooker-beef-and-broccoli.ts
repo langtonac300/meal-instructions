@@ -154,5 +154,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/categories/15-minute-skillet.jpg"
+  "image": "/images/recipes/slow-cooker-beef-and-broccoli.jpg"
 } satisfies Recipe;

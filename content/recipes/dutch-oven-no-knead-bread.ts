@@ -120,5 +120,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/categories/sunday-meal-prep.jpg"
+  "image": "/images/recipes/dutch-oven-no-knead-bread.jpg"
 } satisfies Recipe;

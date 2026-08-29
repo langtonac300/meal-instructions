@@ -138,5 +138,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/categories/game-day-nachos.jpg"
+  "image": "/images/recipes/grilled-brats-with-beer-onions.jpg"
 } satisfies Recipe;

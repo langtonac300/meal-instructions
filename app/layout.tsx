@@ -7,24 +7,25 @@ import { SITE_URL, SITE_NAME, abs } from '@/lib/site';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} // No-Fluff Reference & Air Fryer Engine`,
+    default: `${SITE_NAME} | No Fluff, Just the Instructions`,
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    'No-fluff cooking reference for dads. Parametric time & temperature datasheets and quality-gated weeknight meals with instant 20-word execution.',
+    'No-fluff cooking reference and parametric time & temperature datasheets. Fast, quality-gated weeknight meals with instant directions. No fluff, just the instructions.',
   keywords: [
+    'meal instructions',
+    'cooking instructions',
+    'no fluff recipes',
     'air fryer cook times',
     'how long to cook chicken in air fryer',
-    'dad meals',
     'quick weeknight dinners',
-    'no fluff recipe website',
     '15 minute meals',
     'cast iron smash burgers',
     'cooking cheat sheet',
   ],
-  authors: [{ name: 'Dad Meals Kitchen' }],
-  creator: 'Dad Meals',
-  publisher: 'Dad Meals',
+  authors: [{ name: 'Meal Instructions Kitchen' }],
+  creator: 'Meal Instructions',
+  publisher: 'Meal Instructions',
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
@@ -40,9 +41,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `${SITE_NAME} // Zero-Fluff Cooking Reference`,
+    title: `${SITE_NAME} — No Fluff, Just the Instructions`,
     description:
-      'Parametric cook-time database and quality-gated dad meals. Exact temperatures and zero blog stories.',
+      'Parametric cook-time database and quality-gated weeknight meals. Exact temperatures and zero blog stories. No fluff, just the instructions.',
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: 'en_US',
@@ -50,8 +51,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_NAME} // Zero-Fluff Cooking Reference`,
-    description: 'Parametric cook-time database. No fluff. Just execution.',
+    title: `${SITE_NAME} — No Fluff, Just the Instructions`,
+    description: 'Parametric cook-time database. No fluff, just the instructions.',
   },
 };
 
@@ -79,7 +80,7 @@ export default function RootLayout({
       try {
         var params = new URLSearchParams(window.location.search);
         var qMode = params.get('mode');
-        var stored = localStorage.getItem('dad_mode') || localStorage.getItem('dad_meals_recipe_mode');
+        var stored = localStorage.getItem('meal_instructions_mode') || localStorage.getItem('recipe_mode') || localStorage.getItem('dad_mode') || localStorage.getItem('dad_meals_recipe_mode');
         var mode = qMode || stored || 'quick';
         if (mode === 'fast') mode = 'quick';
         document.documentElement.setAttribute('data-mode', mode);

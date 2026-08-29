@@ -131,5 +131,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/recipes/recipe_meatballs.jpg"
+  "image": "/images/recipes/sheet-pan-turkey-meatball-sub-melts.jpg"
 } satisfies Recipe;

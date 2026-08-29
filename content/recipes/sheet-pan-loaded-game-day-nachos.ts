@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 10,
   "cookMinutes": 8,
   "totalMinutes": 18,
+  "image": "/images/recipes/sheet-pan-loaded-game-day-nachos.jpg",
   "defaultServings": 6,
   "basis": "Tested on rimmed half sheet pan with 12 oz chips and 1 lb seasoned beef at 400°F.",
   "safeInternalTempF": 165,

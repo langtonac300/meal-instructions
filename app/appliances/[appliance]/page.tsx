@@ -24,12 +24,12 @@ export async function generateMetadata({ params }: AppliancePageProps): Promise<
   const appMeta = APPLIANCES.find((a) => a.slug === appliance);
 
   if (!appMeta) {
-    return { title: 'Appliance Guide Not Found | Dad Meals' };
+    return { title: 'Appliance Guide Not Found | Meal Instructions' };
   }
 
   const recipes = getRecipesByAppliance(appliance);
   const title = `${appMeta.name} Recipes & Cook Time Guide (${recipes.length} Meals)`;
-  const description = `${appMeta.shortDescription} Full time, temperature, and shake guide plus ${recipes.length} battle-tested dad recipes.`;
+  const description = `${appMeta.shortDescription} Full time, temperature, and shake guide plus ${recipes.length} battle-tested recipes.`;
 
   return {
     title,

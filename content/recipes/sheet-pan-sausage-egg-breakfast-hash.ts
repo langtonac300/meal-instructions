@@ -156,5 +156,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/categories/weekend-breakfast-feasts.jpg"
+  "image": "/images/recipes/sheet-pan-sausage-egg-breakfast-hash.jpg"
 } satisfies Recipe;

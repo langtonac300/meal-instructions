@@ -43,6 +43,8 @@ export default function RecipeClientView({ recipe }: RecipeClientViewProps) {
     setCurrentMode(newMode);
     document.documentElement.setAttribute('data-mode', newMode);
     try {
+      localStorage.setItem('meal_instructions_mode', newMode);
+      localStorage.setItem('recipe_mode', newMode);
       localStorage.setItem('dad_meals_recipe_mode', newMode);
     } catch (e) {}
   };

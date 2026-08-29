@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 1,
   "cookMinutes": 8,
   "totalMinutes": 9,
+  "image": "/images/recipes/air-fryer-frozen-gyoza-potstickers.jpg",
   "defaultServings": 3,
   "basis": "Tested on 12 frozen pork and vegetable dumplings at 380°F in basket air fryer.",
   "safeInternalTempF": 165,

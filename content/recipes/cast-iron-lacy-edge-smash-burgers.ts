@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 5,
   "cookMinutes": 5,
   "totalMinutes": 10,
+  "image": "/images/recipes/cast-iron-lacy-edge-smash-burgers.jpg",
   "defaultServings": 4,
   "basis": "Tested on screaming hot 12-inch Lodge cast iron skillet on high flame with 2 oz 80/20 balls.",
   "safeInternalTempF": 160,

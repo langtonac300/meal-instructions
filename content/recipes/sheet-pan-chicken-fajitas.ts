@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 8,
   "cookMinutes": 15,
   "totalMinutes": 23,
+  "image": "/images/recipes/sheet-pan-chicken-fajitas.jpg",
   "defaultServings": 4,
   "basis": "Tested on rimmed half sheet pan lined with parchment at 425°F convection.",
   "safeInternalTempF": 165,

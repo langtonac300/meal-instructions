@@ -22,11 +22,11 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const catMeta = CATEGORIES.find((c) => c.slug === category);
 
   if (!catMeta) {
-    return { title: 'Category Not Found | Dad Meals' };
+    return { title: 'Category Not Found | Meal Instructions' };
   }
 
   const count = getRecipesByCategory(category).length;
-  const title = `${catMeta.name} (${count} No-Fluff Dad Recipes)`;
+  const title = `${catMeta.name} (${count} No-Fluff Recipes)`;
   const description = `${catMeta.fullDescription} 100% fluff-free execution. Exact temperatures and times.`;
 
   return {

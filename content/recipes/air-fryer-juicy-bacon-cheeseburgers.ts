@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 5,
   "cookMinutes": 10,
   "totalMinutes": 15,
+  "image": "/images/recipes/air-fryer-juicy-bacon-cheeseburgers.jpg",
   "defaultServings": 4,
   "basis": "Tested on 80/20 ground chuck 1/3 lb patties at 375°F in basket air fryer.",
   "safeInternalTempF": 160,

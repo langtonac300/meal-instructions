@@ -2,7 +2,7 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { createDadMealsMcpServer } from '../lib/mcp/server.ts';
 
-console.log('\n--- TESTING DAD MEALS MCP SERVER (npm run test:mcp) ---');
+console.log('\n--- TESTING MEAL INSTRUCTIONS MCP SERVER (npm run test:mcp) ---');
 
 async function runTests() {
   const server = createDadMealsMcpServer();
@@ -16,7 +16,7 @@ async function runTests() {
   );
 
   await client.connect(clientTransport);
-  console.log('✅ Client connected to Dad Meals MCP Server via in-memory transport.');
+  console.log('✅ Client connected to Meal Instructions MCP Server via in-memory transport.');
 
   // 1. Test tools/list
   const toolsResponse = await client.listTools();

@@ -2,108 +2,25 @@ import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import {
-  LeanAirFryerIcon,
-  LeanHeatWavesIcon,
-  LeanSafetyShieldIcon,
-  LeanClockIcon,
-  LeanForkIcon,
-  LeanProbeIcon,
-  LeanScaleIcon,
-  LeanPlateIcon,
-  LeanPanHeatIcon,
-  LeanStopwatchIcon,
-} from '@/components/icons/Lean5SIcons';
 import { absoluteUrl } from '@/lib/site';
+import ToolsDirectory from '@/components/tools/ToolsDirectory';
+import { ALL_TOOLS } from '@/data/tools-directory';
 
 export const metadata: Metadata = {
-  title: 'Zero-Fluff Kitchen Calculators & Cooking Tools Directory',
-  description: 'Precision cooking utilities for busy parents: oven-to-air fryer converters, frozen cook calculators, carryover temp charts, salt math, and dinner sync schedulers.',
+  title: 'Zero-Fluff Kitchen Calculators & Cooking Tools Directory (30 Engines)',
+  description: 'Precision cooking utilities for busy cooks and dads: oven-to-air fryer converters, oil smoke points, reverse sear timers, baker percentages, turkey thaw math, and dinner sync timelines.',
   alternates: {
     canonical: absoluteUrl('/tools'),
   },
 };
 
-const TOOLS = [
-  {
-    href: '/air-fryer-calculator',
-    icon: LeanAirFryerIcon,
-    title: 'Oven to Air Fryer Converter',
-    badge: 'CORE CONVERTER',
-    description: 'Convert conventional oven temps and cook times using the convection 25° / 20% rule.',
-  },
-  {
-    href: '/reheat',
-    icon: LeanHeatWavesIcon,
-    title: 'Takeout & Leftover Revive Engine',
-    badge: 'CRISP RESTORATION',
-    description: 'Restore fries, pizza, wings, and tenders to fresh-out-of-the-fryer crunch without microwave mush.',
-  },
-  {
-    href: '/frozen-cook',
-    icon: LeanSafetyShieldIcon,
-    title: 'Forgot to Thaw? Freezer Matrix',
-    badge: 'USDA SAFETY PROTOCOL',
-    description: 'Direct-from-frozen cooking times, banned appliances, and rapid cold-water submersion timelines.',
-  },
-  {
-    href: '/dinner-sync',
-    icon: LeanClockIcon,
-    title: 'Two-Appliance Dinner Sync',
-    badge: 'REVERSE TIMELINE',
-    description: 'Coordinate multiple appliances so protein, roasted veggies, and carbs finish piping hot at the same minute.',
-  },
-  {
-    href: '/meat-math',
-    icon: LeanForkIcon,
-    title: 'Feed The Crew Meat Math',
-    badge: 'COSTCO & BBQ SCALER',
-    description: 'Calculate raw butcher weights factoring in 25-50% shrinkage, bones, and buns for any headcount.',
-  },
-  {
-    href: '/internal-temp',
-    icon: LeanProbeIcon,
-    title: 'Thermometer Pull Temp Guide',
-    badge: 'THERMAL CARRYOVER',
-    description: 'Exact temperatures to pull meat off the heat to account for the resting rise and prevent dry meat.',
-  },
-  {
-    href: '/salt-math',
-    icon: LeanScaleIcon,
-    title: 'Equilibrium Salting & Dry Brine',
-    badge: 'DENSITY CONVERSION',
-    description: 'Convert salt weight to volume accurately across Diamond Crystal, Morton, table salt, and sea salt.',
-  },
-  {
-    href: '/kid-split',
-    icon: LeanPlateIcon,
-    title: 'Picky Kid Meal Deconstructor',
-    badge: 'ZERO DOUBLE COOKING',
-    description: '60-second plating and sauce-separation blueprints to feed toddlers and adults from one pan.',
-  },
-  {
-    href: '/troubleshoot',
-    icon: LeanPanHeatIcon,
-    title: 'Fix My Cook // 5-Sec Rescue',
-    badge: 'EMERGENCY TRIAGE',
-    description: '1-click fixes for smoking air fryers, soggy veggies, gray steak, and slipped breading.',
-  },
-  {
-    href: '/cheat-sheet',
-    icon: LeanStopwatchIcon,
-    title: 'Printable Cooking Cheatsheet',
-    badge: 'FRIDGE REFERENCE',
-    description: 'Full time and temperature matrix for air fryers, sheet pans, skillets, and grills.',
-  },
-];
-
 export default function ToolsPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: 'Zero-Fluff Kitchen Calculators & Cooking Tools Directory',
+    name: 'Zero-Fluff Kitchen Calculators & Cooking Engines Directory',
     url: absoluteUrl('/tools'),
-    description: 'Interactive cooking calculators, converters, and reference charts for dads and busy cooks.',
+    description: '30 interactive cooking calculators, converters, and parametric reference charts for busy cooks.',
   };
 
   return (
@@ -119,7 +36,7 @@ export default function ToolsPage() {
           <span>Back to Home</span>
         </Link>
         <span className="font-mono text-xs text-accent font-bold uppercase">
-          10 INTERACTIVE ENGINES
+          30 INTERACTIVE ENGINES
         </span>
       </div>
 
@@ -127,48 +44,46 @@ export default function ToolsPage() {
       <section className="bg-paper-card hairline-border p-6 sm:p-10 space-y-3">
         <div className="micro-label text-accent">ARCHITECTURAL UTILITIES</div>
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-ink uppercase font-sans">
-          Kitchen Engines & Calculators
+          Kitchen Engines &amp; Calculators
         </h1>
         <p className="text-sm sm:text-base text-ink-muted max-w-2xl font-sans">
-          No life stories, no clutter. Instant calculations for cooking temperatures, meat poundage, freezer emergencies, leftover revival, and salt density.
+          No life stories, no clutter. Instant calculations for cooking temperatures, meat poundage, freezer emergencies, dough hydration, smoke points, and dinner sync timelines.
         </p>
       </section>
 
-      {/* Tools Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {TOOLS.map((tool) => {
-          const Icon = tool.icon;
-          return (
-            <Link
-              key={tool.href}
-              href={tool.href}
-              className="bg-paper-card hairline-border p-6 space-y-3 hover:border-ink transition-all group flex flex-col justify-between"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="micro-label text-accent font-mono">
-                    {tool.badge}
-                  </span>
-                  <div className="p-1.5 bg-paper hairline-border">
-                    <Icon size={24} className="text-ink-muted group-hover:text-accent transition-colors" />
-                  </div>
-                </div>
-                <h2 className="text-xl font-bold text-ink uppercase tracking-tight font-sans group-hover:text-accent transition-colors">
-                  {tool.title}
-                </h2>
-                <p className="text-xs sm:text-sm text-ink-muted font-sans leading-relaxed">
-                  {tool.description}
-                </p>
-              </div>
+      {/* Interactive Directory with Search & Filtering */}
+      <ToolsDirectory />
 
-              <div className="font-mono text-xs font-bold text-ink uppercase pt-2 flex items-center gap-1 group-hover:underline">
-                <span>Launch Tool</span>
-                <span>→</span>
-              </div>
-            </Link>
-          );
-        })}
-      </div>
+      {/* SSR Static Reference Table for Crawlers */}
+      <section className="bg-paper hairline-border p-6 space-y-4 font-mono text-xs">
+        <div className="font-bold text-ink uppercase tracking-wider text-[11px] hairline-b pb-2">
+          DIRECTORY OF 30 PRECISION KITCHEN ENGINES
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="border-b border-hairline text-ink-muted text-[10px] uppercase">
+                <th className="py-2">Tool Name</th>
+                <th className="py-2">Route</th>
+                <th className="py-2">Category</th>
+                <th className="py-2">Engineering Scope</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-hairline">
+              {ALL_TOOLS.map((t) => (
+                <tr key={t.href} className="hover:bg-paper-card">
+                  <td className="py-2 font-bold text-ink">{t.title}</td>
+                  <td className="py-2 font-mono text-accent">
+                    <Link href={t.href} className="hover:underline">{t.href}</Link>
+                  </td>
+                  <td className="py-2 uppercase text-[10px] text-ink-muted">{t.category}</td>
+                  <td className="py-2 text-ink-muted font-sans text-xs">{t.description}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
       {/* JSON-LD Structured Data */}
       <script

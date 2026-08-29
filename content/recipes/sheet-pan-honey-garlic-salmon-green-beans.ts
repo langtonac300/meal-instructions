@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 6,
   "cookMinutes": 14,
   "totalMinutes": 20,
+  "image": "/images/recipes/sheet-pan-honey-garlic-salmon-green-beans.jpg",
   "defaultServings": 4,
   "basis": "Tested on rimmed half sheet pan with four 6 oz fillets and 1 lb green beans at 400°F.",
   "safeInternalTempF": 135,

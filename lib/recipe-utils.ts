@@ -1,6 +1,6 @@
 import { Recipe, Ingredient } from './types';
 import { RECIPES } from '@/data/recipes';
-import { SITE_URL, abs } from './site';
+import { SITE_URL, SITE_NAME, abs } from './site';
 
 export function getAllRecipes(): Recipe[] {
   return RECIPES;
@@ -84,7 +84,7 @@ export function generateRecipeSchema(recipe: Recipe) {
     image: [abs('/og-image.jpg')],
     author: {
       '@type': 'Organization',
-      name: 'Dad Meals // Zero Fluff',
+      name: SITE_NAME,
       url: SITE_URL,
     },
     datePublished: recipe.datePublished,

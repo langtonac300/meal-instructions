@@ -120,5 +120,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/categories/kid-approved-nuggets.jpg"
+  "image": "/images/recipes/air-fryer-frozen-chicken-nuggets-and-fries.jpg"
 } satisfies Recipe;

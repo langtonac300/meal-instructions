@@ -156,5 +156,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/hero/smoked-ribs.jpg"
+  "image": "/images/recipes/slow-cooker-pulled-pork.jpg"
 } satisfies Recipe;

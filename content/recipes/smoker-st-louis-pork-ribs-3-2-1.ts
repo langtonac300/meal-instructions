@@ -15,6 +15,7 @@ export default {
   "prepMinutes": 15,
   "cookMinutes": 330,
   "totalMinutes": 345,
+  "image": "/images/recipes/smoker-st-louis-pork-ribs-3-2-1.jpg",
   "defaultServings": 6,
   "basis": "Tested on 2 racks of St. Louis ribs at 225°F using hickory pellets on Traeger smoker.",
   "safeInternalTempF": 202,

@@ -126,5 +126,5 @@ export default {
   ],
   "datePublished": "2026-08-29",
   "lastUpdated": "2026-08-29",
-  "image": "/images/hero/smoked-ribs.jpg"
+  "image": "/images/recipes/smoked-texas-style-beef-brisket.jpg"
 } satisfies Recipe;

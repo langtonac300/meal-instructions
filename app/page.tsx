@@ -60,9 +60,9 @@ export default function HomePage() {
             </div>
 
             <h1 className="font-sans text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-ink uppercase leading-[0.95]">
-              ZERO FLUFF.
+              NO FLUFF.
               <br />
-              <span className="text-accent">JUST DIRECTIONS.</span>
+              <span className="text-accent">JUST THE INSTRUCTIONS.</span>
             </h1>
 
             <p className="mt-4 text-base sm:text-lg text-ink-muted font-sans max-w-2xl leading-relaxed">
@@ -299,7 +299,7 @@ export default function HomePage() {
                     INSTANT REFERENCE
                   </span>
                   <h3 className="font-sans text-xl sm:text-2xl font-bold text-ink uppercase mt-0.5">
-                    DAD AIR FRYER QUICK TEMPERATURE MATRIX
+                    AIR FRYER QUICK TEMPERATURE MATRIX
                   </h3>
                 </div>
               </div>
@@ -472,7 +472,7 @@ export default function HomePage() {
         <div className="bg-ink text-paper rounded-lg p-8 sm:p-12 relative overflow-hidden">
           <div className="max-w-3xl relative z-10">
             <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold block mb-2">
-              WHY DAD MEALS EXISTS
+              WHY MEAL INSTRUCTIONS EXISTS
             </span>
             <h2 className="font-sans text-3xl sm:text-4xl font-bold tracking-tight uppercase leading-tight">
               NO ESSAYS ABOUT GRANDMOTHER’S CABIN. NO 5-PAGE ADS.

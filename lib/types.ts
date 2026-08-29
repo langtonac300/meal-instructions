@@ -178,3 +178,38 @@ export interface CookTimeDatasheet {
   verificationBasis: string; // HR-2: Source / tested hardware
   relatedRecipeSlug?: string;
 }
+
+export type BlogCategory =
+  | 'food-science'
+  | 'equipment'
+  | 'technique'
+  | 'weeknight-ops'
+  | 'safety-temperatures';
+
+export interface BlogPost {
+  id: string; // e.g. "blog-001"
+  slug: string; // e.g. "maillard-reaction-steak-searing"
+  title: string;
+  subtitle: string;
+  summary: string;
+  category: BlogCategory;
+  categoryName: string;
+  readMinutes: number;
+  datePublished: string;
+  lastUpdated: string;
+  author: string;
+  keywords: string[];
+  keyTakeaways: string[];
+  contentMarkdown: string;
+  faq?: {
+    q: string;
+    a: string;
+  }[];
+  relatedToolLinks?: {
+    title: string;
+    href: string;
+    description: string;
+  }[];
+  relatedRecipeSlugs?: string[];
+}
+
