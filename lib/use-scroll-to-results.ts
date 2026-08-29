@@ -37,38 +37,68 @@ export function useScrollToResults<T extends HTMLElement = HTMLDivElement>(
   const skippedMount = useRef(false);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const w = window as unknown as { __srlog?: unknown[] };
-      if (!w.__srlog) w.__srlog = [];
-      w.__srlog.push({
-        ev: 'effect',
-        skippedMountWas: skippedMount.current,
-        deps: JSON.stringify(deps),
-        top: ref.current ? Math.round(ref.current.getBoundingClientRect().top) : null,
-        offset,
-      });
-    }
     if (!skippedMount.current) {
       skippedMount.current = true;
       return;
     }
 
-    const el = ref.current;
-    if (typeof window === 'undefined' || !el) return;
+    if (typeof window === 'undefined' || !ref.current) return;
 
-    const top = el.getBoundingClientRect().top;
+    // Two frames, not zero: the effect runs before the browser has laid out
+    // React's commit. Both surfaces resize hard on change — the homepage list
+    // goes 70 items to 4, the recipe page shows/hides a whole panel — and a
+    // smooth scroll started against the pre-change layout gets cancelled by
+    // that resize. Measure after paint, then verify we actually arrived.
+    let inner = 0;
+    const timers: number[] = [];
 
-    // Already comfortably visible — leave the page where it is.
-    if (top >= offset && top <= window.innerHeight * 0.5) return;
+    const outer = requestAnimationFrame(() => {
+      inner = requestAnimationFrame(() => {
+        const el = ref.current;
+        if (!el) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
+        const top = el.getBoundingClientRect().top;
 
-    window.scrollTo({
-      top: Math.max(0, window.scrollY + top - offset),
-      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+        // Already comfortably visible — leave the page where it is.
+        if (top >= offset && top <= window.innerHeight * 0.5) return;
+
+        const prefersReducedMotion = window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+        el.style.scrollMarginTop = `${offset}px`;
+        el.scrollIntoView({
+          behavior: prefersReducedMotion ? 'auto' : 'smooth',
+          block: 'start',
+        });
+
+        if (prefersReducedMotion) return;
+
+        // A cancelled smooth scroll leaves the user exactly where the problem
+        // started, which is the bug this hook exists to fix. Re-aim a few times
+        // while the list settles, then snap so we never silently do nothing.
+        const checkpoints = [300, 700, 1100];
+        checkpoints.forEach((delay, i) => {
+          timers.push(
+            window.setTimeout(() => {
+              const el2 = ref.current;
+              if (!el2) return;
+              if (Math.abs(el2.getBoundingClientRect().top - offset) <= 24) return;
+              el2.scrollIntoView({
+                behavior: i === checkpoints.length - 1 ? 'auto' : 'smooth',
+                block: 'start',
+              });
+            }, delay)
+          );
+        });
+      });
     });
+
+    return () => {
+      cancelAnimationFrame(outer);
+      if (inner) cancelAnimationFrame(inner);
+      timers.forEach((t) => window.clearTimeout(t));
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 
