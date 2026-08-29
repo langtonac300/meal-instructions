@@ -147,8 +147,8 @@ npm run audit:content    # duplicate prose, invalid combos, enum violations, fab
 npm run audit:seo        # canonical/domain, both modes in SSR HTML, schema validity
 ```
 
-`audit:content` and `audit:seo` do not exist yet. Building them is Phase 0 work and
-blocks all content work.
+All three scripts exist and must exit 0. Coverage is not yet complete — see
+`SEO-PROJECT.md` for tracked gaps (SEO-018).
 
 ---
 

@@ -16,7 +16,7 @@ export function generateBlogPostingSchema(post: BlogPost) {
       '@type': 'WebPage',
       '@id': abs(`/blog/${post.slug}`),
     },
-    image: [abs('/og-image.jpg')],
+    image: [abs('/opengraph-image.png')],
     datePublished: post.datePublished,
     dateModified: post.lastUpdated,
     author: {
@@ -30,7 +30,7 @@ export function generateBlogPostingSchema(post: BlogPost) {
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: abs('/og-image.jpg'),
+        url: abs('/logo-512.png'),
       },
     },
     articleSection: post.categoryName,

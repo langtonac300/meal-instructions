@@ -81,7 +81,7 @@ export function generateRecipeSchema(recipe: Recipe) {
     headline: recipe.title,
     description: recipe.tagline,
     url: abs(`/recipes/${recipe.slug}`),
-    image: [abs('/og-image.jpg')],
+    image: [abs('/opengraph-image.png')],
     author: {
       '@type': 'Organization',
       name: SITE_NAME,
@@ -104,13 +104,10 @@ export function generateRecipeSchema(recipe: Recipe) {
       text: `${step.instruction}${step.proTip ? ` Tip: ${step.proTip}` : ''}`,
       url: abs(`/recipes/${recipe.slug}#step-${step.stepNumber}`),
     })),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '128',
-      bestRating: '5',
-      worstRating: '1',
-    },
+    // HR-2: no aggregateRating until real, verifiable user reviews exist.
+    // Synthetic or site-wide-identical review markup violates Google's
+    // structured data policy and is manual-action eligible. Do not re-add
+    // this with randomised values — that is the same violation.
   };
 
   if (recipe.nutrition) {

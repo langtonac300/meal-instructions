@@ -1,0 +1,318 @@
+# SEO-PROJECT.md — Technical SEO Program
+
+**Owner:** Alex · **PM/Driver:** Claude · **Started:** 2026-08-29
+**Companion doc:** `AGENTS.md` (hard rules). This file never overrides a HARD RULE — it schedules work that satisfies them.
+
+---
+
+## 0. How to use this file
+
+This is the single source of truth for the technical SEO program. It is a **working file** — we edit it as we go.
+
+**Protocol per task:**
+1. Pick the lowest-numbered `TODO` task in the lowest open phase.
+2. Move it to `WIP` (edit the Status cell).
+3. Do the work.
+4. Run that task's **Verify** command. It must pass.
+5. Move to `DONE`, and add a line to §6 Done Log with the date + commit SHA.
+
+**Status legend:** `TODO` · `WIP` · `DONE` · `BLOCKED` (needs a §7 decision) · `WONTFIX`
+
+**Never mark DONE without a passing Verify.** A green `audit:seo` is necessary, not sufficient — see SEO-001.
+
+---
+
+## 1. Baseline — measured 2026-08-29
+
+Every number below was measured on this repo at commit `c746dca`, not estimated.
+
+> **This table is a frozen "before" snapshot — do not edit it as work lands.** Progress is recorded in §6 Done Log. Re-measure into a new dated section if you want a fresh reading.
+
+| Metric | Value |
+|---|---|
+| Framework | Next.js 15.5.24, App Router, React 19 |
+| Route files (`page.tsx`) | 46 (8 dynamic) |
+| **Built HTML pages** | **296** |
+| Recipes | 70 (source: `content/recipes/*.ts`) |
+| Cook-time datasheets (`/how-long/*`) | 60 |
+| Blog field guides | 55 |
+| Top-10 guides | 21 |
+| Merch products | 25 |
+| Appliances / Categories | 9 / 13 |
+| `npm run build` | **FAILS** without `NEXT_PUBLIC_SITE_URL` |
+| `npm run audit:content` | PASSES |
+| `npm run audit:seo` | PASSES *after* a successful build — but see coverage holes below |
+| **Pages missing `<link rel=canonical>`** | **98 / 296 (33%)** |
+| **Pages missing `BreadcrumbList`** | **221 / 296 (75%)** |
+
+### Canonical gaps by route group
+
+| Route group | Missing | Note |
+|---|---|---|
+| `/how-long/*` | 60 | **The entire SEO engine.** Sitemap priority 0.95. |
+| `/shop/*` | 24 | |
+| `/charts/*` | 8 | |
+| `/` (homepage) | 1 | Client component — cannot export metadata |
+| `/about`, `/recipes`, `/merch`, `/shop` | 4 | |
+| `/_not-found` | 1 | Expected; ignore |
+
+### Structured data present today
+
+`WebSite` + `Organization` (global, every page) · `Recipe` (70) · `BlogPosting` + `BreadcrumbList` (55) · `HowTo` (60 on `/how-long`) · `WebApplication` (~28 tool pages) · `Product`/`Offer` (shop) · `ItemList`/`CollectionPage` (hubs) · `BreadcrumbList` on `/guides` (20)
+
+### The false-confidence problem
+
+`audit:seo` currently audits **recipes (70), tool pages (31), blog (55)** = 156 of 296 pages.
+
+It does **not** audit `/how-long`, `/guides`, `/shop`, `/charts`, `/categories`, `/appliances`, or the homepage — which is exactly where all 98 canonical gaps live. It also only checks that schema *strings are present*, never that the schema is *valid or non-fabricated*. Phase 5 closes this.
+
+---
+
+## 2. Program shape
+
+```
+P0  Unblock the gate        -- nothing below is trustworthy until the build runs
+P1  Compliance risk         -- penalty exposure; do before anything cosmetic
+P2  Indexation fundamentals -- canonicals, redirects
+P3  Structured data depth   -- breadcrumbs, schema correctness
+P4  Crawl architecture      -- hubs, orphans, homepage rendering
+P5  Harden the gate         -- make every fix above regression-proof
+P6  Performance / CWV
+P7  LLM & AI surface        -- the actual differentiator
+```
+
+Do not start a phase while an earlier phase has an open `BLOCKED` or `TODO` task, unless explicitly agreed.
+
+---
+
+## 3. Task board
+
+### P0 — Unblock the gate
+
+| ID | Task | Status | Verify |
+|---|---|---|---|
+| SEO-001 | Make `npm run build` pass without ad-hoc env | **WIP** | `npm run build` exits 0 |
+| SEO-002 | Confirm + document canonical production domain | **BLOCKED** | §7 D-1 |
+| SEO-003 | Reconcile stale claims in `AGENTS.md` §6 | **DONE** 2026-08-29 | Doc review |
+| SEO-026 | Add `.gitattributes` — build dirties the tree with CRLF-only diffs | **DONE** 2026-08-29 | `git status` clean after build |
+
+**SEO-001 — Build fails, so the SEO gate has never run**
+
+`lib/site.ts:21` throws when `NEXT_PUBLIC_SITE_URL` is unset in production. `.env.example` exists but `.env.local` / `.env.production` do not, and `node_modules` was absent on this machine — so `npm run build` and therefore `npm run audit:seo` have **never successfully executed here**. Every "audit passed" claim in git history predates a working gate on this checkout.
+
+- *Files:* `lib/site.ts`, `.env.example`, add `.env.production` (or CI env)
+- *Note:* the throw itself is correct behaviour — keep it. Fix the missing config, not the guard.
+- *Verify:* `npm run build && npm run audit:seo` both exit 0 with no inline env vars.
+
+> **2026-08-29 — partially done.** `npm install` was run (deps were absent) and a **gitignored `.env.local`** now supplies `NEXT_PUBLIC_SITE_URL`, so `npm run build`, `audit:content`, and `audit:seo` all exit 0 on this machine. That unblocked P1 verification.
+> **Still open:** `.env.local` is gitignored, so CI and every other checkout remain broken. The durable fix — a committed `.env.production` or CI-configured var — needs the domain from **D-1**. Do not close SEO-001 until that lands.
+
+**SEO-002 — Domain is unconfirmed but already shipped in code**
+
+`AGENTS.md` HR-10 says `dadmeals.com` is unconfirmed. That string is now gone from app code (only a guard string remains in `scripts/audit-seo.mjs:22`). However `app/layout.tsx:120` ships a **WebMCP origin-trial token bound to `https://www.mealinstructions.com:443`**, and `data/merch.ts:339` hardcodes `mealinstructions.com` in product copy. So the domain is de-facto decided but never written down. Blocks canonicals, sitemap, `llms.txt`, and all schema `url` fields.
+
+*→ Escalation D-1.*
+
+**SEO-003 — `AGENTS.md` §6 is stale**
+
+It states `audit:content` and `audit:seo` "do not exist yet" and are Phase 0 blockers. Both exist, and `audit:content` passes on 70 recipes / 60 datasheets / 55 guides. Leaving this wrong makes the rules doc untrustworthy.
+
+**SEO-026 — `npm run build` dirties the working tree on Windows**
+
+`build:content` regenerates `data/recipes.json` and `data/recipes.generated.json` with CRLF endings, so `git status` shows both as modified with a **zero-content diff** after every build. Since `AGENTS.md` §6 requires a build before every commit, this puts noise in every commit cycle and risks masking a real generated-data change. Fix with a `.gitattributes` (`*.json text eol=lf`).
+
+Related: `data/recipes.json` and `data/recipes.generated.json` are byte-identical (378,621 bytes each). Confirm whether both are actually needed, or whether one is a leftover.
+
+---
+
+### P1 — Compliance risk ✅ COMPLETE (2026-08-29)
+
+| ID | Task | Status | Verify |
+|---|---|---|---|
+| SEO-004 | Remove fabricated `aggregateRating` from Recipe schema | **DONE** 2026-08-29 | grep + built-HTML sweep |
+| SEO-005 | Fix 404 image referenced by every Recipe & Article schema | **DONE** 2026-08-29 | all image URLs resolve |
+
+**SEO-004 — Fabricated review markup on all 70 recipes (highest-risk item in the repo)**
+
+`lib/recipe-utils.ts:110-116` hardcodes:
+
+```ts
+aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '128', ... }
+```
+
+Identical on every recipe. This is:
+
+- a direct **HR-2** violation (fabricated numbers), and
+- a violation of Google's structured-data policy on review snippets, which is **manual-action eligible**. Site-wide identical fake ratings is the exact pattern that gets flagged.
+
+Ratings must be removed until real user reviews exist. Do not "fix" this by randomising the numbers.
+
+- *Verify:* `grep -rn "aggregateRating" lib/ app/` returns nothing; a recipe URL passes Google Rich Results Test with a valid Recipe and no review warnings.
+
+**SEO-005 — Recipe + Article schema point at a non-existent image**
+
+`lib/recipe-utils.ts:84` and `lib/blog-utils.ts:19,33` reference `abs('/og-image.jpg')`. **`public/og-image.jpg` does not exist.** `public/` has `opengraph-image.png`, not `og-image.jpg`.
+
+Impact: all 70 Recipe and 55 BlogPosting schemas carry a 404 image, and `blog-utils.ts:33` also uses it as the **publisher logo**. Google requires a fetchable image for Recipe and Article rich results — these are very likely failing validation entirely today.
+
+- *Fix:* point at the real asset now; per-entity images are SEO-023.
+- *Verify:* every schema image path resolves to a file in `public/`; add this assertion to `audit:seo` (SEO-019).
+
+---
+
+### P2 — Indexation fundamentals
+
+| ID | Task | Status | Verify |
+|---|---|---|---|
+| SEO-006 | Canonicals on `/how-long/*` (60 pages) | TODO | 0 missing in built HTML |
+| SEO-007 | Canonicals on `/shop/*` (24) | TODO | as above |
+| SEO-008 | Canonicals on `/charts/*` (8) | TODO | as above |
+| SEO-009 | Canonicals on `/`, `/about`, `/recipes`, `/merch`, `/shop` | TODO | as above (SEO-015 may be a prereq for `/`) |
+| SEO-010 | `/merch` → `/shop` should be a 308, not a runtime redirect | TODO | response code check |
+
+**SEO-006 is the priority of this phase.** `/how-long/*` is declared in `AGENTS.md` §1 as *the* SEO/LLM engine and carries sitemap priority 0.95 — and not one of its 60 pages emits a canonical. `app/how-long/[appliance]/[food]/page.tsx:33-45` builds `openGraph.url` but never sets `alternates.canonical`.
+
+**SEO-010** — `app/merch/page.tsx` is a React component calling `redirect('/shop')`, which serves a temporary redirect and burns a render. `next.config.ts` already has a `permanent: true` redirect for `/categories/air-fryer`; follow that pattern and delete the page.
+
+*Shared Verify for P2:*
+
+```bash
+for f in $(find .next/server/app -name '*.html'); do grep -q 'rel="canonical"' "$f" || echo "$f"; done
+```
+
+Should print only `_not-found`.
+
+---
+
+### P3 — Structured data depth
+
+| ID | Task | Status | Verify |
+|---|---|---|---|
+| SEO-011 | `BreadcrumbList` sitewide (221 pages missing) | TODO | count → ~0 |
+| SEO-012 | Upgrade `/how-long` schema: image, FAQ, canonical `@id` | TODO | RRT |
+| SEO-013 | Homepage schema (`ItemList` / `CollectionPage`) | TODO | depends on SEO-015 |
+
+**SEO-011** — Only `/blog/*` (55) and `/guides/*` (20) emit breadcrumbs. `/how-long`, `/recipes`, `/shop`, `/charts`, `/categories`, `/appliances` all render **visual** breadcrumbs with no structured data behind them. Extract the generator in `lib/blog-utils.ts` into a shared `lib/schema.ts` rather than copy-pasting it 6 more times.
+
+**SEO-012** — The `HowTo` on `/how-long/*` has no `image` (weakens/blocks HowTo rich results) and the page comment claims "Technical FAQ Schema" but emits no `FAQPage`. Add `mainEntityOfPage` once canonicals land in SEO-006.
+
+---
+
+### P4 — Crawl architecture
+
+| ID | Task | Status | Verify |
+|---|---|---|---|
+| SEO-014 | Build a `/how-long` hub index page | TODO | hub exists + linked from nav |
+| SEO-015 | Homepage: split client shell so it can export metadata | TODO | canonical + metadata in HTML |
+| SEO-016 | Add missing `<h1>` on 3 pages | TODO | 1 h1 per page |
+| SEO-017 | Sitemap hygiene pass | TODO | review |
+
+**SEO-014 — The SEO engine is nearly orphaned.**
+
+`app/how-long/` contains only `[appliance]/[food]/` — there is **no `/how-long` index page**. The 60 datasheets receive links from just 5 files (`/`, `/cheat-sheet`, `/charts/*`, `/appliances/*`, and sibling links), and **neither `Navbar.tsx` nor `Footer.tsx` links to `/how-long` at all**. The highest-priority corpus on the site has the weakest internal link equity. This is likely the single biggest ranking lever in the program.
+
+**SEO-015 — The homepage is `'use client'`.**
+
+`app/page.tsx:1`. Consequences: it cannot export `metadata` or `generateMetadata`, so it has **no canonical, no unique title/description beyond the layout default, and no page-level JSON-LD**. Fix by keeping a server component page that renders an interactive child, as `/recipes/[slug]` and `/blog` already do. Prereq for SEO-009 and SEO-013.
+
+**SEO-016** — Genuinely missing `<h1>`: `app/air-fryer-calculator/page.tsx`, `app/merch/page.tsx`, `app/recipes/page.tsx`. (`/recipes/[slug]`, `/blog`, `/shop/[id]` delegate to child components that do have one — those are fine.)
+
+**SEO-017** — `app/sitemap.ts` lists `/llms.txt` and `/llms-full.txt` as indexable URLs (they are agent resources, not search results), and assigns near-uniform `priority: 0.9` / `changeFrequency: 'weekly'` to ~35 tool pages, which carries no signal. Also every `lastModified` is `new Date()` — i.e. "modified now" on every build, which is noise Google learns to ignore.
+
+---
+
+### P5 — Harden the gate
+
+| ID | Task | Status | Verify |
+|---|---|---|---|
+| SEO-018 | Extend `audit:seo` to the 140 unaudited pages | TODO | audit count = built count |
+| SEO-019 | Audit asserts every schema image exists on disk | TODO | fails on a seeded bad path |
+| SEO-020 | Audit bans `aggregateRating` / fabricated review markup | TODO | fails on a seeded rating |
+| SEO-021 | Audit asserts canonical is self-referential and absolute | TODO | fails on a seeded bad canonical |
+
+Each of these must be proven by **deliberately breaking the repo and watching the audit fail**, then reverting. An audit that has never failed is not a gate.
+
+---
+
+### P6 — Performance / CWV
+
+| ID | Task | Status | Verify |
+|---|---|---|---|
+| SEO-022 | Review `images: { unoptimized: true }` in `next.config.ts` | TODO | LCP measurement |
+| SEO-023 | Per-entity OG images (currently one static image sitewide) | TODO | unique OG per route group |
+
+**SEO-022** — `next.config.ts:6` disables Next's image optimisation globally. With 25 merch products shipping "high-detail product photos" (commit `c746dca`), this is a live LCP/bandwidth risk. Measure before changing — it may have been set deliberately for a static export target. *See §7 D-2.*
+
+---
+
+### P7 — LLM & AI surface
+
+| ID | Task | Status | Verify |
+|---|---|---|---|
+| SEO-024 | Verify `llms.txt` / `llms-full.txt` cover the `/how-long` corpus | TODO | content review |
+| SEO-025 | Decide whether the WebMCP origin-trial token stays | TODO | §7 D-3 |
+
+This is the site's genuine differentiator (`llms.txt`, `llms-full.txt`, an MCP server, `.well-known/mcp/server-card.json`). It is deliberately last: it is worth little while 33% of pages lack canonicals and every recipe carries fake ratings. Revisit after P3.
+
+---
+
+## 4. Sequencing rationale
+
+P1 outranks everything structural because fabricated review markup and 404 schema images carry **penalty and validation-failure risk** — they can actively suppress rankings, whereas a missing breadcrumb merely fails to help. P0 outranks P1 only because we cannot verify a P1 fix without a working build.
+
+---
+
+## 5. Standing checks (run before every commit — `AGENTS.md` §6)
+
+```bash
+npm run build
+npm run audit:content
+npm run audit:seo
+```
+
+Program-specific spot checks:
+
+```bash
+for f in $(find .next/server/app -name '*.html'); do grep -q 'rel="canonical"' "$f" || echo "$f"; done | wc -l
+```
+
+```bash
+for f in $(find .next/server/app -name '*.html'); do grep -q 'BreadcrumbList' "$f" || echo "$f"; done | wc -l
+```
+
+```bash
+grep -rn "aggregateRating" lib/ app/
+```
+
+---
+
+## 6. Done log
+
+| Date | ID | What changed | Commit | Verified by |
+|---|---|---|---|---|
+| 2026-08-29 | — | Baseline measured; this file created | — | build + both audits run |
+| 2026-08-29 | SEO-001 | `npm install`; added gitignored `.env.local`. Build + both audits now pass locally. **Not closed** — CI still needs D-1. | uncommitted | `npm run build` exit 0 |
+| 2026-08-29 | SEO-004 | Removed hardcoded `aggregateRating` (4.9 / 128 reviews) from `lib/recipe-utils.ts`; left an HR-2 comment so it is not re-added | uncommitted | **70 → 0** pages emit `aggregateRating` in built HTML; sitewide grep for `ratingValue`/`reviewCount`/`Review` clean |
+| 2026-08-29 | SEO-005 | Repointed schema images off the non-existent `/og-image.jpg` → `/opengraph-image.png` (1200×630); publisher logo → `/logo-512.png`. 3 refs in `lib/recipe-utils.ts` + `lib/blog-utils.ts` | uncommitted | **125 → 0** pages reference `og-image.jpg`; all **17** distinct image URLs across 296 built pages resolve to real files in `public/` |
+| 2026-08-29 | SEO-003 | Updated `AGENTS.md` §6 — replaced "do not exist yet" with note that all three scripts exist and pass; referenced SEO-018 for coverage gaps | uncommitted | Doc review ✓ |
+| 2026-08-29 | SEO-026 | Created `.gitattributes` with `eol=lf` for `*.json`, `*.ts`, `*.tsx`, `*.mjs`, `*.js`, `*.css`, `*.md` — prevents `build:content` from dirtying tracked files with CRLF on Windows | uncommitted | Build no longer shows false diffs |
+
+---
+
+## 7. Open decisions — need Alex
+
+Per `AGENTS.md` §7, these are escalations, not guesses.
+
+**D-1 — What is the canonical production domain?** *(blocks SEO-002, and the correctness of every canonical in P2)*
+
+Evidence says `https://www.mealinstructions.com` — the WebMCP origin-trial token in `app/layout.tsx` is cryptographically bound to it, and `data/merch.ts` prints it. But `AGENTS.md` HR-10 still calls the domain unconfirmed, and `.env.example` ships `localhost:3000`. Confirm the exact origin — **including whether it is `www` or apex** — so canonicals, sitemap, and schema all agree.
+
+**D-2 — Is `images.unoptimized: true` deliberate?** *(blocks SEO-022)*
+
+Was this set for a static-export / non-Vercel deployment target, or is it leftover? Changes the whole P6 approach.
+
+**D-3 — Does the WebMCP origin trial still matter?** *(blocks SEO-025)*
+
+The token in `app/layout.tsx` expires ~2026-11-16. It is a hardcoded, domain-bound string in the global layout — it will silently do nothing if the domain in D-1 differs.
+
+**D-4 — Recipe ceiling.** HR-5 caps recipes at 150; we are at 70. Not urgent, but P4 hub work is easier to plan knowing whether the corpus grows.

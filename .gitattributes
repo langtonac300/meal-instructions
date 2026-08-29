@@ -1,0 +1,8 @@
+# Normalise line endings so build:content on Windows doesn't dirty tracked JSON.
+*.json text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.mjs text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.md text eol=lf
