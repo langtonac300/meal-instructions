@@ -20,6 +20,7 @@ const HEAT_METHOD: Record<Appliance, string> = {
   'dutch-oven': 'Stovetop / Oven',
   'slow-cooker': 'Low & Slow',
   'smoker': 'Indirect Smoke',
+  'boiling': 'Stovetop Boil',
 };
 
 function releaseLabel(method?: string): string {

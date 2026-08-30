@@ -141,6 +141,18 @@ export const APPLIANCES: ApplianceMeta[] = [
       { food: 'Smoked Pork Butt / Shoulder', temp: '225°F–250°F', time: '8-10 hours', shake: 'Wrap at 165°F internal' },
       { food: 'Smoked Whole Chicken', temp: '250°F then 350°F', time: '3 hours', shake: 'Crisp skin at finish' }
     ]
+  },
+  {
+    slug: 'boiling',
+    name: 'Stovetop Boiling',
+    shortDescription: 'Full rolling boil at 212°F (100°C) for eggs, potatoes, pasta, corn, vegetables, and shellfish.',
+    tempRange: '212°F (100°C)',
+    image: '/images/hero/boiling-pot.jpg',
+    tempGuide: [
+      { food: 'Hard Boiled Eggs', temp: '212°F (100°C)', time: '10-12 minutes', shake: 'Ice bath immediately' },
+      { food: 'Whole Potatoes (medium)', temp: '212°F (100°C)', time: '20-25 minutes', shake: 'Fork-tender check' },
+      { food: 'Corn on the Cob', temp: '212°F (100°C)', time: '4-6 minutes', shake: 'Do not overcook' }
+    ]
   }
 ];
 

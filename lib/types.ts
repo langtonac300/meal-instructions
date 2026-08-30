@@ -8,7 +8,8 @@ export type Appliance =
   | 'grill'
   | 'dutch-oven'
   | 'slow-cooker'
-  | 'smoker';
+  | 'smoker'
+  | 'boiling';
 
 // Categories describe constraints and intent only (HR-13: no overlap with hardware)
 export type Category =

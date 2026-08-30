@@ -51,7 +51,7 @@ export async function GET() {
           properties: {
             query: { type: 'string', description: 'Search keyword matching title, ingredients, or keywords' },
             protein: { type: 'string', enum: ['chicken', 'beef', 'pork', 'seafood', 'turkey', 'vegetarian', 'dairy-eggs'] },
-            appliance: { type: 'string', enum: ['air-fryer', 'oven', 'instant-pot', 'skillet', 'sheet-pan', 'cast-iron', 'grill', 'dutch-oven', 'slow-cooker', 'smoker'] },
+            appliance: { type: 'string', enum: ['air-fryer', 'oven', 'instant-pot', 'skillet', 'sheet-pan', 'cast-iron', 'grill', 'dutch-oven', 'slow-cooker', 'smoker', 'boiling'] },
             category: { type: 'string', enum: ['15-minute', 'high-protein', 'kid-approved', 'budget', 'no-thaw', 'one-pan', 'five-ingredient', 'sides', 'snacks', 'game-day', 'breakfast', 'weekend'] },
             max_total_minutes: { type: 'number', description: 'Maximum allowed total minutes budget' },
           },

@@ -11,7 +11,7 @@ import { LeanIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon } from '@/comp
 export const metadata: Metadata = {
   title: 'How Long to Cook Everything — Verified Time & Temperature Datasheets',
   description:
-    `${COOK_TIME_DATASHEETS.length} verified cook-time datasheets for oven, air fryer, Instant Pot, skillet, sheet pan, cast iron, grill, slow cooker, and smoker. Exact temps, flip marks, and internal targets.`,
+    `${COOK_TIME_DATASHEETS.length} verified cook-time datasheets for oven, air fryer, Instant Pot, skillet, sheet pan, cast iron, grill, slow cooker, smoker, and boiling. Exact temps, flip marks, and internal targets.`,
   alternates: {
     canonical: absoluteUrl('/how-long'),
   },

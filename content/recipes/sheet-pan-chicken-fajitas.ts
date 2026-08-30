@@ -161,7 +161,11 @@ export default {
     "sheet pan chicken fajitas",
     "easy family fajitas",
     "15 minute chicken dinner",
-    "healthy sheet pan meal"
+    "healthy sheet pan meal",
+    "how long to bake chicken fajitas",
+    "chicken fajitas cook time",
+    "chicken fajitas internal temperature",
+    "easy chicken fajitas recipe"
   ],
   "datePublished": "2026-08-28",
   "lastUpdated": "2026-08-28"

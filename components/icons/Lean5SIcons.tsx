@@ -850,7 +850,8 @@ export type LeanIconName =
   | 'grill'
   | 'instant-pot'
   | 'slow-cooker'
-  | 'smoker';
+  | 'smoker'
+  | 'boiling';
 
 export function LeanIcon({
   name,
@@ -916,6 +917,8 @@ export function LeanIcon({
       return <LeanSlowCookerIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
     case 'smoker':
       return <LeanSmokerIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
+    case 'boiling':
+      return <LeanHeatWavesIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
     default:
       return <LeanClockIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
   }
