@@ -10355,5 +10355,1808 @@
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
     "image": "/images/recipes/smoked-turkey-breast.jpg"
+  },
+  {
+    "id": "0071",
+    "slug": "cast-iron-seared-lamb-chops",
+    "title": "Cast Iron Seared Lamb Chops",
+    "tagline": "Steakhouse-worthy lamb chops with a garlic-herb butter crust seared screaming hot in cast iron in just 10 minutes.",
+    "appliance": "cast-iron",
+    "categories": [
+      "high-protein",
+      "15-minute"
+    ],
+    "protein": "lamb",
+    "prepMinutes": 5,
+    "cookMinutes": 10,
+    "totalMinutes": 15,
+    "defaultServings": 4,
+    "basis": "Lodge 12-inch cast iron skillet over medium-high heat; ThermoWorks instant-read verification to 130°F pull temp for medium-rare carry-over to 145°F.",
+    "safeInternalTempF": 145,
+    "restMinutes": 5,
+    "cookTemp": "Medium-High Heat",
+    "cookTempF": 500,
+    "cookTempC": 260,
+    "equipmentNeeded": [
+      "Cast Iron Skillet",
+      "Meat Thermometer",
+      "Tongs"
+    ],
+    "quickVersion": {
+      "temp": "Medium-High Heat",
+      "totalTime": "15 mins",
+      "timerMinutes": 10,
+      "flipAtMinutes": 4,
+      "bullets": [
+        "Pat 8 lamb loin chops dry and season generously with salt, pepper, and garlic powder.",
+        "Sear in a screaming-hot oiled cast iron skillet for 4 minutes per side.",
+        "Add butter, crushed garlic, and fresh rosemary; baste chops for 1 minute.",
+        "Rest 5 minutes off heat; carry-over brings internal temp to 145°F."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Season & Temper",
+        "instruction": "Pat 8 lamb loin chops (1.25 inches thick) completely dry with paper towels. Season generously on all sides with 1 tsp kosher salt, 1/2 tsp black pepper, and 1/2 tsp garlic powder. Let sit at room temperature for 10 minutes while the skillet heats.",
+        "proTip": "Dry lamb equals a better sear. Moisture on the surface steams instead of browning."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Screaming Hot Sear",
+        "instruction": "Heat a cast iron skillet over medium-high heat until oil shimmers and just begins to smoke. Add 1 tbsp avocado oil. Place chops in the pan without crowding. Sear undisturbed for 4 minutes until a deep brown crust forms. Flip and sear the other side for 3 to 4 minutes until internal temp reaches 130°F.",
+        "proTip": "Do not move the chops once they hit the pan. Let the Maillard reaction build that steakhouse crust."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Garlic-Herb Butter Baste",
+        "instruction": "Reduce heat to medium. Add 2 tbsp unsalted butter, 3 crushed garlic cloves, and 2 sprigs of fresh rosemary to the skillet. Tilt the pan and spoon the foaming herb butter over the chops continuously for 60 seconds.",
+        "proTip": "Tilting the pan pools the butter so you can spoon it over the chops for maximum flavor."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Rest & Serve",
+        "instruction": "Transfer chops to a cutting board and spoon garlic-herb butter over them. Rest for 5 minutes. Internal temperature will carry from 130°F to 145°F during rest. Serve immediately with pan juices.",
+        "proTip": "Resting lets juices redistribute so they stay in the chop instead of flooding the plate."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Lamb Loin Chops",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "pieces",
+        "notes": "1.25 inches thick"
+      },
+      {
+        "item": "Avocado Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic Cloves",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "cloves",
+        "notes": "crushed"
+      },
+      {
+        "item": "Fresh Rosemary",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "sprigs"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Lamb chops are the steak of the fancy world but they are actually easier to cook. Four minutes a side, butter baste, done. If you can flip a burger you can sear a lamb chop. Just do not overcook these past medium or they turn into expensive rubber bands.",
+    "kidAdjustment": "Slice the meat off the bone and cut into thin strips. Serve with a side of ranch dressing or ketchup for dipping.",
+    "sideSuggestions": [
+      "Roasted garlic mashed potatoes",
+      "Steamed asparagus with lemon",
+      "Mint yogurt dipping sauce"
+    ],
+    "reheatInstructions": "Reheat in a 350°F oven for 5 minutes. Do not re-sear or microwave as lamb dries out quickly.",
+    "nutrition": {
+      "calories": 380,
+      "proteinGrams": 35,
+      "carbsGrams": 1,
+      "fatGrams": 26,
+      "source": "USDA FoodData Central #174367"
+    },
+    "kidRating": 3,
+    "difficulty": "Easy",
+    "keywords": [
+      "cast iron lamb chops",
+      "seared lamb chops recipe",
+      "garlic butter lamb chops",
+      "pan seared lamb loin chops",
+      "how long to cook lamb chops",
+      "lamb chops cook time",
+      "lamb chops internal temperature",
+      "easy lamb chops recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/cast-iron-seared-lamb-chops.jpg"
+  },
+  {
+    "id": "0072",
+    "slug": "sheet-pan-glazed-ham",
+    "title": "Sheet Pan Glazed Ham",
+    "tagline": "Sweet brown sugar mustard glaze caramelizes over a juicy spiral-cut ham for a showstopper holiday centerpiece with almost zero effort.",
+    "appliance": "sheet-pan",
+    "categories": [
+      "kid-approved"
+    ],
+    "protein": "pork",
+    "prepMinutes": 10,
+    "cookMinutes": 90,
+    "totalMinutes": 100,
+    "defaultServings": 10,
+    "basis": "7 lb spiral-cut half ham on rimmed sheet pan at 325°F; USDA FSIS 140°F standard for pre-cooked ham reheating.",
+    "safeInternalTempF": 140,
+    "restMinutes": 15,
+    "cookTemp": "325°F (163°C)",
+    "cookTempF": 325,
+    "cookTempC": 163,
+    "equipmentNeeded": [
+      "Rimmed Sheet Pan",
+      "Aluminum Foil",
+      "Meat Thermometer",
+      "Basting Brush"
+    ],
+    "quickVersion": {
+      "temp": "325°F (163°C)",
+      "totalTime": "100 mins",
+      "timerMinutes": 90,
+      "bullets": [
+        "Place 7-8 lb spiral-cut ham cut-side down on a foil-lined sheet pan and cover tightly with foil.",
+        "Bake at 325°F for 60 minutes until warmed through.",
+        "Mix brown sugar, Dijon mustard, and honey into a glaze; brush generously over ham.",
+        "Bake uncovered 25-30 minutes more until glaze is bubbly and caramelized; rest 15 minutes before carving."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Prep & Cover the Ham",
+        "instruction": "Preheat oven to 325°F. Place a 7 to 8 lb spiral-cut half ham cut-side down on a foil-lined rimmed sheet pan. Cover the entire ham tightly with aluminum foil to trap moisture.",
+        "proTip": "Cut-side down prevents the slices from drying out and lets the juices baste the meat from inside."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Low & Slow Warm Through",
+        "instruction": "Bake covered at 325°F for 60 minutes until the center of the ham reaches 120°F. The ham is already fully cooked so you are just gently reheating it.",
+        "timerMinutes": 60,
+        "proTip": "Low temperature reheating keeps pre-cooked ham from drying out. Patience here equals juicy ham."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Mix & Apply the Glaze",
+        "instruction": "While ham heats, whisk together 1/2 cup packed brown sugar, 3 tbsp Dijon mustard, 2 tbsp honey, and 1 tbsp apple cider vinegar until smooth. Remove foil from ham and brush the glaze generously over the entire surface, pushing it between the spiral slices.",
+        "proTip": "Getting glaze between the slices means every single piece has that sweet-tangy caramelized coating."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Caramelize & Rest",
+        "instruction": "Return uncovered ham to oven and bake 25 to 30 minutes more until the glaze is bubbly and deep amber and the internal temperature hits 140°F. Rest on the sheet pan for 15 minutes before carving.",
+        "timerMinutes": 28,
+        "proTip": "The glaze will look slightly runny coming out of the oven but sets up beautifully during the 15-minute rest."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Spiral-Cut Half Ham",
+        "qty": "7",
+        "qtyNumeric": 7,
+        "unit": "lbs",
+        "notes": "bone-in, fully cooked"
+      },
+      {
+        "item": "Packed Brown Sugar",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "Dijon Mustard",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Honey",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Apple Cider Vinegar",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      }
+    ],
+    "dadProTip": "A spiral-cut ham is the ultimate dad flex because it looks like you spent hours in the kitchen but really you just unwrapped it and painted on some glaze. Nobody needs to know your secret. Leftovers make incredible sandwiches, omelets, and fried rice all week.",
+    "kidAdjustment": "The sweet glaze is already kid-friendly. Cut slices into small strips for little hands. Serve with pineapple rings for a classic combo.",
+    "sideSuggestions": [
+      "Scalloped potatoes",
+      "Honey-glazed carrots",
+      "Buttered dinner rolls"
+    ],
+    "reheatInstructions": "Reheat slices in a 300°F oven wrapped in foil with 2 tbsp water for 10 minutes or until warmed through.",
+    "nutrition": {
+      "calories": 310,
+      "proteinGrams": 28,
+      "carbsGrams": 18,
+      "fatGrams": 14,
+      "source": "USDA FoodData Central #167864"
+    },
+    "kidRating": 5,
+    "difficulty": "Easy",
+    "keywords": [
+      "glazed ham recipe",
+      "sheet pan ham",
+      "brown sugar mustard ham glaze",
+      "spiral cut ham oven",
+      "how long to cook glazed ham",
+      "glazed ham cook time",
+      "glazed ham internal temperature",
+      "easy glazed ham recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/sheet-pan-glazed-ham.jpg"
+  },
+  {
+    "id": "0073",
+    "slug": "skillet-seared-sea-scallops",
+    "title": "Skillet Seared Sea Scallops",
+    "tagline": "Restaurant-quality golden seared scallops with a caramelized butter-basted crust in just 5 minutes of actual cook time.",
+    "appliance": "skillet",
+    "categories": [
+      "15-minute",
+      "high-protein"
+    ],
+    "protein": "seafood",
+    "prepMinutes": 5,
+    "cookMinutes": 5,
+    "totalMinutes": 10,
+    "defaultServings": 4,
+    "basis": "U-10 dry-packed sea scallops in stainless steel skillet over high heat; 130°F internal for translucent center per FDA seafood guidance.",
+    "safeInternalTempF": 130,
+    "restMinutes": 1,
+    "cookTemp": "High Heat",
+    "cookTempF": 500,
+    "cookTempC": 260,
+    "equipmentNeeded": [
+      "Stainless Steel Skillet",
+      "Tongs",
+      "Paper Towels"
+    ],
+    "quickVersion": {
+      "temp": "High Heat",
+      "totalTime": "10 mins",
+      "timerMinutes": 5,
+      "flipAtMinutes": 2,
+      "bullets": [
+        "Pat 12 dry-packed sea scallops bone dry and season with salt and white pepper.",
+        "Sear in a smoking-hot oiled skillet for 2 minutes until a deep golden crust forms.",
+        "Flip, add 2 tbsp butter, and baste for 1.5 minutes until just opaque at edges.",
+        "Serve immediately with brown butter and lemon drizzle."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Dry & Season the Scallops",
+        "instruction": "Remove the tough side muscle from 12 U-10 dry-packed sea scallops. Pat each scallop thoroughly dry with paper towels on all sides. Season one flat side with a pinch of kosher salt and white pepper just before searing.",
+        "proTip": "Dry-packed scallops are essential. Wet-packed scallops are full of water and will steam instead of sear no matter how hot your pan is."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Blazing Hot Sear",
+        "instruction": "Heat a stainless steel skillet over high heat until a drop of water instantly evaporates. Add 1 tbsp avocado oil. Place scallops seasoned-side down in the pan with space between each one. Do not move them. Sear for 2 minutes until a deep golden-brown crust forms on the bottom.",
+        "proTip": "If the scallops do not sizzle violently on contact the pan is not hot enough. Wait longer."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Flip & Butter Baste",
+        "instruction": "Flip each scallop. Add 2 tbsp unsalted butter and 1 crushed garlic clove to the pan. Tilt the skillet and baste scallops with the foaming butter for 1 to 1.5 minutes. Scallops are done when the sides are opaque but the very center is still slightly translucent.",
+        "proTip": "Scallops go from perfect to rubber in about 30 seconds. Pull them slightly underdone because they keep cooking."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Plate & Finish",
+        "instruction": "Transfer scallops to warm plates. Squeeze fresh lemon juice into the brown butter in the pan and swirl. Spoon the lemon brown butter over each scallop. Serve immediately.",
+        "proTip": "Warm plates keep the scallops from cooling too fast. A cold plate kills a perfect sear."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "U-10 Dry-Packed Sea Scallops",
+        "qty": "12",
+        "qtyNumeric": 12,
+        "unit": "pieces",
+        "notes": "side muscles removed"
+      },
+      {
+        "item": "Avocado Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic Clove",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "clove",
+        "notes": "crushed"
+      },
+      {
+        "item": "Lemon",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "whole",
+        "notes": "juiced"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "White Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Scallops are the date night power move. They look like fine dining, cost less than a good steak, and take 5 minutes to cook. The secret is bone-dry scallops plus a screaming hot pan. If you see steam instead of sizzle you already lost.",
+    "kidAdjustment": "Cut seared scallops into halves and serve with a mild lemon butter dip. Skip the white pepper for younger palates.",
+    "sideSuggestions": [
+      "Creamy risotto",
+      "Roasted asparagus",
+      "Crusty bread with butter"
+    ],
+    "reheatInstructions": "Scallops are best fresh. If necessary, reheat gently in a 300°F oven for 3 minutes. Do not microwave.",
+    "nutrition": {
+      "calories": 210,
+      "proteinGrams": 28,
+      "carbsGrams": 3,
+      "fatGrams": 9,
+      "source": "USDA FoodData Central #174216"
+    },
+    "kidRating": 3,
+    "difficulty": "Moderate",
+    "keywords": [
+      "seared sea scallops",
+      "pan seared scallops recipe",
+      "butter basted scallops",
+      "restaurant quality scallops at home",
+      "how long to cook sea scallops",
+      "sea scallops cook time",
+      "sea scallops internal temperature",
+      "easy sea scallops recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/skillet-seared-sea-scallops.jpg"
+  },
+  {
+    "id": "0074",
+    "slug": "air-fryer-crispy-tilapia-fillets",
+    "title": "Air Fryer Crispy Tilapia Fillets",
+    "tagline": "Crunchy panko-crusted tilapia fillets that taste deep-fried but use zero oil, ready in 15 minutes flat.",
+    "appliance": "air-fryer",
+    "categories": [
+      "15-minute",
+      "kid-approved"
+    ],
+    "protein": "seafood",
+    "prepMinutes": 5,
+    "cookMinutes": 10,
+    "totalMinutes": 15,
+    "defaultServings": 4,
+    "basis": "4 tilapia fillets in 6-qt basket air fryer at 400°F; USDA FSIS 145°F standard for fin fish.",
+    "safeInternalTempF": 145,
+    "restMinutes": 2,
+    "cookTemp": "400°F (204°C)",
+    "cookTempF": 400,
+    "cookTempC": 204,
+    "equipmentNeeded": [
+      "Air Fryer",
+      "Shallow Bowls for Breading",
+      "Cooking Spray"
+    ],
+    "quickVersion": {
+      "temp": "400°F (204°C)",
+      "totalTime": "15 mins",
+      "timerMinutes": 10,
+      "flipAtMinutes": 5,
+      "bullets": [
+        "Pat 4 tilapia fillets dry and season with salt, garlic powder, and paprika.",
+        "Dip in beaten egg, then press into seasoned panko breadcrumbs on both sides.",
+        "Air fry at 400°F for 5 minutes, flip, and cook 4-5 minutes more until golden and 145°F.",
+        "Serve with lemon wedges and tartar sauce."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Set Up Breading Station",
+        "instruction": "Preheat air fryer to 400°F. Set up two shallow bowls: one with 2 beaten eggs and one with 1 cup panko breadcrumbs mixed with 1/2 tsp garlic powder, 1/2 tsp paprika, and 1/4 tsp salt.",
+        "proTip": "One hand for wet, one hand for dry. This keeps the breading from clumping on your fingers."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Bread the Fillets",
+        "instruction": "Pat 4 tilapia fillets completely dry. Season both sides lightly with salt and pepper. Dip each fillet in egg, letting excess drip off, then press firmly into the panko mixture on both sides. Spray both sides lightly with cooking spray.",
+        "proTip": "A light mist of cooking spray is the secret to getting that deep-fried golden color in the air fryer."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Air Fry Until Crispy",
+        "instruction": "Place breaded fillets in a single layer in the air fryer basket without overlapping. Cook at 400°F for 5 minutes. Carefully flip each fillet and cook 4 to 5 minutes more until the coating is deep golden brown and internal temperature reaches 145°F.",
+        "timerMinutes": 10,
+        "proTip": "Do not crowd the basket. Air needs to circulate around each fillet for even crisping."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Rest & Serve",
+        "instruction": "Let fillets rest on a wire rack for 2 minutes so the crust stays crispy. Serve with lemon wedges and tartar sauce on the side.",
+        "proTip": "Resting on a wire rack instead of a plate prevents the bottom crust from going soggy."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Tilapia Fillets",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "fillets",
+        "notes": "about 6 oz each"
+      },
+      {
+        "item": "Panko Breadcrumbs",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Eggs",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "large",
+        "notes": "beaten"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Paprika",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Cooking Spray",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "spray"
+      }
+    ],
+    "dadProTip": "This is the ultimate kid fish dinner. Tilapia is mild, cheap, and cooks in 10 minutes. The panko crust makes it taste like fish sticks from a restaurant instead of a freezer bag. Make extra because the kids will demolish these.",
+    "kidAdjustment": "Already kid-friendly. Cut fillets into fish stick strips before breading for easier little-hand eating. Serve with ketchup or honey mustard.",
+    "sideSuggestions": [
+      "French fries or sweet potato fries",
+      "Coleslaw",
+      "Lemon wedges and tartar sauce"
+    ],
+    "reheatInstructions": "Reheat in the air fryer at 350°F for 3 minutes to restore crispiness. Do not microwave.",
+    "nutrition": {
+      "calories": 260,
+      "proteinGrams": 36,
+      "carbsGrams": 14,
+      "fatGrams": 6,
+      "source": "USDA FoodData Central #175177"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "air fryer tilapia",
+      "crispy tilapia fillets",
+      "panko crusted tilapia air fryer",
+      "healthy fish dinner",
+      "how long to cook tilapia fillets",
+      "tilapia fillets cook time",
+      "tilapia fillets internal temperature",
+      "easy tilapia fillets recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/air-fryer-crispy-tilapia-fillets.jpg"
+  },
+  {
+    "id": "0075",
+    "slug": "sheet-pan-roasted-brussels-sprouts",
+    "title": "Sheet Pan Roasted Brussels Sprouts",
+    "tagline": "Crispy caramelized edges with tender centers and a balsamic drizzle that converts even the pickiest veggie skeptics.",
+    "appliance": "sheet-pan",
+    "categories": [
+      "kid-approved"
+    ],
+    "protein": "vegetarian",
+    "prepMinutes": 10,
+    "cookMinutes": 25,
+    "totalMinutes": 35,
+    "defaultServings": 4,
+    "basis": "Halved Brussels sprouts on rimmed sheet pan at 425°F; no safe internal temp required for vegetables.",
+    "safeInternalTempF": 0,
+    "restMinutes": 2,
+    "cookTemp": "425°F (218°C)",
+    "cookTempF": 425,
+    "cookTempC": 218,
+    "equipmentNeeded": [
+      "Rimmed Sheet Pan",
+      "Parchment Paper",
+      "Mixing Bowl"
+    ],
+    "quickVersion": {
+      "temp": "425°F (218°C)",
+      "totalTime": "35 mins",
+      "timerMinutes": 25,
+      "bullets": [
+        "Trim and halve 1.5 lbs Brussels sprouts; toss with olive oil, salt, and pepper.",
+        "Spread cut-side down in a single layer on a parchment-lined sheet pan.",
+        "Roast at 425°F for 20-25 minutes until deeply caramelized and crisp-edged.",
+        "Drizzle with balsamic glaze and sprinkle with Parmesan before serving."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Prep the Sprouts",
+        "instruction": "Preheat oven to 425°F. Trim the stem ends of 1.5 lbs Brussels sprouts and slice each one in half through the core. Remove any yellowed outer leaves. Toss in a bowl with 2 tbsp olive oil, 3/4 tsp kosher salt, and 1/2 tsp black pepper until evenly coated.",
+        "proTip": "Halving through the core keeps each sprout half intact so they caramelize flat on the pan instead of falling apart."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Arrange Cut-Side Down",
+        "instruction": "Line a rimmed sheet pan with parchment paper. Place each Brussels sprout half cut-side down on the pan in a single layer with a little space between each piece. Do not crowd the pan.",
+        "proTip": "Cut-side down is everything. The flat side gets maximum contact with the hot pan for deep caramelization."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Roast Until Charred",
+        "instruction": "Roast at 425°F for 20 to 25 minutes without stirring until the cut sides are deeply caramelized and dark brown and the edges are crispy. The outer leaves will be charred and delicious.",
+        "timerMinutes": 22,
+        "proTip": "Do not stir or flip during roasting. Let them sit and develop that dark caramelized crust undisturbed."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Finish & Serve",
+        "instruction": "Remove from oven and drizzle with 1 tbsp balsamic glaze. Sprinkle with 2 tbsp grated Parmesan cheese. Serve warm.",
+        "proTip": "The balsamic glaze adds a sweet tang that balances the charred bitter notes and makes veggie haters ask for seconds."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Brussels Sprouts",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "lbs",
+        "notes": "trimmed and halved"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "3/4",
+        "qtyNumeric": 0.75,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Balsamic Glaze",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Grated Parmesan Cheese",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      }
+    ],
+    "dadProTip": "The kids say they hate Brussels sprouts because they have only ever had sad steamed ones. Roasting at high heat caramelizes the natural sugars and turns them into crispy little flavor bombs. The balsamic and Parmesan finish is what seals the deal. This is how you convert a vegetable hater.",
+    "kidAdjustment": "Add a light drizzle of honey along with the balsamic for extra sweetness. Skip the black pepper for sensitive palates.",
+    "sideSuggestions": [
+      "Grilled chicken breast",
+      "Baked salmon",
+      "Garlic bread"
+    ],
+    "reheatInstructions": "Reheat on a sheet pan at 400°F for 5 minutes to restore crispiness. Do not microwave.",
+    "nutrition": {
+      "calories": 120,
+      "proteinGrams": 5,
+      "carbsGrams": 12,
+      "fatGrams": 7,
+      "source": "USDA FoodData Central #170382"
+    },
+    "kidRating": 3,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "roasted Brussels sprouts",
+      "sheet pan Brussels sprouts",
+      "crispy Brussels sprouts oven",
+      "balsamic Brussels sprouts recipe",
+      "how long to cook Brussels sprouts",
+      "Brussels sprouts cook time",
+      "Brussels sprouts internal temperature",
+      "easy Brussels sprouts recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/sheet-pan-roasted-brussels-sprouts.jpg"
+  },
+  {
+    "id": "0076",
+    "slug": "skillet-seared-ahi-tuna-steak",
+    "title": "Skillet Seared Ahi Tuna Steak",
+    "tagline": "Sesame-crusted sushi-grade ahi tuna seared rare with a crispy golden shell in under 5 minutes of cook time.",
+    "appliance": "skillet",
+    "categories": [
+      "15-minute",
+      "high-protein"
+    ],
+    "protein": "seafood",
+    "prepMinutes": 5,
+    "cookMinutes": 4,
+    "totalMinutes": 9,
+    "defaultServings": 4,
+    "basis": "Sushi-grade ahi tuna steaks in cast iron skillet over high heat; 125°F internal for rare center per FDA sushi-grade seafood guidance.",
+    "safeInternalTempF": 125,
+    "restMinutes": 1,
+    "cookTemp": "High Heat",
+    "cookTempF": 500,
+    "cookTempC": 260,
+    "equipmentNeeded": [
+      "Cast Iron Skillet or Stainless Steel Pan",
+      "Sharp Knife",
+      "Tongs"
+    ],
+    "quickVersion": {
+      "temp": "High Heat",
+      "totalTime": "9 mins",
+      "timerMinutes": 4,
+      "flipAtMinutes": 2,
+      "bullets": [
+        "Pat 4 ahi tuna steaks dry; brush with sesame oil and press into sesame seeds on all sides.",
+        "Sear in a smoking-hot oiled skillet for 90 seconds per side for rare.",
+        "Remove immediately; the center should be cool and ruby red.",
+        "Slice against the grain and serve with soy ginger dipping sauce."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Prep & Sesame Crust",
+        "instruction": "Pat 4 sushi-grade ahi tuna steaks (6 oz each, 1 inch thick) completely dry. Brush all surfaces with 1 tbsp sesame oil. Mix 3 tbsp white sesame seeds and 2 tbsp black sesame seeds on a plate. Press each tuna steak firmly into the sesame seeds to coat all sides evenly.",
+        "proTip": "Use sushi-grade tuna from a trusted fishmonger. This dish is served rare so quality matters more than anything."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Smoking Hot Sear",
+        "instruction": "Heat a cast iron skillet over high heat until a drop of water vaporizes instantly. Add 1 tbsp avocado oil. Place sesame-crusted tuna steaks in the pan. Sear for 90 seconds without moving. Flip and sear the other side for 60 to 90 seconds. The outside should be golden and crisp while the center stays cool and raw.",
+        "proTip": "Do not press down on the tuna or you will squeeze out moisture and overcook the center."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Dipping Sauce",
+        "instruction": "While tuna sears, whisk together 3 tbsp soy sauce, 1 tsp rice vinegar, 1 tsp freshly grated ginger, and 1/2 tsp sriracha in a small bowl.",
+        "proTip": "Fresh ginger makes a noticeable difference over dried here. Microplane it right into the bowl."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Slice & Serve",
+        "instruction": "Transfer seared tuna to a cutting board and let rest for 1 minute. Slice each steak against the grain into 1/4-inch thick slices. Fan slices on plates and serve with the soy ginger dipping sauce.",
+        "proTip": "A sharp knife is critical. A dull blade will crush the delicate seared crust and tear the raw center."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Sushi-Grade Ahi Tuna Steaks",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "steaks",
+        "notes": "6 oz each, 1 inch thick"
+      },
+      {
+        "item": "White Sesame Seeds",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Black Sesame Seeds",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Sesame Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Avocado Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Soy Sauce",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Rice Vinegar",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Fresh Ginger",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "freshly grated"
+      },
+      {
+        "item": "Sriracha",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Seared ahi is the dish that makes people think you went to culinary school. Ninety seconds a side and you are done. The whole trick is starting with sushi-grade fish and a screaming hot pan. If you cook it longer than 2 minutes per side you have officially made canned tuna.",
+    "kidAdjustment": "Most kids prefer their fish cooked through. Sear an extra minute per side for medium. Serve with teriyaki sauce instead of the soy ginger dip.",
+    "sideSuggestions": [
+      "Steamed jasmine rice",
+      "Edamame",
+      "Seaweed salad"
+    ],
+    "reheatInstructions": "Seared ahi tuna should not be reheated. Leftover slices are excellent cold over rice or salad.",
+    "nutrition": {
+      "calories": 290,
+      "proteinGrams": 42,
+      "carbsGrams": 3,
+      "fatGrams": 12,
+      "source": "USDA FoodData Central #175159"
+    },
+    "kidRating": 2,
+    "difficulty": "Moderate",
+    "keywords": [
+      "seared ahi tuna",
+      "sesame crusted tuna steak",
+      "pan seared tuna recipe",
+      "rare ahi tuna at home",
+      "how long to cook ahi tuna steak",
+      "ahi tuna steak cook time",
+      "ahi tuna steak internal temperature",
+      "easy ahi tuna steak recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/skillet-seared-ahi-tuna-steak.jpg"
+  },
+  {
+    "id": "0077",
+    "slug": "air-fryer-crispy-pork-belly-bites",
+    "title": "Air Fryer Crispy Pork Belly Bites",
+    "tagline": "Shatteringly crispy pork belly cubes with tender melt-in-your-mouth interiors seasoned with five-spice and sea salt.",
+    "appliance": "air-fryer",
+    "categories": [
+      "high-protein"
+    ],
+    "protein": "pork",
+    "prepMinutes": 10,
+    "cookMinutes": 20,
+    "totalMinutes": 30,
+    "defaultServings": 4,
+    "basis": "1-inch cubed pork belly in 6-qt basket air fryer at 400°F; USDA FSIS 165°F standard verified with instant-read thermometer.",
+    "safeInternalTempF": 165,
+    "restMinutes": 3,
+    "cookTemp": "400°F (204°C)",
+    "cookTempF": 400,
+    "cookTempC": 204,
+    "equipmentNeeded": [
+      "Air Fryer",
+      "Sharp Knife",
+      "Paper Towels"
+    ],
+    "quickVersion": {
+      "temp": "400°F (204°C)",
+      "totalTime": "30 mins",
+      "timerMinutes": 20,
+      "bullets": [
+        "Cut 2 lbs pork belly into 1-inch cubes; pat dry and toss with salt, five-spice, and white pepper.",
+        "Air fry skin-side up at 400°F for 12 minutes until fat renders and edges crisp.",
+        "Shake basket and cook 6-8 minutes more until skin is shatteringly crispy and internal temp hits 165°F.",
+        "Rest 3 minutes; serve with hoisin dipping sauce or over steamed rice."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Cube & Season",
+        "instruction": "Cut 2 lbs skin-on pork belly into 1-inch cubes using a sharp knife. Pat all sides completely dry with paper towels. Toss with 1 tsp kosher salt, 1 tsp Chinese five-spice powder, and 1/2 tsp white pepper in a bowl until evenly coated.",
+        "proTip": "Bone-dry pork belly is the number one secret to crispy skin. Pat it dry then pat it dry again."
+      },
+      {
+        "stepNumber": 2,
+        "title": "First Air Fry Round",
+        "instruction": "Arrange seasoned pork belly cubes in a single layer in the air fryer basket skin-side up. Cook at 400°F for 12 minutes until the fat has begun rendering and the edges start to turn golden and crispy.",
+        "timerMinutes": 12,
+        "proTip": "Single layer is critical. Stacking pork belly cubes means steamed soggy pork instead of crispy bites."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Shake & Finish Crispy",
+        "instruction": "Remove basket and shake vigorously to redistribute the cubes. Return to air fryer and cook for 6 to 8 minutes more at 400°F until the skin puffs and crackles and internal temperature reaches 165°F.",
+        "timerMinutes": 7,
+        "proTip": "The skin should sound hollow when you tap it with tongs. That crackling sound means you nailed it."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Rest & Serve",
+        "instruction": "Transfer crispy pork belly bites to a paper towel-lined plate. Rest for 3 minutes. Serve with hoisin sauce or sweet chili sauce for dipping.",
+        "proTip": "These are dangerously addictive straight off the tray. Make more than you think you need."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Skin-On Pork Belly",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "lbs",
+        "notes": "cut into 1-inch cubes"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Chinese Five-Spice Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "White Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Pork belly bites are what happen when bacon and croutons have a delicious baby. The air fryer renders out most of the fat while crisping the skin to a crackle. Five-spice powder is the secret weapon that makes people ask what restaurant you ordered from.",
+    "kidAdjustment": "Skip the five-spice powder and season with just salt for picky eaters. Cut bites in half for smaller mouths. Serve with honey or BBQ sauce for dipping.",
+    "sideSuggestions": [
+      "Steamed white rice",
+      "Pickled cucumbers",
+      "Stir-fried vegetables"
+    ],
+    "reheatInstructions": "Reheat in the air fryer at 380°F for 3-4 minutes to restore crispiness. Do not microwave or the skin goes soft.",
+    "nutrition": {
+      "calories": 440,
+      "proteinGrams": 22,
+      "carbsGrams": 1,
+      "fatGrams": 38,
+      "source": "USDA FoodData Central #168218"
+    },
+    "kidRating": 3,
+    "difficulty": "Easy",
+    "keywords": [
+      "air fryer pork belly",
+      "crispy pork belly bites",
+      "five spice pork belly air fryer",
+      "crunchy pork belly cubes",
+      "how long to cook pork belly bites",
+      "pork belly bites cook time",
+      "pork belly bites internal temperature",
+      "easy pork belly bites recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/air-fryer-crispy-pork-belly-bites.jpg"
+  },
+  {
+    "id": "0078",
+    "slug": "oven-classic-meatloaf",
+    "title": "Oven Classic Meatloaf",
+    "tagline": "Tender old-school meatloaf with a sticky ketchup glaze that makes the whole house smell like Sunday dinner.",
+    "appliance": "oven",
+    "categories": [
+      "kid-approved"
+    ],
+    "protein": "beef",
+    "prepMinutes": 15,
+    "cookMinutes": 55,
+    "totalMinutes": 70,
+    "defaultServings": 6,
+    "basis": "2 lb meatloaf on rimmed sheet pan at 350°F; USDA FSIS 160°F standard for ground beef.",
+    "safeInternalTempF": 160,
+    "restMinutes": 10,
+    "cookTemp": "350°F (177°C)",
+    "cookTempF": 350,
+    "cookTempC": 177,
+    "equipmentNeeded": [
+      "Rimmed Sheet Pan or Loaf Pan",
+      "Mixing Bowl",
+      "Meat Thermometer"
+    ],
+    "quickVersion": {
+      "temp": "350°F (177°C)",
+      "totalTime": "70 mins",
+      "timerMinutes": 55,
+      "bullets": [
+        "Mix 2 lbs ground beef and pork with breadcrumbs, egg, onion, garlic, Worcestershire, and seasonings.",
+        "Shape into a loaf on a lined sheet pan or press into a loaf pan.",
+        "Bake at 350°F for 40 minutes, then spread ketchup glaze on top.",
+        "Bake 15 minutes more until glaze is sticky and internal temp hits 160°F; rest 10 minutes before slicing."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Mix the Meatloaf",
+        "instruction": "Preheat oven to 350°F. In a large bowl combine 1.5 lbs ground beef, 0.5 lb ground pork, 3/4 cup plain breadcrumbs, 1 large egg beaten, 1/3 cup whole milk, 1/2 cup finely diced onion, 2 cloves minced garlic, 1 tbsp Worcestershire sauce, 1 tsp kosher salt, and 1/2 tsp black pepper. Mix gently with your hands until just combined.",
+        "proTip": "Do not overmix or the meatloaf will be dense and tough. Mix just until ingredients are incorporated."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Shape & Bake",
+        "instruction": "Turn the mixture onto a foil-lined rimmed sheet pan and shape into a rectangular loaf about 9 inches by 5 inches and 3 inches tall. Bake at 350°F for 40 minutes.",
+        "timerMinutes": 40,
+        "proTip": "Baking on a sheet pan instead of a loaf pan lets the fat drain away and gives you more caramelized surface area."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Apply the Glaze",
+        "instruction": "While meatloaf bakes, mix 1/3 cup ketchup, 2 tbsp brown sugar, and 1 tbsp apple cider vinegar for the glaze. After 40 minutes remove meatloaf and spread the glaze evenly over the top and sides. Return to oven and bake 15 minutes more until the glaze is sticky and bubbly and internal temperature reaches 160°F.",
+        "timerMinutes": 15,
+        "proTip": "The brown sugar in the glaze caramelizes into a sweet tangy crust that is the best part of the whole meatloaf."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Rest & Slice",
+        "instruction": "Remove from oven and let the meatloaf rest for 10 minutes before slicing. This allows it to firm up so slices hold together. Cut into 1-inch thick slices and serve.",
+        "proTip": "If you slice too early the meatloaf falls apart. Ten minutes of patience is the difference between a slice and a crumble."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Ground Beef",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "lbs",
+        "notes": "80/20 ground chuck"
+      },
+      {
+        "item": "Ground Pork",
+        "qty": "0.5",
+        "qtyNumeric": 0.5,
+        "unit": "lbs"
+      },
+      {
+        "item": "Plain Breadcrumbs",
+        "qty": "3/4",
+        "qtyNumeric": 0.75,
+        "unit": "cup"
+      },
+      {
+        "item": "Egg",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "large",
+        "notes": "beaten"
+      },
+      {
+        "item": "Whole Milk",
+        "qty": "1/3",
+        "qtyNumeric": 0.33,
+        "unit": "cup"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup",
+        "notes": "finely diced"
+      },
+      {
+        "item": "Garlic Cloves",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Worcestershire Sauce",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Ketchup",
+        "qty": "1/3",
+        "qtyNumeric": 0.33,
+        "unit": "cup",
+        "notes": "for glaze"
+      },
+      {
+        "item": "Brown Sugar",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "for glaze"
+      },
+      {
+        "item": "Apple Cider Vinegar",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp",
+        "notes": "for glaze"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Meatloaf is the hill I will die on. Every dad needs a signature meatloaf. The secret is the beef and pork blend for flavor plus the milk-soaked breadcrumbs for tenderness. And that ketchup glaze is non-negotiable. If someone tells you to skip the ketchup glaze they are not your friend.",
+    "kidAdjustment": "Already a kid favorite. Slice into thick pieces and serve with a pool of extra ketchup. Meatloaf sandwiches the next day are even better.",
+    "sideSuggestions": [
+      "Mashed potatoes and gravy",
+      "Steamed green beans",
+      "Buttered corn on the cob"
+    ],
+    "reheatInstructions": "Reheat slices in a 325°F oven covered with foil for 10 minutes or until warmed through.",
+    "nutrition": {
+      "calories": 380,
+      "proteinGrams": 30,
+      "carbsGrams": 18,
+      "fatGrams": 21,
+      "source": "USDA FoodData Central #174032"
+    },
+    "kidRating": 5,
+    "difficulty": "Easy",
+    "keywords": [
+      "classic meatloaf recipe",
+      "best meatloaf with ketchup glaze",
+      "old fashioned meatloaf",
+      "homemade meatloaf oven",
+      "how long to cook meatloaf",
+      "meatloaf cook time",
+      "meatloaf internal temperature",
+      "easy meatloaf recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/oven-classic-meatloaf.jpg"
+  },
+  {
+    "id": "0079",
+    "slug": "dutch-oven-chicken-tikka-masala",
+    "title": "Dutch Oven Chicken Tikka Masala",
+    "tagline": "Rich creamy tomato curry with tender marinated chicken thighs that rivals your favorite Indian takeout in under an hour.",
+    "appliance": "dutch-oven",
+    "categories": [
+      "kid-approved"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 20,
+    "cookMinutes": 35,
+    "totalMinutes": 55,
+    "defaultServings": 6,
+    "basis": "Boneless chicken thighs in enameled dutch oven at 375°F; USDA FSIS 165°F standard for poultry.",
+    "safeInternalTempF": 165,
+    "restMinutes": 5,
+    "cookTemp": "375°F (190°C)",
+    "cookTempF": 375,
+    "cookTempC": 190,
+    "equipmentNeeded": [
+      "Dutch Oven",
+      "Mixing Bowl",
+      "Wooden Spoon",
+      "Meat Thermometer"
+    ],
+    "quickVersion": {
+      "temp": "375°F (190°C)",
+      "totalTime": "55 mins",
+      "timerMinutes": 35,
+      "bullets": [
+        "Cube 2 lbs chicken thighs and toss with yogurt, garam masala, turmeric, and cumin.",
+        "Brown chicken in the dutch oven, then build the sauce with onion, garlic, ginger, tomato sauce, and cream.",
+        "Simmer everything together for 20 minutes until chicken is tender and sauce is thick.",
+        "Serve over basmati rice with fresh cilantro and warm naan bread."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Marinate the Chicken",
+        "instruction": "Cut 2 lbs boneless skinless chicken thighs into 1.5-inch pieces. Toss with 1/2 cup plain yogurt, 1 tsp garam masala, 1/2 tsp turmeric, 1/2 tsp cumin, and 1/2 tsp salt in a bowl. Let sit while you prep the other ingredients.",
+        "proTip": "Yogurt tenderizes the chicken and helps the spices penetrate. Even 10 minutes of marinating makes a difference."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Brown the Chicken",
+        "instruction": "Heat 2 tbsp butter in a dutch oven over medium-high heat. Add marinated chicken in batches without crowding and cook for 3 minutes per side until browned. Remove chicken to a plate.",
+        "proTip": "Browning the yogurt-coated chicken creates a smoky charred flavor that mimics tandoori cooking."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Build the Masala Sauce",
+        "instruction": "In the same dutch oven add 1 tbsp butter. Saute 1 diced onion until softened about 4 minutes. Add 4 minced garlic cloves and 1 tbsp freshly grated ginger and cook 1 minute until fragrant. Add 1 tbsp garam masala, 1 tsp paprika, and 1/2 tsp cayenne and stir 30 seconds. Pour in one 15 oz can crushed tomatoes, 1 cup heavy cream, and 1 tsp sugar. Stir well and bring to a simmer.",
+        "proTip": "The sugar balances the acidity of the tomatoes. Without it the sauce tastes sharp instead of rich."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Simmer & Serve",
+        "instruction": "Return browned chicken and any juices to the sauce. Reduce heat to medium-low and simmer uncovered for 20 minutes stirring occasionally until the sauce thickens and chicken is tender and reads 165°F. Season with salt to taste. Serve over basmati rice topped with fresh cilantro.",
+        "timerMinutes": 20,
+        "proTip": "Let the sauce reduce uncovered so it gets thick and coats the back of a spoon. Covering it keeps it too thin."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Boneless Skinless Chicken Thighs",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "lbs",
+        "notes": "cut into 1.5-inch pieces"
+      },
+      {
+        "item": "Plain Yogurt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "tbsp",
+        "notes": "divided"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "medium",
+        "notes": "diced"
+      },
+      {
+        "item": "Garlic Cloves",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Fresh Ginger",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp",
+        "notes": "freshly grated"
+      },
+      {
+        "item": "Garam Masala",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tsp",
+        "notes": "divided"
+      },
+      {
+        "item": "Turmeric",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Ground Cumin",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Paprika",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Cayenne Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Crushed Tomatoes",
+        "qty": "15",
+        "qtyNumeric": 15,
+        "unit": "oz",
+        "notes": "one can"
+      },
+      {
+        "item": "Heavy Cream",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Sugar",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Fresh Cilantro",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "chopped, for garnish"
+      }
+    ],
+    "dadProTip": "Stop ordering tikka masala delivery. This one-pot version tastes better, costs a third of the price, and impresses everyone at the table. The yogurt marinade and the browning step are what separate homemade tikka from that sad jar sauce version. Make a double batch because this freezes beautifully.",
+    "kidAdjustment": "Reduce cayenne to a pinch or omit entirely for heat-sensitive kids. Serve the chicken pieces over plain rice with extra cream sauce on the side for dipping naan.",
+    "sideSuggestions": [
+      "Basmati rice",
+      "Warm naan bread",
+      "Cucumber raita"
+    ],
+    "reheatInstructions": "Reheat gently in a pot over medium-low heat with a splash of cream to loosen the sauce. Stir frequently.",
+    "nutrition": {
+      "calories": 420,
+      "proteinGrams": 34,
+      "carbsGrams": 12,
+      "fatGrams": 27,
+      "source": "USDA FoodData Central #171514"
+    },
+    "kidRating": 4,
+    "difficulty": "Moderate",
+    "keywords": [
+      "chicken tikka masala",
+      "dutch oven tikka masala",
+      "homemade tikka masala recipe",
+      "creamy chicken curry",
+      "how long to cook chicken tikka masala",
+      "chicken tikka masala cook time",
+      "chicken tikka masala internal temperature",
+      "easy chicken tikka masala recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/dutch-oven-chicken-tikka-masala.jpg"
+  },
+  {
+    "id": "0080",
+    "slug": "grilled-mahi-mahi-with-mango-salsa",
+    "title": "Grilled Mahi Mahi with Mango Salsa",
+    "tagline": "Smoky chargrilled mahi mahi fillets topped with bright fresh mango salsa for a tropical weeknight dinner in 18 minutes.",
+    "appliance": "grill",
+    "categories": [
+      "high-protein",
+      "15-minute"
+    ],
+    "protein": "seafood",
+    "prepMinutes": 10,
+    "cookMinutes": 8,
+    "totalMinutes": 18,
+    "defaultServings": 4,
+    "basis": "6 oz mahi mahi fillets on direct heat gas grill at 450°F; FDA 137°F recommendation for fin fish.",
+    "safeInternalTempF": 137,
+    "restMinutes": 2,
+    "cookTemp": "450°F (232°C)",
+    "cookTempF": 450,
+    "cookTempC": 232,
+    "equipmentNeeded": [
+      "Gas or Charcoal Grill",
+      "Grill Tongs",
+      "Meat Thermometer",
+      "Mixing Bowl"
+    ],
+    "quickVersion": {
+      "temp": "450°F (232°C)",
+      "totalTime": "18 mins",
+      "timerMinutes": 8,
+      "flipAtMinutes": 4,
+      "bullets": [
+        "Make mango salsa: diced mango, red onion, jalapeno, cilantro, and lime juice.",
+        "Brush 4 mahi mahi fillets with oil and season with salt, pepper, and cumin.",
+        "Grill over direct high heat for 4 minutes per side until charred and 137°F internal.",
+        "Top with mango salsa and serve with lime wedges."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Make the Mango Salsa",
+        "instruction": "Dice 1 large ripe mango, 1/4 cup red onion, 1 jalapeno (seeded), and 2 tbsp fresh cilantro. Combine in a bowl with the juice of 1 lime and a pinch of salt. Toss and set aside.",
+        "proTip": "Make the salsa first so the flavors have time to meld while you grill the fish."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Season the Fillets",
+        "instruction": "Pat 4 mahi mahi fillets (6 oz each) completely dry. Brush both sides with 1 tbsp olive oil. Season with 1 tsp kosher salt, 1/2 tsp black pepper, and 1/2 tsp ground cumin.",
+        "proTip": "Mahi mahi is a firm meaty fish that holds up beautifully on the grill without falling apart."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Grill Over Direct Heat",
+        "instruction": "Preheat grill to 450°F over direct high heat. Oil the grates well. Place fillets on the grill and cook 4 minutes without moving until grill marks form and the fish releases easily. Flip and grill 3 to 4 minutes more until the thickest part reaches 137°F and the fish flakes with a fork.",
+        "timerMinutes": 8,
+        "proTip": "If the fish sticks to the grate it is not ready to flip yet. Wait 30 seconds and try again."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Rest & Top with Salsa",
+        "instruction": "Transfer fillets to plates and rest for 2 minutes. Spoon mango salsa generously over each fillet. Serve with lime wedges on the side.",
+        "proTip": "The cool salsa against the hot charred fish is what makes this dish special. Do not skip the fresh lime squeeze."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Mahi Mahi Fillets",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "fillets",
+        "notes": "6 oz each, skin removed"
+      },
+      {
+        "item": "Ripe Mango",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "large",
+        "notes": "diced"
+      },
+      {
+        "item": "Red Onion",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "cup",
+        "notes": "finely diced"
+      },
+      {
+        "item": "Jalapeno",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "whole",
+        "notes": "seeded and minced"
+      },
+      {
+        "item": "Fresh Cilantro",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "chopped"
+      },
+      {
+        "item": "Lime",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "whole",
+        "notes": "juiced, plus wedges for serving"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Ground Cumin",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Mahi mahi is the gateway fish for people who say they do not like fish. It is firm, mild, and does not taste fishy. The mango salsa makes it feel like a vacation dinner. Oil those grill grates well or you will leave half your fish behind and the grill wins.",
+    "kidAdjustment": "Skip the jalapeno in the salsa entirely and dice the mango pieces smaller. Serve the salsa on the side so kids can try it or skip it.",
+    "sideSuggestions": [
+      "Coconut rice",
+      "Grilled pineapple slices",
+      "Black bean salad"
+    ],
+    "reheatInstructions": "Reheat gently in a 300°F oven for 5 minutes. Serve with fresh salsa as the original will have softened.",
+    "nutrition": {
+      "calories": 250,
+      "proteinGrams": 38,
+      "carbsGrams": 10,
+      "fatGrams": 6,
+      "source": "USDA FoodData Central #175120"
+    },
+    "kidRating": 3,
+    "difficulty": "Easy",
+    "keywords": [
+      "grilled mahi mahi",
+      "mahi mahi with mango salsa",
+      "grilled fish tacos mahi mahi",
+      "tropical grilled fish recipe",
+      "how long to cook mahi mahi",
+      "mahi mahi cook time",
+      "mahi mahi internal temperature",
+      "easy mahi mahi recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/grilled-mahi-mahi-with-mango-salsa.jpg"
+  },
+  {
+    "id": "0081",
+    "slug": "skillet-garlic-butter-mushrooms",
+    "title": "Skillet Garlic Butter Mushrooms",
+    "tagline": "Golden sauteed mushrooms swimming in garlic butter and fresh thyme, ready in 15 minutes as a side or steak topping.",
+    "appliance": "skillet",
+    "categories": [
+      "15-minute"
+    ],
+    "protein": "vegetarian",
+    "prepMinutes": 5,
+    "cookMinutes": 10,
+    "totalMinutes": 15,
+    "defaultServings": 4,
+    "basis": "16 oz cremini mushrooms in 12-inch skillet over medium-high heat; no safe internal temperature required for vegetables.",
+    "safeInternalTempF": 0,
+    "restMinutes": 0,
+    "cookTemp": "Medium-High Heat",
+    "cookTempF": 400,
+    "cookTempC": 204,
+    "equipmentNeeded": [
+      "Large Skillet",
+      "Wooden Spoon"
+    ],
+    "quickVersion": {
+      "temp": "Medium-High Heat",
+      "totalTime": "15 mins",
+      "timerMinutes": 10,
+      "bullets": [
+        "Slice 16 oz cremini mushrooms in half or quarters depending on size.",
+        "Sear in a single layer in a hot skillet with oil for 5 minutes without stirring until golden.",
+        "Add 3 tbsp butter, 4 minced garlic cloves, and fresh thyme; toss for 2 minutes.",
+        "Finish with a splash of soy sauce and serve as a side or steak topper."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Prep the Mushrooms",
+        "instruction": "Clean 16 oz cremini or baby bella mushrooms with a damp paper towel. Trim the stems. Halve small mushrooms and quarter larger ones so they are roughly uniform in size.",
+        "proTip": "Never wash mushrooms under running water. They are like little sponges and will steam instead of sear."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Hot Sear Without Stirring",
+        "instruction": "Heat a large skillet over medium-high heat. Add 1 tbsp olive oil. Spread mushrooms in a single layer and let them cook undisturbed for 4 to 5 minutes until the bottoms are deeply golden brown and they have released and reabsorbed their liquid.",
+        "timerMinutes": 5,
+        "proTip": "The golden rule of mushroom cooking: do not stir. Leave them alone so they brown instead of steam."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Garlic Butter Finish",
+        "instruction": "Stir mushrooms once, then add 3 tbsp unsalted butter, 4 minced garlic cloves, and 3 sprigs of fresh thyme. Toss and cook for 2 minutes until the garlic is fragrant and the butter is foaming. Add 1 tbsp soy sauce and toss to coat evenly.",
+        "proTip": "Soy sauce adds umami depth without making the mushrooms taste Asian. It is the secret restaurant trick."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Season & Serve",
+        "instruction": "Remove thyme sprigs. Season with salt and pepper to taste. Serve immediately as a side dish, over toast, or spooned over a grilled steak.",
+        "proTip": "These mushrooms are best straight from the pan while the butter is still sizzling."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Cremini Mushrooms",
+        "qty": "16",
+        "qtyNumeric": 16,
+        "unit": "oz",
+        "notes": "cleaned and halved or quartered"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic Cloves",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Fresh Thyme",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "sprigs"
+      },
+      {
+        "item": "Soy Sauce",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp",
+        "notes": "to taste"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp",
+        "notes": "to taste"
+      }
+    ],
+    "dadProTip": "These mushrooms are the side dish that steals the show. The secret is treating them like you treat a steak: hot pan, do not touch them, let them develop a crust. Then hit them with butter and garlic at the end. They go on everything: steaks, burgers, pasta, toast, or just eaten with a fork standing at the stove.",
+    "kidAdjustment": "Some kids are mushroom skeptics. Slice them thinner so they get extra crispy and call them garlic butter crisps. Skip the thyme for picky eaters.",
+    "sideSuggestions": [
+      "Grilled steak or chicken",
+      "Crusty sourdough toast",
+      "Creamy polenta"
+    ],
+    "reheatInstructions": "Reheat in a skillet over medium heat with a small pat of butter for 2-3 minutes. Do not microwave or they turn rubbery.",
+    "nutrition": {
+      "calories": 130,
+      "proteinGrams": 4,
+      "carbsGrams": 5,
+      "fatGrams": 12,
+      "source": "USDA FoodData Central #169251"
+    },
+    "kidRating": 3,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "garlic butter mushrooms",
+      "sauteed mushrooms recipe",
+      "skillet mushrooms side dish",
+      "best mushroom side dish",
+      "how long to cook mushrooms",
+      "mushrooms cook time",
+      "mushrooms internal temperature",
+      "easy mushrooms recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/skillet-garlic-butter-mushrooms.jpg"
+  },
+  {
+    "id": "0082",
+    "slug": "slow-cooker-shredded-chicken-tacos",
+    "title": "Slow Cooker Shredded Chicken Tacos",
+    "tagline": "Fork-tender shredded chicken thighs simmered in salsa verde all day for effortless taco night any night of the week.",
+    "appliance": "slow-cooker",
+    "categories": [
+      "kid-approved"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 10,
+    "cookMinutes": 360,
+    "totalMinutes": 370,
+    "defaultServings": 8,
+    "basis": "2.5 lbs boneless chicken thighs in 6-qt slow cooker on Low for 6 hours; USDA FSIS 165°F standard for poultry.",
+    "safeInternalTempF": 165,
+    "restMinutes": 5,
+    "cookTemp": "Low (190°F / 88°C)",
+    "cookTempF": 190,
+    "cookTempC": 88,
+    "equipmentNeeded": [
+      "Slow Cooker (6-qt)",
+      "Two Forks for Shredding",
+      "Meat Thermometer"
+    ],
+    "quickVersion": {
+      "temp": "Low (6-8 hrs)",
+      "totalTime": "6+ hours",
+      "timerMinutes": 360,
+      "bullets": [
+        "Layer 2.5 lbs boneless chicken thighs in slow cooker; season with cumin, chili powder, garlic powder, and salt.",
+        "Pour 16 oz salsa verde over the chicken and cook on Low for 6-8 hours.",
+        "Shred chicken with two forks directly in the pot and stir into the sauce.",
+        "Serve in warm tortillas with your favorite taco toppings."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Season & Layer",
+        "instruction": "Place 2.5 lbs boneless skinless chicken thighs in the bottom of a 6-qt slow cooker. Sprinkle evenly with 1 tsp cumin, 1 tsp chili powder, 1/2 tsp garlic powder, 1/2 tsp onion powder, and 1 tsp kosher salt.",
+        "proTip": "Chicken thighs stay juicy and flavorful after hours of slow cooking. Breasts will dry out and turn stringy."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Add Salsa & Cook Low and Slow",
+        "instruction": "Pour 16 oz jarred salsa verde over the seasoned chicken. Cover with the lid and cook on Low for 6 to 8 hours or High for 3 to 4 hours until the chicken is fall-apart tender and internal temperature reads 165°F or above.",
+        "timerMinutes": 360,
+        "proTip": "Resist the urge to open the lid during cooking. Every peek adds 20-30 minutes to the cook time."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Shred & Mix",
+        "instruction": "Remove the lid and use two forks to shred the chicken directly in the slow cooker. It should fall apart with zero effort. Stir the shredded meat into the salsa verde sauce until everything is combined. Let it sit on Warm for 5 minutes to absorb the sauce.",
+        "proTip": "Shredding in the pot means every strand of chicken soaks up that tangy salsa verde flavor."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Build Your Tacos",
+        "instruction": "Warm corn or flour tortillas. Fill each with a generous scoop of shredded chicken. Top with diced onion, fresh cilantro, crumbled cotija cheese, a squeeze of lime, and your favorite hot sauce.",
+        "proTip": "Set up a taco bar and let everyone build their own. This is the ultimate low-effort crowd-pleaser dinner."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Boneless Skinless Chicken Thighs",
+        "qty": "2.5",
+        "qtyNumeric": 2.5,
+        "unit": "lbs"
+      },
+      {
+        "item": "Salsa Verde",
+        "qty": "16",
+        "qtyNumeric": 16,
+        "unit": "oz",
+        "notes": "jarred"
+      },
+      {
+        "item": "Ground Cumin",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Chili Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Onion Powder",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Tortillas",
+        "qty": "16",
+        "qtyNumeric": 16,
+        "unit": "small",
+        "notes": "corn or flour"
+      }
+    ],
+    "dadProTip": "This is the recipe for days when you have zero energy but still want to be a hero at dinner. Ten minutes of prep in the morning and by dinner time you have taco night ready to go. Make a double batch because shredded chicken freezes perfectly and works in quesadillas, burritos, nachos, and salads all week.",
+    "kidAdjustment": "Use mild salsa verde for sensitive palates. Serve with simple toppings kids love: shredded cheese, sour cream, and diced tomatoes. Let them build their own tacos.",
+    "sideSuggestions": [
+      "Mexican rice",
+      "Refried beans",
+      "Chips and guacamole"
+    ],
+    "reheatInstructions": "Reheat shredded chicken in a covered pot over medium-low heat with a splash of chicken broth until warmed through.",
+    "nutrition": {
+      "calories": 290,
+      "proteinGrams": 32,
+      "carbsGrams": 22,
+      "fatGrams": 9,
+      "source": "USDA FoodData Central #171477"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "slow cooker shredded chicken tacos",
+      "crockpot chicken tacos",
+      "salsa verde chicken slow cooker",
+      "easy taco night recipe",
+      "how long to cook shredded chicken tacos",
+      "shredded chicken tacos cook time",
+      "shredded chicken tacos internal temperature",
+      "easy shredded chicken tacos recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/slow-cooker-shredded-chicken-tacos.jpg"
   }
 ]
