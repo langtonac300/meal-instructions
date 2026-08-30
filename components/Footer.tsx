@@ -189,10 +189,22 @@ export default function Footer() {
           <div>
             © 2026 MEAL INSTRUCTIONS // ALL RECIPES VALIDATED WITH SCHEMA.ORG JSON-LD.
           </div>
-          <div className="flex items-center gap-6">
-            <span>COOK TIME ENGINE & ZERO-FLUFF RECIPES</span>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <Link href="/about" className="hover:text-ink transition-colors uppercase">
+              About
+            </Link>
             <span>•</span>
-            <span>BUILD: STATIC GENERATION (SSG)</span>
+            <Link href="/contact" className="hover:text-ink transition-colors uppercase">
+              Contact
+            </Link>
+            <span>•</span>
+            <Link href="/privacy" className="hover:text-ink transition-colors uppercase">
+              Privacy Policy
+            </Link>
+            <span>•</span>
+            <Link href="/terms" className="hover:text-ink transition-colors uppercase">
+              Terms
+            </Link>
           </div>
         </div>
 

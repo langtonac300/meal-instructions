@@ -2,6 +2,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  staticPageGenerationTimeout: 180,
   async redirects() {
     return [
       {
