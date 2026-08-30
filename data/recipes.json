@@ -17572,5 +17572,2091 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0119",
+    "slug": "skillet-marry-me-chicken",
+    "title": "Skillet Marry Me Chicken",
+    "tagline": "Pan-seared chicken breasts smothered in a creamy sun-dried tomato and parmesan sauce, one skillet from start to finish.",
+    "appliance": "skillet",
+    "categories": [
+      "weekend",
+      "kid-approved",
+      "one-pan"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 10,
+    "cookMinutes": 25,
+    "totalMinutes": 35,
+    "image": "/images/recipes/skillet-marry-me-chicken.jpg",
+    "defaultServings": 4,
+    "basis": "Tested on 4 boneless skinless chicken breasts (6 oz each) in a 12-inch cast-iron skillet with 1 cup heavy cream and 1/2 cup oil-packed sun-dried tomatoes.",
+    "safeInternalTempF": 165,
+    "restMinutes": 5,
+    "cookTemp": "Medium-High (400°F / 204°C)",
+    "cookTempF": 400,
+    "cookTempC": 204,
+    "equipmentNeeded": [
+      "12-inch Skillet",
+      "Instant-Read Thermometer",
+      "Tongs"
+    ],
+    "quickVersion": {
+      "temp": "Medium-High Skillet, then Medium simmer",
+      "totalTime": "25 mins",
+      "timerMinutes": 25,
+      "flipAtMinutes": 5,
+      "bullets": [
+        "Season 4 chicken breasts with salt, pepper, and Italian seasoning. Sear 5 minutes per side in olive oil until golden.",
+        "Remove chicken. Add butter, 4 minced garlic cloves, and 1/2 cup sun-dried tomatoes to skillet. Sauté 1 minute.",
+        "Pour in 1/2 cup chicken broth and 1 cup heavy cream. Whisk in 1/2 cup parmesan until sauce is silky.",
+        "Return chicken to skillet, simmer 5-8 minutes until 165°F internal. Top with fresh basil and serve."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Pat Dry and Season the Chicken",
+        "instruction": "Pat 4 boneless skinless chicken breasts completely dry with paper towels. Season generously on both sides with 1 tsp kosher salt, 1/2 tsp black pepper, and 1 tsp Italian seasoning.",
+        "proTip": "Dry chicken is the whole game — moisture is the enemy of a golden sear. Pat until the paper towel comes away clean."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Sear Chicken to Golden Brown",
+        "instruction": "Heat 2 tbsp olive oil in a 12-inch skillet over medium-high heat until shimmering. Add chicken and sear 5 minutes per side until deeply golden and a crust forms. Transfer to a plate.",
+        "timerMinutes": 10,
+        "targetTemp": "150°F internal (will finish in sauce)",
+        "proTip": "Do not move the chicken while it sears — let the crust form and it will release from the pan on its own when ready to flip."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Build the Sun-Dried Tomato Base",
+        "instruction": "Reduce heat to medium. Add 2 tbsp butter, 4 minced garlic cloves, and 1/2 cup drained oil-packed sun-dried tomatoes. Cook 1 minute until garlic is fragrant.",
+        "proTip": "Use the oil straight from the sun-dried tomato jar as your fat here for triple the flavor with zero extra cost."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Create the Silky Cream Sauce",
+        "instruction": "Pour in 1/2 cup chicken broth and scrape up any browned bits. Add 1 cup heavy cream, 1/2 cup freshly grated parmesan, and 1 tsp red pepper flakes. Simmer 3 minutes until slightly thickened.",
+        "timerMinutes": 3,
+        "proTip": "Freshly grated parmesan melts smoothly. Pre-shredded parm has anti-caking agents that turn the sauce grainy."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Finish Chicken in the Sauce",
+        "instruction": "Return chicken and any resting juices to the skillet. Spoon sauce over each piece. Simmer 5-8 minutes until chicken reaches 165°F on an instant-read thermometer.",
+        "timerMinutes": 8,
+        "targetTemp": "165°F internal",
+        "proTip": "Rest chicken 5 minutes in the sauce off-heat before slicing so the juices redistribute rather than running out onto the plate."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Garnish and Plate",
+        "instruction": "Tear 1/4 cup fresh basil leaves over the top. Serve straight from the skillet with sauce spooned generously over every piece.",
+        "proTip": "A final grate of parmesan and a crack of black pepper right before serving takes presentation from weeknight to date night."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Boneless Skinless Chicken Breasts",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "breasts",
+        "notes": "about 6 oz each"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Fresh Garlic",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Sun-Dried Tomatoes",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup",
+        "notes": "oil-packed, drained and roughly chopped"
+      },
+      {
+        "item": "Chicken Broth",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup",
+        "notes": "low-sodium"
+      },
+      {
+        "item": "Heavy Cream",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Parmesan Cheese",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup",
+        "notes": "freshly grated"
+      },
+      {
+        "item": "Italian Seasoning",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Red Pepper Flakes",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "optional, to taste"
+      },
+      {
+        "item": "Fresh Basil",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "cup",
+        "notes": "torn leaves"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "If your chicken breasts are thicker than 1 inch, butterfly them or pound them to even thickness. Uneven thickness is the number-one reason chicken breasts come out dry — the thin end overcooks while waiting for the thick end to reach 165°F.",
+    "kidAdjustment": "Omit the red pepper flakes and cut the finished chicken into strips before saucing. Serve over buttered egg noodles instead of pasta for a more familiar texture.",
+    "sideSuggestions": [
+      "Buttered fettuccine or angel hair pasta",
+      "Crusty French bread for sauce-mopping",
+      "Simple arugula salad with lemon vinaigrette"
+    ],
+    "reheatInstructions": "Reheat in a skillet over medium-low heat with 1 tbsp cream stirred in to loosen the sauce. Microwaving separates the cream — always use the stovetop.",
+    "faqs": [
+      {
+        "q": "Can I use chicken thighs instead of breasts?",
+        "a": "Yes. Use boneless skinless thighs and increase the sear to 6 minutes per side. Internal target is still 165°F, but thighs are forgiving past that."
+      },
+      {
+        "q": "Can I use half-and-half instead of heavy cream?",
+        "a": "Heavy cream is required for this sauce to reduce properly. Half-and-half will break and curdle when it hits the parmesan and simmer."
+      }
+    ],
+    "nutrition": {
+      "calories": 545,
+      "proteinGrams": 42,
+      "carbsGrams": 8,
+      "fatGrams": 38,
+      "source": "USDA FoodData Central #171077 (chicken breast) and #170859 (heavy cream)"
+    },
+    "kidRating": 4,
+    "difficulty": "Easy",
+    "keywords": [
+      "marry me chicken",
+      "creamy sun dried tomato chicken",
+      "skillet chicken dinner",
+      "date night chicken"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0120",
+    "slug": "oven-classic-banana-bread",
+    "title": "Classic Oven-Baked Banana Bread",
+    "tagline": "Three overripe bananas, one bowl, and a buttery walnut crumb baked into a golden 9x5 loaf with the ideal moist center.",
+    "appliance": "oven",
+    "categories": [
+      "breakfast",
+      "five-ingredient",
+      "kid-approved",
+      "weekend"
+    ],
+    "protein": "vegetarian",
+    "prepMinutes": 10,
+    "cookMinutes": 60,
+    "totalMinutes": 70,
+    "image": "/images/recipes/oven-classic-banana-bread.jpg",
+    "defaultServings": 8,
+    "basis": "Tested in a 9x5 inch metal loaf pan with 3 overripe bananas (about 1 1/4 cups mashed), 1/3 cup melted butter, and 1 1/2 cups all-purpose flour at 350°F on the center rack.",
+    "safeInternalTempF": 200,
+    "restMinutes": 15,
+    "cookTemp": "350°F (177°C)",
+    "cookTempF": 350,
+    "cookTempC": 177,
+    "equipmentNeeded": [
+      "9x5-inch Loaf Pan",
+      "Large Mixing Bowl",
+      "Whisk",
+      "Rubber Spatula",
+      "Instant-Read Thermometer"
+    ],
+    "quickVersion": {
+      "temp": "350°F (177°C)",
+      "totalTime": "60 mins",
+      "timerMinutes": 60,
+      "bullets": [
+        "Mash 3 overripe bananas. Stir in 1/3 cup melted butter, 3/4 cup sugar, 1 egg, and 1 tsp vanilla.",
+        "Sprinkle in 1 tsp baking soda and pinch of salt, then fold in 1 1/2 cups flour until just combined.",
+        "Optional: fold in 1/2 cup chopped walnuts. Pour into greased 9x5 loaf pan and smooth the top.",
+        "Bake 55-65 minutes at 350°F until a toothpick pulls out clean and internal temp reads 200°F."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Preheat and Prep the Pan",
+        "instruction": "Preheat oven to 350°F (177°C) with the rack in the center position. Grease a 9x5 inch loaf pan with butter or nonstick spray and line the bottom with a parchment sling.",
+        "proTip": "The parchment sling lets the loaf lift out cleanly after cooling — no more sad, dented bottoms from prying with a knife."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Mash the Bananas Aggressively",
+        "instruction": "In a large bowl, mash 3 overripe bananas (black-speckled peels required) with a fork until mostly smooth. A few small lumps are fine. You should have about 1 1/4 cups of mash.",
+        "proTip": "The blacker the banana, the deeper the flavor. Yellow bananas with no spots produce bland, dense bread — always wait for the ugly ones."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Whisk in the Wet Ingredients",
+        "instruction": "Stir 1/3 cup melted butter into the mashed banana. Whisk in 3/4 cup granulated sugar, 1 large egg, and 1 tsp vanilla extract until fully blended and glossy.",
+        "proTip": "Let the melted butter cool for 2 minutes before adding — hot butter will scramble the egg the moment they touch."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Add Leavening and Fold in Flour",
+        "instruction": "Sprinkle 1 tsp baking soda and a pinch of salt evenly over the wet ingredients, then whisk in. Add 1 1/2 cups all-purpose flour and fold with a rubber spatula until just combined — no dry streaks.",
+        "proTip": "Overmixing develops gluten and gives you tough, chewy banana bread. Stop the second the last flour streak disappears."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Fold in Walnuts and Transfer",
+        "instruction": "Gently fold in 1/2 cup chopped walnuts (optional). Pour the batter into the prepared loaf pan and smooth the top with the back of the spatula.",
+        "proTip": "Reserve 2 tbsp of chopped walnuts to sprinkle on top before baking — they toast in the oven for a crunchy, bakery-style crown."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Bake Until Deep Golden",
+        "instruction": "Bake on the center rack for 55-65 minutes, until a toothpick inserted in the center comes out with a few moist crumbs and an instant-read thermometer registers 200°F.",
+        "timerMinutes": 60,
+        "targetTemp": "200°F internal",
+        "proTip": "If the top browns too fast around the 40-minute mark, loosely tent with foil to prevent burning while the center finishes."
+      },
+      {
+        "stepNumber": 7,
+        "title": "Cool Before Slicing",
+        "instruction": "Let the loaf cool in the pan for 15 minutes, then lift it out using the parchment sling and cool on a wire rack for at least 30 minutes before slicing.",
+        "proTip": "Slicing warm banana bread crushes the delicate crumb. Cold-from-the-fridge slices are cleaner, and the flavor actually deepens overnight."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Overripe Bananas",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "medium",
+        "notes": "black-speckled or fully brown peels"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "1/3",
+        "qtyNumeric": 0.333,
+        "unit": "cup",
+        "notes": "melted and slightly cooled"
+      },
+      {
+        "item": "Granulated Sugar",
+        "qty": "3/4",
+        "qtyNumeric": 0.75,
+        "unit": "cup"
+      },
+      {
+        "item": "Large Egg",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "",
+        "notes": "room temperature"
+      },
+      {
+        "item": "Vanilla Extract",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Baking Soda",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "pinch"
+      },
+      {
+        "item": "All-Purpose Flour",
+        "qty": "1 1/2",
+        "qtyNumeric": 1.5,
+        "unit": "cups"
+      },
+      {
+        "item": "Chopped Walnuts",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup",
+        "notes": "optional, plus 2 tbsp reserved for topping"
+      }
+    ],
+    "dadProTip": "The freezer is a banana-bread bank. When bananas get too ripe to eat, peel and freeze them in a zip-top bag. Thaw and drain the excess liquid before mashing — thawed bananas release more water and can throw off the batter consistency if you skip that step.",
+    "kidAdjustment": "Skip the walnuts (many kids reject nuts in baked goods) and fold in 1/2 cup mini chocolate chips instead. Serve slightly warm with a smear of salted butter.",
+    "sideSuggestions": [
+      "Warm slice with salted butter or cream cheese",
+      "Fresh berries and Greek yogurt",
+      "Hot coffee or a tall glass of cold milk"
+    ],
+    "reheatInstructions": "Toast slices in a 350°F oven for 3-4 minutes, or in a toaster oven for 2 minutes until edges crisp. Microwave 15 seconds for a soft-warm center without the crunch.",
+    "faqs": [
+      {
+        "q": "Can I substitute oil for butter?",
+        "a": "Yes, use 1/3 cup neutral oil (canola or vegetable). The bread will be slightly more tender but you lose the buttery flavor. Do not use olive oil — the flavor overpowers the banana."
+      },
+      {
+        "q": "Why is my banana bread gummy in the middle?",
+        "a": "Undercooked. The center should hit 200°F internal on an instant-read thermometer — visual toothpick tests alone often read clean while the crumb is still raw."
+      },
+      {
+        "q": "How do I store banana bread?",
+        "a": "Wrap tightly in plastic at room temperature for 3 days, or refrigerate up to 1 week. Freezes beautifully for 3 months — slice before freezing for grab-and-toast portions."
+      }
+    ],
+    "nutrition": {
+      "calories": 265,
+      "proteinGrams": 4,
+      "carbsGrams": 42,
+      "fatGrams": 10,
+      "source": "USDA FoodData Central #173946 (banana bread, home recipe)"
+    },
+    "kidRating": 5,
+    "difficulty": "Easy",
+    "keywords": [
+      "banana bread",
+      "easy banana bread",
+      "3 banana bread recipe",
+      "moist banana bread"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0121",
+    "slug": "skillet-chicken-alfredo",
+    "title": "One-Pan Skillet Chicken Alfredo",
+    "tagline": "Seared cubed chicken tossed with a silky parmesan cream sauce and fettuccine that cooks right in the pan — no colander, no second pot.",
+    "appliance": "skillet",
+    "categories": [
+      "kid-approved",
+      "one-pan",
+      "weekend"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 8,
+    "cookMinutes": 22,
+    "totalMinutes": 30,
+    "image": "/images/recipes/skillet-chicken-alfredo.jpg",
+    "defaultServings": 4,
+    "basis": "Tested with 1 lb diced chicken breast and 8 oz dry fettuccine in a 12-inch deep-sided skillet, using 4 cups liquid total (2 cups chicken broth plus 2 cups heavy cream).",
+    "safeInternalTempF": 165,
+    "restMinutes": 2,
+    "cookTemp": "Medium-High (375°F / 190°C)",
+    "cookTempF": 375,
+    "cookTempC": 190,
+    "equipmentNeeded": [
+      "12-inch Deep Skillet",
+      "Wooden Spoon or Tongs",
+      "Instant-Read Thermometer"
+    ],
+    "quickVersion": {
+      "temp": "Medium-High Skillet, then Medium-Low simmer",
+      "totalTime": "22 mins",
+      "timerMinutes": 22,
+      "bullets": [
+        "Cube 1 lb chicken breast. Sear in 2 tbsp butter over medium-high heat until 165°F. Transfer to a plate.",
+        "In same skillet, melt 3 tbsp butter with 4 minced garlic cloves. Add 2 cups broth and 2 cups heavy cream.",
+        "Break 8 oz fettuccine in half, submerge in liquid. Simmer 12-14 minutes, stirring often, until al dente.",
+        "Off heat, stir in 1 cup grated parmesan until silky. Return chicken, top with parsley and cracked pepper."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Cube and Season the Chicken",
+        "instruction": "Pat 1 lb boneless skinless chicken breast dry, then cut into 1-inch cubes. Toss with 1 tsp kosher salt, 1/2 tsp black pepper, and 1/2 tsp garlic powder.",
+        "proTip": "Uniform 1-inch cubes cook evenly. Anything smaller dries out; anything larger takes too long and the exterior overcooks before the center hits 165°F."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Sear the Chicken Golden",
+        "instruction": "Melt 2 tbsp butter in a 12-inch deep skillet over medium-high heat. Add chicken in a single layer and sear undisturbed for 3 minutes, then stir and cook 3 more minutes until 165°F internal. Transfer to a plate.",
+        "timerMinutes": 6,
+        "targetTemp": "165°F internal",
+        "proTip": "Do not crowd the pan — if pieces touch, they steam instead of sear. Work in two batches if your skillet is smaller than 12 inches."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Build the Garlic Butter Base",
+        "instruction": "Reduce heat to medium. Add 3 tbsp butter and 4 minced garlic cloves to the empty skillet. Sauté 1 minute until fragrant but not browned.",
+        "proTip": "Browned garlic turns bitter and ruins the sauce — pull the pan off heat the second the aroma blooms."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Add Liquid and Pasta",
+        "instruction": "Pour in 2 cups chicken broth and 2 cups heavy cream. Bring to a simmer. Break 8 oz fettuccine in half and add to the skillet, pressing the noodles down to fully submerge them in the liquid.",
+        "proTip": "Breaking the fettuccine in half is the only way it fits and cooks evenly in a skillet — long noodles stick out and cook unevenly."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Simmer Until Pasta is Al Dente",
+        "instruction": "Reduce heat to medium-low and simmer, stirring every 2-3 minutes with tongs to keep pasta separated, for 12-14 minutes until pasta is al dente and the sauce has thickened.",
+        "timerMinutes": 13,
+        "proTip": "The starch released by the pasta as it cooks is what makes the sauce silky — this is exactly why the skillet method beats boiling pasta separately and dumping it into a jar sauce."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Finish with Parmesan and Chicken",
+        "instruction": "Remove skillet from heat. Stir in 1 cup freshly grated parmesan cheese in three additions, letting each melt smoothly before adding the next. Return chicken and any resting juices to the skillet and toss to coat.",
+        "proTip": "Adding parmesan off-heat prevents it from clumping or turning stringy. Freshly grated only — pre-shredded contains anti-caking powder that ruins the texture."
+      },
+      {
+        "stepNumber": 7,
+        "title": "Garnish and Serve",
+        "instruction": "Sprinkle with 2 tbsp chopped fresh parsley and a heavy crack of black pepper. Serve immediately from the skillet with extra parmesan on the side.",
+        "proTip": "The sauce continues to thicken as it sits. If leftovers seize up, loosen with a splash of warm milk or cream when reheating."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Boneless Skinless Chicken Breast",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "lb",
+        "notes": "cut into 1-inch cubes"
+      },
+      {
+        "item": "Fettuccine Pasta",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "oz",
+        "notes": "dry, uncooked, broken in half"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "5",
+        "qtyNumeric": 5,
+        "unit": "tbsp",
+        "notes": "divided (2 tbsp for chicken, 3 tbsp for sauce)"
+      },
+      {
+        "item": "Fresh Garlic",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Chicken Broth",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cups",
+        "notes": "low-sodium"
+      },
+      {
+        "item": "Heavy Cream",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cups"
+      },
+      {
+        "item": "Parmesan Cheese",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup",
+        "notes": "freshly grated"
+      },
+      {
+        "item": "Fresh Parsley",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "chopped"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "The liquid-to-pasta ratio is precise: 4 cups liquid to 8 oz pasta, no more, no less. Do not eyeball it. Too little liquid and the pasta scorches on the pan bottom; too much and the sauce stays thin and watery. Measure it every time.",
+    "kidAdjustment": "Skip the black pepper garnish and cut the chicken into smaller 1/2-inch cubes so pieces fork up alongside pasta easily. Toss in a handful of frozen peas in the last 3 minutes for color and a vegetable win.",
+    "sideSuggestions": [
+      "Garlic bread or crusty baguette",
+      "Caesar salad with crisp romaine",
+      "Roasted broccoli with lemon and parmesan"
+    ],
+    "reheatInstructions": "Reheat in a skillet over medium-low heat with 2-3 tbsp milk or cream stirred in to loosen the sauce. Stir constantly. Microwaving works in 30-second bursts with stirring between, but the stovetop keeps the texture right.",
+    "faqs": [
+      {
+        "q": "Can I use a different pasta shape?",
+        "a": "Yes — penne, rigatoni, or rotini work well and do not need to be broken. Adjust simmer time to the package directions minus 2 minutes, since the pasta finishes cooking in the sauce."
+      },
+      {
+        "q": "Can I use milk instead of heavy cream?",
+        "a": "No. The sauce needs the fat content of heavy cream to properly thicken and coat the pasta. Milk will produce a thin, watery sauce that breaks and separates."
+      },
+      {
+        "q": "Why did my sauce turn grainy?",
+        "a": "Two likely causes: pre-shredded parmesan (contains anti-caking agents), or adding cheese while the skillet was still on high heat. Off-heat, freshly grated only."
+      }
+    ],
+    "nutrition": {
+      "calories": 785,
+      "proteinGrams": 42,
+      "carbsGrams": 50,
+      "fatGrams": 48,
+      "source": "USDA FoodData Central #171077 (chicken breast), #170859 (heavy cream), and #168879 (fettuccine pasta)"
+    },
+    "kidRating": 5,
+    "difficulty": "Easy",
+    "keywords": [
+      "chicken alfredo",
+      "one pan chicken alfredo",
+      "skillet chicken alfredo",
+      "easy alfredo pasta"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0122",
+    "slug": "boiling-perfect-hard-boiled-eggs",
+    "title": "Perfect Hard Boiled Eggs (Peel-Every-Time Method)",
+    "tagline": "The 12-minute cold-start boil plus 5-minute ice bath that guarantees a peel-clean shell and no green ring around the yolk.",
+    "appliance": "boiling",
+    "categories": [
+      "high-protein",
+      "five-ingredient",
+      "breakfast"
+    ],
+    "protein": "dairy-eggs",
+    "prepMinutes": 2,
+    "cookMinutes": 12,
+    "totalMinutes": 19,
+    "image": "/images/recipes/boiling-perfect-hard-boiled-eggs.jpg",
+    "defaultServings": 6,
+    "basis": "Tested on 6 large Grade A eggs in a 3-qt saucepan with 4 cups cold tap water and 1 tsp baking soda.",
+    "restMinutes": 5,
+    "cookTemp": "212°F (100°C)",
+    "cookTempF": 212,
+    "cookTempC": 100,
+    "equipmentNeeded": [
+      "Saucepan with Lid",
+      "Slotted Spoon",
+      "Bowl for Ice Bath"
+    ],
+    "quickVersion": {
+      "temp": "Rolling Boil (212°F / 100°C)",
+      "totalTime": "17 mins",
+      "timerMinutes": 12,
+      "bullets": [
+        "Place 6 large eggs in a saucepan and cover with cold water by 1 inch.",
+        "Bring to a rolling boil over high heat, then cover and reduce to gentle boil.",
+        "Boil covered for exactly 12 minutes for firm, non-chalky yolks.",
+        "Transfer to ice bath for 5 minutes; peel under cool running water."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Cold-Water Start with Baking Soda",
+        "instruction": "Place 6 large eggs in a single layer in a 3-quart saucepan. Cover with cold tap water by 1 inch above the eggs. Add 1 teaspoon baking soda to raise the pH and loosen the shell membrane.",
+        "proTip": "Starting in cold water prevents the thermal shock cracking that dropping eggs into boiling water always causes."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Bring to a Rolling Boil",
+        "instruction": "Set the saucepan uncovered over high heat. Wait for a full rolling boil where bubbles vigorously break the surface across the entire pan (about 6-8 minutes on a typical burner).",
+        "proTip": "A gentle simmer will not fully cook the yolks in 12 minutes. Hold a true rolling boil before starting your timer."
+      },
+      {
+        "stepNumber": 3,
+        "title": "12-Minute Timed Boil",
+        "instruction": "Once boiling, cover the pan with a lid and set a timer for exactly 12 minutes. Reduce heat slightly if needed to keep a gentle rolling boil without foaming over.",
+        "timerMinutes": 12,
+        "proTip": "10 minutes gives you a slightly jammy center; 12 minutes gives fully set, non-chalky yolks with no gray-green ring."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Shock in the Ice Bath",
+        "instruction": "While the eggs boil, fill a bowl with 2 cups ice and cold water. When the timer ends, use a slotted spoon to transfer eggs directly into the ice bath. Let rest 5 full minutes.",
+        "timerMinutes": 5,
+        "proTip": "The rapid temperature drop shrinks the cooked egg away from the shell membrane. This is the single biggest peel win."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Crack, Roll, and Peel",
+        "instruction": "Tap the wide end of each egg on the counter (there is an air pocket there), then roll gently to craze the whole shell. Peel under a thin stream of cool water starting at the wide end.",
+        "proTip": "Peel eggs the same day you plan to eat them. Cold storage in the shell for 2-3 days dries the whites out slightly and dulls the flavor."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Large Eggs",
+        "qty": "6",
+        "qtyNumeric": 6,
+        "unit": "",
+        "notes": "Grade A, ideally 7-10 days old for easier peeling"
+      },
+      {
+        "item": "Cold Tap Water",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "cups",
+        "notes": "enough to cover eggs by 1 inch"
+      },
+      {
+        "item": "Baking Soda",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "raises water pH to loosen shells"
+      },
+      {
+        "item": "Ice Cubes",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cups",
+        "notes": "for ice bath"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "optional, helps seal any minor shell cracks"
+      }
+    ],
+    "dadProTip": "One-week-old eggs peel dramatically cleaner than farm-fresh ones. The pH inside the shell rises with age and loosens the membrane from the white, so buy your eggs Sunday and boil them the following weekend.",
+    "kidAdjustment": "Slice and serve with a small dish of ranch or ketchup for dipping. Kids will eat anything you let them dunk.",
+    "sideSuggestions": [
+      "Whole grain toast with butter",
+      "Sliced avocado with flaky salt",
+      "Everything bagel seasoning shake"
+    ],
+    "reheatInstructions": "Best eaten cold from the fridge. To warm through without rubberizing the white, submerge a peeled egg in a mug of hot tap water for 3 minutes.",
+    "nutrition": {
+      "calories": 72,
+      "proteinGrams": 6,
+      "carbsGrams": 0,
+      "fatGrams": 5,
+      "source": "USDA FoodData Central #748967"
+    },
+    "kidRating": 4,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "hard boiled eggs",
+      "perfect hard boiled eggs",
+      "easy peel hard boiled eggs",
+      "how long to boil eggs"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0123",
+    "slug": "oven-baked-salmon-fillet",
+    "title": "Oven Baked Salmon Fillet (Flakes-in-12-Minutes)",
+    "tagline": "High-heat 400°F roast with lemon garlic butter that pulls at 125°F internal for a perfect medium fillet that flakes with a fork press.",
+    "appliance": "oven",
+    "categories": [
+      "high-protein",
+      "15-minute",
+      "one-pan"
+    ],
+    "protein": "seafood",
+    "prepMinutes": 3,
+    "cookMinutes": 12,
+    "totalMinutes": 18,
+    "image": "/images/recipes/oven-baked-salmon-fillet.jpg",
+    "defaultServings": 4,
+    "basis": "Tested on 4 (6-oz) skin-on Atlantic salmon fillets on a foil-lined 13x18 half sheet pan in a fully preheated conventional oven.",
+    "safeInternalTempF": 145,
+    "restMinutes": 3,
+    "cookTemp": "400°F (204°C)",
+    "cookTempF": 400,
+    "cookTempC": 204,
+    "equipmentNeeded": [
+      "Half Sheet Pan",
+      "Aluminum Foil",
+      "Instant-Read Thermometer"
+    ],
+    "quickVersion": {
+      "temp": "400°F (204°C)",
+      "totalTime": "12 mins",
+      "timerMinutes": 12,
+      "bullets": [
+        "Preheat oven to 400°F and line a sheet pan with foil.",
+        "Rub 4 salmon fillets with olive oil, salt, pepper, and minced garlic.",
+        "Top with lemon slices and cold butter pats, then bake 10-12 minutes.",
+        "Pull at 125°F internal for medium; rest 3 minutes to hit 130°F carryover."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Preheat and Prep the Pan",
+        "instruction": "Preheat the oven to 400°F (204°C) on the middle rack. Line a half sheet pan with aluminum foil for zero cleanup and to keep the skin from bonding to the pan.",
+        "proTip": "A fully preheated oven is non-negotiable. Cold ovens produce steamed, gray-banded salmon instead of a crisp-topped fillet."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Season the Fillets",
+        "instruction": "Pat 4 (6-oz) skin-on salmon fillets bone-dry with paper towels. Rub each all over with olive oil (2 tbsp total), then season generously with kosher salt (1 tsp) and cracked black pepper (1/2 tsp).",
+        "proTip": "Dry-surface salmon browns rather than steams. A 1-minute paper-towel blot pays off in visible crust."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Add Garlic, Lemon, and Butter",
+        "instruction": "Scatter 3 minced garlic cloves across the tops. Arrange 1 thinly-sliced lemon over the fillets and set 2 tbsp cold butter in small pats on top so it melts down gradually as they cook.",
+        "proTip": "Cold butter pats melt slowly and baste the salmon throughout the bake rather than scorching brown in the first 60 seconds."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Bake to Just Under Safe Temp",
+        "instruction": "Place the pan on the center rack. Bake 10-12 minutes depending on thickness (rule of thumb: 4-6 minutes per half-inch). Pull when the thickest part reads 125°F on an instant-read thermometer.",
+        "timerMinutes": 12,
+        "targetTemp": "125°F internal for medium",
+        "proTip": "USDA safe temp is 145°F, and carryover cooking pushes 125°F to 130-135°F during the 3-minute rest — hitting perfect medium without overshoot."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Rest and Serve",
+        "instruction": "Let the fillets rest on the pan for 3 minutes so the juices redistribute. Serve with the pan-drippings and softened lemon slices spooned over the top.",
+        "proTip": "Slide a thin metal spatula between the flesh and skin. The skin stays welded to the foil and the fillet lifts off cleanly with no scraping."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Salmon Fillets (skin-on)",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "fillets",
+        "notes": "6 oz each, Atlantic or sockeye"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Cracked Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Fresh Garlic",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Lemon",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "",
+        "notes": "thinly sliced into rounds"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "cold, cut into small pats"
+      }
+    ],
+    "dadProTip": "Buy skin-on fillets even if you plan to remove the skin at the table. The skin acts as an insulating layer against the hot foil, keeping the underside from overcooking while the top surface climbs to 125°F.",
+    "kidAdjustment": "Skip the cracked pepper and serve with a small ramekin of honey mustard or teriyaki glaze on the side for dipping.",
+    "sideSuggestions": [
+      "Roasted asparagus with parmesan",
+      "Lemon herb rice pilaf",
+      "Simple arugula salad with olive oil and shaved parm"
+    ],
+    "reheatInstructions": "Cover with foil and reheat at 275°F for 8 minutes to prevent drying out. Better yet: eat cold, flaked over a green salad the next day.",
+    "nutrition": {
+      "calories": 410,
+      "proteinGrams": 34,
+      "carbsGrams": 2,
+      "fatGrams": 30,
+      "source": "USDA FoodData Central #175167"
+    },
+    "kidRating": 4,
+    "difficulty": "Easy",
+    "keywords": [
+      "baked salmon",
+      "oven baked salmon",
+      "salmon fillet recipe",
+      "how to cook salmon in the oven"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0124",
+    "slug": "cast-iron-buttermilk-fried-chicken",
+    "title": "Cast Iron Buttermilk Fried Chicken",
+    "tagline": "A 24-hour buttermilk brine, well-seasoned flour dredge, and 350°F oil in a 12-inch cast iron skillet build a mahogany crust that shatters at first bite.",
+    "appliance": "cast-iron",
+    "categories": [
+      "weekend"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 20,
+    "cookMinutes": 25,
+    "totalMinutes": 55,
+    "image": "/images/recipes/cast-iron-buttermilk-fried-chicken.jpg",
+    "defaultServings": 6,
+    "basis": "Tested on 3 lb bone-in cut-up whole chicken brined 18 hours, fried in 1.5 inches of peanut oil in a 12-inch Lodge cast iron skillet holding 350°F oil temp.",
+    "safeInternalTempF": 165,
+    "restMinutes": 10,
+    "cookTemp": "350°F oil (177°C)",
+    "cookTempF": 350,
+    "cookTempC": 177,
+    "equipmentNeeded": [
+      "12-inch Cast Iron Skillet",
+      "Deep Fry Thermometer",
+      "Instant-Read Thermometer",
+      "Wire Cooling Rack",
+      "Long Tongs"
+    ],
+    "quickVersion": {
+      "temp": "350°F Oil in Cast Iron",
+      "totalTime": "25 mins active",
+      "timerMinutes": 25,
+      "flipAtMinutes": 12,
+      "bullets": [
+        "Brine 3 lb chicken pieces 12-24 hours in buttermilk, hot sauce, and salt.",
+        "Dredge in seasoned flour with paprika, garlic, onion powder, and cayenne.",
+        "Fry in 1.5 inches of 350°F oil for 12 minutes per side, flipping once.",
+        "Rest on a wire rack 10 minutes until internal temp holds 165°F."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Overnight Buttermilk Brine",
+        "instruction": "Whisk 4 cups buttermilk with 2 tbsp hot sauce and 2 tbsp kosher salt in a large bowl. Submerge 3 lb cut-up chicken (thighs, drumsticks, wings), cover, and refrigerate 12-24 hours.",
+        "proTip": "The buttermilk's lactic acid tenderizes the meat while the salt seasons deep into the muscle fibers. 24 hours is the sweet spot for juicy, well-seasoned chicken."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Build the Seasoned Dredge",
+        "instruction": "In a large shallow dish, whisk together 2 cups all-purpose flour, 1 tbsp smoked paprika, 1 tbsp garlic powder, 1 tbsp onion powder, 1 tsp cayenne, 1 tsp black pepper, and 1 tsp kosher salt.",
+        "proTip": "Drizzle 3 tbsp of the buttermilk brine into the flour and rake with a fork. It creates rough, craggy bits that fry up into extra crispy nubs on the crust."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Dredge and Rest 15 Minutes",
+        "instruction": "Lift each piece of chicken from the brine and let excess drip off for 5 seconds. Press firmly into the flour on all sides, then set on a wire rack. Rest dredged chicken 15 minutes at room temp.",
+        "proTip": "Resting hydrates the dry flour into a glue that will not slide off in hot oil. Skipping this step is the number one reason breading falls apart during frying."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Heat the Cast Iron Oil",
+        "instruction": "Pour 6 cups neutral oil (peanut or vegetable) into a 12-inch cast iron skillet to a depth of 1.5 inches. Heat over medium-high until a deep-fry thermometer reads 350°F. Adjust burner as needed.",
+        "targetTemp": "350°F oil temperature",
+        "proTip": "Cast iron holds heat far better than stainless. Oil temp only drops 15-20°F when chicken hits it, versus 50°F+ in thin pans, so the crust sets fast."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Fry First Side (12 Minutes)",
+        "instruction": "Add chicken skin-side down without crowding (work in 2 batches for a 12-inch skillet). Maintain oil between 325-350°F. Fry undisturbed for 12 full minutes to build a dark golden crust.",
+        "timerMinutes": 12,
+        "proTip": "Do not flip early or peek. The crust needs the full 12 minutes to set into a rigid shell that will not stick to the pan when you turn it."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Flip and Finish",
+        "instruction": "Using long tongs, flip each piece and fry 10-13 more minutes until the internal temp of the thickest piece reads 165°F. Transfer straight to a wire rack set over a sheet pan.",
+        "timerMinutes": 13,
+        "targetTemp": "165°F internal",
+        "proTip": "A wire rack keeps the underside crisp. Draining on paper towels traps steam and turns the bottom soggy in under 3 minutes."
+      },
+      {
+        "stepNumber": 7,
+        "title": "Rest Before Serving",
+        "instruction": "Let the chicken rest on the wire rack for 10 minutes. Carryover cooking finishes the interior evenly and the crust firms up as it cools slightly below the oil temp.",
+        "timerMinutes": 10,
+        "proTip": "Season with a light second sprinkle of flaky salt right when it comes out of the oil. It sticks to the still-wet crust for a savory top note."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Bone-in Chicken Pieces",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "lbs",
+        "notes": "thighs, drumsticks, and wings"
+      },
+      {
+        "item": "Buttermilk",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "cups"
+      },
+      {
+        "item": "Hot Sauce",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "Frank's or Cholula"
+      },
+      {
+        "item": "Kosher Salt (for brine)",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "All-Purpose Flour",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cups"
+      },
+      {
+        "item": "Smoked Paprika",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Onion Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Cayenne Pepper",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt (for dredge)",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Neutral Frying Oil",
+        "qty": "6",
+        "qtyNumeric": 6,
+        "unit": "cups",
+        "notes": "peanut or vegetable, enough for 1.5 inches in a 12-inch skillet"
+      }
+    ],
+    "dadProTip": "Add a fistful of cornstarch (about 3 tbsp) to the flour dredge. It fries up shatteringly crisp because it lacks the gluten proteins that make pure flour crusts denser and chewier at the same time.",
+    "kidAdjustment": "Cut the cayenne to 1/4 teaspoon and swap the hot sauce brine for plain buttermilk with 1 tbsp honey. Gives a milder, slightly sweet chicken kids will devour.",
+    "sideSuggestions": [
+      "Buttermilk biscuits with honey butter",
+      "Creamy coleslaw with apple cider vinegar",
+      "Yellow mustard potato salad"
+    ],
+    "reheatInstructions": "Reheat on a wire rack at 400°F for 10 minutes to re-crisp the crust. Never microwave — the crust turns rubbery and steamy in under 30 seconds.",
+    "nutrition": {
+      "calories": 555,
+      "proteinGrams": 42,
+      "carbsGrams": 22,
+      "fatGrams": 33,
+      "source": "USDA FoodData Central #171478"
+    },
+    "kidRating": 5,
+    "difficulty": "Weekend Project",
+    "keywords": [
+      "buttermilk fried chicken",
+      "cast iron fried chicken",
+      "southern fried chicken",
+      "crispy fried chicken recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0125",
+    "slug": "oven-whole-roasted-chicken",
+    "title": "Simple Whole Roasted Chicken (Crispy-Skin, Juicy-Meat)",
+    "tagline": "Overnight dry-brined whole chicken blasted at 425°F in cast iron until the thigh hits 165°F and the skin shatters like glass.",
+    "appliance": "oven",
+    "categories": [
+      "weekend",
+      "budget",
+      "high-protein"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 15,
+    "cookMinutes": 60,
+    "totalMinutes": 75,
+    "image": "/images/recipes/oven-whole-roasted-chicken.jpg",
+    "defaultServings": 4,
+    "basis": "Tested on 4.5 lb air-chilled whole chicken, dry-brined 18 hours, roasted on a wire rack in a 12-inch cast-iron skillet in a home electric oven.",
+    "costEstimateUSD": 12,
+    "safeInternalTempF": 165,
+    "restMinutes": 15,
+    "cookTemp": "425°F (218°C)",
+    "cookTempF": 425,
+    "cookTempC": 218,
+    "equipmentNeeded": [
+      "12-inch Cast-Iron Skillet or Roasting Pan",
+      "Wire Rack",
+      "Instant-Read Thermometer",
+      "Kitchen Twine (optional)"
+    ],
+    "quickVersion": {
+      "temp": "425°F (218°C)",
+      "totalTime": "60 mins",
+      "timerMinutes": 60,
+      "bullets": [
+        "Rub chicken with 1 tbsp kosher salt + 1 tsp baking powder + 1 tsp pepper. Rest uncovered in fridge overnight.",
+        "Pat dry, truss legs, and place breast-up on rack in cast-iron skillet.",
+        "Roast 60 minutes at 425°F until thickest thigh hits 165°F internal.",
+        "Rest 15 minutes tented with foil before carving to lock in juices."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Overnight Dry-Brine",
+        "instruction": "Pat the whole chicken bone-dry with paper towels. Mix 1 tbsp kosher salt, 1 tsp baking powder, and 1 tsp black pepper. Rub the mixture over every surface including inside the cavity. Place on a rack over a sheet pan and refrigerate uncovered for 12 to 24 hours.",
+        "proTip": "The baking powder raises skin pH, letting moisture escape faster during roasting — this is the single biggest lever for shatter-crisp skin."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Truss and Position",
+        "instruction": "Remove chicken from fridge 30 minutes before roasting. Tie the legs together with kitchen twine and tuck the wingtips under the body. Place breast-up on a wire rack set inside a 12-inch cast-iron skillet or roasting pan.",
+        "proTip": "Trussing keeps the breast compact so the thighs finish at 165°F before the breast dries out."
+      },
+      {
+        "stepNumber": 3,
+        "title": "High-Heat Roast",
+        "instruction": "Slide the skillet onto the middle rack of a 425°F oven. Roast undisturbed for 55 to 65 minutes. Do not open the oven door for the first 45 minutes.",
+        "timerMinutes": 60,
+        "targetTemp": "165°F internal (thickest part of thigh)",
+        "proTip": "Cast iron pre-heats and radiates heat back at the bottom of the bird, giving you golden thigh skin that a sheet pan cannot match."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Temperature Check",
+        "instruction": "Insert an instant-read thermometer into the thickest part of the thigh without touching bone. Pull the chicken when it reads 165°F. If the breast reads 155°F to 160°F at that point, the bird is perfectly cooked.",
+        "proTip": "The USDA safe minimum is 165°F, but carryover cooking will add 5°F to 10°F during the rest — so pulling at 162°F thigh is still safe and even juicier."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Rest and Carve",
+        "instruction": "Transfer chicken to a cutting board and tent loosely with foil. Rest 15 minutes before carving. Reserve the skillet drippings for pan gravy.",
+        "timerMinutes": 15,
+        "proTip": "Cutting too early releases all the juice onto the board. A full 15-minute rest lets muscle fibers relax and reabsorb the liquid."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Whole Chicken",
+        "qty": "4.5",
+        "qtyNumeric": 4.5,
+        "unit": "lbs",
+        "notes": "air-chilled preferred, giblets removed"
+      },
+      {
+        "item": "Kosher Salt (Diamond Crystal)",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Baking Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "aluminum-free"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "freshly cracked"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "optional"
+      },
+      {
+        "item": "Fresh Thyme",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "sprigs",
+        "notes": "stuffed in cavity"
+      }
+    ],
+    "dadProTip": "Skip the butter-under-the-skin trick — it steams the skin from underneath and blocks crisping. A dry salt-and-baking-powder rub the night before does more than any butter compound ever will.",
+    "kidAdjustment": "Carve the drumsticks off first and serve them whole — kids will destroy a drumstick faster than any breast slice.",
+    "sideSuggestions": [
+      "Perfect oven baked potatoes",
+      "Roasted carrots and parsnips with honey",
+      "Buttery mashed potatoes with pan gravy"
+    ],
+    "reheatInstructions": "Slice leftover chicken and reheat in a 325°F oven covered with foil for 10 minutes. Add a splash of chicken broth to keep the meat juicy.",
+    "faqs": [
+      {
+        "q": "Do I need to spatchcock the chicken?",
+        "a": "No. Spatchcocking cuts roast time to about 45 minutes and gives even crispier skin, but a trussed whole bird at 425°F on cast iron produces excellent results in 60 minutes without extra knife work."
+      },
+      {
+        "q": "Why 425°F instead of low and slow?",
+        "a": "High heat renders the skin fat quickly and drives off surface moisture before the breast overcooks. Under 400°F you get pale, flabby skin every time."
+      },
+      {
+        "q": "Can I skip the overnight dry-brine?",
+        "a": "You can, but the skin will not be as crispy and the meat will be less seasoned. Even a 2-hour dry-brine on the counter beats no brine at all."
+      }
+    ],
+    "nutrition": {
+      "calories": 335,
+      "proteinGrams": 38,
+      "carbsGrams": 0,
+      "fatGrams": 19,
+      "source": "USDA FoodData Central #171112"
+    },
+    "kidRating": 4,
+    "difficulty": "Easy",
+    "keywords": [
+      "roast chicken",
+      "whole roasted chicken",
+      "how to roast a whole chicken",
+      "crispy skin roast chicken",
+      "oven roasted chicken"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0126",
+    "slug": "oven-baked-potato-perfect",
+    "title": "Perfect Oven Baked Potato (Crispy Skin, Fluffy Inside)",
+    "tagline": "Russets rubbed with olive oil and kosher salt, baked directly on the rack at 425°F with no foil until fork-tender at 205°F internal.",
+    "appliance": "oven",
+    "categories": [
+      "sides",
+      "five-ingredient",
+      "budget"
+    ],
+    "protein": "vegetarian",
+    "prepMinutes": 5,
+    "cookMinutes": 60,
+    "totalMinutes": 65,
+    "image": "/images/recipes/oven-baked-potato-perfect.jpg",
+    "defaultServings": 4,
+    "basis": "Tested on 4 medium russet potatoes (8-10 oz each), scrubbed dry, on the middle rack of a preheated home electric oven.",
+    "costEstimateUSD": 3,
+    "safeInternalTempF": 205,
+    "restMinutes": 5,
+    "cookTemp": "425°F (218°C)",
+    "cookTempF": 425,
+    "cookTempC": 218,
+    "equipmentNeeded": [
+      "Oven Rack",
+      "Fork",
+      "Instant-Read Thermometer"
+    ],
+    "quickVersion": {
+      "temp": "425°F (218°C)",
+      "totalTime": "60 mins",
+      "timerMinutes": 60,
+      "bullets": [
+        "Scrub 4 russets and poke each 8 times with a fork.",
+        "Rub with 1 tbsp olive oil and generous kosher salt.",
+        "Bake directly on the middle rack (no foil) for 60 minutes.",
+        "Done when internal temp hits 205°F and a fork slides in with no resistance."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Scrub and Dry",
+        "instruction": "Scrub 4 medium russet potatoes under cold running water with a vegetable brush. Pat completely dry with a clean towel. Any residual water will steam the skin instead of crisping it.",
+        "proTip": "Choose russets that are similar in size (8 to 10 oz each) so they finish at the same time."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Poke and Rub",
+        "instruction": "Prick each potato 8 to 10 times all over with a fork to let steam escape during baking. Rub each potato with about 3/4 tsp olive oil and a generous pinch of kosher salt, coating every surface.",
+        "proTip": "Skipping the fork pokes risks a potato bursting mid-bake. Do not skip this step."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Bake Directly on the Rack",
+        "instruction": "Place the potatoes directly on the middle rack of a preheated 425°F oven. Slide a sheet pan on the rack below to catch any drips. Do not wrap in foil.",
+        "timerMinutes": 60,
+        "targetTemp": "205°F internal",
+        "proTip": "Foil traps steam and gives you a soggy, boiled-tasting skin — the opposite of what you want."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Check for Doneness",
+        "instruction": "Bake for 55 to 65 minutes. The potato is done when an instant-read thermometer inserted through the end reads 205°F and a fork slides through the flesh with zero resistance.",
+        "proTip": "205°F is the sweet spot where the starch granules fully gelatinize and the flesh turns cloud-fluffy. Under 200°F and the middle stays gummy."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Split and Fluff",
+        "instruction": "Rest 5 minutes. Slice the top open with a paring knife, pinch the ends to burst it open, then fluff the interior with a fork before loading with toppings.",
+        "proTip": "Fluffing releases trapped steam and creates the classic mashed-inside texture that holds butter without going gluey."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Russet Potatoes",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "potatoes",
+        "notes": "medium, 8-10 oz each"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "coarse, for rubbing"
+      },
+      {
+        "item": "Salted Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "for serving"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "to taste",
+        "unit": "",
+        "notes": "freshly cracked"
+      }
+    ],
+    "dadProTip": "The doneness marker for potatoes is not time — it is 205°F internal. A stubborn potato that reads 195°F needs another 10 minutes even if the clock says done. Trust the thermometer over the timer every single bake.",
+    "kidAdjustment": "Load with shredded cheddar and sour cream, skip the pepper. Kids also love a scoop of broccoli-cheese soup in the split.",
+    "sideSuggestions": [
+      "Classic butter, sour cream, chives, bacon bits",
+      "Broccoli, cheddar, and Greek yogurt",
+      "Chili, cheese, and pickled jalapenos"
+    ],
+    "reheatInstructions": "Reheat whole potatoes in a 350°F oven for 15 minutes directly on the rack. Microwaving turns the skin rubbery — always use the oven for reheating.",
+    "faqs": [
+      {
+        "q": "Can I wrap the potato in foil?",
+        "a": "You can, but it gives you a steamed potato with limp skin. For crispy skin, always bake naked on the rack."
+      },
+      {
+        "q": "Do I really need a thermometer?",
+        "a": "The fork test works — a fork should slide in with zero resistance — but a thermometer reading 205°F removes all guesswork and guarantees fluffy centers every time."
+      },
+      {
+        "q": "Can I use Yukon Golds instead?",
+        "a": "You can, but they have less starch and will not fluff up like a russet. For classic baked potato texture, russets are the only right answer."
+      }
+    ],
+    "nutrition": {
+      "calories": 220,
+      "proteinGrams": 5,
+      "carbsGrams": 44,
+      "fatGrams": 4,
+      "source": "USDA FoodData Central #170032"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "baked potato",
+      "how to bake a potato",
+      "oven baked potato",
+      "crispy skin baked potato",
+      "perfect baked potato"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0127",
+    "slug": "oven-homemade-cinnamon-rolls",
+    "title": "Homemade Cinnamon Rolls with Cream Cheese Glaze",
+    "tagline": "Enriched yeast dough with a slow overnight rise, an ooey-gooey brown sugar and cinnamon swirl, and a tangy cream cheese icing melted over the top warm from the oven.",
+    "appliance": "oven",
+    "categories": [
+      "breakfast",
+      "weekend",
+      "kid-approved"
+    ],
+    "protein": "dairy-eggs",
+    "prepMinutes": 120,
+    "cookMinutes": 25,
+    "totalMinutes": 145,
+    "image": "/images/recipes/oven-homemade-cinnamon-rolls.jpg",
+    "defaultServings": 12,
+    "basis": "Tested with 4 cups all-purpose flour enriched dough, first rise 60 minutes at 78°F, second rise 30 minutes, baked in a 9x13 metal pan in a home electric oven.",
+    "safeInternalTempF": 190,
+    "restMinutes": 10,
+    "cookTemp": "350°F (177°C)",
+    "cookTempF": 350,
+    "cookTempC": 177,
+    "equipmentNeeded": [
+      "Stand Mixer with Dough Hook",
+      "9x13 Metal Baking Pan",
+      "Rolling Pin",
+      "Bench Scraper or Unflavored Dental Floss",
+      "Instant-Read Thermometer"
+    ],
+    "quickVersion": {
+      "temp": "350°F (177°C)",
+      "totalTime": "25 mins bake (2 hr 15 min total with rises)",
+      "timerMinutes": 25,
+      "bullets": [
+        "Mix warm milk, sugar, yeast, butter, egg, salt, and flour into a soft dough. Rise 60 minutes until doubled.",
+        "Roll to 12x18 inches, spread with softened butter, brown sugar, and cinnamon. Roll tight and cut into 12 with dental floss.",
+        "Second rise 30 minutes in a greased 9x13 pan. Bake at 350°F for 25 minutes until 190°F internal.",
+        "Slather with cream cheese glaze while warm so it melts into every crevice."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Mix the Enriched Dough",
+        "instruction": "In a stand mixer bowl, whisk 1 cup warm milk (110°F), 1/4 cup granulated sugar, and 2 1/4 tsp instant yeast. Let bloom 5 minutes until foamy. Add 1 large egg, 4 tbsp melted butter, 1 tsp salt, and 4 cups all-purpose flour. Knead with dough hook on medium-low for 6 to 8 minutes until smooth and tacky but not sticky.",
+        "proTip": "Milk temperature is critical — below 105°F yeast wakes slowly, above 115°F it dies. Use a thermometer, not your finger."
+      },
+      {
+        "stepNumber": 2,
+        "title": "First Rise",
+        "instruction": "Transfer the dough to a lightly oiled bowl. Cover with plastic wrap and rise in a warm spot (75°F to 80°F) for 60 minutes until doubled in volume. For overnight prep, place in the fridge instead and let it slow-rise 8 to 12 hours.",
+        "timerMinutes": 60,
+        "proTip": "A cold overnight rise builds deeper flavor and makes the dough easier to roll thin without snapping back."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Roll Out and Fill",
+        "instruction": "Punch down the dough and roll on a lightly floured surface into a 12 by 18 inch rectangle. Spread 6 tbsp softened butter edge to edge. Mix 1 cup packed brown sugar with 2 1/2 tbsp ground cinnamon and sprinkle evenly over the butter, pressing gently to adhere.",
+        "proTip": "Softened — not melted — butter is the key. Melted butter runs out the ends and drowns the pan in syrup instead of forming a defined swirl."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Roll and Cut",
+        "instruction": "Starting from the long edge, roll the dough tightly into a log. Pinch the seam to seal. Slice into 12 equal rolls using a piece of unflavored dental floss slid under the log and crossed over the top.",
+        "proTip": "Dental floss cuts cleaner than any knife and does not squish the spiral shape flat — a knife compresses the layers on every slice."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Second Rise",
+        "instruction": "Arrange the 12 rolls cut-side up in a buttered 9x13 metal pan, leaving small gaps for expansion. Cover loosely and rise in a warm spot for 30 minutes until puffy and touching.",
+        "timerMinutes": 30,
+        "proTip": "Rolls should look puffy and pillowy, not aggressively risen. Over-proofed rolls collapse in the oven."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Bake",
+        "instruction": "Bake in a preheated 350°F oven for 22 to 28 minutes until the tops are golden brown and the center rolls read 190°F on an instant-read thermometer.",
+        "timerMinutes": 25,
+        "targetTemp": "190°F internal",
+        "proTip": "The center rolls always finish last. Test the middle roll, not an edge one, or you will pull an underbaked pan."
+      },
+      {
+        "stepNumber": 7,
+        "title": "Glaze and Serve",
+        "instruction": "While rolls rest 10 minutes, beat 4 oz softened cream cheese with 3 tbsp softened butter until smooth. Add 1 1/2 cups powdered sugar, 1 tsp vanilla, and 1 tbsp milk. Spread thickly over warm rolls so the glaze melts into every swirl.",
+        "proTip": "Glazing while warm — but not screaming hot — gives you that classic ooey-gooey drip without turning the frosting to soup."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Whole Milk",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup",
+        "notes": "warmed to 110°F"
+      },
+      {
+        "item": "Instant Yeast",
+        "qty": "2 1/4",
+        "qtyNumeric": 2.25,
+        "unit": "tsp",
+        "notes": "1 standard packet"
+      },
+      {
+        "item": "Granulated Sugar",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "cup",
+        "notes": "for the dough"
+      },
+      {
+        "item": "Large Egg",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "egg",
+        "notes": "room temperature"
+      },
+      {
+        "item": "Unsalted Butter (Melted)",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "tbsp",
+        "notes": "for the dough"
+      },
+      {
+        "item": "All-Purpose Flour",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "cups"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Unsalted Butter (Softened)",
+        "qty": "6",
+        "qtyNumeric": 6,
+        "unit": "tbsp",
+        "notes": "for the filling"
+      },
+      {
+        "item": "Light Brown Sugar (Packed)",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup",
+        "notes": "for the filling"
+      },
+      {
+        "item": "Ground Cinnamon",
+        "qty": "2 1/2",
+        "qtyNumeric": 2.5,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Cream Cheese",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "oz",
+        "notes": "softened, for glaze"
+      },
+      {
+        "item": "Unsalted Butter (Softened)",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "tbsp",
+        "notes": "for glaze"
+      },
+      {
+        "item": "Powdered Sugar",
+        "qty": "1 1/2",
+        "qtyNumeric": 1.5,
+        "unit": "cups",
+        "notes": "sifted, for glaze"
+      },
+      {
+        "item": "Vanilla Extract",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "for glaze"
+      }
+    ],
+    "dadProTip": "For make-ahead: after cutting the rolls and placing them in the pan, cover and refrigerate overnight. In the morning, let them sit on the counter for 45 minutes while the oven preheats, then bake as directed. Fresh cinnamon rolls with zero morning-of dough work.",
+    "kidAdjustment": "Kids love a thicker glaze — double the powdered sugar in the frosting and add sprinkles right after glazing while it is still tacky.",
+    "sideSuggestions": [
+      "Fresh brewed coffee or cold brew",
+      "Crispy bacon strips",
+      "Scrambled eggs with chives"
+    ],
+    "reheatInstructions": "Reheat individual rolls in the microwave for 20 to 25 seconds, or warm the whole pan covered with foil in a 300°F oven for 10 minutes. Add a fresh drizzle of glaze after reheating.",
+    "faqs": [
+      {
+        "q": "Can I use bread flour instead of all-purpose?",
+        "a": "Yes, and the rolls will have a slightly chewier bite. All-purpose gives the classic soft, pillowy texture most people expect."
+      },
+      {
+        "q": "How do I know when the dough has risen enough?",
+        "a": "The dough should roughly double in volume. Press two fingers gently into the dough — if the indentation holds and slowly springs back, it is ready. If it springs back instantly, it needs more time."
+      },
+      {
+        "q": "Why 190°F internal for bread doneness?",
+        "a": "Enriched yeast doughs are fully baked when the interior hits 190°F. Below that the starch is not fully set and the center stays gummy. Over 200°F and the bread dries out."
+      },
+      {
+        "q": "Can I freeze the rolls before baking?",
+        "a": "Yes. After cutting and placing in the pan, freeze uncovered until solid then wrap tightly. Thaw overnight in the fridge, do the second rise on the counter for 90 minutes, and bake as directed."
+      }
+    ],
+    "nutrition": {
+      "calories": 385,
+      "proteinGrams": 6,
+      "carbsGrams": 58,
+      "fatGrams": 14,
+      "source": "USDA FoodData Central #175058"
+    },
+    "kidRating": 5,
+    "difficulty": "Weekend Project",
+    "keywords": [
+      "cinnamon rolls from scratch",
+      "homemade cinnamon rolls",
+      "best cinnamon roll recipe",
+      "cinnamon rolls with cream cheese icing"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0128",
+    "slug": "dutch-oven-chicken-noodle-soup",
+    "title": "From-Scratch Dutch Oven Chicken Noodle Soup",
+    "tagline": "Seared bone-in chicken thighs, buttery mirepoix, real broth, and tender egg noodles in one heavy pot.",
+    "appliance": "dutch-oven",
+    "categories": [
+      "one-pan",
+      "kid-approved"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 15,
+    "cookMinutes": 45,
+    "totalMinutes": 60,
+    "image": "/images/recipes/dutch-oven-chicken-noodle-soup.jpg",
+    "defaultServings": 6,
+    "basis": "Tested on 2 lbs bone-in skin-on chicken thighs in 6-quart enameled dutch oven with 8 cups low-sodium broth and 8 oz wide egg noodles.",
+    "safeInternalTempF": 165,
+    "cookTemp": "Medium (350°F / 177°C simmer)",
+    "cookTempF": 350,
+    "cookTempC": 177,
+    "equipmentNeeded": [
+      "6-Quart Dutch Oven",
+      "Tongs",
+      "Wooden Spoon"
+    ],
+    "quickVersion": {
+      "temp": "Medium (350°F / 177°C simmer)",
+      "totalTime": "45 mins",
+      "timerMinutes": 45,
+      "bullets": [
+        "Sear 2 lbs bone-in chicken thighs in dutch oven, then remove and set aside.",
+        "Sauté diced onion, carrot, and celery in the chicken fat with garlic and thyme.",
+        "Pour in 8 cups broth, return chicken, and simmer 25 minutes until tender.",
+        "Shred chicken off the bone, add 8 oz egg noodles, and cook 8 more minutes."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Sear the Chicken Thighs",
+        "instruction": "Heat 1 tbsp olive oil in a 6-quart dutch oven over medium-high heat. Season 2 lbs bone-in skin-on chicken thighs with salt and pepper. Sear skin-side down for 5 minutes until deeply browned, flip and sear 3 more minutes. Remove to a plate.",
+        "timerMinutes": 8,
+        "proTip": "Do not skip the sear — the browned fond left on the pot floor is where 60% of the finished soup's flavor lives."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Build the Mirepoix",
+        "instruction": "Reduce heat to medium. Add 1 diced yellow onion, 3 sliced carrots, and 3 sliced celery ribs directly to the rendered chicken fat. Cook 6 minutes, stirring, until softened and lightly golden.",
+        "timerMinutes": 6,
+        "proTip": "Cutting all three vegetables to the same 1/4-inch thickness makes every spoonful cook evenly."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Bloom Garlic and Thyme",
+        "instruction": "Add 4 minced garlic cloves and 1 tsp fresh thyme leaves (or 1/2 tsp dried). Stir for 30 seconds until fragrant.",
+        "proTip": "Adding garlic last prevents the burnt-bitter taste that ruins slow-simmered soups."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Deglaze and Simmer",
+        "instruction": "Pour in 8 cups low-sodium chicken broth, scraping the bottom of the pot with a wooden spoon. Return the seared thighs (and any resting juices) to the pot. Bring to a boil, then reduce to a low simmer, cover, and cook 25 minutes.",
+        "timerMinutes": 25,
+        "targetTemp": "165°F internal",
+        "proTip": "Simmer means a lazy bubble — a hard boil turns chicken thighs stringy and rubbery."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Shred the Chicken",
+        "instruction": "Remove chicken to a cutting board. Discard skin and bones. Shred meat with two forks into bite-sized pieces and return to the pot.",
+        "proTip": "Pulling the meat off the bones after simmering releases collagen that gives the broth silky body."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Cook the Noodles",
+        "instruction": "Increase heat to medium and add 8 oz wide egg noodles directly into the simmering broth. Cook uncovered for 8 minutes until al dente. Season with salt and cracked pepper to taste. Finish with 2 tbsp chopped fresh parsley.",
+        "timerMinutes": 8,
+        "proTip": "Cooking noodles right in the broth thickens the soup slightly with released starch — no cornstarch slurry needed."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Bone-In Skin-On Chicken Thighs",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "lbs"
+      },
+      {
+        "item": "Low-Sodium Chicken Broth",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "cups"
+      },
+      {
+        "item": "Wide Egg Noodles",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "oz"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "",
+        "notes": "diced"
+      },
+      {
+        "item": "Carrots",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "",
+        "notes": "peeled and sliced 1/4-inch"
+      },
+      {
+        "item": "Celery Ribs",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "",
+        "notes": "sliced 1/4-inch"
+      },
+      {
+        "item": "Fresh Garlic",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Fresh Thyme Leaves",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "or 1/2 tsp dried"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Fresh Parsley",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "chopped"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "to taste",
+        "unit": ""
+      },
+      {
+        "item": "Cracked Black Pepper",
+        "qty": "to taste",
+        "unit": ""
+      }
+    ],
+    "dadProTip": "Bone-in thighs are non-negotiable — the collagen from the bones is what gives from-scratch soup its restaurant mouthfeel, and boneless breasts turn dry and sad after 25 minutes of simmering.",
+    "kidAdjustment": "Cut the carrots and celery into smaller 1/8-inch coins and skip the black pepper garnish for a milder bowl.",
+    "sideSuggestions": [
+      "Buttered saltine crackers",
+      "Grilled cheese sandwich triangles",
+      "Simple green salad with vinaigrette"
+    ],
+    "reheatInstructions": "Reheat gently in a saucepan over medium-low heat for 6 to 8 minutes. Add 1/4 cup fresh broth to loosen if noodles have absorbed liquid overnight.",
+    "nutrition": {
+      "calories": 385,
+      "proteinGrams": 32,
+      "carbsGrams": 28,
+      "fatGrams": 15,
+      "source": "USDA FoodData Central #171076"
+    },
+    "kidRating": 5,
+    "difficulty": "Easy",
+    "keywords": [
+      "chicken noodle soup",
+      "homemade chicken noodle soup",
+      "chicken noodle soup from scratch",
+      "easy chicken noodle soup",
+      "dutch oven chicken soup"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0129",
+    "slug": "oven-baked-chicken-breast-juicy",
+    "title": "Juicy Oven Baked Chicken Breast",
+    "tagline": "High-heat 425°F sheet pan chicken with an olive oil brown sugar rub — 22 minutes, no flip, pulled at 160°F for perfect carryover.",
+    "appliance": "oven",
+    "categories": [
+      "high-protein",
+      "one-pan"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 5,
+    "cookMinutes": 22,
+    "totalMinutes": 27,
+    "image": "/images/recipes/oven-baked-chicken-breast-juicy.jpg",
+    "defaultServings": 4,
+    "basis": "Tested on 4 boneless skinless chicken breasts (6-8 oz, ~1-inch thick) on a half sheet pan in a 425°F conventional oven.",
+    "safeInternalTempF": 165,
+    "restMinutes": 5,
+    "cookTemp": "425°F (218°C)",
+    "cookTempF": 425,
+    "cookTempC": 218,
+    "equipmentNeeded": [
+      "Half Sheet Pan",
+      "Instant-Read Thermometer",
+      "Small Mixing Bowl"
+    ],
+    "quickVersion": {
+      "temp": "425°F (218°C)",
+      "totalTime": "22 mins",
+      "timerMinutes": 22,
+      "bullets": [
+        "Preheat oven to 425°F and pat 4 chicken breasts bone-dry with paper towels.",
+        "Rub with olive oil, then coat with brown sugar, paprika, garlic powder, onion powder, salt, and pepper.",
+        "Bake on sheet pan 22 minutes with no flip until internal temp hits 160°F.",
+        "Rest 5 minutes tented with foil to carry over to 165°F and lock in the juices."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Preheat and Dry",
+        "instruction": "Preheat the oven to 425°F (218°C). Pat 4 boneless skinless chicken breasts (6-8 oz each) completely dry with paper towels.",
+        "proTip": "A wet chicken surface steams instead of browns — five seconds with a paper towel is the single biggest upgrade to any baked chicken."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Mix the Brown Sugar Rub",
+        "instruction": "In a small bowl, combine 1 tbsp brown sugar, 2 tsp paprika, 1 tsp garlic powder, 1 tsp onion powder, 1 tsp kosher salt, and 1/2 tsp cracked black pepper.",
+        "proTip": "The brown sugar caramelizes at 425°F to build a mahogany crust that mimics grilled chicken without the char."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Oil and Coat",
+        "instruction": "Drizzle 2 tbsp olive oil over the chicken and rub it in on all sides. Sprinkle the spice rub evenly over the tops and sides of each breast, pressing gently to adhere.",
+        "proTip": "Oil goes on before the rub — it is the glue that keeps the spices on the breast instead of stuck to the sheet pan."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Sheet Pan Bake (No Flip)",
+        "instruction": "Arrange the breasts on a half sheet pan with at least 1 inch between each. Roast on the center rack for 22 minutes without flipping or opening the oven.",
+        "timerMinutes": 22,
+        "targetTemp": "160°F internal (pull temp)",
+        "proTip": "No flip needed — the sheet pan absorbs radiant heat and cooks the underside evenly while the top browns."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Check Temp and Rest",
+        "instruction": "Insert an instant-read thermometer into the thickest part of the largest breast — pull the pan when it reads 160°F. Tent loosely with foil and rest for 5 minutes.",
+        "targetTemp": "165°F final (after carryover)",
+        "proTip": "Carryover cooking adds another 5°F during the rest — pulling at 160°F is how you land at USDA-safe 165°F without a chalky breast."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Slice Against the Grain",
+        "instruction": "Slice each breast against the grain into 1/2-inch strips. Drizzle any resting juices from the sheet pan back over the sliced meat before serving.",
+        "proTip": "Slicing across the muscle fibers shortens them so every bite chews as tender as the middle of the breast."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Boneless Skinless Chicken Breasts",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "",
+        "notes": "6-8 oz each, roughly 1-inch thick"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Brown Sugar",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp",
+        "notes": "light or dark"
+      },
+      {
+        "item": "Paprika",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tsp",
+        "notes": "smoked or sweet"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Onion Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Cracked Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Buy breasts that are all within an ounce of each other. Mixed sizes on the same sheet pan means the little ones dry out while you wait for the big ones to hit temp — worth a five-second scan at the meat counter to weed out the giant lobes.",
+    "kidAdjustment": "Skip the black pepper and cut the finished breast into 1-inch dippable strips served with ranch or honey mustard.",
+    "sideSuggestions": [
+      "Roasted broccoli with lemon",
+      "Buttery mashed potatoes",
+      "Rice pilaf with parsley"
+    ],
+    "reheatInstructions": "Reheat sliced chicken covered in a 300°F oven for 8 minutes with a splash of chicken broth in the dish to prevent drying.",
+    "nutrition": {
+      "calories": 280,
+      "proteinGrams": 42,
+      "carbsGrams": 4,
+      "fatGrams": 10,
+      "source": "USDA FoodData Central #171077"
+    },
+    "kidRating": 4,
+    "difficulty": "Easy",
+    "keywords": [
+      "oven baked chicken breast",
+      "juicy baked chicken breast",
+      "how to bake chicken breast",
+      "easy baked chicken breast",
+      "meal prep chicken breast"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0130",
+    "slug": "boiling-white-rice-stovetop",
+    "title": "How to Cook Perfect White Rice on the Stove",
+    "tagline": "Foolproof 2:1 water-to-rice ratio, a tight-lidded saucepan, no peeking, and an 18-minute steam for fluffy separate grains every time.",
+    "appliance": "boiling",
+    "categories": [
+      "sides",
+      "five-ingredient",
+      "budget"
+    ],
+    "protein": "vegetarian",
+    "prepMinutes": 2,
+    "cookMinutes": 18,
+    "totalMinutes": 20,
+    "image": "/images/recipes/boiling-white-rice-stovetop.jpg",
+    "defaultServings": 3,
+    "basis": "Tested with 1 cup long-grain white rice and 2 cups cold water in a 2-quart heavy-bottomed saucepan with a tight-fitting glass lid over a gas burner.",
+    "costEstimateUSD": 1,
+    "restMinutes": 5,
+    "cookTemp": "Low Simmer (212°F / 100°C boil then reduce)",
+    "cookTempF": 212,
+    "cookTempC": 100,
+    "equipmentNeeded": [
+      "Saucepan with Tight-Fitting Lid",
+      "Fork"
+    ],
+    "quickVersion": {
+      "temp": "Low Simmer (212°F / 100°C boil then reduce)",
+      "totalTime": "18 mins",
+      "timerMinutes": 18,
+      "bullets": [
+        "Rinse 1 cup long-grain white rice under cold water until it runs clear.",
+        "Combine rice, 2 cups water, 1/2 tsp salt, and 1 tsp butter in a saucepan.",
+        "Bring to a full boil, drop to lowest simmer, cover tight, cook 18 minutes untouched.",
+        "Rest lidded off heat 5 more minutes, then fluff with a fork before serving."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Rinse the Rice",
+        "instruction": "Place 1 cup long-grain white rice in a fine mesh strainer and rinse under cold running water for 30 seconds, swirling with your fingers, until the water runs mostly clear.",
+        "proTip": "Rinsing removes surface starch — this is the difference between fluffy separate grains and one gummy clump."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Combine Everything Cold",
+        "instruction": "In a 2-quart saucepan with a tight-fitting lid, combine the rinsed rice, 2 cups cold water, 1/2 tsp salt, and 1 tsp butter (optional).",
+        "proTip": "Starting cold gives the grains equal exposure to heat as the water rises, cooking every grain evenly from the outside in."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Boil, Then Immediately Reduce",
+        "instruction": "Bring the uncovered pot to a full rolling boil over high heat. The moment it boils, drop the heat to the lowest possible simmer setting and slap the lid on tight.",
+        "proTip": "If your burner runs hot, use a heat diffuser or slide the pot half off the burner — you want a lazy whisper of steam, not a rattling lid."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Cook 18 Minutes, No Peeking",
+        "instruction": "Set a timer for exactly 18 minutes. Do not lift the lid, do not stir, do not check on the rice.",
+        "timerMinutes": 18,
+        "proTip": "Every lid lift dumps steam pressure — and steam pressure is what cooks the grains from the top down."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Rest Off Heat",
+        "instruction": "After 18 minutes, pull the pot off the burner entirely and let it rest covered for 5 more minutes. Still no peeking.",
+        "proTip": "This final steam rest redistributes residual moisture so the bottom layer is not soggy and the top is not dry."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Fluff with a Fork",
+        "instruction": "Uncover the pot. Run a fork gently through the rice, lifting and separating rather than stirring, to break up any clumps and release excess steam.",
+        "proTip": "A fork lifts and aerates grains; a spoon smashes them flat and re-activates starch, making the rice gummy."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Long-Grain White Rice",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup",
+        "notes": "such as jasmine or basmati"
+      },
+      {
+        "item": "Water",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cups",
+        "notes": "cold from the tap"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "optional, for gloss and flavor"
+      }
+    ],
+    "dadProTip": "The 2:1 ratio only works if your lid actually seals. If yours rattles, weight it down with a clean cast iron skillet or wrap the lid in a kitchen towel to trap escaping steam — the towel trick also absorbs condensation that would otherwise drip back and make the top layer mushy.",
+    "kidAdjustment": "Stir in an extra pat of butter and a pinch of sugar after fluffing for a mild, buttery side that kids will actually eat.",
+    "sideSuggestions": [
+      "Teriyaki chicken thighs",
+      "Slow cooker beef stew",
+      "Seared salmon with lemon"
+    ],
+    "reheatInstructions": "Sprinkle 1 tbsp water over 1 cup cold rice, cover, and microwave 60 seconds — the water re-steams the grains back to fresh texture.",
+    "nutrition": {
+      "calories": 205,
+      "proteinGrams": 4,
+      "carbsGrams": 45,
+      "fatGrams": 1,
+      "source": "USDA FoodData Central #169756"
+    },
+    "kidRating": 4,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "how to cook rice",
+      "how to cook white rice",
+      "stovetop rice",
+      "perfect rice recipe",
+      "boiled rice"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
   }
 ]
