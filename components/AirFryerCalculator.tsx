@@ -11,6 +11,18 @@ export default function AirFryerCalculator() {
   const [ovenMinutes, setOvenMinutes] = useState<number>(25);
   const [unit, setUnit] = useState<'F' | 'C'>('F');
 
+  const switchUnit = (next: 'F' | 'C') => {
+    if (next === unit) return;
+    const converted =
+      next === 'C'
+        ? Math.round((((ovenTemp - 32) * 5) / 9) / 5) * 5
+        : Math.round(((ovenTemp * 9) / 5 + 32) / 5) * 5;
+    const min = next === 'F' ? 300 : 150;
+    const max = next === 'F' ? 475 : 245;
+    setOvenTemp(Math.min(max, Math.max(min, converted)));
+    setUnit(next);
+  };
+
   // Conversion Math:
   // Air Fryer Temp: Conventional Oven Temp minus 25°F (or minus 15°C)
   // Air Fryer Time: Conventional Oven Time minus 20% to 25%
@@ -43,7 +55,7 @@ export default function AirFryerCalculator() {
           {/* Unit Toggle */}
           <div className="flex items-center bg-paper-200 p-0.5 rounded border border-hairline font-mono text-xs">
             <button
-              onClick={() => setUnit('F')}
+              onClick={() => switchUnit('F')}
               className={`px-2 py-0.5 rounded ${
                 unit === 'F' ? 'bg-ink text-paper font-bold' : 'text-ink-muted'
               }`}
@@ -51,7 +63,7 @@ export default function AirFryerCalculator() {
               °FAHRENHEIT
             </button>
             <button
-              onClick={() => setUnit('C')}
+              onClick={() => switchUnit('C')}
               className={`px-2 py-0.5 rounded ${
                 unit === 'C' ? 'bg-ink text-paper font-bold' : 'text-ink-muted'
               }`}
