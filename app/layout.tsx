@@ -126,6 +126,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-paper text-ink" suppressHydrationWarning>
       <head>
+        {/* Google AdSense */}
+        <meta name="google-adsense-account" content="ca-pub-9801578474509944" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9801578474509944"
+          crossOrigin="anonymous"
+        />
         {/* Google tag (gtag.js) */}
         <script
           async
