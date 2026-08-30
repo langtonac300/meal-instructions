@@ -24,9 +24,8 @@ export default function Lean5SMatrix({
 }: Lean5SMatrixProps) {
   return (
     <div className={`space-y-2 ${className}`}>
-      <div className="flex items-center justify-between text-[10px] font-mono text-ink-subtle uppercase tracking-wider">
-        <span>LEAN 5S SPECIFICATION MATRIX</span>
-        <span>AT-A-GLANCE PROCESS METRICS</span>
+      <div className="flex items-center justify-between text-[11px] font-mono text-ink-subtle uppercase tracking-wider">
+        <span>At a glance</span>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">

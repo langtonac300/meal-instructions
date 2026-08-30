@@ -171,7 +171,7 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
           <span>Back to Index</span>
         </Link>
         <div className="flex items-center gap-2">
-          <span>SPECIMEN #{recipe.id}</span>
+          <span>#{recipe.id}</span>
           <span>•</span>
           <span className="uppercase text-ink-muted">{recipe.appliance}</span>
         </div>
@@ -257,7 +257,7 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
               className="flex items-center gap-1.5 px-3 py-1.5 bg-paper hairline-border hover:border-ink transition-colors cursor-pointer text-ink"
             >
               {copiedSms ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5" />}
-              <span>{copiedSms ? 'COPIED FOR SMS!' : 'SMS TO SPOUSE'}</span>
+              <span>{copiedSms ? 'COPIED!' : 'TEXT THIS'}</span>
             </button>
 
             <button
@@ -364,11 +364,6 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
 
       {/* HR-7: THE STICKY INLINE SEGMENTED MODE SELECTOR */}
       <div className="space-y-2 no-print sticky top-16 z-30 bg-paper-card/95 backdrop-blur-sm py-3 hairline-b">
-        <div className="flex justify-between items-center text-[10px] font-mono text-ink-subtle uppercase">
-          <span>Execution Mode</span>
-          <span>Applied via CSS Visibility</span>
-        </div>
-
         <div className="grid grid-cols-2 gap-2 p-1 bg-paper hairline-border font-mono text-xs">
           <button
             type="button"
@@ -532,12 +527,9 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
           <div className="flex items-center gap-2">
             <Zap className="w-5 h-5 text-accent" />
             <h2 className="text-lg sm:text-xl font-bold text-ink uppercase tracking-tight font-sans">
-              Get to the Point Execution
+              Get to the Point
             </h2>
           </div>
-          <span className="font-mono text-[10px] text-ink-subtle uppercase">
-            20-WORD BULLETS // NO FLUFF
-          </span>
         </div>
 
         <div className="space-y-4">

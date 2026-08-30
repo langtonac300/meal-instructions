@@ -41,7 +41,7 @@ export default function Navbar() {
       <div className="bg-ink text-paper py-1.5 px-4 sm:px-8 text-[11px] font-mono tracking-wider flex justify-between items-center hairline-b no-print">
         <div className="flex items-center gap-3">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="uppercase text-neutral-300">Technical Cook-Time Reference & Quality-Gated Meals // No Fluff, Just the Instructions</span>
+          <span className="uppercase text-neutral-300">130 verified meals · USDA cook-time datasheets</span>
         </div>
         <div className="hidden md:flex items-center gap-4 text-neutral-400">
           <Link href="/about" className="hover:text-paper transition-colors">
@@ -49,7 +49,7 @@ export default function Navbar() {
           </Link>
           <span>/</span>
           <Link href="/llms.txt" className="hover:text-paper transition-colors">
-            AI SCRAPER (LLMS.TXT)
+            LLMS.TXT
           </Link>
         </div>
       </div>
@@ -64,87 +64,54 @@ export default function Navbar() {
           </Link>
 
           {/* Center Links */}
-          <nav className="hidden lg:flex items-center gap-6 font-mono text-xs tracking-wider uppercase text-ink-muted">
-            <Link
-              href="/appliances/air-fryer"
-              className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname === '/appliances/air-fryer' ? 'text-ink border-b-2 border-ink font-bold' : ''
-              }`}
-            >
-              Air Fryer
-            </Link>
+          <nav className="hidden lg:flex items-center gap-7 font-sans text-sm text-ink-muted">
             <Link
               href="/categories/15-minute"
               className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname === '/categories/15-minute' ? 'text-ink border-b-2 border-ink font-bold' : ''
+                pathname === '/categories/15-minute' ? 'text-ink border-b-2 border-ink font-semibold' : ''
               }`}
             >
-              15-Minute Dinners
+              15-min dinners
             </Link>
             <Link
               href="/categories/high-protein"
               className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname === '/categories/high-protein' ? 'text-ink border-b-2 border-ink font-bold' : ''
+                pathname === '/categories/high-protein' ? 'text-ink border-b-2 border-ink font-semibold' : ''
               }`}
             >
-              High Protein
-            </Link>
-            <Link
-              href="/categories/kid-approved"
-              className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname === '/categories/kid-approved' ? 'text-ink border-b-2 border-ink font-bold' : ''
-              }`}
-            >
-              Kid Approved
-            </Link>
-            <Link
-              href="/blog"
-              className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname.startsWith('/blog') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
-              }`}
-            >
-              Field Guides
-            </Link>
-            <Link
-              href="/tools"
-              className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname === '/tools' || pathname.startsWith('/reheat') || pathname.startsWith('/frozen-cook') || pathname.startsWith('/dinner-sync') || pathname.startsWith('/meat-math') || pathname.startsWith('/internal-temp') || pathname.startsWith('/salt-math') || pathname.startsWith('/kid-split') || pathname.startsWith('/troubleshoot') || pathname.startsWith('/air-fryer-calculator') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
-              }`}
-            >
-              Tools &amp; Calcs
-            </Link>
-            <Link
-              href="/shop"
-              className={`hover:text-ink transition-colors pb-0.5 flex items-center gap-1 ${
-                pathname.startsWith('/shop') || pathname.startsWith('/merch') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
-              }`}
-            >
-              <span>Merch &amp; Tools</span>
-              <span className="text-[9px] px-1 py-0.2 bg-ink text-paper font-bold">24</span>
+              High protein
             </Link>
             <Link
               href="/how-long"
               className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname.startsWith('/how-long') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
+                pathname.startsWith('/how-long') ? 'text-ink border-b-2 border-ink font-semibold' : ''
               }`}
             >
-              Cook Times
+              Cook times
             </Link>
             <Link
-              href="/storage"
+              href="/tools"
               className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname.startsWith('/storage') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
+                pathname === '/tools' || pathname.startsWith('/reheat') || pathname.startsWith('/frozen-cook') || pathname.startsWith('/dinner-sync') || pathname.startsWith('/meat-math') || pathname.startsWith('/internal-temp') || pathname.startsWith('/salt-math') || pathname.startsWith('/kid-split') || pathname.startsWith('/troubleshoot') || pathname.startsWith('/air-fryer-calculator') ? 'text-ink border-b-2 border-ink font-semibold' : ''
               }`}
             >
-              Food Storage
+              Tools
             </Link>
             <Link
-              href="/cheat-sheet"
+              href="/blog"
               className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname === '/cheat-sheet' ? 'text-ink border-b-2 border-ink font-bold' : ''
+                pathname.startsWith('/blog') ? 'text-ink border-b-2 border-ink font-semibold' : ''
               }`}
             >
-              Temp Cheatsheet
+              Field guides
+            </Link>
+            <Link
+              href="/shop"
+              className={`hover:text-ink transition-colors pb-0.5 ${
+                pathname.startsWith('/shop') || pathname.startsWith('/merch') ? 'text-ink border-b-2 border-ink font-semibold' : ''
+              }`}
+            >
+              Shop
             </Link>
           </nav>
 

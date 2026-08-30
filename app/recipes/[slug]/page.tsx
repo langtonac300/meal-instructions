@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: RecipePageProps): Promise<Met
     };
   }
 
-  const title = `${recipe.title} (${recipe.cookTemp}, ${recipe.totalMinutes} Mins)`;
+  const title = `${recipe.title} — ${recipe.cookTemp}, ${recipe.totalMinutes} min`;
   const description = `${recipe.tagline} No fluff, exact directions for ${recipe.appliance}. Ready in ${recipe.totalMinutes} minutes.`;
 
   return {

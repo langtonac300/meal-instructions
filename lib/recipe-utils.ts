@@ -39,15 +39,16 @@ export function formatScaledAmount(baseAmount: number, multiplier: number): stri
   const total = baseAmount * multiplier;
   if (total === 0) return '';
 
-  if (Math.abs(total - 0.25) < 0.05) return '1/4';
-  if (Math.abs(total - 0.33) < 0.05) return '1/3';
-  if (Math.abs(total - 0.5) < 0.05) return '1/2';
-  if (Math.abs(total - 0.66) < 0.05) return '2/3';
-  if (Math.abs(total - 0.75) < 0.05) return '3/4';
-  if (Math.abs(total - 1.25) < 0.05) return '1 1/4';
-  if (Math.abs(total - 1.5) < 0.05) return '1 1/2';
-  if (Math.abs(total - 1.75) < 0.05) return '1 3/4';
-  if (Math.abs(total - 2.5) < 0.05) return '2 1/2';
+  // Unicode vulgar fractions read cleaner than "1 1/2" and never wrap awkwardly.
+  if (Math.abs(total - 0.25) < 0.05) return '¼';
+  if (Math.abs(total - 0.33) < 0.05) return '⅓';
+  if (Math.abs(total - 0.5) < 0.05) return '½';
+  if (Math.abs(total - 0.66) < 0.05) return '⅔';
+  if (Math.abs(total - 0.75) < 0.05) return '¾';
+  if (Math.abs(total - 1.25) < 0.05) return '1¼';
+  if (Math.abs(total - 1.5) < 0.05) return '1½';
+  if (Math.abs(total - 1.75) < 0.05) return '1¾';
+  if (Math.abs(total - 2.5) < 0.05) return '2½';
 
   if (Number.isInteger(total)) return total.toString();
   return (Math.round(total * 10) / 10).toString();

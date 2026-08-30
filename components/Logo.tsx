@@ -82,10 +82,10 @@ export default function Logo({
           </span>
           <span
             className={`font-mono text-ink-muted uppercase tracking-widest block -mt-0.5 ${
-              size === 'sm' ? 'text-[8px]' : 'text-[9px]'
+              size === 'sm' ? 'text-[9px]' : 'text-[10px]'
             }`}
           >
-            NO FLUFF, JUST THE INSTRUCTIONS
+            Cook-time reference
           </span>
         </div>
       )}

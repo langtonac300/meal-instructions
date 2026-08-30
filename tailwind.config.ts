@@ -20,8 +20,8 @@ const config: Config = {
         ink: {
           DEFAULT: "#111111",
           light: "#2A2A2A",
-          muted: "#5A5854",
-          subtle: "#8E8A82",
+          muted: "#4E4C48",
+          subtle: "#6B6862",
         },
         hairline: {
           DEFAULT: "#DFDCCE",
@@ -54,7 +54,7 @@ const config: Config = {
         ],
       },
       fontSize: {
-        body: ["13px", "1.5"],
+        body: ["15px", "1.55"],
       },
       letterSpacing: {
         tightest: "-0.04em",

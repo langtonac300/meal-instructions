@@ -36,7 +36,7 @@ export default function AirFryerCalculator() {
               <LeanAirFryerIcon size={24} className="text-accent" />
             </div>
             <h2 className="font-sans text-xl sm:text-2xl font-bold text-ink">
-              OVEN TO AIR FRYER CONVERSION CALCULATOR
+              Oven → Air Fryer
             </h2>
           </div>
 

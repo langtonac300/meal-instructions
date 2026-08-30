@@ -25,12 +25,24 @@ import AirFryerCalculator from '@/components/AirFryerCalculator';
 import SiteGuide from '@/components/SiteGuide';
 import { LeanAirFryerIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon } from '@/components/icons/Lean5SIcons';
 
+const PAGE_SIZE = 24;
+const AVG_TOTAL_MINUTES = Math.round(
+  RECIPES.reduce((sum, r) => sum + r.totalMinutes, 0) / RECIPES.length
+);
+
 export default function HomePageClient() {
   const [selectedProtein, setSelectedProtein] = useState<string>('all');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedAppliance, setSelectedAppliance] = useState<string>('all');
   const [maxMinutes, setMaxMinutes] = useState<number | null>(null);
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
+  const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
+
+  // Whenever a filter changes, collapse the visible window back to the first page
+  // so the reader isn't dropped into row 87 of a newly filtered set.
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [selectedProtein, selectedCategory, selectedAppliance, maxMinutes, viewMode]);
 
   // Read URL query params on mount (e.g. /?protein=chicken)
   useEffect(() => {
@@ -105,56 +117,51 @@ export default function HomePageClient() {
 
           {/* Key Quick Stats Box */}
           <div className="lg:col-span-4 bg-paper-100 border border-hairline p-5 rounded font-mono text-xs shadow-subtle">
-            <div className="text-[10px] uppercase tracking-widest text-ink-subtle border-b border-hairline pb-2 mb-3 flex items-center justify-between">
-              <span>SYSTEM SPECIFICATIONS</span>
-              <span className="text-accent font-bold">V 1.0</span>
+            <div className="text-[11px] uppercase tracking-widest text-ink-subtle border-b border-hairline pb-2 mb-3">
+              <span>The index</span>
             </div>
 
             <div className="space-y-2.5 text-ink">
               <div className="flex justify-between items-center">
-                <span className="text-ink-muted">TOTAL INDEXED MEALS:</span>
-                <span className="font-bold">{RECIPES.length} RECIPES</span>
+                <span className="text-ink-muted">Meals</span>
+                <span className="font-bold">{RECIPES.length}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-ink-muted">AVG PREP + COOK:</span>
-                <span className="font-bold">12.8 MINUTES</span>
+                <span className="text-ink-muted">Avg cook time</span>
+                <span className="font-bold">{AVG_TOTAL_MINUTES} min</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-ink-muted">LIFE STORIES REMOVED:</span>
-                <span className="font-bold text-accent">100% (0 WORDS)</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-ink-muted">AI & LLM SCRAPER:</span>
-                <Link
-                  href="/llms.txt"
-                  target="_blank"
-                  className="font-bold underline hover:text-accent"
-                >
-                  LLMS.TXT READY
-                </Link>
+                <span className="text-ink-muted">Cook-time datasheets</span>
+                <span className="font-bold">{COOK_TIME_DATASHEETS.length}</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* ── FAST APPLIANCE QUICK-JUMP BAR ── */}
-        <div className="mt-8 pt-4 border-t border-hairline/80 flex items-center gap-2 overflow-x-auto text-[11px] font-mono uppercase tracking-wider text-ink-muted">
-          <span className="shrink-0 text-ink-subtle font-bold">POPULAR APPLIANCES:</span>
-          {APPLIANCES.map((app) => (
-            <button
-              key={app.slug}
-              onClick={() =>
-                setSelectedAppliance(selectedAppliance === app.slug ? 'all' : app.slug)
-              }
-              className={`px-3 py-1 rounded border transition-all shrink-0 cursor-pointer ${
-                selectedAppliance === app.slug
-                  ? 'bg-ink text-paper border-ink font-bold shadow-sm'
-                  : 'bg-paper-50 hover:bg-paper-200 border-hairline text-ink'
-              }`}
-            >
-              {app.name}
-            </button>
-          ))}
+        <div className="mt-8 pt-4 border-t border-hairline/80 relative">
+          <div className="flex items-center gap-2 overflow-x-auto text-[11px] font-mono uppercase tracking-wider text-ink-muted scroll-fade-r pr-8">
+            <span className="shrink-0 text-ink-subtle font-bold">Popular appliances:</span>
+            {APPLIANCES.map((app) => (
+              <button
+                key={app.slug}
+                onClick={() =>
+                  setSelectedAppliance(selectedAppliance === app.slug ? 'all' : app.slug)
+                }
+                className={`px-3 py-1 rounded border transition-all shrink-0 cursor-pointer ${
+                  selectedAppliance === app.slug
+                    ? 'bg-ink text-paper border-ink font-bold shadow-sm'
+                    : 'bg-paper-50 hover:bg-paper-200 border-hairline text-ink'
+                }`}
+              >
+                {app.name}
+              </button>
+            ))}
+          </div>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute top-4 bottom-0 right-0 w-10 bg-gradient-to-l from-paper to-transparent"
+          />
         </div>
       </section>
 
@@ -296,11 +303,28 @@ export default function HomePageClient() {
 
         {/* Dynamic Display: Grid or Table */}
         {viewMode === 'grid' ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredRecipes.map((recipe) => (
-              <RecipeCard key={recipe.id} recipe={recipe} />
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredRecipes.slice(0, visibleCount).map((recipe) => (
+                <RecipeCard key={recipe.id} recipe={recipe} />
+              ))}
+            </div>
+            {filteredRecipes.length > visibleCount && (
+              <div className="mt-8 flex flex-col items-center gap-2">
+                <span className="text-xs font-mono text-ink-subtle uppercase tracking-wider">
+                  Showing {visibleCount} of {filteredRecipes.length}
+                </span>
+                <button
+                  onClick={() =>
+                    setVisibleCount((c) => Math.min(c + PAGE_SIZE, filteredRecipes.length))
+                  }
+                  className="px-5 py-2.5 bg-ink text-paper font-mono text-xs font-bold uppercase tracking-wider hover:bg-accent transition-colors cursor-pointer"
+                >
+                  Load more meals →
+                </button>
+              </div>
+            )}
+          </>
         ) : (
           <RecipeTable recipes={filteredRecipes} />
         )}

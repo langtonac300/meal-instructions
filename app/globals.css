@@ -3,12 +3,13 @@
 @tailwind utilities;
 
 :root {
+  color-scheme: light;
   --paper: #F5F4F0;
   --paper-card: #FAF9F6;
   --paper-subtle: #ECE9E1;
   --ink: #111111;
-  --ink-muted: #5A5854;
-  --ink-subtle: #8E8A82;
+  --ink-muted: #4E4C48;
+  --ink-subtle: #6B6862;
   --hairline: #DFDCCE;
   --accent: #C84B2C;
 }
@@ -17,8 +18,8 @@ body {
   background-color: var(--paper);
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

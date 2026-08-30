@@ -77,7 +77,7 @@ export default async function AppliancePage({ params }: AppliancePageProps) {
           <span>All Recipes</span>
         </Link>
         <span className="uppercase text-ink-muted">
-          APPLIANCE MASTER // {appMeta.slug}
+          Appliance · {appMeta.slug}
         </span>
       </div>
 

@@ -301,6 +301,17 @@ function readSeen(): boolean {
   }
 }
 
+// Don't stack overlays: only auto-open once the cookie consent has been
+// answered. On first visit the banner talks; the guide waits its turn.
+function consentAnswered(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    return !!window.localStorage.getItem('mi_consent_v1');
+  } catch {
+    return false;
+  }
+}
+
 function markSeen() {
   try {
     window.localStorage.setItem(STORAGE_KEY, '1');
@@ -322,11 +333,29 @@ export default function SiteGuide() {
     if (!open) setTimeCtx(null);
   }, [open, timeCtx]);
 
-  // Auto-open once, on first landing, after a short delay.
+  // Auto-open once, on first landing, after a short delay — but wait until the
+  // cookie banner has been dismissed so we never stack two overlays over the
+  // hero on first visit.
   useEffect(() => {
     if (readSeen()) return;
-    const t = window.setTimeout(() => setOpen(true), AUTO_OPEN_DELAY_MS);
-    return () => window.clearTimeout(t);
+    let timeoutId: number | null = null;
+    const tryOpen = () => {
+      if (readSeen()) return;
+      if (!consentAnswered()) return;
+      timeoutId = window.setTimeout(() => setOpen(true), AUTO_OPEN_DELAY_MS);
+    };
+    tryOpen();
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === 'mi_consent_v1') tryOpen();
+    };
+    window.addEventListener('storage', onStorage);
+    // Same-tab consent doesn't fire storage events; poll briefly.
+    const pollId = window.setInterval(tryOpen, 750);
+    return () => {
+      if (timeoutId !== null) window.clearTimeout(timeoutId);
+      window.clearInterval(pollId);
+      window.removeEventListener('storage', onStorage);
+    };
   }, []);
 
   const close = useCallback(() => {

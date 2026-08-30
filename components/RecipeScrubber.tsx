@@ -213,10 +213,10 @@ export default function RecipeScrubber({
         </div>
 
         {/* Micro helper under track */}
-        <div className="flex justify-between items-center text-[9px] font-mono text-ink-subtle uppercase px-1">
-          <span>⚡ 5-10 MIN RAPID FLASH</span>
-          <span>⏱️ 15 MIN WEEKNIGHT SWEET SPOT</span>
-          <span>🔥 25-35 MIN FULL ROASTS</span>
+        <div className="flex justify-between items-center text-[10px] font-mono text-ink-subtle uppercase px-1">
+          <span>⚡ ≤10 min rapid</span>
+          <span>⏱️ 15–20 min weeknight</span>
+          <span>🔥 25–35 min full roasts</span>
         </div>
 
       </div>
