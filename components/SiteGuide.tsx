@@ -11,6 +11,12 @@ import {
   Compass,
   ChevronLeft,
   Zap,
+  Sunrise,
+  Sun,
+  CloudSun,
+  Sunset,
+  Moon,
+  Coffee,
 } from 'lucide-react';
 
 const STORAGE_KEY = 'meal_instructions_guide_seen';
@@ -39,6 +45,156 @@ interface Destination {
   label: string;
   href: string;
   blurb: string;
+}
+
+type TimeBucket =
+  | 'early-morning'
+  | 'morning'
+  | 'lunch'
+  | 'afternoon-plan'
+  | 'dinner-rush'
+  | 'evening'
+  | 'late-night';
+
+interface TimeContext {
+  bucket: TimeBucket;
+  badge: string;
+  headline: string;
+  subhead: string;
+  icon: React.ComponentType<{ className?: string }>;
+  quickPick: {
+    label: string;
+    hint: string;
+    href: string;
+    icon: React.ComponentType<{ className?: string }>;
+  };
+}
+
+function bucketFromDate(d: Date): TimeBucket {
+  const h = d.getHours();
+  const m = d.getMinutes();
+  const t = h + m / 60;
+  if (t < 5) return 'late-night';
+  if (t < 7) return 'early-morning';
+  if (t < 10.5) return 'morning';
+  if (t < 14) return 'lunch';
+  if (t < 16.5) return 'afternoon-plan';
+  if (t < 19) return 'dinner-rush';
+  if (t < 22) return 'evening';
+  return 'late-night';
+}
+
+function formatClock(d: Date): string {
+  const h = d.getHours();
+  const m = d.getMinutes();
+  const suffix = h >= 12 ? 'PM' : 'AM';
+  const hh = h % 12 === 0 ? 12 : h % 12;
+  return `${hh}:${m.toString().padStart(2, '0')} ${suffix}`;
+}
+
+function getTimeContext(d: Date): TimeContext {
+  const bucket = bucketFromDate(d);
+  const clock = formatClock(d);
+  switch (bucket) {
+    case 'early-morning':
+      return {
+        bucket,
+        badge: `${clock} · PRE-DAWN`,
+        headline: 'Up early. What are you making?',
+        subhead: 'Coffee, eggs, or something you can eat with one hand.',
+        icon: Coffee,
+        quickPick: {
+          label: 'Breakfast recipes',
+          hint: 'Fast plates before the day starts',
+          href: '/categories/breakfast',
+          icon: Coffee,
+        },
+      };
+    case 'morning':
+      return {
+        bucket,
+        badge: `${clock} · MORNING`,
+        headline: 'Morning move — what are you cooking?',
+        subhead: 'Breakfast, meal-prep for later, or lunch on the calendar.',
+        icon: Sunrise,
+        quickPick: {
+          label: 'Breakfast recipes',
+          hint: '10-minute plates, no essay',
+          href: '/categories/breakfast',
+          icon: Sunrise,
+        },
+      };
+    case 'lunch':
+      return {
+        bucket,
+        badge: `${clock} · LUNCH WINDOW`,
+        headline: 'What is lunch?',
+        subhead: 'Fast, protein-forward, one pan.',
+        icon: Sun,
+        quickPick: {
+          label: '15-minute meals',
+          hint: 'On the table in a quarter-hour',
+          href: '/categories/15-minute',
+          icon: Zap,
+        },
+      };
+    case 'afternoon-plan':
+      return {
+        bucket,
+        badge: `${clock} · DINNER PLANNING`,
+        headline: 'Get ahead of dinner.',
+        subhead: 'Slow-cooker window is still open. Load it now, eat at 6.',
+        icon: CloudSun,
+        quickPick: {
+          label: 'Slow-cooker reference',
+          hint: 'Load, walk away, eat at 6:00',
+          href: '/appliances/slow-cooker',
+          icon: Clock,
+        },
+      };
+    case 'dinner-rush':
+      return {
+        bucket,
+        badge: `${clock} · DINNER RUSH`,
+        headline: 'Kids hungry. What is the play?',
+        subhead: 'You have ~20 minutes. No thaw, no fluff.',
+        icon: Sunset,
+        quickPick: {
+          label: '15-minute meals',
+          hint: 'Fastest path to plates',
+          href: '/categories/15-minute',
+          icon: Zap,
+        },
+      };
+    case 'evening':
+      return {
+        bucket,
+        badge: `${clock} · EVENING`,
+        headline: 'Post-dinner. What do you need?',
+        subhead: 'Snacks, leftover reheat done right, or tomorrow.',
+        icon: Moon,
+        quickPick: {
+          label: 'Reheat guide',
+          hint: 'Bring it back without ruining it',
+          href: '/reheat',
+          icon: Flame,
+        },
+      };
+    case 'late-night':
+      return {
+        bucket,
+        badge: `${clock} · LATE`,
+        headline: 'Up late. What are you after?',
+        subhead: 'Snack, midnight fix, or planning tomorrow.',
+        icon: Moon,
+        quickPick: {
+          label: 'Snacks',
+          hint: 'Quick, tasty, no equipment',
+          href: '/categories/snacks',
+          icon: Zap,
+        },
+      };
+  }
 }
 
 const INTENTS: {
@@ -157,6 +313,14 @@ export default function SiteGuide() {
   const [open, setOpen] = useState(false);
   const [intent, setIntent] = useState<IntentId | null>(null);
   const [answer, setAnswer] = useState<StepTwoId | 'browse-tour' | null>(null);
+  const [timeCtx, setTimeCtx] = useState<TimeContext | null>(null);
+
+  // Compute time context each time the modal opens so it stays fresh across
+  // long-lived tabs. Deliberately client-only to dodge SSR/tz mismatches.
+  useEffect(() => {
+    if (open && !timeCtx) setTimeCtx(getTimeContext(new Date()));
+    if (!open) setTimeCtx(null);
+  }, [open, timeCtx]);
 
   // Auto-open once, on first landing, after a short delay.
   useEffect(() => {
@@ -230,7 +394,7 @@ export default function SiteGuide() {
             <div className="flex items-center justify-between px-5 py-3 border-b border-hairline bg-paper-100">
               <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-ink-muted">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                <span>Site Guide</span>
+                <span>{timeCtx ? timeCtx.badge : 'Site Guide'}</span>
                 <span className="text-ink-subtle">
                   · Step {stepIndex}/{totalSteps}
                 </span>
@@ -254,12 +418,45 @@ export default function SiteGuide() {
                     id="site-guide-title"
                     className="font-sans text-2xl font-black tracking-tight text-ink uppercase leading-tight"
                   >
-                    Point me at what you need.
+                    {timeCtx ? timeCtx.headline : 'Point me at what you need.'}
                   </h2>
                   <p className="mt-2 text-sm text-ink-muted">
-                    Four options. One question. You&apos;re out in ten seconds.
+                    {timeCtx
+                      ? timeCtx.subhead
+                      : 'Four options. One question. You’re out in ten seconds.'}
                   </p>
-                  <div className="mt-4 grid grid-cols-1 gap-2">
+
+                  {timeCtx && (
+                    <Link
+                      href={timeCtx.quickPick.href}
+                      onClick={close}
+                      className="group mt-4 flex items-center gap-3 text-left px-3 py-3 rounded bg-ink text-paper border border-ink hover:bg-ink-muted transition-colors"
+                    >
+                      <span className="flex-shrink-0 w-9 h-9 rounded bg-accent border border-accent flex items-center justify-center">
+                        <timeCtx.quickPick.icon className="w-4 h-4 text-white" />
+                      </span>
+                      <span className="flex-1">
+                        <span className="block font-mono text-[10px] uppercase tracking-widest text-paper/70">
+                          Best pick right now
+                        </span>
+                        <span className="block font-sans font-bold text-paper text-sm">
+                          {timeCtx.quickPick.label}
+                        </span>
+                        <span className="block text-xs text-paper/70">
+                          {timeCtx.quickPick.hint}
+                        </span>
+                      </span>
+                      <ArrowRight className="w-4 h-4 text-accent" />
+                    </Link>
+                  )}
+
+                  {timeCtx && (
+                    <div className="mt-4 font-mono text-[10px] uppercase tracking-widest text-ink-subtle border-t border-hairline pt-3">
+                      Or pick your own path:
+                    </div>
+                  )}
+
+                  <div className="mt-3 grid grid-cols-1 gap-2">
                     {INTENTS.map(({ id, label, hint, icon: Icon }) => (
                       <button
                         key={id}
