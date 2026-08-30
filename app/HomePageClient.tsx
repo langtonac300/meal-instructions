@@ -21,6 +21,7 @@ import RecipeTable from '@/components/RecipeTable';
 import RecipeScrubber from '@/components/RecipeScrubber';
 import CategoryGrid from '@/components/CategoryGrid';
 import AirFryerCalculator from '@/components/AirFryerCalculator';
+import SiteGuide from '@/components/SiteGuide';
 import { LeanAirFryerIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon } from '@/components/icons/Lean5SIcons';
 
 export default function HomePageClient() {
@@ -687,6 +688,8 @@ export default function HomePageClient() {
           </div>
         </div>
       </section>
+
+      <SiteGuide />
     </div>
   );
 }
