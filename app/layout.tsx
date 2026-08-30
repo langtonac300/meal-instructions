@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -127,6 +126,22 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-paper text-ink" suppressHydrationWarning>
       <head>
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-0S1B04Q1S9"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-0S1B04Q1S9');
+            `,
+          }}
+        />
         {/* Google Chrome WebMCP Origin Trial Token */}
         <meta
           httpEquiv="origin-trial"
@@ -145,21 +160,6 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col font-sans selection:bg-ink selection:text-paper text-ink bg-paper">
-        {/* Google tag (gtag.js) */}
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-0S1B04Q1S9"
-          strategy="afterInteractive"
-        />
-        <Script id="google-tag-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-0S1B04Q1S9');
-          `}
-        </Script>
         <WebMCPClient />
         <Navbar />
         <main className="flex-grow">{children}</main>
