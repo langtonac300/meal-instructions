@@ -15,7 +15,12 @@
     "mcp": "tsx bin/dadmeals-mcp.ts",
     "test:mcp": "tsx scripts/test-mcp.ts",
     "audit:content": "node scripts/audit-content.mjs",
-    "audit:seo": "node scripts/audit-seo.mjs"
+    "audit:seo": "node scripts/audit-seo.mjs",
+    "gaps": "node scripts/content-gaps.mjs",
+    "ship": "./scripts/ship-content.sh",
+    "daily-content": "node scripts/daily-routine.mjs",
+    "routine": "node scripts/daily-routine.mjs",
+    "deploy:status": "node scripts/daily-routine.mjs --status"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",
