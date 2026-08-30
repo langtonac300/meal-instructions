@@ -33,7 +33,7 @@ export function createDadMealsMcpServer() {
     {
       food: z.string().describe('Food item or slug (e.g. "salmon-fillet", "chicken-tenders-fresh", "pork-chops", "bone-in-thighs", "bacon", "broccoli", "ribeye", "burgers")'),
       appliance: z.string().optional().describe('Appliance: "air-fryer" | "oven" | "instant-pot" | "skillet" | "sheet-pan" | "cast-iron" | "grill" | "dutch-oven" | "slow-cooker" | "smoker"'),
-      state: z.enum(['fresh', 'frozen', 'refrigerated']).optional().describe('Food state (fresh vs frozen)'),
+      state: z.enum(['fresh', 'frozen', 'refrigerated', 'dry']).optional().describe('Food state (fresh vs frozen)'),
     },
     async ({ food, appliance, state }) => {
       const q = food.toLowerCase().trim();

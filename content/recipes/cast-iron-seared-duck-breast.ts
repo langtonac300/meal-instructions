@@ -120,7 +120,7 @@ export default {
     "source": "USDA FoodData Central #174220"
   },
   "kidRating": 2,
-  "difficulty": "Moderate",
+  "difficulty": "Easy",
   "keywords": [
     "cast iron duck breast",
     "crispy duck breast recipe",

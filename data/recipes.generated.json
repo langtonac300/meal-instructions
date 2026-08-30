@@ -10484,7 +10484,7 @@
       "source": "USDA FoodData Central #174216"
     },
     "kidRating": 3,
-    "difficulty": "Moderate",
+    "difficulty": "Easy",
     "keywords": [
       "seared sea scallops",
       "pan seared scallops recipe",
@@ -10912,7 +10912,7 @@
       "source": "USDA FoodData Central #175159"
     },
     "kidRating": 2,
-    "difficulty": "Moderate",
+    "difficulty": "Easy",
     "keywords": [
       "seared ahi tuna",
       "sesame crusted tuna steak",
@@ -11411,7 +11411,7 @@
       "source": "USDA FoodData Central #171514"
     },
     "kidRating": 4,
-    "difficulty": "Moderate",
+    "difficulty": "Weekend Project",
     "keywords": [
       "chicken tikka masala",
       "dutch oven tikka masala",
@@ -12160,7 +12160,7 @@
       "source": "USDA FoodData Central #174220"
     },
     "kidRating": 2,
-    "difficulty": "Moderate",
+    "difficulty": "Easy",
     "keywords": [
       "cast iron duck breast",
       "crispy duck breast recipe",
@@ -12302,7 +12302,7 @@
       "source": "USDA FoodData Central #174204"
     },
     "kidRating": 3,
-    "difficulty": "Moderate",
+    "difficulty": "Easy",
     "keywords": [
       "grilled lobster tails",
       "garlic butter lobster grill",
@@ -12724,7 +12724,7 @@
       "source": "USDA FoodData Central #174199"
     },
     "kidRating": 3,
-    "difficulty": "Moderate",
+    "difficulty": "Easy",
     "keywords": [
       "maryland crab cakes",
       "pan fried crab cakes",
@@ -12883,7 +12883,7 @@
       "source": "USDA FoodData Central #174927"
     },
     "kidRating": 5,
-    "difficulty": "Moderate",
+    "difficulty": "Weekend Project",
     "keywords": [
       "classic lasagna recipe",
       "homemade lasagna",
@@ -13170,7 +13170,7 @@
       "source": "USDA FoodData Central #174332"
     },
     "kidRating": 2,
-    "difficulty": "Moderate",
+    "difficulty": "Easy",
     "keywords": [
       "venison steak recipe",
       "cast iron venison",
@@ -13606,7 +13606,6 @@
       "temp": "375°F (190°C)",
       "totalTime": "45 mins",
       "timerMinutes": 25,
-      "flipAtMinutes": null,
       "bullets": [
         "Brown 1 lb ground beef with diced onion, garlic, cumin, and chili powder. Drain fat.",
         "Warm corn tortillas, fill each with beef mixture and shredded cheddar, and roll tightly.",
@@ -13731,7 +13730,7 @@
       "source": "USDA FoodData Central #174032"
     },
     "kidRating": 5,
-    "difficulty": "Moderate",
+    "difficulty": "Weekend Project",
     "keywords": [
       "beef enchiladas recipe",
       "oven baked enchiladas",
@@ -13775,7 +13774,6 @@
       "temp": "High Pressure (239°F / 115°C)",
       "totalTime": "65 mins",
       "timerMinutes": 35,
-      "flipAtMinutes": null,
       "bullets": [
         "Toss 2 lbs cubed chuck roast in flour, then sear in batches in the Instant Pot on Saute mode with olive oil until browned.",
         "Add diced onion, garlic, tomato paste, and deglaze with beef broth and Worcestershire sauce.",
@@ -13962,7 +13960,6 @@
       "temp": "425°F (218°C)",
       "totalTime": "40 mins",
       "timerMinutes": 25,
-      "flipAtMinutes": null,
       "bullets": [
         "Pound 4 chicken breasts to 3/4-inch thickness. Dredge in flour, dip in beaten eggs, and coat in panko mixed with grated parmesan.",
         "Place breaded chicken on a wire rack set over a baking sheet. Drizzle with olive oil.",
@@ -14248,7 +14245,6 @@
       "temp": "Medium / 400°F (204°C)",
       "totalTime": "25 mins",
       "timerMinutes": 15,
-      "flipAtMinutes": null,
       "bullets": [
         "Whisk 10 eggs with 1/4 cup heavy cream, salt, and pepper. Set aside.",
         "Saute diced bell pepper, onion, mushrooms, and spinach in butter in a 10-inch cast iron skillet over medium heat for 5 minutes.",
@@ -14409,7 +14405,6 @@
       "temp": "High Pressure (239°F / 115°C)",
       "totalTime": "85 mins",
       "timerMinutes": 60,
-      "flipAtMinutes": null,
       "bullets": [
         "Rub 4 lbs pork shoulder with brown sugar, smoked paprika, garlic powder, onion powder, cumin, salt, and pepper.",
         "Place in Instant Pot with 1/2 cup chicken broth and 2 tbsp apple cider vinegar. Lock lid.",
@@ -14853,7 +14848,6 @@
       "temp": "High Pressure (239°F / 115°C)",
       "totalTime": "50 mins",
       "timerMinutes": 25,
-      "flipAtMinutes": null,
       "bullets": [
         "Sear 2 lbs cubed lamb shoulder in the Instant Pot on Saute mode until browned on all sides.",
         "Add diced onion, garlic, ginger, garam masala, turmeric, cumin, coriander, and cayenne. Cook 2 minutes.",
@@ -14997,7 +14991,7 @@
       "source": "USDA FoodData Central #172616"
     },
     "kidRating": 3,
-    "difficulty": "Moderate",
+    "difficulty": "Weekend Project",
     "keywords": [
       "instant pot lamb curry",
       "pressure cooker lamb curry",
@@ -15043,7 +15037,6 @@
       "temp": "425°F (218°C)",
       "totalTime": "28 mins",
       "timerMinutes": 18,
-      "flipAtMinutes": null,
       "bullets": [
         "Slice 1.5 lbs boneless chicken thighs into strips. Toss with olive oil, chili powder, cumin, garlic powder, smoked paprika, and salt.",
         "Spread seasoned chicken, sliced bell peppers (3 colors), and sliced onion on a parchment-lined sheet pan in a single layer.",
@@ -15211,7 +15204,6 @@
       "temp": "Medium / Low Heat",
       "totalTime": "60 mins",
       "timerMinutes": 45,
-      "flipAtMinutes": null,
       "bullets": [
         "Brown 2 lbs ground beef in a Dutch oven over medium heat. Drain fat. Add diced onion, garlic, and jalapeño.",
         "Stir in chili powder, cumin, smoked paprika, and oregano. Cook 1 minute until fragrant.",
@@ -15412,7 +15404,6 @@
       "temp": "Low (190°F / 88°C)",
       "totalTime": "6 hrs 10 mins",
       "timerMinutes": 360,
-      "flipAtMinutes": null,
       "bullets": [
         "Place 1.5 lbs boneless chicken thighs in a slow cooker. Add fire-roasted diced tomatoes, drained black beans, corn, chicken broth, diced onion, and minced garlic.",
         "Season with chili powder, cumin, smoked paprika, and salt. Stir to combine.",
@@ -15928,7 +15919,6 @@
       "temp": "225°F (107°C)",
       "totalTime": "6 hrs 15 mins",
       "timerMinutes": 360,
-      "flipAtMinutes": null,
       "bullets": [
         "Remove membrane from ribs. Coat both sides generously with dry rub and let sit 30 minutes.",
         "Smoke at 225°F for 3 hours bone-side down, spritzing with apple juice every 45 minutes.",
@@ -16075,7 +16065,7 @@
       "source": "USDA FoodData Central #168320"
     },
     "kidRating": 5,
-    "difficulty": "Moderate",
+    "difficulty": "Weekend Project",
     "keywords": [
       "smoked baby back ribs",
       "3-2-1 ribs method",
@@ -16440,7 +16430,6 @@
       "temp": "300°F (149°C)",
       "totalTime": "3 hrs 30 mins",
       "timerMinutes": 180,
-      "flipAtMinutes": null,
       "bullets": [
         "Season 4 lbs short ribs with salt and pepper. Sear all sides in hot olive oil in a Dutch oven until deeply browned.",
         "Remove ribs. Saute diced onion, carrots, celery, and garlic. Add tomato paste, thyme, rosemary, and bay leaves.",
@@ -16589,7 +16578,7 @@
       "source": "USDA FoodData Central #174035"
     },
     "kidRating": 3,
-    "difficulty": "Moderate",
+    "difficulty": "Weekend Project",
     "keywords": [
       "braised short ribs",
       "Dutch oven short ribs",
@@ -16633,7 +16622,6 @@
       "temp": "Low (190°F / 88°C)",
       "totalTime": "8 hrs 25 mins",
       "timerMinutes": 480,
-      "flipAtMinutes": null,
       "bullets": [
         "Season a 3 lb chuck roast with salt and pepper. Sear all sides in a hot skillet until deeply browned.",
         "Place 1.5 lbs quartered potatoes, 1 lb carrot chunks, and quartered onion in the slow cooker.",
@@ -16971,7 +16959,6 @@
       "temp": "375°F (190°C)",
       "totalTime": "55 mins",
       "timerMinutes": 35,
-      "flipAtMinutes": null,
       "bullets": [
         "Cut tops off 4 bell peppers and remove seeds. Brown 1 lb ground beef with onion, garlic, and Italian seasoning.",
         "Mix browned beef with 1 cup cooked rice, diced tomatoes, and half the tomato sauce. Season with salt and pepper.",
@@ -17140,7 +17127,6 @@
       "temp": "Medium Heat (375°F / 190°C)",
       "totalTime": "28 mins (plus 1 hr plank soak)",
       "timerMinutes": 15,
-      "flipAtMinutes": null,
       "bullets": [
         "Soak a cedar plank in water for at least 1 hour. Preheat grill to medium heat (375°F).",
         "Mix 1 tbsp brown sugar, 1 tbsp Dijon mustard, 1 minced garlic clove, and 1 tbsp olive oil. Spread over salmon fillets.",
@@ -17257,7 +17243,7 @@
       "source": "USDA FoodData Central #175168"
     },
     "kidRating": 3,
-    "difficulty": "Moderate",
+    "difficulty": "Easy",
     "keywords": [
       "cedar plank salmon",
       "grilled salmon on cedar plank",
@@ -17461,7 +17447,6 @@
       "temp": "High Pressure (239°F / 115°C)",
       "totalTime": "15 mins",
       "timerMinutes": 4,
-      "flipAtMinutes": null,
       "bullets": [
         "Add 1 lb elbow macaroni, 4 cups chicken broth, 2 tbsp butter, 1/2 tsp dry mustard, and a pinch of salt to the Instant Pot.",
         "Lock the lid, set to High Pressure for 4 minutes, then Quick Release when the timer beeps.",

@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "npm run build:content && next dev",
     "build:content": "node scripts/build-recipes.mjs",
-    "build": "npm run build:content && next build",
+    "validate:recipes": "node scripts/validate-recipes.mjs",
+    "build": "npm run build:content && npm run validate:recipes && next build",
     "start": "next start",
     "lint": "next lint",
     "mcp": "tsx bin/dadmeals-mcp.ts",

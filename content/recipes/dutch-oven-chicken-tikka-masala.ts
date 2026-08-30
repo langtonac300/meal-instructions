@@ -180,7 +180,7 @@ export default {
     "source": "USDA FoodData Central #171514"
   },
   "kidRating": 4,
-  "difficulty": "Moderate",
+  "difficulty": "Weekend Project",
   "keywords": [
     "chicken tikka masala",
     "dutch oven tikka masala",

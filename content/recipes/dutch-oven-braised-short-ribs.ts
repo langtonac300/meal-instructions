@@ -31,7 +31,6 @@ export default {
     "temp": "300°F (149°C)",
     "totalTime": "3 hrs 30 mins",
     "timerMinutes": 180,
-    "flipAtMinutes": null,
     "bullets": [
       "Season 4 lbs short ribs with salt and pepper. Sear all sides in hot olive oil in a Dutch oven until deeply browned.",
       "Remove ribs. Saute diced onion, carrots, celery, and garlic. Add tomato paste, thyme, rosemary, and bay leaves.",
@@ -180,7 +179,7 @@ export default {
     "source": "USDA FoodData Central #174035"
   },
   "kidRating": 3,
-  "difficulty": "Moderate",
+  "difficulty": "Weekend Project",
   "keywords": [
     "braised short ribs",
     "Dutch oven short ribs",

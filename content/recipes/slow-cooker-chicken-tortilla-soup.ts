@@ -31,7 +31,6 @@ export default {
     "temp": "Low (190°F / 88°C)",
     "totalTime": "6 hrs 10 mins",
     "timerMinutes": 360,
-    "flipAtMinutes": null,
     "bullets": [
       "Place 1.5 lbs boneless chicken thighs in a slow cooker. Add fire-roasted diced tomatoes, drained black beans, corn, chicken broth, diced onion, and minced garlic.",
       "Season with chili powder, cumin, smoked paprika, and salt. Stir to combine.",

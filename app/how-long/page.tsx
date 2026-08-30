@@ -133,7 +133,7 @@ export default function HowLongHubPage() {
                     <div className="text-[11px] text-accent font-bold pt-1 border-t border-hairline/40 flex items-center gap-1.5">
                       <LeanFlipIcon size={14} className="shrink-0" />
                       <span>{item.flipAtMinutes > 0 ? `Flip at ${item.flipAtMinutes}m` : 'No Flip'}</span>
-                      <span className="ml-auto text-ink-muted">→ {item.internalTempTargetFormatted}</span>
+                      <span className="ml-auto text-ink-muted">→ {item.internalTempTargetFormatted ?? '—'}</span>
                     </div>
                   </Link>
                 ))}

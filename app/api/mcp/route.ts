@@ -21,7 +21,7 @@ const TOOLS_METADATA = [
       properties: {
         food: { type: 'string', description: 'Food item or slug (e.g. "salmon-fillet", "chicken-tenders-fresh", "pork-chops", "bone-in-thighs", "bacon", "ribeye")' },
         appliance: { type: 'string', description: 'Appliance hardware ("air-fryer" | "oven" | "instant-pot" | "skillet" | "sheet-pan" | "cast-iron" | "grill" | "dutch-oven" | "slow-cooker" | "smoker")' },
-        state: { type: 'string', enum: ['fresh', 'frozen', 'refrigerated'] },
+        state: { type: 'string', enum: ['fresh', 'frozen', 'refrigerated', 'dry'] },
       },
       required: ['food'],
     },
@@ -46,7 +46,7 @@ const TOOLS_METADATA = [
       type: 'object',
       properties: {
         query: { type: 'string' },
-        protein: { type: 'string', enum: ['chicken', 'beef', 'pork', 'seafood', 'turkey', 'vegetarian', 'dairy-eggs'] },
+        protein: { type: 'string', enum: ['chicken', 'beef', 'pork', 'seafood', 'turkey', 'vegetarian', 'dairy-eggs', 'lamb', 'duck', 'game'] },
         appliance: { type: 'string', enum: ['air-fryer', 'oven', 'instant-pot', 'skillet', 'sheet-pan', 'cast-iron', 'grill', 'dutch-oven', 'slow-cooker', 'smoker', 'boiling'] },
         category: { type: 'string', enum: ['15-minute', 'high-protein', 'kid-approved', 'budget', 'no-thaw', 'one-pan', 'five-ingredient', 'sides', 'snacks', 'game-day', 'breakfast', 'weekend'] },
         max_total_minutes: { type: 'number' },

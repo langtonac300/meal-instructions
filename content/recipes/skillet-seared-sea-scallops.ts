@@ -127,7 +127,7 @@ export default {
     "source": "USDA FoodData Central #174216"
   },
   "kidRating": 3,
-  "difficulty": "Moderate",
+  "difficulty": "Easy",
   "keywords": [
     "seared sea scallops",
     "pan seared scallops recipe",

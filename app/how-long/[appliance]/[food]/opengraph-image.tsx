@@ -80,7 +80,7 @@ export default async function OGImage({ params }: { params: Promise<{ appliance:
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
           <div style={{ fontSize: 14, color: '#8E8A82', letterSpacing: '0.15em' }}>INTERNAL</div>
-          <div style={{ fontSize: 28, fontWeight: 700 }}>{sheet.internalTempTargetFormatted}</div>
+          <div style={{ fontSize: 28, fontWeight: 700 }}>{sheet.internalTempTargetFormatted ?? '—'}</div>
         </div>
         <div style={{ display: 'flex', flex: 1 }} />
         <div style={{ display: 'flex', alignItems: 'flex-end' }}>

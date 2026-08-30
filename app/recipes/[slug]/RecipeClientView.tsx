@@ -307,7 +307,7 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [] }: Rec
                     <div className="text-[9px] font-mono text-ink-subtle uppercase mt-0.5">Cook Time</div>
                   </div>
                   <div className="bg-paper p-2.5 hairline-border text-center">
-                    <div className="font-mono text-base sm:text-lg font-bold text-accent">{ds.internalTempTargetF}°F</div>
+                    <div className="font-mono text-base sm:text-lg font-bold text-accent">{ds.internalTempTargetF ? `${ds.internalTempTargetF}°F` : '—'}</div>
                     <div className="text-[9px] font-mono text-ink-subtle uppercase mt-0.5">Internal</div>
                   </div>
                   {ds.flipAtMinutes > 0 && (

@@ -30,7 +30,6 @@ export default {
     "temp": "375°F (190°C)",
     "totalTime": "45 mins",
     "timerMinutes": 25,
-    "flipAtMinutes": null,
     "bullets": [
       "Brown 1 lb ground beef with diced onion, garlic, cumin, and chili powder. Drain fat.",
       "Warm corn tortillas, fill each with beef mixture and shredded cheddar, and roll tightly.",
@@ -155,7 +154,7 @@ export default {
     "source": "USDA FoodData Central #174032"
   },
   "kidRating": 5,
-  "difficulty": "Moderate",
+  "difficulty": "Weekend Project",
   "keywords": [
     "beef enchiladas recipe",
     "oven baked enchiladas",

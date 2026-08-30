@@ -33,7 +33,6 @@ export default {
     "temp": "225°F (107°C)",
     "totalTime": "6 hrs 15 mins",
     "timerMinutes": 360,
-    "flipAtMinutes": null,
     "bullets": [
       "Remove membrane from ribs. Coat both sides generously with dry rub and let sit 30 minutes.",
       "Smoke at 225°F for 3 hours bone-side down, spritzing with apple juice every 45 minutes.",
@@ -180,7 +179,7 @@ export default {
     "source": "USDA FoodData Central #168320"
   },
   "kidRating": 5,
-  "difficulty": "Moderate",
+  "difficulty": "Weekend Project",
   "keywords": [
     "smoked baby back ribs",
     "3-2-1 ribs method",

@@ -31,7 +31,6 @@ export default {
     "temp": "High Pressure (239°F / 115°C)",
     "totalTime": "15 mins",
     "timerMinutes": 4,
-    "flipAtMinutes": null,
     "bullets": [
       "Add 1 lb elbow macaroni, 4 cups chicken broth, 2 tbsp butter, 1/2 tsp dry mustard, and a pinch of salt to the Instant Pot.",
       "Lock the lid, set to High Pressure for 4 minutes, then Quick Release when the timer beeps.",

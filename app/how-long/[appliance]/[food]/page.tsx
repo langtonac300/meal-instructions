@@ -78,7 +78,7 @@ function getStepCopy(sheet: CookTimeDatasheet) {
   if (isIP && release) {
     rest = `${sheet.donenessCue} After ${release}, carefully open the lid away from you. ${sheet.restMinutes > 0 ? `Let stand ${sheet.restMinutes} minutes before serving.` : ''}`;
   } else {
-    rest = `${sheet.donenessCue} Confirm internal temperature reaches ${sheet.internalTempTargetFormatted}. Rest for ${sheet.restMinutes} minutes before serving.`;
+    rest = `${sheet.donenessCue}${sheet.internalTempTargetFormatted ? ` Confirm internal temperature reaches ${sheet.internalTempTargetFormatted}.` : ''} Rest for ${sheet.restMinutes} minutes before serving.`;
   }
 
   return { prep, cookTitle, cook, rest };
@@ -106,7 +106,7 @@ export async function generateMetadata({ params }: HowLongPageProps): Promise<Me
   }
 
   const title = `How Long to Cook ${sheet.food} in the ${sheet.appliance.replace('-', ' ')} (${sheet.tempFormatted}, ${sheet.timeFormatted})`;
-  const description = sheet.metaDescription ?? `Exact verified cooking time, temperature (${sheet.tempFormatted}), flip mark (${sheet.flipAtMinutes} mins), and internal target temp (${sheet.internalTempTargetFormatted}) for ${sheet.food}. Verified on real hardware. Zero fluff.`;
+  const description = sheet.metaDescription ?? `Exact verified cooking time, temperature (${sheet.tempFormatted}), flip mark (${sheet.flipAtMinutes} mins), ${sheet.internalTempTargetFormatted ? `, and internal target temp (${sheet.internalTempTargetFormatted})` : ''} for ${sheet.food}. Verified on real hardware. Zero fluff.`;
 
   const url = absoluteUrl(`/how-long/${sheet.appliance}/${sheet.foodSlug}`);
 
@@ -146,7 +146,7 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
     name: `How Long to Cook ${sheet.food} in the ${applianceName}`,
-    description: `Verified cook time and temperature guide for ${sheet.food} in the ${applianceName}. ${sheet.tempFormatted}, ${sheet.timeFormatted}, internal target ${sheet.internalTempTargetFormatted}.`,
+    description: `Verified cook time and temperature guide for ${sheet.food} in the ${applianceName}. ${sheet.tempFormatted}, ${sheet.timeFormatted}${sheet.internalTempTargetFormatted ? `, internal target ${sheet.internalTempTargetFormatted}` : ''}.`,
     url: pageUrl,
     image: [absoluteUrl('/opengraph-image.png')],
     totalTime: `PT${totalMinutes}M`,
@@ -242,7 +242,7 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
           <LeanSpecBadge
             type="probe"
             label="Internal Safe Temp"
-            value={sheet.internalTempTargetFormatted}
+            value={sheet.internalTempTargetFormatted ?? '—'}
             sub="USDA Safe Pull"
           />
         </div>

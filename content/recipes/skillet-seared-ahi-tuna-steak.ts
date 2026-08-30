@@ -138,7 +138,7 @@ export default {
     "source": "USDA FoodData Central #175159"
   },
   "kidRating": 2,
-  "difficulty": "Moderate",
+  "difficulty": "Easy",
   "keywords": [
     "seared ahi tuna",
     "sesame crusted tuna steak",

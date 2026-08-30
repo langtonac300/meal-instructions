@@ -33,7 +33,10 @@ export type ProteinType =
   | 'seafood'
   | 'turkey'
   | 'vegetarian'
-  | 'dairy-eggs';
+  | 'dairy-eggs'
+  | 'lamb'
+  | 'duck'
+  | 'game';
 
 export interface Ingredient {
   item: string;
@@ -164,7 +167,7 @@ export interface CookTimeDatasheet {
   foodSlug: string; // e.g. "chicken-breast-boneless"
   appliance: Appliance;
   cutOrPrep: string; // e.g. "6-8 oz breast, 1-inch thick"
-  state: 'fresh' | 'frozen' | 'refrigerated';
+  state: 'fresh' | 'frozen' | 'refrigerated' | 'dry';
   tempF: number;
   tempC: number;
   tempFormatted: string; // e.g. "380°F (193°C)"
@@ -172,8 +175,8 @@ export interface CookTimeDatasheet {
   timeMaxMinutes: number;
   timeFormatted: string; // e.g. "14-16 mins"
   flipAtMinutes: number;
-  internalTempTargetF: number;
-  internalTempTargetFormatted: string; // e.g. "165°F (74°C)"
+  internalTempTargetF?: number; // omitted where internal temp is not the doneness metric (boiled veg/starch) — HR-2
+  internalTempTargetFormatted?: string; // e.g. "165°F (74°C)"
   restMinutes: number;
   donenessCue: string;
   oilSprayRequired: boolean;

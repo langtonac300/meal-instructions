@@ -30,7 +30,6 @@ export default {
     "temp": "High Pressure (239°F / 115°C)",
     "totalTime": "50 mins",
     "timerMinutes": 25,
-    "flipAtMinutes": null,
     "bullets": [
       "Sear 2 lbs cubed lamb shoulder in the Instant Pot on Saute mode until browned on all sides.",
       "Add diced onion, garlic, ginger, garam masala, turmeric, cumin, coriander, and cayenne. Cook 2 minutes.",
@@ -174,7 +173,7 @@ export default {
     "source": "USDA FoodData Central #172616"
   },
   "kidRating": 3,
-  "difficulty": "Moderate",
+  "difficulty": "Weekend Project",
   "keywords": [
     "instant pot lamb curry",
     "pressure cooker lamb curry",

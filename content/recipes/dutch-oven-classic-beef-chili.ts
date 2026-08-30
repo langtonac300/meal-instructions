@@ -31,7 +31,6 @@ export default {
     "temp": "Medium / Low Heat",
     "totalTime": "60 mins",
     "timerMinutes": 45,
-    "flipAtMinutes": null,
     "bullets": [
       "Brown 2 lbs ground beef in a Dutch oven over medium heat. Drain fat. Add diced onion, garlic, and jalapeño.",
       "Stir in chili powder, cumin, smoked paprika, and oregano. Cook 1 minute until fragrant.",

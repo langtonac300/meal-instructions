@@ -32,7 +32,6 @@ export default {
     "temp": "425°F (218°C)",
     "totalTime": "28 mins",
     "timerMinutes": 18,
-    "flipAtMinutes": null,
     "bullets": [
       "Slice 1.5 lbs boneless chicken thighs into strips. Toss with olive oil, chili powder, cumin, garlic powder, smoked paprika, and salt.",
       "Spread seasoned chicken, sliced bell peppers (3 colors), and sliced onion on a parchment-lined sheet pan in a single layer.",

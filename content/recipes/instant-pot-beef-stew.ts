@@ -30,7 +30,6 @@ export default {
     "temp": "High Pressure (239°F / 115°C)",
     "totalTime": "65 mins",
     "timerMinutes": 35,
-    "flipAtMinutes": null,
     "bullets": [
       "Toss 2 lbs cubed chuck roast in flour, then sear in batches in the Instant Pot on Saute mode with olive oil until browned.",
       "Add diced onion, garlic, tomato paste, and deglaze with beef broth and Worcestershire sauce.",

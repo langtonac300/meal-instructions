@@ -31,7 +31,6 @@ export default {
     "temp": "High Pressure (239°F / 115°C)",
     "totalTime": "85 mins",
     "timerMinutes": 60,
-    "flipAtMinutes": null,
     "bullets": [
       "Rub 4 lbs pork shoulder with brown sugar, smoked paprika, garlic powder, onion powder, cumin, salt, and pepper.",
       "Place in Instant Pot with 1/2 cup chicken broth and 2 tbsp apple cider vinegar. Lock lid.",

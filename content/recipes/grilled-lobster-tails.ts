@@ -127,7 +127,7 @@ export default {
     "source": "USDA FoodData Central #174204"
   },
   "kidRating": 3,
-  "difficulty": "Moderate",
+  "difficulty": "Easy",
   "keywords": [
     "grilled lobster tails",
     "garlic butter lobster grill",

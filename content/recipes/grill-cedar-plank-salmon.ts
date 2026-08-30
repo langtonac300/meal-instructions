@@ -31,7 +31,6 @@ export default {
     "temp": "Medium Heat (375°F / 190°C)",
     "totalTime": "28 mins (plus 1 hr plank soak)",
     "timerMinutes": 15,
-    "flipAtMinutes": null,
     "bullets": [
       "Soak a cedar plank in water for at least 1 hour. Preheat grill to medium heat (375°F).",
       "Mix 1 tbsp brown sugar, 1 tbsp Dijon mustard, 1 minced garlic clove, and 1 tbsp olive oil. Spread over salmon fillets.",
@@ -148,7 +147,7 @@ export default {
     "source": "USDA FoodData Central #175168"
   },
   "kidRating": 3,
-  "difficulty": "Moderate",
+  "difficulty": "Easy",
   "keywords": [
     "cedar plank salmon",
     "grilled salmon on cedar plank",

@@ -55,7 +55,7 @@ Hub: ${absoluteUrl('/how-long')}
     if (sheets.length === 0) continue;
     content += `\n### ${appliance.name} (${sheets.length} datasheets)\n`;
     for (const d of sheets) {
-      content += `- [${d.food}](${absoluteUrl('/how-long/' + d.appliance + '/' + d.foodSlug)}): ${d.tempFormatted}, ${d.timeFormatted}, internal ${d.internalTempTargetFormatted}\n`;
+      content += `- [${d.food}](${absoluteUrl('/how-long/' + d.appliance + '/' + d.foodSlug)}): ${d.tempFormatted}, ${d.timeFormatted}${d.internalTempTargetFormatted ? `, internal ${d.internalTempTargetFormatted}` : ''}\n`;
     }
   }
 

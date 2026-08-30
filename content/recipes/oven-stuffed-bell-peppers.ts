@@ -31,7 +31,6 @@ export default {
     "temp": "375°F (190°C)",
     "totalTime": "55 mins",
     "timerMinutes": 35,
-    "flipAtMinutes": null,
     "bullets": [
       "Cut tops off 4 bell peppers and remove seeds. Brown 1 lb ground beef with onion, garlic, and Italian seasoning.",
       "Mix browned beef with 1 cup cooked rice, diced tomatoes, and half the tomato sauce. Season with salt and pepper.",

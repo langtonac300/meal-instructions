@@ -29,7 +29,7 @@ State: ${d.state}
 - Temperature: ${d.tempFormatted}
 - Time: ${d.timeFormatted}
 - Flip / Shake: ${d.flipAtMinutes > 0 ? d.flipAtMinutes + ' minutes' : 'No flip required'}
-- Internal Target: ${d.internalTempTargetFormatted}
+- Internal Target: ${d.internalTempTargetFormatted ?? 'N/A — judge by doneness cue'}
 - Rest: ${d.restMinutes} min${d.restMinutes !== 1 ? 's' : ''}
 - Oil Spray: ${d.oilSprayRequired ? 'Required' : 'Not required'}
 

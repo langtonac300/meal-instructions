@@ -143,7 +143,7 @@ export default {
     "source": "USDA FoodData Central #174199"
   },
   "kidRating": 3,
-  "difficulty": "Moderate",
+  "difficulty": "Easy",
   "keywords": [
     "maryland crab cakes",
     "pan fried crab cakes",

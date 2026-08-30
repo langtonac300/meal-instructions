@@ -144,7 +144,7 @@ export default {
     "source": "USDA FoodData Central #174927"
   },
   "kidRating": 5,
-  "difficulty": "Moderate",
+  "difficulty": "Weekend Project",
   "keywords": [
     "classic lasagna recipe",
     "homemade lasagna",

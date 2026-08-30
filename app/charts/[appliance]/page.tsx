@@ -167,7 +167,7 @@ export default async function ChartPage({ params }: ChartPageProps) {
                   {sheet.flipAtMinutes > 0 ? `${sheet.flipAtMinutes}m` : 'No Flip'}
                 </td>
                 <td className="py-3.5 px-4 hidden sm:table-cell text-emerald-800 font-bold">
-                  {sheet.internalTempTargetFormatted}
+                  {sheet.internalTempTargetFormatted ?? '—'}
                 </td>
                 <td className="py-3.5 px-4 text-right">
                   <Link

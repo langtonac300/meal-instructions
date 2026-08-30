@@ -130,7 +130,7 @@ export default {
     "source": "USDA FoodData Central #174332"
   },
   "kidRating": 2,
-  "difficulty": "Moderate",
+  "difficulty": "Easy",
   "keywords": [
     "venison steak recipe",
     "cast iron venison",

@@ -31,7 +31,6 @@ export default {
     "temp": "Low (190°F / 88°C)",
     "totalTime": "8 hrs 25 mins",
     "timerMinutes": 480,
-    "flipAtMinutes": null,
     "bullets": [
       "Season a 3 lb chuck roast with salt and pepper. Sear all sides in a hot skillet until deeply browned.",
       "Place 1.5 lbs quartered potatoes, 1 lb carrot chunks, and quartered onion in the slow cooker.",

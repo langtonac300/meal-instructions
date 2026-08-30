@@ -31,7 +31,6 @@ export default {
     "temp": "425°F (218°C)",
     "totalTime": "40 mins",
     "timerMinutes": 25,
-    "flipAtMinutes": null,
     "bullets": [
       "Pound 4 chicken breasts to 3/4-inch thickness. Dredge in flour, dip in beaten eggs, and coat in panko mixed with grated parmesan.",
       "Place breaded chicken on a wire rack set over a baking sheet. Drizzle with olive oil.",

@@ -31,7 +31,6 @@ export default {
     "temp": "Medium / 400°F (204°C)",
     "totalTime": "25 mins",
     "timerMinutes": 15,
-    "flipAtMinutes": null,
     "bullets": [
       "Whisk 10 eggs with 1/4 cup heavy cream, salt, and pepper. Set aside.",
       "Saute diced bell pepper, onion, mushrooms, and spinach in butter in a 10-inch cast iron skillet over medium heat for 5 minutes.",
