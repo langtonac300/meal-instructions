@@ -1,3 +1,8 @@
+// audit:seo pre-renders individual blog posts to .html at build time so the
+// BlogPosting + BreadcrumbList JSON-LD is in the initial HTML payload for
+// LLM crawlers and Google. See app/recipes/[slug]/page.tsx for context.
+export const dynamic = 'force-static';
+
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';

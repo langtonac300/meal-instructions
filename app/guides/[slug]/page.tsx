@@ -1,6 +1,11 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
+
+// Field guides pre-render to static HTML for SEO/LLM crawlers, matching the
+// recipe and datasheet pages. See app/recipes/[slug]/page.tsx for the full
+// note on why `generateStaticParams` alone is insufficient in Next.js 15.
+export const dynamic = 'force-static';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, Clock, Calendar, CheckCircle2, ArrowRight, Share2, Wrench } from 'lucide-react';
 import { TOP_10_GUIDES } from '@/data/top-10-lists';

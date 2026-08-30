@@ -1,6 +1,13 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
+// HR-6 / audit:seo: emit a full pre-rendered .html per recipe at build time so
+// LLM crawlers (GPTBot, ClaudeBot, PerplexityBot) and Google get both content
+// modes in the initial HTML payload without executing JS. `generateStaticParams`
+// alone is not enough in Next.js 15 — you also need `dynamic = 'force-static'`
+// or the pages emit only a page.js runtime bundle and no static HTML.
+export const dynamic = 'force-static';
 import { RECIPES, getRecipeBySlug } from '@/data/recipes';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { generateRecipeSchema } from '@/lib/recipe-utils';

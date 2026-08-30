@@ -1,6 +1,13 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
+// audit:seo: parametric cook-time datasheets are the site's SEO engine — every
+// one must ship as a fully pre-rendered .html at build time so LLM crawlers and
+// Google get the whole content payload without executing JS. Same reason as
+// recipes: Next.js 15 requires `dynamic = 'force-static'` alongside
+// `generateStaticParams`, or the build only emits the runtime bundle.
+export const dynamic = 'force-static';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Flame, ShieldCheck, Zap, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import LeanSpecBadge from '@/components/LeanSpecBadge';
