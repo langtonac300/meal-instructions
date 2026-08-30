@@ -1,3 +1,6 @@
+// audit:seo requires pre-rendered .html at build time for the SEO/LLM engine.
+export const dynamic = 'force-static';
+
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronLeft, Zap, ArrowRight } from 'lucide-react';
