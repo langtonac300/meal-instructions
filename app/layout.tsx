@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WebMCPClient from '@/components/WebMCPClient';
 import ConsentBanner from '@/components/ConsentBanner';
+import SignInButton from '@/components/SignInButton';
 import { SITE_URL, SITE_NAME, abs } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -181,7 +182,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col font-sans selection:bg-ink selection:text-paper text-ink bg-paper">
         <WebMCPClient />
-        <Navbar />
+        <Navbar authSlot={<SignInButton />} />
         <main className="flex-grow">{children}</main>
         <Footer />
         <ConsentBanner />

@@ -18,7 +18,12 @@ import {
   LeanAllProteinsIcon,
 } from '@/components/icons/Lean5SIcons';
 
-export default function Navbar() {
+interface NavbarProps {
+  // Server-rendered sign-in/avatar chip passed down from the root layout.
+  authSlot?: React.ReactNode;
+}
+
+export default function Navbar({ authSlot }: NavbarProps) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -128,6 +133,8 @@ export default function Navbar() {
                 ⌘K
               </kbd>
             </button>
+
+            {authSlot && <div className="hidden sm:flex items-center">{authSlot}</div>}
 
             {/* Mobile Hamburger Toggle */}
             <button
