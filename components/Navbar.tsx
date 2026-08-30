@@ -12,6 +12,7 @@ import {
   LeanPorkIcon,
   LeanFishIcon,
   LeanTurkeyIcon,
+  LeanLambIcon,
   LeanVegetarianIcon,
   LeanDairyEggsIcon,
   LeanAllProteinsIcon,
@@ -172,77 +173,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Global Secondary Meat / Protein SVG Quick Bar */}
-        <div className="hidden md:flex items-center justify-between px-4 sm:px-8 py-1.5 bg-paper-100 hairline-t font-mono text-[10px] uppercase tracking-wider text-ink-muted overflow-x-auto">
-          <div className="flex items-center gap-2 shrink-0">
-            <span className="font-bold text-ink-subtle mr-1">PROTEIN CUTS:</span>
-            <div className="flex items-center gap-1.5">
-              <Link
-                href="/?protein=all#directory"
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded hover:bg-paper-200 text-ink transition-colors border border-transparent hover:border-hairline"
-              >
-                <LeanAllProteinsIcon size={13} className="text-accent" />
-                <span>ALL</span>
-              </Link>
-              <Link
-                href="/?protein=chicken#directory"
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded hover:bg-paper-200 text-ink transition-colors border border-transparent hover:border-hairline"
-              >
-                <LeanChickenIcon size={13} className="text-accent" />
-                <span>CHICKEN [22]</span>
-              </Link>
-              <Link
-                href="/?protein=beef#directory"
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded hover:bg-paper-200 text-ink transition-colors border border-transparent hover:border-hairline"
-              >
-                <LeanBeefIcon size={13} className="text-accent" />
-                <span>BEEF [25]</span>
-              </Link>
-              <Link
-                href="/?protein=pork#directory"
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded hover:bg-paper-200 text-ink transition-colors border border-transparent hover:border-hairline"
-              >
-                <LeanPorkIcon size={13} className="text-accent" />
-                <span>PORK [18]</span>
-              </Link>
-              <Link
-                href="/?protein=seafood#directory"
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded hover:bg-paper-200 text-ink transition-colors border border-transparent hover:border-hairline"
-              >
-                <LeanFishIcon size={13} className="text-accent" />
-                <span>SEAFOOD [15]</span>
-              </Link>
-              <Link
-                href="/?protein=turkey#directory"
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded hover:bg-paper-200 text-ink transition-colors border border-transparent hover:border-hairline"
-              >
-                <LeanTurkeyIcon size={13} className="text-accent" />
-                <span>TURKEY [8]</span>
-              </Link>
-              <Link
-                href="/?protein=vegetarian#directory"
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded hover:bg-paper-200 text-ink transition-colors border border-transparent hover:border-hairline"
-              >
-                <LeanVegetarianIcon size={13} className="text-accent" />
-                <span>VEG [15]</span>
-              </Link>
-              <Link
-                href="/?protein=dairy-eggs#directory"
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded hover:bg-paper-200 text-ink transition-colors border border-transparent hover:border-hairline"
-              >
-                <LeanDairyEggsIcon size={13} className="text-accent" />
-                <span>EGGS [11]</span>
-              </Link>
-            </div>
-          </div>
-          <Link
-            href="/how-long"
-            className="text-accent font-bold hover:underline shrink-0 hidden lg:inline text-[9px]"
-          >
-            COOK TIMES MATRIX →
-          </Link>
-        </div>
-
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-paper-card hairline-t hairline-b p-4 space-y-3 font-mono text-xs uppercase tracking-wider">
@@ -294,12 +224,28 @@ export default function Navbar() {
                   <span>TURKEY [8]</span>
                 </Link>
                 <Link
+                  href="/?protein=lamb#directory"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-1.5 p-1.5 bg-paper rounded border border-hairline hover:border-ink text-ink"
+                >
+                  <LeanLambIcon size={14} className="text-accent shrink-0" />
+                  <span>LAMB [2]</span>
+                </Link>
+                <Link
                   href="/?protein=vegetarian#directory"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center gap-1.5 p-1.5 bg-paper rounded border border-hairline hover:border-ink text-ink"
                 >
                   <LeanVegetarianIcon size={14} className="text-accent shrink-0" />
                   <span>PLANT/VEG [15]</span>
+                </Link>
+                <Link
+                  href="/?protein=dairy-eggs#directory"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-1.5 p-1.5 bg-paper rounded border border-hairline hover:border-ink text-ink"
+                >
+                  <LeanDairyEggsIcon size={14} className="text-accent shrink-0" />
+                  <span>EGGS/DAIRY [11]</span>
                 </Link>
               </div>
             </div>
