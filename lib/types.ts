@@ -221,3 +221,42 @@ export interface BlogPost {
   relatedDatasheetSlugs?: string[];
 }
 
+export type StorageLocation = 'fridge' | 'freezer' | 'counter' | 'pantry';
+
+export type FoodStorageCategory =
+  | 'poultry'
+  | 'beef'
+  | 'pork'
+  | 'seafood'
+  | 'grains-pasta'
+  | 'dairy-eggs'
+  | 'prepared-foods'
+  | 'produce';
+
+export interface StorageTimeframe {
+  location: StorageLocation;
+  minDays: number;
+  maxDays: number;
+  formatted: string;
+  tempRange: string;
+  notes?: string;
+}
+
+export interface FoodStorageDatasheet {
+  id: string;
+  slug: string;
+  food: string;
+  foodCategory: FoodStorageCategory;
+  state: 'cooked' | 'raw' | 'opened' | 'unopened';
+  storageTimeframes: StorageTimeframe[];
+  bestMethod: string;
+  containerType: string;
+  spoilageSigns: string[];
+  safetyNote: string;
+  proTip: string;
+  verificationBasis: string;
+  keywords: string[];
+  metaDescription: string;
+  relatedRecipeSlugs?: string[];
+}
+

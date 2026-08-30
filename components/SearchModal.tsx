@@ -4,9 +4,10 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Search, X, Zap, Flame, Clock, ArrowRight, BookOpen } from 'lucide-react';
-import { Recipe, BlogPost } from '@/lib/types';
+import { Recipe, BlogPost, FoodStorageDatasheet } from '@/lib/types';
 import { RECIPES } from '@/data/recipes';
 import { BLOG_POSTS } from '@/data/blog-posts';
+import { FOOD_STORAGE_DATASHEETS } from '@/data/food-storage';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -90,7 +91,26 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       href: `/blog/${g.slug}`,
     }));
 
-    return [...matchedRecipes, ...matchedGuides];
+    const matchedStorage = FOOD_STORAGE_DATASHEETS.filter(
+      (s) =>
+        s.food.toLowerCase().includes(q) ||
+        s.foodCategory.toLowerCase().includes(q) ||
+        s.keywords.some((k) => k.toLowerCase().includes(q))
+    ).slice(0, 4).map((s) => {
+      const fridgeTime = s.storageTimeframes.find((t) => t.location === 'fridge');
+      return {
+        type: 'storage' as const,
+        id: s.id,
+        slug: s.slug,
+        title: s.food,
+        subtitle: `Fridge: ${fridgeTime?.formatted ?? '—'}`,
+        badge: 'STORAGE',
+        time: fridgeTime?.formatted ?? '—',
+        href: `/storage/${s.slug}`,
+      };
+    });
+
+    return [...matchedRecipes, ...matchedGuides, ...matchedStorage];
   }, [query]);
 
   // Keyboard navigation inside modal
@@ -148,7 +168,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         {!query && (
           <div className="px-4 py-2.5 bg-paper-subtle/50 hairline-b flex items-center gap-2 overflow-x-auto text-[11px] font-mono">
             <span className="text-ink-subtle uppercase">Quick:</span>
-            {['air fryer', 'maillard', 'chicken', 'dry brine', 'steak', 'salmon', 'salt math', 'reverse sear'].map((tag) => (
+            {['air fryer', 'maillard', 'chicken', 'dry brine', 'steak', 'salmon', 'storage', 'reverse sear'].map((tag) => (
               <button
                 key={tag}
                 onClick={() => setQuery(tag)}
@@ -175,9 +195,9 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
               >
                 <div className="flex items-center gap-3">
                   <span className={`font-mono text-[10px] font-bold px-1.5 py-0.5 rounded border uppercase ${
-                    item.type === 'guide' ? 'bg-paper-200 text-accent border-accent/40' : 'bg-paper text-ink-subtle border-hairline'
+                    item.type === 'guide' ? 'bg-paper-200 text-accent border-accent/40' : item.type === 'storage' ? 'bg-blue-50 text-blue-700 border-blue-300' : 'bg-paper text-ink-subtle border-hairline'
                   }`}>
-                    {item.type === 'guide' ? 'GUIDE' : `#${item.id}`}
+                    {item.type === 'guide' ? 'GUIDE' : item.type === 'storage' ? 'STORAGE' : `#${item.id}`}
                   </span>
                   <div>
                     <h4 className="font-bold text-sm text-ink font-sans">{item.title}</h4>

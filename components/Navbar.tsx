@@ -120,6 +120,14 @@ export default function Navbar() {
               Cook Times
             </Link>
             <Link
+              href="/storage"
+              className={`hover:text-ink transition-colors pb-0.5 ${
+                pathname.startsWith('/storage') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
+              }`}
+            >
+              Food Storage
+            </Link>
+            <Link
               href="/cheat-sheet"
               className={`hover:text-ink transition-colors pb-0.5 ${
                 pathname === '/cheat-sheet' ? 'text-ink border-b-2 border-ink font-bold' : ''
@@ -205,6 +213,13 @@ export default function Navbar() {
               className="block py-1.5 text-accent font-bold hover:underline"
             >
               🔥 Cook Times (60 Datasheets)
+            </Link>
+            <Link
+              href="/storage"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-1.5 text-accent font-bold hover:underline"
+            >
+              Food Storage Guides
             </Link>
             <Link
               href="/cheat-sheet"
