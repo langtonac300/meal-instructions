@@ -679,7 +679,9 @@ function formatCookTimeDatasheet(d: CookTimeDatasheet) {
     oilSprayRequired: d.oilSprayRequired,
     proTip: d.proTip,
     hardwareTestingBasis: d.verificationBasis,
-    canonicalUrl: absoluteUrl(`/how-long/${d.appliance}/${d.slug}`),
+    canonicalUrl: absoluteUrl(`/how-long/${d.appliance}/${d.foodSlug}`),
+    ...(d.pressureMinutes != null && { pressureMinutes: d.pressureMinutes }),
+    ...(d.releaseMethod && { releaseMethod: d.releaseMethod }),
   };
 }
 

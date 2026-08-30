@@ -20,11 +20,15 @@ export const metadata: Metadata = {
 export default function HowLongHubPage() {
   const breadcrumbs = generateBreadcrumbSchema([{ name: 'Cook Times', path: '/how-long' }]);
 
+  const appliancesWithData = APPLIANCES.filter(
+    (app) => COOK_TIME_DATASHEETS.some((d) => d.appliance === app.slug)
+  );
+
   const collectionSchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: 'How Long to Cook Everything — Verified Datasheets',
-    description: `${COOK_TIME_DATASHEETS.length} verified cook-time and temperature datasheets across 7 appliances.`,
+    description: `${COOK_TIME_DATASHEETS.length} verified cook-time and temperature datasheets across ${appliancesWithData.length} appliances.`,
     url: absoluteUrl('/how-long'),
     mainEntity: {
       '@type': 'ItemList',
@@ -37,10 +41,6 @@ export default function HowLongHubPage() {
       })),
     },
   };
-
-  const appliancesWithData = APPLIANCES.filter(
-    (app) => COOK_TIME_DATASHEETS.some((d) => d.appliance === app.slug)
-  );
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">

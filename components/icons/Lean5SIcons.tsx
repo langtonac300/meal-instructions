@@ -792,6 +792,40 @@ export function LeanOvenIcon({
   );
 }
 
+/** Dutch Oven / Heavy Pot Icon */
+export function LeanDutchOvenIcon({
+  size = 28,
+  className = '',
+  strokeWidth = 2,
+  title = 'Dutch Oven',
+  ...props
+}: LeanIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 28 28"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      role="img"
+      aria-label={title}
+      {...props}
+    >
+      {title && <title>{title}</title>}
+      <ellipse cx="14" cy="10" rx="10" ry="3" strokeWidth={strokeWidth} />
+      <path d="M4 10v10c0 2.5 4.5 4 10 4s10-1.5 10-4V10" />
+      <line x1="4" y1="14" x2="2" y2="12" strokeWidth={Math.max(1.2, strokeWidth - 0.2)} />
+      <line x1="24" y1="14" x2="26" y2="12" strokeWidth={Math.max(1.2, strokeWidth - 0.2)} />
+      <path d="M10 7a4 4 0 0 1 8 0" strokeWidth={Math.max(1.2, strokeWidth - 0.3)} />
+    </svg>
+  );
+}
+
 /** Dynamic Lean Icon Component */
 export type LeanIconName =
   | 'fork'
@@ -866,8 +900,9 @@ export function LeanIcon({
     case 'air-fryer':
       return <LeanAirFryerIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
     case 'oven':
-    case 'dutch-oven':
       return <LeanOvenIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
+    case 'dutch-oven':
+      return <LeanDutchOvenIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
     case 'sheet-pan':
       return <LeanSheetPanIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
     case 'skillet':

@@ -5,8 +5,83 @@ import Link from 'next/link';
 import { ArrowLeft, Clock, Flame, ShieldCheck, Zap, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import LeanSpecBadge from '@/components/LeanSpecBadge';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
+import type { CookTimeDatasheet, Appliance } from '@/lib/types';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+
+const HEAT_METHOD: Record<Appliance, string> = {
+  'air-fryer': 'Convection Heat',
+  'oven': 'Radiant Heat',
+  'instant-pot': 'Pressure Level',
+  'skillet': 'Stovetop Heat',
+  'sheet-pan': 'Radiant Heat',
+  'cast-iron': 'Stovetop Sear',
+  'grill': 'Direct Flame',
+  'dutch-oven': 'Stovetop / Oven',
+  'slow-cooker': 'Low & Slow',
+  'smoker': 'Indirect Smoke',
+};
+
+function releaseLabel(method?: string): string {
+  if (method === 'natural') return 'full natural release';
+  if (method === 'quick') return 'quick release';
+  if (method === '10-min-natural') return '10-minute natural release';
+  return '';
+}
+
+function getStepCopy(sheet: CookTimeDatasheet) {
+  const a = sheet.appliance;
+  const food = sheet.food.toLowerCase();
+  const isIP = a === 'instant-pot';
+  const oil = sheet.oilSprayRequired ? ' Spray lightly with high-smoke-point oil.' : '';
+  const release = releaseLabel(sheet.releaseMethod);
+
+  let prep: string;
+  if (isIP) {
+    prep = `Add ${food} (${sheet.cutOrPrep}) to the Instant Pot inner pot. Seal the lid and set the valve to Sealing. Select ${sheet.tempFormatted} for ${sheet.timeFormatted}.`;
+  } else if (a === 'slow-cooker') {
+    prep = `Add ${food} (${sheet.cutOrPrep}) to the slow cooker. Set to ${sheet.tempFormatted}.${oil}`;
+  } else if (a === 'air-fryer') {
+    prep = `Preheat ${a} to ${sheet.tempFormatted}. Place ${food} (${sheet.cutOrPrep}) in a single layer with space between items for convection airflow.${oil}`;
+  } else if (a === 'grill') {
+    prep = `Preheat grill to ${sheet.tempFormatted}. Clean and oil grates. Prepare ${food} (${sheet.cutOrPrep}).${oil}`;
+  } else if (a === 'smoker') {
+    prep = `Preheat smoker to ${sheet.tempFormatted} with your choice of wood. Prepare ${food} (${sheet.cutOrPrep}).${oil}`;
+  } else if (a === 'cast-iron') {
+    prep = `Heat cast iron skillet over ${sheet.tempFormatted} until lightly smoking. Prepare ${food} (${sheet.cutOrPrep}).${oil}`;
+  } else if (a === 'sheet-pan') {
+    prep = `Preheat oven to ${sheet.tempFormatted}. Arrange ${food} (${sheet.cutOrPrep}) on a parchment-lined sheet pan in a single layer.${oil}`;
+  } else {
+    prep = `Preheat ${a.replace('-', ' ')} to ${sheet.tempFormatted}. Prepare ${food} (${sheet.cutOrPrep}).${oil}`;
+  }
+
+  let cookTitle: string;
+  let cook: string;
+  if (isIP) {
+    cookTitle = 'Pressure Cook';
+    cook = `Cook at ${sheet.tempFormatted} for ${sheet.timeFormatted}.${release ? ` Use ${release}.` : ''}`;
+  } else if (a === 'slow-cooker') {
+    cookTitle = 'Slow Cook';
+    cook = `Cook for ${sheet.timeFormatted}. Keep lid on; do not stir unless specified.`;
+  } else {
+    cookTitle = sheet.flipAtMinutes > 0 ? 'Cook & Flip' : 'Cook';
+    if (sheet.flipAtMinutes > 0) {
+      const action = a === 'air-fryer' ? 'Flip or shake basket' : 'Flip';
+      cook = `Cook for ${sheet.timeFormatted}. ${action} at the ${sheet.flipAtMinutes}-minute mark for even browning.`;
+    } else {
+      cook = `Cook for ${sheet.timeFormatted}. Do not flip; allow surface to develop undisturbed.`;
+    }
+  }
+
+  let rest: string;
+  if (isIP && release) {
+    rest = `${sheet.donenessCue} After ${release}, carefully open the lid away from you. ${sheet.restMinutes > 0 ? `Let stand ${sheet.restMinutes} minutes before serving.` : ''}`;
+  } else {
+    rest = `${sheet.donenessCue} Confirm internal temperature reaches ${sheet.internalTempTargetFormatted}. Rest for ${sheet.restMinutes} minutes before serving.`;
+  }
+
+  return { prep, cookTitle, cook, rest };
+}
 
 interface HowLongPageProps {
   params: Promise<{ appliance: string; food: string }>;
@@ -55,11 +130,16 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
 
   const applianceName = sheet.appliance.replace('-', ' ');
   const pageUrl = absoluteUrl(`/how-long/${sheet.appliance}/${sheet.foodSlug}`);
+  const steps = getStepCopy(sheet);
 
   const breadcrumbs = generateBreadcrumbSchema([
     { name: 'Cook Times', path: '/cheat-sheet' },
     { name: sheet.food, path: `/how-long/${sheet.appliance}/${sheet.foodSlug}` },
   ]);
+
+  const totalMinutes = sheet.appliance === 'instant-pot' && sheet.restMinutes > 0
+    ? sheet.timeMaxMinutes + sheet.restMinutes
+    : sheet.timeMaxMinutes;
 
   const schemaJsonLd = {
     '@context': 'https://schema.org',
@@ -68,23 +148,23 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
     description: `Verified cook time and temperature guide for ${sheet.food} in the ${applianceName}. ${sheet.tempFormatted}, ${sheet.timeFormatted}, internal target ${sheet.internalTempTargetFormatted}.`,
     url: pageUrl,
     image: [absoluteUrl('/opengraph-image.png')],
-    totalTime: `PT${sheet.timeMaxMinutes}M`,
+    totalTime: `PT${totalMinutes}M`,
     mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
     step: [
       {
         '@type': 'HowToStep',
         name: 'Preheat & Prep',
-        text: `Preheat ${applianceName} to ${sheet.tempFormatted}. Prep ${sheet.cutOrPrep}. ${sheet.oilSprayRequired ? 'Spray lightly with oil.' : ''}`,
+        text: steps.prep,
       },
       {
         '@type': 'HowToStep',
-        name: 'Cook & Flip',
-        text: `Cook for ${sheet.timeFormatted}.${sheet.flipAtMinutes > 0 ? ` Flip or shake at the ${sheet.flipAtMinutes}-minute mark.` : ''}`,
+        name: steps.cookTitle,
+        text: steps.cook,
       },
       {
         '@type': 'HowToStep',
-        name: 'Check Internal Temperature & Rest',
-        text: `Verify internal temperature reaches ${sheet.internalTempTargetFormatted}. Rest for ${sheet.restMinutes} minutes before serving.`,
+        name: 'Check & Rest',
+        text: steps.rest,
       },
     ],
   };
@@ -143,7 +223,7 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
             type="temp"
             label="Target Temp"
             value={sheet.tempFormatted}
-            sub="Convection Heat"
+            sub={HEAT_METHOD[sheet.appliance] ?? 'Heat'}
             accent
           />
           <LeanSpecBadge
@@ -166,6 +246,13 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
           />
         </div>
 
+        {sheet.releaseMethod && (
+          <div className="flex items-center gap-2 px-3 py-2 bg-amber-50 border border-amber-200 text-amber-900 font-mono text-xs uppercase">
+            <Clock className="w-4 h-4 shrink-0" />
+            <span><strong>Release:</strong> {releaseLabel(sheet.releaseMethod)}{sheet.pressureMinutes != null ? ` (${sheet.pressureMinutes} min pressure + ${sheet.restMinutes} min release)` : ''}</span>
+          </div>
+        )}
+
         {/* Execution Directions */}
         <div className="space-y-4 font-sans text-sm">
           <h2 className="text-base font-bold uppercase tracking-tight text-ink font-mono hairline-b pb-2">
@@ -180,7 +267,7 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
               <div>
                 <strong className="block font-sans text-ink">Preheat & Prep</strong>
                 <p className="text-xs text-ink-muted mt-0.5 leading-relaxed">
-                  Preheat {sheet.appliance} to {sheet.tempFormatted}. Place {sheet.food.toLowerCase()} ({sheet.cutOrPrep}) in a single layer with space between items for convection airflow. {sheet.oilSprayRequired ? 'Spray lightly with high-smoke-point oil.' : 'No added oil required.'}
+                  {steps.prep}
                 </p>
               </div>
             </div>
@@ -190,9 +277,9 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
                 2
               </span>
               <div>
-                <strong className="block font-sans text-ink">Cook & Shake / Flip</strong>
+                <strong className="block font-sans text-ink">{steps.cookTitle}</strong>
                 <p className="text-xs text-ink-muted mt-0.5 leading-relaxed">
-                  Cook for {sheet.timeFormatted}. {sheet.flipAtMinutes > 0 ? `Flip or shake basket at the ${sheet.flipAtMinutes}-minute mark for even browning.` : 'Do not flip; allow top surface to crust undisturbed.'}
+                  {steps.cook}
                 </p>
               </div>
             </div>
@@ -202,9 +289,9 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
                 3
               </span>
               <div>
-                <strong className="block font-sans text-ink">Doneness & Rest</strong>
+                <strong className="block font-sans text-ink">Check & Rest</strong>
                 <p className="text-xs text-ink-muted mt-0.5 leading-relaxed">
-                  {sheet.donenessCue} Confirm internal temperature reaches {sheet.internalTempTargetFormatted}. Rest for {sheet.restMinutes} minutes before carving.
+                  {steps.rest}
                 </p>
               </div>
             </div>

@@ -15,12 +15,12 @@ const RECIPES = recipesData as Recipe[];
 const TOOLS_METADATA = [
   {
     name: 'get_cook_time',
-    description: 'Get exact cooking temperatures, time ranges, flip schedules, target internal temperatures, and hardware pro tips across 8 appliances.',
+    description: 'Get exact cooking temperatures, time ranges, flip schedules, target internal temperatures, and hardware pro tips across 10 appliances.',
     inputSchema: {
       type: 'object',
       properties: {
         food: { type: 'string', description: 'Food item or slug (e.g. "salmon-fillet", "chicken-tenders-fresh", "pork-chops", "bone-in-thighs", "bacon", "ribeye")' },
-        appliance: { type: 'string', description: 'Appliance hardware ("air-fryer" | "skillet" | "sheet-pan" | "cast-iron" | "grill" | "dutch-oven" | "slow-cooker" | "smoker")' },
+        appliance: { type: 'string', description: 'Appliance hardware ("air-fryer" | "oven" | "instant-pot" | "skillet" | "sheet-pan" | "cast-iron" | "grill" | "dutch-oven" | "slow-cooker" | "smoker")' },
         state: { type: 'string', enum: ['fresh', 'frozen', 'refrigerated'] },
       },
       required: ['food'],
@@ -47,7 +47,7 @@ const TOOLS_METADATA = [
       properties: {
         query: { type: 'string' },
         protein: { type: 'string', enum: ['chicken', 'beef', 'pork', 'seafood', 'turkey', 'vegetarian', 'dairy-eggs'] },
-        appliance: { type: 'string', enum: ['air-fryer', 'skillet', 'sheet-pan', 'cast-iron', 'grill', 'dutch-oven', 'slow-cooker', 'smoker'] },
+        appliance: { type: 'string', enum: ['air-fryer', 'oven', 'instant-pot', 'skillet', 'sheet-pan', 'cast-iron', 'grill', 'dutch-oven', 'slow-cooker', 'smoker'] },
         category: { type: 'string', enum: ['15-minute', 'high-protein', 'kid-approved', 'budget', 'no-thaw', 'one-pan', 'five-ingredient', 'sides', 'snacks', 'game-day', 'breakfast', 'weekend'] },
         max_total_minutes: { type: 'number' },
       },
@@ -210,6 +210,8 @@ export async function POST(req: NextRequest) {
               internalTarget: d.internalTempTargetFormatted,
               donenessCue: d.donenessCue, proTip: d.proTip,
               rest: `${d.restMinutes} min`, oilSpray: d.oilSprayRequired,
+              ...(d.pressureMinutes != null && { pressureMinutes: d.pressureMinutes }),
+              ...(d.releaseMethod && { releaseMethod: d.releaseMethod }),
               url: `https://www.mealinstructions.com/how-long/${d.appliance}/${d.foodSlug}`,
               source: d.verificationBasis,
             })), null, 2)
