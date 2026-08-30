@@ -3,6 +3,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WebMCPClient from '@/components/WebMCPClient';
+import ConsentBanner from '@/components/ConsentBanner';
 import { SITE_URL, SITE_NAME, abs } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -126,6 +127,29 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-paper text-ink" suppressHydrationWarning>
       <head>
+        {/* Google Consent Mode v2 defaults — denied until user opts in via ConsentBanner.
+            Restored if a prior "granted" choice is in localStorage. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = gtag;
+              var stored = null;
+              try { stored = localStorage.getItem('mi_consent_v1'); } catch (e) {}
+              var state = stored === 'granted' ? 'granted' : 'denied';
+              gtag('consent', 'default', {
+                ad_storage: state,
+                ad_user_data: state,
+                ad_personalization: state,
+                analytics_storage: state,
+                wait_for_update: 500,
+              });
+              gtag('js', new Date());
+              gtag('config', 'G-0S1B04Q1S9');
+            `,
+          }}
+        />
         {/* Google AdSense */}
         <meta name="google-adsense-account" content="ca-pub-9801578474509944" />
         <script
@@ -137,17 +161,6 @@ export default function RootLayout({
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-0S1B04Q1S9"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', 'G-0S1B04Q1S9');
-            `,
-          }}
         />
         {/* Google Chrome WebMCP Origin Trial Token */}
         <meta
@@ -171,6 +184,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <ConsentBanner />
       </body>
     </html>
   );

@@ -99,7 +99,7 @@ export default function HomePageClient() {
             <p className="mt-4 text-base sm:text-lg text-ink-muted font-sans max-w-2xl leading-relaxed">
               Every recipe starts with a toggle: choose <strong>&ldquo;Get to the Point&rdquo;</strong> for
               a 20-word telegram execution, or <strong>&ldquo;Step-by-Step&rdquo;</strong> for fluff-free
-              guided steps. No life stories. No ads jumping around your screen.
+              guided steps. No life stories. No popups, no interstitials, no autoplay video.
             </p>
           </div>
 

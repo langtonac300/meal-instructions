@@ -55,7 +55,7 @@ export default function AboutPage() {
             <p>2. Tap a recipe blog.</p>
             <p>3. Dodge 4 video popups, 2 newsletter modals, and a sticky video banner.</p>
             <p>4. Scroll through 1,800 words detailing how the author spent their 2014 summer studying ceramics in Tuscany.</p>
-            <p>5. Tap &ldquo;Jump to Recipe&rdquo;—the page layout shifts, and you click an ad by accident.</p>
+            <p>5. Tap &ldquo;Jump to Recipe&rdquo;—the layout shifts under you and you lose your place.</p>
           </div>
         </div>
 

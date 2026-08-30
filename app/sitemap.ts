@@ -197,6 +197,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
+    {
+      url: absoluteUrl('/contact'),
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    },
+    {
+      url: absoluteUrl('/privacy'),
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    },
+    {
+      url: absoluteUrl('/terms'),
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    },
+    {
+      url: absoluteUrl('/shipping'),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: absoluteUrl('/refunds'),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
   ];
 
   const categoryPages: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({

@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
         
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8">
           
           {/* Brand Manifesto */}
           <div className="space-y-4">
@@ -18,7 +18,7 @@ export default function Footer() {
               <Logo size="sm" variant="horizontal" />
             </Link>
             <p className="text-xs text-ink-muted leading-relaxed font-sans">
-              Engineered for busy cooks and parents. Instant directions, exact temps, and 20-word execution. No popups, no ads, no 12-paragraph essays about childhood summers. No fluff, just the instructions.
+              Engineered for busy cooks and parents. Instant directions, exact temps, and 20-word execution. No popups, no interstitials, no 12-paragraph essays about childhood summers. No fluff, just the instructions.
             </p>
             <div className="pt-2">
               <Link
@@ -177,6 +177,43 @@ export default function Footer() {
               <li>
                 <Link href="/robots.txt" className="text-ink hover:underline">
                   🤖 /robots.txt
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal & Company */}
+          <div>
+            <h4 className="micro-label mb-4 text-ink">Company &amp; Legal</h4>
+            <ul className="space-y-1.5 text-xs font-mono">
+              <li>
+                <Link href="/about" className="text-ink hover:underline uppercase">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-ink hover:underline uppercase">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="text-ink hover:underline uppercase">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-ink hover:underline uppercase">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/shipping" className="text-ink-muted hover:text-ink transition-colors uppercase">
+                  Shipping
+                </Link>
+              </li>
+              <li>
+                <Link href="/refunds" className="text-ink-muted hover:text-ink transition-colors uppercase">
+                  Refunds &amp; Returns
                 </Link>
               </li>
             </ul>

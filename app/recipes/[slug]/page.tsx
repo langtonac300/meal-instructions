@@ -6,6 +6,7 @@ import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { generateRecipeSchema } from '@/lib/recipe-utils';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+import { resolveRecipeImage, resolveRecipeImageAbsolute } from '@/lib/recipe-image';
 import RecipeClientView from './RecipeClientView';
 
 interface RecipePageProps {
@@ -63,7 +64,9 @@ export default async function RecipePage({ params }: RecipePageProps) {
     notFound();
   }
 
-  const schemaJsonLd = generateRecipeSchema(recipe);
+  const resolvedImage = resolveRecipeImage(recipe.image);
+  const resolvedImageAbs = resolveRecipeImageAbsolute(recipe.image);
+  const schemaJsonLd = generateRecipeSchema(recipe, { imageUrl: resolvedImageAbs });
   const breadcrumbs = generateBreadcrumbSchema([
     { name: recipe.title, path: `/recipes/${recipe.slug}` },
   ]);
@@ -88,7 +91,11 @@ export default async function RecipePage({ params }: RecipePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      <RecipeClientView recipe={recipe} relatedDatasheets={relatedDatasheets} />
+      <RecipeClientView
+        recipe={recipe}
+        relatedDatasheets={relatedDatasheets}
+        resolvedImage={resolvedImage}
+      />
     </>
   );
 }

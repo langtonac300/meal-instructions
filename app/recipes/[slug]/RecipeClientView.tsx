@@ -17,9 +17,10 @@ import { formatScaledAmount, buildSmsShareText, recipeToMarkdown } from '@/lib/r
 interface RecipeClientViewProps {
   recipe: Recipe;
   relatedDatasheets?: CookTimeDatasheet[];
+  resolvedImage?: string;
 }
 
-export default function RecipeClientView({ recipe, relatedDatasheets = [] }: RecipeClientViewProps) {
+export default function RecipeClientView({ recipe, relatedDatasheets = [], resolvedImage }: RecipeClientViewProps) {
   // Mode state: syncs with document.documentElement's data-mode
   const [currentMode, setCurrentMode] = useState<'fast' | 'detailed'>('fast');
   const [portionMultiplier, setPortionMultiplier] = useState<number>(1);
@@ -208,11 +209,28 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [] }: Rec
           </p>
         </div>
 
+        {/* Byline */}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-mono uppercase tracking-wider text-ink-muted">
+          <span>
+            By <Link href="/about" className="text-ink underline hover:opacity-70">Meal Instructions Kitchen</Link>
+          </span>
+          <span className="text-ink-subtle">•</span>
+          <span>Published {new Date(recipe.datePublished).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+          {recipe.lastUpdated && recipe.lastUpdated !== recipe.datePublished && (
+            <>
+              <span className="text-ink-subtle">•</span>
+              <span>Updated {new Date(recipe.lastUpdated).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+            </>
+          )}
+          <span className="text-ink-subtle">•</span>
+          <span className="text-emerald-800">Reviewed for USDA Food Safety</span>
+        </div>
+
         {/* Recipe Editorial Photo */}
-        {recipe.image && (
+        {(resolvedImage ?? recipe.image) && (
           <div className="relative w-full h-64 sm:h-96 rounded overflow-hidden hairline-border bg-paper">
             <Image
-              src={recipe.image}
+              src={resolvedImage ?? recipe.image!}
               alt={recipe.title}
               fill
               priority

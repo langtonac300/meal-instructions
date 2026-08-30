@@ -73,7 +73,8 @@ ${recipe.quickVersion.bullets.map((b, i) => `${i + 1}. ${b}`).join('\n')}
 🔗 Full recipe: ${abs(`/recipes/${recipe.slug}`)}`;
 }
 
-export function generateRecipeSchema(recipe: Recipe) {
+export function generateRecipeSchema(recipe: Recipe, opts: { imageUrl?: string } = {}) {
+  const imageUrl = opts.imageUrl ?? abs('/opengraph-image.png');
   const schema: any = {
     '@context': 'https://schema.org',
     '@type': 'Recipe',
@@ -81,11 +82,27 @@ export function generateRecipeSchema(recipe: Recipe) {
     headline: recipe.title,
     description: recipe.tagline,
     url: abs(`/recipes/${recipe.slug}`),
-    image: [abs('/opengraph-image.png')],
-    author: {
+    image: [imageUrl],
+    author: [
+      {
+        '@type': 'Person',
+        name: 'Meal Instructions Kitchen',
+        url: abs('/about'),
+      },
+      {
+        '@type': 'Organization',
+        name: SITE_NAME,
+        url: SITE_URL,
+      },
+    ],
+    publisher: {
       '@type': 'Organization',
       name: SITE_NAME,
       url: SITE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: abs('/logo-512.png'),
+      },
     },
     datePublished: recipe.datePublished,
     prepTime: `PT${recipe.prepMinutes}M`,
