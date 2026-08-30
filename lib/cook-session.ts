@@ -81,6 +81,22 @@ export function totalPlanSeconds(plan: CookPlan): number {
   return plan.stages.reduce((sum, s) => sum + s.durationSec, 0);
 }
 
+export interface DatasheetIndexEntry {
+  planId: string;
+  title: string;
+  appliance: string;
+  timeLabel: string;
+}
+
+export function buildDatasheetIndex(): DatasheetIndexEntry[] {
+  return COOK_TIME_DATASHEETS.map((d) => ({
+    planId: `${d.appliance}/${d.foodSlug}`,
+    title: d.food,
+    appliance: d.appliance,
+    timeLabel: d.timeFormatted,
+  })).sort((a, b) => a.appliance.localeCompare(b.appliance) || a.title.localeCompare(b.title));
+}
+
 export function formatClock(totalSec: number): string {
   const sign = totalSec < 0 ? '-' : '';
   const abs = Math.abs(Math.round(totalSec));

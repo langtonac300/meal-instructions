@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { absoluteUrl } from '@/lib/site';
-import { resolvePlan, type CookPlan } from '@/lib/cook-session';
+import { buildDatasheetIndex, resolvePlan, type CookPlan } from '@/lib/cook-session';
 import CookClient from './CookClient';
 
 export const metadata: Metadata = {
@@ -60,32 +60,16 @@ export default async function CookPage({ searchParams }: PageProps) {
         </p>
       </header>
 
-      {plans.length === 0 ? (
-        <EmptyState unresolved={unresolved} />
-      ) : (
-        <CookClient plans={plans} maxTimers={MAX_TIMERS} />
-      )}
+      <CookClient
+        plans={plans}
+        maxTimers={MAX_TIMERS}
+        datasheetIndex={buildDatasheetIndex()}
+      />
 
       {plans.length > 0 && unresolved.length > 0 && (
         <div className="hairline-border bg-paper-card p-4 text-xs font-mono text-ink-muted uppercase">
           Ignored (no matching datasheet): {unresolved.join(', ')}
         </div>
-      )}
-    </div>
-  );
-}
-
-function EmptyState({ unresolved }: { unresolved: string[] }) {
-  return (
-    <div className="hairline-border bg-paper-card p-8 space-y-4">
-      <div className="micro-label text-ink-muted">NO ACTIVE TIMER</div>
-      <p className="text-sm text-ink font-sans">
-        Open any <Link href="/cheat-sheet" className="underline hover:text-accent">cook-time datasheet</Link> and press <strong>START COOK</strong> to run a live timer here.
-      </p>
-      {unresolved.length > 0 && (
-        <p className="text-xs font-mono text-ink-muted">
-          Could not resolve: {unresolved.join(', ')}
-        </p>
       )}
     </div>
   );

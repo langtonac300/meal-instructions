@@ -2,8 +2,8 @@
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import { Play, Pause, RotateCcw, Plus, ChevronsRight, X, ArrowUpRight, ExternalLink } from 'lucide-react';
-import type { CookPlan } from '@/lib/cook-session';
+import { Play, Pause, RotateCcw, Plus, ChevronsRight, X, ExternalLink, Search } from 'lucide-react';
+import type { CookPlan, DatasheetIndexEntry } from '@/lib/cook-session';
 import { formatClock, totalPlanSeconds } from '@/lib/cook-session';
 
 interface FiredEvent {
@@ -36,6 +36,7 @@ const STORAGE_KEY = 'cook:v1';
 interface Props {
   plans: CookPlan[];
   maxTimers: number;
+  datasheetIndex: DatasheetIndexEntry[];
 }
 
 function makeRunId(planId: string): string {
@@ -102,7 +103,7 @@ function vibrate(pattern: number | number[]): void {
   }
 }
 
-export default function CookClient({ plans, maxTimers }: Props) {
+export default function CookClient({ plans, maxTimers, datasheetIndex }: Props) {
   const plansById = useMemo(() => {
     const m = new Map<string, CookPlan>();
     for (const p of plans) m.set(p.planId, p);
@@ -343,19 +344,103 @@ export default function CookClient({ plans, maxTimers }: Props) {
         </div>
       )}
 
-      {canAdd && (
-        <div className="hairline-border bg-paper-card p-4 text-xs font-mono text-ink-muted uppercase flex items-center justify-between gap-3">
-          <span>Add another timer — open any datasheet and press START COOK.</span>
-          <Link
-            href="/cheat-sheet"
-            className="inline-flex items-center gap-1 px-3 py-1.5 bg-ink text-paper hover:bg-accent uppercase font-bold"
-          >
-            <span>Browse datasheets</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-      )}
+      <PickerSection
+        datasheetIndex={datasheetIndex}
+        activePlanIds={runs.map((r) => r.planId)}
+        maxTimers={maxTimers}
+      />
     </div>
+  );
+}
+
+function PickerSection({
+  datasheetIndex, activePlanIds, maxTimers,
+}: {
+  datasheetIndex: DatasheetIndexEntry[];
+  activePlanIds: string[];
+  maxTimers: number;
+}) {
+  const [query, setQuery] = useState('');
+  const active = new Set(activePlanIds);
+  const atCap = activePlanIds.length >= maxTimers;
+  const empty = activePlanIds.length === 0;
+
+  const results = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const filtered = datasheetIndex.filter((d) => !active.has(d.planId));
+    if (!q) return filtered.slice(0, 8);
+    return filtered
+      .filter((d) => d.title.toLowerCase().includes(q) || d.appliance.toLowerCase().includes(q))
+      .slice(0, 12);
+  }, [query, datasheetIndex, active]);
+
+  const composeHref = useCallback((newPlanId: string) => {
+    const params = new URLSearchParams();
+    for (const id of activePlanIds) params.append('ds', id);
+    params.append('ds', newPlanId);
+    return `/cook?${params.toString()}`;
+  }, [activePlanIds]);
+
+  return (
+    <section className="hairline-border bg-paper-card p-4 sm:p-5 space-y-3">
+      <div className="flex items-center justify-between gap-3 flex-wrap">
+        <div className="micro-label text-ink-muted">
+          {empty ? 'PICK A COOK TO START' : atCap ? `TIMER SLOTS FULL (${activePlanIds.length}/${maxTimers})` : `ADD A TIMER (${activePlanIds.length}/${maxTimers} in use)`}
+        </div>
+        <Link
+          href="/cheat-sheet"
+          className="text-[11px] font-mono uppercase text-ink-muted hover:text-ink"
+        >
+          Browse all datasheets →
+        </Link>
+      </div>
+
+      {!atCap && (
+        <>
+          <div className="relative">
+            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-ink-subtle" />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search food, appliance…  (e.g. wings, dutch oven, salmon)"
+              className="w-full pl-9 pr-3 py-2.5 bg-paper hairline-border text-sm font-sans text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink"
+              aria-label="Search datasheets"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-[320px] overflow-y-auto">
+            {results.length === 0 ? (
+              <div className="col-span-full text-center py-6 text-xs font-mono text-ink-muted uppercase">
+                No match. Try a different word.
+              </div>
+            ) : (
+              results.map((r) => (
+                <Link
+                  key={r.planId}
+                  href={composeHref(r.planId)}
+                  className="flex items-center gap-2 p-3 bg-paper hairline-border hover:border-ink group"
+                >
+                  <Plus className="w-4 h-4 text-ink-muted group-hover:text-accent shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <div className="text-xs font-sans font-bold text-ink truncate">{r.title}</div>
+                    <div className="text-[11px] font-mono text-ink-muted uppercase truncate">
+                      {r.appliance} · {r.timeLabel}
+                    </div>
+                  </div>
+                </Link>
+              ))
+            )}
+          </div>
+        </>
+      )}
+
+      {atCap && (
+        <p className="text-xs font-mono text-ink-muted">
+          Remove a running timer to add another.
+        </p>
+      )}
+    </section>
   );
 }
 
