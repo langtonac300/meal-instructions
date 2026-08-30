@@ -4,6 +4,7 @@ import { HARDWARE_POSTS } from './blog/hardware-posts';
 import { CHEMISTRY_POSTS } from './blog/chemistry-posts';
 import { SAFETY_POSTS } from './blog/safety-posts';
 import { OPERATIONS_POSTS } from './blog/operations-posts';
+import { SNIPPET_POSTS } from './blog/snippet-posts';
 
 export const BLOG_CATEGORIES: { slug: BlogCategory; name: string; description: string }[] = [
   {
@@ -39,6 +40,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ...CHEMISTRY_POSTS,
   ...SAFETY_POSTS,
   ...OPERATIONS_POSTS,
+  ...SNIPPET_POSTS,
 ];
 
 export const BLOG_POST_BY_SLUG: Record<string, BlogPost> = BLOG_POSTS.reduce((acc, post) => {
