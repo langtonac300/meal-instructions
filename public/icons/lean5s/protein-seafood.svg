@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Seafood / Fish">
+  <path d="M3 14c4-6 12-7 17-2l5-5v14l-5-5c-5 5-13 4-17-2z" stroke-width="2" fill="currentColor" fill-opacity="0.08" />
+  <circle cx="7" cy="13" r="1.2" fill="currentColor" />
+  <path d="M10 10.5c1.5 2 1.5 5 0 7" stroke-width="1.8" />
+  <line x1="14" y1="12" x2="17" y2="12" stroke-width="1.5" stroke-dasharray="1 1.5" />
+  <line x1="13" y1="15" x2="16" y2="15" stroke-width="1.5" stroke-dasharray="1 1.5" />
+</svg>

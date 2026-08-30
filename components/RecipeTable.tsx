@@ -59,6 +59,7 @@ export default function RecipeTable({ recipes }: RecipeTableProps) {
                 <ArrowUpDown className="w-3 h-3 text-ink-subtle" />
               </div>
             </th>
+            <th className="py-3 px-4 select-none">PROTEIN</th>
             <th className="py-3 px-4 select-none">APPLIANCE</th>
             <th
               className="py-3 px-4 cursor-pointer hover:text-accent select-none text-right"
@@ -86,7 +87,7 @@ export default function RecipeTable({ recipes }: RecipeTableProps) {
             >
               <div className="flex items-center justify-end gap-1.5">
                 <LeanForkIcon size={14} className="text-accent" />
-                <span>PROTEIN</span>
+                <span>PROTEIN (G)</span>
                 <ArrowUpDown className="w-3 h-3 text-ink-subtle" />
               </div>
             </th>
@@ -118,7 +119,15 @@ export default function RecipeTable({ recipes }: RecipeTableProps) {
                 </span>
               </td>
 
-              {/* Appliance with 28x28 icon */}
+              {/* Protein Type with icon */}
+              <td className="py-3 px-4">
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[9px] uppercase bg-paper border border-hairline text-ink">
+                  <LeanIcon name={recipe.protein} size={14} className="text-accent" />
+                  <span>{recipe.protein.replace('-', ' ')}</span>
+                </span>
+              </td>
+
+              {/* Appliance with icon */}
               <td className="py-3 px-4">
                 <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[9px] uppercase bg-paper border border-hairline text-ink">
                   <LeanIcon name={recipe.appliance} size={14} className="text-ink-muted" />

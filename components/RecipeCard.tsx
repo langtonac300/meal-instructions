@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { Recipe } from '@/lib/types';
-import { LeanHeatWavesIcon, LeanClockIcon, LeanForkIcon } from './icons/Lean5SIcons';
+import { LeanHeatWavesIcon, LeanClockIcon, LeanForkIcon, LeanIcon } from './icons/Lean5SIcons';
 
 interface RecipeCardProps {
   recipe: Recipe;
@@ -28,18 +28,24 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
   return (
     <article className="group relative bg-paper-50 hover:bg-paper-100 border border-hairline hover:border-ink/40 transition-all duration-200 rounded p-5 flex flex-col justify-between shadow-subtle hover:shadow-card">
       <div>
-        {/* Top Architectural Number & Appliance */}
+        {/* Top Architectural Number, Protein, & Appliance */}
         <div className="flex items-center justify-between text-[11px] font-mono tracking-widest text-ink-muted mb-3">
           <span className="font-bold text-ink group-hover:text-accent transition-colors">
             {recipe.id}
           </span>
-          <span
-            className={`text-[9px] uppercase px-2 py-0.5 rounded border font-mono font-semibold ${getApplianceColor(
-              recipe.appliance
-            )}`}
-          >
-            {recipe.appliance.replace('-', ' ')}
-          </span>
+          <div className="flex items-center gap-1.5">
+            <span className="inline-flex items-center gap-1 text-[9px] uppercase px-1.5 py-0.5 rounded border border-hairline bg-paper text-ink-muted font-mono font-semibold">
+              <LeanIcon name={recipe.protein} size={12} className="text-accent" />
+              <span>{recipe.protein.replace('-', ' ')}</span>
+            </span>
+            <span
+              className={`text-[9px] uppercase px-2 py-0.5 rounded border font-mono font-semibold ${getApplianceColor(
+                recipe.appliance
+              )}`}
+            >
+              {recipe.appliance.replace('-', ' ')}
+            </span>
+          </div>
         </div>
 
         {/* Thumbnail Image */}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useScrollToResults } from '@/lib/use-scroll-to-results';
 import Link from 'next/link';
 import {
@@ -20,37 +20,59 @@ import RecipeCard from '@/components/RecipeCard';
 import RecipeTable from '@/components/RecipeTable';
 import RecipeScrubber from '@/components/RecipeScrubber';
 import CategoryGrid from '@/components/CategoryGrid';
+import ProteinSelectorBar from '@/components/ProteinSelectorBar';
 import AirFryerCalculator from '@/components/AirFryerCalculator';
 import SiteGuide from '@/components/SiteGuide';
 import { LeanAirFryerIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon } from '@/components/icons/Lean5SIcons';
 
 export default function HomePageClient() {
+  const [selectedProtein, setSelectedProtein] = useState<string>('all');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedAppliance, setSelectedAppliance] = useState<string>('all');
   const [maxMinutes, setMaxMinutes] = useState<number | null>(null);
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
 
+  // Read URL query params on mount (e.g. /?protein=chicken)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const proteinParam = params.get('protein');
+      if (proteinParam) {
+        setSelectedProtein(proteinParam);
+      }
+    }
+  }, []);
+
   // Filter controls sit a screen above the directory; bring it into view on change.
   const resultsRef = useScrollToResults<HTMLElement>([
+    selectedProtein,
     selectedCategory,
     selectedAppliance,
     maxMinutes,
   ]);
 
-  // Filter recipes based on time budget, category, & appliance
+  // Filter recipes based on time budget, protein, category, & appliance
   const filteredRecipes = RECIPES.filter((recipe) => {
     const matchesTime = maxMinutes === null || recipe.totalMinutes <= maxMinutes;
+    const matchesProtein =
+      selectedProtein === 'all' || recipe.protein === selectedProtein;
     const matchesCategory =
       selectedCategory === 'all' || (recipe.categories as string[]).includes(selectedCategory);
     const matchesAppliance =
       selectedAppliance === 'all' || recipe.appliance === selectedAppliance;
-    return matchesTime && matchesCategory && matchesAppliance;
+    return matchesTime && matchesProtein && matchesCategory && matchesAppliance;
   });
 
   const airFryerGuide = COOK_TIME_DATASHEETS.filter((d) => d.appliance === 'air-fryer');
 
   return (
     <div className="flex flex-col min-h-screen bg-paper">
+      {/* ── TOP PRIMARY MEAT / PROTEIN SVG SELECTOR BAR ── */}
+      <ProteinSelectorBar
+        selectedProtein={selectedProtein}
+        onSelectProtein={setSelectedProtein}
+      />
+
       {/* ── TOP INTERACTIVE DINNER TIME SCRUBBER ── */}
       <RecipeScrubber
         maxMinutes={maxMinutes}
@@ -160,10 +182,15 @@ export default function HomePageClient() {
       >
         
         {/* Active Filter Status Bar (if any filter active) */}
-        {(maxMinutes !== null || selectedCategory !== 'all' || selectedAppliance !== 'all') && (
+        {(maxMinutes !== null || selectedProtein !== 'all' || selectedCategory !== 'all' || selectedAppliance !== 'all') && (
           <div className="mb-4 p-3 bg-paper-100 border border-hairline rounded flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="font-bold text-ink uppercase">ACTIVE FILTERS:</span>
+              {selectedProtein !== 'all' && (
+                <span className="px-2 py-0.5 bg-accent text-white rounded text-[10px] font-bold">
+                  PROTEIN: {selectedProtein.toUpperCase()}
+                </span>
+              )}
               {maxMinutes !== null && (
                 <span className="px-2 py-0.5 bg-ink text-paper rounded text-[10px] font-bold">
                   ≤ {maxMinutes} MINS TOTAL
@@ -186,6 +213,7 @@ export default function HomePageClient() {
 
             <button
               onClick={() => {
+                setSelectedProtein('all');
                 setMaxMinutes(null);
                 setSelectedCategory('all');
                 setSelectedAppliance('all');
@@ -282,6 +310,7 @@ export default function HomePageClient() {
             <p className="text-base text-ink font-bold">No meals match your active filters.</p>
             <button
               onClick={() => {
+                setSelectedProtein('all');
                 setMaxMinutes(null);
                 setSelectedCategory('all');
                 setSelectedAppliance('all');

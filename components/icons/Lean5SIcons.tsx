@@ -826,6 +826,383 @@ export function LeanDutchOvenIcon({
   );
 }
 
+/** Chicken / Poultry Drumstick Specimen */
+export function LeanChickenIcon({
+  size = 28,
+  className = '',
+  strokeWidth = 2,
+  title = 'Chicken',
+  ...props
+}: LeanIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 28 28"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      role="img"
+      aria-label={title}
+      {...props}
+    >
+      {title && <title>{title}</title>}
+      {/* Plump drumstick meat bulb */}
+      <path
+        d="M17.5 4.5c3.5 1 5.5 4.5 5 8-0.6 4-4 8.5-8 10.5l-2.5-2.5c2-4 6.5-7.4 5.5-16z"
+        strokeWidth={strokeWidth}
+        fill="currentColor"
+        fillOpacity="0.08"
+      />
+      {/* Bone Shaft */}
+      <line x1="12" y1="20.5" x2="7" y2="25.5" strokeWidth={strokeWidth + 0.3} />
+      {/* Bone Knobs */}
+      <circle cx="5.5" cy="24.5" r="1.5" strokeWidth={Math.max(1, strokeWidth - 0.4)} fill="currentColor" fillOpacity="0.2" />
+      <circle cx="7.5" cy="26.5" r="1.5" strokeWidth={Math.max(1, strokeWidth - 0.4)} fill="currentColor" fillOpacity="0.2" />
+      {/* Crisp sear tick marks */}
+      <line x1="15.5" y1="9" x2="18.5" y2="12" strokeWidth={Math.max(1, strokeWidth - 0.5)} strokeDasharray="1 1.5" />
+      <line x1="13" y1="12" x2="16" y2="15" strokeWidth={Math.max(1, strokeWidth - 0.5)} strokeDasharray="1 1.5" />
+    </svg>
+  );
+}
+
+/** Beef / Steak (T-Bone / Ribeye Cut) Specimen */
+export function LeanBeefIcon({
+  size = 28,
+  className = '',
+  strokeWidth = 2,
+  title = 'Beef Steak',
+  ...props
+}: LeanIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 28 28"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      role="img"
+      aria-label={title}
+      {...props}
+    >
+      {title && <title>{title}</title>}
+      {/* Steak perimeter */}
+      <path
+        d="M6 8c2-4 8-4 12-3 4 1 7 4 6 9-1 4-3 7-7 9-4 2-9 1-13-2-3-2-4-5-3-8 1-2 3-3 5-5z"
+        strokeWidth={strokeWidth}
+        fill="currentColor"
+        fillOpacity="0.08"
+      />
+      {/* T-Bone / Marrow Bone */}
+      <path d="M13 7v13" strokeWidth={strokeWidth + 0.3} />
+      <path d="M8 13h10" strokeWidth={strokeWidth} />
+      {/* Marrow bone cap */}
+      <circle cx="13" cy="7" r="1.5" fill="currentColor" />
+      {/* Marbling lines */}
+      <path d="M16 10c2 1 3 3 2 4" strokeWidth={Math.max(1, strokeWidth - 0.6)} strokeDasharray="1 1.5" />
+      <path d="M8 17c2 1 3 0 4-1" strokeWidth={Math.max(1, strokeWidth - 0.6)} strokeDasharray="1 1.5" />
+    </svg>
+  );
+}
+
+/** Pork / Loin Chop Specimen */
+export function LeanPorkIcon({
+  size = 28,
+  className = '',
+  strokeWidth = 2,
+  title = 'Pork',
+  ...props
+}: LeanIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 28 28"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      role="img"
+      aria-label={title}
+      {...props}
+    >
+      {title && <title>{title}</title>}
+      {/* Pork chop perimeter */}
+      <path
+        d="M8 5c5-2 12-1 15 3s2 9-1 12-7 4-12 3c-4-1-6-4-6-8 0-4 1-7 4-10z"
+        strokeWidth={strokeWidth}
+        fill="currentColor"
+        fillOpacity="0.08"
+      />
+      {/* Rib Bone */}
+      <path d="M8 5c-3 3-4 8-2 13" strokeWidth={strokeWidth + 0.2} />
+      {/* Fat cap border line */}
+      <path d="M12 7c5 0 9 3 10 7" strokeWidth={Math.max(1, strokeWidth - 0.5)} strokeDasharray="2 1.5" />
+      {/* Texture medallion */}
+      <ellipse cx="14" cy="14" rx="3.5" ry="2.5" strokeWidth={Math.max(1, strokeWidth - 0.5)} />
+    </svg>
+  );
+}
+
+/** Seafood / Fish Specimen */
+export function LeanFishIcon({
+  size = 28,
+  className = '',
+  strokeWidth = 2,
+  title = 'Seafood / Fish',
+  ...props
+}: LeanIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 28 28"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      role="img"
+      aria-label={title}
+      {...props}
+    >
+      {title && <title>{title}</title>}
+      {/* Fish Body Streamline */}
+      <path
+        d="M3 14c4-6 12-7 17-2l5-5v14l-5-5c-5 5-13 4-17-2z"
+        strokeWidth={strokeWidth}
+        fill="currentColor"
+        fillOpacity="0.08"
+      />
+      {/* Eye */}
+      <circle cx="7" cy="13" r="1.2" fill="currentColor" />
+      {/* Gill Slit */}
+      <path d="M10 10.5c1.5 2 1.5 5 0 7" strokeWidth={Math.max(1.2, strokeWidth - 0.2)} />
+      {/* Fin Detail */}
+      <line x1="14" y1="12" x2="17" y2="12" strokeWidth={Math.max(1, strokeWidth - 0.5)} strokeDasharray="1 1.5" />
+      <line x1="13" y1="15" x2="16" y2="15" strokeWidth={Math.max(1, strokeWidth - 0.5)} strokeDasharray="1 1.5" />
+    </svg>
+  );
+}
+
+/** Turkey / Roast Poultry Specimen */
+export function LeanTurkeyIcon({
+  size = 28,
+  className = '',
+  strokeWidth = 2,
+  title = 'Turkey',
+  ...props
+}: LeanIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 28 28"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      role="img"
+      aria-label={title}
+      {...props}
+    >
+      {title && <title>{title}</title>}
+      {/* Roast Body */}
+      <path
+        d="M4 17c0-6 4-11 11-11 6 0 10 4 10 9 0 4-3 7-8 7H8a4 4 0 0 1-4-5z"
+        strokeWidth={strokeWidth}
+        fill="currentColor"
+        fillOpacity="0.08"
+      />
+      {/* Drumstick projecting */}
+      <path d="M18 15l5-4" strokeWidth={strokeWidth + 0.3} />
+      <circle cx="24" cy="10" r="1.5" fill="currentColor" />
+      {/* Roasting base */}
+      <line x1="3" y1="23" x2="25" y2="23" strokeWidth={strokeWidth} />
+      <path d="M9 13c2 0 4 2 4 4" strokeWidth={Math.max(1, strokeWidth - 0.5)} strokeDasharray="1 2" />
+    </svg>
+  );
+}
+
+/** Lamb / Chop Specimen */
+export function LeanLambIcon({
+  size = 28,
+  className = '',
+  strokeWidth = 2,
+  title = 'Lamb',
+  ...props
+}: LeanIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 28 28"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      role="img"
+      aria-label={title}
+      {...props}
+    >
+      {title && <title>{title}</title>}
+      {/* Long French-trimmed bone */}
+      <line x1="11" y1="17" x2="23" y2="5" strokeWidth={strokeWidth + 0.3} />
+      <line x1="21.5" y1="4" x2="24.5" y2="7" strokeWidth={strokeWidth} />
+      {/* Meat Eye Medallion */}
+      <ellipse
+        cx="9.5"
+        cy="18.5"
+        rx="5.5"
+        ry="4.5"
+        strokeWidth={strokeWidth}
+        fill="currentColor"
+        fillOpacity="0.08"
+      />
+      {/* Marrow center */}
+      <circle cx="10" cy="18" r="1.5" strokeWidth={Math.max(1, strokeWidth - 0.5)} />
+      <path d="M7 16c1.5-1 3-1 4.5 0" strokeWidth={Math.max(1, strokeWidth - 0.6)} strokeDasharray="1 1" />
+    </svg>
+  );
+}
+
+/** Vegetarian / Plant Botanical Specimen */
+export function LeanVegetarianIcon({
+  size = 28,
+  className = '',
+  strokeWidth = 2,
+  title = 'Vegetarian',
+  ...props
+}: LeanIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 28 28"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      role="img"
+      aria-label={title}
+      {...props}
+    >
+      {title && <title>{title}</title>}
+      {/* Main Stem */}
+      <path d="M14 25V9c0-3-1-5-3-5" strokeWidth={strokeWidth} />
+      {/* Left Leaf */}
+      <path
+        d="M14 17c-6 0-9-3-9-9 6 0 9 3 9 9z"
+        strokeWidth={strokeWidth}
+        fill="currentColor"
+        fillOpacity="0.08"
+      />
+      {/* Right Leaf */}
+      <path
+        d="M14 12c5 0 9-3 9-8-5 0-9 3-9 8z"
+        strokeWidth={strokeWidth}
+        fill="currentColor"
+        fillOpacity="0.08"
+      />
+    </svg>
+  );
+}
+
+/** Dairy & Eggs Specimen */
+export function LeanDairyEggsIcon({
+  size = 28,
+  className = '',
+  strokeWidth = 2,
+  title = 'Dairy & Eggs',
+  ...props
+}: LeanIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 28 28"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      role="img"
+      aria-label={title}
+      {...props}
+    >
+      {title && <title>{title}</title>}
+      {/* Fresh Egg Profile */}
+      <path
+        d="M14 3c-5 0-8.5 6-8.5 13 0 5 3.8 9 8.5 9s8.5-4 8.5-9c0-7-3.5-13-8.5-13z"
+        strokeWidth={strokeWidth}
+        fill="currentColor"
+        fillOpacity="0.08"
+      />
+      {/* Internal Yolk Cue */}
+      <circle cx="14" cy="17" r="4" strokeWidth={Math.max(1, strokeWidth - 0.4)} strokeDasharray="2 1.5" />
+      <path d="M12 8c1.5-2 3-2 4 0" strokeWidth={Math.max(1, strokeWidth - 0.6)} />
+    </svg>
+  );
+}
+
+/** All Proteins / Specimen Matrix Icon */
+export function LeanAllProteinsIcon({
+  size = 28,
+  className = '',
+  strokeWidth = 2,
+  title = 'All Meats & Proteins',
+  ...props
+}: LeanIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 28 28"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      role="img"
+      aria-label={title}
+      {...props}
+    >
+      {title && <title>{title}</title>}
+      <rect x="4" y="4" width="8" height="8" rx="1.5" strokeWidth={strokeWidth} fill="currentColor" fillOpacity="0.1" />
+      <rect x="16" y="4" width="8" height="8" rx="1.5" strokeWidth={strokeWidth} fill="currentColor" fillOpacity="0.1" />
+      <rect x="4" y="16" width="8" height="8" rx="1.5" strokeWidth={strokeWidth} fill="currentColor" fillOpacity="0.1" />
+      <rect x="16" y="16" width="8" height="8" rx="1.5" strokeWidth={strokeWidth} fill="currentColor" fillOpacity="0.1" />
+    </svg>
+  );
+}
+
 /** Dynamic Lean Icon Component */
 export type LeanIconName =
   | 'fork'
@@ -851,7 +1228,18 @@ export type LeanIconName =
   | 'instant-pot'
   | 'slow-cooker'
   | 'smoker'
-  | 'boiling';
+  | 'boiling'
+  | 'chicken'
+  | 'beef'
+  | 'pork'
+  | 'seafood'
+  | 'fish'
+  | 'turkey'
+  | 'lamb'
+  | 'vegetarian'
+  | 'dairy-eggs'
+  | 'eggs'
+  | 'all-proteins';
 
 export function LeanIcon({
   name,
@@ -919,6 +1307,32 @@ export function LeanIcon({
       return <LeanSmokerIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
     case 'boiling':
       return <LeanHeatWavesIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
+    case 'chicken':
+    case 'poultry':
+      return <LeanChickenIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
+    case 'beef':
+    case 'steak':
+      return <LeanBeefIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
+    case 'pork':
+      return <LeanPorkIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
+    case 'seafood':
+    case 'fish':
+      return <LeanFishIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
+    case 'turkey':
+      return <LeanTurkeyIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
+    case 'lamb':
+      return <LeanLambIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
+    case 'vegetarian':
+    case 'vegan':
+    case 'plant':
+      return <LeanVegetarianIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
+    case 'dairy-eggs':
+    case 'dairy':
+    case 'eggs':
+      return <LeanDairyEggsIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
+    case 'all-proteins':
+    case 'all':
+      return <LeanAllProteinsIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
     default:
       return <LeanClockIcon size={size} className={className} strokeWidth={strokeWidth} {...props} />;
   }
