@@ -231,7 +231,7 @@ export function createDadMealsMcpServer() {
     'Search the catalog of 70 curated recipes by keyword, protein, appliance, category, or maximum cooking time budget.',
     {
       query: z.string().optional().describe('Search keyword matching title, tagline, ingredients, or keywords (e.g. "tacos", "steak", "pasta", "cauliflower")'),
-      protein: z.enum(['chicken', 'beef', 'pork', 'seafood', 'turkey', 'vegetarian', 'dairy-eggs']).optional().describe('Protein category'),
+      protein: z.enum(['chicken', 'beef', 'pork', 'seafood', 'turkey', 'vegetarian', 'dairy-eggs', 'lamb', 'duck', 'game']).optional().describe('Protein category'),
       appliance: z.enum(['air-fryer', 'oven', 'instant-pot', 'skillet', 'sheet-pan', 'cast-iron', 'grill', 'dutch-oven', 'slow-cooker', 'smoker']).optional().describe('Cooking appliance hardware'),
       category: z.enum(['15-minute', 'high-protein', 'kid-approved', 'budget', 'no-thaw', 'one-pan', 'five-ingredient', 'sides', 'snacks', 'game-day', 'breakfast', 'weekend']).optional().describe('Intent / constraint category'),
       max_total_minutes: z.number().optional().describe('Maximum allowed prep + cook time in minutes (e.g. 15 for lightning meals, 30 for standard weeknight)'),

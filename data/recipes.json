@@ -12158,5 +12158,1697 @@
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
     "image": "/images/recipes/slow-cooker-shredded-chicken-tacos.jpg"
+  },
+  {
+    "id": "0083",
+    "slug": "oven-roasted-cornish-hen",
+    "title": "Oven Roasted Cornish Hen",
+    "tagline": "Herb butter-rubbed Cornish game hens roasted to golden perfection with crispy skin and juicy meat that makes every kid feel like they got their own personal chicken.",
+    "appliance": "oven",
+    "categories": [
+      "high-protein"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 15,
+    "cookMinutes": 50,
+    "totalMinutes": 65,
+    "defaultServings": 4,
+    "basis": "Standard oven at 425°F (218°C); ThermoWorks instant-read verification to 165°F in the thickest part of the thigh.",
+    "safeInternalTempF": 165,
+    "restMinutes": 10,
+    "cookTemp": "425°F (218°C)",
+    "cookTempF": 425,
+    "cookTempC": 218,
+    "equipmentNeeded": [
+      "Roasting Pan",
+      "Meat Thermometer",
+      "Kitchen Twine"
+    ],
+    "quickVersion": {
+      "temp": "425°F (218°C)",
+      "totalTime": "65 mins",
+      "timerMinutes": 50,
+      "flipAtMinutes": 0,
+      "bullets": [
+        "Mix softened butter with minced garlic, rosemary, and thyme; rub generously under and over the skin of 4 Cornish hens.",
+        "Season hens with salt and pepper, stuff cavities with lemon halves, and tie legs with kitchen twine.",
+        "Roast at 425°F (218°C) for 45 to 50 minutes until skin is deep golden and thigh reads 165°F.",
+        "Rest 10 minutes before serving one whole hen per person."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Prep the Herb Butter",
+        "instruction": "Combine 4 tbsp softened unsalted butter with 3 minced garlic cloves, 1 tbsp chopped fresh rosemary, 1 tbsp fresh thyme leaves, 1/2 tsp kosher salt, and 1/4 tsp black pepper in a small bowl. Mix until evenly combined.",
+        "proTip": "Softened butter is key. Cold butter tears the skin instead of sliding smoothly underneath."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Season & Stuff",
+        "instruction": "Pat 4 Cornish hens (1.5 lb each) completely dry. Gently loosen the skin over the breasts and thighs with your fingers. Spread herb butter under the skin and rub any remaining over the outside. Season generously with salt and pepper. Cut 2 lemons in half and place one half inside each cavity. Tie legs together with kitchen twine. Drizzle with 1 tbsp olive oil.",
+        "proTip": "Getting butter under the skin bastes the meat from the inside while keeping the skin dry enough to crisp."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Roast to Perfection",
+        "instruction": "Place hens breast-side up on a roasting pan or rimmed sheet pan. Roast at 425°F (218°C) for 45 to 50 minutes until the skin is deep golden brown and an instant-read thermometer inserted into the thickest part of the thigh reads 165°F.",
+        "proTip": "Do not open the oven for the first 30 minutes. Every peek drops the temperature and slows crisping."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Rest & Serve",
+        "instruction": "Remove hens from the oven and let rest on the pan for 10 minutes. Spoon any pan juices over the top before serving. Each person gets their own whole hen.",
+        "proTip": "Kids absolutely love getting their own personal chicken. It turns a regular Tuesday into a feast."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Cornish Game Hens",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "whole",
+        "notes": "1.5 lbs each"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "tbsp",
+        "notes": "softened"
+      },
+      {
+        "item": "Garlic Cloves",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Fresh Rosemary",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp",
+        "notes": "chopped"
+      },
+      {
+        "item": "Fresh Thyme",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp",
+        "notes": "leaves only"
+      },
+      {
+        "item": "Lemon",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "whole",
+        "notes": "halved"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Cornish hens are the dad shortcut to looking like a culinary genius. Same technique as roasting a full chicken but they cook in under an hour and everyone gets their own bird. Presentation points are off the charts.",
+    "kidAdjustment": "Remove the skin and pull the breast meat off the bone in strips for younger kids. Serve with a honey mustard dipping sauce.",
+    "sideSuggestions": [
+      "Roasted baby potatoes with herbs",
+      "Steamed green beans with butter",
+      "Simple dinner rolls"
+    ],
+    "reheatInstructions": "Reheat in a 350°F (177°C) oven for 10 to 12 minutes. Cover loosely with foil to prevent drying out.",
+    "nutrition": {
+      "calories": 520,
+      "proteinGrams": 42,
+      "carbsGrams": 2,
+      "fatGrams": 38,
+      "source": "USDA FoodData Central #174576"
+    },
+    "kidRating": 4,
+    "difficulty": "Easy",
+    "keywords": [
+      "roasted cornish hen recipe",
+      "herb butter cornish game hen",
+      "oven roasted cornish hen",
+      "whole roasted game hen",
+      "how long to cook cornish hen",
+      "cornish hen cook time",
+      "cornish hen internal temperature",
+      "easy cornish hen recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/oven-roasted-cornish-hen.jpg"
+  },
+  {
+    "id": "0084",
+    "slug": "cast-iron-seared-duck-breast",
+    "title": "Cast Iron Seared Duck Breast",
+    "tagline": "Restaurant-quality duck breast with impossibly crispy skin and a luscious honey-balsamic glaze, cooked by starting in a cold cast iron pan to render out every bit of fat.",
+    "appliance": "cast-iron",
+    "categories": [
+      "high-protein"
+    ],
+    "protein": "duck",
+    "prepMinutes": 10,
+    "cookMinutes": 18,
+    "totalMinutes": 28,
+    "defaultServings": 4,
+    "basis": "Cold-start cast iron skillet rendering technique; finished in 400°F (204°C) oven. ThermoWorks instant-read to 135°F pull temp for medium-rare carry-over to 145°F.",
+    "safeInternalTempF": 135,
+    "restMinutes": 5,
+    "cookTemp": "Medium then 400°F (204°C) oven finish",
+    "cookTempF": 400,
+    "cookTempC": 204,
+    "equipmentNeeded": [
+      "Cast Iron Skillet",
+      "Oven",
+      "Meat Thermometer",
+      "Sharp Knife"
+    ],
+    "quickVersion": {
+      "temp": "Medium then 400°F (204°C) oven finish",
+      "totalTime": "28 mins",
+      "timerMinutes": 18,
+      "flipAtMinutes": 12,
+      "bullets": [
+        "Score duck breast skin in a crosshatch pattern without cutting into the meat; season with salt and pepper.",
+        "Place skin-side down in a cold cast iron skillet; turn heat to medium and render fat for 10 to 12 minutes until skin is deeply golden and crispy.",
+        "Flip breasts and transfer skillet to a 400°F (204°C) oven for 5 to 6 minutes until internal temp hits 135°F.",
+        "Rest 5 minutes, then slice thin and drizzle with honey-balsamic glaze."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Score & Season",
+        "instruction": "Using a sharp knife, score the skin of 4 duck breasts (8 oz each) in a tight crosshatch pattern, cutting through the fat layer but not into the meat. Space cuts about 1/4 inch apart. Season both sides generously with 1 tsp kosher salt and 1/2 tsp black pepper.",
+        "proTip": "Scoring is the secret to crispy duck skin. More cuts means more surface area for fat to render out and skin to crisp."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Cold Pan Fat Render",
+        "instruction": "Place duck breasts skin-side down in a cold cast iron skillet. Turn heat to medium. Cook without moving for 10 to 12 minutes as the fat slowly renders out and the skin turns deeply golden and crackling crispy. Spoon off excess rendered duck fat as it accumulates.",
+        "proTip": "Starting in a cold pan is the whole technique. It gives the fat time to render slowly instead of burning the skin. Save that duck fat for the best roasted potatoes of your life."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Oven Finish & Glaze",
+        "instruction": "Flip breasts to meat-side down. Transfer skillet to a preheated 400°F (204°C) oven for 5 to 6 minutes until internal temperature reads 135°F. Meanwhile, combine 2 tbsp honey, 2 tbsp balsamic vinegar, and 1 tsp fresh thyme leaves in a small bowl.",
+        "proTip": "Duck breast is best at medium-rare to medium. It dries out fast past 145°F, so pull early and let carry-over do the work."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Rest & Slice",
+        "instruction": "Remove breasts from the skillet and rest on a cutting board for 5 minutes. Slice against the grain into thin medallions. Drizzle with the honey-balsamic glaze and serve immediately.",
+        "proTip": "Slice thin and fan the pieces out on the plate. Fancy presentation for about three seconds of extra effort."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Duck Breasts",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "pieces",
+        "notes": "8 oz each, skin on"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Honey",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Balsamic Vinegar",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Fresh Thyme",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "leaves only"
+      }
+    ],
+    "dadProTip": "Duck breast sounds intimidating but the cold-pan method is honestly foolproof. Start cold, walk away, come back to crispy perfection. The rendered duck fat is liquid gold so save it in a jar in the fridge for roasting potatoes or frying eggs.",
+    "kidAdjustment": "Slice the breast extra thin and serve with a sweet plum or hoisin dipping sauce. Skip the balsamic glaze for picky eaters.",
+    "sideSuggestions": [
+      "Mashed sweet potatoes",
+      "Sauteed green beans with almonds",
+      "Wild rice pilaf"
+    ],
+    "reheatInstructions": "Reheat sliced duck in a 325°F (163°C) oven for 5 minutes. Do not microwave or the skin loses all crispness.",
+    "nutrition": {
+      "calories": 440,
+      "proteinGrams": 34,
+      "carbsGrams": 10,
+      "fatGrams": 30,
+      "source": "USDA FoodData Central #174220"
+    },
+    "kidRating": 2,
+    "difficulty": "Moderate",
+    "keywords": [
+      "cast iron duck breast",
+      "crispy duck breast recipe",
+      "pan seared duck breast",
+      "honey balsamic duck",
+      "how long to cook duck breast",
+      "duck breast cook time",
+      "duck breast internal temperature",
+      "easy duck breast recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/cast-iron-seared-duck-breast.jpg"
+  },
+  {
+    "id": "0085",
+    "slug": "grilled-lobster-tails",
+    "title": "Grilled Lobster Tails",
+    "tagline": "Butterflied lobster tails basted with garlic butter on a hot grill for sweet, smoky, melt-in-your-mouth shellfish that looks like a million bucks.",
+    "appliance": "grill",
+    "categories": [
+      "high-protein"
+    ],
+    "protein": "seafood",
+    "prepMinutes": 10,
+    "cookMinutes": 8,
+    "totalMinutes": 18,
+    "defaultServings": 4,
+    "basis": "Gas or charcoal grill over direct medium-high heat (400°F / 204°C); ThermoWorks instant-read verification to 140°F in the thickest part of the tail.",
+    "safeInternalTempF": 140,
+    "restMinutes": 2,
+    "cookTemp": "Medium-High Heat (400°F / 204°C)",
+    "cookTempF": 400,
+    "cookTempC": 204,
+    "equipmentNeeded": [
+      "Grill",
+      "Kitchen Shears",
+      "Basting Brush",
+      "Meat Thermometer"
+    ],
+    "quickVersion": {
+      "temp": "Medium-High Heat (400°F / 204°C)",
+      "totalTime": "18 mins",
+      "timerMinutes": 8,
+      "flipAtMinutes": 5,
+      "bullets": [
+        "Butterfly lobster tails by cutting through the top shell with kitchen shears and pulling meat up to rest on top of the shell.",
+        "Brush with garlic butter, season with paprika, salt, and a squeeze of lemon.",
+        "Grill meat-side down for 2 minutes, flip shell-side down and baste with more garlic butter for 5 to 6 minutes until opaque and 140°F.",
+        "Serve immediately with lemon wedges and remaining garlic butter for dipping."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Butterfly the Tails",
+        "instruction": "Using kitchen shears, cut down the center of the top shell of 4 lobster tails (6 to 8 oz each), stopping at the tail fin. Gently pull the shell apart and lift the meat up so it sits on top of the shell. Press the shell halves together underneath the meat.",
+        "proTip": "Butterflying looks impressive but is dead simple. One cut and a lift. The meat sitting on top of the shell keeps it off the grates and prevents sticking."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Make Garlic Butter & Season",
+        "instruction": "Melt 4 tbsp butter in a small saucepan. Add 3 minced garlic cloves, 1 tbsp lemon juice, and 1 tbsp chopped fresh parsley. Brush the lobster meat generously with garlic butter and season with 1/2 tsp paprika and a pinch of salt.",
+        "proTip": "Reserve half the garlic butter for basting on the grill and for serving alongside."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Grill to Perfection",
+        "instruction": "Preheat grill to medium-high heat (400°F / 204°C). Place tails meat-side down for 2 minutes to get grill marks. Flip shell-side down and baste with garlic butter every 2 minutes. Grill for 5 to 6 more minutes until meat is opaque white and internal temperature reaches 140°F.",
+        "proTip": "Lobster goes from perfect to rubbery in about 60 seconds. Watch it like a hawk and pull at 140°F, not a degree more."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Serve Immediately",
+        "instruction": "Remove tails from the grill and let rest for 2 minutes. Serve with lemon wedges and a small bowl of remaining garlic butter for dipping.",
+        "proTip": "This is a meal that gets eaten the second it hits the table. Do not let grilled lobster sit around."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Lobster Tails",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "pieces",
+        "notes": "6 to 8 oz each"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic Cloves",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Lemon Juice",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Fresh Parsley",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp",
+        "notes": "chopped"
+      },
+      {
+        "item": "Paprika",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Grilled lobster tails are the ultimate dad flex at a cookout. They cost less than you think when you buy them frozen and thaw overnight in the fridge. The butterflying takes 30 seconds per tail and makes you look like you trained at Le Cordon Bleu.",
+    "kidAdjustment": "Remove the meat from the shell and cut into bite-sized chunks. Serve with melted butter for dipping instead of garlic butter.",
+    "sideSuggestions": [
+      "Grilled corn on the cob",
+      "Coleslaw",
+      "Garlic bread"
+    ],
+    "reheatInstructions": "Lobster is best fresh but can be gently reheated in a 300°F (149°C) oven for 5 minutes with a splash of butter. Do not microwave.",
+    "nutrition": {
+      "calories": 310,
+      "proteinGrams": 36,
+      "carbsGrams": 2,
+      "fatGrams": 18,
+      "source": "USDA FoodData Central #174204"
+    },
+    "kidRating": 3,
+    "difficulty": "Moderate",
+    "keywords": [
+      "grilled lobster tails",
+      "garlic butter lobster grill",
+      "butterflied lobster tails",
+      "easy grilled lobster recipe",
+      "how long to cook lobster tails",
+      "lobster tails cook time",
+      "lobster tails internal temperature",
+      "easy lobster tails recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/grilled-lobster-tails.jpg"
+  },
+  {
+    "id": "0086",
+    "slug": "air-fryer-sweet-potato-fries",
+    "title": "Air Fryer Sweet Potato Fries",
+    "tagline": "Crispy on the outside and creamy on the inside, these cornstarch-coated sweet potato fries come out of the air fryer better than any drive-through.",
+    "appliance": "air-fryer",
+    "categories": [
+      "kid-approved",
+      "15-minute"
+    ],
+    "protein": "vegetarian",
+    "prepMinutes": 10,
+    "cookMinutes": 15,
+    "totalMinutes": 25,
+    "defaultServings": 4,
+    "basis": "Air fryer at 400°F (204°C). Cornstarch coating for maximum crispiness.",
+    "safeInternalTempF": 0,
+    "restMinutes": 2,
+    "cookTemp": "400°F (204°C)",
+    "cookTempF": 400,
+    "cookTempC": 204,
+    "equipmentNeeded": [
+      "Air Fryer",
+      "Large Bowl",
+      "Knife"
+    ],
+    "quickVersion": {
+      "temp": "400°F (204°C)",
+      "totalTime": "25 mins",
+      "timerMinutes": 15,
+      "flipAtMinutes": 8,
+      "bullets": [
+        "Cut 2 large sweet potatoes into 1/4-inch sticks and toss with 1 tbsp cornstarch until evenly coated.",
+        "Drizzle with 1 tbsp olive oil, smoked paprika, garlic powder, salt, and pepper; toss to coat.",
+        "Air fry at 400°F (204°C) for 15 minutes, shaking the basket halfway through at 8 minutes.",
+        "Serve immediately while hot and crispy with your favorite dipping sauce."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Cut & Coat",
+        "instruction": "Peel 2 large sweet potatoes and cut into 1/4-inch thick sticks, keeping them as uniform as possible. Place in a large bowl and toss with 1 tbsp cornstarch until every fry is lightly coated.",
+        "proTip": "Cornstarch is the secret weapon for crispy sweet potato fries. It absorbs surface moisture and creates a thin crackly shell in the air fryer."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Season",
+        "instruction": "Drizzle 1 tbsp olive oil over the coated fries. Add 1/2 tsp smoked paprika, 1/2 tsp garlic powder, 1/2 tsp salt, and 1/4 tsp black pepper. Toss until every fry is evenly seasoned.",
+        "proTip": "Use just enough oil to coat but not drench. Too much oil in an air fryer makes things soggy instead of crispy."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Air Fry",
+        "instruction": "Spread fries in a single layer in the air fryer basket. Do not overcrowd. Air fry at 400°F (204°C) for 15 minutes total, shaking the basket at the 8-minute mark to flip and redistribute.",
+        "proTip": "Cook in batches if needed. Overcrowding the basket is the number one reason air fryer fries come out limp instead of crispy."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Sweet Potatoes",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "large"
+      },
+      {
+        "item": "Cornstarch",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Smoked Paprika",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "The cornstarch trick works on regular fries too but sweet potatoes are where it really shines because they have so much natural moisture. Cut them thin and uniform or you will end up with some burnt twigs and some raw logs in the same batch.",
+    "kidAdjustment": "Serve with ketchup, honey mustard, or a cinnamon sugar dusting for a sweeter version kids go crazy for.",
+    "sideSuggestions": [
+      "Grilled chicken strips",
+      "Turkey burgers",
+      "Side salad with ranch"
+    ],
+    "reheatInstructions": "Reheat in the air fryer at 375°F (190°C) for 3 to 4 minutes. Do not microwave or they turn to mush.",
+    "nutrition": {
+      "calories": 165,
+      "proteinGrams": 2,
+      "carbsGrams": 32,
+      "fatGrams": 4,
+      "source": "USDA FoodData Central #168482"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "air fryer sweet potato fries",
+      "crispy sweet potato fries",
+      "healthy sweet potato fries",
+      "cornstarch sweet potato fries",
+      "how long to cook sweet potato fries",
+      "sweet potato fries cook time",
+      "easy sweet potato fries recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/air-fryer-sweet-potato-fries.jpg"
+  },
+  {
+    "id": "0087",
+    "slug": "sheet-pan-roasted-zucchini",
+    "title": "Sheet Pan Roasted Zucchini",
+    "tagline": "Golden caramelized zucchini with a crispy parmesan crust roasted on a sheet pan so fast you will run out of excuses not to eat your vegetables.",
+    "appliance": "sheet-pan",
+    "categories": [
+      "15-minute",
+      "kid-approved"
+    ],
+    "protein": "vegetarian",
+    "prepMinutes": 5,
+    "cookMinutes": 18,
+    "totalMinutes": 23,
+    "defaultServings": 4,
+    "basis": "Standard oven at 425°F (218°C) with rimmed sheet pan. High heat for caramelization.",
+    "safeInternalTempF": 0,
+    "restMinutes": 2,
+    "cookTemp": "425°F (218°C)",
+    "cookTempF": 425,
+    "cookTempC": 218,
+    "equipmentNeeded": [
+      "Rimmed Sheet Pan",
+      "Knife"
+    ],
+    "quickVersion": {
+      "temp": "425°F (218°C)",
+      "totalTime": "23 mins",
+      "timerMinutes": 18,
+      "flipAtMinutes": 12,
+      "bullets": [
+        "Cut 4 medium zucchini into 1/2-inch thick half-moons or coins.",
+        "Toss with olive oil, garlic powder, Italian seasoning, salt, and pepper.",
+        "Spread in a single layer on a sheet pan and roast at 425°F (218°C) for 15 to 18 minutes, flipping halfway.",
+        "Sprinkle with grated parmesan in the last 3 minutes and serve golden and crispy."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Prep & Season",
+        "instruction": "Cut 4 medium zucchini into 1/2-inch thick half-moons or coins. Toss in a large bowl with 2 tbsp olive oil, 1/2 tsp garlic powder, 1/2 tsp Italian seasoning, 1/2 tsp salt, and 1/4 tsp black pepper until evenly coated.",
+        "proTip": "Do not salt the zucchini ahead of time or it will release water and steam instead of roast."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Roast",
+        "instruction": "Spread seasoned zucchini in a single layer on a rimmed sheet pan lined with parchment paper. Do not overlap. Roast at 425°F (218°C) for 12 minutes. Flip pieces and roast for 3 more minutes.",
+        "proTip": "A single layer with space between pieces is the difference between roasted and steamed. Use two pans if needed."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Add Parmesan & Finish",
+        "instruction": "Sprinkle 1/4 cup grated parmesan cheese evenly over the zucchini. Return to oven for 3 more minutes until the cheese is melted and lightly golden. Remove and serve immediately.",
+        "proTip": "The parmesan crust is what converts veggie skeptics. It gets nutty and crispy in the high heat."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Zucchini",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "medium"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Italian Seasoning",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Parmesan Cheese",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "cup",
+        "notes": "grated"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "This is the vegetable side dish that finally gets eaten without complaints. The parmesan crust does all the heavy lifting. If your garden is exploding with zucchini in August this recipe will save your sanity.",
+    "kidAdjustment": "Cut into fun shapes with small cookie cutters before roasting. Extra parmesan never hurts with kids.",
+    "sideSuggestions": [
+      "Grilled chicken breast",
+      "Pasta with marinara",
+      "Garlic bread"
+    ],
+    "reheatInstructions": "Reheat in a 400°F (204°C) oven for 5 minutes. Do not microwave or the texture goes mushy.",
+    "nutrition": {
+      "calories": 85,
+      "proteinGrams": 4,
+      "carbsGrams": 6,
+      "fatGrams": 6,
+      "source": "USDA FoodData Central #169291"
+    },
+    "kidRating": 4,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "roasted zucchini",
+      "sheet pan zucchini",
+      "parmesan roasted zucchini",
+      "oven roasted zucchini recipe",
+      "how long to cook zucchini",
+      "zucchini cook time",
+      "easy zucchini recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/sheet-pan-roasted-zucchini.jpg"
+  },
+  {
+    "id": "0088",
+    "slug": "skillet-maryland-style-crab-cakes",
+    "title": "Skillet Maryland-Style Crab Cakes",
+    "tagline": "All crab, minimal filler, Old Bay seasoned, and pan-fried to a golden crust in a skillet the way Maryland intended.",
+    "appliance": "skillet",
+    "categories": [
+      "high-protein"
+    ],
+    "protein": "seafood",
+    "prepMinutes": 15,
+    "cookMinutes": 8,
+    "totalMinutes": 23,
+    "defaultServings": 4,
+    "basis": "Skillet over medium heat (350°F / 177°C). Pan-fried in butter for golden crust.",
+    "safeInternalTempF": 145,
+    "restMinutes": 2,
+    "cookTemp": "Medium Heat",
+    "cookTempF": 350,
+    "cookTempC": 177,
+    "equipmentNeeded": [
+      "Skillet",
+      "Mixing Bowl",
+      "Spatula"
+    ],
+    "quickVersion": {
+      "temp": "Medium Heat",
+      "totalTime": "23 mins",
+      "timerMinutes": 8,
+      "flipAtMinutes": 4,
+      "bullets": [
+        "Gently fold 1 lb lump crab meat with egg, mayo, Dijon, Worcestershire, Old Bay, and just enough panko to bind.",
+        "Form into 8 patties and chill for 10 minutes to help them hold together.",
+        "Pan-fry in butter over medium heat for 4 minutes per side until golden brown and internal temp reaches 145°F.",
+        "Serve with lemon wedges and tartar sauce or remoulade."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Mix the Crab Cake Filling",
+        "instruction": "In a large bowl, whisk together 1 egg, 2 tbsp mayonnaise, 1 tsp Dijon mustard, 1 tsp Worcestershire sauce, 1 tsp Old Bay seasoning, and 1 tbsp chopped fresh parsley. Gently fold in 1 lb lump crab meat, being careful not to break up the lumps. Add 1/3 cup panko breadcrumbs and fold gently until just combined.",
+        "proTip": "The cardinal rule of crab cakes is minimal filler. You want crab with a binder, not breadcrumbs with a hint of crab."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Form & Chill",
+        "instruction": "Divide the mixture into 8 equal portions and gently shape into patties about 1 inch thick. Place on a plate lined with parchment paper and refrigerate for at least 10 minutes to firm up.",
+        "proTip": "Chilling is not optional. Warm crab cakes fall apart in the pan. Cold ones hold their shape beautifully."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Pan-Fry to Golden",
+        "instruction": "Melt 2 tbsp butter in a skillet over medium heat. When the butter is foaming, gently place crab cakes in the pan. Cook for 4 minutes until the bottom is deeply golden. Carefully flip with a spatula and cook 4 more minutes until golden on both sides and internal temp reaches 145°F.",
+        "proTip": "Use a thin spatula and flip in one confident motion. Hesitation leads to broken crab cakes."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Serve",
+        "instruction": "Transfer to a plate and squeeze fresh lemon juice over the top. Serve immediately with lemon wedges and tartar sauce or remoulade on the side.",
+        "proTip": "A squeeze of fresh lemon right as they come out of the pan brightens the whole dish."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Lump Crab Meat",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "Egg",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "large"
+      },
+      {
+        "item": "Mayonnaise",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Dijon Mustard",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Worcestershire Sauce",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Old Bay Seasoning",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Panko Breadcrumbs",
+        "qty": "1/3",
+        "qtyNumeric": 0.33,
+        "unit": "cup"
+      },
+      {
+        "item": "Fresh Parsley",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp",
+        "notes": "chopped"
+      },
+      {
+        "item": "Lemon",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "whole",
+        "notes": "for serving"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      }
+    ],
+    "dadProTip": "Real Maryland crab cakes are about the crab, not the filler. If you can taste more breadcrumb than crab you have gone wrong. Buy the best lump crab you can afford and treat it gently like you are handling a sleeping baby.",
+    "kidAdjustment": "Shape into smaller silver-dollar-sized cakes for little hands. Serve with ketchup if tartar sauce is a hard no.",
+    "sideSuggestions": [
+      "Coleslaw",
+      "Corn on the cob",
+      "French fries"
+    ],
+    "reheatInstructions": "Reheat in a 350°F (177°C) oven for 8 minutes. Avoid the microwave as it makes the crust soggy.",
+    "nutrition": {
+      "calories": 245,
+      "proteinGrams": 26,
+      "carbsGrams": 8,
+      "fatGrams": 12,
+      "source": "USDA FoodData Central #174199"
+    },
+    "kidRating": 3,
+    "difficulty": "Moderate",
+    "keywords": [
+      "maryland crab cakes",
+      "pan fried crab cakes",
+      "old bay crab cakes",
+      "lump crab cake recipe",
+      "how long to cook crab cakes",
+      "crab cakes cook time",
+      "crab cakes internal temperature",
+      "easy crab cakes recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/skillet-maryland-style-crab-cakes.jpg"
+  },
+  {
+    "id": "0089",
+    "slug": "oven-baked-lasagna",
+    "title": "Oven Baked Lasagna",
+    "tagline": "Classic layered lasagna with a rich meat sauce, creamy ricotta, and bubbly mozzarella baked to golden perfection that feeds the whole family and then some.",
+    "appliance": "oven",
+    "categories": [
+      "kid-approved"
+    ],
+    "protein": "beef",
+    "prepMinutes": 25,
+    "cookMinutes": 50,
+    "totalMinutes": 75,
+    "defaultServings": 8,
+    "basis": "Standard oven at 375°F (190°C). No-boil noodles for simplicity. Internal temperature verification to 160°F.",
+    "safeInternalTempF": 160,
+    "restMinutes": 15,
+    "cookTemp": "375°F (190°C)",
+    "cookTempF": 375,
+    "cookTempC": 190,
+    "equipmentNeeded": [
+      "9x13 Baking Dish",
+      "Large Skillet",
+      "Mixing Bowl"
+    ],
+    "quickVersion": {
+      "temp": "375°F (190°C)",
+      "totalTime": "75 mins",
+      "timerMinutes": 50,
+      "flipAtMinutes": 0,
+      "bullets": [
+        "Brown 1 lb ground beef and 1 lb Italian sausage with garlic and Italian seasoning; stir in 24 oz marinara sauce.",
+        "Mix ricotta with egg, 1/2 cup parmesan, and Italian seasoning for the cheese layer.",
+        "Layer: sauce, no-boil noodles, ricotta mixture, mozzarella. Repeat 3 times, ending with sauce and mozzarella on top.",
+        "Bake covered at 375°F (190°C) for 35 minutes, uncover and bake 15 more minutes until bubbly and golden. Rest 15 minutes."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Make the Meat Sauce",
+        "instruction": "Brown 1 lb ground beef and 1 lb Italian sausage in a large skillet over medium-high heat, breaking into crumbles. Add 3 minced garlic cloves and 1 tsp Italian seasoning. Cook 1 minute until fragrant. Stir in 24 oz marinara sauce. Simmer 5 minutes and set aside.",
+        "proTip": "Using both ground beef and Italian sausage gives you depth of flavor that all-beef lasagna just cannot match."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Mix the Ricotta Filling",
+        "instruction": "In a bowl, combine 15 oz ricotta cheese, 1 egg, 1/2 cup grated parmesan, 1 tsp Italian seasoning, and a pinch of salt. Stir until smooth and evenly combined.",
+        "proTip": "The egg in the ricotta mixture helps it set up so the slices hold together instead of collapsing into a cheesy puddle."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Layer & Build",
+        "instruction": "Spread 1/2 cup meat sauce on the bottom of a 9x13 baking dish. Layer no-boil lasagna noodles, 1/3 of the ricotta mixture, 1/3 of the remaining meat sauce, and 1/3 of 2 cups shredded mozzarella. Repeat layers two more times. Top with remaining sauce, mozzarella, and a sprinkle of parmesan.",
+        "proTip": "No-boil noodles absorb liquid from the sauce as they bake, which is why the sauce needs to be on the saucy side."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Bake & Rest",
+        "instruction": "Cover tightly with foil and bake at 375°F (190°C) for 35 minutes. Remove foil and bake 15 more minutes until the top is bubbly and golden brown. Let rest for 15 minutes before cutting. This rest is critical for clean slices.",
+        "proTip": "The 15-minute rest is not optional. Cut too early and you get lasagna soup. Wait and you get perfect sliceable layers."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Ground Beef",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "Italian Sausage",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "Marinara Sauce",
+        "qty": "24",
+        "qtyNumeric": 24,
+        "unit": "oz"
+      },
+      {
+        "item": "Ricotta Cheese",
+        "qty": "15",
+        "qtyNumeric": 15,
+        "unit": "oz"
+      },
+      {
+        "item": "Mozzarella Cheese",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cups",
+        "notes": "shredded"
+      },
+      {
+        "item": "Parmesan Cheese",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup",
+        "notes": "grated"
+      },
+      {
+        "item": "Egg",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "large"
+      },
+      {
+        "item": "No-Boil Lasagna Noodles",
+        "qty": "12",
+        "qtyNumeric": 12,
+        "unit": "sheets"
+      },
+      {
+        "item": "Garlic Cloves",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Italian Seasoning",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Lasagna is the ultimate make-ahead meal. Assemble it the night before, refrigerate, and just pop it in the oven. Add 10 minutes to the bake time if going straight from the fridge. Leftovers are even better the next day.",
+    "kidAdjustment": "Most kids love lasagna as-is. For picky eaters, use plain ground beef without Italian sausage and mild marinara.",
+    "sideSuggestions": [
+      "Garlic bread",
+      "Caesar salad",
+      "Steamed broccoli"
+    ],
+    "reheatInstructions": "Reheat individual slices in a 350°F (177°C) oven for 15 minutes or microwave covered for 2 to 3 minutes.",
+    "nutrition": {
+      "calories": 520,
+      "proteinGrams": 35,
+      "carbsGrams": 30,
+      "fatGrams": 28,
+      "source": "USDA FoodData Central #174927"
+    },
+    "kidRating": 5,
+    "difficulty": "Moderate",
+    "keywords": [
+      "classic lasagna recipe",
+      "homemade lasagna",
+      "meat lasagna",
+      "baked lasagna recipe",
+      "how long to cook lasagna",
+      "lasagna cook time",
+      "lasagna internal temperature",
+      "easy lasagna recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/oven-baked-lasagna.jpg"
+  },
+  {
+    "id": "0090",
+    "slug": "skillet-classic-french-toast",
+    "title": "Skillet Classic French Toast",
+    "tagline": "Thick-cut brioche soaked in vanilla cinnamon custard and griddled in butter to golden perfection for the weekend breakfast everyone fights over.",
+    "appliance": "skillet",
+    "categories": [
+      "kid-approved",
+      "15-minute"
+    ],
+    "protein": "dairy-eggs",
+    "prepMinutes": 5,
+    "cookMinutes": 8,
+    "totalMinutes": 13,
+    "defaultServings": 4,
+    "basis": "Skillet or griddle over medium heat (325°F / 163°C). Butter-griddled for golden crust.",
+    "safeInternalTempF": 160,
+    "restMinutes": 0,
+    "cookTemp": "Medium Heat",
+    "cookTempF": 325,
+    "cookTempC": 163,
+    "equipmentNeeded": [
+      "Large Skillet or Griddle",
+      "Shallow Dish",
+      "Whisk"
+    ],
+    "quickVersion": {
+      "temp": "Medium Heat",
+      "totalTime": "13 mins",
+      "timerMinutes": 8,
+      "flipAtMinutes": 4,
+      "bullets": [
+        "Whisk 4 eggs, 1 cup whole milk, 1 tsp vanilla, and 1 tsp cinnamon in a shallow dish.",
+        "Dip 8 slices thick-cut brioche into the custard, soaking 15 seconds per side.",
+        "Griddle in butter over medium heat for 3 to 4 minutes per side until golden brown.",
+        "Serve with maple syrup, powdered sugar, and fresh berries."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Make the Custard",
+        "instruction": "In a shallow dish, whisk together 4 eggs, 1 cup whole milk, 1 tsp vanilla extract, and 1 tsp ground cinnamon until smooth and well combined.",
+        "proTip": "Whole milk makes richer custard. Skim milk makes sad French toast."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Soak the Bread",
+        "instruction": "Dip each of the 8 thick-cut brioche slices into the custard mixture, soaking for about 15 seconds per side. Let excess drip off before transferring to the skillet.",
+        "proTip": "Brioche is the best bread for French toast because it is rich and slightly sweet. Day-old bread works even better because it soaks up more custard without falling apart."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Griddle to Golden",
+        "instruction": "Melt 1 tbsp butter in a large skillet or griddle over medium heat. Working in batches, cook soaked bread for 3 to 4 minutes per side until deeply golden brown. Add more butter between batches as needed.",
+        "proTip": "Medium heat is key. Too high and the outside burns before the custard sets inside. Too low and it takes forever and gets soggy."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Thick-Cut Brioche Bread",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "slices",
+        "notes": "3/4 inch thick"
+      },
+      {
+        "item": "Eggs",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "large"
+      },
+      {
+        "item": "Whole Milk",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Vanilla Extract",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Ground Cinnamon",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Maple Syrup",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "tbsp",
+        "notes": "for serving"
+      },
+      {
+        "item": "Powdered Sugar",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "for serving"
+      }
+    ],
+    "dadProTip": "The trick to great French toast is using thick bread and not over-soaking it. A quick 15-second dip per side is plenty. If it sits in the custard too long it turns into a soggy mess that falls apart on the spatula.",
+    "kidAdjustment": "Cut into strips for easy dipping. Let kids pick their own toppings from a spread of syrup, berries, whipped cream, and chocolate chips.",
+    "sideSuggestions": [
+      "Crispy bacon",
+      "Fresh fruit salad",
+      "Scrambled eggs"
+    ],
+    "reheatInstructions": "Reheat in a 350°F (177°C) oven for 5 minutes or pop in the toaster on a low setting for quick reheating.",
+    "nutrition": {
+      "calories": 380,
+      "proteinGrams": 14,
+      "carbsGrams": 42,
+      "fatGrams": 18,
+      "source": "USDA FoodData Central #172922"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "classic french toast",
+      "brioche french toast",
+      "easy french toast recipe",
+      "breakfast french toast",
+      "how long to cook french toast",
+      "french toast cook time",
+      "french toast internal temperature",
+      "easy french toast recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/skillet-classic-french-toast.jpg"
+  },
+  {
+    "id": "0091",
+    "slug": "cast-iron-venison-steak",
+    "title": "Cast Iron Venison Steak",
+    "tagline": "Butter-basted venison backstrap seared screaming hot in cast iron for a lean, rich, wild-game steak that rivals any ribeye on the table.",
+    "appliance": "cast-iron",
+    "categories": [
+      "high-protein"
+    ],
+    "protein": "game",
+    "prepMinutes": 5,
+    "cookMinutes": 8,
+    "totalMinutes": 13,
+    "defaultServings": 4,
+    "basis": "Lodge 12-inch cast iron skillet over high heat; ThermoWorks instant-read verification to 130°F pull temp for medium-rare carry-over to 145°F.",
+    "safeInternalTempF": 145,
+    "restMinutes": 5,
+    "cookTemp": "High Heat",
+    "cookTempF": 500,
+    "cookTempC": 260,
+    "equipmentNeeded": [
+      "Cast Iron Skillet",
+      "Meat Thermometer",
+      "Tongs"
+    ],
+    "quickVersion": {
+      "temp": "High Heat",
+      "totalTime": "13 mins",
+      "timerMinutes": 8,
+      "flipAtMinutes": 3,
+      "bullets": [
+        "Pat 1.5 lbs venison backstrap dry and season generously with salt and pepper. Drizzle with olive oil.",
+        "Sear in a screaming-hot cast iron skillet for 3 minutes per side until a deep brown crust forms.",
+        "Add butter, crushed garlic, rosemary, and thyme; baste the steaks for 1 to 2 minutes. Pull at 130°F.",
+        "Rest 5 minutes before slicing against the grain. Carry-over brings internal temp to 145°F."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Prep the Backstrap",
+        "instruction": "Pat 1.5 lbs venison backstrap completely dry with paper towels. If the backstrap is one long piece, cut it into 4 equal medallions about 1.5 inches thick. Season generously on all sides with 1 tsp kosher salt and 1/2 tsp black pepper. Drizzle with 1 tbsp olive oil and rub it in.",
+        "proTip": "Venison is extremely lean so every bit of surface moisture needs to be removed for a proper sear. Wet venison steams and turns gray."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Screaming Hot Sear",
+        "instruction": "Heat a cast iron skillet over high heat until oil shimmers and just begins to smoke. Place medallions in the pan and sear undisturbed for 3 minutes until a dark crust forms. Flip and sear the other side for 2 to 3 minutes.",
+        "proTip": "Venison cooks much faster than beef because it is so lean. Do not walk away from the pan."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Butter Baste",
+        "instruction": "Reduce heat to medium-high. Add 2 tbsp butter, 3 crushed garlic cloves, 2 sprigs rosemary, and 2 sprigs thyme. Tilt the pan and spoon the foaming herb butter over the steaks for 1 to 2 minutes. Pull when internal temp hits 130°F.",
+        "proTip": "The butter baste adds the fat that venison naturally lacks, keeping the meat juicy and adding incredible flavor."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Rest & Slice",
+        "instruction": "Transfer steaks to a cutting board and spoon herb butter over them. Rest for 5 minutes. Internal temperature will carry from 130°F to 145°F during rest. Slice against the grain and serve.",
+        "proTip": "Venison goes from perfect to overcooked very fast. Medium-rare to medium is the sweet spot. Past that it gets tough and livery."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Venison Backstrap",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "lbs"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic Cloves",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "cloves",
+        "notes": "crushed"
+      },
+      {
+        "item": "Fresh Rosemary",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "sprigs"
+      },
+      {
+        "item": "Fresh Thyme",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "sprigs"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "If you or a buddy hunts, this is the recipe that makes venison taste incredible. The secret is treating it like a premium lean steak, not a tough cut. High heat, fast sear, butter baste, and do not cook it past medium. Most people who say they do not like venison have only had overcooked venison.",
+    "kidAdjustment": "Slice extra thin against the grain and serve with a familiar sauce like A1 or barbecue. The mild flavor of backstrap is the easiest way to introduce kids to game meat.",
+    "sideSuggestions": [
+      "Mashed potatoes with gravy",
+      "Roasted root vegetables",
+      "Sauteed mushrooms"
+    ],
+    "reheatInstructions": "Venison is best served fresh. If needed, gently reheat in a 300°F (149°C) oven for 5 minutes. Do not microwave.",
+    "nutrition": {
+      "calories": 280,
+      "proteinGrams": 42,
+      "carbsGrams": 1,
+      "fatGrams": 12,
+      "source": "USDA FoodData Central #174332"
+    },
+    "kidRating": 2,
+    "difficulty": "Moderate",
+    "keywords": [
+      "venison steak recipe",
+      "cast iron venison",
+      "butter basted venison backstrap",
+      "seared venison medallions",
+      "how long to cook venison steak",
+      "venison steak cook time",
+      "venison steak internal temperature",
+      "easy venison steak recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/cast-iron-venison-steak.jpg"
+  },
+  {
+    "id": "0092",
+    "slug": "skillet-fluffy-buttermilk-pancakes",
+    "title": "Skillet Fluffy Buttermilk Pancakes",
+    "tagline": "Impossibly fluffy from-scratch buttermilk pancakes griddled in butter that will make you throw your boxed mix in the trash forever.",
+    "appliance": "skillet",
+    "categories": [
+      "kid-approved",
+      "15-minute"
+    ],
+    "protein": "dairy-eggs",
+    "prepMinutes": 5,
+    "cookMinutes": 10,
+    "totalMinutes": 15,
+    "defaultServings": 4,
+    "basis": "Skillet or griddle over medium heat (325°F / 163°C). Butter-griddled for golden exterior.",
+    "safeInternalTempF": 0,
+    "restMinutes": 0,
+    "cookTemp": "Medium Heat",
+    "cookTempF": 325,
+    "cookTempC": 163,
+    "equipmentNeeded": [
+      "Large Skillet or Griddle",
+      "Mixing Bowl",
+      "Whisk",
+      "Spatula"
+    ],
+    "quickVersion": {
+      "temp": "Medium Heat",
+      "totalTime": "15 mins",
+      "timerMinutes": 10,
+      "flipAtMinutes": 3,
+      "bullets": [
+        "Whisk 2 cups flour, 2 tbsp sugar, 2 tsp baking powder, 1 tsp baking soda, and 1/2 tsp salt in a bowl.",
+        "Mix 2 cups buttermilk, 2 eggs, 3 tbsp melted butter, and 1 tsp vanilla; pour into dry ingredients and stir until just combined with lumps remaining.",
+        "Ladle 1/4 cup batter per pancake onto a buttered skillet over medium heat. Cook 2 to 3 minutes until bubbles form on surface, flip, cook 2 minutes more.",
+        "Serve stacked with butter, maple syrup, and fresh berries."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Mix Dry Ingredients",
+        "instruction": "In a large bowl, whisk together 2 cups all-purpose flour, 2 tbsp sugar, 2 tsp baking powder, 1 tsp baking soda, and 1/2 tsp salt.",
+        "proTip": "Using both baking powder and baking soda is the secret to maximum fluffiness. The baking soda reacts with the acidic buttermilk for extra lift."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Combine Wet & Dry",
+        "instruction": "In a separate bowl, whisk together 2 cups buttermilk, 2 eggs, 3 tbsp melted butter, and 1 tsp vanilla extract. Pour the wet ingredients into the dry ingredients and stir gently until just combined. The batter should have lumps. Do not overmix.",
+        "proTip": "Lumps are your friend. Overmixed batter develops gluten and makes tough, flat pancakes instead of fluffy ones."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Griddle to Golden",
+        "instruction": "Melt 1 tsp butter on a skillet or griddle over medium heat. Ladle 1/4 cup batter per pancake. Cook for 2 to 3 minutes until bubbles form on the surface and edges look set. Flip and cook 1 to 2 more minutes until golden brown on both sides. Repeat with remaining batter, adding butter between batches.",
+        "proTip": "Wait for the bubbles. Flipping before the bubbles appear means the pancake is not set enough and will fold over or turn out gummy inside."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "All-Purpose Flour",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cups"
+      },
+      {
+        "item": "Sugar",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Baking Powder",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tsp"
+      },
+      {
+        "item": "Baking Soda",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Buttermilk",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cups"
+      },
+      {
+        "item": "Eggs",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "large"
+      },
+      {
+        "item": "Unsalted Butter",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "tbsp",
+        "notes": "melted, plus more for griddle"
+      },
+      {
+        "item": "Vanilla Extract",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Once you make these from scratch you will never go back to the box. The whole recipe takes the same amount of time as reading the instructions on a pancake mix box. The two secrets are buttermilk and not overmixing. Lumps equal fluff.",
+    "kidAdjustment": "Let kids add chocolate chips, blueberries, or banana slices to individual pancakes as they cook. Pancake making is a great first cooking lesson.",
+    "sideSuggestions": [
+      "Crispy bacon or sausage links",
+      "Fresh berries and whipped cream",
+      "Scrambled eggs"
+    ],
+    "reheatInstructions": "Reheat in a toaster or 350°F (177°C) oven for 3 to 4 minutes. Pancakes freeze well in a zip-top bag for up to 2 months.",
+    "nutrition": {
+      "calories": 340,
+      "proteinGrams": 12,
+      "carbsGrams": 48,
+      "fatGrams": 12,
+      "source": "USDA FoodData Central #173440"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "buttermilk pancakes",
+      "fluffy pancakes from scratch",
+      "homemade pancake recipe",
+      "easy buttermilk pancakes",
+      "how long to cook pancakes",
+      "pancakes cook time",
+      "easy pancakes recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/skillet-fluffy-buttermilk-pancakes.jpg"
+  },
+  {
+    "id": "0093",
+    "slug": "sheet-pan-roasted-cabbage-steaks",
+    "title": "Sheet Pan Roasted Cabbage Steaks",
+    "tagline": "Thick cabbage rounds roasted until caramelized and tender with crispy edges and a smoky balsamic drizzle that turns humble cabbage into a showstopper side.",
+    "appliance": "sheet-pan",
+    "categories": [
+      "kid-approved"
+    ],
+    "protein": "vegetarian",
+    "prepMinutes": 5,
+    "cookMinutes": 30,
+    "totalMinutes": 35,
+    "defaultServings": 4,
+    "basis": "Standard oven at 425°F (218°C) with rimmed sheet pan. High heat for caramelization.",
+    "safeInternalTempF": 0,
+    "restMinutes": 2,
+    "cookTemp": "425°F (218°C)",
+    "cookTempF": 425,
+    "cookTempC": 218,
+    "equipmentNeeded": [
+      "Rimmed Sheet Pan",
+      "Knife",
+      "Pastry Brush"
+    ],
+    "quickVersion": {
+      "temp": "425°F (218°C)",
+      "totalTime": "35 mins",
+      "timerMinutes": 30,
+      "flipAtMinutes": 20,
+      "bullets": [
+        "Cut 1 large cabbage into 1-inch thick rounds, keeping the core intact to hold each steak together.",
+        "Brush both sides with olive oil and season with garlic powder, smoked paprika, salt, and pepper.",
+        "Roast at 425°F (218°C) for 20 minutes, flip, and roast 10 more minutes until edges are deeply caramelized.",
+        "Drizzle with balsamic glaze and serve immediately."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Cut the Steaks",
+        "instruction": "Remove any damaged outer leaves from 1 large head of green cabbage. Slice into 1-inch thick rounds through the core, keeping the core intact to hold each steak together. You should get 4 good steaks from the center of the cabbage. Save the outer wedges for slaw or stir-fry.",
+        "proTip": "The core is the glue that holds a cabbage steak together. Cut through it and the leaves fall apart. Leave it in."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Season & Oil",
+        "instruction": "Place cabbage steaks on a rimmed sheet pan lined with parchment paper. Brush both sides generously with 2 tbsp olive oil. Season with 1/2 tsp garlic powder, 1/2 tsp smoked paprika, 1/2 tsp salt, and 1/4 tsp black pepper.",
+        "proTip": "Be generous with the oil. Cabbage needs fat to caramelize properly instead of just drying out."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Roast & Caramelize",
+        "instruction": "Roast at 425°F (218°C) for 20 minutes. Carefully flip each steak using a wide spatula. Roast 10 more minutes until the edges are deeply browned and caramelized and the center is fork-tender. Drizzle with balsamic glaze if using.",
+        "proTip": "The deep caramelization is where all the flavor lives. Do not pull them early. Those dark brown edges are sweet, nutty, and addictive."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Green Cabbage",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "large head"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Smoked Paprika",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "item": "Balsamic Glaze",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "optional, for drizzling"
+      }
+    ],
+    "dadProTip": "Cabbage steaks are the budget hero nobody talks about. A whole head of cabbage costs less than two dollars and feeds four people a restaurant-worthy side dish. The smoky paprika and balsamic glaze make kids forget they are eating cabbage.",
+    "kidAdjustment": "Cut into smaller wedges for little hands. Top with shredded cheese in the last 3 minutes of roasting for extra kid appeal.",
+    "sideSuggestions": [
+      "Grilled pork chops",
+      "Baked chicken thighs",
+      "Mashed potatoes"
+    ],
+    "reheatInstructions": "Reheat in a 400°F (204°C) oven for 5 to 8 minutes. The edges crisp back up nicely.",
+    "nutrition": {
+      "calories": 95,
+      "proteinGrams": 2,
+      "carbsGrams": 12,
+      "fatGrams": 5,
+      "source": "USDA FoodData Central #169975"
+    },
+    "kidRating": 3,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "roasted cabbage steaks",
+      "sheet pan cabbage",
+      "oven roasted cabbage",
+      "caramelized cabbage recipe",
+      "how long to cook cabbage steaks",
+      "cabbage steaks cook time",
+      "easy cabbage steaks recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/sheet-pan-roasted-cabbage-steaks.jpg"
+  },
+  {
+    "id": "0094",
+    "slug": "instant-pot-fluffy-quinoa",
+    "title": "Instant Pot Fluffy Quinoa",
+    "tagline": "Perfectly fluffy, never mushy quinoa cooked hands-free in the Instant Pot with a foolproof 1-minute pressure cook and natural release method.",
+    "appliance": "instant-pot",
+    "categories": [
+      "15-minute",
+      "high-protein"
+    ],
+    "protein": "vegetarian",
+    "prepMinutes": 5,
+    "cookMinutes": 1,
+    "totalMinutes": 16,
+    "defaultServings": 4,
+    "basis": "Instant Pot on High Pressure for 1 minute with 10-minute natural release. 1:1.25 quinoa to water ratio.",
+    "safeInternalTempF": 0,
+    "restMinutes": 10,
+    "cookTemp": "High Pressure (239°F / 115°C)",
+    "cookTempF": 239,
+    "cookTempC": 115,
+    "equipmentNeeded": [
+      "Instant Pot",
+      "Fine Mesh Strainer"
+    ],
+    "quickVersion": {
+      "temp": "High Pressure (239°F / 115°C)",
+      "totalTime": "16 mins",
+      "timerMinutes": 1,
+      "flipAtMinutes": 0,
+      "bullets": [
+        "Rinse 1.5 cups quinoa in a fine mesh strainer under cold water for 30 seconds to remove the bitter coating.",
+        "Add rinsed quinoa, 1.875 cups water, 1 tbsp olive oil, and 1/2 tsp salt to the Instant Pot.",
+        "Cook on High Pressure for 1 minute. Let pressure release naturally for 10 minutes, then quick release any remaining.",
+        "Fluff with a fork and serve as a base for bowls, salads, or as a side dish."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Rinse the Quinoa",
+        "instruction": "Place 1.5 cups quinoa in a fine mesh strainer and rinse under cold running water for 30 seconds, swirling with your hand. This removes the natural saponin coating that makes quinoa taste bitter and soapy.",
+        "proTip": "If your quinoa tastes bitter, you did not rinse it well enough. This step is not optional."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Load the Instant Pot",
+        "instruction": "Add rinsed quinoa, 1.875 cups water, 1 tbsp olive oil, and 1/2 tsp salt to the Instant Pot. Stir briefly to combine. The olive oil prevents foaming that can clog the pressure valve.",
+        "proTip": "The 1:1.25 ratio is the key to fluffy, not waterlogged quinoa. More water makes mush. Less water makes crunchy grains."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Pressure Cook & Release",
+        "instruction": "Lock the lid and set the valve to Sealing. Cook on High Pressure for 1 minute. When the timer beeps, let the pressure release naturally for 10 minutes. Then turn the valve to Venting to release any remaining pressure. Open the lid and fluff with a fork.",
+        "proTip": "The natural release is where the real cooking happens. Skipping it and doing a quick release immediately gives you undercooked, crunchy quinoa."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Quinoa",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "cups"
+      },
+      {
+        "item": "Water",
+        "qty": "1.875",
+        "qtyNumeric": 1.875,
+        "unit": "cups"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "The Instant Pot makes quinoa completely foolproof. One minute of pressure cooking and ten minutes of ignoring it. Use chicken broth instead of water if you want extra flavor. This makes a great meal-prep base for the whole week.",
+    "kidAdjustment": "Mix cooked quinoa with butter and parmesan for a kid-friendly side that tastes like a healthier version of rice. Or stir in cinnamon and maple syrup for a breakfast bowl.",
+    "sideSuggestions": [
+      "Grilled chicken breast",
+      "Roasted vegetables",
+      "Black bean and corn salad"
+    ],
+    "reheatInstructions": "Reheat with a splash of water in the microwave for 1 to 2 minutes, stirring halfway. Quinoa also reheats well in a covered skillet with a bit of oil.",
+    "nutrition": {
+      "calories": 222,
+      "proteinGrams": 8,
+      "carbsGrams": 36,
+      "fatGrams": 6,
+      "source": "USDA FoodData Central #168917"
+    },
+    "kidRating": 4,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "instant pot quinoa",
+      "pressure cooker quinoa",
+      "fluffy quinoa recipe",
+      "how to cook quinoa instant pot",
+      "how long to cook quinoa",
+      "quinoa cook time",
+      "easy quinoa recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29",
+    "image": "/images/recipes/instant-pot-fluffy-quinoa.jpg"
   }
 ]
