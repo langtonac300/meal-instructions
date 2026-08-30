@@ -13850,5 +13850,2014 @@
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29",
     "image": "/images/recipes/instant-pot-fluffy-quinoa.jpg"
+  },
+  {
+    "id": "0095",
+    "slug": "oven-classic-beef-enchiladas",
+    "title": "Oven Classic Beef Enchiladas",
+    "tagline": "Seasoned ground beef and melty cheddar rolled in corn tortillas, smothered in red enchilada sauce, and baked until bubbly and irresistible.",
+    "appliance": "oven",
+    "categories": [
+      "kid-approved"
+    ],
+    "protein": "beef",
+    "prepMinutes": 20,
+    "cookMinutes": 25,
+    "totalMinutes": 50,
+    "image": "/images/recipes/oven-classic-beef-enchiladas.jpg",
+    "defaultServings": 6,
+    "basis": "Standard oven at 375°F (190°C). USDA FSIS ground beef target 160°F.",
+    "safeInternalTempF": 160,
+    "restMinutes": 5,
+    "cookTemp": "375°F (190°C)",
+    "cookTempF": 375,
+    "cookTempC": 190,
+    "equipmentNeeded": [
+      "9x13 Baking Dish",
+      "Large Skillet",
+      "Tongs"
+    ],
+    "quickVersion": {
+      "temp": "375°F (190°C)",
+      "totalTime": "45 mins",
+      "timerMinutes": 25,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Brown 1 lb ground beef with diced onion, garlic, cumin, and chili powder. Drain fat.",
+        "Warm corn tortillas, fill each with beef mixture and shredded cheddar, and roll tightly.",
+        "Arrange seam-side down in a greased 9x13 dish, pour enchilada sauce over top, and sprinkle with remaining cheese.",
+        "Bake at 375°F (190°C) for 25 minutes until sauce bubbles and cheese is golden. Rest 5 minutes."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Season and Brown the Beef",
+        "instruction": "Heat a large skillet over medium-high heat. Add 1 lb ground beef and cook, breaking into small crumbles, for 6 to 8 minutes until no pink remains. Add 1/2 cup diced onion, 2 minced garlic cloves, 1 tsp cumin, 1 tsp chili powder, and 1/2 tsp salt. Cook 2 more minutes until fragrant. Drain excess fat.",
+        "proTip": "Break the beef into tiny crumbles with a meat chopper so every tortilla gets an even fill without lumps."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Fill and Roll Tortillas",
+        "instruction": "Warm 12 corn tortillas in the microwave wrapped in a damp paper towel for 30 seconds so they bend without cracking. Spoon 2 tablespoons beef mixture and a pinch of shredded cheddar into each tortilla, roll tightly, and place seam-side down in a greased 9x13 baking dish.",
+        "proTip": "The damp paper towel trick makes corn tortillas pliable and prevents cracking when you roll them."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Sauce and Top with Cheese",
+        "instruction": "Pour one 28 oz can of red enchilada sauce evenly over the rolled tortillas, making sure every edge is covered. Sprinkle 1 cup shredded cheddar cheese over the top.",
+        "proTip": "Cover every exposed tortilla edge with sauce or it will dry out and turn crispy in the oven."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Bake Until Bubbly",
+        "instruction": "Bake uncovered at 375°F (190°C) for 25 minutes until the sauce is bubbling around the edges and the cheese is melted and lightly golden. Let rest 5 minutes before serving. Top with sour cream and fresh cilantro.",
+        "proTip": "Resting lets the sauce thicken slightly so enchiladas hold together when you plate them."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Ground Beef",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "lb",
+        "notes": "85/15"
+      },
+      {
+        "item": "Corn Tortillas",
+        "qty": "12",
+        "qtyNumeric": 12,
+        "unit": "pieces",
+        "notes": "6-inch"
+      },
+      {
+        "item": "Red Enchilada Sauce",
+        "qty": "28",
+        "qtyNumeric": 28,
+        "unit": "oz",
+        "notes": "one can"
+      },
+      {
+        "item": "Shredded Cheddar Cheese",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cups"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup",
+        "notes": "diced"
+      },
+      {
+        "item": "Garlic",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Ground Cumin",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Chili Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Sour Cream",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup",
+        "notes": "for serving"
+      },
+      {
+        "item": "Fresh Cilantro",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "chopped, for garnish"
+      }
+    ],
+    "dadProTip": "Make a double batch and freeze the second pan uncooked. When you need dinner in a pinch, go straight from freezer to oven at 375°F for 45 minutes covered with foil, then 10 uncovered.",
+    "kidAdjustment": "Skip the chili powder if your kids are spice-sensitive. Let them add their own toppings at the table: sour cream, shredded lettuce, and extra cheese always win.",
+    "sideSuggestions": [
+      "Mexican rice",
+      "Refried beans",
+      "Tortilla chips with guacamole"
+    ],
+    "reheatInstructions": "Cover with foil and reheat at 350°F (177°C) for 15 minutes. Add a splash of enchilada sauce to keep them from drying out.",
+    "nutrition": {
+      "calories": 420,
+      "proteinGrams": 28,
+      "carbsGrams": 32,
+      "fatGrams": 22,
+      "source": "USDA FoodData Central #174032"
+    },
+    "kidRating": 5,
+    "difficulty": "Moderate",
+    "keywords": [
+      "beef enchiladas recipe",
+      "oven baked enchiladas",
+      "classic beef enchiladas",
+      "easy weeknight enchiladas",
+      "how long to cook beef enchiladas",
+      "beef enchiladas cook time",
+      "beef enchiladas internal temperature",
+      "easy beef enchiladas recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0096",
+    "slug": "instant-pot-beef-stew",
+    "title": "Instant Pot Beef Stew",
+    "tagline": "Fork-tender chuck roast with potatoes and carrots in a rich, savory broth made in a fraction of the stovetop time.",
+    "appliance": "instant-pot",
+    "categories": [
+      "high-protein"
+    ],
+    "protein": "beef",
+    "prepMinutes": 15,
+    "cookMinutes": 35,
+    "totalMinutes": 65,
+    "image": "/images/recipes/instant-pot-beef-stew.jpg",
+    "defaultServings": 6,
+    "basis": "Instant Pot on High Pressure for 35 minutes with 15-minute natural release. USDA FSIS beef stew tenderness target 200°F.",
+    "safeInternalTempF": 200,
+    "restMinutes": 0,
+    "cookTemp": "High Pressure (239°F / 115°C)",
+    "cookTempF": 239,
+    "cookTempC": 115,
+    "equipmentNeeded": [
+      "Instant Pot",
+      "Cutting Board",
+      "Chef Knife"
+    ],
+    "quickVersion": {
+      "temp": "High Pressure (239°F / 115°C)",
+      "totalTime": "65 mins",
+      "timerMinutes": 35,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Toss 2 lbs cubed chuck roast in flour, then sear in batches in the Instant Pot on Saute mode with olive oil until browned.",
+        "Add diced onion, garlic, tomato paste, and deglaze with beef broth and Worcestershire sauce.",
+        "Add cubed potatoes, carrots, celery, and thyme. Lock lid and cook on High Pressure for 35 minutes.",
+        "Natural release 15 minutes, then quick release remaining pressure. Season to taste and serve."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Flour and Sear the Beef",
+        "instruction": "Cut 2 lbs beef chuck roast into 1.5-inch cubes. Toss with 2 tablespoons flour, 1 teaspoon salt, and 1/2 teaspoon pepper. Set Instant Pot to Saute mode and heat 2 tablespoons olive oil. Sear beef in two batches, 2 minutes per side, until deeply browned. Remove and set aside.",
+        "proTip": "Do not crowd the pot. Searing in batches creates the fond on the bottom that gives the broth its deep flavor."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Build the Flavor Base",
+        "instruction": "Add 1 diced onion and 3 minced garlic cloves to the pot and saute 2 minutes. Stir in 2 tablespoons tomato paste and cook 1 minute. Deglaze with 3 cups beef broth and 1 tablespoon Worcestershire sauce, scraping up every browned bit from the bottom.",
+        "proTip": "Scrape the bottom thoroughly after deglazing. Any stuck bits will trigger a burn notice during pressure cooking."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Pressure Cook with Vegetables",
+        "instruction": "Return the seared beef to the pot. Add 1.5 lbs cubed potatoes, 3 diced carrots, 2 diced celery stalks, and 1 teaspoon dried thyme. Lock the lid, set the valve to Sealing, and cook on High Pressure for 35 minutes.",
+        "proTip": "Cut potatoes and carrots into similar-sized chunks so they cook evenly and nothing turns to mush."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Natural Release and Serve",
+        "instruction": "When the timer finishes, let the pressure release naturally for 15 minutes, then turn the valve to Venting for quick release. Stir gently, taste for seasoning, and serve in deep bowls with crusty bread.",
+        "proTip": "Natural release lets the beef fibers relax back into tenderness instead of seizing up from a sudden pressure drop."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Beef Chuck Roast",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "lbs",
+        "notes": "cut into 1.5-inch cubes"
+      },
+      {
+        "item": "Yukon Gold Potatoes",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "lbs",
+        "notes": "cubed"
+      },
+      {
+        "item": "Carrots",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "medium",
+        "notes": "diced"
+      },
+      {
+        "item": "Celery",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "stalks",
+        "notes": "diced"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "large",
+        "notes": "diced"
+      },
+      {
+        "item": "Garlic",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Tomato Paste",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Beef Broth",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "cups"
+      },
+      {
+        "item": "Worcestershire Sauce",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Dried Thyme",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "All-Purpose Flour",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "This is your Sunday football stew. Make it during the pregame and it is ready by halftime. Leftovers taste even better the next day after the flavors have had time to meld together overnight.",
+    "kidAdjustment": "Cut the vegetables into smaller, bite-sized pieces for little mouths. Serve with a slice of buttered bread for dunking into the broth.",
+    "sideSuggestions": [
+      "Crusty sourdough bread",
+      "Simple green salad",
+      "Buttered egg noodles"
+    ],
+    "reheatInstructions": "Reheat on the stovetop over medium-low heat with a splash of broth to thin the gravy. Stir gently to avoid breaking up the potatoes.",
+    "nutrition": {
+      "calories": 380,
+      "proteinGrams": 35,
+      "carbsGrams": 28,
+      "fatGrams": 14,
+      "source": "USDA FoodData Central #174036"
+    },
+    "kidRating": 4,
+    "difficulty": "Easy",
+    "keywords": [
+      "instant pot beef stew",
+      "pressure cooker beef stew",
+      "hearty beef stew recipe",
+      "easy beef stew",
+      "how long to cook beef stew",
+      "beef stew cook time",
+      "beef stew internal temperature",
+      "easy beef stew recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0097",
+    "slug": "oven-baked-chicken-parmesan",
+    "title": "Oven Baked Chicken Parmesan",
+    "tagline": "Crispy panko-breaded chicken breasts baked golden then topped with marinara and bubbly melted mozzarella for all the flavor of the restaurant classic without the deep fryer.",
+    "appliance": "oven",
+    "categories": [
+      "kid-approved",
+      "high-protein"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 15,
+    "cookMinutes": 25,
+    "totalMinutes": 45,
+    "image": "/images/recipes/oven-baked-chicken-parmesan.jpg",
+    "defaultServings": 4,
+    "basis": "Standard oven at 425°F (218°C). USDA FSIS chicken breast target 165°F.",
+    "safeInternalTempF": 165,
+    "restMinutes": 5,
+    "cookTemp": "425°F (218°C)",
+    "cookTempF": 425,
+    "cookTempC": 218,
+    "equipmentNeeded": [
+      "Rimmed Baking Sheet",
+      "Wire Rack",
+      "Meat Thermometer"
+    ],
+    "quickVersion": {
+      "temp": "425°F (218°C)",
+      "totalTime": "40 mins",
+      "timerMinutes": 25,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Pound 4 chicken breasts to 3/4-inch thickness. Dredge in flour, dip in beaten eggs, and coat in panko mixed with grated parmesan.",
+        "Place breaded chicken on a wire rack set over a baking sheet. Drizzle with olive oil.",
+        "Bake at 425°F (218°C) for 20 minutes. Top each breast with marinara and mozzarella, bake 5 more minutes.",
+        "Rest 5 minutes before serving over spaghetti or with a side salad."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Pound and Set Up Breading Station",
+        "instruction": "Place 4 chicken breasts (6 oz each) between plastic wrap and pound to 3/4-inch even thickness. Set up three shallow dishes: Dish 1 with 1/2 cup flour seasoned with salt; Dish 2 with 2 beaten eggs; Dish 3 with 1 cup panko breadcrumbs, 1/2 cup grated parmesan, 1 teaspoon Italian seasoning, and 1/2 teaspoon garlic powder.",
+        "proTip": "Even thickness is the key to chicken parm. Thick spots stay raw while thin spots dry out if you skip pounding."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Bread and Arrange on Rack",
+        "instruction": "Coat each breast in flour, shaking off excess. Dip in egg, then press firmly into the panko-parmesan mixture on both sides. Place on a wire rack set over a rimmed baking sheet. Drizzle tops lightly with olive oil.",
+        "proTip": "The wire rack lets hot air circulate underneath so the bottom gets crispy too instead of turning soggy."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Bake and Add Toppings",
+        "instruction": "Bake at 425°F (218°C) for 20 minutes until the breading is golden. Remove from oven, spoon 3 tablespoons marinara sauce over each breast, and top with a generous handful of shredded mozzarella. Return to oven for 5 minutes until cheese is melted and bubbly.",
+        "proTip": "Add the sauce and cheese at the end so the breading stays crispy underneath the toppings."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Rest and Serve",
+        "instruction": "Remove from oven when internal temperature reads 165°F. Rest 5 minutes before serving over spaghetti, alongside a Caesar salad, or on a toasted sub roll.",
+        "proTip": "Let the cheese set for a few minutes so it does not slide off the moment you cut into it."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Chicken Breasts",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "pieces",
+        "notes": "6 oz each, boneless skinless"
+      },
+      {
+        "item": "Panko Breadcrumbs",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Grated Parmesan Cheese",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "Marinara Sauce",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Shredded Mozzarella",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Large Eggs",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "pieces",
+        "notes": "beaten"
+      },
+      {
+        "item": "All-Purpose Flour",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Italian Seasoning",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "This beats delivery every single time and takes less time than waiting for the pizza guy. Pound the chicken thin and you get restaurant-level results with zero deep frying required.",
+    "kidAdjustment": "Cut into strips before topping with sauce and cheese for kid-friendly chicken parm fingers. Serve with spaghetti and let them twirl away.",
+    "sideSuggestions": [
+      "Spaghetti with marinara",
+      "Caesar salad",
+      "Garlic bread"
+    ],
+    "reheatInstructions": "Reheat on a wire rack in the oven at 375°F (190°C) for 10 minutes to re-crisp the breading. Avoid the microwave.",
+    "nutrition": {
+      "calories": 450,
+      "proteinGrams": 48,
+      "carbsGrams": 22,
+      "fatGrams": 18,
+      "source": "USDA FoodData Central #171533"
+    },
+    "kidRating": 5,
+    "difficulty": "Easy",
+    "keywords": [
+      "baked chicken parmesan",
+      "oven chicken parm recipe",
+      "crispy chicken parmesan no fry",
+      "easy chicken parmesan",
+      "how long to cook chicken parmesan",
+      "chicken parmesan cook time",
+      "chicken parmesan internal temperature",
+      "easy chicken parmesan recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0098",
+    "slug": "skillet-crispy-hash-browns",
+    "title": "Skillet Crispy Hash Browns",
+    "tagline": "Shredded potatoes pressed flat and butter-crisped until golden and shatteringly crunchy on the outside with a fluffy tender center.",
+    "appliance": "skillet",
+    "categories": [
+      "kid-approved",
+      "15-minute"
+    ],
+    "protein": "vegetarian",
+    "prepMinutes": 5,
+    "cookMinutes": 12,
+    "totalMinutes": 18,
+    "image": "/images/recipes/skillet-crispy-hash-browns.jpg",
+    "defaultServings": 4,
+    "basis": "Tested in 12-inch nonstick skillet over medium-high heat with butter.",
+    "safeInternalTempF": 0,
+    "restMinutes": 1,
+    "cookTemp": "Medium-High Heat",
+    "cookTempF": 375,
+    "cookTempC": 190,
+    "equipmentNeeded": [
+      "12-Inch Nonstick Skillet",
+      "Box Grater",
+      "Spatula"
+    ],
+    "quickVersion": {
+      "temp": "Medium-High Heat",
+      "totalTime": "17 mins",
+      "timerMinutes": 12,
+      "flipAtMinutes": 6,
+      "bullets": [
+        "Shred 1.5 lbs russet potatoes on a box grater and squeeze out all excess moisture in a clean kitchen towel.",
+        "Toss shredded potatoes with 1/2 tsp salt, 1/4 tsp pepper, and 1/4 tsp onion powder.",
+        "Melt 2 tbsp butter in a 12-inch nonstick skillet over medium-high heat. Spread potatoes in an even layer and press flat.",
+        "Cook 6 minutes undisturbed until bottom is deep golden, flip in sections, and cook 6 more minutes."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Shred and Squeeze Dry",
+        "instruction": "Peel and shred 1.5 lbs russet potatoes on the large holes of a box grater. Place shredded potatoes in a clean kitchen towel, wrap tightly, and squeeze out as much liquid as possible over the sink.",
+        "proTip": "Removing moisture is the secret to crispy hash browns. The drier the shreds, the crunchier the result."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Season and Press into Skillet",
+        "instruction": "Toss the dried shreds with 1/2 teaspoon salt, 1/4 teaspoon black pepper, and 1/4 teaspoon onion powder. Melt 2 tablespoons butter in a 12-inch nonstick skillet over medium-high heat. Spread potatoes evenly across the pan and press flat with a spatula.",
+        "proTip": "Press them down firmly so the shreds knit together into one cohesive crispy sheet."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Cook Undisturbed Then Flip",
+        "instruction": "Cook for 6 minutes without touching until the bottom is deep golden brown and the edges start to look translucent. Use a spatula to flip in large sections and cook the other side for 6 more minutes.",
+        "proTip": "Resist the urge to peek or move them. Leaving them alone is what creates that restaurant-level crust."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Russet Potatoes",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "lbs",
+        "notes": "peeled"
+      },
+      {
+        "item": "Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "item": "Onion Powder",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "The kitchen towel squeeze is the whole game. Skip it and you get steamed potato mush. Do it properly and you get diner-quality hash browns that shatter when you bite into them.",
+    "kidAdjustment": "Top with shredded cheese and a sunny-side-up egg for a complete kid breakfast. Cut into wedges like a pizza for easy little hands.",
+    "sideSuggestions": [
+      "Fried eggs and bacon",
+      "Fresh fruit salad",
+      "Toast with butter and jam"
+    ],
+    "reheatInstructions": "Reheat in a dry skillet over medium heat for 2 to 3 minutes per side to re-crisp. The microwave makes them soggy.",
+    "nutrition": {
+      "calories": 180,
+      "proteinGrams": 3,
+      "carbsGrams": 28,
+      "fatGrams": 7,
+      "source": "USDA FoodData Central #170026"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "crispy hash browns recipe",
+      "skillet hash browns",
+      "diner style hash browns",
+      "best hash browns",
+      "how long to cook hash browns",
+      "hash browns cook time",
+      "easy hash browns recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0099",
+    "slug": "cast-iron-loaded-frittata",
+    "title": "Cast Iron Loaded Frittata",
+    "tagline": "A fluffy egg and cheese frittata packed with sauteed vegetables, started on the stovetop and finished under the oven for a golden puffed top.",
+    "appliance": "cast-iron",
+    "categories": [
+      "high-protein",
+      "kid-approved"
+    ],
+    "protein": "dairy-eggs",
+    "prepMinutes": 10,
+    "cookMinutes": 15,
+    "totalMinutes": 28,
+    "image": "/images/recipes/cast-iron-loaded-frittata.jpg",
+    "defaultServings": 6,
+    "basis": "Tested in 10-inch cast iron skillet. Stovetop start over medium heat, finished in 400°F (204°C) oven. USDA egg-based dish target 160°F.",
+    "safeInternalTempF": 160,
+    "restMinutes": 3,
+    "cookTemp": "Medium Heat then 400°F (204°C) oven finish",
+    "cookTempF": 400,
+    "cookTempC": 204,
+    "equipmentNeeded": [
+      "10-Inch Cast Iron Skillet",
+      "Whisk",
+      "Oven Mitts"
+    ],
+    "quickVersion": {
+      "temp": "Medium / 400°F (204°C)",
+      "totalTime": "25 mins",
+      "timerMinutes": 15,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Whisk 10 eggs with 1/4 cup heavy cream, salt, and pepper. Set aside.",
+        "Saute diced bell pepper, onion, mushrooms, and spinach in butter in a 10-inch cast iron skillet over medium heat for 5 minutes.",
+        "Pour egg mixture over the vegetables, sprinkle with cheddar cheese, and cook stovetop 5 minutes until edges set.",
+        "Transfer skillet to 400°F (204°C) oven for 8 to 10 minutes until puffed and golden. Rest 3 minutes, slice into wedges."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Whisk Eggs and Cream",
+        "instruction": "Crack 10 eggs into a large bowl. Add 1/4 cup heavy cream, 1/2 teaspoon salt, and 1/4 teaspoon black pepper. Whisk until uniformly combined with no streaks of white remaining.",
+        "proTip": "The heavy cream makes the frittata custardy and tender instead of rubbery. Do not skip it."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Saute the Vegetables",
+        "instruction": "Melt 1 tablespoon butter in a 10-inch cast iron skillet over medium heat. Add 1/2 diced bell pepper, 1/4 cup diced onion, and 1/2 cup sliced mushrooms. Cook 3 minutes until softened. Add 1 cup fresh spinach and stir until wilted, about 1 minute.",
+        "proTip": "Cook the vegetables first to drive off their moisture so the frittata does not turn watery."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Stovetop Then Oven Finish",
+        "instruction": "Pour the egg mixture over the sauteed vegetables. Sprinkle 1/2 cup shredded cheddar cheese evenly on top. Cook on the stovetop without stirring for 5 minutes until the edges are set but the center is still jiggly. Transfer the skillet to a 400°F (204°C) preheated oven.",
+        "proTip": "The stovetop start sets the base while the oven puffs and browns the top for perfect texture throughout."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Bake Until Puffed and Golden",
+        "instruction": "Bake for 8 to 10 minutes until the frittata is puffed, golden on top, and the center reaches 160°F. Remove from oven (use oven mitts, the handle is scorching hot) and rest 3 minutes. Slice into wedges and serve from the skillet.",
+        "proTip": "Wrap the handle in a towel after removing from the oven. A hot cast iron handle is the most common kitchen burn."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Large Eggs",
+        "qty": "10",
+        "qtyNumeric": 10,
+        "unit": "pieces"
+      },
+      {
+        "item": "Heavy Cream",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "cup"
+      },
+      {
+        "item": "Bell Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "medium",
+        "notes": "diced"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "cup",
+        "notes": "diced"
+      },
+      {
+        "item": "Mushrooms",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup",
+        "notes": "sliced"
+      },
+      {
+        "item": "Fresh Spinach",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup",
+        "notes": "packed"
+      },
+      {
+        "item": "Shredded Cheddar Cheese",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "Butter",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "A frittata is the fridge cleanout king. Whatever vegetables, cheese, or leftover meat you have goes in. It is the one recipe that actually gets better when you improvise.",
+    "kidAdjustment": "Stick to mild vegetables like bell peppers and skip mushrooms if your kids push them aside. Extra cheese on top always gets approval.",
+    "sideSuggestions": [
+      "Buttered toast",
+      "Mixed greens salad",
+      "Fresh fruit"
+    ],
+    "reheatInstructions": "Reheat individual slices in a 350°F (177°C) oven for 5 minutes or enjoy cold straight from the fridge.",
+    "nutrition": {
+      "calories": 230,
+      "proteinGrams": 16,
+      "carbsGrams": 4,
+      "fatGrams": 17,
+      "source": "USDA FoodData Central #173424"
+    },
+    "kidRating": 4,
+    "difficulty": "Easy",
+    "keywords": [
+      "cast iron frittata recipe",
+      "loaded frittata",
+      "vegetable frittata",
+      "easy egg frittata",
+      "how long to cook frittata",
+      "frittata cook time",
+      "frittata internal temperature",
+      "easy frittata recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0100",
+    "slug": "instant-pot-pulled-pork",
+    "title": "Instant Pot Pulled Pork",
+    "tagline": "Fall-apart tender pork shoulder coated in smoky BBQ sauce, pressure cooked to perfection in just one hour instead of the usual eight.",
+    "appliance": "instant-pot",
+    "categories": [
+      "high-protein",
+      "kid-approved"
+    ],
+    "protein": "pork",
+    "prepMinutes": 10,
+    "cookMinutes": 60,
+    "totalMinutes": 85,
+    "image": "/images/recipes/instant-pot-pulled-pork.jpg",
+    "defaultServings": 8,
+    "basis": "Instant Pot on High Pressure for 60 minutes with 15-minute natural release. USDA FSIS pork shoulder pullable tenderness target 205°F.",
+    "safeInternalTempF": 205,
+    "restMinutes": 0,
+    "cookTemp": "High Pressure (239°F / 115°C)",
+    "cookTempF": 239,
+    "cookTempC": 115,
+    "equipmentNeeded": [
+      "Instant Pot",
+      "Two Forks",
+      "Cutting Board"
+    ],
+    "quickVersion": {
+      "temp": "High Pressure (239°F / 115°C)",
+      "totalTime": "85 mins",
+      "timerMinutes": 60,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Rub 4 lbs pork shoulder with brown sugar, smoked paprika, garlic powder, onion powder, cumin, salt, and pepper.",
+        "Place in Instant Pot with 1/2 cup chicken broth and 2 tbsp apple cider vinegar. Lock lid.",
+        "Cook on High Pressure for 60 minutes. Natural release 15 minutes, then quick release.",
+        "Shred with two forks, toss with 1 cup BBQ sauce, and serve on buns."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Season the Pork Shoulder",
+        "instruction": "Mix 2 tablespoons brown sugar, 1 tablespoon smoked paprika, 1 teaspoon garlic powder, 1 teaspoon onion powder, 1 teaspoon cumin, 1 teaspoon salt, and 1/2 teaspoon pepper in a small bowl. Cut 4 lbs pork shoulder into 4 equal chunks and rub the spice mixture generously over all sides.",
+        "proTip": "Cutting the roast into chunks exposes more surface area to the spice rub and cuts cooking time without sacrificing tenderness."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Set Up the Instant Pot",
+        "instruction": "Pour 1/2 cup chicken broth and 2 tablespoons apple cider vinegar into the Instant Pot. Place the seasoned pork chunks in the liquid. Lock the lid and set the valve to Sealing.",
+        "proTip": "The vinegar breaks down connective tissue and gives the pork that tangy pulled pork flavor you get from a real smoker."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Pressure Cook and Release",
+        "instruction": "Cook on High Pressure for 60 minutes. When the timer finishes, let the pressure release naturally for 15 minutes, then turn the valve to Venting for quick release of remaining pressure.",
+        "proTip": "Sixty minutes on high pressure converts all the tough collagen in pork shoulder into gelatin, making it effortlessly shreddable."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Shred and Sauce",
+        "instruction": "Transfer pork to a cutting board and shred with two forks. Discard the cooking liquid or strain and save for another use. Toss shredded pork with 1 cup of your favorite BBQ sauce. Serve on toasted buns with coleslaw.",
+        "proTip": "Mix in the sauce while the pork is still hot so it absorbs into every fiber instead of just coating the outside."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Pork Shoulder",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "lbs",
+        "notes": "bone-in or boneless"
+      },
+      {
+        "item": "BBQ Sauce",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Apple Cider Vinegar",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Brown Sugar",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Smoked Paprika",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Onion Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Ground Cumin",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Chicken Broth",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup"
+      }
+    ],
+    "dadProTip": "Make a massive batch and freeze in portions. Pulled pork freezes beautifully and reheats for sliders, tacos, loaded baked potatoes, nachos, and pizza toppings all week long.",
+    "kidAdjustment": "Use a sweeter, milder BBQ sauce without too much heat. Serve on slider buns for little hands and let kids add their own toppings.",
+    "sideSuggestions": [
+      "Classic coleslaw",
+      "Corn on the cob",
+      "Baked beans"
+    ],
+    "reheatInstructions": "Reheat in a covered pot over medium-low heat with a splash of broth and extra BBQ sauce to keep it moist.",
+    "nutrition": {
+      "calories": 380,
+      "proteinGrams": 38,
+      "carbsGrams": 16,
+      "fatGrams": 18,
+      "source": "USDA FoodData Central #168380"
+    },
+    "kidRating": 5,
+    "difficulty": "Easy",
+    "keywords": [
+      "instant pot pulled pork",
+      "pressure cooker pulled pork",
+      "BBQ pulled pork recipe",
+      "easy pulled pork",
+      "how long to cook pulled pork",
+      "pulled pork cook time",
+      "pulled pork internal temperature",
+      "easy pulled pork recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0101",
+    "slug": "oven-baked-turkey-meatballs",
+    "title": "Oven Baked Turkey Meatballs",
+    "tagline": "Tender lean turkey meatballs seasoned with Italian herbs, baked at high heat until golden, and served with your favorite marinara sauce.",
+    "appliance": "oven",
+    "categories": [
+      "high-protein",
+      "kid-approved"
+    ],
+    "protein": "turkey",
+    "prepMinutes": 15,
+    "cookMinutes": 20,
+    "totalMinutes": 38,
+    "image": "/images/recipes/oven-baked-turkey-meatballs.jpg",
+    "defaultServings": 4,
+    "basis": "Standard oven at 400°F (204°C). USDA FSIS ground turkey target 165°F.",
+    "safeInternalTempF": 165,
+    "restMinutes": 3,
+    "cookTemp": "400°F (204°C)",
+    "cookTempF": 400,
+    "cookTempC": 204,
+    "equipmentNeeded": [
+      "Rimmed Baking Sheet",
+      "Parchment Paper",
+      "Mixing Bowl"
+    ],
+    "quickVersion": {
+      "temp": "400°F (204°C)",
+      "totalTime": "35 mins",
+      "timerMinutes": 20,
+      "flipAtMinutes": 10,
+      "bullets": [
+        "Combine 1.5 lbs ground turkey with 1/3 cup panko, 1/4 cup grated parmesan, 1 beaten egg, 2 minced garlic cloves, 1 tsp Italian seasoning, salt, and pepper.",
+        "Roll into 20 golf-ball-sized meatballs and place on a parchment-lined baking sheet. Drizzle with olive oil.",
+        "Bake at 400°F (204°C) for 20 minutes, flipping halfway, until golden and internal temp reads 165°F.",
+        "Rest 3 minutes, then serve with warm marinara sauce over pasta or in sub rolls."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Mix the Meatball Mixture",
+        "instruction": "In a large bowl, combine 1.5 lbs ground turkey, 1/3 cup panko breadcrumbs, 1/4 cup grated parmesan cheese, 1 beaten egg, 2 minced garlic cloves, 1 teaspoon Italian seasoning, 1/2 teaspoon salt, and 1/4 teaspoon black pepper. Mix gently with your hands until just combined.",
+        "proTip": "Overmixing makes meatballs dense and tough. Mix until the ingredients are just incorporated and stop."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Roll and Arrange",
+        "instruction": "Lightly oil your hands to prevent sticking. Roll the mixture into about 20 golf-ball-sized meatballs and place them on a parchment-lined rimmed baking sheet with an inch of space between each. Drizzle lightly with olive oil.",
+        "proTip": "Use a small cookie scoop for perfectly uniform meatballs that cook evenly."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Bake Until Golden",
+        "instruction": "Bake at 400°F (204°C) for 20 minutes, flipping halfway through at 10 minutes, until the meatballs are golden brown on the outside and the internal temperature reaches 165°F.",
+        "proTip": "The parmesan and panko create a little crust on the outside that locks in moisture so the lean turkey stays juicy."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Rest and Serve",
+        "instruction": "Let the meatballs rest on the pan for 3 minutes. Serve with warm marinara sauce over spaghetti, tucked into toasted sub rolls, or on their own with toothpicks as appetizers.",
+        "proTip": "Make a triple batch and freeze the extras on the baking sheet before transferring to bags. Reheat from frozen in 15 minutes."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Ground Turkey",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "lbs",
+        "notes": "93/7 lean"
+      },
+      {
+        "item": "Panko Breadcrumbs",
+        "qty": "1/3",
+        "qtyNumeric": 0.33,
+        "unit": "cup"
+      },
+      {
+        "item": "Grated Parmesan Cheese",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "cup"
+      },
+      {
+        "item": "Large Egg",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "piece",
+        "notes": "beaten"
+      },
+      {
+        "item": "Garlic",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Italian Seasoning",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      }
+    ],
+    "dadProTip": "Turkey meatballs are the stealth healthy dinner. Kids think they are eating regular meatballs and you know they are getting lean protein without all the extra fat. Everybody wins.",
+    "kidAdjustment": "Serve with spaghetti and extra marinara for dunking. For picky eaters, skip the garlic and let them dip in ketchup if that is what it takes.",
+    "sideSuggestions": [
+      "Spaghetti with marinara",
+      "Steamed green beans",
+      "Garlic bread"
+    ],
+    "reheatInstructions": "Reheat in a 375°F (190°C) oven for 8 to 10 minutes or simmer in marinara sauce on the stovetop until heated through.",
+    "nutrition": {
+      "calories": 310,
+      "proteinGrams": 36,
+      "carbsGrams": 10,
+      "fatGrams": 14,
+      "source": "USDA FoodData Central #171082"
+    },
+    "kidRating": 5,
+    "difficulty": "Easy",
+    "keywords": [
+      "baked turkey meatballs",
+      "oven turkey meatballs recipe",
+      "healthy meatball recipe",
+      "easy turkey meatballs",
+      "how long to cook turkey meatballs",
+      "turkey meatballs cook time",
+      "turkey meatballs internal temperature",
+      "easy turkey meatballs recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0102",
+    "slug": "skillet-ultimate-grilled-cheese",
+    "title": "Skillet Ultimate Grilled Cheese",
+    "tagline": "Thick sourdough bread layered with three melty cheeses and mayo-griddled to a perfectly golden, shatteringly crisp exterior.",
+    "appliance": "skillet",
+    "categories": [
+      "kid-approved",
+      "15-minute"
+    ],
+    "protein": "dairy-eggs",
+    "prepMinutes": 5,
+    "cookMinutes": 8,
+    "totalMinutes": 14,
+    "image": "/images/recipes/skillet-ultimate-grilled-cheese.jpg",
+    "defaultServings": 4,
+    "basis": "Tested in 12-inch cast iron skillet over medium-low heat.",
+    "safeInternalTempF": 0,
+    "restMinutes": 1,
+    "cookTemp": "Medium-Low Heat",
+    "cookTempF": 300,
+    "cookTempC": 149,
+    "equipmentNeeded": [
+      "12-Inch Skillet",
+      "Spatula",
+      "Butter Knife"
+    ],
+    "quickVersion": {
+      "temp": "Medium-Low Heat",
+      "totalTime": "13 mins",
+      "timerMinutes": 8,
+      "flipAtMinutes": 4,
+      "bullets": [
+        "Spread a thin layer of mayonnaise on the outside of 8 slices of sourdough bread.",
+        "Layer sharp cheddar, gruyere, and American cheese between the bread slices, mayo side out.",
+        "Cook in a skillet over medium-low heat for 4 minutes per side until deeply golden and cheese is fully melted.",
+        "Let rest 1 minute, slice diagonally, and serve with tomato soup."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Assemble the Sandwiches",
+        "instruction": "Spread a thin even layer of mayonnaise on one side of each of the 8 slices of sourdough bread. Flip 4 slices mayo-side down. Layer each with 1 slice sharp cheddar, 1 slice gruyere, and 1 slice American cheese. Top with the remaining bread slices, mayo-side up.",
+        "proTip": "Mayo instead of butter on the outside creates a more even golden crust and does not burn as easily at low heat."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Griddle Low and Slow",
+        "instruction": "Melt 1 tablespoon butter in a 12-inch skillet over medium-low heat. Place 2 sandwiches in the pan and cook 4 minutes until the bottom is deeply golden brown. Flip carefully and cook 4 more minutes on the other side.",
+        "proTip": "Medium-low heat is essential. Higher heat browns the bread before the cheese melts, leaving you with a cold center."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Rest and Slice",
+        "instruction": "Transfer to a cutting board and let rest 1 minute so the molten cheese sets slightly. Slice diagonally and serve immediately. Repeat with the remaining 2 sandwiches, adding more butter to the pan.",
+        "proTip": "The one-minute rest prevents the cheese from oozing out the instant you cut. It will still be perfectly gooey inside."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Sourdough Bread",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "slices",
+        "notes": "thick-cut"
+      },
+      {
+        "item": "Sharp Cheddar Cheese",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "slices"
+      },
+      {
+        "item": "Gruyere Cheese",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "slices"
+      },
+      {
+        "item": "American Cheese",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "slices"
+      },
+      {
+        "item": "Mayonnaise",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      }
+    ],
+    "dadProTip": "The three-cheese blend is what separates this from a regular grilled cheese. The cheddar brings sharp flavor, the gruyere brings nuttiness and stretch, and the American brings that melt-factor that holds everything together.",
+    "kidAdjustment": "Swap the gruyere for extra American or mild cheddar for less adventurous palates. Cut into strips for easy dipping into tomato soup.",
+    "sideSuggestions": [
+      "Classic tomato soup",
+      "Pickle spears",
+      "Apple slices"
+    ],
+    "reheatInstructions": "Reheat in a dry skillet over medium heat for 2 minutes per side. Do not microwave or the bread turns chewy.",
+    "nutrition": {
+      "calories": 480,
+      "proteinGrams": 20,
+      "carbsGrams": 34,
+      "fatGrams": 30,
+      "source": "USDA FoodData Central #172159"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "ultimate grilled cheese recipe",
+      "three cheese grilled cheese",
+      "sourdough grilled cheese",
+      "best grilled cheese",
+      "how long to cook grilled cheese",
+      "grilled cheese cook time",
+      "easy grilled cheese recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0103",
+    "slug": "instant-pot-lamb-curry",
+    "title": "Instant Pot Lamb Curry",
+    "tagline": "Tender cubes of lamb shoulder simmered in a fragrant coconut milk curry with warm spices, pressure cooked until melt-in-your-mouth tender.",
+    "appliance": "instant-pot",
+    "categories": [
+      "high-protein"
+    ],
+    "protein": "lamb",
+    "prepMinutes": 15,
+    "cookMinutes": 25,
+    "totalMinutes": 50,
+    "image": "/images/recipes/instant-pot-lamb-curry.jpg",
+    "defaultServings": 6,
+    "basis": "Instant Pot on High Pressure for 25 minutes with 10-minute natural release. USDA FSIS lamb stew tenderness target 190°F.",
+    "safeInternalTempF": 190,
+    "restMinutes": 0,
+    "cookTemp": "High Pressure (239°F / 115°C)",
+    "cookTempF": 239,
+    "cookTempC": 115,
+    "equipmentNeeded": [
+      "Instant Pot",
+      "Chef Knife",
+      "Cutting Board"
+    ],
+    "quickVersion": {
+      "temp": "High Pressure (239°F / 115°C)",
+      "totalTime": "50 mins",
+      "timerMinutes": 25,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Sear 2 lbs cubed lamb shoulder in the Instant Pot on Saute mode until browned on all sides.",
+        "Add diced onion, garlic, ginger, garam masala, turmeric, cumin, coriander, and cayenne. Cook 2 minutes.",
+        "Stir in diced tomatoes and coconut milk. Lock lid and cook on High Pressure for 25 minutes.",
+        "Natural release 10 minutes, garnish with cilantro, and serve over basmati rice."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Sear the Lamb",
+        "instruction": "Cut 2 lbs lamb shoulder into 1.5-inch cubes. Season with salt and pepper. Set the Instant Pot to Saute mode and add 2 tablespoons oil. Sear lamb in two batches until browned on all sides, about 3 minutes per batch. Remove and set aside.",
+        "proTip": "Browning the lamb first creates a deep caramelized flavor that no amount of spice can replicate on its own."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Build the Curry Base",
+        "instruction": "Add 1 diced onion to the pot and cook 3 minutes. Add 4 minced garlic cloves and 1 tablespoon minced fresh ginger, cook 1 minute. Stir in 1 tablespoon garam masala, 1 teaspoon turmeric, 1 teaspoon cumin, 1 teaspoon coriander, and 1/4 teaspoon cayenne. Cook 30 seconds until fragrant.",
+        "proTip": "Blooming the spices in the hot oil activates their essential oils and makes the curry taste ten times more aromatic."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Pressure Cook",
+        "instruction": "Add one 14 oz can diced tomatoes and one 14 oz can coconut milk. Stir well, scraping up any browned bits. Return the seared lamb to the pot. Lock the lid, set the valve to Sealing, and cook on High Pressure for 25 minutes. Natural release for 10 minutes, then quick release.",
+        "proTip": "The coconut milk creates a creamy, rich sauce that balances the heat of the spices perfectly."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Garnish and Serve",
+        "instruction": "Stir the curry gently, taste for salt, and adjust seasoning. Garnish with fresh chopped cilantro. Serve over steamed basmati rice with warm naan bread on the side.",
+        "proTip": "A squeeze of fresh lime juice right before serving brightens the whole dish and cuts through the richness."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Lamb Shoulder",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "lbs",
+        "notes": "cut into 1.5-inch cubes"
+      },
+      {
+        "item": "Coconut Milk",
+        "qty": "14",
+        "qtyNumeric": 14,
+        "unit": "oz",
+        "notes": "full fat, one can"
+      },
+      {
+        "item": "Diced Tomatoes",
+        "qty": "14",
+        "qtyNumeric": 14,
+        "unit": "oz",
+        "notes": "one can"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "large",
+        "notes": "diced"
+      },
+      {
+        "item": "Garlic",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Fresh Ginger",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp",
+        "notes": "minced"
+      },
+      {
+        "item": "Garam Masala",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Ground Turmeric",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Ground Cumin",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Ground Coriander",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Cayenne Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Fresh Cilantro",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "chopped, for garnish"
+      },
+      {
+        "item": "Basmati Rice",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cups",
+        "notes": "for serving"
+      }
+    ],
+    "dadProTip": "This is the recipe that makes you look like you spent all afternoon cooking when you actually spent 15 minutes of active work. The Instant Pot does the heavy lifting and the spices do the rest.",
+    "kidAdjustment": "Skip the cayenne pepper entirely for kids. Serve the rice on the side so they can control how much sauce they want. Some kids prefer to dip their naan in the sauce instead.",
+    "sideSuggestions": [
+      "Steamed basmati rice",
+      "Warm naan bread",
+      "Cucumber raita"
+    ],
+    "reheatInstructions": "Reheat gently on the stovetop over medium-low heat, stirring occasionally. Add a splash of coconut milk if the sauce has thickened too much.",
+    "nutrition": {
+      "calories": 420,
+      "proteinGrams": 32,
+      "carbsGrams": 14,
+      "fatGrams": 28,
+      "source": "USDA FoodData Central #172616"
+    },
+    "kidRating": 3,
+    "difficulty": "Moderate",
+    "keywords": [
+      "instant pot lamb curry",
+      "pressure cooker lamb curry",
+      "coconut lamb curry recipe",
+      "easy lamb curry",
+      "how long to cook lamb curry",
+      "lamb curry cook time",
+      "lamb curry internal temperature",
+      "easy lamb curry recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0104",
+    "slug": "sheet-pan-chicken-fajitas",
+    "title": "Sheet Pan Chicken Fajitas",
+    "tagline": "Juicy sliced chicken thighs roasted with colorful peppers and onions on one pan, tossed in bold fajita spices, and served in warm flour tortillas.",
+    "appliance": "sheet-pan",
+    "categories": [
+      "high-protein",
+      "15-minute",
+      "kid-approved"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 10,
+    "cookMinutes": 18,
+    "totalMinutes": 31,
+    "image": "/images/recipes/sheet-pan-chicken-fajitas.jpg",
+    "defaultServings": 4,
+    "basis": "Tested on rimmed half sheet pan at 425°F (218°C). USDA FSIS chicken thigh target 165°F.",
+    "safeInternalTempF": 165,
+    "restMinutes": 3,
+    "cookTemp": "425°F (218°C)",
+    "cookTempF": 425,
+    "cookTempC": 218,
+    "equipmentNeeded": [
+      "Half Sheet Pan",
+      "Parchment Paper",
+      "Chef Knife"
+    ],
+    "quickVersion": {
+      "temp": "425°F (218°C)",
+      "totalTime": "28 mins",
+      "timerMinutes": 18,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Slice 1.5 lbs boneless chicken thighs into strips. Toss with olive oil, chili powder, cumin, garlic powder, smoked paprika, and salt.",
+        "Spread seasoned chicken, sliced bell peppers (3 colors), and sliced onion on a parchment-lined sheet pan in a single layer.",
+        "Roast at 425°F (218°C) for 18 minutes until chicken hits 165°F and peppers are charred at the edges.",
+        "Squeeze lime juice over everything, rest 3 minutes, and serve in warm flour tortillas."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Season Chicken and Vegetables",
+        "instruction": "Slice 1.5 lbs boneless skinless chicken thighs into 1/2-inch strips. Slice 3 bell peppers (one each red, yellow, and green) and 1 large onion into strips. In a large bowl, toss everything with 2 tablespoons olive oil, 1 tablespoon chili powder, 1 teaspoon cumin, 1 teaspoon garlic powder, 1/2 teaspoon smoked paprika, and 1 teaspoon salt.",
+        "proTip": "Chicken thighs stay juicier than breasts at high heat and do not dry out even if you cook them a minute or two longer."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Spread on Sheet Pan",
+        "instruction": "Line a half sheet pan with parchment paper. Spread the seasoned chicken and vegetables in a single even layer, making sure nothing is piled on top of each other.",
+        "proTip": "Overcrowding the pan steams the chicken instead of roasting it. Use two pans if needed for the crispiest results."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Roast at High Heat",
+        "instruction": "Roast at 425°F (218°C) for 18 minutes until the chicken reaches 165°F and the peppers and onions are tender with charred edges.",
+        "proTip": "Position the pan on the top rack for extra browning on the peppers and onions."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Finish and Serve",
+        "instruction": "Remove from oven, squeeze 1 tablespoon fresh lime juice over everything, and let rest 3 minutes. Serve in warm flour tortillas with your choice of toppings.",
+        "proTip": "Warm the tortillas in a dry skillet for 30 seconds per side so they are soft and pliable instead of cracking when you fold them."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Boneless Chicken Thighs",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "lbs",
+        "notes": "skinless, sliced into strips"
+      },
+      {
+        "item": "Bell Peppers",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "medium",
+        "notes": "one red, one yellow, one green, sliced"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "large",
+        "notes": "sliced"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Chili Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Ground Cumin",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Smoked Paprika",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Lime Juice",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp",
+        "notes": "fresh"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Flour Tortillas",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "pieces",
+        "notes": "for serving"
+      }
+    ],
+    "dadProTip": "Sheet pan fajitas are the ultimate weeknight hack. One pan, ten minutes of prep, and dinner is on the table before anyone starts asking what is taking so long. The cleanup is just tossing the parchment paper.",
+    "kidAdjustment": "Cut the chicken into smaller bite-sized pieces for younger kids. Let them build their own fajitas with simple toppings: cheese, sour cream, and mild salsa.",
+    "sideSuggestions": [
+      "Spanish rice",
+      "Black beans",
+      "Chips and salsa"
+    ],
+    "reheatInstructions": "Reheat on a sheet pan in a 400°F (204°C) oven for 5 to 7 minutes. The oven crisps the edges back up nicely.",
+    "nutrition": {
+      "calories": 340,
+      "proteinGrams": 32,
+      "carbsGrams": 26,
+      "fatGrams": 14,
+      "source": "USDA FoodData Central #171479"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "sheet pan chicken fajitas",
+      "oven fajitas recipe",
+      "easy chicken fajitas",
+      "one pan fajitas",
+      "how long to cook chicken fajitas",
+      "chicken fajitas cook time",
+      "chicken fajitas internal temperature",
+      "easy chicken fajitas recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0105",
+    "slug": "dutch-oven-classic-beef-chili",
+    "title": "Dutch Oven Classic Beef Chili",
+    "tagline": "Hearty ground beef and kidney bean chili slow-simmered on the stovetop in a Dutch oven until thick, rich, and packed with deep smoky flavor.",
+    "appliance": "dutch-oven",
+    "categories": [
+      "high-protein",
+      "kid-approved"
+    ],
+    "protein": "beef",
+    "prepMinutes": 15,
+    "cookMinutes": 45,
+    "totalMinutes": 60,
+    "image": "/images/recipes/dutch-oven-classic-beef-chili.jpg",
+    "defaultServings": 8,
+    "basis": "Tested in 6-qt enameled cast iron Dutch oven. Medium heat for browning, then low simmer. USDA FSIS ground beef target 160°F.",
+    "safeInternalTempF": 160,
+    "restMinutes": 0,
+    "cookTemp": "Medium then Low Heat",
+    "cookTempF": 300,
+    "cookTempC": 149,
+    "equipmentNeeded": [
+      "6-Qt Dutch Oven",
+      "Wooden Spoon",
+      "Ladle"
+    ],
+    "quickVersion": {
+      "temp": "Medium / Low Heat",
+      "totalTime": "60 mins",
+      "timerMinutes": 45,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Brown 2 lbs ground beef in a Dutch oven over medium heat. Drain fat. Add diced onion, garlic, and jalapeño.",
+        "Stir in chili powder, cumin, smoked paprika, and oregano. Cook 1 minute until fragrant.",
+        "Add diced tomatoes, tomato paste, kidney beans, and beef broth. Bring to a simmer, reduce heat to low.",
+        "Simmer 45 minutes uncovered, stirring occasionally. Serve topped with sour cream and shredded cheddar."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Brown the Beef",
+        "instruction": "Heat a 6-qt Dutch oven over medium heat. Add 2 lbs ground beef and cook, breaking into crumbles, for 8 minutes until fully browned and no pink remains. Drain excess fat, leaving about 1 tablespoon in the pot.",
+        "proTip": "Leave a little fat in the pot for flavor but drain the rest or your chili will be greasy."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Build the Aromatics",
+        "instruction": "Add 1 diced onion, 3 minced garlic cloves, and 1 seeded and diced jalapeño to the beef. Cook 3 minutes. Stir in 2 tablespoons chili powder, 1 tablespoon cumin, 1 teaspoon smoked paprika, 1 teaspoon oregano, 1 teaspoon salt, and 1/2 teaspoon pepper. Cook 1 minute until the spices are fragrant.",
+        "proTip": "Toasting the spices in the fat releases their oils and gives the chili a deeper, more complex flavor."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Add Liquids and Simmer",
+        "instruction": "Pour in one 28 oz can diced tomatoes with their juice, 2 tablespoons tomato paste, one 15 oz can kidney beans (drained and rinsed), and 1 cup beef broth. Stir well, bring to a simmer, then reduce heat to low.",
+        "proTip": "The tomato paste adds concentrated umami richness that a can of diced tomatoes alone cannot deliver."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Slow Simmer and Serve",
+        "instruction": "Simmer uncovered for 45 minutes, stirring every 10 minutes, until the chili is thick and the flavors have melded. Taste and adjust salt. Serve in deep bowls topped with a dollop of sour cream and shredded cheddar cheese.",
+        "proTip": "Chili always tastes better the next day. Make a big batch, refrigerate overnight, and reheat for even deeper flavor."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Ground Beef",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "lbs",
+        "notes": "80/20"
+      },
+      {
+        "item": "Kidney Beans",
+        "qty": "15",
+        "qtyNumeric": 15,
+        "unit": "oz",
+        "notes": "one can, drained and rinsed"
+      },
+      {
+        "item": "Diced Tomatoes",
+        "qty": "28",
+        "qtyNumeric": 28,
+        "unit": "oz",
+        "notes": "one can with juice"
+      },
+      {
+        "item": "Tomato Paste",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "large",
+        "notes": "diced"
+      },
+      {
+        "item": "Garlic",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Jalapeño",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "medium",
+        "notes": "seeded and diced"
+      },
+      {
+        "item": "Chili Powder",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Ground Cumin",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Smoked Paprika",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Dried Oregano",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Beef Broth",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Sour Cream",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup",
+        "notes": "for serving"
+      },
+      {
+        "item": "Shredded Cheddar Cheese",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup",
+        "notes": "for serving"
+      }
+    ],
+    "dadProTip": "This is the chili you bring to the neighborhood cookoff. The secret weapon is the smoked paprika. It adds a subtle smokiness that people cannot quite identify but they always ask for the recipe.",
+    "kidAdjustment": "Skip the jalapeño and reduce the chili powder to 1 tablespoon for milder heat. Top with extra cheese and serve with cornbread for dipping.",
+    "sideSuggestions": [
+      "Cornbread",
+      "Tortilla chips",
+      "Simple green salad"
+    ],
+    "reheatInstructions": "Reheat on the stovetop over medium-low heat, stirring frequently. Add a splash of broth if it has thickened too much overnight.",
+    "nutrition": {
+      "calories": 360,
+      "proteinGrams": 30,
+      "carbsGrams": 22,
+      "fatGrams": 18,
+      "source": "USDA FoodData Central #174224"
+    },
+    "kidRating": 4,
+    "difficulty": "Easy",
+    "keywords": [
+      "dutch oven beef chili",
+      "classic beef chili recipe",
+      "stovetop chili",
+      "easy ground beef chili",
+      "how long to cook beef chili",
+      "beef chili cook time",
+      "beef chili internal temperature",
+      "easy beef chili recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0106",
+    "slug": "slow-cooker-chicken-tortilla-soup",
+    "title": "Slow Cooker Chicken Tortilla Soup",
+    "tagline": "Tender chicken thighs simmered all day in a spiced tomato broth with black beans and corn, then shredded and served with crispy tortilla strips and creamy toppings.",
+    "appliance": "slow-cooker",
+    "categories": [
+      "kid-approved",
+      "high-protein"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 10,
+    "cookMinutes": 360,
+    "totalMinutes": 370,
+    "image": "/images/recipes/slow-cooker-chicken-tortilla-soup.jpg",
+    "defaultServings": 8,
+    "basis": "Tested in 6-qt slow cooker on LOW for 6 hours. USDA FSIS chicken thigh target 165°F.",
+    "safeInternalTempF": 165,
+    "restMinutes": 0,
+    "cookTemp": "Low (190°F / 88°C)",
+    "cookTempF": 190,
+    "cookTempC": 88,
+    "equipmentNeeded": [
+      "6-Quart Slow Cooker",
+      "Two Forks",
+      "Ladle"
+    ],
+    "quickVersion": {
+      "temp": "Low (190°F / 88°C)",
+      "totalTime": "6 hrs 10 mins",
+      "timerMinutes": 360,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Place 1.5 lbs boneless chicken thighs in a slow cooker. Add fire-roasted diced tomatoes, drained black beans, corn, chicken broth, diced onion, and minced garlic.",
+        "Season with chili powder, cumin, smoked paprika, and salt. Stir to combine.",
+        "Cover and cook on LOW for 6 hours until chicken shreds effortlessly with two forks.",
+        "Shred chicken in the pot, stir in lime juice, and serve topped with tortilla strips, avocado, sour cream, and cilantro."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Layer the Slow Cooker",
+        "instruction": "Place 1.5 lbs boneless skinless chicken thighs in the bottom of a 6-quart slow cooker. Add one 14 oz can fire-roasted diced tomatoes, one 15 oz can black beans (drained and rinsed), 1 cup corn kernels, 3 cups chicken broth, 1 diced onion, and 3 minced garlic cloves.",
+        "proTip": "Placing the chicken on the bottom ensures it stays submerged in broth and cooks evenly from all sides."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Season and Set",
+        "instruction": "Add 1 tablespoon chili powder, 1 teaspoon cumin, 1/2 teaspoon smoked paprika, and 1 teaspoon salt. Stir everything around the chicken. Cover with the lid and cook on LOW for 6 hours.",
+        "proTip": "Resist the urge to lift the lid during cooking. Every peek adds 15 to 20 minutes to the cook time."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Shred and Finish",
+        "instruction": "Remove the chicken thighs to a cutting board and shred with two forks. Return the shredded chicken to the pot. Stir in 1 tablespoon fresh lime juice. Taste and adjust salt and seasoning.",
+        "proTip": "The lime juice added at the end brightens the soup and cuts through the richness of the slow-cooked broth."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Serve with Toppings",
+        "instruction": "Ladle into deep bowls and top with crispy tortilla strips, diced avocado, a dollop of sour cream, and fresh chopped cilantro.",
+        "proTip": "Crush the tortilla strips on top right before serving so they stay crunchy for the first few bites then soak up the broth."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Boneless Chicken Thighs",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "lbs",
+        "notes": "skinless"
+      },
+      {
+        "item": "Fire-Roasted Diced Tomatoes",
+        "qty": "14",
+        "qtyNumeric": 14,
+        "unit": "oz",
+        "notes": "one can"
+      },
+      {
+        "item": "Black Beans",
+        "qty": "15",
+        "qtyNumeric": 15,
+        "unit": "oz",
+        "notes": "one can, drained and rinsed"
+      },
+      {
+        "item": "Corn Kernels",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup",
+        "notes": "frozen or canned"
+      },
+      {
+        "item": "Chicken Broth",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "cups"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "medium",
+        "notes": "diced"
+      },
+      {
+        "item": "Garlic",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Chili Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Ground Cumin",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Smoked Paprika",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Lime Juice",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp",
+        "notes": "fresh"
+      },
+      {
+        "item": "Tortilla Strips",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup",
+        "notes": "for serving"
+      },
+      {
+        "item": "Avocado",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "medium",
+        "notes": "diced, for serving"
+      },
+      {
+        "item": "Sour Cream",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup",
+        "notes": "for serving"
+      },
+      {
+        "item": "Fresh Cilantro",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "chopped, for garnish"
+      }
+    ],
+    "dadProTip": "This is the ultimate set-it-and-forget-it recipe. Ten minutes of work in the morning and you walk in the door to a house that smells incredible and dinner that is completely done. It does not get better than that.",
+    "kidAdjustment": "Use mild chili powder and let kids skip the avocado and cilantro if they prefer. Extra tortilla strips and cheese on top make it kid-friendly.",
+    "sideSuggestions": [
+      "Warm cornbread",
+      "Tortilla chips with queso",
+      "Mexican street corn salad"
+    ],
+    "reheatInstructions": "Reheat on the stovetop over medium heat or in the microwave. Add a splash of chicken broth if the soup has thickened overnight.",
+    "nutrition": {
+      "calories": 280,
+      "proteinGrams": 28,
+      "carbsGrams": 24,
+      "fatGrams": 10,
+      "source": "USDA FoodData Central #171514"
+    },
+    "kidRating": 4,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "slow cooker chicken tortilla soup",
+      "crockpot tortilla soup",
+      "chicken tortilla soup recipe",
+      "easy tortilla soup",
+      "how long to cook chicken tortilla soup",
+      "chicken tortilla soup cook time",
+      "chicken tortilla soup internal temperature",
+      "easy chicken tortilla soup recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
   }
 ]
