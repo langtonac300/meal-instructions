@@ -99,8 +99,8 @@ for (const r of recipes) {
   }
 }
 
-// HR-5: recipe ceiling.
-const CEILING = 150;
+// HR-5: recipe ceiling (raised 150 → 200 with Alex's sign-off).
+const CEILING = 200;
 if (recipes.length > CEILING)
   errors.push(`HR-5: ${recipes.length} recipes exceeds the ceiling of ${CEILING} — needs Alex's sign-off`);
 

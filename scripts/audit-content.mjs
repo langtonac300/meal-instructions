@@ -22,9 +22,9 @@ console.log(`Auditing ${recipes.length} recipes and parametric datasheets...\n`)
 
 let errors = [];
 
-// 1. HR-5: Recipe count ceiling
-if (recipes.length > 150) {
-  errors.push(`Hard Rule Violation: Total recipe count (${recipes.length}) exceeds 150 ceiling.`);
+// 1. HR-5: Recipe count ceiling (raised 150 → 200 with Alex's sign-off).
+if (recipes.length > 200) {
+  errors.push(`Hard Rule Violation: Total recipe count (${recipes.length}) exceeds 200 ceiling.`);
 }
 
 // 2. Declared types contract — PARSED from lib/types.ts, never copied.
