@@ -9,6 +9,7 @@ import {
   Copy, Play, Pause, RotateCcw, ShieldCheck, ArrowLeft, ArrowUpRight
 } from 'lucide-react';
 import Lean5SMatrix from '@/components/Lean5SMatrix';
+import MealActions from '@/components/MealActions';
 import { LeanForkIcon, LeanFlipIcon, LeanClockIcon, LeanUtensilsIcon } from '@/components/icons/Lean5SIcons';
 import { Recipe, CookTimeDatasheet } from '@/lib/types';
 import { RECIPES } from '@/data/recipes';
@@ -700,6 +701,8 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
           <div><strong>Cook Time Basis:</strong> {recipe.basis}</div>
         </div>
       </section>
+
+      <MealActions recipeSlug={recipe.slug} recipeTitle={recipe.title} />
 
       {/* RELATED RECIPES */}
       {relatedRecipes.length > 0 && (
