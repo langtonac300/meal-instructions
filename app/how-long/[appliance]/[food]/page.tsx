@@ -11,6 +11,7 @@ export const dynamic = 'force-static';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Flame, ShieldCheck, Zap, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import LeanSpecBadge from '@/components/LeanSpecBadge';
+import StartCookButton from '@/components/StartCookButton';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import type { CookTimeDatasheet, Appliance } from '@/lib/types';
 import { absoluteUrl } from '@/lib/site';
@@ -260,6 +261,17 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
             <span><strong>Release:</strong> {releaseLabel(sheet.releaseMethod)}{sheet.pressureMinutes != null ? ` (${sheet.pressureMinutes} min pressure + ${sheet.restMinutes} min release)` : ''}</span>
           </div>
         )}
+
+        {/* Live-cook companion entry point */}
+        <div className="flex flex-wrap items-center justify-between gap-3 hairline-border bg-paper p-4">
+          <div className="space-y-0.5">
+            <div className="micro-label text-accent">COOK MODE</div>
+            <div className="text-xs font-mono text-ink-muted uppercase">
+              Live timer · flip prompt · target temp · rest stage
+            </div>
+          </div>
+          <StartCookButton appliance={sheet.appliance} foodSlug={sheet.foodSlug} />
+        </div>
 
         {/* Execution Directions */}
         <div className="space-y-4 font-sans text-sm">
