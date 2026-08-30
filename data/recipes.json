@@ -15859,5 +15859,2008 @@
     ],
     "datePublished": "2026-08-29",
     "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0107",
+    "slug": "skillet-beef-and-broccoli-stir-fry",
+    "title": "Skillet Beef and Broccoli Stir Fry",
+    "tagline": "Thinly sliced flank steak and crisp broccoli tossed in savory soy-ginger sauce faster than delivery.",
+    "appliance": "skillet",
+    "categories": [
+      "15-minute",
+      "high-protein"
+    ],
+    "protein": "beef",
+    "prepMinutes": 10,
+    "cookMinutes": 8,
+    "totalMinutes": 18,
+    "image": "/images/recipes/skillet-beef-and-broccoli-stir-fry.jpg",
+    "defaultServings": 4,
+    "basis": "Tested in 12-inch stainless steel skillet over high heat with 1/4-inch sliced flank steak. USDA FSIS 145°F target for beef.",
+    "safeInternalTempF": 145,
+    "restMinutes": 0,
+    "cookTemp": "High Heat",
+    "cookTempF": 450,
+    "cookTempC": 232,
+    "equipmentNeeded": [
+      "12-Inch Skillet",
+      "Tongs",
+      "Small Mixing Bowl"
+    ],
+    "quickVersion": {
+      "temp": "High Heat (450°F / 232°C)",
+      "totalTime": "18 mins",
+      "timerMinutes": 8,
+      "flipAtMinutes": 3,
+      "bullets": [
+        "Slice 1.5 lbs flank steak into thin strips and toss with 1 tbsp cornstarch, 1 tbsp soy sauce, and 1 tsp sesame oil.",
+        "Heat 1 tbsp vegetable oil in a 12-inch skillet over high heat until just smoking.",
+        "Sear the beef strips for 3 minutes without moving, flip and cook 1 minute more, then remove to a plate.",
+        "Add 4 cups broccoli florets and 2 tbsp water, cover 2 minutes, then return beef with sauce and toss until glazed."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Prep the Steak and Sauce",
+        "instruction": "Slice 1.5 lbs flank steak against the grain into 1/4-inch strips. Toss with 1 tbsp cornstarch, 1 tbsp soy sauce, and 1 tsp sesame oil. In a small bowl, whisk together 3 tbsp soy sauce, 1 tbsp rice vinegar, 1 tbsp brown sugar, 1 tsp cornstarch, and 1 tsp sesame oil for the sauce.",
+        "proTip": "Slicing against the grain and coating with cornstarch creates velvety tender beef with a light crust that holds sauce perfectly."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Sear the Beef",
+        "instruction": "Heat 1 tbsp vegetable oil in a 12-inch skillet over high heat until just smoking. Add the beef strips in a single layer and sear for 3 minutes without stirring. Flip and cook 1 minute more until browned. Transfer beef to a plate.",
+        "proTip": "Do not overcrowd the pan. If your skillet is smaller, sear the beef in two batches so it browns instead of steaming."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Cook the Broccoli",
+        "instruction": "Add another splash of oil to the same skillet. Add 4 cups broccoli florets, 2 minced garlic cloves, and 1 tsp grated ginger. Stir fry for 1 minute, then add 2 tbsp water and cover for 2 minutes until broccoli is bright green and crisp-tender.",
+        "proTip": "Adding a small splash of water and covering creates steam that cooks the broccoli through without making it mushy."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Combine and Glaze",
+        "instruction": "Return the seared beef to the skillet. Pour the sauce mixture over everything and toss for 30 seconds until the sauce thickens and coats the beef and broccoli. Remove from heat. Garnish with sesame seeds and sliced green onions.",
+        "proTip": "The sauce thickens fast once it hits the hot pan. Have everything ready before you pour it in so you can toss immediately."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Flank Steak",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "lbs",
+        "notes": "sliced thin against the grain"
+      },
+      {
+        "item": "Broccoli Florets",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "cups"
+      },
+      {
+        "item": "Soy Sauce",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "tbsp",
+        "notes": "divided"
+      },
+      {
+        "item": "Sesame Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tsp",
+        "notes": "divided"
+      },
+      {
+        "item": "Cornstarch",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tsp",
+        "notes": "divided"
+      },
+      {
+        "item": "Brown Sugar",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Fresh Ginger",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "grated"
+      },
+      {
+        "item": "Rice Vinegar",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Vegetable Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Sesame Seeds",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp",
+        "notes": "for garnish"
+      },
+      {
+        "item": "Green Onions",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "stalks",
+        "notes": "sliced, for garnish"
+      }
+    ],
+    "dadProTip": "The secret to restaurant-quality stir fry at home is a screaming hot pan and not touching the beef for the first three minutes. That sear is everything.",
+    "kidAdjustment": "Reduce the ginger and skip the green onions if kids are picky. Serve over plain white rice and let them dip the beef in extra soy sauce.",
+    "sideSuggestions": [
+      "Steamed jasmine rice",
+      "Fried rice with egg",
+      "Wonton soup"
+    ],
+    "reheatInstructions": "Reheat in a hot skillet for 2 minutes, tossing constantly. Add a splash of water to loosen the sauce. Do not microwave or the broccoli turns soggy.",
+    "nutrition": {
+      "calories": 380,
+      "proteinGrams": 38,
+      "carbsGrams": 14,
+      "fatGrams": 20,
+      "source": "USDA FoodData Central #174032"
+    },
+    "kidRating": 4,
+    "difficulty": "Easy",
+    "keywords": [
+      "beef and broccoli stir fry",
+      "skillet beef and broccoli",
+      "quick beef stir fry",
+      "how long to cook beef and broccoli",
+      "beef and broccoli cook time",
+      "beef and broccoli internal temperature",
+      "easy beef and broccoli recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0108",
+    "slug": "sheet-pan-honey-glazed-carrots",
+    "title": "Sheet Pan Honey Glazed Carrots",
+    "tagline": "Whole carrots roasted with honey, butter, and thyme until caramelized and fork-tender with zero effort.",
+    "appliance": "sheet-pan",
+    "categories": [
+      "kid-approved",
+      "sides"
+    ],
+    "protein": "vegetarian",
+    "prepMinutes": 5,
+    "cookMinutes": 25,
+    "totalMinutes": 32,
+    "image": "/images/recipes/sheet-pan-honey-glazed-carrots.jpg",
+    "defaultServings": 4,
+    "basis": "Tested on half-sheet pan at 400°F (204°C) with medium whole carrots halved lengthwise.",
+    "safeInternalTempF": 0,
+    "restMinutes": 2,
+    "cookTemp": "400°F (204°C)",
+    "cookTempF": 400,
+    "cookTempC": 204,
+    "equipmentNeeded": [
+      "Sheet Pan",
+      "Parchment Paper",
+      "Small Saucepan"
+    ],
+    "quickVersion": {
+      "temp": "400°F (204°C)",
+      "totalTime": "32 mins",
+      "timerMinutes": 25,
+      "flipAtMinutes": 15,
+      "bullets": [
+        "Preheat oven to 400°F. Peel 2 lbs carrots and halve lengthwise.",
+        "Toss carrots with 2 tbsp olive oil, salt, and pepper on a parchment-lined sheet pan.",
+        "Roast 15 minutes, flip, then drizzle with honey-butter glaze and roast 10 more minutes.",
+        "Remove when edges are caramelized and carrots are fork-tender. Garnish with fresh thyme."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Prep the Carrots",
+        "instruction": "Preheat oven to 400°F (204°C). Peel 2 lbs carrots and halve lengthwise. If any carrots are very thick, quarter them so all pieces are roughly the same size. Toss with 2 tbsp olive oil, 1/2 tsp salt, and 1/4 tsp black pepper.",
+        "proTip": "Cutting the carrots to uniform thickness is the key to even roasting. Thick and thin pieces in the same pan means some burn while others stay raw."
+      },
+      {
+        "stepNumber": 2,
+        "title": "First Roast",
+        "instruction": "Spread carrots cut-side down in a single layer on a parchment-lined sheet pan. Roast for 15 minutes until the bottoms start to develop golden color.",
+        "proTip": "Placing the cut side down maximizes the flat surface contact with the hot pan for the best caramelization."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Glaze and Finish",
+        "instruction": "While carrots roast, melt 2 tbsp butter in a small saucepan. Stir in 2 tbsp honey and 1 tsp fresh thyme leaves. Flip the carrots, drizzle the honey-butter glaze over top, and roast 10 more minutes until caramelized and fork-tender.",
+        "proTip": "The honey can burn quickly at high heat, so adding the glaze for only the last 10 minutes gives you caramelization without bitterness."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Whole Carrots",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "lbs",
+        "notes": "peeled and halved lengthwise"
+      },
+      {
+        "item": "Honey",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "unsalted"
+      },
+      {
+        "item": "Fresh Thyme",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "leaves only"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "This is the side dish that converts carrot haters. The honey glaze caramelizes into candy-like edges while the inside stays tender. Even the kids will ask for seconds.",
+    "kidAdjustment": "Skip the thyme if kids do not like visible herbs. The honey-butter glaze alone is usually enough to win them over.",
+    "sideSuggestions": [
+      "Roasted whole chicken",
+      "Pan-seared pork chops",
+      "Grilled steak"
+    ],
+    "reheatInstructions": "Reheat on a sheet pan at 375°F for 5 minutes. Microwaving works but the edges lose their crispness.",
+    "nutrition": {
+      "calories": 160,
+      "proteinGrams": 1,
+      "carbsGrams": 24,
+      "fatGrams": 8,
+      "source": "USDA FoodData Central #170393"
+    },
+    "kidRating": 4,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "honey glazed carrots",
+      "sheet pan roasted carrots",
+      "roasted carrots with honey",
+      "how long to cook glazed carrots",
+      "honey glazed carrots cook time",
+      "easy honey glazed carrots recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0109",
+    "slug": "smoker-bbq-baby-back-ribs",
+    "title": "Smoker BBQ Baby Back Ribs",
+    "tagline": "Fall-off-the-bone baby backs using the legendary 3-2-1 method with a sticky BBQ glaze finish.",
+    "appliance": "smoker",
+    "categories": [
+      "high-protein",
+      "weekend"
+    ],
+    "protein": "pork",
+    "prepMinutes": 15,
+    "cookMinutes": 360,
+    "totalMinutes": 385,
+    "image": "/images/recipes/smoker-bbq-baby-back-ribs.jpg",
+    "defaultServings": 4,
+    "basis": "Tested on offset smoker and pellet grill at 225°F (107°C) with Duroc baby back ribs. USDA FSIS 145°F minimum, 195-205°F for tender ribs.",
+    "safeInternalTempF": 195,
+    "restMinutes": 10,
+    "cookTemp": "225°F (107°C)",
+    "cookTempF": 225,
+    "cookTempC": 107,
+    "equipmentNeeded": [
+      "Smoker or Pellet Grill",
+      "Aluminum Foil",
+      "Spray Bottle",
+      "Instant-Read Thermometer",
+      "Basting Brush"
+    ],
+    "quickVersion": {
+      "temp": "225°F (107°C)",
+      "totalTime": "6 hrs 15 mins",
+      "timerMinutes": 360,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Remove membrane from ribs. Coat both sides generously with dry rub and let sit 30 minutes.",
+        "Smoke at 225°F for 3 hours bone-side down, spritzing with apple juice every 45 minutes.",
+        "Wrap ribs in foil with butter, brown sugar, and apple juice. Smoke 2 more hours at 225°F.",
+        "Unwrap, brush with BBQ sauce, and smoke 1 final hour until sticky and tender at 195-205°F."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Prep and Rub",
+        "instruction": "Remove the thin membrane from the bone side of 2 racks baby back ribs by sliding a butter knife under it and pulling with a paper towel. Mix 1/4 cup brown sugar, 2 tbsp smoked paprika, 1 tbsp each garlic powder, onion powder, chili powder, and cumin, 2 tsp black pepper, 1 tsp salt, and 1 tsp mustard powder. Coat both sides generously with the dry rub.",
+        "proTip": "Removing the membrane is non-negotiable. It blocks smoke and seasoning from penetrating the meat and turns rubbery when cooked."
+      },
+      {
+        "stepNumber": 2,
+        "title": "The 3-Hour Smoke",
+        "instruction": "Preheat smoker to 225°F (107°C). Place ribs bone-side down on the grate. Smoke for 3 hours, spritzing with apple juice from a spray bottle every 45 minutes to keep the surface moist.",
+        "proTip": "Use a mild fruitwood like apple or cherry for baby backs. Hickory and mesquite can overpower pork at this long cook time."
+      },
+      {
+        "stepNumber": 3,
+        "title": "The 2-Hour Wrap",
+        "instruction": "Lay out two large sheets of aluminum foil. Place each rack meat-side down. Add 2 tbsp butter, 2 tbsp brown sugar, and a splash of apple juice to each packet. Wrap tightly and return to the smoker at 225°F for 2 hours.",
+        "proTip": "The foil wrap braising step is what takes ribs from tough to fall-off-the-bone. The butter and sugar create a caramel layer underneath."
+      },
+      {
+        "stepNumber": 4,
+        "title": "The 1-Hour Sauce",
+        "instruction": "Carefully unwrap the ribs and place back on the grate bone-side down. Brush generously with your favorite BBQ sauce. Smoke for 1 final hour at 225°F until the sauce is sticky and set. Internal temp should read 195-205°F between the bones. Rest 10 minutes, then slice between the bones.",
+        "proTip": "If the sauce is not tacky after an hour, bump the heat to 275°F for the last 15 minutes to help it set without burning."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Baby Back Ribs",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "racks",
+        "notes": "about 2-2.5 lbs each"
+      },
+      {
+        "item": "Brown Sugar",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup",
+        "notes": "divided between rub and wrap"
+      },
+      {
+        "item": "Smoked Paprika",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Onion Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Chili Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Ground Cumin",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Mustard Powder",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "BBQ Sauce",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Apple Cider Vinegar",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Apple Juice",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup",
+        "notes": "for spritzing and wrapping"
+      },
+      {
+        "item": "Butter",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "tbsp",
+        "notes": "unsalted"
+      },
+      {
+        "item": "Aluminum Foil",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "sheets",
+        "notes": "heavy duty"
+      }
+    ],
+    "dadProTip": "The 3-2-1 method is foolproof even for first-timers. Three hours of smoke for flavor, two hours wrapped for tenderness, one hour sauced for that sticky bark. Follow the numbers and you cannot mess it up.",
+    "kidAdjustment": "Use a mild sweet BBQ sauce and skip any spicy elements in the rub. Kids love ribs they can pick up with their hands.",
+    "sideSuggestions": [
+      "Classic coleslaw",
+      "Baked beans",
+      "Cornbread with honey butter"
+    ],
+    "reheatInstructions": "Wrap ribs in foil with a splash of apple juice and reheat at 250°F for 30 minutes. The steam from the juice keeps them moist.",
+    "nutrition": {
+      "calories": 520,
+      "proteinGrams": 38,
+      "carbsGrams": 22,
+      "fatGrams": 32,
+      "source": "USDA FoodData Central #168320"
+    },
+    "kidRating": 5,
+    "difficulty": "Moderate",
+    "keywords": [
+      "smoked baby back ribs",
+      "3-2-1 ribs method",
+      "BBQ ribs recipe",
+      "how long to cook baby back ribs",
+      "baby back ribs cook time",
+      "baby back ribs internal temperature",
+      "easy baby back ribs recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0110",
+    "slug": "air-fryer-turkey-breast",
+    "title": "Air Fryer Turkey Breast",
+    "tagline": "Bone-in turkey breast rubbed with herb butter and air fried to golden, juicy perfection without heating the whole oven.",
+    "appliance": "air-fryer",
+    "categories": [
+      "high-protein"
+    ],
+    "protein": "turkey",
+    "prepMinutes": 10,
+    "cookMinutes": 50,
+    "totalMinutes": 70,
+    "image": "/images/recipes/air-fryer-turkey-breast.jpg",
+    "defaultServings": 6,
+    "basis": "Tested in 6-qt basket air fryer at 360°F (182°C) with a 3.5 lb bone-in turkey breast. USDA FSIS 165°F target.",
+    "safeInternalTempF": 165,
+    "restMinutes": 10,
+    "cookTemp": "360°F (182°C)",
+    "cookTempF": 360,
+    "cookTempC": 182,
+    "equipmentNeeded": [
+      "Air Fryer",
+      "Instant-Read Thermometer",
+      "Small Bowl"
+    ],
+    "quickVersion": {
+      "temp": "360°F (182°C)",
+      "totalTime": "1 hr 10 mins",
+      "timerMinutes": 50,
+      "flipAtMinutes": 25,
+      "bullets": [
+        "Pat a 3-4 lb bone-in turkey breast dry. Mix softened butter with garlic, rosemary, thyme, sage, and smoked paprika.",
+        "Rub herb butter all over and under the skin. Season generously with salt and pepper.",
+        "Air fry breast-side down at 360°F for 25 minutes, then flip breast-side up for 25 more minutes.",
+        "Turkey is done when internal temp reaches 165°F in the thickest part. Rest 10 minutes before slicing."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Make the Herb Butter",
+        "instruction": "Mix 3 tbsp softened butter with 2 minced garlic cloves, 1 tsp each chopped rosemary, thyme, and sage, 1/2 tsp smoked paprika, 1/2 tsp salt, and 1/4 tsp black pepper in a small bowl until well combined.",
+        "proTip": "Use softened butter, not melted. Softened butter holds the herbs in place and stays where you rub it instead of running off."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Prep the Turkey",
+        "instruction": "Pat a 3-4 lb bone-in turkey breast completely dry with paper towels. Gently loosen the skin from the meat with your fingers. Spread half the herb butter under the skin directly on the meat. Rub the remaining butter over the outside of the skin. Drizzle with 1 tsp olive oil.",
+        "proTip": "Getting butter under the skin bastes the meat from the inside as it cooks, keeping the breast incredibly moist."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Air Fry",
+        "instruction": "Place the turkey breast-side down in the air fryer basket. Air fry at 360°F (182°C) for 25 minutes. Flip breast-side up and cook for another 25 minutes until the skin is deep golden brown and the internal temperature reaches 165°F in the thickest part.",
+        "proTip": "Starting breast-side down lets the juices run into the white meat during the first half, then flipping crisps the skin in the second half."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Rest and Carve",
+        "instruction": "Remove the turkey breast from the air fryer and let rest on a cutting board for 10 minutes. The internal temperature will rise another 5 degrees during resting. Carve against the grain into 1/2-inch slices.",
+        "proTip": "Resting is not optional. Cutting too early lets all the juices run out onto the board instead of staying in the meat."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Bone-In Turkey Breast",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "piece",
+        "notes": "3-4 lbs"
+      },
+      {
+        "item": "Butter",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "tbsp",
+        "notes": "softened"
+      },
+      {
+        "item": "Garlic",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Fresh Rosemary",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "chopped"
+      },
+      {
+        "item": "Fresh Thyme",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "chopped"
+      },
+      {
+        "item": "Fresh Sage",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "chopped"
+      },
+      {
+        "item": "Smoked Paprika",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "This is Thanksgiving-quality turkey breast on a random Tuesday night. The air fryer gives you crispy skin and juicy meat in under an hour with no roasting pan cleanup.",
+    "kidAdjustment": "Slice thin and serve with gravy for dipping. Turkey breast is naturally mild, so most kids love it as-is.",
+    "sideSuggestions": [
+      "Mashed potatoes and gravy",
+      "Cranberry sauce",
+      "Steamed green beans with butter"
+    ],
+    "reheatInstructions": "Slice and reheat in the air fryer at 300°F for 3-4 minutes. Add a pat of butter on top to keep it moist.",
+    "nutrition": {
+      "calories": 290,
+      "proteinGrams": 44,
+      "carbsGrams": 1,
+      "fatGrams": 12,
+      "source": "USDA FoodData Central #171082"
+    },
+    "kidRating": 4,
+    "difficulty": "Easy",
+    "keywords": [
+      "air fryer turkey breast",
+      "herb butter turkey breast",
+      "quick turkey breast recipe",
+      "how long to cook turkey breast",
+      "turkey breast cook time",
+      "turkey breast internal temperature",
+      "easy turkey breast recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0111",
+    "slug": "grill-classic-smash-burgers",
+    "title": "Grill Classic Smash Burgers",
+    "tagline": "Thin beef patties smashed paper-thin on a screaming hot grill for maximum crispy edges and double-stacked glory.",
+    "appliance": "grill",
+    "categories": [
+      "kid-approved",
+      "high-protein",
+      "15-minute"
+    ],
+    "protein": "beef",
+    "prepMinutes": 5,
+    "cookMinutes": 6,
+    "totalMinutes": 13,
+    "image": "/images/recipes/grill-classic-smash-burgers.jpg",
+    "defaultServings": 4,
+    "basis": "Tested on flat-top griddle and cast iron on grill grate over high heat with 80/20 ground beef. USDA FSIS 160°F target for ground beef.",
+    "safeInternalTempF": 160,
+    "restMinutes": 2,
+    "cookTemp": "High Heat",
+    "cookTempF": 500,
+    "cookTempC": 260,
+    "equipmentNeeded": [
+      "Grill or Flat-Top Griddle",
+      "Heavy Spatula or Burger Press",
+      "Parchment Paper"
+    ],
+    "quickVersion": {
+      "temp": "High Heat (500°F / 260°C)",
+      "totalTime": "13 mins",
+      "timerMinutes": 6,
+      "flipAtMinutes": 3,
+      "bullets": [
+        "Divide 1.5 lbs ground beef into 8 equal balls (about 3 oz each). Season with kosher salt and pepper.",
+        "Heat grill or griddle to screaming hot. Place beef balls on the surface and smash flat with a heavy spatula.",
+        "Cook 3 minutes until a deep brown crust forms, flip, add American cheese, cook 2-3 more minutes.",
+        "Stack two patties per bun. Top with pickles, onion, ketchup, and mustard."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Form the Balls",
+        "instruction": "Divide 1.5 lbs ground beef (80/20) into 8 equal balls, about 3 oz each. Do not overwork the meat. Season each ball generously on all sides with kosher salt and black pepper. Butter the insides of 4 brioche buns and set aside.",
+        "proTip": "80/20 fat ratio is non-negotiable for smash burgers. Lean beef dries out and will not develop that crispy lacy crust."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Smash and Sear",
+        "instruction": "Heat your grill, griddle, or cast iron to the highest heat possible. Place beef balls on the hot surface and immediately smash each one as flat as possible using a heavy spatula or burger press with parchment paper between. Cook for 3 minutes without touching until a deep brown crust forms.",
+        "proTip": "Smash within the first 30 seconds while the meat is still cold. Once it starts cooking, smashing squeezes out juice instead of spreading the patty."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Flip and Cheese",
+        "instruction": "Use a stiff spatula to scrape each patty off the surface, keeping all the crispy bits attached. Flip and immediately place a slice of American cheese on each patty. Cook 2-3 more minutes. The cheese will melt from the residual heat.",
+        "proTip": "American cheese is the classic choice because it melts into a creamy blanket. Do not substitute a cheese that does not melt smoothly."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Stack and Serve",
+        "instruction": "Toast the buttered brioche buns on the grill for 30 seconds. Stack two cheese-covered patties on each bun. Top with dill pickle slices, thin onion rings, ketchup, and yellow mustard. Serve immediately.",
+        "proTip": "Two thin patties stacked beat one thick patty every time. You get twice the crust surface area and twice the cheese."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Ground Beef",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "lbs",
+        "notes": "80/20 blend"
+      },
+      {
+        "item": "American Cheese",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "slices"
+      },
+      {
+        "item": "Brioche Buns",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "pieces"
+      },
+      {
+        "item": "Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "for toasting buns"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Dill Pickles",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "slices"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "small",
+        "notes": "thinly sliced"
+      },
+      {
+        "item": "Ketchup",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Yellow Mustard",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      }
+    ],
+    "dadProTip": "The entire secret to a great smash burger is maximum contact between meat and hot metal. Smash it flat, leave it alone, and let the Maillard reaction do all the heavy lifting.",
+    "kidAdjustment": "Skip the onion and pickles for picky eaters. Plain cheese smash burgers with ketchup are a guaranteed kid winner.",
+    "sideSuggestions": [
+      "Crispy french fries",
+      "Classic coleslaw",
+      "Onion rings"
+    ],
+    "reheatInstructions": "Smash burgers are best fresh. If you must reheat, place patties in a hot skillet for 1 minute per side. Do not microwave.",
+    "nutrition": {
+      "calories": 560,
+      "proteinGrams": 38,
+      "carbsGrams": 28,
+      "fatGrams": 34,
+      "source": "USDA FoodData Central #174036"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "smash burgers on grill",
+      "classic smash burger recipe",
+      "griddle smash burgers",
+      "how long to cook smash burgers",
+      "smash burgers cook time",
+      "smash burgers internal temperature",
+      "easy smash burgers recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0112",
+    "slug": "dutch-oven-braised-short-ribs",
+    "title": "Dutch Oven Braised Short Ribs",
+    "tagline": "Bone-in short ribs seared, then braised in red wine and beef broth until fork-tender and falling off the bone.",
+    "appliance": "dutch-oven",
+    "categories": [
+      "high-protein",
+      "weekend"
+    ],
+    "protein": "beef",
+    "prepMinutes": 20,
+    "cookMinutes": 180,
+    "totalMinutes": 210,
+    "image": "/images/recipes/dutch-oven-braised-short-ribs.jpg",
+    "defaultServings": 4,
+    "basis": "Tested in enameled 6-qt Dutch oven at 300°F (149°C) with English-cut bone-in short ribs. USDA FSIS 145°F minimum, 200-210°F for braised tender.",
+    "safeInternalTempF": 205,
+    "restMinutes": 10,
+    "cookTemp": "300°F (149°C)",
+    "cookTempF": 300,
+    "cookTempC": 149,
+    "equipmentNeeded": [
+      "Dutch Oven (6-qt)",
+      "Tongs",
+      "Instant-Read Thermometer"
+    ],
+    "quickVersion": {
+      "temp": "300°F (149°C)",
+      "totalTime": "3 hrs 30 mins",
+      "timerMinutes": 180,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Season 4 lbs short ribs with salt and pepper. Sear all sides in hot olive oil in a Dutch oven until deeply browned.",
+        "Remove ribs. Saute diced onion, carrots, celery, and garlic. Add tomato paste, thyme, rosemary, and bay leaves.",
+        "Deglaze with 2 cups red wine, add 2 cups beef broth, return ribs, and bring to a simmer.",
+        "Cover and braise in a 300°F oven for 3 hours until fork-tender at 200-210°F internal temp."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Sear the Short Ribs",
+        "instruction": "Preheat oven to 300°F (149°C). Pat 4 lbs bone-in short ribs dry and season generously with salt and pepper. Dust lightly with flour. Heat 2 tbsp olive oil in a Dutch oven over medium-high heat. Sear the ribs on all sides, about 3 minutes per side, until deeply browned. Work in batches to avoid crowding. Remove to a plate.",
+        "proTip": "Do not rush the sear. That deep brown crust is the entire foundation of flavor for the braising liquid."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Build the Braising Base",
+        "instruction": "Reduce heat to medium. Add 1 diced onion, 2 diced carrots, and 2 diced celery stalks to the pot. Cook 5 minutes until softened. Add 4 minced garlic cloves and 2 tbsp tomato paste, stirring for 1 minute. Add fresh thyme sprigs, a rosemary sprig, and 2 bay leaves.",
+        "proTip": "Cooking the tomato paste for a minute removes the raw tinny flavor and deepens the color and sweetness of the braising liquid."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Deglaze and Braise",
+        "instruction": "Pour in 2 cups dry red wine and scrape up all the browned bits from the bottom of the pot. Let the wine reduce by half, about 5 minutes. Add 2 cups beef broth. Nestle the seared short ribs back in, bone-side up. The liquid should come about two-thirds up the sides of the ribs. Bring to a simmer.",
+        "proTip": "Use a dry red wine you would actually drink. Cheap cooking wine adds harsh flavors. A Cabernet or Merlot works perfectly."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Oven Braise and Serve",
+        "instruction": "Cover the Dutch oven with its lid and transfer to the 300°F oven. Braise for 3 hours until the meat is fork-tender and the internal temperature reads 200-210°F. Remove the ribs to a platter. Strain the braising liquid and skim the fat. Reduce on the stovetop if a thicker sauce is desired. Spoon sauce over the ribs and serve.",
+        "proTip": "If you make these a day ahead and refrigerate, the fat solidifies on top and lifts right off. The flavors also deepen overnight."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Bone-In Short Ribs",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "lbs",
+        "notes": "English cut"
+      },
+      {
+        "item": "Dry Red Wine",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cups",
+        "notes": "Cabernet or Merlot"
+      },
+      {
+        "item": "Beef Broth",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cups"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "large",
+        "notes": "diced"
+      },
+      {
+        "item": "Carrots",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "medium",
+        "notes": "diced"
+      },
+      {
+        "item": "Celery",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "stalks",
+        "notes": "diced"
+      },
+      {
+        "item": "Garlic",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Tomato Paste",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Fresh Thyme",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "sprigs"
+      },
+      {
+        "item": "Fresh Rosemary",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "sprig"
+      },
+      {
+        "item": "Bay Leaves",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "pieces"
+      },
+      {
+        "item": "All-Purpose Flour",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "for dusting"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "This is the dish that makes people think you went to culinary school. Three hours of hands-off oven time does all the work while you sit on the couch looking like a genius.",
+    "kidAdjustment": "Shred the meat off the bone and serve over buttered egg noodles. The rich sauce is usually a hit even with picky eaters.",
+    "sideSuggestions": [
+      "Creamy mashed potatoes",
+      "Buttered egg noodles",
+      "Crusty sourdough bread"
+    ],
+    "reheatInstructions": "Reheat covered in the Dutch oven at 300°F for 20-25 minutes. Add a splash of beef broth if the sauce has thickened too much.",
+    "nutrition": {
+      "calories": 580,
+      "proteinGrams": 42,
+      "carbsGrams": 12,
+      "fatGrams": 38,
+      "source": "USDA FoodData Central #174035"
+    },
+    "kidRating": 3,
+    "difficulty": "Moderate",
+    "keywords": [
+      "braised short ribs",
+      "Dutch oven short ribs",
+      "red wine braised short ribs",
+      "how long to cook short ribs",
+      "short ribs cook time",
+      "short ribs internal temperature",
+      "easy braised short ribs recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0113",
+    "slug": "slow-cooker-classic-pot-roast",
+    "title": "Slow Cooker Classic Pot Roast",
+    "tagline": "Chuck roast with potatoes, carrots, and onions slow cooked for 8 hours until fork-tender and falling apart.",
+    "appliance": "slow-cooker",
+    "categories": [
+      "high-protein",
+      "kid-approved"
+    ],
+    "protein": "beef",
+    "prepMinutes": 15,
+    "cookMinutes": 480,
+    "totalMinutes": 505,
+    "image": "/images/recipes/slow-cooker-classic-pot-roast.jpg",
+    "defaultServings": 8,
+    "basis": "Tested in 6-qt slow cooker on LOW setting with boneless chuck roast. USDA FSIS 145°F minimum, 200-210°F for fork-tender braise.",
+    "safeInternalTempF": 205,
+    "restMinutes": 10,
+    "cookTemp": "Low (190°F / 88°C)",
+    "cookTempF": 190,
+    "cookTempC": 88,
+    "equipmentNeeded": [
+      "6-Quart Slow Cooker",
+      "Large Skillet",
+      "Tongs"
+    ],
+    "quickVersion": {
+      "temp": "Low (190°F / 88°C)",
+      "totalTime": "8 hrs 25 mins",
+      "timerMinutes": 480,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Season a 3 lb chuck roast with salt and pepper. Sear all sides in a hot skillet until deeply browned.",
+        "Place 1.5 lbs quartered potatoes, 1 lb carrot chunks, and quartered onion in the slow cooker.",
+        "Set seared roast on top of vegetables. Pour in 1.5 cups beef broth, Worcestershire sauce, and tomato paste.",
+        "Cook on LOW for 8 hours until fork-tender. Shred or slice and serve with vegetables and pot liquor."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Sear the Roast",
+        "instruction": "Pat a 3 lb chuck roast dry and season generously with salt and pepper. Heat 2 tbsp olive oil in a large skillet over medium-high heat. Sear the roast on all sides, about 3-4 minutes per side, until a deep brown crust forms. This step takes about 12 minutes total.",
+        "proTip": "Never skip the sear. Browning the roast before it goes in the slow cooker adds layers of flavor that low-and-slow cooking alone cannot create."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Layer the Slow Cooker",
+        "instruction": "Place 1.5 lbs quartered potatoes, 1 lb carrots cut into 2-inch chunks, 1 quartered onion, and 4 smashed garlic cloves in the bottom of a 6-quart slow cooker. Set the seared roast on top of the vegetables.",
+        "proTip": "Always place vegetables on the bottom where they are closest to the heat source. The roast on top bastes them as it cooks."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Add Liquid and Cook",
+        "instruction": "Whisk together 1.5 cups beef broth, 2 tbsp Worcestershire sauce, 1 tbsp tomato paste, and fresh thyme and rosemary sprigs. Pour over the roast. Cover and cook on LOW for 8 hours until the roast is fork-tender and shreds easily.",
+        "proTip": "Do not add too much liquid. The roast and vegetables release their own juices during cooking. You want a concentrated braise, not a soup."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Rest and Serve",
+        "instruction": "Remove the roast to a cutting board and let rest 10 minutes. Slice against the grain or shred with two forks. Arrange meat and vegetables on a platter and spoon the pot liquor over everything.",
+        "proTip": "Save the pot liquor. It is liquid gold for gravy. Strain, skim the fat, and thicken with a cornstarch slurry if desired."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Chuck Roast",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "lbs",
+        "notes": "boneless"
+      },
+      {
+        "item": "Potatoes",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "lbs",
+        "notes": "quartered, Yukon Gold or red"
+      },
+      {
+        "item": "Carrots",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "lb",
+        "notes": "cut into 2-inch chunks"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "large",
+        "notes": "quartered"
+      },
+      {
+        "item": "Garlic",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "cloves",
+        "notes": "smashed"
+      },
+      {
+        "item": "Beef Broth",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "cups"
+      },
+      {
+        "item": "Worcestershire Sauce",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Tomato Paste",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Fresh Thyme",
+        "qty": "3",
+        "qtyNumeric": 3,
+        "unit": "sprigs"
+      },
+      {
+        "item": "Fresh Rosemary",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "sprig"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp"
+      }
+    ],
+    "dadProTip": "This is the ultimate set-it-and-forget-it Sunday dinner. Fifteen minutes of morning prep and 8 hours later you walk into a house that smells like a steakhouse. Pure dad magic.",
+    "kidAdjustment": "Shred the beef and serve with the soft potatoes and carrots. The mild, savory flavor is a natural kid pleaser. Add a side of ketchup for dipping if needed.",
+    "sideSuggestions": [
+      "Crusty dinner rolls",
+      "Steamed green beans",
+      "Simple garden salad"
+    ],
+    "reheatInstructions": "Reheat sliced roast and vegetables in the pot liquor on the stovetop over medium-low heat until warmed through. The leftovers make incredible sandwiches.",
+    "nutrition": {
+      "calories": 420,
+      "proteinGrams": 40,
+      "carbsGrams": 26,
+      "fatGrams": 18,
+      "source": "USDA FoodData Central #174037"
+    },
+    "kidRating": 4,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "slow cooker pot roast",
+      "crockpot pot roast",
+      "classic pot roast recipe",
+      "how long to cook pot roast",
+      "pot roast cook time",
+      "pot roast internal temperature",
+      "easy pot roast recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0114",
+    "slug": "cast-iron-blackened-shrimp",
+    "title": "Cast Iron Blackened Shrimp",
+    "tagline": "Large shrimp coated in bold Cajun blackening spice and seared in smoking hot butter for a two-minute-per-side masterpiece.",
+    "appliance": "cast-iron",
+    "categories": [
+      "15-minute",
+      "high-protein"
+    ],
+    "protein": "seafood",
+    "prepMinutes": 5,
+    "cookMinutes": 4,
+    "totalMinutes": 9,
+    "image": "/images/recipes/cast-iron-blackened-shrimp.jpg",
+    "defaultServings": 4,
+    "basis": "Tested in 12-inch cast iron skillet over high heat with 21-25 count peeled deveined shrimp. USDA FSIS 145°F target for shrimp.",
+    "safeInternalTempF": 145,
+    "restMinutes": 0,
+    "cookTemp": "High Heat",
+    "cookTempF": 500,
+    "cookTempC": 260,
+    "equipmentNeeded": [
+      "12-Inch Cast Iron Skillet",
+      "Tongs",
+      "Small Bowl"
+    ],
+    "quickVersion": {
+      "temp": "High Heat (500°F / 260°C)",
+      "totalTime": "9 mins",
+      "timerMinutes": 4,
+      "flipAtMinutes": 2,
+      "bullets": [
+        "Pat 1.5 lbs large shrimp dry. Mix smoked paprika, garlic powder, onion powder, cayenne, oregano, thyme, salt, and pepper.",
+        "Toss shrimp in the spice mixture until evenly coated on all sides.",
+        "Melt 2 tbsp butter in a smoking hot cast iron skillet. Add shrimp in a single layer.",
+        "Sear 2 minutes per side until charred and opaque. Squeeze fresh lemon over top and serve immediately."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Season the Shrimp",
+        "instruction": "Pat 1.5 lbs large shrimp (peeled and deveined) completely dry with paper towels. In a small bowl, mix 1 tsp smoked paprika, 1/2 tsp garlic powder, 1/2 tsp onion powder, 1/4 tsp cayenne pepper, 1/4 tsp dried oregano, 1/4 tsp dried thyme, 1/2 tsp salt, and 1/4 tsp black pepper. Toss the shrimp in the spice mixture until evenly coated.",
+        "proTip": "Dry shrimp is critical. Any moisture on the surface will steam instead of sear, and you will not get that blackened crust."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Heat the Skillet",
+        "instruction": "Place a 12-inch cast iron skillet over high heat for 3 minutes until it is smoking hot. Add 2 tbsp butter and let it foam and just start to brown.",
+        "proTip": "Cast iron holds heat better than any other pan, which is why it is perfect for blackening. The spices char on contact with the superheated surface."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Sear the Shrimp",
+        "instruction": "Add the seasoned shrimp in a single layer, working in batches if necessary. Sear for 2 minutes without moving until the bottom is deeply charred. Flip and cook 2 more minutes until the shrimp are opaque and curled into a C-shape. Squeeze half a lemon over the shrimp in the pan.",
+        "proTip": "Shrimp that curl into a tight O are overcooked. Pull them when they form a loose C-shape for perfect texture."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Large Shrimp",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "lbs",
+        "notes": "peeled and deveined, 21-25 count"
+      },
+      {
+        "item": "Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "unsalted"
+      },
+      {
+        "item": "Smoked Paprika",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Onion Powder",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Cayenne Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "item": "Dried Oregano",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "item": "Dried Thyme",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "item": "Lemon",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "piece",
+        "notes": "halved"
+      }
+    ],
+    "dadProTip": "Four minutes total cook time for restaurant-quality blackened shrimp. The cast iron does all the work. Just make sure you open a window because that Cajun smoke will set off every alarm in the house.",
+    "kidAdjustment": "Cut the cayenne pepper in half or skip it entirely for sensitive palates. The smoky paprika flavor is still delicious without the heat.",
+    "sideSuggestions": [
+      "Creamy grits",
+      "Rice pilaf",
+      "Caesar salad"
+    ],
+    "reheatInstructions": "Blackened shrimp are best fresh. If you must reheat, warm in a skillet over medium heat for 1 minute per side. Do not microwave.",
+    "nutrition": {
+      "calories": 220,
+      "proteinGrams": 36,
+      "carbsGrams": 2,
+      "fatGrams": 8,
+      "source": "USDA FoodData Central #175180"
+    },
+    "kidRating": 3,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "blackened shrimp",
+      "cast iron shrimp",
+      "Cajun blackened shrimp",
+      "how long to cook blackened shrimp",
+      "blackened shrimp cook time",
+      "blackened shrimp internal temperature",
+      "easy blackened shrimp recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0115",
+    "slug": "oven-stuffed-bell-peppers",
+    "title": "Oven Stuffed Bell Peppers",
+    "tagline": "Colorful bell peppers filled with seasoned ground beef, rice, tomato sauce, and melted cheese baked until bubbly.",
+    "appliance": "oven",
+    "categories": [
+      "high-protein",
+      "kid-approved"
+    ],
+    "protein": "beef",
+    "prepMinutes": 15,
+    "cookMinutes": 35,
+    "totalMinutes": 55,
+    "image": "/images/recipes/oven-stuffed-bell-peppers.jpg",
+    "defaultServings": 4,
+    "basis": "Tested in standard oven at 375°F (190°C) with large bell peppers and 80/20 ground beef filling. USDA FSIS 160°F target for ground beef.",
+    "safeInternalTempF": 160,
+    "restMinutes": 5,
+    "cookTemp": "375°F (190°C)",
+    "cookTempF": 375,
+    "cookTempC": 190,
+    "equipmentNeeded": [
+      "9x13 Baking Dish",
+      "Large Skillet",
+      "Instant-Read Thermometer"
+    ],
+    "quickVersion": {
+      "temp": "375°F (190°C)",
+      "totalTime": "55 mins",
+      "timerMinutes": 35,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Cut tops off 4 bell peppers and remove seeds. Brown 1 lb ground beef with onion, garlic, and Italian seasoning.",
+        "Mix browned beef with 1 cup cooked rice, diced tomatoes, and half the tomato sauce. Season with salt and pepper.",
+        "Stuff peppers with the beef and rice mixture. Stand upright in a baking dish and pour remaining sauce around them.",
+        "Bake at 375°F for 30 minutes, top with shredded cheddar, bake 5 more minutes until cheese melts and filling hits 160°F."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Prep the Peppers",
+        "instruction": "Preheat oven to 375°F (190°C). Cut the tops off 4 large bell peppers and remove the seeds and membranes. If the peppers do not stand upright, slice a thin sliver off the bottom to create a flat base. Lightly oil the outside of each pepper.",
+        "proTip": "Use a mix of red, yellow, and orange peppers for the best visual presentation and sweetest flavor. Green peppers are slightly more bitter."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Cook the Filling",
+        "instruction": "Heat a large skillet over medium-high heat. Brown 1 lb ground beef, breaking it into small pieces, until no pink remains. Drain excess fat. Add 1 diced onion and 2 minced garlic cloves, cooking 2 minutes until softened. Stir in 1 tsp Italian seasoning, salt, and pepper.",
+        "proTip": "Drain the beef fat well. Excess grease in the filling will pool at the bottom of the peppers and make them soggy."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Assemble and Stuff",
+        "instruction": "Remove skillet from heat. Stir in 1 cup cooked rice, one 14 oz can diced tomatoes (drained), and half of an 8 oz can tomato sauce. Mix well. Spoon the filling into each prepared pepper, packing gently. Stand the stuffed peppers upright in a 9x13 baking dish. Pour the remaining tomato sauce around the base of the peppers.",
+        "proTip": "Pack the filling firmly but do not crush the peppers. You want them full but not bursting at the seams."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Bake and Serve",
+        "instruction": "Cover the baking dish with foil and bake at 375°F for 25 minutes. Remove the foil, top each pepper with a generous pile of shredded cheddar cheese, and bake uncovered for 10 more minutes until the cheese is melted and bubbly and the filling temperature reads 160°F. Let rest 5 minutes before serving.",
+        "proTip": "Covering with foil for the first 25 minutes steams the peppers tender. Removing it at the end lets the cheese brown and bubble."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Large Bell Peppers",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "pieces",
+        "notes": "any color"
+      },
+      {
+        "item": "Ground Beef",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "lb",
+        "notes": "80/20"
+      },
+      {
+        "item": "Cooked Rice",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup",
+        "notes": "white or brown"
+      },
+      {
+        "item": "Diced Tomatoes",
+        "qty": "14",
+        "qtyNumeric": 14,
+        "unit": "oz",
+        "notes": "one can, drained"
+      },
+      {
+        "item": "Tomato Sauce",
+        "qty": "8",
+        "qtyNumeric": 8,
+        "unit": "oz",
+        "notes": "one can, divided"
+      },
+      {
+        "item": "Shredded Cheddar Cheese",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Yellow Onion",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "medium",
+        "notes": "diced"
+      },
+      {
+        "item": "Garlic",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cloves",
+        "notes": "minced"
+      },
+      {
+        "item": "Italian Seasoning",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Stuffed peppers are one of those dinners where everything is in one edible container. Protein, starch, vegetables, and cheese all in a bell pepper bowl. Less dishes, more flavor.",
+    "kidAdjustment": "Let kids pick their favorite pepper color. Add extra cheese on top and serve with a side of ranch dressing for dipping.",
+    "sideSuggestions": [
+      "Garlic bread",
+      "Simple garden salad",
+      "Steamed corn on the cob"
+    ],
+    "reheatInstructions": "Reheat individual peppers in the microwave for 2-3 minutes or in the oven at 350°F for 15 minutes. Add a fresh sprinkle of cheese before reheating.",
+    "nutrition": {
+      "calories": 380,
+      "proteinGrams": 28,
+      "carbsGrams": 26,
+      "fatGrams": 18,
+      "source": "USDA FoodData Central #174038"
+    },
+    "kidRating": 4,
+    "difficulty": "Easy",
+    "keywords": [
+      "stuffed bell peppers",
+      "oven stuffed peppers",
+      "beef stuffed peppers",
+      "how long to cook stuffed peppers",
+      "stuffed peppers cook time",
+      "stuffed peppers internal temperature",
+      "easy stuffed bell peppers recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0116",
+    "slug": "grill-cedar-plank-salmon",
+    "title": "Grill Cedar Plank Salmon",
+    "tagline": "Salmon fillets on a soaked cedar plank grilled over indirect heat for smoky, buttery, hands-off perfection.",
+    "appliance": "grill",
+    "categories": [
+      "high-protein"
+    ],
+    "protein": "seafood",
+    "prepMinutes": 10,
+    "cookMinutes": 15,
+    "totalMinutes": 28,
+    "image": "/images/recipes/grill-cedar-plank-salmon.jpg",
+    "defaultServings": 4,
+    "basis": "Tested on gas grill with cedar plank soaked 1 hour, indirect heat at 375°F (190°C) with 6 oz skin-on salmon fillets. USDA FSIS 145°F target for fish.",
+    "safeInternalTempF": 145,
+    "restMinutes": 3,
+    "cookTemp": "Medium Heat (375°F / 190°C)",
+    "cookTempF": 375,
+    "cookTempC": 190,
+    "equipmentNeeded": [
+      "Gas or Charcoal Grill",
+      "Cedar Plank",
+      "Instant-Read Thermometer",
+      "Tongs"
+    ],
+    "quickVersion": {
+      "temp": "Medium Heat (375°F / 190°C)",
+      "totalTime": "28 mins (plus 1 hr plank soak)",
+      "timerMinutes": 15,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Soak a cedar plank in water for at least 1 hour. Preheat grill to medium heat (375°F).",
+        "Mix 1 tbsp brown sugar, 1 tbsp Dijon mustard, 1 minced garlic clove, and 1 tbsp olive oil. Spread over salmon fillets.",
+        "Place salmon skin-side down on the soaked cedar plank. Set plank on the grill over indirect heat and close the lid.",
+        "Grill for 12-15 minutes until salmon reaches 145°F. Garnish with fresh dill and lemon wedges."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Soak the Plank and Prep Glaze",
+        "instruction": "Submerge a cedar plank in water for at least 1 hour, weighing it down so it stays fully submerged. In a small bowl, mix 1 tbsp brown sugar, 1 tbsp Dijon mustard, 1 minced garlic clove, 1 tbsp olive oil, 1 tsp chopped fresh dill, 1/2 tsp salt, and 1/4 tsp black pepper.",
+        "proTip": "Soaking the plank prevents it from catching fire on the grill. One hour is the minimum, but overnight is even better for maximum steam and smoke."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Prep the Salmon",
+        "instruction": "Pat 4 salmon fillets (6 oz each) dry with paper towels. Spread the glaze mixture evenly over the top and sides of each fillet. Let the salmon sit at room temperature for 10 minutes while the grill preheats.",
+        "proTip": "Bringing the salmon to room temperature before grilling ensures it cooks evenly from edge to center."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Grill on the Plank",
+        "instruction": "Preheat the grill to medium heat (375°F / 190°C). Place the soaked cedar plank on the grill for 2 minutes to let it start to smolder. Place the salmon fillets skin-side down on the plank. Close the lid and grill over indirect heat for 12-15 minutes until the internal temperature reaches 145°F.",
+        "proTip": "Do not flip the salmon. The plank acts as a buffer between the fish and the flames, cooking it gently with aromatic cedar smoke from below."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Serve",
+        "instruction": "Carefully remove the plank from the grill using tongs. Let the salmon rest on the plank for 3 minutes. Squeeze fresh lemon juice over the fillets and garnish with fresh dill. Serve directly from the plank for a dramatic presentation.",
+        "proTip": "Serving on the cedar plank is not just for show. The wood keeps the salmon warm at the table and the smoky aroma continues to perfume the fish."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Salmon Fillets",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "pieces",
+        "notes": "6 oz each, skin-on"
+      },
+      {
+        "item": "Cedar Plank",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "piece",
+        "notes": "soaked 1 hour minimum"
+      },
+      {
+        "item": "Olive Oil",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Lemon",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "piece",
+        "notes": "cut into wedges"
+      },
+      {
+        "item": "Brown Sugar",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Dijon Mustard",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tbsp"
+      },
+      {
+        "item": "Garlic",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "clove",
+        "notes": "minced"
+      },
+      {
+        "item": "Fresh Dill",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "tsp",
+        "notes": "chopped, plus extra for garnish"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Cedar plank grilling is the move that makes you look like a professional chef at the neighborhood cookout. The plank does all the flavor work. You just stand there looking smug.",
+    "kidAdjustment": "The mild smoky flavor from the cedar plank is usually well-received. Skip the Dijon and dill for very picky eaters and use a simple honey glaze instead.",
+    "sideSuggestions": [
+      "Grilled asparagus",
+      "Wild rice pilaf",
+      "Cucumber dill salad"
+    ],
+    "reheatInstructions": "Reheat gently in the oven at 275°F for 8-10 minutes. Salmon dries out easily, so low and slow is key. It is also excellent served cold over a salad.",
+    "nutrition": {
+      "calories": 340,
+      "proteinGrams": 36,
+      "carbsGrams": 6,
+      "fatGrams": 18,
+      "source": "USDA FoodData Central #175168"
+    },
+    "kidRating": 3,
+    "difficulty": "Moderate",
+    "keywords": [
+      "cedar plank salmon",
+      "grilled salmon on cedar plank",
+      "smoky grilled salmon",
+      "how long to cook cedar plank salmon",
+      "cedar plank salmon cook time",
+      "cedar plank salmon internal temperature",
+      "easy cedar plank salmon recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0117",
+    "slug": "air-fryer-crispy-chicken-tenders",
+    "title": "Air Fryer Crispy Chicken Tenders",
+    "tagline": "Panko-crusted chicken tenders with zero deep frying that come out golden and crunchy in just 12 minutes.",
+    "appliance": "air-fryer",
+    "categories": [
+      "kid-approved",
+      "15-minute",
+      "high-protein"
+    ],
+    "protein": "chicken",
+    "prepMinutes": 10,
+    "cookMinutes": 12,
+    "totalMinutes": 24,
+    "image": "/images/recipes/air-fryer-crispy-chicken-tenders.jpg",
+    "defaultServings": 4,
+    "basis": "Tested in 6-qt basket air fryer at 400°F (204°C) with 1.5-inch raw chicken tenderloins. USDA FSIS 165°F target.",
+    "safeInternalTempF": 165,
+    "restMinutes": 2,
+    "cookTemp": "400°F (204°C)",
+    "cookTempF": 400,
+    "cookTempC": 204,
+    "equipmentNeeded": [
+      "Air Fryer",
+      "Three Shallow Dredge Bowls",
+      "Tongs",
+      "Wire Rack"
+    ],
+    "quickVersion": {
+      "temp": "400°F (204°C)",
+      "totalTime": "24 mins",
+      "timerMinutes": 12,
+      "flipAtMinutes": 6,
+      "bullets": [
+        "Set up three bowls: flour with garlic powder, beaten eggs, and panko mixed with parmesan and smoked paprika.",
+        "Pat 1.5 lbs chicken tenders dry. Dredge in flour, dip in egg, then press into panko mixture.",
+        "Arrange in a single layer in a greased air fryer basket. Spray tops with cooking spray.",
+        "Air fry at 400°F for 12 minutes, flipping at 6 minutes, until golden and internal temp hits 165°F."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Set Up the Breading Station",
+        "instruction": "Set up three shallow bowls. Bowl 1: 1/2 cup all-purpose flour mixed with 1/2 tsp garlic powder. Bowl 2: 2 beaten eggs. Bowl 3: 1.5 cups panko breadcrumbs mixed with 1/4 cup grated parmesan cheese, 1/2 tsp smoked paprika, 1/2 tsp salt, and 1/4 tsp black pepper.",
+        "proTip": "Adding parmesan to the panko creates an extra layer of savory flavor and helps the crust brown more evenly in the air fryer."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Bread the Chicken",
+        "instruction": "Pat 1.5 lbs chicken tenderloins completely dry with paper towels. Working one at a time, dredge each tender in the seasoned flour, shaking off excess. Dip into beaten egg, letting excess drip off. Press firmly into the panko-parmesan mixture, coating all sides.",
+        "proTip": "Use one hand for the dry ingredients and the other for the wet. This prevents your fingers from getting caked with breading that falls off in clumps."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Air Fry",
+        "instruction": "Spray the air fryer basket with cooking spray. Arrange breaded tenders in a single layer with space between each piece. Spray the tops of the tenders lightly with cooking spray. Air fry at 400°F (204°C) for 12 minutes, flipping halfway at 6 minutes.",
+        "proTip": "Do not stack or overlap the tenders. Air needs to circulate around each piece for even crisping. Cook in batches if needed."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Check and Rest",
+        "instruction": "Confirm internal temperature reaches 165°F using an instant-read thermometer inserted into the thickest part. Transfer to a wire rack and rest for 2 minutes before serving with your favorite dipping sauces.",
+        "proTip": "Resting on a wire rack instead of a plate prevents the bottom from getting soggy from trapped steam."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Chicken Tenderloins",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "lbs"
+      },
+      {
+        "item": "Panko Breadcrumbs",
+        "qty": "1.5",
+        "qtyNumeric": 1.5,
+        "unit": "cups"
+      },
+      {
+        "item": "Parmesan Cheese",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "cup",
+        "notes": "grated"
+      },
+      {
+        "item": "Large Eggs",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "pieces",
+        "notes": "beaten"
+      },
+      {
+        "item": "All-Purpose Flour",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "Garlic Powder",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Smoked Paprika",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      },
+      {
+        "item": "Cooking Spray",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "can"
+      }
+    ],
+    "dadProTip": "These taste like restaurant chicken tenders but with a fraction of the oil and none of the deep fryer cleanup. The parmesan in the panko is the secret weapon for next-level crunch.",
+    "kidAdjustment": "Serve with a lineup of dipping sauces: honey mustard, ketchup, BBQ sauce, and ranch. Let kids pick their favorites and dip away.",
+    "sideSuggestions": [
+      "Air fryer french fries",
+      "Steamed broccoli with cheese",
+      "Apple slices with caramel dip"
+    ],
+    "reheatInstructions": "Reheat in the air fryer at 360°F for 3-4 minutes until crispy again. Never microwave or the breading will turn soft and rubbery.",
+    "nutrition": {
+      "calories": 350,
+      "proteinGrams": 42,
+      "carbsGrams": 20,
+      "fatGrams": 10,
+      "source": "USDA FoodData Central #171077"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "air fryer chicken tenders",
+      "crispy chicken tenders",
+      "panko chicken tenders",
+      "how long to cook chicken tenders",
+      "chicken tenders cook time",
+      "chicken tenders internal temperature",
+      "easy chicken tenders recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
+  },
+  {
+    "id": "0118",
+    "slug": "instant-pot-mac-and-cheese",
+    "title": "Instant Pot Mac and Cheese",
+    "tagline": "Elbow pasta pressure cooked in broth then stirred with three cheeses until impossibly creamy in 15 minutes flat.",
+    "appliance": "instant-pot",
+    "categories": [
+      "kid-approved",
+      "15-minute"
+    ],
+    "protein": "dairy-eggs",
+    "prepMinutes": 5,
+    "cookMinutes": 4,
+    "totalMinutes": 15,
+    "image": "/images/recipes/instant-pot-mac-and-cheese.jpg",
+    "defaultServings": 6,
+    "basis": "Tested in 6-qt Instant Pot on High Pressure with elbow macaroni and three-cheese blend. Verified natural release timing.",
+    "safeInternalTempF": 0,
+    "restMinutes": 0,
+    "cookTemp": "High Pressure (239°F / 115°C)",
+    "cookTempF": 239,
+    "cookTempC": 115,
+    "equipmentNeeded": [
+      "6-Quart Instant Pot",
+      "Silicone Spatula",
+      "Measuring Cups"
+    ],
+    "quickVersion": {
+      "temp": "High Pressure (239°F / 115°C)",
+      "totalTime": "15 mins",
+      "timerMinutes": 4,
+      "flipAtMinutes": null,
+      "bullets": [
+        "Add 1 lb elbow macaroni, 4 cups chicken broth, 2 tbsp butter, 1/2 tsp dry mustard, and a pinch of salt to the Instant Pot.",
+        "Lock the lid, set to High Pressure for 4 minutes, then Quick Release when the timer beeps.",
+        "Stir in 2 cups shredded sharp cheddar, 4 oz cream cheese, 2 slices American cheese, and 1/2 cup whole milk.",
+        "Stir until all cheese is melted and sauce is creamy. Season with salt and pepper to taste."
+      ]
+    },
+    "detailedSteps": [
+      {
+        "stepNumber": 1,
+        "title": "Load the Instant Pot",
+        "instruction": "Add 1 lb elbow macaroni to the Instant Pot insert. Pour in 4 cups chicken broth (enough to just cover the pasta). Add 2 tbsp butter, 1/2 tsp dry mustard, and 1/2 tsp salt. Stir once to make sure the pasta is submerged and not clumped. Do not stir again.",
+        "proTip": "Using chicken broth instead of water adds a savory backbone that makes this mac and cheese taste like it simmered for hours."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Pressure Cook",
+        "instruction": "Lock the Instant Pot lid and make sure the valve is set to Sealing. Press Pressure Cook or Manual and set to High Pressure for 4 minutes. The pot will take about 5-6 minutes to come to pressure before the timer starts counting down.",
+        "proTip": "Four minutes is the sweet spot for al dente elbows that will finish cooking in the residual heat when you stir in the cheese."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Quick Release and Add Cheese",
+        "instruction": "When the timer beeps, carefully turn the valve to Venting for a Quick Release. Once all steam is released, remove the lid. The pasta will look slightly soupy, which is exactly right. Stir in 2 cups shredded sharp cheddar, 4 oz cream cheese (cut into chunks), 2 slices American cheese, and 1/2 cup whole milk.",
+        "proTip": "The residual heat and starchy pasta water melt the cheese into a silky sauce. Stir vigorously for 2 minutes and the soupiness transforms into creamy perfection."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Season and Serve",
+        "instruction": "Continue stirring until all cheese is completely melted and the sauce is smooth and creamy. Taste and adjust with salt and pepper. The mac and cheese will thicken as it sits, so serve immediately for the creamiest texture.",
+        "proTip": "If the mac and cheese gets too thick after sitting, stir in a splash of milk to bring it back to the perfect consistency."
+      }
+    ],
+    "ingredients": [
+      {
+        "item": "Elbow Macaroni",
+        "qty": "1",
+        "qtyNumeric": 1,
+        "unit": "lb"
+      },
+      {
+        "item": "Chicken Broth",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "cups"
+      },
+      {
+        "item": "Butter",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "tbsp",
+        "notes": "unsalted"
+      },
+      {
+        "item": "Sharp Cheddar Cheese",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "cups",
+        "notes": "shredded"
+      },
+      {
+        "item": "Cream Cheese",
+        "qty": "4",
+        "qtyNumeric": 4,
+        "unit": "oz",
+        "notes": "cut into chunks"
+      },
+      {
+        "item": "American Cheese",
+        "qty": "2",
+        "qtyNumeric": 2,
+        "unit": "slices"
+      },
+      {
+        "item": "Whole Milk",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "cup"
+      },
+      {
+        "item": "Dry Mustard",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Kosher Salt",
+        "qty": "1/2",
+        "qtyNumeric": 0.5,
+        "unit": "tsp"
+      },
+      {
+        "item": "Black Pepper",
+        "qty": "1/4",
+        "qtyNumeric": 0.25,
+        "unit": "tsp"
+      }
+    ],
+    "dadProTip": "Three cheeses is the magic formula. Sharp cheddar brings the flavor, cream cheese brings the creaminess, and American cheese brings the melt factor. Skip the box. This is done in the same amount of time and tastes a thousand times better.",
+    "kidAdjustment": "This is already peak kid food. For extra picky eaters, skip the dry mustard. You can also mix in cut-up hot dogs or steamed broccoli to sneak in some protein or vegetables.",
+    "sideSuggestions": [
+      "Steamed broccoli",
+      "Simple green salad",
+      "Sliced apples"
+    ],
+    "reheatInstructions": "Reheat in the microwave with a splash of milk, stirring every 30 seconds. On the stovetop, warm over low heat with extra milk to restore the creamy consistency.",
+    "nutrition": {
+      "calories": 480,
+      "proteinGrams": 22,
+      "carbsGrams": 48,
+      "fatGrams": 22,
+      "source": "USDA FoodData Central #170845"
+    },
+    "kidRating": 5,
+    "difficulty": "Dead Simple",
+    "keywords": [
+      "instant pot mac and cheese",
+      "pressure cooker mac and cheese",
+      "creamy mac and cheese recipe",
+      "how long to cook mac and cheese",
+      "mac and cheese cook time",
+      "easy mac and cheese recipe"
+    ],
+    "datePublished": "2026-08-29",
+    "lastUpdated": "2026-08-29"
   }
 ]
