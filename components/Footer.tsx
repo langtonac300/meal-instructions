@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { CATEGORIES } from '@/data/categories';
 import { APPLIANCES } from '@/data/appliances';
+import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import Logo from '@/components/Logo';
 
 export default function Footer() {
@@ -123,7 +124,7 @@ export default function Footer() {
                   href="/how-long"
                   className="text-accent font-bold hover:underline uppercase"
                 >
-                  🔥 All Cook Times (60)
+                  🔥 All Cook Times ({COOK_TIME_DATASHEETS.length})
                 </Link>
               </li>
               <li>
