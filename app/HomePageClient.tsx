@@ -81,25 +81,15 @@ export default function HomePageClient() {
       />
 
       {/* ── HERO ARCHITECTURAL SECTION ── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8 pt-8 sm:pt-12 pb-8 w-full border-b border-hairline">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 pt-5 sm:pt-6 pb-5 w-full border-b border-hairline">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           {/* Main Title & Subtitle */}
           <div className="lg:col-span-8">
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-paper-200 border border-hairline text-ink font-mono text-[10px] uppercase tracking-widest mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              <span>THE ANTI-ESSAY COOKING PLATFORM</span>
-            </div>
-
-            <h1 className="font-sans text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-ink uppercase leading-[0.95]">
-              NO FLUFF.
-              <br />
-              <span className="text-accent">JUST THE INSTRUCTIONS.</span>
+            <h1 className="font-sans text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-ink uppercase leading-tight">
+              No fluff. <span className="text-accent">Just the instructions.</span>
             </h1>
-
-            <p className="mt-4 text-base sm:text-lg text-ink-muted font-sans max-w-2xl leading-relaxed">
-              Every recipe starts with a toggle: choose <strong>&ldquo;Get to the Point&rdquo;</strong> for
-              a 20-word telegram execution, or <strong>&ldquo;Step-by-Step&rdquo;</strong> for fluff-free
-              guided steps. No life stories. No popups, no interstitials, no autoplay video.
+            <p className="mt-1.5 font-mono text-[11px] uppercase tracking-widest text-ink-subtle">
+              Cook-time reference · {RECIPES.length} meals · {COOK_TIME_DATASHEETS.length} datasheets
             </p>
           </div>
 
