@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Search, Flame, Zap, Clock, BookOpen, Layers, Menu, X } from 'lucide-react';
+import { Search, Flame, Zap, Clock, BookOpen, Layers, Menu, X, LogIn, LogOut } from 'lucide-react';
+import { useSession, signIn, signOut } from 'next-auth/react';
 import SearchModal from './SearchModal';
 import Logo from '@/components/Logo';
 import {
@@ -22,6 +23,7 @@ export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { data: session, status } = useSession();
 
   // Keyboard shortcut Cmd+K / Ctrl+K
   useEffect(() => {
@@ -161,6 +163,37 @@ export default function Navbar() {
                 ⌘K
               </kbd>
             </button>
+
+            {/* Auth: Sign In / User Chip */}
+            {status !== 'loading' && (
+              session?.user ? (
+                <div className="hidden sm:flex items-center gap-2">
+                  {session.user.image && (
+                    <img
+                      src={session.user.image}
+                      alt={session.user.name ?? 'You'}
+                      className="w-6 h-6 rounded-full border border-hairline"
+                    />
+                  )}
+                  <button
+                    onClick={() => signOut()}
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 bg-paper-card hairline-border hover:border-ink transition-colors text-xs font-mono text-ink-muted hover:text-ink cursor-pointer uppercase tracking-wider"
+                    title={`Signed in as ${session.user.email ?? session.user.name}`}
+                  >
+                    <LogOut className="w-3.5 h-3.5" />
+                    <span>Sign out</span>
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => signIn('google')}
+                  className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-ink text-paper hover:bg-accent transition-colors text-xs font-mono cursor-pointer uppercase tracking-wider font-bold"
+                >
+                  <LogIn className="w-3.5 h-3.5" />
+                  <span>Sign in</span>
+                </button>
+              )
+            )}
 
             {/* Mobile Hamburger Toggle */}
             <button

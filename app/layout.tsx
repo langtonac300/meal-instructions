@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WebMCPClient from '@/components/WebMCPClient';
 import ConsentBanner from '@/components/ConsentBanner';
+import SessionProviderWrapper from '@/components/SessionProviderWrapper';
 import { SITE_URL, SITE_NAME, abs } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -180,11 +181,13 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col font-sans selection:bg-ink selection:text-paper text-ink bg-paper">
-        <WebMCPClient />
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <ConsentBanner />
+        <SessionProviderWrapper>
+          <WebMCPClient />
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          <ConsentBanner />
+        </SessionProviderWrapper>
       </body>
     </html>
   );
