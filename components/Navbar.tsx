@@ -7,6 +7,9 @@ import { Search, Flame, Zap, Clock, BookOpen, Layers, Menu, X, LogIn, LogOut } f
 import { useSession, signIn, signOut } from 'next-auth/react';
 import SearchModal from './SearchModal';
 import Logo from '@/components/Logo';
+import { RECIPES } from '@/data/recipes';
+import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
+import { ALL_TOOLS } from '@/data/tools-directory';
 import {
   LeanChickenIcon,
   LeanBeefIcon,
@@ -43,7 +46,7 @@ export default function Navbar() {
       <div className="bg-ink text-paper py-1.5 px-4 sm:px-8 text-[11px] font-mono tracking-wider flex justify-between items-center hairline-b no-print">
         <div className="flex items-center gap-3">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="uppercase text-neutral-300">Technical Cook-Time Reference & Quality-Gated Meals // No Fluff, Just the Instructions</span>
+          <span className="uppercase text-neutral-300">{RECIPES.length} verified meals · {COOK_TIME_DATASHEETS.length} USDA cook-time datasheets</span>
         </div>
         <div className="hidden md:flex items-center gap-4 text-neutral-400">
           <Link href="/about" className="hover:text-paper transition-colors">
@@ -323,14 +326,14 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="block py-1.5 text-ink hover:text-accent"
             >
-              🛠️ Kitchen Tools &amp; Calculators (11)
+              🛠️ Kitchen Tools &amp; Calculators ({ALL_TOOLS.length})
             </Link>
             <Link
               href="/how-long"
               onClick={() => setMobileMenuOpen(false)}
               className="block py-1.5 text-accent font-bold hover:underline"
             >
-              🔥 Cook Times (60 Datasheets)
+              🔥 Cook Times ({COOK_TIME_DATASHEETS.length} Datasheets)
             </Link>
             <Link
               href="/storage"
