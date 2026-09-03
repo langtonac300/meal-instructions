@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useScrollToResults } from '@/lib/use-scroll-to-results';
 import Link from 'next/link';
 import {
@@ -11,6 +11,12 @@ import {
   ArrowRight,
   SlidersHorizontal,
   RotateCcw,
+  Search,
+  Dices,
+  Sparkles,
+  ArrowUpDown,
+  Flame,
+  X,
 } from 'lucide-react';
 import { RECIPES } from '@/data/recipes';
 import { CATEGORIES } from '@/data/categories';
@@ -21,7 +27,9 @@ import RecipeTable from '@/components/RecipeTable';
 import RecipeScrubber from '@/components/RecipeScrubber';
 import CategoryGrid from '@/components/CategoryGrid';
 import ProteinSelectorBar from '@/components/ProteinSelectorBar';
-import AirFryerCalculator from '@/components/AirFryerCalculator';
+import KitchenHud from '@/components/KitchenHud';
+import CrisisTriageBar, { CrisisPreset } from '@/components/CrisisTriageBar';
+import KitchenEnginesDock from '@/components/KitchenEnginesDock';
 import SiteGuide from '@/components/SiteGuide';
 import { LeanAirFryerIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon } from '@/components/icons/Lean5SIcons';
 
@@ -31,6 +39,10 @@ export default function HomePageClient() {
   const [selectedAppliance, setSelectedAppliance] = useState<string>('all');
   const [maxMinutes, setMaxMinutes] = useState<number | null>(null);
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
+  const [activeCrisisPreset, setActiveCrisisPreset] = useState<string | null>(null);
+  const [directorySearch, setDirectorySearch] = useState<string>('');
+  const [sortMode, setSortMode] = useState<'default' | 'fastest' | 'protein' | 'alphabetical'>('default');
+  const [highlightedRecipeSlug, setHighlightedRecipeSlug] = useState<string | null>(null);
 
   // Read URL query params on mount (e.g. /?protein=chicken)
   useEffect(() => {
@@ -49,24 +61,100 @@ export default function HomePageClient() {
     selectedCategory,
     selectedAppliance,
     maxMinutes,
+    activeCrisisPreset,
   ]);
 
-  // Filter recipes based on time budget, protein, category, & appliance
-  const filteredRecipes = RECIPES.filter((recipe) => {
-    const matchesTime = maxMinutes === null || recipe.totalMinutes <= maxMinutes;
-    const matchesProtein =
-      selectedProtein === 'all' || recipe.protein === selectedProtein;
-    const matchesCategory =
-      selectedCategory === 'all' || (recipe.categories as string[]).includes(selectedCategory);
-    const matchesAppliance =
-      selectedAppliance === 'all' || recipe.appliance === selectedAppliance;
-    return matchesTime && matchesProtein && matchesCategory && matchesAppliance;
-  });
+  // Handle crisis preset toggling
+  const handleSelectCrisisPreset = (preset: CrisisPreset | null) => {
+    if (!preset) {
+      setActiveCrisisPreset(null);
+      setSelectedCategory('all');
+      setMaxMinutes(null);
+      return;
+    }
+
+    setActiveCrisisPreset(preset.id);
+    if (preset.category) {
+      setSelectedCategory(preset.category);
+    }
+    if (preset.maxMinutes) {
+      setMaxMinutes(preset.maxMinutes);
+    }
+
+    // Scroll smoothly to directory
+    const dir = document.getElementById('directory');
+    if (dir) {
+      dir.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Filter recipes based on time budget, protein, category, appliance, crisis preset, search, and sort
+  const filteredRecipes = useMemo(() => {
+    const q = directorySearch.toLowerCase().trim();
+
+    return RECIPES.filter((recipe) => {
+      const matchesTime = maxMinutes === null || recipe.totalMinutes <= maxMinutes;
+      const matchesProtein =
+        selectedProtein === 'all' || recipe.protein === selectedProtein;
+      const matchesCategory =
+        selectedCategory === 'all' || (recipe.categories as string[]).includes(selectedCategory);
+      const matchesAppliance =
+        selectedAppliance === 'all' || recipe.appliance === selectedAppliance;
+
+      const matchesCrisis =
+        activeCrisisPreset !== 'no-thaw' ||
+        (recipe.categories as string[]).includes('no-thaw') ||
+        recipe.fromFrozen?.supported;
+
+      const matchesSearch =
+        !q ||
+        recipe.title.toLowerCase().includes(q) ||
+        recipe.tagline.toLowerCase().includes(q) ||
+        recipe.protein.toLowerCase().includes(q) ||
+        recipe.appliance.toLowerCase().includes(q) ||
+        recipe.ingredients.some((i) => i.item.toLowerCase().includes(q));
+
+      return matchesTime && matchesProtein && matchesCategory && matchesAppliance && matchesCrisis && matchesSearch;
+    }).sort((a, b) => {
+      if (sortMode === 'fastest') return a.totalMinutes - b.totalMinutes;
+      if (sortMode === 'protein') {
+        const pA = a.nutrition?.proteinGrams ?? 0;
+        const pB = b.nutrition?.proteinGrams ?? 0;
+        return pB - pA;
+      }
+      if (sortMode === 'alphabetical') return a.title.localeCompare(b.title);
+      return 0;
+    });
+  }, [maxMinutes, selectedProtein, selectedCategory, selectedAppliance, activeCrisisPreset, directorySearch, sortMode]);
+
+  // Dinner Roulette randomizer
+  const handleDinnerRoulette = () => {
+    if (filteredRecipes.length === 0) return;
+    const randomIndex = Math.floor(Math.random() * filteredRecipes.length);
+    const chosen = filteredRecipes[randomIndex];
+    setHighlightedRecipeSlug(chosen.slug);
+
+    setTimeout(() => {
+      const el = document.getElementById(`recipe-${chosen.slug}`);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 50);
+  };
 
   const airFryerGuide = COOK_TIME_DATASHEETS.filter((d) => d.appliance === 'air-fryer');
 
+  const hasActiveFilters =
+    maxMinutes !== null ||
+    selectedProtein !== 'all' ||
+    selectedCategory !== 'all' ||
+    selectedAppliance !== 'all' ||
+    activeCrisisPreset !== null ||
+    directorySearch.trim().length > 0;
+
   return (
     <div className="flex flex-col min-h-screen bg-paper">
+      
       {/* ── TOP PRIMARY MEAT / PROTEIN SVG SELECTOR BAR ── */}
       <ProteinSelectorBar
         selectedProtein={selectedProtein}
@@ -81,40 +169,44 @@ export default function HomePageClient() {
       />
 
       {/* ── HERO ARCHITECTURAL SECTION ── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8 pt-5 sm:pt-6 pb-5 w-full border-b border-hairline">
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 pt-6 pb-6 w-full border-b border-hairline">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           {/* Main Title & Subtitle */}
-          <div className="lg:col-span-8">
-            <h1 className="font-sans text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-ink uppercase leading-tight">
+          <div className="lg:col-span-8 space-y-1.5">
+            <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-accent font-bold">
+              <span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
+              <span>THE ZERO-FLUFF HOME COOKING ENGINE</span>
+            </div>
+            <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-ink uppercase leading-none">
               No fluff. <span className="text-accent">Just the instructions.</span>
             </h1>
-            <p className="mt-1.5 font-mono text-[11px] uppercase tracking-widest text-ink-subtle">
-              Cook-time reference · {RECIPES.length} meals · {COOK_TIME_DATASHEETS.length} datasheets
+            <p className="font-mono text-xs sm:text-sm text-ink-muted leading-relaxed">
+              Parametric cook-time database and {RECIPES.length} quality-gated weeknight meals. Exact temperatures, verified air fryer datasheets, zero life stories.
             </p>
           </div>
 
           {/* Key Quick Stats Box */}
-          <div className="lg:col-span-4 bg-paper-100 border border-hairline p-5 rounded font-mono text-xs shadow-subtle">
-            <div className="text-[10px] uppercase tracking-widest text-ink-subtle border-b border-hairline pb-2 mb-3 flex items-center justify-between">
+          <div className="lg:col-span-4 bg-paper-100 border border-hairline p-4 rounded font-mono text-xs shadow-subtle">
+            <div className="text-[10px] uppercase tracking-widest text-ink-subtle border-b border-hairline pb-2 mb-2.5 flex items-center justify-between">
               <span>SYSTEM SPECIFICATIONS</span>
-              <span className="text-accent font-bold">V 1.0</span>
+              <span className="text-accent font-bold">V 2.0 PRECISION</span>
             </div>
 
-            <div className="space-y-2.5 text-ink">
+            <div className="space-y-2 text-ink">
               <div className="flex justify-between items-center">
                 <span className="text-ink-muted">TOTAL INDEXED MEALS:</span>
                 <span className="font-bold">{RECIPES.length} RECIPES</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-ink-muted">AVG PREP + COOK:</span>
-                <span className="font-bold">12.8 MINUTES</span>
+                <span className="text-ink-muted">USDA DATASHEETS:</span>
+                <span className="font-bold text-ink">{COOK_TIME_DATASHEETS.length} VERIFIED</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-ink-muted">LIFE STORIES REMOVED:</span>
                 <span className="font-bold text-accent">100% (0 WORDS)</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-ink-muted">AI & LLM SCRAPER:</span>
+                <span className="text-ink-muted">AI &amp; LLM TERMINAL:</span>
                 <Link
                   href="/llms.txt"
                   target="_blank"
@@ -128,8 +220,8 @@ export default function HomePageClient() {
         </div>
 
         {/* ── FAST APPLIANCE QUICK-JUMP BAR ── */}
-        <div className="mt-8 pt-4 border-t border-hairline/80 flex items-center gap-2 overflow-x-auto text-[11px] font-mono uppercase tracking-wider text-ink-muted">
-          <span className="shrink-0 text-ink-subtle font-bold">POPULAR APPLIANCES:</span>
+        <div className="mt-6 pt-4 border-t border-hairline/80 flex items-center gap-2 overflow-x-auto text-[11px] font-mono uppercase tracking-wider text-ink-muted scrollbar-none">
+          <span className="shrink-0 text-ink-subtle font-bold">POPULAR HARDWARE:</span>
           {APPLIANCES.map((app) => (
             <button
               key={app.slug}
@@ -148,12 +240,21 @@ export default function HomePageClient() {
         </div>
       </section>
 
+      {/* ── THE KITCHEN COMMAND HUD & INSTANT LOOKUP (FRONT & CENTER) ── */}
+      <KitchenHud />
+
+      {/* ── EMERGENCY DINNER CRISIS TRIAGE ── */}
+      <CrisisTriageBar
+        activePreset={activeCrisisPreset}
+        onSelectPreset={handleSelectCrisisPreset}
+      />
+
       {/* ── VISUAL CATEGORY HUBS ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8 pt-8 pb-4 w-full">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink-subtle">
             <span className="w-1.5 h-1.5 bg-ink rounded-full" />
-            <span className="font-bold text-ink">BROWSE BY INTENT & HARDWARE</span>
+            <span className="font-bold text-ink">BROWSE BY INTENT &amp; HARDWARE</span>
           </div>
           <span className="text-[10px] font-mono text-ink-muted">CLICK TO FILTER DIRECTORY</span>
         </div>
@@ -172,7 +273,7 @@ export default function HomePageClient() {
       >
         
         {/* Active Filter Status Bar (if any filter active) */}
-        {(maxMinutes !== null || selectedProtein !== 'all' || selectedCategory !== 'all' || selectedAppliance !== 'all') && (
+        {hasActiveFilters && (
           <div className="mb-4 p-3 bg-paper-100 border border-hairline rounded flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="font-bold text-ink uppercase">ACTIVE FILTERS:</span>
@@ -196,6 +297,16 @@ export default function HomePageClient() {
                   APPLIANCE: {selectedAppliance}
                 </span>
               )}
+              {activeCrisisPreset && (
+                <span className="px-2 py-0.5 bg-accent/15 text-accent border border-accent/30 rounded text-[10px] font-bold">
+                  CRISIS: {activeCrisisPreset.toUpperCase()}
+                </span>
+              )}
+              {directorySearch && (
+                <span className="px-2 py-0.5 bg-paper-200 border border-hairline rounded text-[10px]">
+                  SEARCH: &quot;{directorySearch}&quot;
+                </span>
+              )}
               <span className="text-ink-muted">
                 ({filteredRecipes.length} of {RECIPES.length} meals match)
               </span>
@@ -207,6 +318,9 @@ export default function HomePageClient() {
                 setMaxMinutes(null);
                 setSelectedCategory('all');
                 setSelectedAppliance('all');
+                setActiveCrisisPreset(null);
+                setDirectorySearch('');
+                setHighlightedRecipeSlug(null);
               }}
               className="flex items-center gap-1 text-[10px] font-bold uppercase text-accent hover:underline cursor-pointer"
             >
@@ -216,10 +330,63 @@ export default function HomePageClient() {
           </div>
         )}
 
+        {/* Tactical Controls Bar: In-Directory Search, Sort, Dinner Roulette */}
+        <div className="mb-4 bg-paper-50 border border-hairline rounded p-3 flex flex-col md:flex-row items-center justify-between gap-3 font-mono text-xs">
+          {/* Live In-Directory Search */}
+          <div className="relative w-full md:w-80">
+            <Search className="w-3.5 h-3.5 text-ink-subtle absolute left-2.5 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              value={directorySearch}
+              onChange={(e) => setDirectorySearch(e.target.value)}
+              placeholder="Search recipes by name, cut, ingredient..."
+              className="w-full pl-8 pr-7 py-1.5 bg-paper border border-hairline rounded text-xs text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink"
+            />
+            {directorySearch && (
+              <button
+                type="button"
+                onClick={() => setDirectorySearch('')}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-ink-subtle hover:text-ink"
+              >
+                <X className="w-3 h-3" />
+              </button>
+            )}
+          </div>
+
+          {/* Right Actions: Dinner Roulette & Sort */}
+          <div className="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end flex-wrap">
+            {/* Dinner Roulette Randomizer Button */}
+            <button
+              type="button"
+              onClick={handleDinnerRoulette}
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-accent text-white hover:bg-accent-dark rounded font-bold uppercase tracking-wider text-[11px] transition-colors cursor-pointer shadow-subtle"
+              title="Pick a random dinner from matching results"
+            >
+              <Dices className="w-3.5 h-3.5" />
+              <span>ROLL DINNER</span>
+            </button>
+
+            {/* Sort Dropdown */}
+            <div className="flex items-center gap-1.5 text-[11px]">
+              <span className="text-ink-subtle uppercase">SORT:</span>
+              <select
+                value={sortMode}
+                onChange={(e) => setSortMode(e.target.value as any)}
+                className="bg-paper border border-hairline rounded px-2 py-1 text-ink font-bold focus:outline-none cursor-pointer uppercase"
+              >
+                <option value="default">INDEX # (DEFAULT)</option>
+                <option value="fastest">⚡ FASTEST (LEAST TIME)</option>
+                <option value="protein">🥩 HIGHEST PROTEIN</option>
+                <option value="alphabetical">A–Z ALPHABETICAL</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
         {/* Category Pills & View Switcher */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-hairline pb-4 mb-6">
           {/* Category Filter Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto text-[11px] font-mono uppercase tracking-wider pb-1 md:pb-0">
+          <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto text-[11px] font-mono uppercase tracking-wider pb-1 md:pb-0 scrollbar-none">
             <button
               onClick={() => setSelectedCategory('all')}
               className={`px-3 py-1.5 rounded transition-all shrink-0 cursor-pointer ${
@@ -288,7 +455,11 @@ export default function HomePageClient() {
         {viewMode === 'grid' ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredRecipes.map((recipe) => (
-              <RecipeCard key={recipe.id} recipe={recipe} />
+              <RecipeCard
+                key={recipe.id}
+                recipe={recipe}
+                isHighlighted={recipe.slug === highlightedRecipeSlug}
+              />
             ))}
           </div>
         ) : (
@@ -304,8 +475,11 @@ export default function HomePageClient() {
                 setMaxMinutes(null);
                 setSelectedCategory('all');
                 setSelectedAppliance('all');
+                setActiveCrisisPreset(null);
+                setDirectorySearch('');
+                setHighlightedRecipeSlug(null);
               }}
-              className="mt-3 px-4 py-2 bg-ink text-paper rounded text-xs uppercase font-bold hover:bg-accent transition-colors"
+              className="mt-3 px-4 py-2 bg-ink text-paper rounded text-xs uppercase font-bold hover:bg-accent transition-colors cursor-pointer"
             >
               RESET ALL FILTERS
             </button>
@@ -313,9 +487,9 @@ export default function HomePageClient() {
         )}
       </section>
 
-      {/* ── INTERACTIVE OVEN TO AIR FRYER CALCULATOR SECTION ── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8 py-12 w-full">
-        <AirFryerCalculator />
+      {/* ── TACTILE KITCHEN ENGINES DOCK (SWISS ARMY KNIFE) ── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 py-10 w-full border-t border-hairline">
+        <KitchenEnginesDock />
       </section>
 
       {/* ── QUICK AIR FRYER TEMPERATURE MATRIX CHEAT SHEET ── */}
@@ -388,7 +562,7 @@ export default function HomePageClient() {
             href="/tools"
             className="font-mono text-xs font-bold uppercase text-ink hover:underline flex items-center gap-1"
           >
-            <span>View All 10 Tools</span>
+            <span>View All 30 Tools</span>
             <span>→</span>
           </Link>
         </div>
@@ -674,7 +848,6 @@ export default function HomePageClient() {
 
       {/* ── THE ZERO-FLUFF MANIFESTO STRIP ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8 py-12 w-full border-t border-hairline">
-
         <div className="bg-ink text-paper rounded-lg p-8 sm:p-12 relative overflow-hidden">
           <div className="max-w-3xl relative z-10">
             <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold block mb-2">

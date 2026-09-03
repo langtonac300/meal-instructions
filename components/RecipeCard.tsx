@@ -9,9 +9,10 @@ import { LeanHeatWavesIcon, LeanClockIcon, LeanForkIcon, LeanIcon } from './icon
 
 interface RecipeCardProps {
   recipe: Recipe;
+  isHighlighted?: boolean;
 }
 
-export default function RecipeCard({ recipe }: RecipeCardProps) {
+export default function RecipeCard({ recipe, isHighlighted = false }: RecipeCardProps) {
   const getApplianceColor = (appliance: string) => {
     switch (appliance) {
       case 'air-fryer':
@@ -26,7 +27,14 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
   };
 
   return (
-    <article className="group relative bg-paper-50 hover:bg-paper-100 border border-hairline hover:border-ink/40 transition-all duration-200 rounded p-5 flex flex-col justify-between shadow-subtle hover:shadow-card">
+    <article
+      id={`recipe-${recipe.slug}`}
+      className={`group relative transition-all duration-200 rounded p-5 flex flex-col justify-between ${
+        isHighlighted
+          ? 'bg-paper-100 border-2 border-accent ring-4 ring-accent/20 shadow-float scale-[1.01]'
+          : 'bg-paper-50 hover:bg-paper-100 border border-hairline hover:border-ink/40 shadow-subtle hover:shadow-card'
+      }`}
+    >
       <div>
         {/* Top Architectural Number, Protein, & Appliance */}
         <div className="flex items-center justify-between text-[11px] font-mono tracking-widest text-ink-muted mb-3">
