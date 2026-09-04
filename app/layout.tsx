@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
+import AdSenseLoader from '@/components/AdSenseLoader';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -151,18 +153,12 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Google AdSense */}
+        {/* Google AdSense — only the account meta belongs here. The loader script
+            is appended after hydration by <AdSenseLoader /> in <body>, because
+            adsbygoogle.js injects show_ads_impl.js as a <head> sibling the moment
+            it runs. Loading it here shifted every following <head> child by one
+            slot mid-hydration, which is what produced the attribute mismatch. */}
         <meta name="google-adsense-account" content="ca-pub-9801578474509944" />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9801578474509944"
-          crossOrigin="anonymous"
-        />
-        {/* Google tag (gtag.js) */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-0S1B04Q1S9"
-        />
         {/* Google Chrome WebMCP Origin Trial Token */}
         <meta
           httpEquiv="origin-trial"
@@ -188,6 +184,16 @@ export default function RootLayout({
           <Footer />
           <ConsentBanner />
         </SessionProviderWrapper>
+
+        {/* Third-party loaders mount after hydration so neither can insert a node
+            into <head> while React is still matching it against the SSR HTML.
+            Consent-mode defaults stay inline in <head> and still run first. */}
+        <AdSenseLoader />
+        <Script
+          id="gtag-loader"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-0S1B04Q1S9"
+        />
       </body>
     </html>
   );
