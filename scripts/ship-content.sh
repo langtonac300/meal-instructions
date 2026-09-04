@@ -100,9 +100,9 @@ fi
 git push "$DEPLOY_REMOTE" "HEAD:$TARGET_BRANCH" --quiet || fail "push to $DEPLOY_REMOTE failed"
 ok "pushed to $DEPLOY_REMOTE/$TARGET_BRANCH — Vercel deploy triggered"
 
-git push "$MIRROR_REMOTE" "HEAD:$TARGET_BRANCH" --quiet 2>/dev/null \
-  && ok "mirrored to $MIRROR_REMOTE/$TARGET_BRANCH" \
-  || echo "  (mirror push to $MIRROR_REMOTE skipped — deploy is unaffected)"
+git push "$MIRROR_REMOTE" "HEAD:$TARGET_BRANCH" --quiet \
+  && ok "mirrored to $MIRROR_REMOTE/$TARGET_BRANCH (mealinstructions.com)" \
+  || echo "  (warning: push to $MIRROR_REMOTE failed — verify remote tracking)"
 
 echo
 bold "Shipped $SHA"
