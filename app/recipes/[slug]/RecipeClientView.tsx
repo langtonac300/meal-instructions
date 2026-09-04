@@ -14,13 +14,18 @@ import { Recipe, CookTimeDatasheet } from '@/lib/types';
 import { RECIPES } from '@/data/recipes';
 import { formatScaledAmount, buildSmsShareText, recipeToMarkdown } from '@/lib/recipe-utils';
 
+import KrogerCartPanel from '@/components/KrogerCartPanel';
+import type { ResolvedIngredient } from '@/lib/kroger/matches';
+
 interface RecipeClientViewProps {
   recipe: Recipe;
+  /** Build-time Kroger product matches for this recipe's ingredients. */
+  krogerIngredients?: ResolvedIngredient[];
   relatedDatasheets?: CookTimeDatasheet[];
   resolvedImage?: string;
 }
 
-export default function RecipeClientView({ recipe, relatedDatasheets = [], resolvedImage }: RecipeClientViewProps) {
+export default function RecipeClientView({ recipe, relatedDatasheets = [], resolvedImage, krogerIngredients = [] }: RecipeClientViewProps) {
   // Mode state: syncs with document.documentElement's data-mode
   const [currentMode, setCurrentMode] = useState<'fast' | 'detailed'>('fast');
   const [portionMultiplier, setPortionMultiplier] = useState<number>(1);
@@ -520,6 +525,11 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
             </div>
           ))}
         </div>
+
+        <KrogerCartPanel
+          ingredients={krogerIngredients}
+          returnTo={`/recipes/${recipe.slug}`}
+        />
       </section>
 
       {/* HR-6: BOTH MODES PRESENT IN SSR HTML SIMULTANEOUSLY */}

@@ -8,6 +8,7 @@ import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { resolveRecipeImage, resolveRecipeImageAbsolute } from '@/lib/recipe-image';
 import RecipeClientView from './RecipeClientView';
+import { resolveIngredients } from '@/lib/kroger/matches';
 
 interface RecipePageProps {
   params: Promise<{ slug: string }>;
@@ -93,6 +94,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
       />
       <RecipeClientView
         recipe={recipe}
+        krogerIngredients={resolveIngredients(recipe.ingredients.map((i) => i.item))}
         relatedDatasheets={relatedDatasheets}
         resolvedImage={resolvedImage}
       />
