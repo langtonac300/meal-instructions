@@ -21,11 +21,14 @@ interface RecipeClientViewProps {
   recipe: Recipe;
   /** Build-time Kroger product matches for this recipe's ingredients. */
   krogerIngredients?: ResolvedIngredient[];
+  /** False when KROGER_CLIENT_ID is unset — the panel is hidden rather than
+   *  rendering a button whose only outcome is a Kroger error page. */
+  krogerEnabled?: boolean;
   relatedDatasheets?: CookTimeDatasheet[];
   resolvedImage?: string;
 }
 
-export default function RecipeClientView({ recipe, relatedDatasheets = [], resolvedImage, krogerIngredients = [] }: RecipeClientViewProps) {
+export default function RecipeClientView({ recipe, relatedDatasheets = [], resolvedImage, krogerIngredients = [], krogerEnabled = false }: RecipeClientViewProps) {
   // Mode state: syncs with document.documentElement's data-mode
   const [currentMode, setCurrentMode] = useState<'fast' | 'detailed'>('fast');
   const [portionMultiplier, setPortionMultiplier] = useState<number>(1);
@@ -526,10 +529,12 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
           ))}
         </div>
 
-        <KrogerCartPanel
-          ingredients={krogerIngredients}
-          returnTo={`/recipes/${recipe.slug}`}
-        />
+        {krogerEnabled && (
+          <KrogerCartPanel
+            ingredients={krogerIngredients}
+            returnTo={`/recipes/${recipe.slug}`}
+          />
+        )}
       </section>
 
       {/* HR-6: BOTH MODES PRESENT IN SSR HTML SIMULTANEOUSLY */}

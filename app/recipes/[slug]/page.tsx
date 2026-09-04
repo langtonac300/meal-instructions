@@ -95,6 +95,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
       <RecipeClientView
         recipe={recipe}
         krogerIngredients={resolveIngredients(recipe.ingredients.map((i) => i.item))}
+        krogerEnabled={Boolean(process.env.KROGER_CLIENT_ID)}
         relatedDatasheets={relatedDatasheets}
         resolvedImage={resolvedImage}
       />

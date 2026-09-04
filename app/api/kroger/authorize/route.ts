@@ -12,6 +12,16 @@ export const dynamic = 'force-dynamic';
  * this domain.
  */
 export async function GET(req: NextRequest) {
+  // Without a client_id the redirect still "works" — it sends the shopper to
+  // Kroger with client_id= and they land on an error page, which reads as the
+  // site being broken. Fail here instead, where the cause is legible.
+  if (!process.env.KROGER_CLIENT_ID) {
+    return NextResponse.json(
+      { error: 'kroger_not_configured' },
+      { status: 503 },
+    );
+  }
+
   const state = createState();
   const requested = req.nextUrl.searchParams.get('returnTo') ?? '/';
   const returnTo = requested.startsWith('/') && !requested.startsWith('//') ? requested : '/';
