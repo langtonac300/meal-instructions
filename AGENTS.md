@@ -42,9 +42,9 @@ No `Air Fryer Cottage Cheese`. If you cannot picture a person cooking it, it doe
 - `dadProTip`, `reheatInstructions`, `kidAdjustment` must not be drawn from a rotating pool.
 Before any content commit, run `npm run audit:content`. It must exit 0.
 
-**HR-5. Recipe count ceiling until the gate is lifted: 150.**
+**HR-5. Recipe count ceiling until the gate is lifted: 180.**
 Ship quality first. The volume play is `/how-long/*`, which is verifiable and defensible.
-Raising this ceiling requires explicit sign-off from Alex.
+Ceiling raised to 180 with explicit sign-off from Alex. Raising further requires explicit sign-off from Alex.
 
 ---
 
