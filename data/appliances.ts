@@ -147,7 +147,6 @@ export const APPLIANCES: ApplianceMeta[] = [
     name: 'Stovetop Boiling',
     shortDescription: 'Full rolling boil at 212°F (100°C) for eggs, potatoes, pasta, corn, vegetables, and shellfish.',
     tempRange: '212°F (100°C)',
-    image: '/images/hero/boiling-pot.jpg',
     tempGuide: [
       { food: 'Hard Boiled Eggs', temp: '212°F (100°C)', time: '10-12 minutes', shake: 'Ice bath immediately' },
       { food: 'Whole Potatoes (medium)', temp: '212°F (100°C)', time: '20-25 minutes', shake: 'Fork-tender check' },
