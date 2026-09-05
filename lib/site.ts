@@ -23,7 +23,10 @@ if (!raw && process.env.NODE_ENV === 'production') {
 }
 
 export const SITE_URL = (raw ?? 'http://localhost:3000').replace(/\/$/, '');
-export const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? 'Meal Instructions';
+// The brand is fixed, not configuration. This used to read NEXT_PUBLIC_SITE_NAME,
+// and a stale value on Vercel ("Dad Meals // Zero Fluff") kept every production
+// <title> and OpenGraph title on the old name long after the rebrand.
+export const SITE_NAME = 'Meal Instructions';
 
 export const abs = (path: string) => `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
 export const absoluteUrl = abs;

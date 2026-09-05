@@ -64,12 +64,22 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between">
           
           {/* Logo & Brand */}
+          {/* The desktop nav is over capacity between lg and xl (1024–1279px):
+              ten items plus search and sign-in do not fit at the xl metrics.
+              In that band the wordmark drops to its small size and the nav runs
+              tighter (11px, narrower gaps and tracking) so nothing is hidden,
+              renamed, or pushed off the right edge. */}
           <Link href="/" className="group inline-flex items-center">
-            <Logo size="md" variant="horizontal" />
+            <span className="inline-flex lg:hidden xl:inline-flex">
+              <Logo size="md" variant="horizontal" />
+            </span>
+            <span className="hidden lg:inline-flex xl:hidden">
+              <Logo size="sm" variant="horizontal" />
+            </span>
           </Link>
 
           {/* Center Links */}
-          <nav className="hidden lg:flex items-center gap-6 font-mono text-xs tracking-wider uppercase text-ink-muted">
+          <nav className="hidden lg:flex items-center gap-3 xl:gap-6 font-mono text-[11px] xl:text-xs tracking-wide xl:tracking-wider uppercase text-ink-muted">
             <Link
               href="/appliances/air-fryer"
               className={`hover:text-ink transition-colors pb-0.5 ${
