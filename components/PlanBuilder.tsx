@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useSession, signIn } from 'next-auth/react';
@@ -89,22 +89,71 @@ export default function PlanBuilder({ recipes }: { recipes: PlannerRecipe[] }) {
   const [nights, setNights] = useState<Night[]>(() => buildNights(tomorrow(), 5, []));
   const [status, setStatus] = useState<Status>({ kind: 'idle' });
   const [loaded, setLoaded] = useState(false);
+  /** Set when we return from Google mid-way through an "add to calendar". */
+  const [resumeSync, setResumeSync] = useState(false);
 
   const bySlug = useMemo(() => new Map(recipes.map((r) => [r.slug, r])), [recipes]);
   const chosen = nights.filter((n) => n.recipeSlug);
   const signedIn = Boolean(session?.user);
 
-  // Surface the OAuth round trip's outcome, then let the next action clear it.
+  // The OAuth round trip's outcome. Coming back "connected" is the middle of
+  // an action, not the end of one: the reader pressed "add to calendar", got
+  // sent to Google, and said yes. Reporting success and stopping there leaves
+  // the plan unwritten and looks, correctly, like the button did nothing —
+  // so the write is resumed automatically instead of waiting for a second press.
   useEffect(() => {
     const outcome = searchParams?.get('calendar');
     if (!outcome) return;
-    const message = CALLBACK_MESSAGE[outcome] ?? 'Something went wrong connecting Google Calendar.';
-    setStatus({ kind: outcome === 'connected' ? 'ok' : 'error', message });
+    // Strip it first: this must not re-fire on every later render, and a
+    // reload should not kick off another write.
+    window.history.replaceState(null, '', window.location.pathname + window.location.hash);
+    if (outcome === 'connected') {
+      setResumeSync(true);
+      return;
+    }
+    setStatus({
+      kind: 'error',
+      message: CALLBACK_MESSAGE[outcome] ?? 'Something went wrong connecting Google Calendar.',
+    });
   }, [searchParams]);
+
+  // `?add=<slug>` — what the "Plan this for a night" button on a recipe page
+  // hands over. It fills the first night with nothing on it, so arriving from
+  // a recipe puts you one click from a calendar entry rather than back at an
+  // empty grid. The param is stripped afterwards: a reload should not silently
+  // re-add the meal to a night the reader has since cleared.
+  useEffect(() => {
+    // Gated on `loaded`: the saved-plan restore below is a fetch, and applying
+    // the handoff first would let that response land afterwards and wipe it.
+    if (!loaded) return;
+    const slug = searchParams?.get('add');
+    if (!slug || !bySlug.has(slug)) return;
+    setNights((prev) => {
+      if (prev.some((n) => n.recipeSlug === slug)) return prev;
+      const target = prev.find((n) => !n.recipeSlug);
+      if (target) {
+        return prev.map((n) => (n.cookDate === target.cookDate ? { ...n, recipeSlug: slug } : n));
+      }
+      // Every night already has a meal. Add one on the end rather than doing
+      // nothing — arriving from a recipe page is a request to cook that meal,
+      // and silently ignoring it looks like a broken button.
+      if (prev.length >= MAX_PLAN_ITEMS) return prev;
+      const last = prev[prev.length - 1];
+      const cookDate = last ? addDays(last.cookDate, 1) : startDate;
+      return [...prev, { cookDate, recipeSlug: slug }];
+    });
+    window.history.replaceState(null, '', window.location.pathname + window.location.hash);
+  }, [searchParams, bySlug, loaded, startDate]);
 
   // Load whatever plan is already saved, so the page reopens where it was left.
   useEffect(() => {
-    if (!signedIn || loaded) return;
+    if (loaded) return;
+    // Nothing to restore when signed out, but the flag still has to flip: the
+    // ?add= handoff waits on it, and signing in returns to this same URL.
+    if (!signedIn) {
+      setLoaded(true);
+      return;
+    }
     let cancelled = false;
     (async () => {
       try {
@@ -215,6 +264,17 @@ export default function PlanBuilder({ recipes }: { recipes: PlannerRecipe[] }) {
         return;
       }
 
+      // Token accepted, call refused. Another consent screen cannot fix this,
+      // so do not send them round the loop again — say what to check.
+      if (res.status === 403) {
+        setStatus({
+          kind: 'error',
+          message:
+            'Google accepted the sign-in but refused the calendar. The plan is saved — this needs fixing on our side.',
+        });
+        return;
+      }
+
       if (!res.ok) {
         setStatus({ kind: 'error', message: 'Google would not take the events. Try again.' });
         return;
@@ -235,6 +295,17 @@ export default function PlanBuilder({ recipes }: { recipes: PlannerRecipe[] }) {
       setStatus({ kind: 'error', message: 'Could not reach Google Calendar. Try again.' });
     }
   }
+
+  // onSync is redeclared every render; the ref keeps the resume effect from
+  // re-firing each time while still calling the current closure.
+  const syncRef = useRef(onSync);
+  syncRef.current = onSync;
+
+  useEffect(() => {
+    if (!resumeSync || !loaded) return;
+    setResumeSync(false);
+    void syncRef.current();
+  }, [resumeSync, loaded]);
 
   if (authStatus === 'loading') {
     return <div className="border-t border-ink py-8 text-ink-muted">Loading…</div>;

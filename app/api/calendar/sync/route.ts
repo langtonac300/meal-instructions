@@ -98,6 +98,15 @@ export async function POST(req: NextRequest) {
     req.cookies.get(COOKIE.refreshToken)?.value,
   );
   if (!session.connected) {
+    // Names only, never values. Distinguishes "the callback never set them"
+    // from "the browser did not send them back".
+    console.error(
+      '[calendar] sync has no token cookies. cookies present: %s',
+      req.cookies
+        .getAll()
+        .map((c) => c.name)
+        .join(', ') || '(none)',
+    );
     return NextResponse.json({ error: 'not_connected' }, { status: 401 });
   }
 
@@ -130,8 +139,16 @@ export async function POST(req: NextRequest) {
       await setCalendarId(user.id, calendarId);
     }
   } catch (err) {
-    if (err instanceof CalendarApiError && (err.status === 401 || err.status === 403)) {
+    if (err instanceof CalendarApiError && err.status === 401) {
       return NextResponse.json({ error: 'not_connected' }, { status: 401 });
+    }
+    // 403 is NOT "reconnect". It means the token is valid but the call is
+    // refused — the Calendar API is disabled on the Cloud project, or the
+    // calendar scope was never granted. Reporting it as not_connected sends
+    // the reader back to a consent screen that cannot fix either, forever.
+    if (err instanceof CalendarApiError && err.status === 403) {
+      console.error('[calendar] 403 from Google — API disabled or scope not granted', err);
+      return NextResponse.json({ error: 'forbidden', detail: err.message }, { status: 403 });
     }
     console.error('[calendar] could not resolve the meal calendar', err);
     return NextResponse.json({ error: 'calendar_unavailable' }, { status: 502 });
