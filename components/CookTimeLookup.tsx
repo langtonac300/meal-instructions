@@ -6,12 +6,15 @@ import { useRouter } from 'next/navigation';
 import { Search } from 'lucide-react';
 import type { LookupDatasheet, LookupRecipe } from '@/lib/cook-time-lookup';
 import { tokenize } from '@/lib/lookup-tokenize';
+import { track, searchTerm } from '@/lib/analytics';
 
 interface CookTimeLookupProps {
   datasheets: LookupDatasheet[];
   recipes: LookupRecipe[];
-  /** Total datasheet count, printed under the input. */
+  /** Total datasheet count, printed under the input (card variant only). */
   datasheetCount: number;
+  /** 'card' is the home page's starting-point card; 'hero' is the larger /how-long field. */
+  variant?: 'card' | 'hero';
 }
 
 const datasheetHref = (d: LookupDatasheet) => `/how-long/${d.appliance}/${d.foodSlug}`;
@@ -29,7 +32,9 @@ export default function CookTimeLookup({
   datasheets,
   recipes,
   datasheetCount,
+  variant = 'card',
 }: CookTimeLookupProps) {
+  const hero = variant === 'hero';
   const [query, setQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -88,9 +93,27 @@ export default function CookTimeLookup({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (firstHref) {
+      track('search_select', {
+        search_term: searchTerm(query),
+        href: firstHref,
+        result_type: results.datasheets[0] ? 'datasheet' : 'recipe',
+        position: 1,
+        method: 'keyboard',
+      });
       setIsFocused(false);
       router.push(firstHref);
     }
+  };
+
+  const selectResult = (href: string, type: 'datasheet' | 'recipe', position: number) => {
+    track('search_select', {
+      search_term: searchTerm(query),
+      href,
+      result_type: type,
+      position,
+      method: 'click',
+    });
+    setIsFocused(false);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -105,7 +128,9 @@ export default function CookTimeLookup({
       <div className="relative">
         <form onSubmit={handleSubmit} role="search" aria-label="Look up a cook time">
           <label
-            className="flex items-center gap-2.5 bg-paper border-2 border-ink px-3.5 py-3 cursor-text focus-within:border-ink"
+            className={`flex items-center bg-paper border-2 border-ink cursor-text focus-within:border-ink ${
+              hero ? 'gap-3 px-[18px] py-4 bg-paper-50' : 'gap-2.5 px-3.5 py-3'
+            }`}
             htmlFor={`${listId}-input`}
           >
             <Search className="w-[18px] h-[18px] text-accent shrink-0" aria-hidden="true" />
@@ -117,10 +142,16 @@ export default function CookTimeLookup({
               onChange={(e) => setQuery(e.target.value)}
               onFocus={() => setIsFocused(true)}
               onKeyDown={handleKeyDown}
-              placeholder="chicken breast, salmon, frozen fries…"
+              placeholder={
+                hero
+                  ? 'What are you cooking? chicken breast, brisket, frozen fries…'
+                  : 'chicken breast, salmon, frozen fries…'
+              }
               aria-expanded={isOpen}
               aria-controls={isOpen ? `${listId}-results` : undefined}
-              className="w-full min-w-0 bg-transparent text-[15px] text-ink placeholder:text-ink-subtle focus:outline-none [&::-webkit-search-cancel-button]:appearance-none"
+              className={`w-full min-w-0 bg-transparent text-ink placeholder:text-ink-subtle focus:outline-none [&::-webkit-search-cancel-button]:appearance-none ${
+                hero ? 'text-[18px]' : 'text-[15px]'
+              }`}
             />
           </label>
         </form>
@@ -208,9 +239,11 @@ export default function CookTimeLookup({
         )}
       </div>
 
-      <p className="mt-2.5 font-mono text-[12px] text-ink-subtle uppercase tracking-[0.08em]">
-        {datasheetCount.toLocaleString('en-US')} verified datasheets
-      </p>
+      {!hero && (
+        <p className="mt-2.5 font-mono text-[12px] text-ink-subtle uppercase tracking-[0.08em]">
+          {datasheetCount.toLocaleString('en-US')} verified datasheets
+        </p>
+      )}
     </div>
   );
 }

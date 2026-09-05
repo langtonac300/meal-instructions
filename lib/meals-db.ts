@@ -5,6 +5,8 @@ export interface MealsUser {
   email: string;
   name: string | null;
   image: string | null;
+  /** First sign-in. Set by the column default, never rewritten by the upsert. */
+  created_at: string;
 }
 
 export interface SavedMealRow {
@@ -47,7 +49,7 @@ export async function upsertMealsUser(input: {
       },
       { onConflict: 'email' }
     )
-    .select('id, email, name, image')
+    .select('id, email, name, image, created_at')
     .single();
   if (error) throw error;
   return data as MealsUser;
@@ -57,7 +59,7 @@ export async function getUserByEmail(email: string): Promise<MealsUser | null> {
   const db = supabaseAdmin();
   const { data, error } = await db
     .from('meals_users')
-    .select('id, email, name, image')
+    .select('id, email, name, image, created_at')
     .eq('email', email)
     .maybeSingle();
   if (error) throw error;
@@ -132,7 +134,8 @@ export async function listRatingsForUser(userId: string): Promise<RatingRow[]> {
   const { data, error } = await db
     .from('meals_ratings')
     .select('recipe_slug, stars, review, updated_at')
-    .eq('user_id', userId);
+    .eq('user_id', userId)
+    .order('updated_at', { ascending: false });
   if (error) throw error;
   return (data as RatingRow[]) ?? [];
 }
@@ -209,5 +212,20 @@ export async function upsertProfile(
     { user_id: userId, ...profile, updated_at: new Date().toISOString() },
     { onConflict: 'user_id' }
   );
+  if (error) throw error;
+}
+
+/**
+ * Removes every row that belongs to a user, then the user. Order matters only
+ * for foreign keys; the user row goes last. Called from /api/meals/delete
+ * after the session is verified — the sign-in page promises this exists.
+ */
+export async function deleteUserData(userId: string): Promise<void> {
+  const db = supabaseAdmin();
+  for (const table of ['meals_saved', 'meals_ratings', 'meals_edit_suggestions', 'meals_profiles']) {
+    const { error } = await db.from(table).delete().eq('user_id', userId);
+    if (error) throw error;
+  }
+  const { error } = await db.from('meals_users').delete().eq('id', userId);
   if (error) throw error;
 }

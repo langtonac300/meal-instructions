@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { RECIPES } from '@/data/recipes';
+import { POPULAR_PRESETS } from '@/data/cook-time-presets';
 import type { CookTimeDatasheet, Recipe } from '@/lib/types';
 import {
   LeanAirFryerIcon,
@@ -26,16 +27,6 @@ import {
   LeanStopwatchIcon,
 } from './icons/Lean5SIcons';
 
-const POPULAR_PRESETS = [
-  { label: 'Chicken Breast', slug: 'air-fryer-chicken-breast-boneless' },
-  { label: 'Salmon Fillets', slug: 'air-fryer-salmon-fillets-fresh' },
-  { label: 'Frozen Burgers', slug: 'air-fryer-beef-burger-patties-frozen' },
-  { label: 'Thick Bacon', slug: 'air-fryer-bacon-thick-cut' },
-  { label: 'Pork Chops', slug: 'air-fryer-pork-chops-bone-in' },
-  { label: 'Steak Bites', slug: 'air-fryer-sirloin-steak-bites' },
-  { label: 'Chicken Wings', slug: 'air-fryer-chicken-wings-fresh' },
-  { label: 'Frozen Fries', slug: 'air-fryer-frozen-french-fries' },
-];
 
 export default function KitchenHud() {
   const [searchQuery, setSearchQuery] = useState('');
