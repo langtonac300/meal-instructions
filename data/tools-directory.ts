@@ -8,6 +8,16 @@ export interface ToolEntry {
 }
 
 export const ALL_TOOLS: ToolEntry[] = [
+  // The pantry matcher — the "what's for dinner" entry point.
+  {
+    href: '/what-can-i-make',
+    title: 'What Can I Make? Pantry Matcher',
+    badge: 'USE WHAT YOU HAVE',
+    category: 'planning',
+    description:
+      'Tick the meat, produce, spices, and condiments you have. Every meal you can cook tonight shows up, with what to grab for the near-misses.',
+    iconName: 'fork',
+  },
   // 1-10: Original 10 Core Engines
   {
     href: '/air-fryer-calculator',

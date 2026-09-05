@@ -65,7 +65,7 @@ export default function ToolsPage() {
       {/* SSR Static Reference Table for Crawlers */}
       <section className="bg-paper hairline-border p-6 space-y-4 font-mono text-xs">
         <div className="font-bold text-ink uppercase tracking-wider text-[11px] hairline-b pb-2">
-          DIRECTORY OF 30 PRECISION KITCHEN ENGINES
+          DIRECTORY OF {ALL_TOOLS.length} PRECISION KITCHEN ENGINES
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">

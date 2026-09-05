@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Printer } from 'lucide-react';
+import { ArrowRight, Printer } from 'lucide-react';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { RECIPES } from '@/data/recipes';
@@ -8,6 +8,7 @@ import { CATEGORIES } from '@/data/categories';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { ALL_TOOLS } from '@/data/tools-directory';
 import { BLOG_POSTS } from '@/data/blog-posts';
+import { PANTRY_ITEMS, PANTRY_ITEM_BY_ID } from '@/data/pantry';
 import { packPageCount, topTwenty } from '@/lib/print-pack';
 import { lookupIndex } from '@/lib/cook-time-lookup';
 import CategoryGrid from '@/components/CategoryGrid';
@@ -50,6 +51,9 @@ const FEATURED_GUIDES = [
   },
 ];
 
+/** Quick picks under the pantry band; each opens the tool with that item already ticked. */
+const QUICK_PICKS = ['chicken-breast', 'chicken-thighs', 'ground-beef', 'pork-chops', 'shrimp', 'eggs'];
+
 /** "Chicken Tenders (Fresh / Uncooked)" → "Chicken Tenders" for the six-cell strip. Display only. */
 const shortFood = (food: string) => food.replace(/\s*\([^)]*\)\s*$/, '');
 
@@ -79,6 +83,9 @@ export default function HomePage() {
 
   const index = lookupIndex();
   const pageCount = packPageCount(topTwenty().length);
+  const quickPicks = QUICK_PICKS.map((id) => PANTRY_ITEM_BY_ID.get(id)).filter(
+    (item): item is NonNullable<typeof item> => item !== undefined,
+  );
   // First six distinct air-fryer foods in datasheet order. Deduped on the
   // display name so fresh/frozen variants of one food don't take two cells.
   const airFryer = COOK_TIME_DATASHEETS.filter((d) => d.appliance === 'air-fryer')
@@ -105,9 +112,57 @@ export default function HomePage() {
             No fluff. <span className="text-accent">Just the instructions.</span>
           </h1>
           <p className="mt-4 text-[18px] text-ink-muted max-w-[60ch]">
-            Pick a category, look up a temperature, or print the pack. Everything on this site is
-            one of those three things.
+            Say what&rsquo;s in the fridge, pick a category, look up a temperature, or print the
+            pack. Everything on this site is one of those four things.
           </p>
+        </section>
+
+        {/* ── What can I make ── */}
+        <section className={`${CONTAINER} pb-10`} aria-labelledby="pantry-heading">
+          <div className="border-y border-ink py-7 grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_auto] gap-x-12 gap-y-5 md:items-center">
+            <div>
+              <span className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">
+                Tonight
+              </span>
+              <h2
+                id="pantry-heading"
+                className="text-[28px] sm:text-[32px] font-extrabold tracking-[-0.01em] leading-[1.15] mt-2.5 text-ink"
+              >
+                What can I make with what&rsquo;s in the house?
+              </h2>
+              <p className="mt-2.5 leading-[1.6] text-ink-muted max-w-[60ch]">
+                Tick what you&rsquo;ve got — meat, produce, spices, condiments — and every meal you
+                can cook shows up, with what you&rsquo;d need to grab for the near-misses.
+              </p>
+              <ul className="mt-4 flex flex-wrap items-center gap-2" aria-label="Start with">
+                <li className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-ink-subtle mr-1">
+                  Start with
+                </li>
+                {quickPicks.map((item) => (
+                  <li key={item.id}>
+                    <Link
+                      href={`/what-can-i-make?have=${item.id}`}
+                      className="inline-block px-3 py-[6px] bg-paper-50 border border-hairline text-[14px] text-ink hover:border-ink transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex flex-col items-start md:items-end gap-2.5 shrink-0">
+              <Link
+                href="/what-can-i-make"
+                className="inline-flex items-center gap-2 px-[22px] py-[14px] bg-ink text-paper text-[16px] font-bold hover:bg-accent transition-colors"
+              >
+                Find my meals
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+              <span className="font-mono text-[12px] text-ink-subtle uppercase tracking-[0.08em]">
+                {RECIPES.length} meals · {PANTRY_ITEMS.length} ingredients
+              </span>
+            </div>
+          </div>
         </section>
 
         {/* ── Three starting points ── */}
