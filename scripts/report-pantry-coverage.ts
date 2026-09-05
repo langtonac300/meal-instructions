@@ -8,7 +8,14 @@
  */
 import { RECIPES } from '../data/recipes';
 import { PANTRY_ITEMS } from '../data/pantry';
-import { classifyRecipe, labelFor } from '../lib/pantry-match';
+import {
+  basicsFor,
+  classifyRecipe,
+  labelFor,
+  pickSplitters,
+  proteinFamilies,
+} from '../lib/pantry-match';
+import { pantryIndex } from '../lib/pantry-index';
 
 let lines = 0;
 let matched = 0;
@@ -49,3 +56,22 @@ for (const s of noRequired) console.log(`  ${s}`);
 
 console.log(`\nSample split:`);
 for (const s of sample) console.log(`  ${s}`);
+
+// ── What the v2 flow derives from the corpus ──
+const index = pantryIndex();
+const basics = basicsFor(index);
+console.log(
+  `\nAssumed basics (in ≥ ${Math.round(100 * 0.25)}% of recipes): ${basics.map(labelFor).join(', ')}`,
+);
+console.log(
+  `\nProtein families (meals): ${proteinFamilies(index)
+    .map((f) => `${f.label} ${f.meals}`)
+    .join(' · ')}`,
+);
+for (const tapped of [[], ['chicken-breast'], ['ground-beef', 'bacon'], ['salmon']]) {
+  const have = new Set([...basics, ...tapped]);
+  const { inPlay, picks } = pickSplitters(index, have, new Set(basics));
+  console.log(
+    `\nAfter tapping [${tapped.map(labelFor).join(', ') || 'nothing'}]: ${inPlay} meals in play; next asks: ${picks.map((p) => `${labelFor(p.id)} (${p.count})`).join(', ')}`,
+  );
+}
