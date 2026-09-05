@@ -23,6 +23,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
+      url: absoluteUrl('/what-can-i-make'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: absoluteUrl('/cheat-sheet'),
       changeFrequency: 'weekly',
       priority: 0.85,

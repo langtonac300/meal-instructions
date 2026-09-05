@@ -18,6 +18,7 @@ const COLUMNS: FooterColumn[] = [
   {
     heading: 'Recipes',
     links: [
+      { label: 'What can I make?', href: '/what-can-i-make' },
       { label: 'All categories', href: '/categories' },
       { label: 'Cook times', href: '/how-long' },
       { label: 'Temp cheat sheet', href: '/cheat-sheet' },

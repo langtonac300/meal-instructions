@@ -30,6 +30,11 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   {
+    label: 'What can I make',
+    href: '/what-can-i-make',
+    isActive: (p) => p.startsWith('/what-can-i-make'),
+  },
+  {
     label: 'Recipes',
     href: '/categories',
     isActive: (p) => p.startsWith('/categories') || p.startsWith('/recipes'),
@@ -86,7 +91,10 @@ export default function Navbar() {
         <span className="text-neutral-300 truncate">
           {RECIPES.length} verified meals · exact temps · no life stories
         </span>
-        <Link href="/about" className="text-neutral-400 hover:text-paper transition-colors shrink-0">
+        <Link
+          href="/about"
+          className="text-neutral-400 hover:text-paper transition-colors shrink-0"
+        >
           Manifesto
         </Link>
       </div>
@@ -95,15 +103,22 @@ export default function Navbar() {
       <header className="sticky top-0 z-40 bg-paper/90 backdrop-blur-md border-b border-hairline no-print">
         <div className="max-w-[1200px] mx-auto px-5 sm:px-10 h-[72px] flex items-center justify-between gap-4">
           {/* Logo & wordmark */}
-          <Link href="/" className="group inline-flex items-center gap-3 shrink-0" aria-label="Meal Instructions home">
+          <Link
+            href="/"
+            className="group inline-flex items-center gap-3 shrink-0"
+            aria-label="Meal Instructions home"
+          >
             <Logo size="md" variant="mark-only" />
-            <span className="hidden sm:inline font-sans text-[16px] font-black uppercase tracking-[0.06em] text-ink leading-none">
+            <span className="hidden sm:inline lg:hidden xl:inline font-sans text-[16px] font-black uppercase tracking-[0.06em] text-ink leading-none">
               Meal Instructions
             </span>
           </Link>
 
           {/* Center nav */}
-          <nav className="hidden lg:flex items-center gap-7 text-[14px] text-ink-muted" aria-label="Primary">
+          <nav
+            className="hidden lg:flex items-center gap-5 xl:gap-7 text-[14px] text-ink-muted"
+            aria-label="Primary"
+          >
             {NAV_ITEMS.map((item) => {
               const active = item.isActive(pathname);
               return (
@@ -111,7 +126,7 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   aria-current={active ? 'page' : undefined}
-                  className={`transition-colors pb-0.5 border-b-2 ${
+                  className={`whitespace-nowrap transition-colors pb-0.5 border-b-2 ${
                     active
                       ? 'text-ink font-semibold border-ink'
                       : 'border-transparent hover:text-ink'
@@ -175,7 +190,9 @@ export default function Navbar() {
                   className="flex items-center gap-2 px-3 sm:px-4 py-2.5 bg-ink text-paper hover:bg-accent transition-colors text-[14px] font-semibold cursor-pointer whitespace-nowrap"
                 >
                   <LogIn className="w-[15px] h-[15px]" aria-hidden="true" />
-                  <span>Sign in with Google</span>
+                  {/* Six nav items plus this label do not fit between lg and xl. */}
+                  <span className="lg:hidden xl:inline">Sign in with Google</span>
+                  <span className="hidden lg:inline xl:hidden">Sign in</span>
                 </button>
               ))}
 

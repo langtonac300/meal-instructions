@@ -16,6 +16,7 @@
     "test:mcp": "tsx scripts/test-mcp.ts",
     "audit:content": "node scripts/audit-content.mjs",
     "audit:seo": "node scripts/audit-seo.mjs",
+    "report:pantry": "tsx scripts/report-pantry-coverage.ts",
     "gaps": "node scripts/content-gaps.mjs",
     "ship": "./scripts/ship-content.sh",
     "daily-content": "node scripts/daily-routine.mjs",
