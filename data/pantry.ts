@@ -29,10 +29,14 @@ export interface PantryItem {
    * saying "cheese" requires one cheese the recipe uses, not every one of them.
    */
   family?: string;
-  /** Ticked on a first visit — what most kitchens keep. */
-  staple?: boolean;
   /** Having any of these counts as having this one (garlic powder for fresh garlic, lime for lemon). */
   swaps?: string[];
+  /**
+   * Cuts that can stand in for this one with a note: a required item whose
+   * cousin is ticked is listed as missing instead of hiding the meal, so
+   * thigh recipes stay in view for someone with breasts.
+   */
+  cousins?: string[];
 }
 
 export interface PantryGroup {
@@ -53,12 +57,14 @@ export const PANTRY_GROUPS: PantryGroup[] = [
         label: 'Chicken breast',
         match: ['chicken breasts?', 'chicken cutlets?', 'chicken tenderloins?', 'chicken tenders?'],
         protein: 'chicken',
+        cousins: ['chicken-thighs'],
       },
       {
         id: 'chicken-thighs',
         label: 'Chicken thighs',
         match: ['chicken thighs?'],
         protein: 'chicken',
+        cousins: ['chicken-breast'],
       },
       {
         id: 'chicken-wings',
@@ -83,12 +89,14 @@ export const PANTRY_GROUPS: PantryGroup[] = [
         label: 'Cooked / rotisserie chicken',
         match: ['rotisserie chicken', 'shredded chicken', 'cooked chicken'],
         protein: 'chicken',
+        cousins: ['chicken-breast', 'chicken-thighs'],
       },
       {
         id: 'ground-beef',
         label: 'Ground beef',
         match: ['ground beef', 'ground chuck'],
         protein: 'beef',
+        cousins: ['ground-turkey', 'ground-pork'],
       },
       {
         id: 'steak',
@@ -104,7 +112,13 @@ export const PANTRY_GROUPS: PantryGroup[] = [
         protein: 'beef',
       },
       { id: 'brisket', label: 'Brisket', match: ['brisket'], protein: 'beef' },
-      { id: 'pork-chops', label: 'Pork chops', match: ['pork( rib)? chops?'], protein: 'pork' },
+      {
+        id: 'pork-chops',
+        label: 'Pork chops',
+        match: ['pork( rib)? chops?'],
+        protein: 'pork',
+        cousins: ['pork-tenderloin'],
+      },
       {
         id: 'pork-shoulder',
         label: 'Pork shoulder / butt',
@@ -116,6 +130,7 @@ export const PANTRY_GROUPS: PantryGroup[] = [
         label: 'Pork tenderloin',
         match: ['pork tenderloins?'],
         protein: 'pork',
+        cousins: ['pork-chops'],
       },
       {
         id: 'pork-ribs',
@@ -124,7 +139,13 @@ export const PANTRY_GROUPS: PantryGroup[] = [
         protein: 'pork',
       },
       { id: 'pork-belly', label: 'Pork belly', match: ['pork belly'], protein: 'pork' },
-      { id: 'ground-pork', label: 'Ground pork', match: ['ground pork'], protein: 'pork' },
+      {
+        id: 'ground-pork',
+        label: 'Ground pork',
+        match: ['ground pork'],
+        protein: 'pork',
+        cousins: ['ground-beef', 'ground-turkey'],
+      },
       { id: 'bacon', label: 'Bacon', match: ['bacon'], protein: 'pork' },
       {
         id: 'sausage',
@@ -134,7 +155,13 @@ export const PANTRY_GROUPS: PantryGroup[] = [
         protein: 'pork',
       },
       { id: 'ham', label: 'Ham', match: ['\\bham\\b'], protein: 'pork' },
-      { id: 'ground-turkey', label: 'Ground turkey', match: ['ground turkey'], protein: 'turkey' },
+      {
+        id: 'ground-turkey',
+        label: 'Ground turkey',
+        match: ['ground turkey'],
+        protein: 'turkey',
+        cousins: ['ground-beef'],
+      },
       {
         id: 'turkey',
         label: 'Turkey (whole or breast)',
@@ -180,7 +207,6 @@ export const PANTRY_GROUPS: PantryGroup[] = [
         label: 'Butter',
         match: ['butter'],
         exclude: ['peanut butter', 'buttermilk', 'butternut'],
-        staple: true,
       },
       { id: 'milk', label: 'Milk', match: ['\\bmilk\\b'], exclude: ['coconut'] },
       {
@@ -357,7 +383,6 @@ export const PANTRY_GROUPS: PantryGroup[] = [
         label: 'Olive oil',
         match: ['olive oil'],
         exclude: ['spray'],
-        staple: true,
         swaps: ['neutral-oil'],
       },
       {
@@ -373,30 +398,26 @@ export const PANTRY_GROUPS: PantryGroup[] = [
           'peanut oil',
         ],
         exclude: ['spray'],
-        staple: true,
         swaps: ['olive-oil'],
       },
       {
         id: 'cooking-spray',
         label: 'Cooking spray',
         match: ['cooking spray', 'oil spray'],
-        staple: true,
       },
       {
         id: 'flour',
         label: 'All-purpose flour',
         match: ['flour'],
         exclude: ['tortillas?'],
-        staple: true,
       },
       {
         id: 'sugar',
         label: 'Sugar',
         match: ['\\bsugar\\b'],
         exclude: ['brown', 'powdered'],
-        staple: true,
       },
-      { id: 'brown-sugar', label: 'Brown sugar', match: ['brown sugar'], staple: true },
+      { id: 'brown-sugar', label: 'Brown sugar', match: ['brown sugar'] },
       { id: 'powdered-sugar', label: 'Powdered sugar', match: ['powdered sugar'] },
       { id: 'cornstarch', label: 'Cornstarch', match: ['cornstarch', 'corn starch'] },
       { id: 'baking-powder-soda', label: 'Baking powder / soda', match: ['baking (powder|soda)'] },
@@ -514,25 +535,22 @@ export const PANTRY_GROUPS: PantryGroup[] = [
     id: 'spices',
     label: 'Spices & dried herbs',
     items: [
-      { id: 'salt', label: 'Salt', match: ['\\bsalt\\b'], staple: true },
+      { id: 'salt', label: 'Salt', match: ['\\bsalt\\b'] },
       {
         id: 'black-pepper',
         label: 'Black pepper',
         match: ['black pepper', 'cracked pepper', 'white pepper', 'peppercorns?'],
-        staple: true,
       },
       {
         id: 'garlic-powder',
         label: 'Garlic powder',
         match: ['garlic powder'],
-        staple: true,
         swaps: ['garlic'],
       },
       {
         id: 'onion-powder',
         label: 'Onion powder',
         match: ['onion powder'],
-        staple: true,
         swaps: ['onion'],
       },
       {
@@ -725,6 +743,3 @@ export const PANTRY_ITEMS: PantryItem[] = PANTRY_GROUPS.flatMap((g) => g.items);
 export const PANTRY_ITEM_BY_ID: ReadonlyMap<string, PantryItem> = new Map(
   PANTRY_ITEMS.map((item) => [item.id, item]),
 );
-
-/** Ticked on a first visit. */
-export const STAPLE_IDS: string[] = PANTRY_ITEMS.filter((i) => i.staple).map((i) => i.id);

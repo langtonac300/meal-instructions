@@ -7,7 +7,7 @@ import { PANTRY_GROUPS, PANTRY_ITEMS } from '@/data/pantry';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { pantryIndex } from '@/lib/pantry-index';
-import { MAX_MISSING } from '@/lib/pantry-match';
+import { basicsFor, labelFor, MAX_MISSING, MIN_ASK } from '@/lib/pantry-match';
 import PantryMatcher from '@/components/PantryMatcher';
 
 export const metadata: Metadata = {
@@ -19,14 +19,24 @@ export const metadata: Metadata = {
 };
 
 /** How the matching decides. Each row is a rule in lib/pantry-match.ts. */
-const RULES = [
+const rules = (basics: string) => [
   {
-    title: 'The main ingredient is non-negotiable',
-    body: 'No chicken ticked means no chicken meals. The same goes for anything the dish is named for: no lemon, no lemon garlic butter shrimp.',
+    title: 'Protein first, because it changes the most',
+    body: 'One tap on chicken cuts the list to the chicken meals. No chicken tapped means no chicken meals. A thigh recipe stays in view for someone with breasts, marked as short the thighs.',
   },
   {
-    title: 'Everything else is leeway',
-    body: `A meal missing up to ${MAX_MISSING} supporting ingredients still shows, with the gaps listed. Whether no mayo is a problem is your call.`,
+    title: 'Then whatever splits what is left',
+    body: `The next chips are the ingredients used by closest to half of the meals still in play, so each tap moves the most meals. Nothing used by fewer than ${MIN_ASK} meals is ever asked about; it shows up as a named gap instead.`,
+  },
+  {
+    title: 'The basics are assumed',
+    body: `Anything in a quarter or more of the recipes — ${basics} — is ticked from the start. Untap what you're out of and the count adjusts.`,
+  },
+  {
+    title: 'Anything the dish is named for is non-negotiable',
+    body:
+      'No lemon, no lemon garlic butter shrimp. Everything else is leeway: a meal missing up to ' +
+      `${MAX_MISSING} supporting ingredients still shows, with the gaps listed. Whether no mayo is a problem is your call.`,
   },
   {
     title: 'Swaps count',
@@ -34,7 +44,7 @@ const RULES = [
   },
   {
     title: 'It remembers',
-    body: 'Your ticks are saved on this device, so next time you only change what changed.',
+    body: 'Your taps are saved on this device. Next time it asks one question: same fridge as last time?',
   },
 ];
 
@@ -72,6 +82,14 @@ export default function WhatCanIMakePage() {
   };
 
   const index = pantryIndex();
+  const basics = basicsFor(index);
+  const basicsText = basics
+    .map((id) =>
+      labelFor(id)
+        .replace(/\s*\([^)]*\)\s*$/, '')
+        .toLowerCase(),
+    )
+    .join(', ');
 
   return (
     <div className="max-w-[1200px] mx-auto px-5 sm:px-10 pb-16 text-ink text-[15px] leading-[1.5]">
@@ -90,17 +108,18 @@ export default function WhatCanIMakePage() {
           What can I make?
         </h1>
         <p className="mt-[18px] text-[19px] sm:text-[21px] leading-[1.5] text-ink-muted max-w-[58ch]">
-          Tick what&rsquo;s in the house — meat, produce, spices, condiments. Every meal you can
-          cook shows up, with what you&rsquo;d need to grab for the near-misses.
+          Tap the protein, answer a question or two, and the meals you can cook tonight are counted
+          as you go. The basics are assumed, the gaps are named, and you can stop the moment the
+          number looks good.
         </p>
         <p className="mt-3 font-mono text-[12px] uppercase tracking-[0.08em] text-ink-subtle">
           {RECIPES.length} meals · {PANTRY_ITEMS.length} ingredients on {PANTRY_GROUPS.length}{' '}
-          shelves · saved on this device
+          shelves · {basics.length} assumed · saved on this device
         </p>
       </header>
 
       {/* ── The tool ── */}
-      <PantryMatcher recipes={index} />
+      <PantryMatcher recipes={index} basics={basics} />
 
       {/* ── How it decides ── */}
       <section className="pt-14" aria-labelledby="rules-heading">
@@ -111,7 +130,7 @@ export default function WhatCanIMakePage() {
           How it decides
         </h2>
         <ol className="border-t border-ink">
-          {RULES.map((rule, i) => (
+          {rules(basicsText).map((rule, i) => (
             <li key={rule.title} className="flex gap-6 py-[18px] border-b border-hairline">
               <span
                 className={`font-mono text-[14px] font-bold w-[2em] shrink-0 ${

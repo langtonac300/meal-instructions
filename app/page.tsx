@@ -131,8 +131,8 @@ export default function HomePage() {
                 What can I make with what&rsquo;s in the house?
               </h2>
               <p className="mt-2.5 leading-[1.6] text-ink-muted max-w-[60ch]">
-                Tick what you&rsquo;ve got — meat, produce, spices, condiments — and every meal you
-                can cook shows up, with what you&rsquo;d need to grab for the near-misses.
+                Tap the protein in the house, answer a question or two, and every meal you can
+                cook tonight shows up — with what you&rsquo;d need to grab for the near-misses.
               </p>
               <ul className="mt-4 flex flex-wrap items-center gap-2" aria-label="Start with">
                 <li className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-ink-subtle mr-1">
