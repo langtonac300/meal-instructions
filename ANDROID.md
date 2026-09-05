@@ -29,19 +29,54 @@ That last row is the decisive one for this repo specifically.
 - `public/icons/icon-maskable-512.png` — glyph inset to 62% so Android's circle/squircle masks don't crop it.
 - `app/.well-known/assetlinks.json/route.ts` — serves Digital Asset Links, driven by env vars.
 
+All three are live in production. Confirm before starting:
+
+```bash
+curl -s -o /dev/null -w '%{http_code} %{content_type}\n' https://www.mealinstructions.com/manifest.webmanifest
+curl -s -o /dev/null -w '%{http_code} %{content_type}\n' https://www.mealinstructions.com/.well-known/assetlinks.json
+```
+
+Expect `200 application/manifest+json` and `200 application/json`. The assetlinks
+body is `[]` until you complete Step 5 — that's correct, not a failure.
+
 You supply two env vars and run the CLI. Nothing else in the repo needs to change.
 
 ---
 
 ## Step 1 — Prerequisites (Mac, one time)
 
-```bash
-# JDK 17 — Bubblewrap needs it to sign the bundle
-brew install --cask temurin@17
+Only one thing to install — the JDK Bubblewrap uses to sign the bundle:
 
-# The wrapper CLI
+```bash
+brew install --cask temurin@17
+```
+
+**Don't install the CLI globally.** `npm install -g @bubblewrap/cli` fails with
+`EACCES: permission denied, mkdir '/usr/local/lib/node_modules/@bubblewrap'` on a
+default macOS Node install, and the usual workaround — re-running it under `sudo`
+— leaves root owning files inside your `node_modules`, which breaks *later*
+unrelated npm installs. Run it through `npx` instead, which needs no install and
+no elevated permissions:
+
+```bash
+npx @bubblewrap/cli --version
+```
+
+Every `bubblewrap <cmd>` below is therefore written as `npx @bubblewrap/cli <cmd>`.
+
+<details>
+<summary>If you'd rather have the <code>bubblewrap</code> command on your PATH</summary>
+
+Point npm's global prefix at a directory you own, then install normally:
+
+```bash
+mkdir -p ~/.npm-global
+npm config set prefix ~/.npm-global
+echo 'export PATH="$HOME/.npm-global/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
 npm install -g @bubblewrap/cli
 ```
+</details>
 
 On first run Bubblewrap offers to download the Android SDK build tools itself
 (~500 MB). **Say yes** — that's simpler than pointing it at Android Studio's copy.
@@ -61,7 +96,7 @@ commit it into this Next.js repo):
 mkdir -p ~/Projects/meal-instructions-android
 cd ~/Projects/meal-instructions-android
 
-bubblewrap init --manifest https://www.mealinstructions.com/manifest.webmanifest
+npx @bubblewrap/cli init --manifest https://www.mealinstructions.com/manifest.webmanifest
 ```
 
 It reads the live manifest and prompts you. Answers that matter:
@@ -85,7 +120,7 @@ It reads the live manifest and prompts you. Answers that matter:
 ## Step 3 — Build
 
 ```bash
-bubblewrap build
+npx @bubblewrap/cli build
 ```
 
 Outputs `app-release-bundle.aab` (upload this to Play) and
@@ -102,12 +137,12 @@ adb install -r app-release-signed.apk
 ## Step 4 — Android Studio (optional)
 
 You only need it to tweak the native shell — a splash animation, a share target,
-push notifications. Open the folder `bubblewrap init` created:
+push notifications. Open the folder `npx @bubblewrap/cli init` created:
 
 **Android Studio → Open → `~/Projects/meal-instructions-android`**
 
 Then **Build → Generate Signed Bundle / APK** is the GUI equivalent of
-`bubblewrap build`. For a plain TWA you can ignore Android Studio entirely.
+`npx @bubblewrap/cli build`. For a plain TWA you can ignore Android Studio entirely.
 
 ---
 
@@ -131,7 +166,7 @@ It looks like `AA:BB:CC:...:FF` (32 hex pairs).
 verify too:
 
 ```bash
-bubblewrap fingerprint list
+npx @bubblewrap/cli fingerprint list
 ```
 
 **5d. Set both in Vercel** → Project → Settings → Environment Variables
@@ -195,5 +230,5 @@ re-check. No address bar = you're done.
 | Change | What to do |
 |---|---|
 | Site content, pages, styling | Just deploy to Vercel. The app picks it up. |
-| App name, icon, theme colour | Edit `app/manifest.ts`, deploy, then `bubblewrap update && bubblewrap build`, upload new `.aab`. |
-| Version bump for a Play upload | `bubblewrap build` auto-increments `appVersionCode`. |
+| App name, icon, theme colour | Edit `app/manifest.ts`, deploy, then `npx @bubblewrap/cli update && npx @bubblewrap/cli build`, upload new `.aab`. |
+| Version bump for a Play upload | `npx @bubblewrap/cli build` auto-increments `appVersionCode`. |
