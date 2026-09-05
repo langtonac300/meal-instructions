@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Copy, Check, MessageSquare, Printer } from 'lucide-react';
 import { Recipe } from '@/lib/types';
 import { absoluteUrl } from '@/lib/site';
+import { track } from '@/lib/analytics';
 
 interface ShareButtonProps {
   recipe: Recipe;
@@ -31,6 +32,7 @@ ${recipe.ingredients
 
     try {
       await navigator.clipboard.writeText(text);
+      track('recipe_share', { method: 'sms_copy', recipe: recipe.slug, servings });
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch (e) {
@@ -39,6 +41,7 @@ ${recipe.ingredients
   };
 
   const handlePrint = () => {
+    track('recipe_print', { source: 'share_bar', recipe: recipe.slug });
     window.print();
   };
 

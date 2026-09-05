@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { Zap, BookOpen } from 'lucide-react';
+import { track } from '@/lib/analytics';
 
 export type RecipeMode = 'quick' | 'detailed';
 
@@ -22,6 +23,10 @@ export default function RecipeModeSwitch({ mode, onChange }: RecipeModeSwitchPro
   }, [onChange]);
 
   const handleSelect = (newMode: RecipeMode) => {
+    // Only a real switch counts. The restore-from-localStorage effect above
+    // also calls onChange, and logging that would drown the signal in
+    // page-load noise.
+    if (newMode !== mode) track('mode_switch', { mode: newMode, from: mode });
     onChange(newMode);
     localStorage.setItem('meal_instructions_mode', newMode);
     localStorage.setItem('recipe_mode', newMode);

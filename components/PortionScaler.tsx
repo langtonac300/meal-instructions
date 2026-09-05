@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Users } from 'lucide-react';
+import { track } from '@/lib/analytics';
 
 interface PortionScalerProps {
   currentServings: number;
@@ -30,7 +31,12 @@ export default function PortionScaler({
             <button
               key={count}
               type="button"
-              onClick={() => onChange(count)}
+              onClick={() => {
+                if (count !== currentServings) {
+                  track('portion_scale', { servings: count, base_servings: baseServings });
+                }
+                onChange(count);
+              }}
               className={`px-2.5 py-1 rounded text-[10px] font-bold transition-all ${
                 isActive
                   ? 'bg-ink text-paper shadow-sm'

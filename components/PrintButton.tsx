@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Printer } from 'lucide-react';
+import { track } from '@/lib/analytics';
 
 interface PrintButtonProps {
   label?: string;
@@ -15,6 +16,7 @@ export default function PrintButton({
   return (
     <button
       onClick={() => {
+        track('recipe_print', { source: 'print_button' });
         if (typeof window !== 'undefined') window.print();
       }}
       className={className}

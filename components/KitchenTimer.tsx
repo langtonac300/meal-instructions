@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, RotateCcw, Bell, X, Volume2 } from 'lucide-react';
+import { track } from '@/lib/analytics';
 
 interface KitchenTimerProps {
   initialMinutes?: number;
@@ -21,6 +22,19 @@ export default function KitchenTimer({
   const [isRunning, setIsRunning] = useState(autoStart);
   const [isFinished, setIsFinished] = useState(false);
   const audioContextRef = useRef<AudioContext | null>(null);
+  // Guards the completion event: the tick writes isFinished from inside a state
+  // updater, which React invokes twice under StrictMode in dev.
+  const completionLogged = useRef(false);
+
+  useEffect(() => {
+    if (!isFinished) {
+      completionLogged.current = false;
+      return;
+    }
+    if (completionLogged.current) return;
+    completionLogged.current = true;
+    track('cook_complete', { label, minutes: Math.round(totalSeconds / 60) });
+  }, [isFinished, label, totalSeconds]);
 
   // Sync if initialMinutes changes
   useEffect(() => {
@@ -99,6 +113,7 @@ export default function KitchenTimer({
   };
 
   const addTime = (mins: number) => {
+    track('timer_extend', { minutes: mins, label });
     setTotalSeconds((prev) => prev + mins * 60);
     setSecondsRemaining((prev) => prev + mins * 60);
     setIsFinished(false);
@@ -191,7 +206,15 @@ export default function KitchenTimer({
       {/* Controls */}
       <div className="flex items-center gap-2">
         <button
-          onClick={() => setIsRunning(!isRunning)}
+          onClick={() => {
+            const next = !isRunning;
+            track(next ? 'cook_start' : 'cook_pause', {
+              label,
+              minutes: Math.round(totalSeconds / 60),
+              remaining: secondsRemaining,
+            });
+            setIsRunning(next);
+          }}
           className={`flex-1 py-2 rounded text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors ${
             isRunning
               ? 'bg-amber-600 hover:bg-amber-700 text-white'

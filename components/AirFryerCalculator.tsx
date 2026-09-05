@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { track } from '@/lib/analytics';
 import Link from 'next/link';
 import { Flame, Clock, ArrowRight, Zap, RefreshCw } from 'lucide-react';
 import { LeanAirFryerIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon } from './icons/Lean5SIcons';
@@ -10,6 +11,25 @@ export default function AirFryerCalculator() {
   const [ovenTemp, setOvenTemp] = useState<number>(400);
   const [ovenMinutes, setOvenMinutes] = useState<number>(25);
   const [unit, setUnit] = useState<'F' | 'C'>('F');
+
+  // The result recomputes on every keystroke, so debounce and skip the initial
+  // render — otherwise every page view logs a phantom conversion.
+  const firstRender = useRef(true);
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    const timer = setTimeout(() => {
+      track('tool_used', {
+        tool: 'air_fryer_converter',
+        oven_temp: ovenTemp,
+        oven_minutes: ovenMinutes,
+        unit,
+      });
+    }, 1200);
+    return () => clearTimeout(timer);
+  }, [ovenTemp, ovenMinutes, unit]);
 
   // Conversion Math:
   // Air Fryer Temp: Conventional Oven Temp minus 25°F (or minus 15°C)

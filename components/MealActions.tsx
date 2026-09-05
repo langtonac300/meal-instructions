@@ -7,6 +7,7 @@
 
 import { useEffect, useState, useTransition } from 'react';
 import { Bookmark, BookmarkCheck, Star, Pencil } from 'lucide-react';
+import { track } from '@/lib/analytics';
 
 interface RatingState {
   stars: number;
@@ -64,6 +65,7 @@ export default function MealActions({ recipeSlug, recipeTitle }: Props) {
   const toggleSaved = () => {
     if (!signedIn) return;
     const next = !saved;
+    track('meal_save', { recipe: recipeSlug, saved: next });
     setSaved(next);
     startTransition(async () => {
       const res = await fetch('/api/meals/save', {
@@ -83,6 +85,8 @@ export default function MealActions({ recipeSlug, recipeTitle }: Props) {
   const submitRating = (nextStars: number) => {
     if (!signedIn) return;
     setStars(nextStars);
+    // Stars only. The review body is user free text and never leaves the page.
+    track('meal_rate', { recipe: recipeSlug, stars: nextStars });
     startTransition(async () => {
       const res = await fetch('/api/meals/rate', {
         method: 'POST',

@@ -3,6 +3,7 @@
 import React, { useMemo, useState } from 'react';
 import { ShoppingCart, Check, ExternalLink } from 'lucide-react';
 import type { ResolvedIngredient } from '@/lib/kroger/matches';
+import { track } from '@/lib/analytics';
 
 interface Props {
   ingredients: ResolvedIngredient[];
@@ -71,6 +72,7 @@ export default function KrogerCartPanel({ ingredients, returnTo }: Props) {
       }
 
       const body = (await res.json()) as { added: number };
+      track('cart_build', { items_selected: selected.size, items_added: body.added });
       setStatus('added');
       setMessage(`${body.added} item${body.added === 1 ? '' : 's'} added to your Kroger cart.`);
     } catch (e) {

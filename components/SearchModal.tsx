@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { track, searchTerm } from '@/lib/analytics';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Search, X, Zap, Flame, Clock, ArrowRight, BookOpen } from 'lucide-react';
@@ -113,6 +114,17 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     return [...matchedRecipes, ...matchedGuides, ...matchedStorage];
   }, [query]);
 
+  // Debounced so this logs intent rather than keystrokes. The row worth having
+  // is results_count === 0: a thing someone came looking for and you don't have.
+  useEffect(() => {
+    const term = searchTerm(query);
+    if (term.length < 3) return;
+    const timer = setTimeout(() => {
+      track('site_search', { search_term: term, results_count: searchResults.length });
+    }, 900);
+    return () => clearTimeout(timer);
+  }, [query, searchResults]);
+
   // Keyboard navigation inside modal
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Escape') {
@@ -125,6 +137,13 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       setSelectedIndex((prev) => (prev - 1 + searchResults.length) % searchResults.length);
     } else if (e.key === 'Enter') {
       if (searchResults[selectedIndex]) {
+        track('search_select', {
+          search_term: searchTerm(query),
+          href: searchResults[selectedIndex].href,
+          result_type: searchResults[selectedIndex].type,
+          position: selectedIndex + 1,
+          method: 'keyboard',
+        });
         router.push(searchResults[selectedIndex].href);
         onClose();
       }
@@ -187,7 +206,16 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
               <Link
                 key={`${item.type}-${item.id}`}
                 href={item.href}
-                onClick={onClose}
+                onClick={() => {
+                  track('search_select', {
+                    search_term: searchTerm(query),
+                    href: item.href,
+                    result_type: item.type,
+                    position: idx + 1,
+                    method: 'click',
+                  });
+                  onClose();
+                }}
                 onMouseEnter={() => setSelectedIndex(idx)}
                 className={`flex items-center justify-between p-4 transition-colors ${
                   selectedIndex === idx ? 'bg-paper-subtle/80' : 'hover:bg-paper'
