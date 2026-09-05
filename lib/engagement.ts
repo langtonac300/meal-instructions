@@ -32,6 +32,7 @@ export type Milestone = 'dwell_60s' | 'dwell_180s' | 'scroll_75' | 'recipe_view_
  * implies someone is genuinely using a recipe rather than passing through.
  */
 const WEIGHTS: Record<string, number> = {
+  profile_complete: 60, // told us their kitchen — the strongest intent-to-return signal there is
   cook_complete: 50, // ran a timer to zero — cooked it start to finish
   cook_start: 40, // standing in the kitchen with the page open
   cart_build: 40, // bought the ingredients

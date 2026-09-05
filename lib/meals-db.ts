@@ -177,3 +177,37 @@ export async function listSuggestionsForUser(userId: string): Promise<EditSugges
   if (error) throw error;
   return (data as EditSuggestionRow[]) ?? [];
 }
+
+export interface ProfileRow {
+  appliances: string[];
+  adults: number;
+  kids: number;
+  kid_ages: number[];
+  avoid: string[];
+  spice: 'mild' | 'medium' | 'hot';
+  max_weeknight_minutes: number | null;
+  updated_at: string;
+}
+
+export async function getProfile(userId: string): Promise<ProfileRow | null> {
+  const db = supabaseAdmin();
+  const { data, error } = await db
+    .from('meals_profiles')
+    .select('appliances, adults, kids, kid_ages, avoid, spice, max_weeknight_minutes, updated_at')
+    .eq('user_id', userId)
+    .maybeSingle();
+  if (error) throw error;
+  return (data as ProfileRow | null) ?? null;
+}
+
+export async function upsertProfile(
+  userId: string,
+  profile: Omit<ProfileRow, 'updated_at'>
+): Promise<void> {
+  const db = supabaseAdmin();
+  const { error } = await db.from('meals_profiles').upsert(
+    { user_id: userId, ...profile, updated_at: new Date().toISOString() },
+    { onConflict: 'user_id' }
+  );
+  if (error) throw error;
+}

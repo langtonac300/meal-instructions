@@ -132,6 +132,30 @@ export default function RootLayout({
     })();
   `;
 
+  // Kitchen profile, applied before first paint for the same reason as the mode
+  // script above (HR-8): personalisation resolved in an effect would swap
+  // content after hydration and shift layout. This only stamps attributes —
+  // every appliance's content stays in the HTML, which HR-6 requires because
+  // the LLM crawlers this site targets do not execute JavaScript.
+  const profileInitScript = `
+    (function() {
+      try {
+        var raw = localStorage.getItem('mi_profile_v1');
+        if (!raw) return;
+        var p = JSON.parse(raw);
+        var el = document.documentElement;
+        if (p && Array.isArray(p.appliances) && p.appliances.length) {
+          el.setAttribute('data-appliances', p.appliances.join(' '));
+        }
+        if (p && typeof p.adults === 'number') el.setAttribute('data-adults', String(p.adults));
+        if (p && typeof p.kids === 'number') el.setAttribute('data-kids', String(p.kids));
+        if (p && Array.isArray(p.avoid) && p.avoid.length) {
+          el.setAttribute('data-avoid', p.avoid.join(' '));
+        }
+      } catch (e) {}
+    })();
+  `;
+
   return (
     <html lang="en" className="bg-paper text-ink" suppressHydrationWarning>
       <head>
@@ -194,6 +218,9 @@ export default function RootLayout({
         />
         <script
           dangerouslySetInnerHTML={{ __html: modeInitScript }}
+        />
+        <script
+          dangerouslySetInnerHTML={{ __html: profileInitScript }}
         />
         <script
           type="application/ld+json"

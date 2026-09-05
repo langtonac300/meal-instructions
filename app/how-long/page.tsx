@@ -7,6 +7,7 @@ import { APPLIANCES } from '@/data/appliances';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { LeanIcon, LeanHeatWavesIcon, LeanClockIcon, LeanFlipIcon } from '@/components/icons/Lean5SIcons';
+import KitchenPrompt from '@/components/KitchenPrompt';
 
 export const metadata: Metadata = {
   title: 'How Long to Cook Everything — Verified Time & Temperature Datasheets',
@@ -80,11 +81,26 @@ export default function HowLongHubPage() {
       </section>
 
       {/* Appliance Sections */}
-      <div className="space-y-8">
+      <KitchenPrompt />
+
+      {/* data-appliance-list turns this into the flex container the kitchen
+          personalisation rules order. Every appliance still renders — the CSS
+          only moves owned equipment to the top (HR-6). */}
+      <div className="space-y-8" data-appliance-list>
+        <div
+          data-appliance-divider
+          className="micro-label text-ink-subtle hairline-t pt-4"
+        >
+          EVERYTHING ELSE
+        </div>
         {appliancesWithData.map((app) => {
           const datasheets = COOK_TIME_DATASHEETS.filter((d) => d.appliance === app.slug);
           return (
-            <section key={app.slug} className="bg-paper-card hairline-border p-6 space-y-4">
+            <section
+              key={app.slug}
+              data-appliance={app.slug}
+              className="bg-paper-card hairline-border p-6 space-y-4"
+            >
               <div className="flex justify-between items-center hairline-b pb-3">
                 <div className="flex items-center gap-3">
                   <div className="p-1.5 bg-paper hairline-border">

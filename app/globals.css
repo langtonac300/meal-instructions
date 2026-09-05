@@ -209,3 +209,69 @@ html[data-mode="detailed"] [data-mode-btn="detailed"] {
     text-decoration: none !important;
   }
 }
+
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Kitchen personalisation
+
+   Reorders content to the visitor's equipment. It never removes anything:
+   HR-6 requires every appliance's data to stay in the server-rendered HTML,
+   because the LLM crawlers this site is built for do not execute JavaScript.
+   Ordering is invisible to a crawler and changes nothing about what is served.
+
+   Attributes are stamped on <html> before first paint by profileInitScript
+   in app/layout.tsx (HR-8), and re-stamped after edits by stamp() in
+   lib/profile.ts. Appliance slugs are generated from the Appliance union in
+   lib/types.ts — regenerate these rules if that union changes (HR-12).
+   ───────────────────────────────────────────────────────────────────────── */
+
+[data-appliance-list] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Three bands: owned (1), the divider (2), everything else (3). Equal order
+   values fall back to source order, so the divider needs its own band or it
+   renders above the equipment it is meant to separate. */
+html[data-appliances] [data-appliance-list] > [data-appliance] { order: 3; }
+
+html[data-appliances~="air-fryer"] [data-appliance-list] > [data-appliance="air-fryer"] { order: 1; }
+html[data-appliances~="oven"] [data-appliance-list] > [data-appliance="oven"] { order: 1; }
+html[data-appliances~="instant-pot"] [data-appliance-list] > [data-appliance="instant-pot"] { order: 1; }
+html[data-appliances~="skillet"] [data-appliance-list] > [data-appliance="skillet"] { order: 1; }
+html[data-appliances~="sheet-pan"] [data-appliance-list] > [data-appliance="sheet-pan"] { order: 1; }
+html[data-appliances~="cast-iron"] [data-appliance-list] > [data-appliance="cast-iron"] { order: 1; }
+html[data-appliances~="grill"] [data-appliance-list] > [data-appliance="grill"] { order: 1; }
+html[data-appliances~="dutch-oven"] [data-appliance-list] > [data-appliance="dutch-oven"] { order: 1; }
+html[data-appliances~="slow-cooker"] [data-appliance-list] > [data-appliance="slow-cooker"] { order: 1; }
+html[data-appliances~="smoker"] [data-appliance-list] > [data-appliance="smoker"] { order: 1; }
+html[data-appliances~="boiling"] [data-appliance-list] > [data-appliance="boiling"] { order: 1; }
+
+/* Marks the boundary between owned and everything else. Hidden until a
+   profile exists, so an anonymous visitor sees the unmodified page. */
+[data-appliance-divider] { display: none; }
+html[data-appliances] [data-appliance-divider] { display: block; order: 2; }
+
+/* Household: recipes carry a kid adjustment already — surface it only when
+   there are actually kids to adjust for. */
+[data-kid-note] { display: none; }
+html[data-kids]:not([data-kids="0"]) [data-kid-note] { display: block; }
+
+/* Avoided ingredients are de-emphasised and pushed down, never hidden. The
+   number is still correct and still reachable if someone goes looking. */
+html[data-avoid~="pork"] [data-protein~="pork"],
+html[data-avoid~="beef"] [data-protein~="beef"],
+html[data-avoid~="shellfish"] [data-protein~="shellfish"],
+html[data-avoid~="nuts"] [data-contains~="nuts"],
+html[data-avoid~="dairy"] [data-contains~="dairy"],
+html[data-avoid~="gluten"] [data-contains~="gluten"] {
+  opacity: 0.5;
+  order: 3;
+}
+
+/* A printed sheet is a document, not a personalised view. */
+@media print {
+  [data-appliance-list] > [data-appliance],
+  html[data-appliances] [data-appliance-list] > [data-appliance] { order: 0; }
+  [data-appliance-divider] { display: none !important; }
+}

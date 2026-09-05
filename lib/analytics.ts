@@ -36,6 +36,8 @@ export type AnalyticsEvent =
   | 'meal_save'
   | 'meal_rate'
   | 'cart_build'
+  | 'profile_start'
+  | 'profile_complete'
   // Emitted by the engagement scorer, not by a component. Mark this one as a
   // Key Event in GA4 — it is the closest thing this site has to a conversion.
   | 'quality_session';
