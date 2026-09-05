@@ -6,8 +6,10 @@
 # be deterministic: run every gate, and only if all of them pass, commit and
 # push so Vercel deploys.
 #
-# Production deploys are wired to the `cooking` remote (cooking-repo), NOT to
-# `origin`. Pushing to origin alone builds nothing. Both are kept in sync.
+# Production (mealinstructions.com) is the Vercel project `dad-meals-no-fluff`,
+# which builds from the `origin` remote (meal-instructions). `cooking`
+# (cooking-repo) has its own Vercel project with no custom domain, so a push
+# there deploys nothing anyone sees. Both are kept in sync.
 #
 #   ./scripts/ship-content.sh "feat(content): 10 dutch-oven datasheets"
 #   ./scripts/ship-content.sh --dry-run "..."   # gates only, no commit or push
@@ -15,8 +17,8 @@
 #
 set -uo pipefail
 
-DEPLOY_REMOTE="cooking"      # the remote Vercel watches
-MIRROR_REMOTE="origin"       # kept in sync, does not trigger a deploy
+DEPLOY_REMOTE="origin"       # meal-instructions → dad-meals-no-fluff → mealinstructions.com
+MIRROR_REMOTE="cooking"      # cooking-repo: own Vercel project, no domain — a mirror
 TARGET_BRANCH="main"
 
 DRY_RUN=0
@@ -106,4 +108,4 @@ git push "$MIRROR_REMOTE" "HEAD:$TARGET_BRANCH" --quiet \
 
 echo
 bold "Shipped $SHA"
-echo "Watch the deploy:  gh api repos/langtonac300/cooking-repo/deployments --jq '.[0].id'"
+echo "Watch the deploy:  gh api repos/langtonac300/meal-instructions/deployments --jq '.[0].id'"
