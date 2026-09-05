@@ -45,13 +45,13 @@ You supply two env vars and run the CLI. Nothing else in the repo needs to chang
 
 ## Step 1 — Prerequisites (Mac, one time)
 
-Only one thing to install — the JDK Bubblewrap uses to sign the bundle:
+**Nothing to install.** Bubblewrap downloads its own JDK 17 and Android SDK into
+`~/.bubblewrap/` on first run — it prompts for each, and saying yes to both is
+the recommended path. A separately installed JDK is not needed and won't be
+used; installing Temurin via Homebrew first is a wasted 186 MB download and a
+`sudo` prompt.
 
-```bash
-brew install --cask temurin@17
-```
-
-**Don't install the CLI globally.** `npm install -g @bubblewrap/cli` fails with
+**Don't install the CLI globally either.** `npm install -g @bubblewrap/cli` fails with
 `EACCES: permission denied, mkdir '/usr/local/lib/node_modules/@bubblewrap'` on a
 default macOS Node install, and the usual workaround — re-running it under `sudo`
 — leaves root owning files inside your `node_modules`, which breaks *later*
@@ -78,12 +78,19 @@ npm install -g @bubblewrap/cli
 ```
 </details>
 
-On first run Bubblewrap offers to download the Android SDK build tools itself
-(~500 MB). **Say yes** — that's simpler than pointing it at Android Studio's copy.
+### What the first run downloads
 
-> If you'd rather use the Android Studio SDK you already installed, its path is
-> `~/Library/Android/sdk`, and the JDK it bundles is under
-> `/Applications/Android Studio.app/Contents/jbr/Contents/Home`.
+Two prompts, in this order. Say yes to both:
+
+| Prompt | Size | Lands in |
+|---|---|---|
+| `Do you want Bubblewrap to install the JDK (recommended)?` | ~175 MB | `~/.bubblewrap/jdk` |
+| `Do you want Bubblewrap to install the Android SDK (recommended)?` | ~500 MB | `~/.bubblewrap/android_sdk` |
+
+> Answering "No" to either means supplying your own path. Android Studio's copies
+> are `~/Library/Android/sdk` for the SDK and
+> `/Applications/Android Studio.app/Contents/jbr/Contents/Home` for the JDK — but
+> letting Bubblewrap manage its own avoids version-mismatch failures at build time.
 
 ---
 
@@ -109,8 +116,14 @@ It reads the live manifest and prompts you. Answers that matter:
 | Status bar colour | `#111111` | Matches `theme_color`. |
 | Signing key | let it create one | Saves `android.keystore` + prints the password. |
 
-> 🔐 **Back up `android.keystore` and its passwords immediately** (1Password, not
+After the questions, Bubblewrap creates the signing key and asks for **two
+passwords** (keystore + key) plus certificate details — name, organisation,
+country. Any accurate values are fine for the cert; the passwords are not.
+
+> 🔐 **Generate both passwords in a password manager before you type them, and
+> save them there along with `android.keystore` immediately** (1Password, not
 > this repo). Lose them and you can't ship updates to the same listing — ever.
+> This is the only genuinely unrecoverable step in the whole process.
 > If you enrol in Play App Signing (recommended, and the default for new apps),
 > Google holds the real key and this one becomes your *upload* key, which
 > Google can help you reset. Enrol.
