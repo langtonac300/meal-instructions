@@ -104,11 +104,17 @@ export default async function AccountPage({ searchParams }: Props) {
     redirect('/account/sign-in?callbackUrl=/account');
   }
 
+  // The kitchen profile is the one read that can fail independently of the
+  // others (its table is newer and separately granted). A failure there must
+  // degrade to "not set up", not take the whole dashboard down.
   const [saved, ratings, suggestions, profile, params] = await Promise.all([
     listSaved(user.id),
     listRatingsForUser(user.id),
     listSuggestionsForUser(user.id),
-    getProfile(user.id),
+    getProfile(user.id).catch((err: unknown) => {
+      console.error('[account] getProfile failed', err);
+      return null;
+    }),
     searchParams,
   ]);
 
