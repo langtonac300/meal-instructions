@@ -2,11 +2,12 @@ import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, Printer } from 'lucide-react';
 import { CATEGORIES } from '@/data/categories';
 import { getRecipesByCategory } from '@/data/recipes';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+import { PACK_MAX, packHref } from '@/lib/print-pack-format';
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
@@ -44,6 +45,14 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   };
 }
 
+/** 'air-fryer' → 'Air fryer' */
+const applianceLabel = (slug: string) => {
+  const words = slug.replace(/-/g, ' ');
+  return words.charAt(0).toUpperCase() + words.slice(1);
+};
+
+const EYEBROW = 'font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-ink-subtle';
+
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { category } = await params;
   const catMeta = CATEGORIES.find((c) => c.slug === category);
@@ -53,6 +62,24 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   }
 
   const recipes = getRecipesByCategory(category);
+
+  // Every number is derived from the recipes in this category (HR-2).
+  const minutes = recipes.map((r) => r.totalMinutes);
+  const averageMinutes = minutes.length
+    ? Math.round(minutes.reduce((a, b) => a + b, 0) / minutes.length)
+    : null;
+  const fastestMinutes = minutes.length ? Math.min(...minutes) : null;
+
+  // The printable pack caps at PACK_MAX; past that, the first PACK_MAX in
+  // index order go in and the copy says so (packFromParam truncates silently).
+  const packSlugs = recipes.slice(0, PACK_MAX).map((r) => r.slug);
+  const packIsCapped = recipes.length > PACK_MAX;
+
+  const specCells = [
+    { label: 'Recipes', value: `${recipes.length}` },
+    ...(averageMinutes !== null ? [{ label: 'Average time', value: `${averageMinutes} min` }] : []),
+    ...(fastestMinutes !== null ? [{ label: 'Fastest', value: `${fastestMinutes} min` }] : []),
+  ];
 
   // Collection JSON-LD Schema
   const collectionSchema = {
@@ -74,7 +101,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   ]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+    <div className="max-w-[1000px] mx-auto px-5 sm:px-10 pb-16 text-ink">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
@@ -85,100 +112,98 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center justify-between text-xs font-mono text-ink-subtle">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1 hover:text-ink transition-colors uppercase"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>All Recipes</span>
+      <div className="pt-6 font-mono text-[12px] uppercase tracking-[0.08em] text-ink-muted">
+        <Link href="/categories" className="inline-flex items-center gap-1.5 hover:text-ink transition-colors">
+          <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
+          <span>All categories</span>
         </Link>
-        <span className="uppercase text-ink-muted">
-          CATEGORY ARCHIVE // {catMeta.slug}
-        </span>
       </div>
 
-      {/* Category Hero */}
-      <section className="bg-paper-card hairline-border p-6 sm:p-10 space-y-4">
-        <div className="flex items-center gap-3 font-mono text-xs text-accent font-bold uppercase">
-          <span>{catMeta.heroTag}</span>
-        </div>
-
-        <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-ink uppercase font-sans">
+      {/* Header */}
+      <header className="pt-7">
+        <h1 className="font-sans text-[34px] sm:text-[46px] font-black tracking-[-0.02em] leading-[1.05] uppercase">
           {catMeta.name}
         </h1>
-
-        <p className="text-sm sm:text-base text-ink-muted max-w-2xl font-sans leading-relaxed">
+        <p className="mt-[18px] text-[19px] sm:text-[21px] leading-[1.5] text-ink-muted max-w-[60ch]">
           {catMeta.fullDescription}
         </p>
+      </header>
 
-        <div className="hairline-t pt-4 flex items-center gap-6 font-mono text-xs text-ink-muted">
-          <span>{recipes.length} CURATED RECIPES</span>
-          <span>•</span>
-          <span>AVERAGE COOK TIME: 12 MINS</span>
+      {/* Spec row — derived at render time, never a literal */}
+      <dl className="mt-8 grid grid-cols-1 sm:grid-cols-3 border-t border-b border-ink">
+        {specCells.map((cell, i) => (
+          <div
+            key={cell.label}
+            className={`py-5 sm:px-5 first:pl-0 last:pr-0 border-hairline ${
+              i < specCells.length - 1 ? 'border-b sm:border-b-0 sm:border-r' : ''
+            }`}
+          >
+            <dt className={EYEBROW}>{cell.label}</dt>
+            <dd className="mt-2 font-mono text-[28px] sm:text-[36px] font-black tracking-[-0.02em] leading-none">
+              {cell.value}
+            </dd>
+          </div>
+        ))}
+      </dl>
+
+      {/* Recipe list */}
+      <section className="mt-10" aria-labelledby="recipes-heading">
+        <div className="flex flex-wrap items-baseline justify-between gap-4 mb-4">
+          <h2 id="recipes-heading" className="text-[24px] font-extrabold tracking-[-0.01em] uppercase">
+            All {recipes.length} recipes
+          </h2>
+          <span className="text-[15px] text-ink-muted">Sorted by index number</span>
         </div>
+        <ul className="border-t border-ink">
+          {recipes.map((recipe) => (
+            <li key={recipe.id} className="border-b border-hairline">
+              <Link
+                href={`/recipes/${recipe.slug}`}
+                className="flex items-baseline gap-4 sm:gap-6 py-5 -mx-3 px-3 hover:bg-paper-50 transition-colors group"
+              >
+                <span className="font-mono text-[15px] text-ink-subtle w-[3.5em] shrink-0">
+                  {recipe.id}
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[19px] sm:text-[22px] font-bold tracking-[-0.01em] leading-tight group-hover:text-accent transition-colors">
+                    {recipe.title}
+                  </span>
+                  <span className="block mt-1 text-[17px] leading-[1.5] text-ink-muted">
+                    {recipe.tagline}
+                  </span>
+                </span>
+                <span className="hidden md:inline font-mono text-[15px] text-ink-muted w-[7em] text-right shrink-0">
+                  {applianceLabel(recipe.appliance)}
+                </span>
+                <span className="font-mono text-[17px] font-bold w-[4.5em] text-right shrink-0">
+                  {recipe.totalMinutes} min
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
-      {/* Recipe Index Table */}
-      <section className="bg-paper-card hairline-border overflow-x-auto">
-        <table className="w-full text-left font-mono text-xs divide-y divide-hairline">
-          <thead className="bg-paper uppercase text-[10px] tracking-wider text-ink-subtle">
-            <tr>
-              <th className="py-3 px-4 w-16">ID</th>
-              <th className="py-3 px-4">Recipe Title & Execution</th>
-              <th className="py-3 px-4 w-32 hidden md:table-cell">Appliance</th>
-              <th className="py-3 px-4 w-28 hidden sm:table-cell">Total Time</th>
-              <th className="py-3 px-4 w-28 hidden lg:table-cell">Protein</th>
-              <th className="py-3 px-4 w-24 text-right">Action</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-hairline">
-            {recipes.map((recipe) => (
-              <tr
-                key={recipe.id}
-                className="hover:bg-paper-subtle/50 transition-colors group cursor-pointer"
-              >
-                <td className="py-3.5 px-4 font-bold text-ink-subtle">
-                  #{recipe.id}
-                </td>
-                <td className="py-3.5 px-4">
-                  <Link
-                    href={`/recipes/${recipe.slug}`}
-                    className="block group-hover:text-accent transition-colors"
-                  >
-                    <div className="font-bold text-sm text-ink font-sans">
-                      {recipe.title}
-                    </div>
-                    <div className="text-xs text-ink-muted font-sans line-clamp-1 mt-0.5">
-                      {recipe.tagline}
-                    </div>
-                  </Link>
-                </td>
-                <td className="py-3.5 px-4 hidden md:table-cell uppercase text-ink-muted">
-                  <span className="px-2 py-0.5 bg-paper hairline-border inline-block">
-                    {recipe.appliance}
-                  </span>
-                </td>
-                <td className="py-3.5 px-4 hidden sm:table-cell font-bold text-ink">
-                  {recipe.totalMinutes} MINS
-                </td>
-                <td className="py-3.5 px-4 hidden lg:table-cell uppercase text-ink-muted">
-                  {recipe.protein}
-                </td>
-                <td className="py-3.5 px-4 text-right">
-                  <Link
-                    href={`/recipes/${recipe.slug}`}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 bg-paper hairline-border group-hover:bg-ink group-hover:text-paper uppercase transition-colors"
-                  >
-                    <span>COOK</span>
-                    <ArrowUpRight className="w-3 h-3" />
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+      {/* Print this category */}
+      {recipes.length > 0 && (
+        <aside className="mt-10 border border-ink p-5 sm:p-7 flex flex-wrap items-center justify-between gap-6">
+          <div className="min-w-0">
+            <h3 className="text-[22px] font-bold tracking-[-0.01em]">Print this category</h3>
+            <p className="mt-1.5 text-[17px] text-ink-muted">
+              {packIsCapped
+                ? `The first ${PACK_MAX} of ${recipes.length} as PDF fridge cards, one recipe per page. No signup.`
+                : `All ${recipes.length} as PDF fridge cards, one recipe per page. No signup.`}
+            </p>
+          </div>
+          <Link
+            href={packHref(packSlugs)}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-[13px] bg-ink text-paper text-[16px] font-semibold hover:bg-accent transition-colors"
+          >
+            <Printer className="w-4 h-4" aria-hidden="true" />
+            Print / save as PDF
+          </Link>
+        </aside>
+      )}
     </div>
   );
 }
