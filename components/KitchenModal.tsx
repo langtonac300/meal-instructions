@@ -48,8 +48,9 @@ export default function KitchenModal() {
   }, []);
 
   useEffect(() => {
-    // Never on the setup page itself, and never for someone already set up.
-    if (pathname?.startsWith('/account/setup')) return;
+    // Never on the setup page itself, never for someone already set up, and
+    // never on the print pack — a document page that paid traffic lands on cold.
+    if (pathname?.startsWith('/account/setup') || pathname?.startsWith('/print-pack')) return;
     if (isConfigured(readProfile())) return;
     try {
       if (localStorage.getItem(SEEN_KEY) === '1') return;

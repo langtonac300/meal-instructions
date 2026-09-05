@@ -53,6 +53,23 @@ export default function CheatSheetPage() {
         </p>
       </section>
 
+      {/* Print pack CTA */}
+      <section className="bg-paper-card hairline-border p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 no-print">
+        <div>
+          <div className="micro-label text-accent">PRINTABLE RECIPE PACK</div>
+          <p className="text-sm text-ink mt-1 font-sans">
+            Times are half the job. The top 20 dinners as fridge cards &mdash; temp, time, flip mark,
+            pull temp, ingredients and directions, one page each. No signup.
+          </p>
+        </div>
+        <Link
+          href="/print-pack"
+          className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 bg-ink text-paper font-mono text-xs uppercase tracking-wider hover:bg-accent transition-colors"
+        >
+          Print the pack &rarr;
+        </Link>
+      </section>
+
       {/* Appliance Sections */}
       <div className="space-y-8">
         {APPLIANCES.map((app) => {

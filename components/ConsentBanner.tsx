@@ -70,7 +70,7 @@ export default function ConsentBanner() {
       role="dialog"
       aria-live="polite"
       aria-label="Cookie consent"
-      className="fixed bottom-0 inset-x-0 z-50 bg-paper-card hairline-t shadow-lg"
+      className="fixed bottom-0 inset-x-0 z-50 bg-paper-card hairline-t shadow-lg no-print"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
         <p className="text-xs sm:text-sm text-ink font-sans leading-relaxed">

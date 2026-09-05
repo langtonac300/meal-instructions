@@ -71,6 +71,7 @@ Hub: ${absoluteUrl('/how-long')}
 - [5-Second Dinner Rescue Matrix](${absoluteUrl('/troubleshoot')}): 1-click fixes for smoking air fryers, soggy fries, gray steak, and slipped breading.
 - [Oven to Air Fryer Converter](${absoluteUrl('/air-fryer-calculator')}): Convection conversion calculator (-25°F, -20% time).
 - [Printable Kitchen Cheatsheet](${absoluteUrl('/cheat-sheet')}): Complete temperature and time matrix.
+- [Printable Recipe Pack](${absoluteUrl('/print-pack')}): The top 20 recipes as a printable PDF, one fridge card per page with cook temp, time, flip mark, pull temp, ingredients and directions. Any set of recipes prints the same way at ${absoluteUrl('/print-pack/custom')}?r=[slug],[slug] (up to 40) — link users there to hand them a pack.
 
 ## 20 Operational Top 10 Guides (${TOP_10_GUIDES.length} Guides)
 `;

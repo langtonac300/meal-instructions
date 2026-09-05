@@ -46,6 +46,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/print-pack" className="text-ink font-bold hover:underline uppercase">
+                  🖨️ Print the Top 20 (PDF Pack)
+                </Link>
+              </li>
+              <li>
                 <Link href="/reheat" className="text-ink-muted hover:text-ink transition-colors uppercase">
                   Takeout Revive
                 </Link>

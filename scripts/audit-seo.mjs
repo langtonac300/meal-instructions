@@ -119,7 +119,7 @@ const toolRoutes = [
   'pasta-water-ratio', 'marinade-ratio', 'substitutions', 'thaw-timer',
   'food-cost-calculator', 'macronutrient-calculator', 'caffeine-steep-timer',
   'brisket-timeline', 'ground-beef-fat-ratio', 'dutch-oven-bread-timer',
-  'cheese-melt-matrix',
+  'cheese-melt-matrix', 'print-pack',
 ];
 
 let auditedToolsCount = 0;
