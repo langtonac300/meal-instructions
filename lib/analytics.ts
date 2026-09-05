@@ -57,6 +57,16 @@ function pushEvent(event: AnalyticsEvent, params: Record<string, ParamValue>): v
       if (value !== undefined && value !== null && value !== '') clean[key] = value;
     }
     window.dataLayer.push({ event, ...clean });
+
+    // GTM's data model persists keys across pushes, so without this reset the
+    // next event inherits this one's parameters — a portion_scale arriving with
+    // a stale engagement_tier from an earlier mode_switch, and so on. Setting
+    // each key back to undefined makes the Data Layer Variable resolve empty,
+    // and GA4 omits the parameter rather than recording a lie. The reset push
+    // carries no `event` key, so it fires no tags.
+    const reset: Record<string, undefined> = {};
+    for (const key of Object.keys(clean)) reset[key] = undefined;
+    if (Object.keys(reset).length > 0) window.dataLayer.push(reset);
   } catch {
     // Analytics is never worth breaking a page for.
   }
