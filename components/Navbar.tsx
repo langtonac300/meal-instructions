@@ -11,6 +11,7 @@ import { RECIPES } from '@/data/recipes';
 
 const TOOL_ROUTES = [
   '/tools',
+  '/plan',
   '/reheat',
   '/frozen-cook',
   '/dinner-sync',
