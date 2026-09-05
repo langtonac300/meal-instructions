@@ -5,6 +5,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WebMCPClient from '@/components/WebMCPClient';
+import EngagementTracker from '@/components/EngagementTracker';
 import ConsentBanner from '@/components/ConsentBanner';
 import SessionProviderWrapper from '@/components/SessionProviderWrapper';
 import { SITE_URL, SITE_NAME, abs } from '@/lib/site';
@@ -212,6 +213,7 @@ export default function RootLayout({
         />
         <SessionProviderWrapper>
           <WebMCPClient />
+          <EngagementTracker />
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />

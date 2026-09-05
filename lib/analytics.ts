@@ -13,6 +13,8 @@
  * never be able to take the interaction down with it.
  */
 
+import { recordSignal, type TierCrossing } from './engagement';
+
 declare global {
   interface Window {
     dataLayer?: unknown[];
@@ -33,7 +35,10 @@ export type AnalyticsEvent =
   | 'recipe_print'
   | 'meal_save'
   | 'meal_rate'
-  | 'cart_build';
+  | 'cart_build'
+  // Emitted by the engagement scorer, not by a component. Mark this one as a
+  // Key Event in GA4 — it is the closest thing this site has to a conversion.
+  | 'quality_session';
 
 type ParamValue = string | number | boolean | null | undefined;
 
@@ -43,10 +48,7 @@ type ParamValue = string | number | boolean | null | undefined;
  * GA4 allows 25 parameters per event, so keep `params` small and high-signal
  * rather than shovelling component state into it.
  */
-export function track(
-  event: AnalyticsEvent,
-  params: Record<string, ParamValue> = {}
-): void {
+function pushEvent(event: AnalyticsEvent, params: Record<string, ParamValue>): void {
   if (typeof window === 'undefined') return;
   try {
     window.dataLayer = window.dataLayer || [];
@@ -58,6 +60,30 @@ export function track(
   } catch {
     // Analytics is never worth breaking a page for.
   }
+}
+
+/**
+ * Fire `quality_session` when a session crosses an engagement tier.
+ *
+ * Goes through pushEvent rather than track() on purpose: routing it back
+ * through the scorer would let the event score itself.
+ */
+export function emitCrossing(crossing: TierCrossing | null): void {
+  if (!crossing) return;
+  pushEvent('quality_session', {
+    engagement_tier: crossing.tier,
+    engagement_score: crossing.score,
+    engagement_signals: crossing.signals,
+    triggered_by: crossing.trigger,
+  });
+}
+
+export function track(
+  event: AnalyticsEvent,
+  params: Record<string, ParamValue> = {}
+): void {
+  pushEvent(event, params);
+  emitCrossing(recordSignal(event, params));
 }
 
 /**
