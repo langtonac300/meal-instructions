@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0151",
+  "id": "0222",
   "slug": "slow-cooker-buffalo-chicken-dip",
   "title": "Slow Cooker Buffalo Chicken Dip",
   "tagline": "Cream cheese, ranch, hot sauce, and shredded chicken melted on low for 2 hours into the party dip that empties the bowl before halftime.",

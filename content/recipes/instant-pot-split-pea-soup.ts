@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0135",
+  "id": "0203",
   "slug": "instant-pot-split-pea-soup",
   "title": "Instant Pot Split Pea Soup with Ham",
   "tagline": "A leftover ham bone, a bag of green split peas, and 20 minutes of pressure turn into the thick, smoky soup that used to take three hours on the stove.",

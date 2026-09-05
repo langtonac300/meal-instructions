@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0164",
+  "id": "0214",
   "slug": "sheet-pan-steak-fajitas",
   "title": "Sheet Pan Steak Fajitas",
   "tagline": "Skirt steak and bell peppers charred under the broiler at 500°F for 10 minutes, sliced onto warm tortillas — restaurant-sizzle fajitas without the cast-iron platter.",

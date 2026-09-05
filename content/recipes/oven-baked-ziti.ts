@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0141",
+  "id": "0206",
   "slug": "oven-baked-ziti",
   "title": "Oven Baked Ziti",
   "tagline": "Ziti undercooked by 3 minutes, layered with browned Italian sausage marinara and ricotta, baked 25 minutes to a lace-brown cheese lid.",

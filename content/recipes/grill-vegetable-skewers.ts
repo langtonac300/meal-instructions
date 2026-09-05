@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0154",
+  "id": "0195",
   "slug": "grill-vegetable-skewers",
   "title": "Grilled Vegetable Skewers",
   "tagline": "Zucchini, bell pepper, red onion, and cherry tomatoes tossed in balsamic-Dijon marinade and threaded onto skewers — 12 minutes on the grill for the char-marked side of any protein.",

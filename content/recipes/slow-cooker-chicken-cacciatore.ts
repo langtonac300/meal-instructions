@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0146",
+  "id": "0224",
   "slug": "slow-cooker-chicken-cacciatore",
   "title": "Slow Cooker Chicken Cacciatore",
   "tagline": "Bone-in thighs braise 4 hours on low in a tomato-red wine sauce with peppers, olives, and capers — a hunter-style Italian stew that comes together while you're at work.",

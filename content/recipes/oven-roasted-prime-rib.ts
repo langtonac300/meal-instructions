@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0140",
+  "id": "0208",
   "slug": "oven-roasted-prime-rib",
   "title": "Oven Roasted Prime Rib (Reverse Sear)",
   "tagline": "A low-and-slow 250°F roast to 120°F internal, then a 500°F blast for the crust — the reverse-sear method that puts a bakery-red rosy center corner-to-corner.",

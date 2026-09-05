@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0176",
+  "id": "0227",
   "slug": "smoked-pulled-pork-butt",
   "title": "Smoked Pulled Pork Butt",
   "tagline": "An 8-lb pork shoulder rubbed the night before, smoked at 225°F over hickory for 12 hours, wrapped at 165°F and pushed to 203°F for the definitive Southern pulled pork.",

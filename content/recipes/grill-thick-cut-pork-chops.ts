@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0153",
+  "id": "0194",
   "slug": "grill-thick-cut-pork-chops",
   "title": "Grilled Thick-Cut Pork Chops",
   "tagline": "1.5-inch bone-in chops brined 30 minutes, then reverse-seared to a 140°F internal — pink at the center, deeply browned on the outside, never dry.",

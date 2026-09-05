@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0156",
+  "id": "0192",
   "slug": "grill-shrimp-skewers",
   "title": "Grilled Garlic Butter Shrimp Skewers",
   "tagline": "Jumbo shrimp threaded on double skewers, brushed with garlic-lemon butter, and grilled 4 minutes total — the fastest protein on the grill.",

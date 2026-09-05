@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0149",
+  "id": "0223",
   "slug": "slow-cooker-butter-chicken",
   "title": "Slow Cooker Butter Chicken",
   "tagline": "A restaurant-style makhani sauce built on garam masala, tomato, and cream — chicken thighs simmer 4 hours on low then finish with butter and cream stirred in at the end.",

@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0131",
+  "id": "0198",
   "slug": "instant-pot-chicken-and-rice",
   "title": "Instant Pot Chicken and Rice",
   "tagline": "Bone-in thighs and long-grain rice cook together under pressure for 10 minutes so the rice drinks up every drop of the chicken drippings.",

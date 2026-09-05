@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0133",
+  "id": "0199",
   "slug": "instant-pot-chicken-noodle-soup",
   "title": "Instant Pot Chicken Noodle Soup",
   "tagline": "Whole bone-in thighs go in raw, come out fall-apart tender, and the noodles cook in the residual heat so they never turn to mush.",

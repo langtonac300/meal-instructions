@@ -99,6 +99,20 @@ for (const r of recipes) {
   }
 }
 
+// Uniqueness. `id` is the React key on every recipe grid and is shown as #id on
+// appliance pages; `slug` is the route. Neither may repeat. (48 ids collided when
+// the pre-command-center recipes were recovered in 2026-09 — two diverged lineages
+// had numbered from the same base.)
+for (const field of ['id', 'slug']) {
+  const seen = new Map();
+  for (const r of recipes) {
+    const v = r[field];
+    if (v == null) continue;
+    if (seen.has(v)) errors.push(`${field} "${v}" is used by both ${seen.get(v)} and ${r.slug}`);
+    else seen.set(v, r.slug);
+  }
+}
+
 // HR-5: recipe ceiling.
 const CEILING = 228;
 if (recipes.length > CEILING)

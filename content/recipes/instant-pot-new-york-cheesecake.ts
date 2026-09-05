@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0137",
+  "id": "0201",
   "slug": "instant-pot-new-york-cheesecake",
   "title": "Instant Pot New York Cheesecake",
   "tagline": "A 6-inch dense, crack-free cheesecake that steams for 35 minutes under pressure — no water bath, no cracked top, no six-hour oven wait.",

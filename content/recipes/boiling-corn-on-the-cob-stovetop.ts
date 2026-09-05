@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0174",
+  "id": "0183",
   "slug": "boiling-corn-on-the-cob-stovetop",
   "title": "Stovetop Boiled Corn on the Cob",
   "tagline": "6 shucked ears into unsalted water for exactly 4 minutes, then rolled in butter and salt — the sweet-summer classic that takes zero technique.",

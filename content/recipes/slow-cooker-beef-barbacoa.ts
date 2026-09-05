@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0148",
+  "id": "0221",
   "slug": "slow-cooker-beef-barbacoa",
   "title": "Slow Cooker Beef Barbacoa",
   "tagline": "Chipotle-copycat barbacoa built from chuck roast, chipotles in adobo, lime, and cumin — braised 8 hours on low into shreddable, smoky, tangy taco meat.",

@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0168",
+  "id": "0187",
   "slug": "cast-iron-ny-strip-steak",
   "title": "Cast Iron New York Strip Steak",
   "tagline": "A 1.5-inch NY strip seared 4 minutes per side in a smoking-hot cast iron, basted with rosemary butter, and pulled at 130°F for a rosy medium-rare edge-to-edge.",

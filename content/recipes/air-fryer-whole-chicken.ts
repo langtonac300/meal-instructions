@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0179",
+  "id": "0181",
   "slug": "air-fryer-whole-chicken",
   "title": "Air Fryer Whole Chicken",
   "tagline": "A 4-lb bird tucked breast-down in a 6-qt air fryer for 30 minutes, flipped, and finished skin-up 25 more — bronzed, crispy skin and juicy breast in under an hour.",

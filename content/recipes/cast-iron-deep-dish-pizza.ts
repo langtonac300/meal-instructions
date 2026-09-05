@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0167",
+  "id": "0186",
   "slug": "cast-iron-deep-dish-pizza",
   "title": "Cast Iron Deep Dish Pizza",
   "tagline": "A Chicago-style deep dish with a cornmeal crust, cheese layered under the sauce so it never sogs, sausage crumbles, and 25 minutes at 475°F to a bubbling top.",

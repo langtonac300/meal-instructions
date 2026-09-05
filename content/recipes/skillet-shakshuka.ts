@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0157",
+  "id": "0220",
   "slug": "skillet-shakshuka",
   "title": "Skillet Shakshuka",
   "tagline": "Eggs poached in a spiced tomato-pepper stew, finished under the broiler with feta and fresh herbs — the North African one-pan breakfast that eats like dinner.",

@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0177",
+  "id": "0228",
   "slug": "smoked-whole-chicken",
   "title": "Smoked Whole Chicken",
   "tagline": "A 5-lb bird dry-brined 24 hours, smoked at 275°F over apple wood for 2.5 hours to a bronze skin and 165°F breast internal — juicy, smoky, no dry white meat.",

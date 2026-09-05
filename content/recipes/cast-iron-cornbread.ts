@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0166",
+  "id": "0185",
   "slug": "cast-iron-cornbread",
   "title": "Cast Iron Skillet Cornbread",
   "tagline": "A Southern-style buttermilk cornbread with a shatter-crisp bacon-fat crust from a scorching-hot preheated skillet — 20 minutes at 425°F to a mahogany top.",

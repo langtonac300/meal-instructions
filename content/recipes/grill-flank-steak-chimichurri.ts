@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0155",
+  "id": "0191",
   "slug": "grill-flank-steak-chimichurri",
   "title": "Grilled Flank Steak with Chimichurri",
   "tagline": "A hot-and-fast 8-minute sear over direct heat with a fresh Argentine chimichurri whisked from parsley, oregano, garlic, and red wine vinegar — pull at 130°F and slice thin against the grain.",

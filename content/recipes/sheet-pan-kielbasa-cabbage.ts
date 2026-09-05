@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0165",
+  "id": "0212",
   "slug": "sheet-pan-kielbasa-cabbage",
   "title": "Sheet Pan Kielbasa and Cabbage",
   "tagline": "Smoked kielbasa, cabbage wedges, and baby potatoes roasted at 425°F for 30 minutes — a Polish farmhouse dinner that dirties one pan and costs under $12.",

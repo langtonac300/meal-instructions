@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0161",
+  "id": "0219",
   "slug": "skillet-one-pan-sausage-and-rice",
   "title": "Skillet One-Pan Sausage and Rice",
   "tagline": "Smoked kielbasa browned with peppers and onion, then rice cooked in the drippings and broth right in the same skillet — a 30-minute dinner that dirties one pan.",

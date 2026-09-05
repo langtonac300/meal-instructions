@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0152",
+  "id": "0193",
   "slug": "grill-spatchcock-whole-chicken",
   "title": "Grilled Spatchcock Whole Chicken",
   "tagline": "Cut the backbone out, flatten the bird, and grill 45 minutes over indirect heat — the whole chicken cooks evenly and finishes with paper-crisp skin.",

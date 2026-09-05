@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0178",
+  "id": "0226",
   "slug": "smoked-hot-salmon",
   "title": "Hot Smoked Salmon",
   "tagline": "A 2-lb side dry-cured 8 hours, air-dried 1 hour for the pellicle, and hot-smoked at 180°F over alder for 90 minutes — flaky, glossy, honey-sweet salmon.",

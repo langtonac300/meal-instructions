@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0169",
+  "id": "0189",
   "slug": "dutch-oven-coq-au-vin",
   "title": "Dutch Oven Coq au Vin",
   "tagline": "Bone-in chicken thighs braised in a bacon-red wine sauce with pearl onions and mushrooms — the classic French bistro dish that takes 90 minutes and cooks itself.",

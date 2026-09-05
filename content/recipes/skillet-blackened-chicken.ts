@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0158",
+  "id": "0218",
   "slug": "skillet-blackened-chicken",
   "title": "Skillet Blackened Chicken",
   "tagline": "A Cajun spice rub burnished onto butter-basted chicken breasts in a screaming-hot cast-iron pan — the smokey-crust, juicy-inside technique from Prudhomme himself.",

@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0134",
+  "id": "0202",
   "slug": "instant-pot-salsa-verde-shredded-chicken",
   "title": "Instant Pot Salsa Verde Shredded Chicken",
   "tagline": "Three ingredients, 15 minutes under pressure, and enough tangy tomatillo shredded chicken to fill a week of tacos, burrito bowls, and quesadillas.",

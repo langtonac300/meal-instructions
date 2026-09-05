@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0173",
+  "id": "0182",
   "slug": "boiling-al-dente-pasta",
   "title": "Perfect Al Dente Pasta",
   "tagline": "The 4-quart water plus 2 tablespoons salt rule and the 2-minutes-before-package trick that finally gets al dente pasta right at home.",

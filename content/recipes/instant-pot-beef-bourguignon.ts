@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0132",
+  "id": "0197",
   "slug": "instant-pot-beef-bourguignon",
   "title": "Instant Pot Beef Bourguignon",
   "tagline": "Chuck roast, red wine, bacon, and pearl onions braised under pressure for 35 minutes to hit the same fork-tender finish a Dutch oven takes three hours to reach.",

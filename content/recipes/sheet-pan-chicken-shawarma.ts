@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0162",
+  "id": "0211",
   "slug": "sheet-pan-chicken-shawarma",
   "title": "Sheet Pan Chicken Shawarma",
   "tagline": "Marinated thighs roasted 25 minutes at 425°F with sliced red onion, stacked into warm pita with garlic-tahini sauce — the Middle Eastern street cart without the vertical spit.",

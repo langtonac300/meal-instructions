@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0139",
+  "id": "0207",
   "slug": "oven-crispy-baked-chicken-wings",
   "title": "Oven Crispy Baked Chicken Wings",
   "tagline": "A 1/2-teaspoon dusting of aluminum-free baking powder is the trick that gives oven wings shatter-crisp skin without a single drop of frying oil.",

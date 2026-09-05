@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0145",
+  "id": "0210",
   "slug": "oven-salmon-in-foil",
   "title": "Oven Salmon in Foil",
   "tagline": "A full side of salmon sealed in a foil pouch with lemon, dill, and garlic butter — 20 minutes at 375°F and no fishy kitchen smell.",

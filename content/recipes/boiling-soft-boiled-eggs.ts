@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0175",
+  "id": "0184",
   "slug": "boiling-soft-boiled-eggs",
   "title": "Perfect Soft-Boiled Eggs (6:30 Method)",
   "tagline": "6 minutes 30 seconds in a rolling boil gives you set whites and a molten orange yolk — the ramen egg, the toast dipper, the breakfast salad crown.",

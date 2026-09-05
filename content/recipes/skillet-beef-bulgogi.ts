@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0159",
+  "id": "0215",
   "slug": "skillet-beef-bulgogi",
   "title": "Skillet Beef Bulgogi",
   "tagline": "Thin-sliced ribeye marinated in soy, pear, sesame, and gochujang — flash-seared 3 minutes in a hot skillet for restaurant-Korean barbecue at home.",

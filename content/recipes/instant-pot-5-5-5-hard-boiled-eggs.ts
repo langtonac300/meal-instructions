@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0138",
+  "id": "0196",
   "slug": "instant-pot-5-5-5-hard-boiled-eggs",
   "title": "Instant Pot 5-5-5 Hard Boiled Eggs",
   "tagline": "The 5-minute pressure, 5-minute natural release, 5-minute ice bath method that peels a dozen eggs cleaner than any stovetop technique.",

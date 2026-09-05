@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0136",
+  "id": "0200",
   "slug": "instant-pot-mashed-sweet-potatoes",
   "title": "Instant Pot Mashed Sweet Potatoes",
   "tagline": "Whole sweet potatoes steam on the trivet in 15 minutes with skins on, so the flesh mashes silky without turning to waterlogged mush.",

@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0160",
+  "id": "0216",
   "slug": "skillet-beef-stroganoff",
   "title": "Skillet Beef Stroganoff",
   "tagline": "Sirloin strips seared and simmered in a mushroom-sour cream gravy over buttered egg noodles — a 30-minute weeknight version of the Russian classic.",

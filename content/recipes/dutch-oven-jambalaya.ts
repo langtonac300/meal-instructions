@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0171",
+  "id": "0190",
   "slug": "dutch-oven-jambalaya",
   "title": "Dutch Oven Jambalaya",
   "tagline": "Louisiana-style one-pot rice with andouille, chicken thighs, and shrimp — the holy trinity, dark roux flavor, and every grain of rice cooked in one pot in 45 minutes.",

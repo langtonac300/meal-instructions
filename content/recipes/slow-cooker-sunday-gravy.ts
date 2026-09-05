@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0150",
+  "id": "0225",
   "slug": "slow-cooker-sunday-gravy",
   "title": "Slow Cooker Sunday Gravy",
   "tagline": "The Italian-American Sunday sauce — meatballs, hot sausage, and pork ribs slow-simmered 6 hours in tomatoes and red wine into a sauce so thick it coats a spoon standing up.",

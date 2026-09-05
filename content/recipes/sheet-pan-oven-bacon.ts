@@ -1,7 +1,7 @@
 import { Recipe } from '@/lib/types';
 
 export default {
-  "id": "0163",
+  "id": "0213",
   "slug": "sheet-pan-oven-bacon",
   "title": "Sheet Pan Oven Bacon",
   "tagline": "A whole pound of thick-cut bacon baked flat on a sheet pan in a cold oven — hands-off, no splatter, and enough perfectly crisp strips to feed a family in one shot.",
