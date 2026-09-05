@@ -3,10 +3,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Printer } from 'lucide-react';
 import { track } from '@/lib/analytics';
-import { PAPER_KEY, parsePaper, type PaperSize } from '@/lib/print-pack';
+import { PAPER_KEY, packPageCount, parsePaper, type PaperSize } from '@/lib/print-pack-format';
 
 interface Props {
-  pageCount: number;
+  recipeCount: number;
   children: React.ReactNode;
 }
 
@@ -22,9 +22,10 @@ const PAGE_WIDTH_PX: Record<PaperSize, number> = {
  * desk uses `zoom`, which shrinks layout height along with the render, rather
  * than a transform that would leave the scaled-away space behind.
  */
-export default function PrintPackShell({ pageCount, children }: Props) {
+export default function PrintPackShell({ recipeCount, children }: Props) {
   const [paper, setPaper] = useState<PaperSize>('letter');
   const deskRef = useRef<HTMLDivElement>(null);
+  const pageCount = packPageCount(recipeCount);
 
   // ?size=a4 wins, then the remembered choice. Resolved after mount because the
   // server can see neither; a one-frame Letter→A4 swap of a preview is harmless.
@@ -70,8 +71,6 @@ export default function PrintPackShell({ pageCount, children }: Props) {
     window.print();
   };
 
-  const recipes = pageCount - 1;
-
   return (
     <div data-paper={paper}>
       <style>{`@page { size: ${paper === 'a4' ? 'A4' : 'letter'}; margin: 0; }`}</style>
@@ -80,8 +79,10 @@ export default function PrintPackShell({ pageCount, children }: Props) {
         className="no-print scroll-mt-20 flex flex-wrap items-center justify-between gap-3 bg-paper-card hairline-border px-4 py-2.5 font-mono text-[11px] uppercase tracking-wider"
       >
         <span className="text-ink-muted">
-          <span className="text-ink font-bold">{pageCount} pages</span> // cover + {recipes} recipe
-          {recipes === 1 ? '' : 's'}
+          <span className="text-ink font-bold">
+            {pageCount} page{pageCount === 1 ? '' : 's'}
+          </span>{' '}
+          // {recipeCount === 1 ? 'one recipe, no cover' : `cover + ${recipeCount} recipes`}
           <span className="hidden sm:inline text-ink-subtle"> // pick “Save as PDF” in the print dialog</span>
         </span>
         <div className="flex flex-wrap items-center gap-2">

@@ -17,11 +17,13 @@ import {
   ArrowUpDown,
   Flame,
   X,
+  Printer,
 } from 'lucide-react';
 import { RECIPES } from '@/data/recipes';
 import { CATEGORIES } from '@/data/categories';
 import { APPLIANCES } from '@/data/appliances';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
+import { ALL_TOOLS } from '@/data/tools-directory';
 import RecipeCard from '@/components/RecipeCard';
 import RecipeTable from '@/components/RecipeTable';
 import RecipeScrubber from '@/components/RecipeScrubber';
@@ -262,6 +264,28 @@ export default function HomePageClient() {
           selectedCategory={selectedCategory}
           onSelectCategory={(cat) => setSelectedCategory(cat)}
         />
+      </section>
+
+      {/* ── PRINT PACK STRIP ── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 pb-2 w-full">
+        <Link
+          href="/print-pack"
+          className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-paper-card hairline-border px-4 py-3 hover:border-ink transition-colors group"
+        >
+          <div className="flex items-center gap-3 min-w-0">
+            <Printer className="w-4 h-4 text-accent shrink-0" />
+            <p className="text-xs sm:text-sm text-ink font-sans">
+              <span className="font-bold">Print your picks.</span>{' '}
+              <span className="text-ink-muted">
+                The top 20 dinners as one-page fridge cards, or build a PDF pack from any of the{' '}
+                {RECIPES.length} recipes. No signup.
+              </span>
+            </p>
+          </div>
+          <span className="font-mono text-[11px] uppercase tracking-wider text-ink font-bold group-hover:text-accent transition-colors whitespace-nowrap">
+            Print pack →
+          </span>
+        </Link>
       </section>
 
       {/* ── RECIPES DIRECTORY SECTION ── */}
@@ -562,7 +586,7 @@ export default function HomePageClient() {
             href="/tools"
             className="font-mono text-xs font-bold uppercase text-ink hover:underline flex items-center gap-1"
           >
-            <span>View All 30 Tools</span>
+            <span>View All {ALL_TOOLS.length} Tools</span>
             <span>→</span>
           </Link>
         </div>

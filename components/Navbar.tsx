@@ -151,6 +151,16 @@ export default function Navbar() {
             >
               Temp Cheatsheet
             </Link>
+            {/* xl and up only: the nav already overruns the header below ~1200px
+                without this item, so it stays out of that band rather than adding to it. */}
+            <Link
+              href="/print-pack"
+              className={`hidden xl:block hover:text-ink transition-colors pb-0.5 ${
+                pathname.startsWith('/print-pack') ? 'text-ink border-b-2 border-ink font-bold' : ''
+              }`}
+            >
+              Print Pack
+            </Link>
           </nav>
 
           {/* Right Action: Search Trigger Button */}
@@ -357,6 +367,13 @@ export default function Navbar() {
               className="block py-1.5 text-ink hover:text-accent"
             >
               📋 Air Fryer Temp Cheatsheet
+            </Link>
+            <Link
+              href="/print-pack"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-1.5 text-ink hover:text-accent"
+            >
+              🖨️ Printable Recipe Pack (PDF)
             </Link>
             <Link
               href="/shop"

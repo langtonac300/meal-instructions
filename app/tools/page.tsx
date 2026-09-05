@@ -9,7 +9,7 @@ import { ALL_TOOLS } from '@/data/tools-directory';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Zero-Fluff Kitchen Calculators & Cooking Tools Directory (30 Engines)',
+  title: `Zero-Fluff Kitchen Calculators & Cooking Tools Directory (${ALL_TOOLS.length} Engines)`,
   description: 'Precision cooking utilities for busy cooks and dads: oven-to-air fryer converters, oil smoke points, reverse sear timers, baker percentages, turkey thaw math, and dinner sync timelines.',
   alternates: {
     canonical: absoluteUrl('/tools'),
@@ -24,7 +24,7 @@ export default function ToolsPage() {
     '@type': 'CollectionPage',
     name: 'Zero-Fluff Kitchen Calculators & Cooking Engines Directory',
     url: absoluteUrl('/tools'),
-    description: '30 interactive cooking calculators, converters, and parametric reference charts for busy cooks.',
+    description: `${ALL_TOOLS.length} interactive cooking calculators, converters, and parametric reference charts for busy cooks.`,
   };
 
   return (
@@ -44,7 +44,7 @@ export default function ToolsPage() {
           <span>Back to Home</span>
         </Link>
         <span className="font-mono text-xs text-accent font-bold uppercase">
-          30 INTERACTIVE ENGINES
+          {ALL_TOOLS.length} INTERACTIVE ENGINES
         </span>
       </div>
 

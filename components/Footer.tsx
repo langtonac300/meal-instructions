@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { CATEGORIES } from '@/data/categories';
 import { APPLIANCES } from '@/data/appliances';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
+import { ALL_TOOLS } from '@/data/tools-directory';
 import Logo from '@/components/Logo';
 
 export default function Footer() {
@@ -42,7 +43,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/tools" className="text-ink font-bold hover:underline uppercase">
-                  🛠️ All Tools (30 Engines)
+                  🛠️ All Tools ({ALL_TOOLS.length} Engines)
                 </Link>
               </li>
               <li>

@@ -14,6 +14,7 @@ import { Recipe, CookTimeDatasheet } from '@/lib/types';
 import { RECIPES } from '@/data/recipes';
 import { formatScaledAmount, buildSmsShareText, recipeToMarkdown } from '@/lib/recipe-utils';
 import { track } from '@/lib/analytics';
+import { packHref } from '@/lib/print-pack-format';
 import { householdServings, readProfile } from '@/lib/profile';
 
 import KrogerCartPanel from '@/components/KrogerCartPanel';
@@ -323,16 +324,17 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
             </button>
           </div>
 
-          <button
-            onClick={() => {
-              track('recipe_print', { source: 'recipe_toolbar', recipe: recipe.slug });
-              window.print();
-            }}
+          {/* The one-sheet fridge card at /print-pack/custom, not a print of this
+              web page. The print itself is tracked there; this is the intent. */}
+          <Link
+            href={packHref([recipe.slug])}
+            onClick={() => track('tool_used', { tool: 'print_pack', surface: 'recipe_toolbar', recipe: recipe.slug })}
             className="flex items-center gap-1.5 px-3 py-1.5 bg-paper hairline-border hover:border-ink transition-colors cursor-pointer text-ink-muted hover:text-ink"
+            title="One-page fridge card — print it or save as PDF"
           >
             <Printer className="w-3.5 h-3.5" />
-            <span>PRINT CARD</span>
-          </button>
+            <span>PRINT CARD (PDF)</span>
+          </Link>
         </div>
 
       </section>

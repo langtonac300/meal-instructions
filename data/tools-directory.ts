@@ -251,4 +251,13 @@ export const ALL_TOOLS: ToolEntry[] = [
     description: 'Melting temps, stretch indexes, and 3% sodium citrate ratios for ultra-silky cheese sauce.',
     iconName: 'heat-waves',
   },
+  // 31: Printable output — not a calculator, but it lives where people look for kitchen utilities.
+  {
+    href: '/print-pack',
+    title: 'Printable Recipe Pack (PDF)',
+    badge: 'FRIDGE CARDS',
+    category: 'planning',
+    description: 'The top 20 dinners as one-page fridge cards, or build your own pack from every recipe on the site. Print or save as PDF, no signup.',
+    iconName: 'plate',
+  },
 ];

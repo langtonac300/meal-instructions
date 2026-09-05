@@ -13,9 +13,10 @@ import {
   packHref,
   parsePaper,
   timeLabel,
+  packPageCount,
   type PackCatalogEntry,
   type PaperSize,
-} from '@/lib/print-pack';
+} from '@/lib/print-pack-format';
 import type { Appliance } from '@/lib/types';
 
 type Filter = 'all' | 'selected' | 'mine' | Appliance;
@@ -257,8 +258,8 @@ export default function PackBuilder({ catalog, initial, top20 }: Props) {
 
       <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 hairline-t">
         <span className="font-mono text-[11px] uppercase tracking-wider text-ink-muted">
-          <span className="text-ink font-bold">{selected.length} selected</span> // {selected.length + 1}{' '}
-          pages
+          <span className="text-ink font-bold">{selected.length} selected</span> //{' '}
+          {packPageCount(selected.length)} page{packPageCount(selected.length) === 1 ? '' : 's'}
           {full && <span className="text-accent"> // pack full — {PACK_MAX} max</span>}
         </span>
         <div className="flex items-center gap-2">

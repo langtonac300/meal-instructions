@@ -41,7 +41,7 @@ export default function ToolsDirectory() {
   const resultsRef = useScrollToResults<HTMLDivElement>([selectedCat]);
 
   const categories = [
-    { id: 'all', label: 'All 30 Engines' },
+    { id: 'all', label: `All ${ALL_TOOLS.length} Engines` },
     { id: 'temperature', label: 'Temperature & Searing' },
     { id: 'ratios', label: 'Ratios & Math' },
     { id: 'bbq', label: 'BBQ & Meat Science' },

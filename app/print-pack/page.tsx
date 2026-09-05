@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowDown } from 'lucide-react';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { RECIPES } from '@/data/recipes';
-import { PACK_MAX, TOP_20_SLUGS, packCatalog, topTwenty } from '@/lib/print-pack';
+import { PACK_MAX, TOP_20_SLUGS, packCatalog, packPageCount, topTwenty } from '@/lib/print-pack';
 import PrintButton from '@/components/PrintButton';
 import PrintPackStyles from '@/components/print/PrintPackStyles';
 import PrintPackShell from '@/components/print/PrintPackShell';
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function PrintPackPage() {
   const recipes = topTwenty();
   const catalog = packCatalog();
-  const pageCount = recipes.length + 1;
+  const pageCount = packPageCount(recipes.length);
 
   const breadcrumbs = generateBreadcrumbSchema([{ name: 'Print Pack', path: '/print-pack' }]);
   const collectionSchema = {
@@ -104,7 +104,7 @@ export default function PrintPackPage() {
 
       <PackBuilder catalog={catalog} initial={TOP_20_SLUGS} top20={TOP_20_SLUGS} />
 
-      <PrintPackShell pageCount={pageCount}>
+      <PrintPackShell recipeCount={recipes.length}>
         <PrintPackDocument recipes={recipes} variant="top20" />
       </PrintPackShell>
     </div>

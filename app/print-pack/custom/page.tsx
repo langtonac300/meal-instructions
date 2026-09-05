@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
-import { TOP_20_SLUGS, packCatalog, packFromParam } from '@/lib/print-pack';
+import { TOP_20_SLUGS, packCatalog, packFromParam, packPageCount } from '@/lib/print-pack';
 import PrintButton from '@/components/PrintButton';
 import PrintPackStyles from '@/components/print/PrintPackStyles';
 import PrintPackShell from '@/components/print/PrintPackShell';
@@ -34,7 +34,7 @@ export default async function CustomPrintPackPage({ searchParams }: Props) {
 
   const slugs = recipes.map((recipe) => recipe.slug);
   const catalog = packCatalog();
-  const pageCount = recipes.length + 1;
+  const pageCount = packPageCount(recipes.length);
   const breadcrumbs = generateBreadcrumbSchema([
     { name: 'Print Pack', path: '/print-pack' },
     { name: 'Your pack', path: '/print-pack/custom' },
@@ -69,9 +69,11 @@ export default async function CustomPrintPackPage({ searchParams }: Props) {
           Your Recipe Pack
         </h1>
         <p className="text-sm sm:text-base text-ink-muted max-w-2xl font-sans">
-          {recipes.length} recipe{recipes.length === 1 ? '' : 's'}, one page each, plus a cover
-          index. Print it, save it as a PDF, or share this link — it rebuilds the same pack. Change
-          the selection below and rebuild.
+          {recipes.length === 1
+            ? 'One recipe on one sheet — no cover, just the card.'
+            : `${recipes.length} recipes, one page each, plus a cover index.`}{' '}
+          Print it, save it as a PDF, or share this link — it rebuilds the same pack. Change the
+          selection below and rebuild.
         </p>
         <div className="flex flex-wrap items-center gap-3 pt-1">
           <PrintButton
@@ -80,14 +82,14 @@ export default async function CustomPrintPackPage({ searchParams }: Props) {
             className="inline-flex items-center gap-1.5 px-4 py-2 bg-ink text-paper font-mono text-xs uppercase tracking-wider hover:bg-accent transition-colors cursor-pointer"
           />
           <span className="font-mono text-[11px] uppercase tracking-wider text-ink-subtle">
-            {pageCount} pages // Letter or A4
+            {pageCount} page{pageCount === 1 ? '' : 's'} // Letter or A4
           </span>
         </div>
       </section>
 
       <PackBuilder catalog={catalog} initial={slugs} top20={TOP_20_SLUGS} />
 
-      <PrintPackShell pageCount={pageCount}>
+      <PrintPackShell recipeCount={recipes.length}>
         <PrintPackDocument recipes={recipes} variant="custom" />
       </PrintPackShell>
     </div>
