@@ -1,257 +1,99 @@
 import React from 'react';
 import Link from 'next/link';
-import { CATEGORIES } from '@/data/categories';
-import { APPLIANCES } from '@/data/appliances';
-import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { ALL_TOOLS } from '@/data/tools-directory';
+import { SITE_NAME } from '@/lib/site';
 import Logo from '@/components/Logo';
 
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
+interface FooterColumn {
+  heading: string;
+  links: FooterLink[];
+}
+
+const COLUMNS: FooterColumn[] = [
+  {
+    heading: 'Recipes',
+    links: [
+      { label: 'All categories', href: '/categories' },
+      { label: 'Cook times', href: '/how-long' },
+      { label: 'Temp cheat sheet', href: '/cheat-sheet' },
+      { label: 'Food storage', href: '/storage' },
+    ],
+  },
+  {
+    heading: 'Kitchen',
+    links: [
+      { label: `All ${ALL_TOOLS.length} tools`, href: '/tools' },
+      { label: 'Print pack (PDF)', href: '/print-pack' },
+      { label: 'Field guides', href: '/blog' },
+      { label: 'Merch', href: '/shop' },
+    ],
+  },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'About', href: '/about' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Privacy', href: '/privacy' },
+      { label: 'Terms', href: '/terms' },
+    ],
+  },
+];
+
+/**
+ * Site footer. /llms.txt, /llms-full.txt, /sitemap.xml and /robots.txt stay
+ * real routes and are declared in robots.ts and sitemap.ts; they no longer
+ * need a link on the page.
+ */
 export default function Footer() {
   return (
-    <footer className="bg-paper-card hairline-t mt-20 text-ink">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
-        
-        {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8">
-          
-          {/* Brand Manifesto */}
-          <div className="space-y-4">
-            <Link href="/" className="group inline-flex items-center">
-              <Logo size="sm" variant="horizontal" />
-            </Link>
-            <p className="text-xs text-ink-muted leading-relaxed font-sans">
-              Engineered for busy cooks and parents. Instant directions, exact temps, and 20-word execution. No popups, no interstitials, no 12-paragraph essays about childhood summers. No fluff, just the instructions.
-            </p>
-            <div className="pt-2">
-              <Link
-                href="/about"
-                className="inline-block text-xs font-mono uppercase tracking-wider text-ink border-b border-ink hover:opacity-60 transition-opacity"
-              >
-                Read The Zero-Fluff Manifesto →
-              </Link>
+    <footer className="bg-paper border-t border-hairline text-ink no-print">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-10 py-10 flex flex-wrap items-start justify-between gap-10">
+        {/* Brand */}
+        <div className="max-w-[34ch]">
+          <Link href="/" className="group inline-flex items-center gap-3" aria-label={`${SITE_NAME} home`}>
+            <Logo size="sm" variant="mark-only" />
+            <span className="flex flex-col">
+              <span className="font-sans text-[13px] font-black uppercase tracking-[0.06em] text-ink leading-none">
+                {SITE_NAME}
+              </span>
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-ink-subtle mt-1 leading-none">
+                No fluff, just the instructions
+              </span>
+            </span>
+          </Link>
+          <p className="mt-4 text-[14px] text-ink-muted leading-relaxed">
+            Instant directions, exact temps, 20-word execution. No popups, no interstitials, no essays
+            about childhood summers.
+          </p>
+        </div>
+
+        {/* Link columns */}
+        <div className="flex flex-wrap gap-x-14 gap-y-8 text-[14px] text-ink-muted">
+          {COLUMNS.map((col) => (
+            <div key={col.heading}>
+              <h4 className="text-ink font-bold mb-3">{col.heading}</h4>
+              <ul className="flex flex-col gap-2">
+                {col.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="hover:text-ink transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-
-          {/* Kitchen Tools & Calculators */}
-          <div>
-            <h4 className="micro-label mb-4 text-accent">Kitchen Engines</h4>
-            <ul className="space-y-1.5 text-xs font-mono">
-              <li>
-                <Link href="/shop" className="text-accent font-bold hover:underline uppercase">
-                  👕 Merch &amp; Useless Tools (24 Specs)
-                </Link>
-              </li>
-              <li>
-                <Link href="/tools" className="text-ink font-bold hover:underline uppercase">
-                  🛠️ All Tools ({ALL_TOOLS.length} Engines)
-                </Link>
-              </li>
-              <li>
-                <Link href="/print-pack" className="text-ink font-bold hover:underline uppercase">
-                  🖨️ Print the Top 20 (PDF Pack)
-                </Link>
-              </li>
-              <li>
-                <Link href="/reheat" className="text-ink-muted hover:text-ink transition-colors uppercase">
-                  Takeout Revive
-                </Link>
-              </li>
-              <li>
-                <Link href="/frozen-cook" className="text-ink-muted hover:text-ink transition-colors uppercase">
-                  Freezer Cook Matrix
-                </Link>
-              </li>
-              <li>
-                <Link href="/dinner-sync" className="text-ink-muted hover:text-ink transition-colors uppercase">
-                  Dinner Sync Timer
-                </Link>
-              </li>
-              <li>
-                <Link href="/meat-math" className="text-ink-muted hover:text-ink transition-colors uppercase">
-                  Meat Math Scaler
-                </Link>
-              </li>
-              <li>
-                <Link href="/internal-temp" className="text-ink-muted hover:text-ink transition-colors uppercase">
-                  Thermometer Pull Guide
-                </Link>
-              </li>
-              <li>
-                <Link href="/salt-math" className="text-ink-muted hover:text-ink transition-colors uppercase">
-                  Salt &amp; Dry-Brine Math
-                </Link>
-              </li>
-              <li>
-                <Link href="/kid-split" className="text-ink-muted hover:text-ink transition-colors uppercase">
-                  Picky Kid Deconstructor
-                </Link>
-              </li>
-              <li>
-                <Link href="/troubleshoot" className="text-ink-muted hover:text-ink transition-colors uppercase">
-                  5-Sec Dinner Rescue
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Categories */}
-          <div>
-            <h4 className="micro-label mb-4 text-ink">Browse by Category</h4>
-            <ul className="space-y-1.5 text-xs font-mono">
-              {CATEGORIES.slice(0, 7).map((cat) => (
-                <li key={cat.slug}>
-                  <Link
-                    href={`/categories/${cat.slug}`}
-                    className="text-ink-muted hover:text-ink transition-colors uppercase"
-                  >
-                    {cat.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Appliances */}
-          <div>
-            <h4 className="micro-label mb-4 text-ink">Appliance Guides</h4>
-            <ul className="space-y-1.5 text-xs font-mono">
-              {APPLIANCES.map((app) => (
-                <li key={app.slug}>
-                  <Link
-                    href={`/appliances/${app.slug}`}
-                    className="text-ink-muted hover:text-ink transition-colors uppercase"
-                  >
-                    {app.name} Guide
-                  </Link>
-                </li>
-              ))}
-              <li className="pt-2">
-                <Link
-                  href="/how-long"
-                  className="text-accent font-bold hover:underline uppercase"
-                >
-                  🔥 All Cook Times ({COOK_TIME_DATASHEETS.length})
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/cheat-sheet"
-                  className="text-accent font-bold hover:underline uppercase"
-                >
-                  ⚡ All-Appliance Cheatsheet
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Machine-Readable / SEO & AI Scraper */}
-          <div className="space-y-4">
-            <h4 className="micro-label text-ink">AI &amp; Machine Endpoints</h4>
-            <p className="text-xs text-ink-muted leading-relaxed font-sans">
-              Standardized AI scraper manifests for ChatGPT, Claude, and Perplexity:
-            </p>
-            <ul className="space-y-1.5 text-xs font-mono">
-              <li>
-                <Link href="/guides" className="text-ink font-bold hover:underline">
-                  📚 Top 10 Guides (20)
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-accent font-bold hover:underline">
-                  🔬 Field Guides (55)
-                </Link>
-              </li>
-              <li>
-                <Link href="/llms.txt" className="text-ink hover:underline">
-                  📄 /llms.txt (AI Index)
-                </Link>
-              </li>
-              <li>
-                <Link href="/llms-full.txt" className="text-ink hover:underline">
-                  📚 /llms-full.txt (Markdown)
-                </Link>
-              </li>
-              <li>
-                <Link href="/.well-known/mcp/server-card.json" className="text-ink hover:underline">
-                  🔌 MCP Server Card (AI Tools)
-                </Link>
-              </li>
-              <li>
-                <Link href="/sitemap.xml" className="text-ink hover:underline">
-                  🗺️ /sitemap.xml (Sitemap)
-                </Link>
-              </li>
-              <li>
-                <Link href="/robots.txt" className="text-ink hover:underline">
-                  🤖 /robots.txt
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal & Company */}
-          <div>
-            <h4 className="micro-label mb-4 text-ink">Company &amp; Legal</h4>
-            <ul className="space-y-1.5 text-xs font-mono">
-              <li>
-                <Link href="/about" className="text-ink hover:underline uppercase">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-ink hover:underline uppercase">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="text-ink hover:underline uppercase">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-ink hover:underline uppercase">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link href="/shipping" className="text-ink-muted hover:text-ink transition-colors uppercase">
-                  Shipping
-                </Link>
-              </li>
-              <li>
-                <Link href="/refunds" className="text-ink-muted hover:text-ink transition-colors uppercase">
-                  Refunds &amp; Returns
-                </Link>
-              </li>
-            </ul>
-          </div>
+          ))}
         </div>
+      </div>
 
-
-        {/* Bottom Colophon Bar */}
-        <div className="hairline-t mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] font-mono text-ink-subtle gap-4">
-          <div>
-            © 2026 MEAL INSTRUCTIONS // ALL RECIPES VALIDATED WITH SCHEMA.ORG JSON-LD.
-          </div>
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <Link href="/about" className="hover:text-ink transition-colors uppercase">
-              About
-            </Link>
-            <span>•</span>
-            <Link href="/contact" className="hover:text-ink transition-colors uppercase">
-              Contact
-            </Link>
-            <span>•</span>
-            <Link href="/privacy" className="hover:text-ink transition-colors uppercase">
-              Privacy Policy
-            </Link>
-            <span>•</span>
-            <Link href="/terms" className="hover:text-ink transition-colors uppercase">
-              Terms
-            </Link>
-          </div>
-        </div>
-
+      {/* Colophon */}
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-10 pb-8 font-mono text-[11px] text-ink-subtle uppercase tracking-[0.08em]">
+        © {new Date().getFullYear()} {SITE_NAME}
       </div>
     </footer>
   );

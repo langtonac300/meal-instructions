@@ -1,64 +1,67 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CATEGORIES } from '@/data/categories';
 import { RECIPES } from '@/data/recipes';
 
-interface CategoryGridProps {
-  onSelectCategory?: (slug: string) => void;
-  selectedCategory?: string;
-}
+/**
+ * Display names shortened for scanning. The canonical names in
+ * data/categories.ts still drive every category page and its metadata;
+ * these only shorten the tile caption. Anything not listed falls back to
+ * the full name.
+ */
+const SHORT_NAMES: Record<string, string> = {
+  '15-minute': '15-Minute Meals',
+  'high-protein': 'High Protein',
+  'kid-approved': 'Kid Approved',
+  'no-thaw': 'No-Thaw / Frozen',
+  'one-pan': 'One-Pan & Sheet Pan',
+  budget: 'Budget & Pantry',
+  'five-ingredient': 'Five-Ingredient',
+  sides: 'Rapid Sides',
+  'game-day': 'Game Day',
+  snacks: 'Late Night Snacks',
+  breakfast: 'Weekend Breakfast',
+  weekend: 'Weekend Projects',
+};
 
-export default function CategoryGrid({ onSelectCategory, selectedCategory }: CategoryGridProps) {
+/**
+ * Twelve category tiles, each a plain navigation to /categories/{slug}.
+ * Server component: no client state — the recipe directory lives on the
+ * category pages, not here.
+ */
+export default function CategoryGrid() {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+    <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
       {CATEGORIES.map((cat) => {
         const recipeCount = RECIPES.filter((r) =>
           (r.categories as string[]).includes(cat.slug)
         ).length;
-        const isSelected = selectedCategory === cat.slug;
+        const name = SHORT_NAMES[cat.slug] ?? cat.name;
 
         return (
-          <div
+          <Link
             key={cat.slug}
-            onClick={() => onSelectCategory && onSelectCategory(isSelected ? 'all' : cat.slug)}
-            className={`group relative bg-paper-card hairline-border overflow-hidden cursor-pointer transition-all duration-200 flex flex-col justify-between ${
-              isSelected ? 'ring-2 ring-ink border-transparent' : 'hover:border-ink/60'
-            }`}
+            href={`/categories/${cat.slug}`}
+            className="group block bg-paper border border-hairline hover:border-ink transition-colors"
+            aria-label={`${cat.name} — ${recipeCount} meals`}
           >
-            {/* Image Thumbnail */}
-            {cat.image ? (
-              <div className="relative w-full h-24 sm:h-28 overflow-hidden bg-paper-200">
+            <div className="relative w-full h-[150px] overflow-hidden bg-paper-200">
+              {cat.image && (
                 <Image
                   src={cat.image}
                   alt={cat.name}
                   fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                  sizes="(max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 300px"
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent" />
-                <span className="absolute bottom-2 left-2 text-[9px] font-mono font-bold uppercase tracking-wider text-paper bg-ink/80 px-1.5 py-0.5 rounded">
-                  {recipeCount} {recipeCount === 1 ? 'Meal' : 'Meals'}
-                </span>
-              </div>
-            ) : (
-              <div className="w-full h-24 bg-paper-200 flex items-center justify-center font-mono text-[10px] text-ink-muted uppercase">
-                {recipeCount} Meals
-              </div>
-            )}
-
-            {/* Content & Label */}
-            <div className="p-2.5 space-y-1">
-              <h4 className="font-sans text-xs sm:text-sm font-bold uppercase text-ink group-hover:text-accent transition-colors leading-tight line-clamp-1">
-                {cat.name.replace(' Staples', '').replace(' Meals', '')}
-              </h4>
-              <p className="text-[10px] text-ink-muted line-clamp-1 font-mono uppercase tracking-wider">
-                {cat.heroTag}
-              </p>
+              )}
             </div>
-          </div>
+            <div className="px-4 py-3.5 flex items-baseline justify-between gap-2">
+              <span className="text-[17px] font-bold text-ink leading-tight">{name}</span>
+              <span className="font-mono text-[13px] text-ink-subtle shrink-0">{recipeCount}</span>
+            </div>
+          </Link>
         );
       })}
     </div>

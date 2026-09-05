@@ -3,29 +3,63 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Search, Flame, Zap, Clock, BookOpen, Layers, Menu, X, LogIn, LogOut, Bookmark } from 'lucide-react';
+import { Search, Menu, X, LogIn, LogOut, Bookmark } from 'lucide-react';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import SearchModal from './SearchModal';
 import Logo from '@/components/Logo';
 import { RECIPES } from '@/data/recipes';
-import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
-import { ALL_TOOLS } from '@/data/tools-directory';
-import {
-  LeanChickenIcon,
-  LeanBeefIcon,
-  LeanPorkIcon,
-  LeanFishIcon,
-  LeanTurkeyIcon,
-  LeanLambIcon,
-  LeanVegetarianIcon,
-  LeanDairyEggsIcon,
-  LeanAllProteinsIcon,
-} from '@/components/icons/Lean5SIcons';
+
+const TOOL_ROUTES = [
+  '/tools',
+  '/reheat',
+  '/frozen-cook',
+  '/dinner-sync',
+  '/meat-math',
+  '/internal-temp',
+  '/salt-math',
+  '/kid-split',
+  '/troubleshoot',
+  '/air-fryer-calculator',
+];
+
+interface NavItem {
+  label: string;
+  href: string;
+  isActive: (pathname: string) => boolean;
+}
+
+const NAV_ITEMS: NavItem[] = [
+  {
+    label: 'Recipes',
+    href: '/categories',
+    isActive: (p) => p.startsWith('/categories') || p.startsWith('/recipes'),
+  },
+  {
+    label: 'Cook times',
+    href: '/how-long',
+    isActive: (p) => p.startsWith('/how-long') || p.startsWith('/charts'),
+  },
+  {
+    label: 'Tools',
+    href: '/tools',
+    isActive: (p) => TOOL_ROUTES.some((r) => p === r || p.startsWith(`${r}/`)),
+  },
+  {
+    label: 'Print pack',
+    href: '/print-pack',
+    isActive: (p) => p.startsWith('/print-pack'),
+  },
+  {
+    label: 'Field guides',
+    href: '/blog',
+    isActive: (p) => p.startsWith('/blog'),
+  },
+];
 
 export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const pathname = usePathname() ?? '';
   const { data: session, status } = useSession();
 
   // Keyboard shortcut Cmd+K / Ctrl+K
@@ -40,400 +74,167 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Close the mobile menu on navigation.
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
   return (
     <>
-      {/* Top Ticker / Manifesto Header */}
-      <div className="bg-ink text-paper py-1.5 px-4 sm:px-8 text-[11px] font-mono tracking-wider flex justify-between items-center hairline-b no-print">
-        <div className="flex items-center gap-3">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="uppercase text-neutral-300">{RECIPES.length} verified meals · {COOK_TIME_DATASHEETS.length} USDA cook-time datasheets</span>
-        </div>
-        <div className="hidden md:flex items-center gap-4 text-neutral-400">
-          <Link href="/about" className="hover:text-paper transition-colors">
-            MANIFESTO
-          </Link>
-          <span>/</span>
-          <Link href="/llms.txt" className="hover:text-paper transition-colors">
-            AI SCRAPER (LLMS.TXT)
-          </Link>
-        </div>
+      {/* Ticker */}
+      <div className="bg-ink text-paper px-5 sm:px-10 py-2 font-mono text-[11px] tracking-[0.1em] uppercase flex justify-between items-center gap-4 no-print">
+        <span className="text-neutral-300 truncate">
+          {RECIPES.length} verified meals · exact temps · no life stories
+        </span>
+        <Link href="/about" className="text-neutral-400 hover:text-paper transition-colors shrink-0">
+          Manifesto
+        </Link>
       </div>
 
-      {/* Main Architectural Navigation */}
-      <header className="sticky top-0 z-40 bg-paper/90 backdrop-blur-md hairline-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between">
-          
-          {/* Logo & Brand */}
-          {/* The desktop nav is over capacity between lg and xl (1024–1279px):
-              ten items plus search and sign-in do not fit at the xl metrics.
-              In that band the wordmark drops to its small size and the nav runs
-              tighter (11px, narrower gaps and tracking) so nothing is hidden,
-              renamed, or pushed off the right edge. */}
-          <Link href="/" className="group inline-flex items-center">
-            <span className="inline-flex lg:hidden xl:inline-flex">
-              <Logo size="md" variant="horizontal" />
-            </span>
-            <span className="hidden lg:inline-flex xl:hidden">
-              <Logo size="sm" variant="horizontal" />
+      {/* Header */}
+      <header className="sticky top-0 z-40 bg-paper/90 backdrop-blur-md border-b border-hairline no-print">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-10 h-[72px] flex items-center justify-between gap-4">
+          {/* Logo & wordmark */}
+          <Link href="/" className="group inline-flex items-center gap-3 shrink-0" aria-label="Meal Instructions home">
+            <Logo size="md" variant="mark-only" />
+            <span className="hidden sm:inline font-sans text-[16px] font-black uppercase tracking-[0.06em] text-ink leading-none">
+              Meal Instructions
             </span>
           </Link>
 
-          {/* Center Links */}
-          <nav className="hidden lg:flex items-center gap-3 xl:gap-6 font-mono text-[11px] xl:text-xs tracking-wide xl:tracking-wider uppercase text-ink-muted">
-            <Link
-              href="/appliances/air-fryer"
-              className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname === '/appliances/air-fryer' ? 'text-ink border-b-2 border-ink font-bold' : ''
-              }`}
-            >
-              Air Fryer
-            </Link>
-            <Link
-              href="/categories/15-minute"
-              className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname === '/categories/15-minute' ? 'text-ink border-b-2 border-ink font-bold' : ''
-              }`}
-            >
-              15-Minute Dinners
-            </Link>
-            <Link
-              href="/categories/high-protein"
-              className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname === '/categories/high-protein' ? 'text-ink border-b-2 border-ink font-bold' : ''
-              }`}
-            >
-              High Protein
-            </Link>
-            <Link
-              href="/categories/kid-approved"
-              className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname === '/categories/kid-approved' ? 'text-ink border-b-2 border-ink font-bold' : ''
-              }`}
-            >
-              Kid Approved
-            </Link>
-            <Link
-              href="/blog"
-              className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname.startsWith('/blog') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
-              }`}
-            >
-              Field Guides
-            </Link>
-            <Link
-              href="/tools"
-              className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname === '/tools' || pathname.startsWith('/reheat') || pathname.startsWith('/frozen-cook') || pathname.startsWith('/dinner-sync') || pathname.startsWith('/meat-math') || pathname.startsWith('/internal-temp') || pathname.startsWith('/salt-math') || pathname.startsWith('/kid-split') || pathname.startsWith('/troubleshoot') || pathname.startsWith('/air-fryer-calculator') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
-              }`}
-            >
-              Tools &amp; Calcs
-            </Link>
-            <Link
-              href="/shop"
-              className={`hover:text-ink transition-colors pb-0.5 flex items-center gap-1 ${
-                pathname.startsWith('/shop') || pathname.startsWith('/merch') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
-              }`}
-            >
-              <span>Merch &amp; Tools</span>
-              <span className="text-[9px] px-1 py-0.2 bg-ink text-paper font-bold">24</span>
-            </Link>
-            <Link
-              href="/how-long"
-              className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname.startsWith('/how-long') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
-              }`}
-            >
-              Cook Times
-            </Link>
-            <Link
-              href="/storage"
-              className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname.startsWith('/storage') ? 'text-ink border-b-2 border-ink font-bold text-accent' : ''
-              }`}
-            >
-              Food Storage
-            </Link>
-            <Link
-              href="/cheat-sheet"
-              className={`hover:text-ink transition-colors pb-0.5 ${
-                pathname === '/cheat-sheet' ? 'text-ink border-b-2 border-ink font-bold' : ''
-              }`}
-            >
-              Temp Cheatsheet
-            </Link>
-            {/* xl and up only: the nav already overruns the header below ~1200px
-                without this item, so it stays out of that band rather than adding to it. */}
-            <Link
-              href="/print-pack"
-              className={`hidden xl:block hover:text-ink transition-colors pb-0.5 ${
-                pathname.startsWith('/print-pack') ? 'text-ink border-b-2 border-ink font-bold' : ''
-              }`}
-            >
-              Print Pack
-            </Link>
+          {/* Center nav */}
+          <nav className="hidden lg:flex items-center gap-7 text-[14px] text-ink-muted" aria-label="Primary">
+            {NAV_ITEMS.map((item) => {
+              const active = item.isActive(pathname);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? 'page' : undefined}
+                  className={`transition-colors pb-0.5 border-b-2 ${
+                    active
+                      ? 'text-ink font-semibold border-ink'
+                      : 'border-transparent hover:text-ink'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* Right Action: Search Trigger Button */}
-          <div className="flex items-center gap-3">
+          {/* Right cluster */}
+          <div className="flex items-center gap-2 sm:gap-3">
             <button
+              type="button"
               onClick={() => setSearchOpen(true)}
-              className="flex items-center gap-2 px-3 py-1.5 bg-paper-card hairline-border hover:border-ink transition-colors text-xs font-mono text-ink-muted hover:text-ink cursor-pointer"
-              title="Search recipes, cook times, and 50 field guides"
+              className="flex items-center gap-2 px-3 sm:px-3.5 py-[9px] bg-paper-50 border border-hairline hover:border-ink transition-colors text-[14px] text-ink-muted hover:text-ink cursor-pointer"
+              title="Search recipes, cook times, and field guides (⌘K)"
+              aria-label="Search"
             >
-              <Search className="w-3.5 h-3.5 text-ink-subtle" />
+              <Search className="w-[15px] h-[15px] text-ink-subtle" aria-hidden="true" />
               <span className="hidden sm:inline">Search</span>
-              <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] bg-paper-subtle hairline-border rounded text-ink-muted">
-                ⌘K
-              </kbd>
             </button>
 
-            {/* Auth: Sign In / User Chip */}
-            {status !== 'loading' && (
-              session?.user ? (
-                <div className="hidden sm:flex items-center gap-2">
+            {/* Auth. The sign-in button stays in the bar on every width — on
+                phones it is the only sign-in entry, so it cannot hide in the menu. */}
+            {status !== 'loading' &&
+              (session?.user ? (
+                <div className="flex items-center gap-2 sm:gap-3">
                   <Link
                     href="/account"
-                    className="flex items-center gap-1.5 px-2.5 py-1.5 bg-paper-card hairline-border hover:border-ink transition-colors text-xs font-mono text-ink hover:text-accent uppercase tracking-wider"
+                    className="flex items-center gap-2 px-3 sm:px-3.5 py-[9px] bg-paper-50 border border-hairline hover:border-ink transition-colors text-[14px] text-ink hover:text-accent"
                     title={`Saved meals — signed in as ${session.user.email ?? session.user.name}`}
                   >
                     {session.user.image ? (
+                      // eslint-disable-next-line @next/next/no-img-element
                       <img
                         src={session.user.image}
                         alt=""
                         className="w-5 h-5 rounded-full border border-hairline"
                       />
                     ) : (
-                      <Bookmark className="w-3.5 h-3.5" />
+                      <Bookmark className="w-[15px] h-[15px]" aria-hidden="true" />
                     )}
-                    <span>Saved meals</span>
+                    <span className="hidden sm:inline">Saved meals</span>
                   </Link>
                   <button
+                    type="button"
                     onClick={() => signOut()}
-                    className="flex items-center gap-1.5 px-2.5 py-1.5 bg-paper-card hairline-border hover:border-ink transition-colors text-xs font-mono text-ink-muted hover:text-ink cursor-pointer uppercase tracking-wider"
+                    className="flex items-center gap-2 px-3 sm:px-4 py-2.5 bg-ink text-paper hover:bg-accent transition-colors text-[14px] font-semibold cursor-pointer"
                     title={`Signed in as ${session.user.email ?? session.user.name}`}
                   >
-                    <LogOut className="w-3.5 h-3.5" />
+                    <LogOut className="w-[15px] h-[15px]" aria-hidden="true" />
                     <span>Sign out</span>
                   </button>
                 </div>
               ) : (
                 <button
+                  type="button"
                   onClick={() => signIn('google')}
-                  className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-ink text-paper hover:bg-accent transition-colors text-xs font-mono cursor-pointer uppercase tracking-wider font-bold"
+                  className="flex items-center gap-2 px-3 sm:px-4 py-2.5 bg-ink text-paper hover:bg-accent transition-colors text-[14px] font-semibold cursor-pointer whitespace-nowrap"
                 >
-                  <LogIn className="w-3.5 h-3.5" />
-                  <span>Sign in</span>
+                  <LogIn className="w-[15px] h-[15px]" aria-hidden="true" />
+                  <span>Sign in with Google</span>
                 </button>
-              )
-            )}
+              ))}
 
-            {/* Mobile Hamburger Toggle */}
+            {/* Mobile hamburger */}
             <button
+              type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-ink-muted hover:text-ink"
-              aria-label="Toggle Menu"
+              className="lg:hidden p-2 -mr-2 text-ink-muted hover:text-ink"
+              aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile dropdown */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-paper-card hairline-t hairline-b p-4 space-y-3 font-mono text-xs uppercase tracking-wider">
-            {/* Mobile Protein Selection Grid */}
-            <div className="p-3 bg-paper-100 hairline-border rounded mb-3">
-              <div className="text-[10px] font-bold text-ink-subtle uppercase mb-2 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                <span>FILTER BY PROTEIN ON HAND:</span>
-              </div>
-              <div className="grid grid-cols-2 gap-1.5 text-[10px]">
+          <nav
+            className="lg:hidden bg-paper-50 border-t border-hairline px-5 sm:px-10 py-3 flex flex-col text-[15px]"
+            aria-label="Primary (mobile)"
+          >
+            {NAV_ITEMS.map((item) => {
+              const active = item.isActive(pathname);
+              return (
                 <Link
-                  href="/?protein=chicken#directory"
+                  key={item.href}
+                  href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-1.5 p-1.5 bg-paper rounded border border-hairline hover:border-ink text-ink"
+                  aria-current={active ? 'page' : undefined}
+                  className={`py-3 border-b border-hairline last:border-b-0 transition-colors ${
+                    active ? 'text-ink font-semibold' : 'text-ink-muted hover:text-ink'
+                  }`}
                 >
-                  <LeanChickenIcon size={14} className="text-accent shrink-0" />
-                  <span>CHICKEN [22]</span>
+                  {item.label}
                 </Link>
-                <Link
-                  href="/?protein=beef#directory"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-1.5 p-1.5 bg-paper rounded border border-hairline hover:border-ink text-ink"
-                >
-                  <LeanBeefIcon size={14} className="text-accent shrink-0" />
-                  <span>BEEF [25]</span>
-                </Link>
-                <Link
-                  href="/?protein=pork#directory"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-1.5 p-1.5 bg-paper rounded border border-hairline hover:border-ink text-ink"
-                >
-                  <LeanPorkIcon size={14} className="text-accent shrink-0" />
-                  <span>PORK [18]</span>
-                </Link>
-                <Link
-                  href="/?protein=seafood#directory"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-1.5 p-1.5 bg-paper rounded border border-hairline hover:border-ink text-ink"
-                >
-                  <LeanFishIcon size={14} className="text-accent shrink-0" />
-                  <span>SEAFOOD [15]</span>
-                </Link>
-                <Link
-                  href="/?protein=turkey#directory"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-1.5 p-1.5 bg-paper rounded border border-hairline hover:border-ink text-ink"
-                >
-                  <LeanTurkeyIcon size={14} className="text-accent shrink-0" />
-                  <span>TURKEY [8]</span>
-                </Link>
-                <Link
-                  href="/?protein=lamb#directory"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-1.5 p-1.5 bg-paper rounded border border-hairline hover:border-ink text-ink"
-                >
-                  <LeanLambIcon size={14} className="text-accent shrink-0" />
-                  <span>LAMB [2]</span>
-                </Link>
-                <Link
-                  href="/?protein=vegetarian#directory"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-1.5 p-1.5 bg-paper rounded border border-hairline hover:border-ink text-ink"
-                >
-                  <LeanVegetarianIcon size={14} className="text-accent shrink-0" />
-                  <span>PLANT/VEG [15]</span>
-                </Link>
-                <Link
-                  href="/?protein=dairy-eggs#directory"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-1.5 p-1.5 bg-paper rounded border border-hairline hover:border-ink text-ink"
-                >
-                  <LeanDairyEggsIcon size={14} className="text-accent shrink-0" />
-                  <span>EGGS/DAIRY [11]</span>
-                </Link>
-              </div>
-            </div>
-
-            <Link
-              href="/appliances/air-fryer"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 text-ink hover:text-accent"
-            >
-              ⚡ Air Fryer Engine
-            </Link>
-            <Link
-              href="/categories/15-minute"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 text-ink hover:text-accent"
-            >
-              ⏱️ 15-Minute Meals
-            </Link>
-            <Link
-              href="/categories/high-protein"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 text-ink hover:text-accent"
-            >
-              💪 High Protein / Lean
-            </Link>
-            <Link
-              href="/categories/kid-approved"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 text-ink hover:text-accent"
-            >
-              👶 Kid & Toddler Approved
-            </Link>
-            <Link
-              href="/blog"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 text-accent font-bold hover:underline"
-            >
-              🔬 50 Field Guides &amp; Science
-            </Link>
-            <Link
-              href="/tools"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 text-ink hover:text-accent"
-            >
-              🛠️ Kitchen Tools &amp; Calculators ({ALL_TOOLS.length})
-            </Link>
-            <Link
-              href="/how-long"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 text-accent font-bold hover:underline"
-            >
-              🔥 Cook Times ({COOK_TIME_DATASHEETS.length} Datasheets)
-            </Link>
-            <Link
-              href="/storage"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 text-accent font-bold hover:underline"
-            >
-              Food Storage Guides
-            </Link>
-            <Link
-              href="/cheat-sheet"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 text-ink hover:text-accent"
-            >
-              📋 Air Fryer Temp Cheatsheet
-            </Link>
-            <Link
-              href="/print-pack"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 text-ink hover:text-accent"
-            >
-              🖨️ Printable Recipe Pack (PDF)
-            </Link>
-            <Link
-              href="/shop"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 text-accent font-bold hover:underline"
-            >
-              👕 Merch &amp; Useless Tools (24 Specs)
-            </Link>
+              );
+            })}
             <Link
               href="/about"
               onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 text-ink-muted hover:text-ink"
+              className="py-3 border-t border-hairline text-ink-muted hover:text-ink transition-colors"
             >
-              ℹ️ Zero-Fluff Manifesto
+              About
             </Link>
-
-            {/* Auth (mobile) — the desktop chip is hidden below sm, so this is the only entry on phones */}
-            {status !== 'loading' && (
-              <div className="hairline-t pt-3 mt-3">
-                {session?.user ? (
-                  <>
-                    <Link
-                      href="/account"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block py-1.5 text-ink hover:text-accent"
-                    >
-                      🔖 Saved meals
-                    </Link>
-                    <button
-                      onClick={() => signOut()}
-                      className="block w-full text-left py-1.5 text-ink-muted hover:text-ink uppercase tracking-wider cursor-pointer"
-                    >
-                      Sign out
-                    </button>
-                  </>
-                ) : (
-                  <button
-                    onClick={() => signIn('google')}
-                    className="block w-full text-left py-1.5 text-accent font-bold hover:underline uppercase tracking-wider cursor-pointer"
-                  >
-                    Sign in with Google → save &amp; rate meals
-                  </button>
-                )}
-              </div>
+            {status !== 'loading' && session?.user && (
+              <Link
+                href="/account"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-3 border-t border-hairline text-ink-muted hover:text-ink transition-colors"
+              >
+                Saved meals
+              </Link>
             )}
-          </div>
+          </nav>
         )}
       </header>
 
-      {/* Global Search Dialog Modal */}
+      {/* Global search dialog */}
       <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
