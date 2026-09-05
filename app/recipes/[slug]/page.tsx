@@ -8,6 +8,7 @@ import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { resolveRecipeImage, resolveRecipeImageAbsolute } from '@/lib/recipe-image';
 import RecipeClientView from './RecipeClientView';
+import { mealsConfigured } from '@/lib/supabase-admin';
 import { resolveIngredients } from '@/lib/kroger/matches';
 
 interface RecipePageProps {
@@ -96,6 +97,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
         recipe={recipe}
         krogerIngredients={resolveIngredients(recipe.ingredients.map((i) => i.item))}
         krogerEnabled={Boolean(process.env.KROGER_CLIENT_ID)}
+        mealsEnabled={mealsConfigured()}
         relatedDatasheets={relatedDatasheets}
         resolvedImage={resolvedImage}
       />

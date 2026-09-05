@@ -15,6 +15,7 @@ import { RECIPES } from '@/data/recipes';
 import { formatScaledAmount, buildSmsShareText, recipeToMarkdown } from '@/lib/recipe-utils';
 
 import KrogerCartPanel from '@/components/KrogerCartPanel';
+import MealActions from '@/components/MealActions';
 import type { ResolvedIngredient } from '@/lib/kroger/matches';
 
 interface RecipeClientViewProps {
@@ -24,11 +25,14 @@ interface RecipeClientViewProps {
   /** False when KROGER_CLIENT_ID is unset — the panel is hidden rather than
    *  rendering a button whose only outcome is a Kroger error page. */
   krogerEnabled?: boolean;
+  /** False when SUPABASE_* is unset — the save/rate/suggest block is hidden
+   *  rather than rendering controls whose only outcome is a 503. */
+  mealsEnabled?: boolean;
   relatedDatasheets?: CookTimeDatasheet[];
   resolvedImage?: string;
 }
 
-export default function RecipeClientView({ recipe, relatedDatasheets = [], resolvedImage, krogerIngredients = [], krogerEnabled = false }: RecipeClientViewProps) {
+export default function RecipeClientView({ recipe, relatedDatasheets = [], resolvedImage, krogerIngredients = [], krogerEnabled = false, mealsEnabled = false }: RecipeClientViewProps) {
   // Mode state: syncs with document.documentElement's data-mode
   const [currentMode, setCurrentMode] = useState<'fast' | 'detailed'>('fast');
   const [portionMultiplier, setPortionMultiplier] = useState<number>(1);
@@ -723,6 +727,10 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
           <div><strong>Cook Time Basis:</strong> {recipe.basis}</div>
         </div>
       </section>
+
+      {mealsEnabled && (
+        <MealActions recipeSlug={recipe.slug} recipeTitle={recipe.title} />
+      )}
 
       {/* RELATED RECIPES */}
       {relatedRecipes.length > 0 && (
