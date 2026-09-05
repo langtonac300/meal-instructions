@@ -1,0 +1,20 @@
+<!-- @dsCard group="Components" viewport="1100x1080" name="Discovery (home bands)" subtitle="ProteinSelectorBar, RecipeScrubber, KitchenHud, CrisisTriageBar, CategoryGrid" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Discovery components</title><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script><script src="../sample-data.js"></script>
+<style>body{margin:0;padding:16px;background:var(--paper)}.k{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-subtle);margin:14px 0 6px}.k:first-child{margin-top:0}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const DS = window.MealInstructionsDesignSystem_767cb5; const D = window.MI_DATA;
+const { ProteinSelectorBar, RecipeScrubber, CrisisTriageBar, CategoryGrid, KitchenHud } = DS;
+function Demo(){ const [protein,setProtein]=React.useState('beef'); const [max,setMax]=React.useState(15); const [preset,setPreset]=React.useState('sub-15'); const [cat,setCat]=React.useState('15-minute');
+  const countFor=(m)=> m==null ? D.recipeCount : D.recipes.filter(r=>r.totalMinutes<=m).length*19;
+  return <div style={{margin:-16}}>
+    <ProteinSelectorBar selected={protein} onSelect={setProtein} counts={D.proteinCounts} total={D.recipeCount} />
+    <RecipeScrubber maxMinutes={max} onTimeChange={setMax} countFor={countFor} sample="Crispy Air Fryer Chicken Tenders (15m)" />
+    <KitchenHud datasheets={D.datasheets} recipes={D.recipes} presets={D.presets} datasheetCount={D.datasheetCount} recipeCount={D.recipeCount} />
+    <CrisisTriageBar activePreset={preset} onSelectPreset={(p)=>setPreset(p&&p.id)} counts={D.crisisCounts} />
+    <div style={{padding:'24px 32px'}}><CategoryGrid categories={D.categories} selected={cat} onSelect={setCat} /></div>
+  </div>; }
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);</script></body></html>

@@ -1,0 +1,13 @@
+/* Meal Instructions — base + utility classes carried over from app/globals.css */
+body{background-color:var(--paper);color:var(--ink);font-family:var(--font-sans);font-size:13px;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;margin:0}
+::selection{background:var(--ink);color:var(--paper)}
+a{color:inherit;text-decoration:none}a:hover{color:var(--ink)}
+.hairline-b{border-bottom:1px solid var(--hairline)}.hairline-t{border-top:1px solid var(--hairline)}.hairline-r{border-right:1px solid var(--hairline)}.hairline-l{border-left:1px solid var(--hairline)}.hairline-border{border:1px solid var(--hairline)}
+.micro-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink-muted);font-family:var(--font-mono)}
+.mono-num{font-family:var(--font-mono);letter-spacing:-.02em}
+::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:var(--paper)}::-webkit-scrollbar-thumb{background:var(--scroll-thumb);border-radius:3px}::-webkit-scrollbar-thumb:hover{background:var(--scroll-thumb-hover)}
+.scrollbar-none{scrollbar-width:none}.scrollbar-none::-webkit-scrollbar{display:none}
+@keyframes mi-pulse{50%{opacity:.5}}@keyframes mi-ping{75%,100%{transform:scale(2);opacity:0}}@keyframes mi-bounce{0%,100%{transform:translateY(-25%);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,.2,1)}}
+.animate-pulse{animation:mi-pulse 2s cubic-bezier(.4,0,.6,1) infinite}.animate-ping{animation:mi-ping 1s cubic-bezier(0,0,.2,1) infinite}.animate-bounce{animation:mi-bounce 1s infinite}
+/* Lean 5S icon: monochrome stroke SVG applied as a mask so it inherits currentColor */
+.lean-icon{display:inline-block;width:24px;height:24px;background-color:currentColor;-webkit-mask:var(--icon) center/contain no-repeat;mask:var(--icon) center/contain no-repeat;flex-shrink:0}

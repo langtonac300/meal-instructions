@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Play, Pause, RotateCcw, Plus, ChevronsRight, X, ExternalLink, Search } from 'lucide-react';
 import type { CookPlan, DatasheetIndexEntry } from '@/lib/cook-session';
 import { formatClock, totalPlanSeconds } from '@/lib/cook-session';
+import { track } from '@/lib/analytics';
 
 interface FiredEvent {
   id: string;              // stable across ticks: `${runId}:${eventKey}`
@@ -221,12 +222,25 @@ export default function CookClient({ plans, maxTimers, datasheetIndex }: Props) 
     };
   }, [runs]);
 
+  // Completion is decided inside a state updater (advanceStage), which React
+  // invokes twice under StrictMode. Watch the settled state instead.
+  const completedLogged = useRef<Set<string>>(new Set());
+  useEffect(() => {
+    for (const r of runs) {
+      if (r.completed && !completedLogged.current.has(r.runId)) {
+        completedLogged.current.add(r.runId);
+        track('cook_complete', { surface: 'live_cook', plan: r.planId });
+      }
+    }
+  }, [runs]);
+
   // Actions.
   const patchRun = useCallback((runId: string, patch: (r: TimerRun) => TimerRun) => {
     setRuns((prev) => prev.map((r) => (r.runId === runId ? patch(r) : r)));
   }, []);
 
   const startTimer = useCallback((runId: string) => {
+    track('cook_start', { surface: 'live_cook' });
     patchRun(runId, (r) => ({ ...r, stageStartMs: Date.now(), pausedAtMs: null }));
   }, [patchRun]);
 
@@ -243,6 +257,7 @@ export default function CookClient({ plans, maxTimers, datasheetIndex }: Props) 
   }, [patchRun]);
 
   const addTwoMinutes = useCallback((runId: string) => {
+    track('timer_extend', { minutes: 2, surface: 'live_cook' });
     patchRun(runId, (r) => ({ ...r, bonusSec: r.bonusSec + 120 }));
   }, [patchRun]);
 

@@ -13,6 +13,7 @@ import { LeanForkIcon, LeanFlipIcon, LeanClockIcon, LeanUtensilsIcon } from '@/c
 import { Recipe, CookTimeDatasheet } from '@/lib/types';
 import { RECIPES } from '@/data/recipes';
 import { formatScaledAmount, buildSmsShareText, recipeToMarkdown } from '@/lib/recipe-utils';
+import { track } from '@/lib/analytics';
 
 import KrogerCartPanel from '@/components/KrogerCartPanel';
 import MealActions from '@/components/MealActions';
@@ -55,6 +56,9 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
   }, []);
 
   const handleModeChange = (newMode: 'fast' | 'detailed') => {
+    if (newMode !== currentMode) {
+      track('mode_switch', { mode: newMode, from: currentMode, recipe: recipe.slug });
+    }
     setCurrentMode(newMode);
     document.documentElement.setAttribute('data-mode', newMode);
     // Triggered here rather than from an effect: the panel is roughly two
@@ -120,13 +124,33 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
 
   const toggleTimer = () => {
     if (isTimerFinished) {
+      track('cook_start', { recipe: recipe.slug, minutes: Math.round(initialSeconds / 60), restart: true });
       setTimerSeconds(initialSeconds);
       setIsTimerFinished(false);
       setIsTimerRunning(true);
     } else {
-      setIsTimerRunning(!isTimerRunning);
+      const next = !isTimerRunning;
+      track(next ? 'cook_start' : 'cook_pause', {
+        recipe: recipe.slug,
+        minutes: Math.round(initialSeconds / 60),
+        remaining: timerSeconds,
+      });
+      setIsTimerRunning(next);
     }
   };
+
+  // Guarded: the countdown sets isTimerFinished from inside a state updater,
+  // which React invokes twice under StrictMode in development.
+  const cookCompleteLogged = React.useRef(false);
+  useEffect(() => {
+    if (!isTimerFinished) {
+      cookCompleteLogged.current = false;
+      return;
+    }
+    if (cookCompleteLogged.current) return;
+    cookCompleteLogged.current = true;
+    track('cook_complete', { recipe: recipe.slug, minutes: Math.round(initialSeconds / 60) });
+  }, [isTimerFinished, recipe.slug, initialSeconds]);
 
   const resetTimer = () => {
     setIsTimerRunning(false);
@@ -144,6 +168,7 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
     const text = buildSmsShareText(recipe);
     try {
       await navigator.clipboard.writeText(text);
+      track('recipe_share', { method: 'sms_copy', recipe: recipe.slug });
       setCopiedSms(true);
       setTimeout(() => setCopiedSms(false), 3000);
     } catch (err) {}
@@ -153,6 +178,7 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
     const md = recipeToMarkdown(recipe);
     try {
       await navigator.clipboard.writeText(md);
+      track('recipe_share', { method: 'llm_markdown', recipe: recipe.slug });
       setCopiedMd(true);
       setTimeout(() => setCopiedMd(false), 3000);
     } catch (err) {}
@@ -283,7 +309,10 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
           </div>
 
           <button
-            onClick={() => window.print()}
+            onClick={() => {
+              track('recipe_print', { source: 'recipe_toolbar', recipe: recipe.slug });
+              window.print();
+            }}
             className="flex items-center gap-1.5 px-3 py-1.5 bg-paper hairline-border hover:border-ink transition-colors cursor-pointer text-ink-muted hover:text-ink"
           >
             <Printer className="w-3.5 h-3.5" />
@@ -496,7 +525,16 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
             ].map((p) => (
               <button
                 key={p.val}
-                onClick={() => setPortionMultiplier(p.val)}
+                onClick={() => {
+                  if (p.val !== portionMultiplier) {
+                    track('portion_scale', {
+                      multiplier: p.val,
+                      servings: Math.round(recipe.defaultServings * p.val),
+                      recipe: recipe.slug,
+                    });
+                  }
+                  setPortionMultiplier(p.val);
+                }}
                 className={`px-2.5 py-1 hairline-border transition-colors ${
                   portionMultiplier === p.val
                     ? 'bg-ink text-paper font-bold'

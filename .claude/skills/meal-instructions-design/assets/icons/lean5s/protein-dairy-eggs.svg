@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Dairy and Eggs">
+  <path d="M14 3c-5 0-8.5 6-8.5 13 0 5 3.8 9 8.5 9s8.5-4 8.5-9c0-7-3.5-13-8.5-13z" stroke-width="2" fill="currentColor" fill-opacity="0.08"></path>
+  <circle cx="14" cy="17" r="4" stroke-width="1.6" stroke-dasharray="2 1.5"></circle>
+  <path d="M12 8c1.5-2 3-2 4 0" stroke-width="1.4"></path>
+</svg>

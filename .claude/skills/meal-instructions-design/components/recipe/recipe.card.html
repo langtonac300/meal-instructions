@@ -1,0 +1,27 @@
+<!-- @dsCard group="Components" viewport="700x1180" name="Recipe" subtitle="LeanSpecBadge, Lean5SMatrix, RecipeCard, RecipeTable, ModeSwitch, PortionScaler, ShareButton, PrintButton, StartCookButton, KitchenTimer, MealActions" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Recipe components</title><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script><script src="../sample-data.js"></script>
+<style>body{margin:0;padding:16px;background:var(--paper)}.k{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-subtle);margin:14px 0 6px}.k:first-child{margin-top:0}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const DS = window.MealInstructionsDesignSystem_767cb5; const D = window.MI_DATA;
+const { LeanSpecBadge, Lean5SMatrix, RecipeCard, RecipeTable, ModeSwitch, ModeSwitchCards, PortionScaler, ShareButton, PrintButton, StartCookButton, KitchenTimer, MealActions } = DS;
+function Demo(){ const [mode,setMode]=React.useState('fast'); const [serv,setServ]=React.useState(4); const [mult,setMult]=React.useState(4); const r=D.recipes[0];
+  return <div>
+    <div className="k">Lean5SMatrix</div><Lean5SMatrix cookTemp="400°F (204°C)" totalMinutes={24} proteinGrams={42} flipMinutes={6} servings={4} />
+    <div className="k">LeanSpecBadge — row · inline · compact</div>
+    <div style={{display:'grid',gridTemplateColumns:'1.4fr 1fr 1fr',gap:10,alignItems:'start'}}><LeanSpecBadge type="probe" variant="row" label="Internal Safe Temp" value="165°F" sub="USDA Safe Pull" /><div style={{display:'flex',gap:8,flexWrap:'wrap'}}><LeanSpecBadge type="flip" variant="inline" label="Flip" value="6m" /><LeanSpecBadge type="rest" variant="inline" label="Rest" value="2 min" /><LeanSpecBadge type="safety" variant="inline" label="USDA" value="165°F" /></div><div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8}}><LeanSpecBadge type="temp" variant="compact" label="Temp" value="400°F" accent /><LeanSpecBadge type="speed" variant="compact" label="Speed" value="12 MIN" /></div></div>
+    <div className="k">ModeSwitch (sticky segmented) · ModeSwitchCards</div>
+    <ModeSwitch mode={mode} onChange={setMode} sticky={false} /><div style={{height:10}} /><ModeSwitchCards mode={mode==='fast'?'quick':'detailed'} onChange={(m)=>setMode(m==='quick'?'fast':'detailed')} />
+    <div className="k">PortionScaler · ShareButton · PrintButton · StartCookButton</div>
+    <div style={{display:'flex',flexWrap:'wrap',gap:16,alignItems:'center'}}><PortionScaler currentServings={serv} onChange={setServ} /><PortionScaler variant="multiplier" currentServings={mult} onChange={setMult} /><PrintButton /><StartCookButton appliance="air-fryer" foodSlug="chicken-breast-boneless" /></div>
+    <div style={{marginTop:10}}><ShareButton smsText="🍳 CRISPY AIR FRYER CHICKEN TENDERS" markdown="# Crispy Air Fryer Chicken Tenders" /></div><div style={{marginTop:10}}><ShareButton compact smsText="…" /></div>
+    <div className="k">RecipeCard (default · highlighted) · KitchenTimer</div>
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 288px',gap:16,alignItems:'start'}}><RecipeCard recipe={r} /><RecipeCard recipe={D.recipes[2]} isHighlighted /><KitchenTimer fixed={false} initialMinutes={12} label="Air Fryer Timer" /></div>
+    <div className="k">RecipeTable</div><RecipeTable recipes={D.recipes.slice(0,4)} />
+    <div className="k">MealActions — signed out · signed in</div>
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}><MealActions recipeTitle={r.title} signedIn={false} style={{marginTop:0}} /><MealActions recipeTitle={r.title} signedIn stars={4} saved style={{marginTop:0}} /></div>
+  </div>; }
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);</script></body></html>

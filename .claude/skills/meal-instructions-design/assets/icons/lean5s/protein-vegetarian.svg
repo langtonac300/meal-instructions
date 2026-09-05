@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Vegetarian">
+  <path d="M14 25V9c0-3-1-5-3-5" stroke-width="2"></path>
+  <path d="M14 17c-6 0-9-3-9-9 6 0 9 3 9 9z" stroke-width="2" fill="currentColor" fill-opacity="0.08"></path>
+  <path d="M14 12c5 0 9-3 9-8-5 0-9 3-9 8z" stroke-width="2" fill="currentColor" fill-opacity="0.08"></path>
+</svg>

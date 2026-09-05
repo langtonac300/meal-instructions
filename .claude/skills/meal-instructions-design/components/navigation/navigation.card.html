@@ -1,0 +1,20 @@
+<!-- @dsCard group="Components" viewport="1100x1060" name="Navigation" subtitle="Navbar (ticker + sticky header), SearchModal, ConsentBanner, Footer" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Navigation components</title><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script><script src="../sample-data.js"></script>
+<style>body{margin:0;padding:16px;background:var(--paper)}.k{font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-subtle);margin:14px 0 6px}.k:first-child{margin-top:0}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const DS = window.MealInstructionsDesignSystem_767cb5; const D = window.MI_DATA;
+const { Navbar, Footer, SearchModal, ConsentBanner } = DS;
+function Demo(){ const [open,setOpen]=React.useState(false); const [active,setActive]=React.useState('/how-long');
+  return <div style={{margin:-16}}>
+    <Navbar activeHref={active} onNavigate={setActive} onSearch={()=>setOpen(true)} sticky={false} recipeCount={D.recipeCount} datasheetCount={D.datasheetCount} />
+    <div style={{padding:16}}><div className="k">Navbar — signed in</div></div><Navbar activeHref="/account" sticky={false} showTicker={false} signedIn />
+    <div style={{padding:16}}><div className="k">SearchModal (inline render)</div><SearchModal isOpen inline items={D.searchItems} onClose={()=>{}} /></div>
+    <div style={{padding:16}}><div className="k">ConsentBanner (inline)</div><ConsentBanner fixed={false} /></div>
+    <div style={{padding:16}}><div className="k">Footer</div></div><Footer datasheetCount={D.datasheetCount} style={{marginTop:0}} />
+    <SearchModal isOpen={open} onClose={()=>setOpen(false)} items={D.searchItems} />
+  </div>; }
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);</script></body></html>
