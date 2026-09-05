@@ -180,6 +180,14 @@ export default function MealActions({ recipeSlug, recipeTitle }: Props) {
           {saved ? <BookmarkCheck className="w-4 h-4" /> : <Bookmark className="w-4 h-4" />}
           {saved ? 'Saved' : 'Save this meal'}
         </button>
+        {saved && (
+          <a
+            href="/account"
+            className="font-mono text-[11px] uppercase tracking-wider text-ink-subtle hover:text-ink transition-colors"
+          >
+            View saved meals →
+          </a>
+        )}
 
         <div
           className="flex items-center gap-1"

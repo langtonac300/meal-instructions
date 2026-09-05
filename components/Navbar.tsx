@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Search, Flame, Zap, Clock, BookOpen, Layers, Menu, X, LogIn, LogOut } from 'lucide-react';
+import { Search, Flame, Zap, Clock, BookOpen, Layers, Menu, X, LogIn, LogOut, Bookmark } from 'lucide-react';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import SearchModal from './SearchModal';
 import Logo from '@/components/Logo';
@@ -171,13 +171,22 @@ export default function Navbar() {
             {status !== 'loading' && (
               session?.user ? (
                 <div className="hidden sm:flex items-center gap-2">
-                  {session.user.image && (
-                    <img
-                      src={session.user.image}
-                      alt={session.user.name ?? 'You'}
-                      className="w-6 h-6 rounded-full border border-hairline"
-                    />
-                  )}
+                  <Link
+                    href="/account"
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 bg-paper-card hairline-border hover:border-ink transition-colors text-xs font-mono text-ink hover:text-accent uppercase tracking-wider"
+                    title={`Saved meals — signed in as ${session.user.email ?? session.user.name}`}
+                  >
+                    {session.user.image ? (
+                      <img
+                        src={session.user.image}
+                        alt=""
+                        className="w-5 h-5 rounded-full border border-hairline"
+                      />
+                    ) : (
+                      <Bookmark className="w-3.5 h-3.5" />
+                    )}
+                    <span>Saved meals</span>
+                  </Link>
                   <button
                     onClick={() => signOut()}
                     className="flex items-center gap-1.5 px-2.5 py-1.5 bg-paper-card hairline-border hover:border-ink transition-colors text-xs font-mono text-ink-muted hover:text-ink cursor-pointer uppercase tracking-wider"
@@ -363,6 +372,36 @@ export default function Navbar() {
             >
               ℹ️ Zero-Fluff Manifesto
             </Link>
+
+            {/* Auth (mobile) — the desktop chip is hidden below sm, so this is the only entry on phones */}
+            {status !== 'loading' && (
+              <div className="hairline-t pt-3 mt-3">
+                {session?.user ? (
+                  <>
+                    <Link
+                      href="/account"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block py-1.5 text-ink hover:text-accent"
+                    >
+                      🔖 Saved meals
+                    </Link>
+                    <button
+                      onClick={() => signOut()}
+                      className="block w-full text-left py-1.5 text-ink-muted hover:text-ink uppercase tracking-wider cursor-pointer"
+                    >
+                      Sign out
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    onClick={() => signIn('google')}
+                    className="block w-full text-left py-1.5 text-accent font-bold hover:underline uppercase tracking-wider cursor-pointer"
+                  >
+                    Sign in with Google → save &amp; rate meals
+                  </button>
+                )}
+              </div>
+            )}
           </div>
         )}
       </header>
