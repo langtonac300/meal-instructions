@@ -140,7 +140,13 @@ export default function RootLayout({
             Deliberately no gtag('config', ...) here: GA4 is configured inside the
             GTM container (GTM-5SVJCJB7), so configuring it here as well would
             double-count every pageview. The gtag() shim stays — Consent Mode v2
-            is expressed through it, and GTM reads those commands off dataLayer. */}
+            is expressed through it, and GTM reads those commands off dataLayer.
+
+            ads_data_redaction redacts ad identifiers in the pings that still go
+            out while ad_storage is denied. url_passthrough forwards gclid in the
+            URL when cookies are unavailable, which is the only way Ads can
+            attribute a conversion from a visitor who never accepts. Both are
+            set after the defaults, per Google's advanced consent-mode sample. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -157,6 +163,8 @@ export default function RootLayout({
                 analytics_storage: state,
                 wait_for_update: 500,
               });
+              gtag('set', 'ads_data_redaction', true);
+              gtag('set', 'url_passthrough', true);
             `,
           }}
         />
