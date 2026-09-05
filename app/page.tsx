@@ -217,7 +217,7 @@ export default function HomePage() {
                   Full cheat sheet →
                 </Link>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 text-center">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center">
                 {airFryer.map((m) => (
                   <Link
                     key={m.id}

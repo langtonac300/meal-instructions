@@ -6,7 +6,7 @@
 // stays cache-friendly and identical for every visitor.
 
 import { useEffect, useState, useTransition } from 'react';
-import { Bookmark, BookmarkCheck, Star, Pencil } from 'lucide-react';
+import { Bookmark, BookmarkCheck, Star, Pencil, LogIn } from 'lucide-react';
 import { track } from '@/lib/analytics';
 
 interface RatingState {
@@ -132,63 +132,59 @@ export default function MealActions({ recipeSlug, recipeTitle }: Props) {
 
   // Static shell until we know who the visitor is — prevents flashing
   // "sign in" for signed-in users.
+  const shell = 'bg-paper-50 border border-hairline p-5 sm:p-7 no-print';
+
   if (!loaded) {
     return (
-      <section className="mt-8 p-4 hairline-border bg-paper-card no-print">
-        <div className="font-mono text-[11px] uppercase tracking-wider text-ink-subtle">
-          Loading your meal actions…
-        </div>
+      <section className={shell}>
+        <div className="text-[15px] text-ink-subtle">Loading…</div>
       </section>
     );
   }
 
   if (!signedIn) {
     return (
-      <section className="mt-8 p-4 hairline-border bg-paper-card no-print">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <div className="font-mono text-[11px] uppercase tracking-wider text-ink-subtle">
-              Save & Rate
-            </div>
-            <p className="text-sm text-ink mt-1">
-              Sign in with Google to save <strong>{recipeTitle}</strong>, rate it after you cook,
-              and suggest edits to the instructions.
-            </p>
-          </div>
-          <a
-            href={signInHref}
-            className="font-mono text-[11px] uppercase tracking-wider px-4 py-2 bg-ink text-paper hover:opacity-80 transition-opacity"
-          >
-            Sign in with Google
-          </a>
+      <section className={`${shell} flex flex-wrap items-center justify-between gap-6`}>
+        <div className="min-w-0">
+          <h3 className="text-[22px] font-bold tracking-[-0.01em] text-ink">Save &amp; rate</h3>
+          <p className="mt-2 text-[17px] leading-[1.55] text-ink-muted max-w-[58ch]">
+            Sign in with Google to save this recipe, rate it after you cook, and suggest edits to
+            the instructions. We only store your email, name, and Google avatar — no Gmail access.
+          </p>
         </div>
+        <a
+          href={signInHref}
+          className="inline-flex items-center gap-2 px-5 py-[13px] bg-ink text-paper text-[16px] font-semibold hover:bg-accent transition-colors shrink-0"
+        >
+          <LogIn className="w-4 h-4" aria-hidden="true" />
+          Sign in with Google
+        </a>
       </section>
     );
   }
 
   return (
-    <section className="mt-8 p-4 hairline-border bg-paper-card no-print space-y-4">
-      <div className="font-mono text-[11px] uppercase tracking-wider text-ink-subtle">
-        Your notes on this meal
-      </div>
+    <section className={`${shell} space-y-5`}>
+      <h3 className="text-[22px] font-bold tracking-[-0.01em] text-ink">Your notes on this meal</h3>
 
-      <div className="flex flex-wrap items-center gap-4">
+      <div className="flex flex-wrap items-center gap-5">
         <button
           type="button"
           onClick={toggleSaved}
           disabled={pending}
-          className={`inline-flex items-center gap-2 px-3 py-2 border border-ink text-sm font-medium transition-colors ${
+          className={`inline-flex items-center gap-2 px-4 py-2.5 border border-ink text-[16px] font-semibold transition-colors cursor-pointer ${
             saved ? 'bg-ink text-paper' : 'bg-paper text-ink hover:bg-ink hover:text-paper'
           }`}
         >
-          {saved ? <BookmarkCheck className="w-4 h-4" /> : <Bookmark className="w-4 h-4" />}
+          {saved ? (
+            <BookmarkCheck className="w-4 h-4" aria-hidden="true" />
+          ) : (
+            <Bookmark className="w-4 h-4" aria-hidden="true" />
+          )}
           {saved ? 'Saved' : 'Save this meal'}
         </button>
         {saved && (
-          <a
-            href="/account"
-            className="font-mono text-[11px] uppercase tracking-wider text-ink-subtle hover:text-ink transition-colors"
-          >
+          <a href="/account" className="text-[16px] text-ink-muted hover:text-ink transition-colors">
             View saved meals →
           </a>
         )}
@@ -211,10 +207,10 @@ export default function MealActions({ recipeSlug, recipeTitle }: Props) {
                 aria-label={`${n} star${n > 1 ? 's' : ''}`}
                 aria-checked={stars === n}
                 role="radio"
-                className="p-0.5"
+                className="p-0.5 cursor-pointer"
               >
                 <Star
-                  className={`w-5 h-5 transition-colors ${
+                  className={`w-6 h-6 transition-colors ${
                     filled ? 'fill-ink text-ink' : 'text-ink-subtle'
                   }`}
                 />
@@ -222,19 +218,14 @@ export default function MealActions({ recipeSlug, recipeTitle }: Props) {
             );
           })}
           {stars > 0 && (
-            <span className="ml-2 font-mono text-[11px] uppercase tracking-wider text-ink-subtle">
-              You rated {stars}/5
-            </span>
+            <span className="ml-2 text-[15px] text-ink-muted">You rated {stars}/5</span>
           )}
         </div>
       </div>
 
       {stars > 0 && (
         <div className="space-y-2">
-          <label
-            htmlFor={`review-${recipeSlug}`}
-            className="block font-mono text-[10px] uppercase tracking-wider text-ink-subtle"
-          >
+          <label htmlFor={`review-${recipeSlug}`} className="block text-[15px] text-ink-muted">
             Review (optional)
           </label>
           <textarea
@@ -245,18 +236,18 @@ export default function MealActions({ recipeSlug, recipeTitle }: Props) {
             rows={2}
             maxLength={2000}
             placeholder="How did it turn out? What would you do differently?"
-            className="w-full p-2 hairline-border bg-paper text-sm text-ink resize-y"
+            className="w-full p-3 border border-hairline focus:border-ink focus:outline-none bg-paper text-[16px] text-ink resize-y"
           />
         </div>
       )}
 
-      <div className="hairline-t pt-4">
+      <div className="border-t border-hairline pt-5">
         <button
           type="button"
           onClick={() => setSuggestOpen((v) => !v)}
-          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-ink hover:opacity-70"
+          className="inline-flex items-center gap-2 text-[16px] text-ink hover:text-accent transition-colors cursor-pointer"
         >
-          <Pencil className="w-3.5 h-3.5" />
+          <Pencil className="w-4 h-4" aria-hidden="true" />
           {suggestOpen ? 'Close suggestion' : 'Something wrong? Suggest an edit'}
         </button>
 
@@ -268,35 +259,25 @@ export default function MealActions({ recipeSlug, recipeTitle }: Props) {
               rows={4}
               maxLength={4000}
               placeholder="What should change? (e.g. 'Step 3 should say 400°F, not 375°F' or 'The salt amount is way too high for 2 lb of chicken.')"
-              className="w-full p-2 hairline-border bg-paper text-sm text-ink resize-y"
+              className="w-full p-3 border border-hairline focus:border-ink focus:outline-none bg-paper text-[16px] text-ink resize-y"
             />
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[10px] uppercase tracking-wider text-ink-subtle">
-                {suggestBody.length}/4000
-              </span>
+              <span className="font-mono text-[13px] text-ink-subtle">{suggestBody.length}/4000</span>
               <button
                 type="button"
                 onClick={submitSuggestion}
                 disabled={pending || !suggestBody.trim()}
-                className="font-mono text-[11px] uppercase tracking-wider px-3 py-1.5 bg-ink text-paper disabled:opacity-40 hover:opacity-80"
+                className="px-4 py-2.5 bg-ink text-paper text-[16px] font-semibold disabled:opacity-40 hover:bg-accent transition-colors cursor-pointer"
               >
                 Send suggestion
               </button>
             </div>
-            {suggestSent && (
-              <div className="font-mono text-[11px] uppercase tracking-wider text-ink-subtle">
-                Thanks — logged.
-              </div>
-            )}
+            {suggestSent && <div className="text-[15px] text-ink-muted">Thanks — logged.</div>}
           </div>
         )}
       </div>
 
-      {error && (
-        <div className="font-mono text-[11px] uppercase tracking-wider text-red-700">
-          {error}
-        </div>
-      )}
+      {error && <div className="text-[15px] text-accent">{error}</div>}
     </section>
   );
 }

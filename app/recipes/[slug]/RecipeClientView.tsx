@@ -4,12 +4,17 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useScrollToTarget } from '@/lib/use-scroll-to-results';
 import Link from 'next/link';
 import Image from 'next/image';
-import { 
-  Zap, BookOpen, Clock, Flame, Share2, Printer, Check, 
-  Copy, Play, Pause, RotateCcw, ShieldCheck, ArrowLeft, ArrowUpRight
+import {
+  Share2,
+  Printer,
+  Check,
+  Copy,
+  Play,
+  Pause,
+  RotateCcw,
+  ArrowLeft,
+  ArrowUpRight,
 } from 'lucide-react';
-import Lean5SMatrix from '@/components/Lean5SMatrix';
-import { LeanForkIcon, LeanFlipIcon, LeanClockIcon, LeanUtensilsIcon } from '@/components/icons/Lean5SIcons';
 import { Recipe, CookTimeDatasheet } from '@/lib/types';
 import { RECIPES } from '@/data/recipes';
 import { formatScaledAmount, buildSmsShareText, recipeToMarkdown } from '@/lib/recipe-utils';
@@ -35,7 +40,59 @@ interface RecipeClientViewProps {
   resolvedImage?: string;
 }
 
-export default function RecipeClientView({ recipe, relatedDatasheets = [], resolvedImage, krogerIngredients = [], krogerEnabled = false, mealsEnabled = false }: RecipeClientViewProps) {
+/** 'kid-approved' → 'Kid approved'; '15-minute' stays as written. */
+function categoryLabel(slug: string): string {
+  const words = slug.replace(/-/g, ' ');
+  return /^\d/.test(slug) ? slug : words.charAt(0).toUpperCase() + words.slice(1);
+}
+
+/** "29 Aug 2026" — fixed locale so server and client render the same string. */
+function shortDate(iso: string): string {
+  return new Date(iso).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+}
+
+const EYEBROW = 'font-mono text-[11px] uppercase tracking-[0.14em] font-bold';
+const SECTION_H2 = 'text-[30px] font-extrabold tracking-[-0.01em] uppercase text-ink leading-tight';
+const COLUMN = 'max-w-[900px] mx-auto px-5 sm:px-10';
+
+/**
+ * Cell borders for the 2-up (mobile) / n-up (sm+) stat grids: hairline
+ * dividers between cells, no outer padding on the row's first and last cell.
+ */
+function gridCell(i: number, n: number): string {
+  const last = i === n - 1;
+  return [
+    'px-5 border-hairline',
+    i === 0 ? 'pl-0' : '',
+    last ? 'sm:pr-0' : 'sm:border-r',
+    i % 2 === 0 && !last ? 'border-r' : '',
+    i % 2 === 1 ? 'sm:pl-5' : '',
+    i >= 2 ? 'border-t sm:border-t-0' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+}
+
+interface SpecCell {
+  key: string;
+  label: string;
+  value: string;
+  sub: string;
+  accent?: boolean;
+}
+
+export default function RecipeClientView({
+  recipe,
+  relatedDatasheets = [],
+  resolvedImage,
+  krogerIngredients = [],
+  krogerEnabled = false,
+  mealsEnabled = false,
+}: RecipeClientViewProps) {
   // Mode state: syncs with document.documentElement's data-mode
   const [currentMode, setCurrentMode] = useState<'fast' | 'detailed'>('fast');
   const [portionMultiplier, setPortionMultiplier] = useState<number>(1);
@@ -48,6 +105,19 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
   const [timerSeconds, setTimerSeconds] = useState<number>(initialSeconds);
   const [isTimerRunning, setIsTimerRunning] = useState<boolean>(false);
   const [isTimerFinished, setIsTimerFinished] = useState<boolean>(false);
+
+  // The sticky mode/timer bar pins under the site header, whose height wraps
+  // on narrow viewports. Read it rather than hardcoding 72px.
+  const [headerHeight, setHeaderHeight] = useState(72);
+  useEffect(() => {
+    const header = document.querySelector('header');
+    if (!header) return;
+    const measure = () => setHeaderHeight(Math.round(header.getBoundingClientRect().height));
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
 
   // Default the portion scaler to the household. Deliberately post-hydration:
   // the SSR HTML must stay identical for every visitor (HR-6), and the ingredient
@@ -88,11 +158,10 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
     } catch (e) {}
   };
 
-  // The mode selector sits above the equipment and ingredients blocks, so the
-  // panel it switches is roughly two screens down. Offset clears the 64px header
-  // plus the sticky selector itself.
+  // Offset clears the 72px header plus the sticky mode/timer bar (~68px)
+  // pinned beneath it, with a little air.
   const [panelsRef, revealPanels] = useScrollToTarget<HTMLDivElement>({
-    offset: 168,
+    offset: headerHeight + 88,
   });
 
   // Web Audio Chime Sound Player
@@ -140,7 +209,11 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
 
   const toggleTimer = () => {
     if (isTimerFinished) {
-      track('cook_start', { recipe: recipe.slug, minutes: Math.round(initialSeconds / 60), restart: true });
+      track('cook_start', {
+        recipe: recipe.slug,
+        minutes: Math.round(initialSeconds / 60),
+        restart: true,
+      });
       setTimerSeconds(initialSeconds);
       setIsTimerFinished(false);
       setIsTimerRunning(true);
@@ -202,623 +275,593 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
 
   const toggleStepDone = (stepNum: number) => {
     setCompletedSteps((prev) =>
-      prev.includes(stepNum) ? prev.filter((s) => s !== stepNum) : [...prev, stepNum]
+      prev.includes(stepNum) ? prev.filter((s) => s !== stepNum) : [...prev, stepNum],
     );
   };
 
   const relatedRecipes = useMemo(() => {
     return RECIPES.filter(
-      (r) => r.id !== recipe.id && (r.appliance === recipe.appliance || r.protein === recipe.protein)
+      (r) =>
+        r.id !== recipe.id && (r.appliance === recipe.appliance || r.protein === recipe.protein),
     ).slice(0, 4);
   }, [recipe]);
 
+  // Spec row. Same fallback chain as the old Lean5SMatrix — internal temp →
+  // flip → rest — and never an empty cell: only cells with a real value render.
+  const specCells = useMemo<SpecCell[]>(() => {
+    const cells: SpecCell[] = [
+      {
+        key: 'temp',
+        label: 'Cook temp',
+        value: `${recipe.cookTempF}°F`,
+        sub: `${recipe.cookTempC}°C · preheat`,
+      },
+      {
+        key: 'time',
+        label: 'Total time',
+        value: `${recipe.totalMinutes} min`,
+        sub: [
+          `${recipe.prepMinutes} prep`,
+          `${recipe.cookMinutes} cook`,
+          recipe.restMinutes ? `${recipe.restMinutes} rest` : null,
+        ]
+          .filter(Boolean)
+          .join(' · '),
+      },
+    ];
+    const flip = recipe.quickVersion.flipAtMinutes;
+    if (flip) {
+      cells.push({
+        key: 'flip',
+        label: 'Flip at',
+        value: `${flip} min`,
+        sub: `of ${recipe.quickVersion.timerMinutes} min cook`,
+      });
+    }
+    if (recipe.safeInternalTempF) {
+      cells.push({
+        key: 'pull',
+        label: 'Pull at',
+        value: `${recipe.safeInternalTempF}°F`,
+        sub: 'USDA safe minimum',
+        accent: true,
+      });
+    }
+    if (cells.length < 4 && recipe.restMinutes) {
+      cells.push({
+        key: 'rest',
+        label: 'Rest',
+        value: `${recipe.restMinutes} min`,
+        sub: 'Before slicing',
+      });
+    }
+    return cells;
+  }, [recipe]);
+
+  const specCols = { 2: 'sm:grid-cols-2', 3: 'sm:grid-cols-3', 4: 'sm:grid-cols-4' }[
+    specCells.length as 2 | 3 | 4
+  ];
+
+  const servingOptions = [0.5, 1, 1.5, 2].map((val) => ({
+    val,
+    servings: Math.round(recipe.defaultServings * val),
+  }));
+
+  const hasImage = Boolean(resolvedImage ?? recipe.image);
+
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-8 py-8 space-y-8">
-      
-      {/* Breadcrumb & Navigation */}
-      <div className="flex items-center justify-between text-xs font-mono text-ink-subtle no-print">
+    <div className="text-[17px] leading-[1.55] text-ink pb-16">
+      {/* ── 1. Breadcrumb ── */}
+      <div
+        className={`${COLUMN} pt-6 flex items-center justify-between gap-4 font-mono text-[12px] uppercase tracking-[0.08em] text-ink-muted no-print`}
+      >
         <Link
-          href="/"
-          className="inline-flex items-center gap-1 hover:text-ink transition-colors uppercase"
+          href="/categories"
+          className="inline-flex items-center gap-1.5 hover:text-ink transition-colors"
         >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Back to Index</span>
+          <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
+          <span>All recipes</span>
         </Link>
-        <div className="flex items-center gap-2">
-          <span>SPECIMEN #{recipe.id}</span>
-          <span>•</span>
-          <span className="uppercase text-ink-muted">{recipe.appliance}</span>
-        </div>
+        <span>
+          #{recipe.id} · {recipe.appliance.replace(/-/g, ' ')}
+        </span>
       </div>
 
-      {/* Recipe Header Card */}
-      <section className="bg-paper-card hairline-border p-6 sm:p-8 space-y-6">
-        
-        {/* Category Badges */}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="px-2.5 py-0.5 bg-paper hairline-border text-[10px] font-mono uppercase tracking-wider font-bold text-ink">
-            {recipe.appliance}
-          </span>
-          {recipe.categories.map((cat) => (
-            <Link
-              key={cat}
-              href={`/categories/${cat}`}
-              className="px-2.5 py-0.5 bg-paper hairline-border text-[10px] font-mono uppercase tracking-wider text-ink-muted hover:text-ink transition-colors"
-            >
-              {cat}
-            </Link>
+      {/* ── 2. Title block ── */}
+      <header className={`${COLUMN} pt-7`}>
+        <h1 className="font-sans text-[34px] sm:text-[46px] font-black tracking-[-0.02em] leading-[1.05] uppercase max-w-[22ch] print-url">
+          {recipe.title}
+        </h1>
+        <p className="mt-[18px] text-[19px] sm:text-[21px] leading-[1.5] text-ink-muted max-w-[56ch]">
+          {recipe.tagline}
+        </p>
+        <div className="mt-[22px] flex flex-wrap items-center gap-x-5 gap-y-1.5 text-[14px] text-ink-muted">
+          {recipe.categories.map((cat, i) => (
+            <React.Fragment key={cat}>
+              {i > 0 && (
+                <span className="text-hairline" aria-hidden="true">
+                  ·
+                </span>
+              )}
+              <Link href={`/categories/${cat}`} className="hover:text-accent transition-colors">
+                {categoryLabel(cat)}
+              </Link>
+            </React.Fragment>
           ))}
-          <span className="px-2.5 py-0.5 bg-paper hairline-border text-[10px] font-mono uppercase tracking-wider font-bold text-emerald-800">
-            VERIFIED NO-FLUFF
+          <span className="text-hairline" aria-hidden="true">
+            ·
           </span>
-        </div>
-
-        {/* Title & Tagline */}
-        <div className="space-y-2">
-          <h1 className="text-2xl sm:text-4xl font-bold text-ink tracking-tight font-sans uppercase print-url">
-            {recipe.title}
-          </h1>
-          <p className="text-sm sm:text-base text-ink-muted font-sans leading-relaxed">
-            {recipe.tagline}
-          </p>
-        </div>
-
-        {/* Byline */}
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-mono uppercase tracking-wider text-ink-muted">
-          <span>
-            By <Link href="/about" className="text-ink underline hover:opacity-70">Meal Instructions Kitchen</Link>
+          <span>{recipe.difficulty}</span>
+          <span className="text-hairline" aria-hidden="true">
+            ·
           </span>
-          <span className="text-ink-subtle">•</span>
-          <span>Published {new Date(recipe.datePublished).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
-          {recipe.lastUpdated && recipe.lastUpdated !== recipe.datePublished && (
-            <>
-              <span className="text-ink-subtle">•</span>
-              <span>Updated {new Date(recipe.lastUpdated).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
-            </>
-          )}
-          <span className="text-ink-subtle">•</span>
-          <span className="text-emerald-800">Reviewed for USDA Food Safety</span>
+          <span>Serves {recipe.defaultServings}</span>
         </div>
+      </header>
 
-        {/* Recipe Editorial Photo */}
-        {(resolvedImage ?? recipe.image) && (
-          <div className="relative w-full h-64 sm:h-96 rounded overflow-hidden hairline-border bg-paper">
+      {/* ── 3. Spec row ── */}
+      <div className={`${COLUMN} mt-8`}>
+        <dl className={`grid grid-cols-2 ${specCols} border-t border-b border-ink`}>
+          {specCells.map((cell, i) => (
+            <div key={cell.key} className={`py-5 ${gridCell(i, specCells.length)}`}>
+              <dt className={`${EYEBROW} ${cell.accent ? 'text-accent' : 'text-ink-subtle'}`}>
+                {cell.label}
+              </dt>
+              <dd
+                className={`mt-2 font-mono text-[30px] sm:text-[36px] font-black tracking-[-0.02em] leading-none ${
+                  cell.accent ? 'text-accent' : 'text-ink'
+                }`}
+              >
+                {cell.value}
+              </dd>
+              <dd className="mt-1 text-[14px] text-ink-muted">{cell.sub}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      {/* ── 4. Photo + actions ── */}
+      <div className={`${COLUMN} mt-8`}>
+        {hasImage && (
+          <div className="recipe-hero-image relative w-full h-[280px] sm:h-[420px] bg-paper-200 overflow-hidden">
             <Image
               src={resolvedImage ?? recipe.image!}
               alt={recipe.title}
               fill
               priority
-              sizes="(max-width: 768px) 100vw, 800px"
+              sizes="(max-width: 768px) 100vw, 820px"
               className="object-cover"
             />
           </div>
         )}
-
-        {/* Lean 5S Process Metrics Matrix */}
-        <Lean5SMatrix
-          cookTemp={recipe.cookTemp}
-          totalMinutes={recipe.totalMinutes}
-          proteinGrams={recipe.nutrition?.proteinGrams ?? 30}
-          flipMinutes={recipe.quickVersion.flipAtMinutes}
-          servings={recipe.defaultServings}
-        />
-
-        {/* Action Toolbar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pt-2 hairline-t no-print font-mono text-xs">
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handleCopySms}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-paper hairline-border hover:border-ink transition-colors cursor-pointer text-ink"
+        <div className="mt-3.5 flex flex-wrap items-center justify-between gap-x-5 gap-y-2 text-[14px] text-ink-muted">
+          <span>
+            <Link href="/about" className="hover:text-ink transition-colors">
+              Meal Instructions Kitchen
+            </Link>
+            {' · '}
+            {shortDate(recipe.datePublished)}
+            {recipe.lastUpdated && recipe.lastUpdated !== recipe.datePublished && (
+              <> · Updated {shortDate(recipe.lastUpdated)}</>
+            )}
+            {' · '}Reviewed for USDA food safety
+          </span>
+          <span className="flex flex-wrap items-center gap-5 text-ink no-print">
+            {/* The one-sheet fridge card at /print-pack/custom, not a print of this
+                web page. The print itself is tracked there; this is the intent. */}
+            <Link
+              href={packHref([recipe.slug])}
+              onClick={() =>
+                track('tool_used', {
+                  tool: 'print_pack',
+                  surface: 'recipe_toolbar',
+                  recipe: recipe.slug,
+                })
+              }
+              className="inline-flex items-center gap-1.5 hover:text-accent transition-colors"
+              title="One-page fridge card — print it or save as PDF"
             >
-              {copiedSms ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5" />}
-              <span>{copiedSms ? 'COPIED FOR SMS!' : 'SMS TO SPOUSE'}</span>
-            </button>
-
+              <Printer className="w-[15px] h-[15px]" aria-hidden="true" />
+              Print card
+            </Link>
             <button
+              type="button"
+              onClick={handleCopySms}
+              className="inline-flex items-center gap-1.5 hover:text-accent transition-colors cursor-pointer"
+            >
+              {copiedSms ? (
+                <Check className="w-[15px] h-[15px]" aria-hidden="true" />
+              ) : (
+                <Share2 className="w-[15px] h-[15px]" aria-hidden="true" />
+              )}
+              {copiedSms ? 'Copied' : 'Send to phone'}
+            </button>
+            <button
+              type="button"
               onClick={handleCopyMd}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-paper hairline-border hover:border-ink transition-colors cursor-pointer text-ink-muted hover:text-ink"
+              className="inline-flex items-center gap-1.5 hover:text-accent transition-colors cursor-pointer"
               title="Copy clean markdown for ChatGPT, Claude, or Perplexity"
             >
-              {copiedMd ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-              <span>{copiedMd ? 'MD COPIED!' : 'AI / LLM MARKDOWN'}</span>
+              {copiedMd ? (
+                <Check className="w-[15px] h-[15px]" aria-hidden="true" />
+              ) : (
+                <Copy className="w-[15px] h-[15px]" aria-hidden="true" />
+              )}
+              {copiedMd ? 'Copied' : 'Copy as markdown'}
             </button>
-          </div>
-
-          {/* The one-sheet fridge card at /print-pack/custom, not a print of this
-              web page. The print itself is tracked there; this is the intent. */}
-          <Link
-            href={packHref([recipe.slug])}
-            onClick={() => track('tool_used', { tool: 'print_pack', surface: 'recipe_toolbar', recipe: recipe.slug })}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-paper hairline-border hover:border-ink transition-colors cursor-pointer text-ink-muted hover:text-ink"
-            title="One-page fridge card — print it or save as PDF"
-          >
-            <Printer className="w-3.5 h-3.5" />
-            <span>PRINT CARD (PDF)</span>
-          </Link>
-        </div>
-
-      </section>
-
-      {/* VERIFIED COOK-TIME DATASHEET CROSS-LINKS */}
-      {relatedDatasheets.length > 0 && (
-        <section className="space-y-3 no-print">
-          {relatedDatasheets.map((ds) => (
-            <Link
-              key={ds.id}
-              href={`/how-long/${ds.appliance}/${ds.foodSlug}`}
-              className="block bg-paper-card hairline-border border-l-2 border-l-emerald-700 hover:border-ink transition-colors group"
-            >
-              <div className="p-5 sm:p-6 space-y-4">
-                <div className="flex items-center justify-between flex-wrap gap-2">
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-emerald-700" />
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-emerald-800">
-                      Verified Cook-Time Datasheet
-                    </span>
-                    {ds.state !== 'fresh' && (
-                      <span className="px-1.5 py-0.5 bg-blue-50 text-blue-800 text-[10px] font-mono font-bold uppercase hairline-border">
-                        {ds.state}
-                      </span>
-                    )}
-                  </div>
-                  <span className="flex items-center gap-1 font-mono text-[10px] text-ink-muted group-hover:text-accent transition-colors uppercase">
-                    View Full Datasheet <ArrowUpRight className="w-3 h-3" />
-                  </span>
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-bold text-ink font-sans uppercase tracking-tight">
-                    {ds.food}
-                  </h3>
-                  <p className="text-xs text-ink-muted font-sans mt-0.5">{ds.cutOrPrep}</p>
-                </div>
-
-                <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
-                  <div className="bg-paper p-2.5 hairline-border text-center">
-                    <div className="font-mono text-base sm:text-lg font-bold text-ink">{ds.tempF}°F</div>
-                    <div className="text-[9px] font-mono text-ink-subtle uppercase mt-0.5">Temp</div>
-                  </div>
-                  <div className="bg-paper p-2.5 hairline-border text-center">
-                    <div className="font-mono text-base sm:text-lg font-bold text-ink">{ds.timeFormatted}</div>
-                    <div className="text-[9px] font-mono text-ink-subtle uppercase mt-0.5">Cook Time</div>
-                  </div>
-                  <div className="bg-paper p-2.5 hairline-border text-center">
-                    <div className="font-mono text-base sm:text-lg font-bold text-accent">{ds.internalTempTargetF ? `${ds.internalTempTargetF}°F` : '—'}</div>
-                    <div className="text-[9px] font-mono text-ink-subtle uppercase mt-0.5">Internal</div>
-                  </div>
-                  {ds.flipAtMinutes > 0 && (
-                    <div className="bg-paper p-2.5 hairline-border text-center hidden sm:block">
-                      <div className="font-mono text-base sm:text-lg font-bold text-ink">{ds.flipAtMinutes}m</div>
-                      <div className="text-[9px] font-mono text-ink-subtle uppercase mt-0.5">Flip At</div>
-                    </div>
-                  )}
-                  {ds.restMinutes > 0 && (
-                    <div className="bg-paper p-2.5 hairline-border text-center hidden sm:block">
-                      <div className="font-mono text-base sm:text-lg font-bold text-ink">{ds.restMinutes}m</div>
-                      <div className="text-[9px] font-mono text-ink-subtle uppercase mt-0.5">Rest</div>
-                    </div>
-                  )}
-                </div>
-
-                <div className="text-xs font-sans text-ink-muted bg-paper p-3 hairline-border leading-relaxed">
-                  <span className="font-mono text-[10px] font-bold text-ink uppercase">Doneness: </span>
-                  {ds.donenessCue}
-                </div>
-
-                <div className="font-mono text-[10px] text-ink-subtle hairline-t pt-2">
-                  {ds.verificationBasis}
-                </div>
-              </div>
-            </Link>
-          ))}
-        </section>
-      )}
-
-      {/* Sticky mode selector stays pinned from here through the end of the
-          instructions: this wrapper is its containing block, so it releases
-          once the reader is past the steps rather than following them down
-          the whole page. */}
-      <div className="space-y-8">
-
-      {/* HR-7: THE STICKY INLINE SEGMENTED MODE SELECTOR */}
-      <div className="space-y-2 no-print sticky top-16 z-30 bg-paper-card/95 backdrop-blur-sm py-3 hairline-b">
-        <div className="flex justify-between items-center text-[10px] font-mono text-ink-subtle uppercase">
-          <span>Execution Mode</span>
-          <span>Applied via CSS Visibility</span>
-        </div>
-
-        <div className="grid grid-cols-2 gap-2 p-1 bg-paper hairline-border font-mono text-xs">
-          <button
-            type="button"
-            onClick={() => handleModeChange('fast')}
-            className={`py-2.5 px-4 flex items-center justify-center gap-2 uppercase tracking-wider transition-all cursor-pointer ${
-              currentMode === 'fast'
-                ? 'bg-ink text-paper font-bold shadow-sm'
-                : 'text-ink-muted hover:text-ink hover:bg-paper-card'
-            }`}
-          >
-            <Zap className="w-3.5 h-3.5 text-accent" />
-            <span>⚡ GET TO THE POINT</span>
-            <span className="hidden sm:inline text-[10px] font-normal opacity-70">
-              (20 Words)
-            </span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => handleModeChange('detailed')}
-            className={`py-2.5 px-4 flex items-center justify-center gap-2 uppercase tracking-wider transition-all cursor-pointer ${
-              currentMode === 'detailed'
-                ? 'bg-ink text-paper font-bold shadow-sm'
-                : 'text-ink-muted hover:text-ink hover:bg-paper-card'
-            }`}
-          >
-            <BookOpen className="w-3.5 h-3.5 text-ink-subtle" />
-            <span>📖 STEP-BY-STEP</span>
-            <span className="hidden sm:inline text-[10px] font-normal opacity-70">
-              (Guided Steps)
-            </span>
-          </button>
+          </span>
         </div>
       </div>
 
-      {/* APPLIANCE TIMER WIDGET */}
-      <section className="bg-paper-card hairline-border p-6 space-y-4 no-print">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-paper hairline-border flex items-center justify-center font-bold text-accent">
-              <Clock className="w-4 h-4" />
-            </div>
-            <div>
-              <h3 className="font-bold text-sm text-ink font-sans uppercase">
-                {recipe.appliance} Timer
-              </h3>
-              <p className="text-xs text-ink-muted font-sans">
-                Set for {recipe.quickVersion.timerMinutes} mins @ {recipe.cookTemp}
-                {recipe.quickVersion.flipAtMinutes ? ` (Flip at ${recipe.quickVersion.flipAtMinutes}m)` : ''}
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <div className={`font-mono text-2xl sm:text-3xl font-bold tracking-tight ${
-              isTimerFinished ? 'text-accent animate-bounce' : isTimerRunning ? 'text-ink' : 'text-ink-muted'
-            }`}>
-              {formatTimerDisplay(timerSeconds)}
-            </div>
-
-            <div className="flex items-center gap-1.5">
-              <button
-                onClick={toggleTimer}
-                className={`px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer hairline-border transition-colors ${
-                  isTimerRunning
-                    ? 'bg-amber-100 text-amber-900 border-amber-300'
-                    : isTimerFinished
-                    ? 'bg-accent text-paper border-accent'
-                    : 'bg-ink text-paper border-ink'
-                }`}
-              >
-                {isTimerRunning ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-                <span>{isTimerRunning ? 'PAUSE' : isTimerFinished ? 'DONE!' : 'START'}</span>
-              </button>
-
-              <button
-                onClick={resetTimer}
-                className="p-2 bg-paper hairline-border hover:border-ink text-ink-muted hover:text-ink cursor-pointer transition-colors"
-                title="Reset timer"
-              >
-                <RotateCcw className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* INGREDIENTS CHECKLIST & PORTION SCALER */}
-      <section className="bg-paper-card hairline-border p-6 sm:p-8 space-y-6">
-        <div className="flex flex-wrap justify-between items-center gap-4 hairline-b pb-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-paper hairline-border">
-              <LeanUtensilsIcon size={24} className="text-ink" />
-            </div>
-            <div>
-              <h2 className="text-lg sm:text-xl font-bold text-ink uppercase tracking-tight font-sans">
-                Ingredients
-              </h2>
-              <p className="text-xs text-ink-muted font-sans">
-                Base recipe calibrated for {recipe.defaultServings} adults.
-              </p>
-            </div>
-          </div>
-
-          {/* Portion Multiplier Controls */}
-          <div className="flex items-center gap-1 font-mono text-xs no-print">
-            <span className="text-[10px] text-ink-subtle uppercase mr-2">Servings:</span>
-            {[
-              { label: '2 (0.5x)', val: 0.5 },
-              { label: '4 (1x)', val: 1.0 },
-              { label: '6 (1.5x)', val: 1.5 },
-              { label: '8 (2x)', val: 2.0 },
-            ].map((p) => (
-              <button
-                key={p.val}
-                onClick={() => {
-                  if (p.val !== portionMultiplier) {
-                    track('portion_scale', {
-                      multiplier: p.val,
-                      servings: Math.round(recipe.defaultServings * p.val),
-                      recipe: recipe.slug,
-                    });
-                  }
-                  setPortionMultiplier(p.val);
-                }}
-                className={`px-2.5 py-1 hairline-border transition-colors ${
-                  portionMultiplier === p.val
-                    ? 'bg-ink text-paper font-bold'
-                    : 'bg-paper text-ink-muted hover:text-ink hover:border-ink'
-                }`}
-              >
-                {p.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Ingredients Grid (HR-14 compliant) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-sans text-sm">
-          {recipe.ingredients.map((ing, idx) => (
+      {/* ── 5. Ingredients ── */}
+      <section className={`${COLUMN} mt-14`} aria-labelledby="ingredients-heading">
+        <div className="flex flex-wrap items-baseline justify-between gap-4 mb-5">
+          <h2 id="ingredients-heading" className={SECTION_H2}>
+            Ingredients
+          </h2>
+          <div className="flex items-center gap-3 no-print">
+            <span className="text-[14px] text-ink-subtle">Servings</span>
             <div
-              key={idx}
-              className="flex items-start gap-3 p-3 bg-paper hairline-border"
+              className="flex border border-hairline text-[14px]"
+              role="group"
+              aria-label="Servings"
             >
-              <span className="font-mono text-xs font-bold text-ink shrink-0 bg-paper-card px-2 py-0.5 hairline-border">
+              {servingOptions.map((p, i) => {
+                const active = portionMultiplier === p.val;
+                return (
+                  <button
+                    key={p.val}
+                    type="button"
+                    onClick={() => {
+                      if (p.val !== portionMultiplier) {
+                        track('portion_scale', {
+                          multiplier: p.val,
+                          servings: p.servings,
+                          recipe: recipe.slug,
+                        });
+                      }
+                      setPortionMultiplier(p.val);
+                    }}
+                    aria-pressed={active}
+                    className={`px-3.5 py-2 transition-colors cursor-pointer ${
+                      i < servingOptions.length - 1 ? 'border-r border-hairline' : ''
+                    } ${active ? 'bg-ink text-paper font-bold' : 'text-ink-muted hover:text-ink'}`}
+                  >
+                    {p.servings}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* HR-14 compliant: qtyNumeric scales, qty is the display fallback */}
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 border-t border-ink">
+          {recipe.ingredients.map((ing, idx) => (
+            <li key={idx} className="flex items-baseline gap-4 py-3.5 border-b border-hairline">
+              <span className="font-mono text-[17px] font-bold min-w-[5.5em] shrink-0">
                 {ing.qtyNumeric
                   ? `${formatScaledAmount(ing.qtyNumeric, portionMultiplier)} ${ing.unit}`
                   : `${ing.qty} ${ing.unit}`}
               </span>
-              <div className="text-xs sm:text-sm text-ink leading-snug">
-                <span className="font-bold">{ing.item}</span>
-                {ing.notes && (
-                  <span className="text-ink-muted block text-xs mt-0.5">
-                    {ing.notes}
-                  </span>
-                )}
-              </div>
-            </div>
+              <span className="text-[19px]">
+                {ing.item}
+                {ing.notes && <span className="text-ink-muted">, {ing.notes}</span>}
+              </span>
+            </li>
           ))}
-        </div>
+        </ul>
 
+        {/* ── 6. Send to Kroger ── */}
         {krogerEnabled && (
-          <KrogerCartPanel
-            ingredients={krogerIngredients}
-            returnTo={`/recipes/${recipe.slug}`}
-          />
+          <KrogerCartPanel ingredients={krogerIngredients} returnTo={`/recipes/${recipe.slug}`} />
         )}
       </section>
 
-      {/* HR-6: BOTH MODES PRESENT IN SSR HTML SIMULTANEOUSLY */}
-      {/* Wrapper is a scroll target only — panel visibility stays pure CSS. */}
-      <div ref={panelsRef} id="instructions" className="space-y-6 scroll-mt-40">
-
-      {/* PANEL 1: ⚡ GET TO THE POINT (SSR Present) */}
-      <div data-mode-panel="fast" className="bg-paper-card hairline-border p-6 sm:p-8 space-y-6">
-        <div className="flex items-center justify-between hairline-b pb-4">
-          <div className="flex items-center gap-2">
-            <Zap className="w-5 h-5 text-accent" />
-            <h2 className="text-lg sm:text-xl font-bold text-ink uppercase tracking-tight font-sans">
-              Get to the Point Execution
-            </h2>
-          </div>
-          <span className="font-mono text-[10px] text-ink-subtle uppercase">
-            20-WORD BULLETS // NO FLUFF
-          </span>
-        </div>
-
-        <div className="space-y-4">
-          {recipe.quickVersion.bullets.map((bullet, idx) => (
+      {/* The sticky bar stays pinned from here through the end of the
+          instructions: this wrapper is its containing block, so it releases
+          once the reader is past the steps rather than following them down
+          the whole page. */}
+      <div>
+        {/* ── 7. Mode switch + timer (HR-7: inline, sticky, never an overlay) ── */}
+        <div
+          className="sticky z-30 mt-14 bg-paper border-b border-hairline no-print"
+          style={{ top: headerHeight }}
+        >
+          <div
+            className={`${COLUMN} py-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-3`}
+          >
             <div
-              key={idx}
-              className="flex items-start gap-4 p-4 bg-paper hairline-border text-sm font-sans"
+              className="flex border border-ink text-[16px] w-full sm:w-auto"
+              role="group"
+              aria-label="Instruction mode"
             >
-              <span className="w-6 h-6 rounded-full bg-ink text-paper flex items-center justify-center font-mono text-xs font-bold shrink-0 mt-0.5">
-                {idx + 1}
-              </span>
-              <p className="text-ink font-medium leading-relaxed">
-                {bullet}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {recipe.quickVersion.flipAtMinutes && (
-          <div className="p-3 bg-paper hairline-border text-ink font-mono text-xs flex items-center gap-2.5">
-            <div className="p-1 bg-paper-card hairline-border text-accent">
-              <LeanFlipIcon size={18} />
-            </div>
-            <div className="flex items-center gap-1.5 flex-wrap">
-              <span className="font-bold uppercase text-accent">Critical Flip Mark:</span>
-              <span>Flip at exactly <strong>{recipe.quickVersion.flipAtMinutes} minutes</strong>.</span>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* PANEL 2: 📖 STEP-BY-STEP (SSR Present) */}
-      <div data-mode-panel="detailed" className="bg-paper-card hairline-border p-6 sm:p-8 space-y-6">
-        <div className="flex items-center justify-between hairline-b pb-4">
-          <div className="flex items-center gap-2">
-            <BookOpen className="w-5 h-5 text-ink" />
-            <h2 className="text-lg sm:text-xl font-bold text-ink uppercase tracking-tight font-sans">
-              Step-by-Step Guided Instructions
-            </h2>
-          </div>
-          <span className="font-mono text-[10px] text-ink-subtle uppercase">
-            FLUFF-FREE GUIDED STEPS
-          </span>
-        </div>
-
-        <div className="space-y-6">
-          {recipe.detailedSteps.map((step) => {
-            const isDone = completedSteps.includes(step.stepNumber);
-            return (
-              <div
-                key={step.stepNumber}
-                onClick={() => toggleStepDone(step.stepNumber)}
-                className={`p-6 hairline-border transition-all cursor-pointer space-y-3 ${
-                  isDone ? 'bg-paper-subtle/50 opacity-60' : 'bg-paper hover:border-ink'
+              <button
+                type="button"
+                onClick={() => handleModeChange('fast')}
+                data-mode-btn="quick"
+                aria-pressed={currentMode === 'fast'}
+                className={`flex-1 sm:flex-none px-[22px] py-3 transition-colors cursor-pointer ${
+                  currentMode === 'fast'
+                    ? 'bg-ink text-paper font-bold'
+                    : 'text-ink-muted hover:text-ink'
                 }`}
               >
-                <div className="flex items-center justify-between font-mono text-xs">
-                  <div className="flex items-center gap-2">
-                    <span className={`w-5 h-5 flex items-center justify-center rounded text-[10px] font-bold ${
-                      isDone ? 'bg-emerald-600 text-white' : 'bg-ink text-paper'
-                    }`}>
+                Get to the point
+              </button>
+              <button
+                type="button"
+                onClick={() => handleModeChange('detailed')}
+                data-mode-btn="detailed"
+                aria-pressed={currentMode === 'detailed'}
+                className={`flex-1 sm:flex-none px-[22px] py-3 transition-colors cursor-pointer ${
+                  currentMode === 'detailed'
+                    ? 'bg-ink text-paper font-bold'
+                    : 'text-ink-muted hover:text-ink'
+                }`}
+              >
+                Step by step
+              </button>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <span
+                className={`font-mono text-[32px] font-black tracking-[-0.02em] leading-none tabular-nums ${
+                  isTimerFinished ? 'text-accent' : isTimerRunning ? 'text-ink' : 'text-ink-muted'
+                }`}
+                aria-live="polite"
+              >
+                {formatTimerDisplay(timerSeconds)}
+              </span>
+              <button
+                type="button"
+                onClick={toggleTimer}
+                className="inline-flex items-center gap-2 px-5 py-[11px] bg-ink text-paper text-[15px] font-bold hover:bg-accent transition-colors cursor-pointer"
+              >
+                {isTimerRunning ? (
+                  <Pause className="w-4 h-4 fill-current" aria-hidden="true" />
+                ) : (
+                  <Play className="w-4 h-4 fill-current" aria-hidden="true" />
+                )}
+                {isTimerRunning ? 'Pause' : isTimerFinished ? 'Done' : 'Start timer'}
+              </button>
+              <button
+                type="button"
+                onClick={resetTimer}
+                className="p-2 text-ink-muted hover:text-ink transition-colors cursor-pointer"
+                title="Reset timer"
+                aria-label="Reset timer"
+              >
+                <RotateCcw className="w-4 h-4" aria-hidden="true" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* HR-6: BOTH MODES PRESENT IN SSR HTML SIMULTANEOUSLY */}
+        {/* Wrapper is a scroll target only — panel visibility stays pure CSS. */}
+        <div ref={panelsRef} id="instructions" className={COLUMN}>
+          {/* ── 8. Get to the point (SSR present) ── */}
+          <section data-mode-panel="fast" className="mt-12" aria-labelledby="quick-heading">
+            <h2 id="quick-heading" className={`${SECTION_H2} mb-6`}>
+              Get to the point
+            </h2>
+            <ol className="border-t border-ink">
+              {recipe.quickVersion.bullets.map((bullet, idx) => (
+                <li key={idx} className="flex gap-6 py-6 border-b border-hairline">
+                  <span className="w-8 h-8 sm:w-10 sm:h-10 bg-ink text-paper flex items-center justify-center font-mono text-[18px] font-bold shrink-0">
+                    {idx + 1}
+                  </span>
+                  <p className="text-[20px] leading-[1.55] max-w-[62ch]">{bullet}</p>
+                </li>
+              ))}
+            </ol>
+            {recipe.quickVersion.flipAtMinutes ? (
+              <div className="mt-6 px-6 py-5 bg-ink text-paper flex flex-wrap items-center gap-4">
+                <span className={`${EYEBROW} text-accent`}>Critical flip mark</span>
+                <span className="text-[19px]">
+                  Flip at exactly <strong>{recipe.quickVersion.flipAtMinutes} minutes</strong>.
+                </span>
+              </div>
+            ) : null}
+          </section>
+
+          {/* ── 9. Step by step (SSR present) ── */}
+          <section data-mode-panel="detailed" className="mt-16" aria-labelledby="steps-heading">
+            <div className="flex flex-wrap items-baseline justify-between gap-4 mb-6">
+              <h2 id="steps-heading" className={SECTION_H2}>
+                Step by step
+              </h2>
+              <span className="text-[15px] text-ink-muted no-print">
+                Tap a step to cross it off
+              </span>
+            </div>
+            <ol className="border-t border-ink">
+              {recipe.detailedSteps.map((step) => {
+                const isDone = completedSteps.includes(step.stepNumber);
+                return (
+                  <li
+                    key={step.stepNumber}
+                    onClick={() => toggleStepDone(step.stepNumber)}
+                    className={`flex gap-6 py-7 border-b border-hairline cursor-pointer transition-opacity ${
+                      isDone ? 'opacity-55' : ''
+                    }`}
+                  >
+                    <span
+                      className={`w-8 h-8 sm:w-10 sm:h-10 border border-ink flex items-center justify-center font-mono text-[18px] font-bold shrink-0 ${
+                        isDone ? 'bg-ink text-paper' : ''
+                      }`}
+                      aria-hidden="true"
+                    >
                       {isDone ? '✓' : step.stepNumber}
                     </span>
-                    <span className="font-bold text-sm text-ink font-sans uppercase">
-                      {step.title}
-                    </span>
-                  </div>
-                  {step.timerMinutes && (
-                    <span className="text-ink-subtle uppercase">
-                      ⏱️ {step.timerMinutes} MINS
-                    </span>
-                  )}
-                </div>
-
-                <p className={`text-sm leading-relaxed font-sans ${isDone ? 'line-through text-ink-muted' : 'text-ink'}`}>
-                  {step.instruction}
-                </p>
-
-                {step.proTip && (
-                  <div className="bg-paper-card p-3 hairline-border text-xs font-mono text-ink-muted space-y-0.5">
-                    <span className="font-bold text-ink uppercase text-[10px]">
-                      💡 Dad Pro Tip:
-                    </span>
-                    <p className="font-sans text-xs">{step.proTip}</p>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                    <div className="max-w-[62ch] min-w-0">
+                      <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                        <h3 className="text-[22px] font-bold tracking-[-0.01em] leading-tight">
+                          {step.title}
+                        </h3>
+                        {step.timerMinutes ? (
+                          <span className="font-mono text-[14px] font-bold text-accent">
+                            {step.timerMinutes} min
+                            {recipe.quickVersion.flipAtMinutes &&
+                            step.timerMinutes === recipe.quickVersion.timerMinutes
+                              ? ` · flip at ${recipe.quickVersion.flipAtMinutes}`
+                              : ''}
+                          </span>
+                        ) : null}
+                      </div>
+                      <p
+                        className={`mt-2.5 text-[19px] leading-[1.6] ${isDone ? 'line-through' : ''}`}
+                      >
+                        {step.instruction}
+                      </p>
+                      {step.proTip && (
+                        <div className="mt-4 pl-5 border-l-2 border-hairline">
+                          <span className={`${EYEBROW} text-ink-subtle block`}>Why</span>
+                          <p className="mt-1 text-[17px] leading-[1.6] text-ink-muted">
+                            {step.proTip}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          </section>
         </div>
       </div>
 
-      </div>
-
-      </div>
-
-      {/* DAD KNOWLEDGE & PRACTICAL NOTES */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-xs">
-        
-        {/* Dad Pro Tip & Kid Adjustment */}
-        <div className="bg-paper-card hairline-border p-6 space-y-4">
-          <div className="flex items-center gap-2 text-ink font-bold uppercase hairline-b pb-2">
-            <ShieldCheck className="w-4 h-4 text-emerald-700" />
-            <span>Dad Pro Tip</span>
+      {/* ── 10. Notes ── */}
+      <section className={`${COLUMN} mt-16`} aria-label="Notes">
+        <dl className="grid grid-cols-1 md:grid-cols-2 gap-x-12 border-t border-ink">
+          <div className="py-6 border-b border-hairline">
+            <dt className="font-mono text-[12px] uppercase tracking-[0.14em] font-bold text-ink-subtle mb-2.5">
+              Dad pro tip
+            </dt>
+            <dd className="text-[18px] leading-[1.6]">{recipe.dadProTip}</dd>
           </div>
-          <p className="font-sans text-xs text-ink leading-relaxed">
-            {recipe.dadProTip}
-          </p>
-
           {recipe.kidAdjustment && (
-            <div className="pt-2 hairline-t space-y-1" data-kid-note>
-              <span className="text-[10px] text-ink-subtle uppercase block font-bold">
-                👶 Kid & Toddler Adjustment:
-              </span>
-              <p className="font-sans text-xs text-ink-muted leading-relaxed">
-                {recipe.kidAdjustment}
-              </p>
+            <div className="py-6 border-b border-hairline" data-kid-note>
+              <dt className="font-mono text-[12px] uppercase tracking-[0.14em] font-bold text-ink-subtle mb-2.5">
+                Kid &amp; toddler adjustment
+              </dt>
+              <dd className="text-[18px] leading-[1.6]">{recipe.kidAdjustment}</dd>
             </div>
           )}
-        </div>
-
-        {/* Sides & Reheating */}
-        <div className="bg-paper-card hairline-border p-6 space-y-4">
-          <div className="flex items-center gap-2 text-ink font-bold uppercase hairline-b pb-2">
-            <Flame className="w-4 h-4 text-accent" />
-            <span>Serve With & Reheating</span>
+          <div className="py-6 border-b border-hairline">
+            <dt className="font-mono text-[12px] uppercase tracking-[0.14em] font-bold text-ink-subtle mb-2.5">
+              Serve with
+            </dt>
+            <dd className="text-[18px] leading-[1.6]">{recipe.sideSuggestions.join(' · ')}</dd>
           </div>
-
-          <div className="space-y-1">
-            <span className="text-[10px] text-ink-subtle uppercase block font-bold">
-              Suggested Sides:
-            </span>
-            <ul className="font-sans text-xs text-ink space-y-1 list-disc list-inside">
-              {recipe.sideSuggestions.map((side, idx) => (
-                <li key={idx}>{side}</li>
-              ))}
-            </ul>
+          <div className="py-6 border-b border-hairline">
+            <dt className="font-mono text-[12px] uppercase tracking-[0.14em] font-bold text-ink-subtle mb-2.5">
+              Reheating
+            </dt>
+            <dd className="text-[18px] leading-[1.6]">{recipe.reheatInstructions}</dd>
           </div>
-
-          <div className="pt-2 hairline-t space-y-1">
-            <span className="text-[10px] text-ink-subtle uppercase block font-bold">
-              🔥 Reheat Method (Restore Crunch):
-            </span>
-            <p className="font-sans text-xs text-ink-muted leading-relaxed">
-              {recipe.reheatInstructions}
-            </p>
-          </div>
-        </div>
-
+        </dl>
       </section>
 
-      {/* NUTRITION & TESTING BASIS (HR-2 Compliant) */}
-      <section className="bg-paper-card hairline-border p-6 font-mono text-xs text-ink space-y-2">
-        <div className="flex justify-between items-center hairline-b pb-2">
-          <span className="font-bold uppercase">Nutrition & Verification Basis</span>
-          <span className="text-ink-subtle">HR-2 SOURCED</span>
-        </div>
+      {/* ── 11. Nutrition (HR-2: only when sourced) ── */}
+      <section className={`${COLUMN} mt-12`} aria-label="Nutrition and basis">
         {recipe.nutrition && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-2">
-            <div>Calories: <strong>{recipe.nutrition.calories} kcal</strong></div>
-            <div>Protein: <strong>{recipe.nutrition.proteinGrams}g</strong></div>
-            <div>Carbohydrates: <strong>{recipe.nutrition.carbsGrams}g</strong></div>
-            <div>Fat: <strong>{recipe.nutrition.fatGrams}g</strong></div>
-          </div>
+          <dl className="grid grid-cols-2 sm:grid-cols-4 border-t border-ink border-b border-b-hairline">
+            {[
+              { label: 'Calories', value: `${recipe.nutrition.calories}` },
+              { label: 'Protein', value: `${recipe.nutrition.proteinGrams} g` },
+              { label: 'Carbs', value: `${recipe.nutrition.carbsGrams} g` },
+              { label: 'Fat', value: `${recipe.nutrition.fatGrams} g` },
+            ].map((cell, i, all) => (
+              <div key={cell.label} className={`py-[18px] ${gridCell(i, all.length)}`}>
+                <dt className={`${EYEBROW} text-ink-subtle`}>{cell.label}</dt>
+                <dd className="mt-1.5 font-mono text-[24px] font-bold">{cell.value}</dd>
+              </div>
+            ))}
+          </dl>
         )}
-        <div className="text-[11px] text-ink-muted hairline-t pt-2 space-y-1 font-sans">
-          {recipe.nutrition?.source && <div><strong>Nutrition Source:</strong> {recipe.nutrition.source}</div>}
-          <div><strong>Cook Time Basis:</strong> {recipe.basis}</div>
-        </div>
+        <p className="mt-4 text-[15px] leading-[1.6] text-ink-muted max-w-[80ch]">
+          {recipe.nutrition?.source && <>Nutrition source: {recipe.nutrition.source}. </>}
+          Cook-time basis: {recipe.basis}
+        </p>
       </section>
 
-      {mealsEnabled && (
-        <MealActions recipeSlug={recipe.slug} recipeTitle={recipe.title} />
-      )}
-
-      {/* RELATED RECIPES */}
-      {relatedRecipes.length > 0 && (
-        <section className="space-y-4 pt-6 hairline-t no-print">
-          <h3 className="text-base font-bold uppercase tracking-tight text-ink font-sans">
-            Related {recipe.appliance.replace('-', ' ')} Recipes
-          </h3>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            {relatedRecipes.map((rel) => (
+      {/* ── 12. Datasheet cross-link ── */}
+      {relatedDatasheets.length > 0 && (
+        <section
+          className={`${COLUMN} mt-12 space-y-4 no-print`}
+          aria-label="Verified cook-time datasheets"
+        >
+          {relatedDatasheets.map((ds) => {
+            const stats = [
+              `${ds.tempF}°F`,
+              ds.timeFormatted,
+              ds.flipAtMinutes > 0 ? `flip ${ds.flipAtMinutes}` : null,
+              ds.internalTempTargetF ? `pull ${ds.internalTempTargetF}°F` : null,
+              ds.restMinutes > 0 ? `rest ${ds.restMinutes} min` : null,
+            ].filter(Boolean);
+            return (
               <Link
-                key={rel.id}
-                href={`/recipes/${rel.slug}`}
-                className="bg-paper-card hairline-border p-4 hover:border-ink transition-colors group flex flex-col justify-between"
+                key={ds.id}
+                href={`/how-long/${ds.appliance}/${ds.foodSlug}`}
+                className="flex flex-wrap items-center justify-between gap-6 border border-ink p-6 hover:bg-paper-50 transition-colors group"
               >
-                <div className="space-y-2">
-                  <span className="font-mono text-[10px] font-bold text-ink-subtle">
-                    #{rel.id}
+                <div className="min-w-0">
+                  <span className={`${EYEBROW} text-ink-subtle block`}>
+                    Verified cook-time datasheet
                   </span>
-                  <h4 className="font-bold text-xs font-sans text-ink group-hover:text-accent transition-colors line-clamp-2">
-                    {rel.title}
-                  </h4>
+                  <span className="block mt-2 text-[21px] font-bold leading-tight">
+                    {ds.food}, {ds.appliance.replace(/-/g, ' ')}, {ds.state}
+                  </span>
+                  <span className="block mt-1.5 font-mono text-[16px] text-ink-muted">
+                    {stats.join(' · ')}
+                  </span>
                 </div>
-                <div className="hairline-t mt-3 pt-2 font-mono text-[10px] text-ink-muted flex justify-between">
-                  <span>{rel.cookTemp}</span>
-                  <span>{rel.totalMinutes}m</span>
-                </div>
+                <span className="inline-flex items-center gap-1.5 text-[16px] font-semibold group-hover:text-accent transition-colors shrink-0">
+                  Full datasheet <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                </span>
               </Link>
-            ))}
-          </div>
+            );
+          })}
         </section>
       )}
 
+      {/* ── 13. Save & rate ── */}
+      {mealsEnabled && (
+        <div className={`${COLUMN} mt-12`}>
+          <MealActions recipeSlug={recipe.slug} recipeTitle={recipe.title} />
+        </div>
+      )}
+
+      {/* ── 14. Related recipes ── */}
+      {relatedRecipes.length > 0 && (
+        <section className={`${COLUMN} mt-14 no-print`} aria-labelledby="related-heading">
+          <h2
+            id="related-heading"
+            className="text-[24px] font-extrabold tracking-[-0.01em] uppercase text-ink mb-5"
+          >
+            More {recipe.appliance.replace(/-/g, ' ')} recipes
+          </h2>
+          <ul className="border-t border-ink">
+            {relatedRecipes.map((rel) => (
+              <li key={rel.id} className="border-b border-hairline">
+                <Link
+                  href={`/recipes/${rel.slug}`}
+                  className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4 group"
+                >
+                  <span className="text-[19px] font-semibold group-hover:text-accent transition-colors">
+                    {rel.title}
+                  </span>
+                  <span className="font-mono text-[15px] text-ink-muted shrink-0">
+                    {rel.cookTemp.split(' ')[0]} · {rel.totalMinutes} min
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </div>
   );
 }
