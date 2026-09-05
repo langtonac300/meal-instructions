@@ -15,7 +15,12 @@ const DISMISS_KEY = 'mi_profile_prompt_dismissed_v1';
  * in localStorage, so anything else would either flash or mismatch hydration.
  * The page underneath is complete without it.
  */
-export default function KitchenPrompt() {
+interface Props {
+  /** 'bar' is the slim in-page strip; 'card' is the fuller block for /account. */
+  variant?: 'bar' | 'card';
+}
+
+export default function KitchenPrompt({ variant = 'bar' }: Props) {
   const [profile, setProfile] = useState<KitchenProfile | null>(null);
   const [ready, setReady] = useState(false);
   const [dismissed, setDismissed] = useState(true);
@@ -38,6 +43,37 @@ export default function KitchenPrompt() {
       .slice(0, 3);
     const extra = profile.appliances.length - names.length;
 
+    if (variant === 'card') {
+      const all = profile.appliances.map(
+        (slug) => APPLIANCES.find((a) => a.slug === slug)?.name ?? slug
+      );
+      return (
+        <div className="hairline-border bg-paper-card p-4 space-y-3">
+          <div className="flex flex-wrap gap-1.5">
+            {all.map((name) => (
+              <span
+                key={name}
+                className="px-2 py-1 bg-paper hairline-border font-mono text-[10px] uppercase tracking-wider text-ink"
+              >
+                {name}
+              </span>
+            ))}
+          </div>
+          <p className="text-sm text-ink-muted font-sans">
+            Feeding {profile.adults} adult{profile.adults === 1 ? '' : 's'}
+            {profile.kids > 0 && ` and ${profile.kids} kid${profile.kids === 1 ? '' : 's'}`}.
+            {profile.avoid.length > 0 && ` Avoiding ${profile.avoid.join(', ')}.`}
+          </p>
+          <Link
+            href="/account/setup"
+            className="inline-block px-3 py-1.5 bg-ink text-paper font-mono text-[10px] uppercase tracking-wider hover:bg-accent transition-colors"
+          >
+            Edit kitchen
+          </Link>
+        </div>
+      );
+    }
+
     return (
       <div className="flex items-center justify-between gap-3 bg-paper-subtle hairline-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-wider">
         <span className="text-ink-muted">
@@ -46,6 +82,23 @@ export default function KitchenPrompt() {
         </span>
         <Link href="/account/setup" className="text-ink-muted hover:text-ink underline shrink-0">
           Edit
+        </Link>
+      </div>
+    );
+  }
+
+  if (variant === 'card') {
+    return (
+      <div className="hairline-border bg-paper-card p-4 space-y-2">
+        <p className="text-sm text-ink font-sans">
+          You have not set up your kitchen yet. Tell us what you own and every cook-time chart
+          and recipe sorts to your equipment.
+        </p>
+        <Link
+          href="/account/setup"
+          className="inline-block px-3 py-1.5 bg-ink text-paper font-mono text-[10px] uppercase tracking-wider hover:bg-accent transition-colors"
+        >
+          Set up my kitchen
         </Link>
       </div>
     );

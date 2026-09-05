@@ -10,6 +10,7 @@ import {
 } from '@/lib/meals-db';
 import { getRecipeBySlug } from '@/data/recipes';
 import { mealsConfigured } from '@/lib/supabase-admin';
+import KitchenPrompt from '@/components/KitchenPrompt';
 
 export const metadata: Metadata = {
   title: 'Your account',
@@ -61,6 +62,13 @@ export default async function AccountPage() {
         <h1 className="text-3xl font-bold text-ink">{user.name ?? user.email}</h1>
         <div className="text-sm text-ink-muted">{user.email}</div>
       </header>
+
+      <section>
+        <h2 className="font-mono text-[11px] uppercase tracking-wider text-ink-subtle mb-3">
+          Your kitchen
+        </h2>
+        <KitchenPrompt variant="card" />
+      </section>
 
       <section>
         <h2 className="font-mono text-[11px] uppercase tracking-wider text-ink-subtle mb-3">
