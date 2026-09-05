@@ -14,6 +14,7 @@ import { Recipe, CookTimeDatasheet } from '@/lib/types';
 import { RECIPES } from '@/data/recipes';
 import { formatScaledAmount, buildSmsShareText, recipeToMarkdown } from '@/lib/recipe-utils';
 import { track } from '@/lib/analytics';
+import { householdServings, readProfile } from '@/lib/profile';
 
 import KrogerCartPanel from '@/components/KrogerCartPanel';
 import MealActions from '@/components/MealActions';
@@ -46,6 +47,20 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
   const [timerSeconds, setTimerSeconds] = useState<number>(initialSeconds);
   const [isTimerRunning, setIsTimerRunning] = useState<boolean>(false);
   const [isTimerFinished, setIsTimerFinished] = useState<boolean>(false);
+
+  // Default the portion scaler to the household. Deliberately post-hydration:
+  // the SSR HTML must stay identical for every visitor (HR-6), and the ingredient
+  // amounts are the only thing that moves. Runs once, and never fights a manual
+  // choice because it only fires while the multiplier is still untouched.
+  const portionsPrefilled = React.useRef(false);
+  useEffect(() => {
+    if (portionsPrefilled.current) return;
+    portionsPrefilled.current = true;
+    const servings = householdServings(readProfile());
+    if (!servings) return;
+    const next = servings / 4; // the scaler's options are 2/4/6/8 against a base of 4
+    if ([0.5, 1, 1.5, 2].includes(next) && next !== 1) setPortionMultiplier(next);
+  }, []);
 
   useEffect(() => {
     // Read existing data-mode stamped by head script
@@ -705,7 +720,7 @@ export default function RecipeClientView({ recipe, relatedDatasheets = [], resol
           </p>
 
           {recipe.kidAdjustment && (
-            <div className="pt-2 hairline-t space-y-1">
+            <div className="pt-2 hairline-t space-y-1" data-kid-note>
               <span className="text-[10px] text-ink-subtle uppercase block font-bold">
                 👶 Kid & Toddler Adjustment:
               </span>

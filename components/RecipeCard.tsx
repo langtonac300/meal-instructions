@@ -29,6 +29,8 @@ export default function RecipeCard({ recipe, isHighlighted = false }: RecipeCard
   return (
     <article
       id={`recipe-${recipe.slug}`}
+      data-appliance={recipe.appliance}
+      data-protein={recipe.protein}
       className={`group relative transition-all duration-200 rounded p-5 flex flex-col justify-between ${
         isHighlighted
           ? 'bg-paper-100 border-2 border-accent ring-4 ring-accent/20 shadow-float scale-[1.01]'

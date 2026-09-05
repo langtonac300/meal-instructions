@@ -86,7 +86,7 @@ export default function HowLongHubPage() {
       {/* data-appliance-list turns this into the flex container the kitchen
           personalisation rules order. Every appliance still renders — the CSS
           only moves owned equipment to the top (HR-6). */}
-      <div className="space-y-8" data-appliance-list>
+      <div className="space-y-8" data-appliance-sort="column">
         <div
           data-appliance-divider
           className="micro-label text-ink-subtle hairline-t pt-4"

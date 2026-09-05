@@ -244,7 +244,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   ZERO FLUFF // DIRECT EXECUTION
                 </span>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6" data-appliance-sort>
                 {relatedRecipes.map((recipe) => (
                   <RecipeCard key={recipe!.id} recipe={recipe!} />
                 ))}
