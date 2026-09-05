@@ -19,7 +19,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf-8');
 
-const RECIPE_CEILING = 180; // HR-5 (approved)
+const RECIPE_CEILING = 228; // HR-5 (approved)
 
 // ── parse the type unions (single source of truth, never copied) ────────────
 const typesSrc = read('lib/types.ts');

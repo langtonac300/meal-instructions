@@ -42,9 +42,12 @@ No `Air Fryer Cottage Cheese`. If you cannot picture a person cooking it, it doe
 - `dadProTip`, `reheatInstructions`, `kidAdjustment` must not be drawn from a rotating pool.
 Before any content commit, run `npm run audit:content`. It must exit 0.
 
-**HR-5. Recipe count ceiling until the gate is lifted: 180.**
+**HR-5. Recipe count ceiling until the gate is lifted: 228.**
 Ship quality first. The volume play is `/how-long/*`, which is verifiable and defensible.
-Ceiling raised to 180 with explicit sign-off from Alex. Raising further requires explicit sign-off from Alex.
+Ceiling raised to 228 on 2026-09-04 with explicit sign-off from Alex, to re-admit the 48
+individually-authored recipes stranded on `origin/backup-pre-command-center` when `main`
+was rebuilt at the command-center commit. These are recovered work, not new generation —
+HR-1 is not implicated. Raising further requires explicit sign-off from Alex.
 
 ---
 
