@@ -82,18 +82,23 @@ export default function KrogerCartPanel({ ingredients, returnTo }: Props) {
   }
 
   return (
-    <div className="mt-6 bg-paper-card hairline-border p-4 sm:p-5">
-      <div className="flex items-center justify-between gap-3 border-b border-hairline pb-3 mb-3">
-        <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-ink font-bold">
-          <ShoppingCart className="w-3.5 h-3.5" />
-          Send to Kroger
+    <div className="mt-8 border border-ink p-5 sm:p-7 no-print">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 pb-[18px] border-b border-hairline">
+        <div className="min-w-0">
+          <h3 className="flex items-center gap-3 text-[24px] font-extrabold tracking-[-0.01em] leading-tight text-ink">
+            <ShoppingCart className="w-5 h-5 shrink-0" aria-hidden="true" />
+            Send to Kroger
+          </h3>
+          <p className="mt-2 text-[17px] text-ink-muted">
+            Untick anything you already have. One click sends the rest to your own cart.
+          </p>
         </div>
-        <span className="font-mono text-[10px] uppercase tracking-wider text-ink-muted">
+        <span className="font-mono text-[15px] text-ink-muted whitespace-nowrap">
           {selected.size} of {allUpcs.length} selected
         </span>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
         {matched.map((ing) =>
           ing.products.map((p) => {
             const upc = p.upc ?? p.productId;
@@ -101,17 +106,27 @@ export default function KrogerCartPanel({ ingredients, returnTo }: Props) {
             return (
               <label
                 key={upc}
-                className="flex items-start gap-2.5 text-xs cursor-pointer group py-1"
+                className="flex items-start gap-3.5 py-3.5 border-b border-hairline cursor-pointer"
               >
                 <input
                   type="checkbox"
                   checked={checked}
                   onChange={() => toggle(upc)}
-                  className="mt-0.5 accent-ink cursor-pointer"
+                  className="mt-[3px] w-[18px] h-[18px] accent-ink cursor-pointer shrink-0"
                 />
-                <span className="leading-snug">
-                  <span className="text-ink font-bold">{ing.item}</span>
-                  <span className="block text-ink-muted text-[11px] font-mono">
+                <span className="leading-snug min-w-0">
+                  <span
+                    className={`block text-[18px] font-semibold transition-colors ${
+                      checked ? 'text-ink' : 'text-ink-muted'
+                    }`}
+                  >
+                    {ing.item}
+                  </span>
+                  <span
+                    className={`block font-mono text-[14px] mt-0.5 transition-colors ${
+                      checked ? 'text-ink-muted' : 'text-ink-subtle'
+                    }`}
+                  >
                     {p.description}
                     {p.size ? ` · ${p.size}` : ''}
                   </span>
@@ -123,22 +138,30 @@ export default function KrogerCartPanel({ ingredients, returnTo }: Props) {
       </div>
 
       {unmatched.length > 0 && (
-        <p className="text-[11px] font-mono text-ink-muted border-t border-hairline pt-3 mb-3 leading-relaxed">
-          <span className="font-bold uppercase text-ink">Not included:</span>{' '}
+        <p className="mt-[18px] text-[16px] leading-[1.6] text-ink-muted">
+          <span className="font-bold text-ink">Not included:</span>{' '}
           {unmatched.map((u) => u.item).join(', ')} — no confident product match, so
           you&apos;ll need to add {unmatched.length === 1 ? 'it' : 'them'} yourself.
         </p>
       )}
 
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="mt-6 flex flex-wrap items-center gap-5">
         <button
           type="button"
           onClick={addToCart}
           disabled={status === 'sending' || selected.size === 0}
-          className="flex items-center gap-2 px-4 py-2 bg-ink text-paper font-mono text-[11px] uppercase tracking-wider font-bold hover:bg-ink/90 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+          className="inline-flex items-center gap-2.5 px-[22px] py-3.5 bg-ink text-paper text-[17px] font-bold hover:bg-accent disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-ink transition-colors cursor-pointer"
         >
-          {status === 'added' ? <Check className="w-3.5 h-3.5" /> : <ShoppingCart className="w-3.5 h-3.5" />}
-          {status === 'sending' ? 'Adding…' : status === 'added' ? 'Added' : 'Add to Kroger cart'}
+          {status === 'added' ? (
+            <Check className="w-[18px] h-[18px]" aria-hidden="true" />
+          ) : (
+            <ShoppingCart className="w-[18px] h-[18px]" aria-hidden="true" />
+          )}
+          {status === 'sending'
+            ? 'Adding…'
+            : status === 'added'
+              ? 'Added'
+              : `Add ${selected.size} item${selected.size === 1 ? '' : 's'} to Kroger cart`}
         </button>
 
         {status === 'added' && (
@@ -146,22 +169,20 @@ export default function KrogerCartPanel({ ingredients, returnTo }: Props) {
             href="https://www.kroger.com/cart"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 font-mono text-[11px] uppercase tracking-wider text-ink underline hover:no-underline"
+            className="inline-flex items-center gap-1.5 text-[16px] text-ink-muted hover:text-ink transition-colors"
           >
-            View cart <ExternalLink className="w-3 h-3" />
+            View cart at Kroger <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
           </a>
         )}
 
         {message && (
-          <span
-            className={`font-mono text-[11px] ${status === 'error' ? 'text-accent' : 'text-ink-muted'}`}
-          >
+          <span className={`text-[16px] ${status === 'error' ? 'text-accent' : 'text-ink-muted'}`}>
             {message}
           </span>
         )}
       </div>
 
-      <p className="mt-3 text-[10px] font-mono text-ink-subtle leading-relaxed">
+      <p className="mt-[18px] text-[15px] leading-[1.6] text-ink-muted max-w-[72ch]">
         Adds to your own Kroger cart — you&apos;ll sign in with Kroger the first time.
         Prices and availability depend on your store. Nothing is ordered until you
         check out at Kroger.
