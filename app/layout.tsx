@@ -9,6 +9,10 @@ import ConsentBanner from '@/components/ConsentBanner';
 import SessionProviderWrapper from '@/components/SessionProviderWrapper';
 import { SITE_URL, SITE_NAME, abs } from '@/lib/site';
 
+// Google Tag Manager container. Kept alongside the GA4 / AdSense ids rather than
+// in env so a missing Vercel variable can't silently drop the container.
+const GTM_ID = 'GTM-5SVJCJB7';
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -131,7 +135,12 @@ export default function RootLayout({
     <html lang="en" className="bg-paper text-ink" suppressHydrationWarning>
       <head>
         {/* Google Consent Mode v2 defaults — denied until user opts in via ConsentBanner.
-            Restored if a prior "granted" choice is in localStorage. */}
+            Restored if a prior "granted" choice is in localStorage.
+
+            Deliberately no gtag('config', ...) here: GA4 is configured inside the
+            GTM container (GTM-5SVJCJB7), so configuring it here as well would
+            double-count every pageview. The gtag() shim stays — Consent Mode v2
+            is expressed through it, and GTM reads those commands off dataLayer. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -148,9 +157,19 @@ export default function RootLayout({
                 analytics_storage: state,
                 wait_for_update: 500,
               });
-              gtag('js', new Date());
-              gtag('config', 'G-0S1B04Q1S9');
             `,
+          }}
+        />
+        {/* Google Tag Manager — timing event only, and deliberately after the
+            consent defaults above so `consent: default` is already on the queue
+            when gtm.js drains it. The stock snippet's insertBefore() would add a
+            <script> as a <head> sibling the moment it ran; during hydration that
+            shifts every following child by one slot, which is the same failure
+            mode documented in <AdSenseLoader />. The loader itself is therefore
+            mounted after hydration, at the bottom of <body>. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});`,
           }}
         />
         {/* Google AdSense — only the account meta belongs here. The loader script
@@ -177,6 +196,12 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col font-sans selection:bg-ink selection:text-paper text-ink bg-paper">
+        {/* Google Tag Manager (noscript) — must be the first thing in <body>. */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+          }}
+        />
         <SessionProviderWrapper>
           <WebMCPClient />
           <Navbar />
@@ -190,9 +215,9 @@ export default function RootLayout({
             Consent-mode defaults stay inline in <head> and still run first. */}
         <AdSenseLoader />
         <Script
-          id="gtag-loader"
+          id="gtm-loader"
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-0S1B04Q1S9"
+          src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}
         />
       </body>
     </html>

@@ -17,17 +17,21 @@ declare global {
 function pushConsent(state: 'granted' | 'denied') {
   try {
     window.dataLayer = window.dataLayer || [];
-    // Google Consent Mode v2
-    window.dataLayer.push([
-      'consent',
-      'update',
-      {
-        ad_storage: state,
-        ad_user_data: state,
-        ad_personalization: state,
-        analytics_storage: state,
-      },
-    ]);
+    const payload = {
+      ad_storage: state,
+      ad_user_data: state,
+      ad_personalization: state,
+      analytics_storage: state,
+    };
+
+    // Google Consent Mode v2 reads the `arguments` object that gtag() pushes.
+    // A real Array pushed onto dataLayer is NOT equivalent — Google ignores it,
+    // so the update silently never applies and tags stay gated at the default.
+    // The inline script in <head> defines window.gtag synchronously on every
+    // render and this only runs post-hydration, so it is always set by the time
+    // a user can click; if it somehow isn't, that script still restores the
+    // stored choice as the default on the next page load.
+    window.gtag?.('consent', 'update', payload);
   } catch {
     // ignore
   }
