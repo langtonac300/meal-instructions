@@ -6,7 +6,9 @@
 // stays cache-friendly and identical for every visitor.
 
 import { useEffect, useState, useTransition } from 'react';
+import Link from 'next/link';
 import { Bookmark, BookmarkCheck, Star, Pencil, LogIn } from 'lucide-react';
+import GoogleCalendarMark from '@/components/GoogleCalendarMark';
 import { track } from '@/lib/analytics';
 
 interface RatingState {
@@ -148,8 +150,9 @@ export default function MealActions({ recipeSlug, recipeTitle }: Props) {
         <div className="min-w-0">
           <h3 className="text-[22px] font-bold tracking-[-0.01em] text-ink">Save &amp; rate</h3>
           <p className="mt-2 text-[17px] leading-[1.55] text-ink-muted max-w-[58ch]">
-            Sign in with Google to save this recipe, rate it after you cook, and suggest edits to
-            the instructions. We only store your email, name, and Google avatar — no Gmail access.
+            Sign in with Google to save this recipe, plan it onto a night, rate it after you
+            cook, and suggest edits. We only store your email, name, and Google avatar — no Gmail
+            access.
           </p>
         </div>
         <a
@@ -168,6 +171,13 @@ export default function MealActions({ recipeSlug, recipeTitle }: Props) {
       <h3 className="text-[22px] font-bold tracking-[-0.01em] text-ink">Your notes on this meal</h3>
 
       <div className="flex flex-wrap items-center gap-5">
+        <Link
+          href={`/plan?add=${encodeURIComponent(recipeSlug)}`}
+          className="inline-flex items-center gap-2.5 px-4 py-2.5 bg-white border border-[#DADCE0] rounded-[4px] text-[16px] font-medium text-[#3C4043] hover:bg-[#F8F9FA] hover:border-[#D2E3FC] transition-colors"
+        >
+          <GoogleCalendarMark className="w-[17px] h-[17px]" />
+          Add to Google Calendar
+        </Link>
         <button
           type="button"
           onClick={toggleSaved}

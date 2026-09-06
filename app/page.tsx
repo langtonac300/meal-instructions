@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, Printer } from 'lucide-react';
+import { ArrowRight, CalendarPlus, Printer } from 'lucide-react';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { RECIPES } from '@/data/recipes';
@@ -243,6 +243,40 @@ export default function HomePage() {
                   {pageCount} pages · letter or A4
                 </span>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Plan the week ── */}
+        <section className={`${CONTAINER} pb-14`} aria-labelledby="plan-heading">
+          <div className="p-7 sm:p-9 bg-ink text-paper flex flex-col lg:flex-row lg:items-center justify-between gap-7">
+            <div className="max-w-[62ch]">
+              <span className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">
+                Sunday, once
+              </span>
+              <h2
+                id="plan-heading"
+                className="text-[28px] sm:text-[34px] font-extrabold tracking-[-0.01em] leading-[1.12] mt-3.5"
+              >
+                Put the whole week on your calendar
+              </h2>
+              <p className="mt-3 text-[17px] leading-[1.6] text-paper/75">
+                Pick the nights, say when you eat, and every dinner lands on its own calendar —
+                carrying the ingredients, the temperature, and the steps. The reminder fires when
+                the cooking has to start, not when the food was due.
+              </p>
+            </div>
+            <div className="flex flex-col items-start gap-3 shrink-0">
+              <Link
+                href="/plan"
+                className="inline-flex items-center gap-2 px-[18px] py-3 bg-paper text-ink font-bold hover:bg-accent hover:text-paper transition-colors"
+              >
+                <CalendarPlus className="w-4 h-4" aria-hidden="true" />
+                Plan the week
+              </Link>
+              <span className="font-mono text-[12px] text-paper/60 uppercase tracking-[0.08em]">
+                Up to 14 nights · straight to Google Calendar
+              </span>
             </div>
           </div>
         </section>
