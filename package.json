@@ -17,6 +17,8 @@
     "audit:content": "node scripts/audit-content.mjs",
     "audit:seo": "node scripts/audit-seo.mjs",
     "report:pantry": "tsx scripts/report-pantry-coverage.ts",
+    "report:cost": "tsx scripts/report-cost-coverage.ts",
+    "build:prices": "tsx scripts/build-ingredient-prices.ts",
     "videos:check": "node scripts/check-videos.mjs",
     "videos:fetch": "node scripts/fetch-video-metadata.mjs",
     "gaps": "node scripts/content-gaps.mjs",
