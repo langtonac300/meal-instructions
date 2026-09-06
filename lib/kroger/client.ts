@@ -183,3 +183,59 @@ export async function matchIngredient(
 
   return { ingredient: item, matches, unmatched };
 }
+
+export interface ProductPrice {
+  productId: string;
+  /** Shelf price in dollars. */
+  regular: number;
+  /** Promotional price when one is running, else undefined. */
+  promo?: number;
+  /** Package size as Kroger reports it ("16 oz", "1 lb", "8 ct / 20 oz"). */
+  size?: string;
+  description?: string;
+}
+
+/**
+ * Prices already-resolved productIds at one store.
+ *
+ * Split from `searchProducts` because pricing is a different job: matching
+ * runs once and is cached in `data/kroger-matches.generated.json`, while
+ * prices go stale and are refreshed against a specific `locationId`. Kroger
+ * only returns a `price` block when a location is supplied — without one the
+ * same products come back priceless, which is why this argument is required
+ * here and optional there.
+ *
+ * Kroger caps `filter.productId` at 50 ids per call, so callers should chunk.
+ * Products the store does not carry come back with no price and are skipped
+ * rather than defaulted to zero.
+ */
+export async function fetchProductPrices(
+  productIds: string[],
+  locationId: string,
+): Promise<ProductPrice[]> {
+  if (productIds.length === 0) return [];
+  if (productIds.length > 50) {
+    throw new Error(`fetchProductPrices takes at most 50 ids, got ${productIds.length}`);
+  }
+
+  const ids = productIds.map(encodeURIComponent).join(',');
+  const url = `${API}/products?filter.productId=${ids}&filter.locationId=${encodeURIComponent(locationId)}`;
+  const json = (await krogerGet(url)) as { data?: Array<Record<string, any>> };
+
+  const priced: ProductPrice[] = [];
+  for (const p of json.data ?? []) {
+    const item = p.items?.[0];
+    const regular = item?.price?.regular;
+    // A missing or zero price means "not carried at this store". Treating that
+    // as free would silently under-cost every recipe using the ingredient.
+    if (typeof regular !== 'number' || regular <= 0) continue;
+    priced.push({
+      productId: p.productId,
+      regular,
+      promo: typeof item?.price?.promo === 'number' && item.price.promo > 0 ? item.price.promo : undefined,
+      size: item?.size,
+      description: p.description,
+    });
+  }
+  return priced;
+}
