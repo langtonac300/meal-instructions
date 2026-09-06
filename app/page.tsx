@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, CalendarPlus, Printer } from 'lucide-react';
+import { ArrowRight, CalendarPlus } from 'lucide-react';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { RECIPES } from '@/data/recipes';
@@ -9,7 +9,7 @@ import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { ALL_TOOLS } from '@/data/tools-directory';
 import { BLOG_POSTS } from '@/data/blog-posts';
 import { PANTRY_ITEMS, PANTRY_ITEM_BY_ID } from '@/data/pantry';
-import { packPageCount, topTwenty } from '@/lib/print-pack';
+import { DEFAULT_DINNER_TIME, MAX_PLAN_ITEMS, startTimeLabel } from '@/lib/plan';
 import { lookupIndex } from '@/lib/cook-time-lookup';
 import CategoryGrid from '@/components/CategoryGrid';
 import CookTimeLookup from '@/components/CookTimeLookup';
@@ -54,6 +54,12 @@ const FEATURED_GUIDES = [
 /** Quick picks under the pantry band; each opens the tool with that item already ticked. */
 const QUICK_PICKS = ['chicken-breast', 'chicken-thighs', 'ground-beef', 'pork-chops', 'shrimp', 'eggs'];
 
+/** "18:05" → "6:05 pm" for the calendar card. Display only. */
+const to12h = (hhmm: string) => {
+  const [h, m] = hhmm.split(':').map(Number);
+  return `${h % 12 || 12}:${String(m).padStart(2, '0')} ${h >= 12 ? 'pm' : 'am'}`;
+};
+
 /** "Chicken Tenders (Fresh / Uncooked)" → "Chicken Tenders" for the six-cell strip. Display only. */
 const shortFood = (food: string) => food.replace(/\s*\([^)]*\)\s*$/, '');
 
@@ -82,7 +88,11 @@ export default function HomePage() {
   };
 
   const index = lookupIndex();
-  const pageCount = packPageCount(topTwenty().length);
+  // The calendar card shows one real night: dinner at the default time means
+  // starting when the recipe's own timing says, not an invented hour (HR-2).
+  const sample = RECIPES.find((r) => r.id === '0038') ?? RECIPES[0];
+  const sampleStart = to12h(startTimeLabel(sample, DEFAULT_DINNER_TIME));
+  const sampleDinner = to12h(DEFAULT_DINNER_TIME);
   const quickPicks = QUICK_PICKS.map((id) => PANTRY_ITEM_BY_ID.get(id)).filter(
     (item): item is NonNullable<typeof item> => item !== undefined,
   );
@@ -112,8 +122,8 @@ export default function HomePage() {
             No fluff. <span className="text-accent">Just the instructions.</span>
           </h1>
           <p className="mt-4 text-[18px] text-ink-muted max-w-[60ch]">
-            Say what&rsquo;s in the fridge, pick a category, look up a temperature, or print the
-            pack. Everything on this site is one of those four things.
+            Say what&rsquo;s in the fridge, pick a category, look up a temperature, or put the
+            week on your calendar. Everything on this site is one of those four things.
           </p>
         </section>
 
@@ -217,66 +227,40 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* 3. Print a recipe pack */}
+            {/* 3. Plan the week — the retention feature: dinners on the calendar */}
             <div className="min-h-[260px] p-7 bg-paper-50 border border-hairline flex flex-col justify-between">
               <div>
                 <span className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-ink-subtle">
-                  For the fridge
+                  For the week
                 </span>
                 <h2 className="text-[28px] font-extrabold tracking-[-0.01em] leading-[1.15] mt-3.5 text-ink">
-                  Print a recipe pack
+                  Put dinner on the calendar
                 </h2>
                 <p className="mt-2.5 leading-[1.6] text-ink-muted">
-                  The top 20 dinners as PDF fridge cards — one recipe per page, no signup. Or tick
-                  your own from all {RECIPES.length}.
+                  Pick the next dinners. Each lands on your Google Calendar with the ingredients,
+                  temps, and steps, timed to start when the cooking has to start.
                 </p>
               </div>
-              <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Link
-                  href="/print-pack"
-                  className="inline-flex items-center gap-2 px-[18px] py-3 bg-ink text-paper font-bold hover:bg-accent transition-colors"
-                >
-                  <Printer className="w-4 h-4" aria-hidden="true" />
-                  Print / save as PDF
-                </Link>
-                <span className="font-mono text-[12px] text-ink-subtle uppercase tracking-[0.08em]">
-                  {pageCount} pages · letter or A4
-                </span>
+              <div className="mt-6">
+                {/* One real night from a real recipe, so the hours are the recipe's (HR-2). */}
+                <p className="font-mono text-[12px] leading-[1.6] text-ink-muted border-l-2 border-accent pl-3">
+                  <span className="text-ink font-bold">Tuesday · {sample.title}</span>
+                  <br />
+                  Start {sampleStart} → table {sampleDinner} · {sample.totalMinutes} min
+                </p>
+                <div className="mt-4 flex flex-wrap items-center gap-3">
+                  <Link
+                    href="/plan"
+                    className="inline-flex items-center gap-2 px-[18px] py-3 bg-ink text-paper font-bold hover:bg-accent transition-colors"
+                  >
+                    <CalendarPlus className="w-4 h-4" aria-hidden="true" />
+                    Plan the week
+                  </Link>
+                  <span className="font-mono text-[12px] text-ink-subtle uppercase tracking-[0.08em]">
+                    up to {MAX_PLAN_ITEMS} nights · its own calendar
+                  </span>
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Plan the week ── */}
-        <section className={`${CONTAINER} pb-14`} aria-labelledby="plan-heading">
-          <div className="p-7 sm:p-9 bg-ink text-paper flex flex-col lg:flex-row lg:items-center justify-between gap-7">
-            <div className="max-w-[62ch]">
-              <span className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">
-                Sunday, once
-              </span>
-              <h2
-                id="plan-heading"
-                className="text-[28px] sm:text-[34px] font-extrabold tracking-[-0.01em] leading-[1.12] mt-3.5"
-              >
-                Put the whole week on your calendar
-              </h2>
-              <p className="mt-3 text-[17px] leading-[1.6] text-paper/75">
-                Pick the nights, say when you eat, and every dinner lands on its own calendar —
-                carrying the ingredients, the temperature, and the steps. The reminder fires when
-                the cooking has to start, not when the food was due.
-              </p>
-            </div>
-            <div className="flex flex-col items-start gap-3 shrink-0">
-              <Link
-                href="/plan"
-                className="inline-flex items-center gap-2 px-[18px] py-3 bg-paper text-ink font-bold hover:bg-accent hover:text-paper transition-colors"
-              >
-                <CalendarPlus className="w-4 h-4" aria-hidden="true" />
-                Plan the week
-              </Link>
-              <span className="font-mono text-[12px] text-paper/60 uppercase tracking-[0.08em]">
-                Up to 14 nights · straight to Google Calendar
-              </span>
             </div>
           </div>
         </section>
