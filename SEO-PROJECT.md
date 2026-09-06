@@ -300,6 +300,7 @@ Remaining unlinked (14): Frozen chicken tenders, boneless chicken breast (AF), b
 |---|---|---|---|
 | SEO-030 | Video sitemap entries for every curated clip | **DONE** 2026-09-06 | 59/59 clips emit `<video:video>`; audit proven by stripping them from the built sitemap |
 | SEO-031 | Escape XML in sitemap video fields — SEO-030 shipped an invalid sitemap | **DONE** 2026-09-06 | built sitemap parses; audit fails on any unescaped `&`/`<` |
+| SEO-032 | Mass datasheet expansion: 378 → 683 | **DONE** 2026-09-06 | 305 records merged; all gates exit 0 |
 
 **SEO-030 — The clips were markup-only, so Google had no way to find them.**
 
@@ -351,6 +352,66 @@ about the sitemap is considered, and reports the offending text.
 
 *Verify:* `checkXmlWellFormed()` was run against the captured broken production
 sitemap and correctly identified the failing title, then against the rebuilt one.
+
+**SEO-032 — Mass datasheet expansion, 378 → 683.**
+
+The SEO engine had 378 of 4,004 possible food × appliance cells filled (9.4%), with
+356 of 364 foods documented on only one appliance. Recipes are at the HR-5 ceiling
+and cannot grow; datasheets carry no cap, so this is where volume belongs.
+
+305 datasheets authored externally (Gemini/Antigravity) against a brief that made
+provenance, not volume, the binding constraint: *500 sourced records all ship, 500
+unsourced ship none.* 308 were delivered; 305 merged.
+
+**Audited before merge, not after.** 14 checks against the repo:
+
+| Check | Result |
+|---|---|
+| `verificationBasis` on every record (HR-2) | 0 missing |
+| Duplicate `proTip`/`donenessCue`/`metaDescription` within batch (HR-4) | 0 / 0 / 0 |
+| Same, against the existing 378 | 0 / 0 / 0 |
+| Slug + ID collisions with existing corpus | 0 / 0 |
+| `tempC` conversion, `timeMin < timeMax`, slug convention | 0 bad |
+| `internalTempTargetF` omitted for veg/starch (HR-2) | 75 records correctly omit |
+| Cell already covered | **3 — dropped** |
+| Below USDA FSIS internal-temp floor | **6 — reviewed, 5 annotated** |
+
+**3 dropped as duplicate cells.** Same food × appliance as an existing datasheet under
+a different slug — two URLs competing for one query:
+`smoker-beef-tri-tip-smoker`, `boiling-bagel-parboil`, `dutch-oven-beef-brisket-braised`.
+
+**6 sub-FSIS temps reviewed, not blocked.** Seared ahi (120°F), dry-pack scallops
+(130°F), lobster tail (140–142°F) and lamb rib chops (135°F) are correct culinary
+targets that sit below the USDA blanket recommendation, each with a real source. The
+lamb record already named the FSIS delta; a one-line caveat was appended to the
+`proTip` of the other five so the page states the gap rather than leaving a reader to
+find it. Prose uniqueness was re-verified after the edit (305/305 unique).
+
+`sitemap.ts`, `llms.txt` and `llms-full.txt` all read `COOK_TIME_DATASHEETS` directly,
+so all three picked up the 305 with no further change.
+
+**The gate caught two records after merge, and the gate was right to.** `audit:content`
+rejected `instant-pot-broccoli-florets` and `instant-pot-fresh-green-beans` for a
+0-minute time floor. The numbers were not wrong: the Instant Pot has a documented
+"zero minute" pressure cook — come to pressure, release immediately — and both records
+cite the Instant Pot Official Vegetable Steaming Table for it. Changing the data to
+satisfy the gate would have meant falsifying a sourced number, which is what HR-2
+exists to prevent, so the rule was narrowed instead:
+
+```js
+const zeroMinutePressureCook =
+  appliance === 'instant-pot' && minM === 0 && pressureM === 0;
+```
+
+Every other appliance, and any instant-pot record that does not declare a 0-minute
+pressure stage, still requires a positive floor. Proven by seeding both: a 0 on a
+skillet record and a 0 on an instant-pot record without `pressureMinutes: 0` are each
+still caught.
+
+*Note for the next batch:* the delivery was exactly 28 records per appliance across
+11 appliances. That is a quota, not gap-following — the brief asked to favour thin
+appliances (skillet 31, dutch-oven 31) over well-stocked ones (oven 41), so the depth
+spread is still uneven after merge.
 
 ## 4. Sequencing rationale
 
@@ -417,6 +478,7 @@ grep -rn "aggregateRating" lib/ app/
 | 2026-08-29 | SEO-029 | Blog → Datasheet cross-links: added `relatedDatasheetSlugs` to BlogPost type, populated 43/55 posts, rendered "Verified Cook-Time Datasheets" section in blog template with emerald-bordered cards. 12 posts have no match. | pending | 43 blog HTML pages with `/how-long/` links + "Verified Datasheet" text |
 | 2026-09-06 | SEO-030 | Video sitemap. Added `durationSeconds()` + `videoSitemapEntry()` to `lib/recipe-video.ts` and a `videos:` field on recipe URLs in `app/sitemap.ts`, both driven off `data/recipe-videos.json`. `audit:seo` now asserts every curated clip has a `<video:video>` entry and that the video namespace is declared. | pending | **0 → 59** clips in the sitemap. Proven both ways: stripping the entries from the built sitemap failed the audit with 60 errors, and a simulated 60th pick appeared on its recipe URL after a rebuild with **no code change**. |
 | 2026-09-06 | SEO-031 | **Regression fix for SEO-030.** Next.js does not escape sitemap fields, so 25 unescaped `&` from YouTube titles made the production sitemap invalid XML — Search Console rejected all 852 URLs. Added `xmlEscape()` over every string in `videoSitemapEntry()`, and an XML well-formedness assertion to `audit:seo` (the SEO-030 audit only checked entries were present, never that the file parsed). | pending | live prod sitemap failed to parse at line 2501 before the fix; rebuilt sitemap parses clean with 227/227 entries intact. Checker self-tested against the captured broken file. |
+| 2026-09-06 | SEO-032 | Mass datasheet expansion. Merged 305 externally-authored datasheets into `data/cook-times.ts`, taking the SEO engine from **378 → 683**. 3 of 308 dropped as duplicate cells; 5 sub-FSIS culinary temps annotated with the USDA delta. | pending | 14 pre-merge checks: 0 missing `verificationBasis`, 0 duplicate prose within batch or against the existing corpus, 0 slug/ID collisions, 0 bad conversions. `tsc --noEmit` clean. `audit:content` then caught 2 records with a 0-minute floor — a real Instant Pot technique, so the rule was narrowed to permit it only for `instant-pot` + `pressureMinutes: 0`, proven by seeding both failure cases. All three gates exit 0. |
 
 ---
 

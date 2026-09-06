@@ -174,6 +174,7 @@ for (const block of datasheetBlocks) {
   const basis = field(block, 'verificationBasis');
   const minM = numField(block, 'timeMinMinutes');
   const maxM = numField(block, 'timeMaxMinutes');
+  const pressureM = numField(block, 'pressureMinutes');
   const tempF = numField(block, 'internalTempTargetF');
   const restMinutes = numField(block, 'restMinutes');
   const tempFormatted = field(block, 'internalTempTargetFormatted') ?? '';
@@ -189,8 +190,20 @@ for (const block of datasheetBlocks) {
     errors.push(`[Datasheet: ${slug}] Invalid appliance '${appliance}'.`);
   }
 
-  // Check valid time bounds
-  if (minM === undefined || maxM === undefined || minM <= 0 || maxM < minM) {
+  // Check valid time bounds.
+  //
+  // A 0-minute floor is normally garbage data, but the Instant Pot has a real
+  // documented "zero minute" pressure cook — bring to pressure, release
+  // immediately — that its own vegetable steaming table specifies for broccoli
+  // and green beans. Rejecting it would mean falsifying a sourced number to
+  // satisfy the gate, which is the opposite of what HR-2 asks for. So allow
+  // exactly that case: instant-pot, with pressureMinutes explicitly 0. Every
+  // other appliance, and any instant-pot record that does not declare a
+  // 0-minute pressure stage, still requires a positive floor.
+  const zeroMinutePressureCook =
+    appliance === 'instant-pot' && minM === 0 && pressureM === 0;
+  const badFloor = minM === undefined || (minM <= 0 && !zeroMinutePressureCook);
+  if (badFloor || maxM === undefined || maxM < minM) {
     errors.push(`[Datasheet: ${slug}] Invalid time range (${minM}-${maxM} mins).`);
   }
 
