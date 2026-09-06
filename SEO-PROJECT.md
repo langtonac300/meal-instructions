@@ -292,6 +292,34 @@ Remaining unlinked (14): Frozen chicken tenders, boneless chicken breast (AF), b
 
 ---
 
+---
+
+### P9 — Video discovery
+
+| ID | Task | Status | Verify |
+|---|---|---|---|
+| SEO-030 | Video sitemap entries for every curated clip | **DONE** 2026-09-06 | 59/59 clips emit `<video:video>`; audit proven by stripping them from the built sitemap |
+
+**SEO-030 — The clips were markup-only, so Google had no way to find them.**
+
+`lib/recipe-video.ts` already emitted a `VideoObject` on each recipe page, which makes the
+page *eligible* for a video result. Nothing told Google the clips existed. `app/sitemap.ts`
+had **zero** `videos:` fields across all 852 URLs — the discovery half of the work was
+missing, so the curation and the API verification were paying for one benefit instead of two.
+
+The entry is built from the same record as the `VideoObject`, looked up by slug against
+`data/recipe-videos.json`. A clip added to that file appears in the sitemap on the next
+build with **no code change** — verified by simulation, not assumed (see Done Log).
+
+Field choices, all HR-2-driven:
+- `player_loc`, not `content_loc` — `content_loc` must point at a raw media file we serve.
+- `duration` converted ISO 8601 → seconds, and **omitted** when it does not parse or falls
+  outside the 1–28800s Google accepts, rather than guessed.
+- `family_friendly` **omitted deliberately** — nobody rated these clips, and omitting is
+  already Google's default. Asserting it would be a number with no basis.
+- Titles and dates stay verbatim from the API; the audit warns at the 100-char
+  `<video:title>` limit rather than silently truncating curated data.
+
 ## 4. Sequencing rationale
 
 P1 outranks everything structural because fabricated review markup and 404 schema images carry **penalty and validation-failure risk** — they can actively suppress rankings, whereas a missing breadcrumb merely fails to help. P0 outranks P1 only because we cannot verify a P1 fix without a working build.
@@ -355,6 +383,7 @@ grep -rn "aggregateRating" lib/ app/
 | 2026-08-29 | SEO-027 | Recipe → Datasheet cross-links: 25 recipe pages now render "Verified Cook-Time Datasheet" callout with temp/time/internal/flip/rest/doneness + `isBasedOn` JSON-LD. Fully bidirectional with existing datasheet→recipe links. | pending | 25 HTML pages with `/how-long/` link + `isBasedOn` |
 | 2026-08-29 | SEO-028 | Expanded `relatedRecipeSlug` from 25 → 46 datasheets (+21 new links). All 35 unlinked datasheets cross-referenced against 70 recipes; 21 matches found, 14 have no viable recipe. Coverage: 42% → 77%. | pending | 46 HTML pages with `/how-long/` link + `isBasedOn` |
 | 2026-08-29 | SEO-029 | Blog → Datasheet cross-links: added `relatedDatasheetSlugs` to BlogPost type, populated 43/55 posts, rendered "Verified Cook-Time Datasheets" section in blog template with emerald-bordered cards. 12 posts have no match. | pending | 43 blog HTML pages with `/how-long/` links + "Verified Datasheet" text |
+| 2026-09-06 | SEO-030 | Video sitemap. Added `durationSeconds()` + `videoSitemapEntry()` to `lib/recipe-video.ts` and a `videos:` field on recipe URLs in `app/sitemap.ts`, both driven off `data/recipe-videos.json`. `audit:seo` now asserts every curated clip has a `<video:video>` entry and that the video namespace is declared. | pending | **0 → 59** clips in the sitemap. Proven both ways: stripping the entries from the built sitemap failed the audit with 60 errors, and a simulated 60th pick appeared on its recipe URL after a rebuild with **no code change**. |
 
 ---
 

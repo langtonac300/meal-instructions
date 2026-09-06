@@ -16,7 +16,11 @@
  * gate to run before committing a new batch.
  */
 
+import type { MetadataRoute } from 'next';
 import videosJson from '@/data/recipe-videos.json';
+
+/** One entry in the `videos` array Next.js accepts on a sitemap URL. */
+type Videos = NonNullable<MetadataRoute.Sitemap[number]['videos']>[number];
 
 export interface RecipeVideo {
   /** Recipe this clip belongs to. */
@@ -92,5 +96,57 @@ export function videoSchema(video: RecipeVideo): Record<string, unknown> | null 
       name: video.channel,
       url: video.channelUrl,
     },
+  };
+}
+
+/** "PT1H4M13S" → 3853. Null when the string is not a duration. */
+export function durationSeconds(iso: string): number | null {
+  const m = /^P(?:(\d+)D)?T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/.exec(iso);
+  if (!m) return null;
+  const days = Number(m[1] ?? 0);
+  const hours = Number(m[2] ?? 0);
+  const minutes = Number(m[3] ?? 0);
+  const seconds = Number(m[4] ?? 0);
+  return ((days * 24 + hours) * 60 + minutes) * 60 + seconds;
+}
+
+/**
+ * One `<video:video>` entry for the sitemap, for the recipe page the clip sits on.
+ *
+ * This is the discovery half of the work the VideoObject does on the page: the
+ * markup makes a page *eligible* for the video badge, the sitemap is how Google
+ * finds out the video is there at all. Both read the same record, so a clip
+ * added to data/recipe-videos.json shows up in both without a code change.
+ *
+ * Same shape of skip rule as videoSchema(): Google requires title, description,
+ * thumbnail_loc, and one of content_loc / player_loc, and a record missing any
+ * of them is skipped rather than emitted half-built. One deliberate difference —
+ * uploadDate is required for a VideoObject but publication_date is optional in a
+ * video sitemap, so a record without one still earns an entry here.
+ *
+ * Field choices worth knowing:
+ * - `player_loc`, not `content_loc`. content_loc must point at a raw media file
+ *   we serve; these clips are on YouTube, so the embed URL is the honest answer.
+ * - `duration` is omitted, not guessed, when the ISO string does not parse or
+ *   falls outside the 1–28800s Google accepts (HR-2).
+ * - `family_friendly` is omitted deliberately. Nobody rated these clips, and
+ *   omitting is what Google already assumes — asserting it would be a number
+ *   with no basis.
+ */
+export function videoSitemapEntry(video: RecipeVideo): Videos | null {
+  if (!video.title || !video.why || !video.thumbnailUrl || !video.youtubeId) return null;
+
+  const secs = durationSeconds(video.duration);
+
+  return {
+    title: video.title,
+    description: video.why,
+    thumbnail_loc: video.thumbnailUrl,
+    player_loc: `https://www.youtube.com/embed/${video.youtubeId}`,
+    ...(secs !== null && secs >= 1 && secs <= 28800 ? { duration: secs } : {}),
+    ...(video.uploadDate ? { publication_date: video.uploadDate } : {}),
+    ...(video.channel
+      ? { uploader: { content: video.channel, ...(video.channelUrl ? { info: video.channelUrl } : {}) } }
+      : {}),
   };
 }

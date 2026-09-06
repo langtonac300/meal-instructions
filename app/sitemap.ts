@@ -6,6 +6,7 @@ import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { BLOG_POSTS } from '@/data/blog-posts';
 import { TOP_10_GUIDES } from '@/data/top-10-lists';
 import { MERCH_PRODUCTS } from '@/data/merch';
+import { getRecipeVideo, videoSitemapEntry } from '@/lib/recipe-video';
 import { getSiteUrl, absoluteUrl } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -263,12 +264,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.95,
   }));
 
-  const recipePages: MetadataRoute.Sitemap = RECIPES.map((recipe) => ({
-    url: absoluteUrl(`/recipes/${recipe.slug}`),
-    lastModified: new Date(recipe.lastUpdated),
-    changeFrequency: 'weekly',
-    priority: 0.85,
-  }));
+  // Recipes that carry a curated clip also carry a <video:video> entry. The
+  // lookup is by slug against data/recipe-videos.json, so a clip added to that
+  // file lands in the sitemap on the next build with no change here.
+  const recipePages: MetadataRoute.Sitemap = RECIPES.map((recipe) => {
+    const video = getRecipeVideo(recipe.slug);
+    const entry = video ? videoSitemapEntry(video) : null;
+    return {
+      url: absoluteUrl(`/recipes/${recipe.slug}`),
+      lastModified: new Date(recipe.lastUpdated),
+      changeFrequency: 'weekly' as const,
+      priority: 0.85,
+      ...(entry ? { videos: [entry] } : {}),
+    };
+  });
 
   const blogPages: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
     url: absoluteUrl(`/blog/${post.slug}`),
