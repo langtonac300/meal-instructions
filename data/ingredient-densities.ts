@@ -138,6 +138,14 @@ export const INGREDIENT_DENSITIES: Record<string, IngredientDensity> = {
   'cayenne pepper': { gramsPerCup: 86.4, basis: `${USDA} #170932 (Spices, pepper, red or cayenne): 1 tsp = 1.8g` },
   'ground cinnamon': { gramsPerCup: 124.8, basis: `${USDA} #171320 (Spices, cinnamon, ground): 1 tsp = 2.6g` },
 
+  // Published directly as a cup measure, so no conversion and no ambiguity
+  // about form — unlike the broth and cumin entries, which USDA only carries
+  // as condensed and as whole seed respectively and which stay gaps.
+  'worcestershire sauce': {
+    gramsPerCup: 275,
+    basis: `${USDA} #171610 (Sauce, worcestershire): 1 cup = 275g`,
+  },
+
   'italian seasoning': { gramsPerCup: 112, basis: `${KAB}: Italian Herb Seasoning 2 tbsp = 14g` },
   'caraway seed': { gramsPerCup: 144, basis: `${KAB}: Caraway seeds 2 tbsp = 18g` },
 };

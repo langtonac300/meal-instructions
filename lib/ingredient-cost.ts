@@ -150,6 +150,33 @@ function singularise(s: string): string {
 }
 
 /**
+ * Synonyms that canonicalise to different strings but name the same product.
+ *
+ * Applied as the last step of `canonicalIngredient`, so the price table and
+ * the costing pass agree by construction — the alternative is two maps that
+ * drift, which is the failure this repo already paid for once in its MCP tool
+ * definitions.
+ *
+ * Deliberately conservative: only pairs where the two names denote the same
+ * thing on a shelf. Not aliased, though they look tempting:
+ *
+ *   sea salt -> kosher salt        flaky finishing salt is a different SKU
+ *                                  at several times the price per ounce
+ *   san marzano -> whole peeled    San Marzano is a protected designation and
+ *                                  costs roughly double plain canned tomatoes
+ */
+const INGREDIENT_ALIASES: Record<string, string> = {
+  cayenne: 'cayenne pepper',
+  parmesan: 'parmesan cheese',
+  scallion: 'green onion',
+  'sweet paprika': 'paprika',
+  // "neutral oil" is a recipe-writing convention meaning exactly this.
+  'neutral oil': 'vegetable oil',
+  'neutral frying oil': 'vegetable oil',
+  'neutral vegetable oil': 'vegetable oil',
+};
+
+/**
  * Reduces a recipe `Ingredient.item` to a stable key.
  *
  * Mirrors the intent of `lib/kroger/normalize.ts` but answers a different
@@ -176,8 +203,8 @@ export function canonicalIngredient(item: string): string {
   }
 
   s = s.replace(TRAILING_FORM, '');
-  s = singularise(s);
-  return s.trim();
+  s = singularise(s).trim();
+  return INGREDIENT_ALIASES[s] ?? s;
 }
 
 /* --------------------------------------------------------- package parsing */
@@ -205,6 +232,15 @@ export interface ParsedPackage {
  *
  * Returns null rather than a guess for anything unrecognised ("1 each",
  * "large"); the caller then reports the line as un-costable.
+ *
+ * KNOWN LIMITATION: a bare "oz" is read as WEIGHT. For liquids that is
+ * probably wrong — Kroger reports a Swanson broth carton as "32 oz" where the
+ * carton itself says 32 FL oz, and 32 fl oz of broth weighs about 964g rather
+ * than the 907g this returns. The resulting bias is around 6% and always in
+ * the same direction (over-costing the liquid), which is small next to the
+ * ingredients it sits beside. It is left alone because separating the two
+ * needs a liquid/solid signal the size string does not carry, and guessing
+ * from the ingredient name would be a rule with no source behind it.
  */
 export function parsePackageSize(size: string): ParsedPackage | null {
   if (!size) return null;
