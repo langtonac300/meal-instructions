@@ -18,6 +18,17 @@ export const ALL_TOOLS: ToolEntry[] = [
       'Tick the meat, produce, spices, and condiments you have. Every meal you can cook tonight shows up, with what to grab for the near-misses.',
     iconName: 'fork',
   },
+  // The week planner — the other "what's for dinner" entry point, one step on
+  // from the pantry matcher: not tonight, but the next seven nights.
+  {
+    href: '/plan',
+    title: 'Week Planner & Calendar Sync',
+    badge: 'STRAIGHT TO YOUR CALENDAR',
+    category: 'planning',
+    description:
+      'Pick the next few nights, say when you eat, and push them to Google Calendar with the ingredients, temps, and steps attached.',
+    iconName: 'fork',
+  },
   // 1-10: Original 10 Core Engines
   {
     href: '/air-fryer-calculator',

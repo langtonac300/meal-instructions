@@ -35,6 +35,11 @@ const NAV_ITEMS: NavItem[] = [
     isActive: (p) => p.startsWith('/what-can-i-make'),
   },
   {
+    label: 'Plan the week',
+    href: '/plan',
+    isActive: (p) => p.startsWith('/plan'),
+  },
+  {
     label: 'Recipes',
     href: '/categories',
     isActive: (p) => p.startsWith('/categories') || p.startsWith('/recipes'),
@@ -116,7 +121,7 @@ export default function Navbar() {
 
           {/* Center nav */}
           <nav
-            className="hidden lg:flex items-center gap-5 xl:gap-7 text-[14px] text-ink-muted"
+            className="hidden lg:flex items-center gap-4 xl:gap-6 text-[14px] text-ink-muted"
             aria-label="Primary"
           >
             {NAV_ITEMS.map((item) => {
@@ -148,7 +153,7 @@ export default function Navbar() {
               aria-label="Search"
             >
               <Search className="w-[15px] h-[15px] text-ink-subtle" aria-hidden="true" />
-              <span className="hidden sm:inline">Search</span>
+              <span className="hidden sm:inline lg:hidden xl:inline">Search</span>
             </button>
 
             {/* Auth. The sign-in button stays in the bar on every width — on
@@ -190,7 +195,7 @@ export default function Navbar() {
                   className="flex items-center gap-2 px-3 sm:px-4 py-2.5 bg-ink text-paper hover:bg-accent transition-colors text-[14px] font-semibold cursor-pointer whitespace-nowrap"
                 >
                   <LogIn className="w-[15px] h-[15px]" aria-hidden="true" />
-                  {/* Six nav items plus this label do not fit between lg and xl. */}
+                  {/* Seven nav items plus this label do not fit between lg and xl. */}
                   <span className="lg:hidden xl:inline">Sign in with Google</span>
                   <span className="hidden lg:inline xl:hidden">Sign in</span>
                 </button>

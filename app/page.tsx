@@ -1,15 +1,15 @@
+import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, CalendarPlus } from 'lucide-react';
+import Image from 'next/image';
+import { CalendarPlus } from 'lucide-react';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
-import { RECIPES } from '@/data/recipes';
+import { RECIPES, getRecipeBySlug } from '@/data/recipes';
 import { CATEGORIES } from '@/data/categories';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { ALL_TOOLS } from '@/data/tools-directory';
 import { BLOG_POSTS } from '@/data/blog-posts';
-import { PANTRY_ITEMS, PANTRY_ITEM_BY_ID } from '@/data/pantry';
-import { DEFAULT_DINNER_TIME, MAX_PLAN_ITEMS, startTimeLabel } from '@/lib/plan';
 import { lookupIndex } from '@/lib/cook-time-lookup';
 import CategoryGrid from '@/components/CategoryGrid';
 import CookTimeLookup from '@/components/CookTimeLookup';
@@ -51,14 +51,49 @@ const FEATURED_GUIDES = [
   },
 ];
 
-/** Quick picks under the pantry band; each opens the tool with that item already ticked. */
-const QUICK_PICKS = ['chicken-breast', 'chicken-thighs', 'ground-beef', 'pork-chops', 'shrimp', 'eggs'];
+/**
+ * The eight mains that lead the page, in the order they appear.
+ *
+ * One axis leads — ingredient, because that is how people arrive ("I have
+ * chicken", not "I want a one-pan night"). `have` is the pantry vocabulary,
+ * so a tile and a hero chip open the same tool in the same state: the browse
+ * path and the tool stopped being two features.
+ *
+ * `photo` names a real recipe. Nothing here invents an image or a count.
+ */
+const MAINS = [
+  { label: 'Chicken', have: 'chicken-breast', photo: 'crispy-air-fryer-chicken-tenders' },
+  { label: 'Ground beef', have: 'ground-beef', photo: '15-minute-skillet-beef-taco-meat' },
+  { label: 'Steak', have: 'steak', photo: 'cast-iron-butter-basted-ribeye' },
+  { label: 'Wings', have: 'chicken-wings', photo: 'air-fryer-crispy-garlic-parm-wings' },
+  { label: 'Salmon & fish', have: 'salmon,white-fish', photo: 'air-fryer-10-minute-garlic-butter-salmon' },
+  { label: 'Ribs & brisket', have: 'pork-ribs,brisket', photo: 'smoker-st-louis-pork-ribs-3-2-1' },
+  { label: 'Pork chops', have: 'pork-chops', photo: 'air-fryer-crispy-parmesan-pork-chops' },
+  { label: 'Eggs', have: 'eggs', photo: 'air-fryer-hard-boiled-eggs' },
+] as const;
 
-/** "18:05" → "6:05 pm" for the calendar card. Display only. */
-const to12h = (hhmm: string) => {
-  const [h, m] = hhmm.split(':').map(Number);
-  return `${h % 12 || 12}:${String(m).padStart(2, '0')} ${h >= 12 ? 'pm' : 'am'}`;
-};
+/** The mains that do not get a picture. Same destination, lower visual weight. */
+const ALSO_MAINS = [
+  { label: 'Chicken thighs', have: 'chicken-thighs' },
+  { label: 'Bacon', have: 'bacon' },
+  { label: 'Sausage', have: 'sausage' },
+  { label: 'Turkey', have: 'ground-turkey' },
+  { label: 'Shrimp', have: 'shrimp' },
+  { label: 'Pasta', have: 'pasta' },
+  { label: 'Rice', have: 'rice' },
+  { label: 'Potatoes', have: 'potatoes' },
+] as const;
+
+/** Hero chips. The same axis as the tiles, one tap from the top of the page. */
+const HERO_CHIPS = [
+  { label: 'Chicken', have: 'chicken-breast' },
+  { label: 'Ground beef', have: 'ground-beef' },
+  { label: 'Steak', have: 'steak' },
+  { label: 'Pork', have: 'pork-chops' },
+  { label: 'Shrimp', have: 'shrimp' },
+  { label: 'Salmon', have: 'salmon' },
+  { label: 'Eggs', have: 'eggs' },
+] as const;
 
 /** "Chicken Tenders (Fresh / Uncooked)" → "Chicken Tenders" for the six-cell strip. Display only. */
 const shortFood = (food: string) => food.replace(/\s*\([^)]*\)\s*$/, '');
@@ -88,14 +123,6 @@ export default function HomePage() {
   };
 
   const index = lookupIndex();
-  // The calendar card shows one real night: dinner at the default time means
-  // starting when the recipe's own timing says, not an invented hour (HR-2).
-  const sample = RECIPES.find((r) => r.id === '0038') ?? RECIPES[0];
-  const sampleStart = to12h(startTimeLabel(sample, DEFAULT_DINNER_TIME));
-  const sampleDinner = to12h(DEFAULT_DINNER_TIME);
-  const quickPicks = QUICK_PICKS.map((id) => PANTRY_ITEM_BY_ID.get(id)).filter(
-    (item): item is NonNullable<typeof item> => item !== undefined,
-  );
   // First six distinct air-fryer foods in datasheet order. Deduped on the
   // display name so fresh/frozen variants of one food don't take two cells.
   const airFryer = COOK_TIME_DATASHEETS.filter((d) => d.appliance === 'air-fryer')
@@ -116,151 +143,174 @@ export default function HomePage() {
       {/* Body type is 15px on the home page (13px elsewhere): the density
           reduction is part of the redesign, scoped here rather than global. */}
       <div className="bg-paper text-ink text-[15px] leading-[1.55]">
-        {/* ── Hero ── */}
-        <section className={`${CONTAINER} pt-14 pb-10`}>
-          <h1 className="font-sans text-[40px] sm:text-[52px] font-black tracking-[-0.02em] leading-[1.02] uppercase max-w-[640px]">
-            No fluff. <span className="text-accent">Just the instructions.</span>
-          </h1>
-          <p className="mt-4 text-[18px] text-ink-muted max-w-[60ch]">
-            Say what&rsquo;s in the fridge, pick a category, look up a temperature, or put the
-            week on your calendar. Everything on this site is one of those four things.
-          </p>
-        </section>
-
-        {/* ── What can I make ── */}
-        <section className={`${CONTAINER} pb-10`} aria-labelledby="pantry-heading">
-          <div className="border-y border-ink py-7 grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_auto] gap-x-12 gap-y-5 md:items-center">
-            <div>
-              <span className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">
-                Tonight
-              </span>
-              <h2
-                id="pantry-heading"
-                className="text-[28px] sm:text-[32px] font-extrabold tracking-[-0.01em] leading-[1.15] mt-2.5 text-ink"
-              >
-                What can I make with what&rsquo;s in the house?
-              </h2>
-              <p className="mt-2.5 leading-[1.6] text-ink-muted max-w-[60ch]">
-                Tap the protein in the house, answer a question or two, and every meal you can
-                cook tonight shows up — with what you&rsquo;d need to grab for the near-misses.
-              </p>
-              <ul className="mt-4 flex flex-wrap items-center gap-2" aria-label="Start with">
-                <li className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-ink-subtle mr-1">
-                  Start with
+        {/* ── The one way in ── */}
+        <section className="bg-ink text-paper" aria-labelledby="hero-heading">
+          <div className={`${CONTAINER} pt-13 pb-14`}>
+            <h1
+              id="hero-heading"
+              className="font-sans text-[38px] sm:text-[52px] font-black tracking-[-0.025em] leading-[1.04] max-w-[22ch]"
+            >
+              What have you got in the house?
+            </h1>
+            <p className="mt-4 text-[18px] sm:text-[20px] leading-[1.5] text-paper/75 max-w-[56ch]">
+              Tap it. Every meal you can cook tonight comes back, plus the near-misses and the one
+              thing you&rsquo;d need to grab.
+            </p>
+            <ul className="mt-7 flex flex-wrap items-center gap-3">
+              {HERO_CHIPS.map((chip) => (
+                <li key={chip.have}>
+                  <Link
+                    href={`/what-can-i-make?have=${chip.have}`}
+                    className="inline-block px-5 py-3.5 border border-paper/50 text-[17px] sm:text-[19px] hover:bg-paper hover:text-ink transition-colors"
+                  >
+                    {chip.label}
+                  </Link>
                 </li>
-                {quickPicks.map((item) => (
-                  <li key={item.id}>
-                    <Link
-                      href={`/what-can-i-make?have=${item.id}`}
-                      className="inline-block px-3 py-[6px] bg-paper-50 border border-hairline text-[14px] text-ink hover:border-ink transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="flex flex-col items-start md:items-end gap-2.5 shrink-0">
-              <Link
-                href="/what-can-i-make"
-                className="inline-flex items-center gap-2 px-[22px] py-[14px] bg-ink text-paper text-[16px] font-bold hover:bg-accent transition-colors"
-              >
-                Find my meals
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Link>
-              <span className="font-mono text-[12px] text-ink-subtle uppercase tracking-[0.08em]">
-                {RECIPES.length} meals · {PANTRY_ITEMS.length} ingredients
-              </span>
-            </div>
+              ))}
+              <li>
+                <Link
+                  href="/what-can-i-make"
+                  className="inline-block px-5 py-3.5 border border-paper/50 text-[17px] sm:text-[19px] hover:bg-paper hover:text-ink transition-colors"
+                >
+                  Just veg
+                </Link>
+              </li>
+            </ul>
+            <p className="mt-4 text-[15px] sm:text-[16px] text-paper/60">
+              Tap one to start. It asks a question or two, then shows the meals.
+            </p>
           </div>
         </section>
 
-        {/* ── Three starting points ── */}
-        <section className={`${CONTAINER} pb-14`} aria-label="Starting points">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {/* 1. Recipes by category */}
-            <div className="min-h-[260px] p-7 bg-ink text-paper flex flex-col justify-between">
-              <div>
-                <span className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">
-                  Start here
-                </span>
-                <h2 className="text-[28px] font-extrabold tracking-[-0.01em] leading-[1.15] mt-3.5">
-                  Recipes by category
-                </h2>
-                <p className="mt-2.5 leading-[1.6] text-paper/75">
-                  15-minute, kid-approved, high-protein, from-frozen. {CATEGORIES.length === 12 ? 'Twelve' : CATEGORIES.length} ways
-                  in, {RECIPES.length} meals behind them.
-                </p>
-              </div>
-              <div className="mt-6 flex items-center justify-between gap-4">
-                <Link
-                  href="/categories"
-                  className="inline-block px-[18px] py-3 bg-paper text-ink font-bold hover:bg-accent hover:text-paper transition-colors"
-                >
-                  Browse categories
-                </Link>
-                <span className="font-mono text-[12px] text-paper/60">
-                  {CATEGORIES.length} / {RECIPES.length}
-                </span>
-              </div>
-            </div>
+        {/* ── The same axis, browsable ── */}
+        <section className={`${CONTAINER} pt-11`} aria-labelledby="mains-heading">
+          <div className="flex flex-wrap items-baseline justify-between gap-5 pb-[18px] border-b border-ink">
+            <h2
+              id="mains-heading"
+              className="text-[26px] sm:text-[30px] font-extrabold tracking-[-0.015em] uppercase"
+            >
+              Or just browse the mains
+            </h2>
+            <span className="text-[16px] text-ink-muted">
+              Same list as the chips above, without the questions.
+            </span>
+          </div>
 
-            {/* 2. Look up a cook time */}
-            <div className="min-h-[260px] p-7 bg-paper-50 border border-hairline flex flex-col justify-between">
-              <div>
-                <span className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-ink-subtle">
-                  Already cooking
-                </span>
-                <h2 className="text-[28px] font-extrabold tracking-[-0.01em] leading-[1.15] mt-3.5 text-ink">
-                  Look up a cook time
-                </h2>
-                <p className="mt-2.5 leading-[1.6] text-ink-muted">
-                  Temperature, total time, when to flip, and the internal target you pull at.
-                </p>
-              </div>
-              <div className="mt-6">
-                <CookTimeLookup
-                  datasheets={index.datasheets}
-                  recipes={index.recipes}
-                  datasheetCount={COOK_TIME_DATASHEETS.length}
-                />
-              </div>
-            </div>
-
-            {/* 3. Plan the week — the retention feature: dinners on the calendar */}
-            <div className="min-h-[260px] p-7 bg-paper-50 border border-hairline flex flex-col justify-between">
-              <div>
-                <span className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-ink-subtle">
-                  For the week
-                </span>
-                <h2 className="text-[28px] font-extrabold tracking-[-0.01em] leading-[1.15] mt-3.5 text-ink">
-                  Put dinner on the calendar
-                </h2>
-                <p className="mt-2.5 leading-[1.6] text-ink-muted">
-                  Pick the next dinners. Each lands on your Google Calendar with the ingredients,
-                  temps, and steps, timed to start when the cooking has to start.
-                </p>
-              </div>
-              <div className="mt-6">
-                {/* One real night from a real recipe, so the hours are the recipe's (HR-2). */}
-                <p className="font-mono text-[12px] leading-[1.6] text-ink-muted border-l-2 border-accent pl-3">
-                  <span className="text-ink font-bold">Tuesday · {sample.title}</span>
-                  <br />
-                  Start {sampleStart} → table {sampleDinner} · {sample.totalMinutes} min
-                </p>
-                <div className="mt-4 flex flex-wrap items-center gap-3">
+          <ul className="mt-5 grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {MAINS.map((main) => {
+              const recipe = getRecipeBySlug(main.photo);
+              return (
+                <li key={main.label}>
                   <Link
-                    href="/plan"
-                    className="inline-flex items-center gap-2 px-[18px] py-3 bg-ink text-paper font-bold hover:bg-accent transition-colors"
+                    href={`/what-can-i-make?have=${main.have}`}
+                    className="group block bg-paper-50 border border-hairline hover:border-ink transition-colors"
                   >
-                    <CalendarPlus className="w-4 h-4" aria-hidden="true" />
-                    Plan the week
+                    <div className="h-[130px] sm:h-[160px] bg-paper-200 overflow-hidden">
+                      {recipe?.image && (
+                        // Explicit dimensions rather than `fill`: with `fill` the
+                        // browser resolves srcset before the container has layout
+                        // and can fall back to the largest candidate — two of these
+                        // eight tiles were pulling the 3840px variant of an 800 KB
+                        // photo for a 160px-tall box.
+                        <Image
+                          src={recipe.image}
+                          alt=""
+                          width={600}
+                          height={448}
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 300px"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      )}
+                    </div>
+                    <div className="px-4 sm:px-[18px] py-[15px] text-[18px] sm:text-[20px] font-bold group-hover:text-accent transition-colors">
+                      {main.label}
+                    </div>
                   </Link>
-                  <span className="font-mono text-[12px] text-ink-subtle uppercase tracking-[0.08em]">
-                    up to {MAX_PLAN_ITEMS} nights · its own calendar
-                  </span>
-                </div>
+                </li>
+              );
+            })}
+          </ul>
+
+          <p className="mt-[22px] text-[17px] leading-[1.7] text-ink-muted">
+            Also:{' '}
+            {ALSO_MAINS.map((item, i) => (
+              <React.Fragment key={item.have}>
+                {i > 0 && ' · '}
+                <Link
+                  href={`/what-can-i-make?have=${item.have}`}
+                  className="text-ink hover:text-accent transition-colors"
+                >
+                  {item.label}
+                </Link>
+              </React.Fragment>
+            ))}
+          </p>
+        </section>
+
+        {/* ── Secondary axis, one line ── */}
+        <section className={`${CONTAINER} mt-13`} aria-labelledby="night-heading">
+          <div className="py-[26px] border-y border-hairline">
+            <h2
+              id="night-heading"
+              className="font-mono text-[12px] uppercase tracking-[0.16em] text-ink-subtle font-bold"
+            >
+              Or by the kind of night it is
+            </h2>
+            <p className="mt-3.5 text-[18px] sm:text-[19px] leading-[1.8]">
+              {CATEGORIES.map((cat, i) => (
+                <React.Fragment key={cat.slug}>
+                  {i > 0 && ' · '}
+                  <Link
+                    href={`/categories/${cat.slug}`}
+                    className="text-ink hover:text-accent transition-colors"
+                  >
+                    {cat.name}
+                  </Link>
+                </React.Fragment>
+              ))}
+            </p>
+          </div>
+        </section>
+
+        {/* ── Two utilities ── */}
+        <section className={`${CONTAINER} mt-11 pb-16`} aria-label="Cook times and the week planner">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
+            <div className="bg-paper-50 border border-hairline p-[26px] flex flex-col">
+              <h3 className="text-[22px] sm:text-[24px] font-extrabold tracking-[-0.01em]">
+                Already cooking?
+              </h3>
+              <p className="mt-2.5 text-[17px] leading-[1.55] text-ink-muted">
+                Temperature, total time, when to flip, and the internal target you pull at.{' '}
+                {COOK_TIME_DATASHEETS.length} verified datasheets.
+              </p>
+              <Link
+                href="/how-long"
+                className="inline-block mt-4 text-[17px] font-semibold hover:text-accent transition-colors"
+              >
+                Look up a cook time →
+              </Link>
+            </div>
+
+            <div className="bg-paper-50 border border-hairline p-[26px] flex flex-col">
+              <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-subtle font-bold mb-3">
+                <CalendarPlus className="w-3.5 h-3.5" aria-hidden="true" />
+                Google Calendar
               </div>
+              <h3 className="text-[22px] sm:text-[24px] font-extrabold tracking-[-0.01em]">
+                Add to your Google Calendar
+              </h3>
+              <p className="mt-2.5 text-[17px] leading-[1.55] text-ink-muted">
+                Every recipe page has an <strong className="text-ink font-semibold">Add to Google
+                Calendar</strong> button. It lands on the night with the ingredients, temps and
+                steps — timed to start when the cooking has to start.
+              </p>
+              <Link
+                href="/plan"
+                className="inline-flex items-center gap-2.5 self-start mt-4 px-[18px] py-3 bg-ink text-paper text-[16px] font-bold hover:bg-accent transition-colors"
+              >
+                <CalendarPlus className="w-4 h-4" aria-hidden="true" />
+                Plan the week
+              </Link>
             </div>
           </div>
         </section>

@@ -40,6 +40,24 @@ export async function GET(req: NextRequest) {
   const res = NextResponse.redirect(new URL(`${returnTo}?calendar=connected`, url.origin));
   const secure = process.env.NODE_ENV === 'production';
 
+  // A missing or zero expires_in would set maxAge 0, which tells the browser to
+  // drop the cookie immediately — the connection would report success and then
+  // be gone on the very next request. Google documents 3600; fall back to it
+  // rather than trusting the field blindly.
+  const accessMaxAge =
+    Number.isFinite(tokens.expiresIn) && tokens.expiresIn > 0 ? tokens.expiresIn : 3600;
+
+  // Names and presence only — never the token values.
+  console.log(
+    '[calendar] exchange ok: access=%s refresh=%s expires_in=%s maxAge=%s host=%s secure=%s',
+    Boolean(tokens.accessToken),
+    Boolean(tokens.refreshToken),
+    tokens.expiresIn,
+    accessMaxAge,
+    url.host,
+    secure,
+  );
+
   // Tokens stay server-side: /api/calendar/sync reads these cookies and calls
   // Google itself. Page JavaScript never sees them.
   res.cookies.set(COOKIE.accessToken, tokens.accessToken, {
@@ -47,7 +65,7 @@ export async function GET(req: NextRequest) {
     secure,
     sameSite: 'lax',
     path: '/',
-    maxAge: tokens.expiresIn,
+    maxAge: accessMaxAge,
   });
   if (tokens.refreshToken) {
     res.cookies.set(COOKIE.refreshToken, tokens.refreshToken, {

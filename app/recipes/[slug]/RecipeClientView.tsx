@@ -24,6 +24,7 @@ import { householdServings, readProfile } from '@/lib/profile';
 
 import KrogerCartPanel from '@/components/KrogerCartPanel';
 import MealActions from '@/components/MealActions';
+import PlanFab from '@/components/PlanFab';
 import RecipeVideo from '@/components/RecipeVideo';
 import type { ResolvedIngredient } from '@/lib/kroger/matches';
 import type { RecipeVideo as RecipeVideoData } from '@/lib/recipe-video';
@@ -840,6 +841,10 @@ export default function RecipeClientView({
           })}
         </section>
       )}
+
+      {/* Floating "plan this" — the quick path from a recipe to a calendar
+          entry, without scrolling to the bottom or leaving the page. */}
+      {mealsEnabled && <PlanFab recipeSlug={recipe.slug} />}
 
       {/* ── 13. Save & rate ── */}
       {mealsEnabled && (

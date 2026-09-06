@@ -22,7 +22,13 @@ import { abs } from '@/lib/site';
 const AUTHORIZE_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
 const TOKEN_URL = 'https://oauth2.googleapis.com/token';
 
-/** Create and manage only calendars this app created. Sensitive, not restricted. */
+/**
+ * Create and manage only the calendars this app created.
+ *
+ * Google classifies it non-sensitive, so it needs no app verification — the
+ * grant cannot reach anything that already exists on the account, which is the
+ * whole reason to prefer it over calendar.events.
+ */
 export const CALENDAR_SCOPE = 'https://www.googleapis.com/auth/calendar.app.created';
 
 /** Cookie names. All httpOnly — none may be readable from page JavaScript. */
