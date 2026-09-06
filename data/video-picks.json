@@ -1,3 +1,104 @@
 {
-  "picks": []
+  "picks": [
+    {
+      "slug": "crispy-air-fryer-chicken-tenders",
+      "youtubeId": "YPrWtuYedCI",
+      "why": "Demonstrates the egg and seasoned panko dredging setup, oil spraying for golden color, and spacing tenders in the air fryer basket."
+    },
+    {
+      "slug": "air-fryer-juicy-bacon-cheeseburgers",
+      "youtubeId": "O1T1JRKlSQ8",
+      "why": "Demonstrates patty dimpling to prevent puffing, spacing patties in the air fryer basket, and topping with cheese under residual heat."
+    },
+    {
+      "slug": "air-fryer-10-minute-garlic-butter-salmon",
+      "youtubeId": "gbeZAN0mOi8",
+      "why": "Demonstrates seasoning salmon fillets skin-side down, air frying without flipping, and testing for flaky doneness."
+    },
+    {
+      "slug": "cast-iron-lacy-edge-smash-burgers",
+      "youtubeId": "-EAQvw0Ml5g",
+      "why": "Shows the two-spatula smash and the 30-second sear that gets the lacy crust."
+    },
+    {
+      "slug": "sheet-pan-chicken-fajitas",
+      "youtubeId": "NQA7vQk3RNk",
+      "why": "Shows slicing chicken and peppers into uniform strips and spreading them across the sheet pan so they roast rather than steam."
+    },
+    {
+      "slug": "air-fryer-crispy-garlic-parm-wings",
+      "youtubeId": "KVECwGau3qQ",
+      "why": "Shows seasoning the split wings, crisping them in the air fryer basket, and tossing them in melted garlic butter and parmesan cheese."
+    },
+    {
+      "slug": "15-minute-skillet-beef-taco-meat",
+      "youtubeId": "aUkShlJl8zg",
+      "why": "Demonstrates browning 85/15 ground beef in the skillet, breaking it into crumbles, and simmering with spices until glazed."
+    },
+    {
+      "slug": "air-fryer-sirloin-steak-bites",
+      "youtubeId": "NriIkM6WVIw",
+      "why": "Shows cubing sirloin steak into uniform bites, tossing in seasoning, and air frying in a single layer for a quick sear."
+    },
+    {
+      "slug": "sheet-pan-smoked-sausage-peppers-potatoes",
+      "youtubeId": "VwyuxjCUEA0",
+      "why": "Demonstrates cutting uniform sausage coins and potatoes, spreading them flat on a sheet pan, and roasting until crisp."
+    },
+    {
+      "slug": "cast-iron-butter-basted-ribeye",
+      "youtubeId": "0sQjXR5SFYo",
+      "why": "Demonstrates tilting the cast iron skillet to spoon foamy butter, garlic, and herbs continuously over the searing steak."
+    },
+    {
+      "slug": "air-fryer-crispy-parmesan-pork-chops",
+      "youtubeId": "kY_YVT22854",
+      "why": "Shows pressing pork chops into the parmesan-panko coating, arranging them in the air fryer, and cooking until golden and crisp."
+    },
+    {
+      "slug": "15-minute-lemon-garlic-butter-shrimp",
+      "youtubeId": "JlxZ4gksILU",
+      "why": "Demonstrates flash searing shrimp in a hot skillet with butter and garlic before finishing off-heat with fresh lemon juice."
+    },
+    {
+      "slug": "15-minute-egg-roll-in-a-bowl",
+      "youtubeId": "xxQoaAHlIdo",
+      "why": "Chef John demonstrates browning pork with aromatics and quickly wilting cabbage in the skillet so it retains crispness."
+    },
+    {
+      "slug": "air-fryer-bbq-chicken-drumsticks",
+      "youtubeId": "RL8tBCcfEfE",
+      "why": "Shows air frying drumsticks until crispy before brushing with BBQ sauce for a quick caramelizing glaze."
+    },
+    {
+      "slug": "sheet-pan-honey-garlic-salmon-green-beans",
+      "youtubeId": "Sk91gbLl1Nc",
+      "why": "Demonstrates arranging salmon fillets alongside trimmed green beans on a sheet pan for an even 400°F roast."
+    },
+    {
+      "slug": "air-fryer-loaded-baked-potatoes",
+      "youtubeId": "59fqGwQLpEk",
+      "why": "Shows oiling and salting whole russet potatoes, air frying for crispy skin, and opening the steamy fluffy interior."
+    },
+    {
+      "slug": "sheet-pan-loaded-game-day-nachos",
+      "youtubeId": "8pFmTVufhOM",
+      "why": "Demonstrates two-tier layering of tortilla chips, seasoned beef, and cheese on a sheet pan to prevent soggy chips."
+    },
+    {
+      "slug": "air-fryer-frozen-gyoza-potstickers",
+      "youtubeId": "SJYl6HRXseU",
+      "why": "Demonstrates arranging frozen potstickers in a single layer, oil spraying to prevent wrapper dryness, and air frying until crispy."
+    },
+    {
+      "slug": "smoker-st-louis-pork-ribs-3-2-1",
+      "youtubeId": "wmxdS3hhhbM",
+      "why": "Demonstrates the complete 3-2-1 method: smoking for bark, wrapping in foil with butter to tenderize, and finishing with BBQ glaze."
+    },
+    {
+      "slug": "dutch-oven-dad-chili",
+      "youtubeId": "Tb8lKl67RTo",
+      "why": "Chef John demonstrates browning ground beef, blooming the chili spices directly in the rendered fat, and simmering with beans."
+    }
+  ]
 }
