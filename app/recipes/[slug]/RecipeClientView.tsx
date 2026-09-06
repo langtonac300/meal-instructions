@@ -25,7 +25,9 @@ import { householdServings, readProfile } from '@/lib/profile';
 import KrogerCartPanel from '@/components/KrogerCartPanel';
 import MealActions from '@/components/MealActions';
 import PlanFab from '@/components/PlanFab';
+import RecipeVideo from '@/components/RecipeVideo';
 import type { ResolvedIngredient } from '@/lib/kroger/matches';
+import type { RecipeVideo as RecipeVideoData } from '@/lib/recipe-video';
 
 interface RecipeClientViewProps {
   recipe: Recipe;
@@ -39,6 +41,8 @@ interface RecipeClientViewProps {
   mealsEnabled?: boolean;
   relatedDatasheets?: CookTimeDatasheet[];
   resolvedImage?: string;
+  /** The recipe's curated clip, when data/recipe-videos.json has one. */
+  video?: RecipeVideoData;
 }
 
 /** 'kid-approved' → 'Kid approved'; '15-minute' stays as written. */
@@ -93,6 +97,7 @@ export default function RecipeClientView({
   krogerIngredients = [],
   krogerEnabled = false,
   mealsEnabled = false,
+  video,
 }: RecipeClientViewProps) {
   // Mode state: syncs with document.documentElement's data-mode
   const [currentMode, setCurrentMode] = useState<'fast' | 'detailed'>('fast');
@@ -493,6 +498,15 @@ export default function RecipeClientView({
           </span>
         </div>
       </div>
+
+      {/* ── 4b. The technique clip, when this recipe has one. Sits outside both
+              mode panels, so it shows in either mode without being duplicated,
+              and never replaces text (HR-6). ── */}
+      {video && (
+        <div className={`${COLUMN} no-print`}>
+          <RecipeVideo video={video} />
+        </div>
+      )}
 
       {/* ── 5. Ingredients ── */}
       <section className={`${COLUMN} mt-14`} aria-labelledby="ingredients-heading">

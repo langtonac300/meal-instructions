@@ -62,6 +62,17 @@ if (!fs.existsSync(recipesJsonPath)) {
   const recipesServerDir = path.join(nextAppServerDir, 'recipes');
   let auditedCount = 0;
 
+  // Curated videos: a recipe that has one must ship the VideoObject markup that
+  // makes it eligible for the video badge. A player with no schema is the work
+  // done and the benefit dropped.
+  const videosJsonPath = path.join(ROOT, 'data/recipe-videos.json');
+  const videosBySlug = new Map(
+    (fs.existsSync(videosJsonPath) ? JSON.parse(fs.readFileSync(videosJsonPath, 'utf-8')) : []).map(
+      (v) => [v.slug, v]
+    )
+  );
+  let auditedVideoCount = 0;
+
   for (const r of recipes) {
     const slug = r.slug;
     const htmlFile = path.join(recipesServerDir, `${slug}.html`);
@@ -104,6 +115,23 @@ if (!fs.existsSync(recipesJsonPath)) {
     if (!html.includes('"@type":"Recipe"') && !html.includes('"@type": "Recipe"')) {
       errors.push(`[${slug}] Missing Schema.org Recipe @type in JSON-LD.`);
     }
+
+    const video = videosBySlug.get(slug);
+    if (video) {
+      auditedVideoCount++;
+      if (!html.includes('"@type":"VideoObject"') && !html.includes('"@type": "VideoObject"')) {
+        errors.push(`[${slug}] Has a curated video but no VideoObject in JSON-LD.`);
+      }
+      if (!html.includes(video.youtubeId)) {
+        errors.push(`[${slug}] SSR HTML never mentions video ${video.youtubeId} — the facade did not render.`);
+      }
+      if (!html.includes(video.uploadDate)) {
+        errors.push(`[${slug}] VideoObject is missing uploadDate, which Google requires.`);
+      }
+    }
+  }
+  if (videosBySlug.size > 0) {
+    console.log(`Audited ${auditedVideoCount} recipe video(s) for VideoObject markup and a rendered facade.`);
   }
   console.log(`Audited ${auditedCount} recipe HTML pages for canonicals, dual-mode SSR, and JSON-LD.`);
 }
