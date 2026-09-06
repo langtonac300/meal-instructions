@@ -136,6 +136,33 @@ if (!fs.existsSync(recipesJsonPath)) {
   console.log(`Audited ${auditedCount} recipe HTML pages for canonicals, dual-mode SSR, and JSON-LD.`);
 }
 
+/**
+ * Minimal well-formedness check for the built sitemap: returns null when the
+ * document parses, or a human-readable reason when it does not. Deliberately
+ * dependency-free — the audit must not need a package to run.
+ *
+ * The failure this exists to catch is an unescaped &, < or > reaching the XML
+ * from API-supplied text, so it looks for those directly rather than writing a
+ * parser: a bare "&" not opening a valid entity is malformed, full stop.
+ */
+function checkXmlWellFormed(xml) {
+  const badAmp = /&(?!(?:amp|lt|gt|quot|apos);|#\d+;|#x[0-9a-fA-F]+;)/.exec(xml);
+  if (badAmp) {
+    const i = badAmp.index;
+    const context = xml.slice(Math.max(0, i - 45), i + 25).replace(/\s+/g, ' ').trim();
+    return `unescaped "&" in "...${context}..."`;
+  }
+  // Strip every well-formed tag; any angle bracket left behind came from text
+  // content and should have been escaped.
+  const text = xml.replace(/<[^<>]*>/g, '');
+  const stray = text.match(/[<>]/);
+  if (stray) {
+    const i = text.indexOf(stray[0]);
+    return `unescaped "${stray[0]}" near "${text.slice(Math.max(0, i - 20), i + 20).trim()}"`;
+  }
+  return null;
+}
+
 // ─── 3b. Video sitemap coverage ──────────────────────────────────────────────
 
 // The VideoObject on the page makes it *eligible* for the video badge; the
@@ -169,6 +196,19 @@ if (!fs.existsSync(recipesJsonPath)) {
       );
     } else {
       const xml = fs.readFileSync(sitemapFile, 'utf-8');
+
+      // The sitemap must be well-formed XML before anything else about it
+      // matters. Next.js interpolates every field with no escaping, so one
+      // unescaped "&" in a YouTube title invalidates the whole document and
+      // Search Console rejects all of it — every URL, not just the video ones.
+      // Checking only that entries are *present* is exactly the kind of
+      // false confidence this audit exists to prevent.
+      const wellFormed = checkXmlWellFormed(xml);
+      if (wellFormed) {
+        errors.push(
+          `Built sitemap is not well-formed XML: ${wellFormed}. Search Console will reject the entire file.`
+        );
+      }
       const expected = videos.filter((v) => recipeSlugs.has(v.slug));
       const orphans = videos.filter((v) => !recipeSlugs.has(v.slug));
       let covered = 0;

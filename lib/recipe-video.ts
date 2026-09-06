@@ -133,20 +133,76 @@ export function durationSeconds(iso: string): number | null {
  *   omitting is what Google already assumes — asserting it would be a number
  *   with no basis.
  */
+/**
+ * XML-escape a value bound for the sitemap.
+ *
+ * Next.js's sitemap serializer interpolates every field straight into the XML
+ * with no escaping of its own (resolve-route-data.js), so anything we hand it
+ * is emitted verbatim. A single "&" in a YouTube title — "Salmon & Green
+ * Beans" — makes the whole document not well-formed, and Search Console
+ * rejects the entire sitemap, not just that entry. Escape here, at the only
+ * point where free text enters the sitemap.
+ *
+ * "&" must be replaced first or the other replacements get double-escaped.
+ * Attribute values need the quote forms too (video:uploader carries a URL in
+ * an `info` attribute), so escape all five everywhere rather than tracking
+ * which field lands in an attribute.
+ */
+export function xmlEscape(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+/**
+ * One `<video:video>` entry for the sitemap, for the recipe page the clip sits on.
+ *
+ * This is the discovery half of the work the VideoObject does on the page: the
+ * markup makes a page *eligible* for the video badge, the sitemap is how Google
+ * finds out the video is there at all. Both read the same record, so a clip
+ * added to data/recipe-videos.json shows up in both without a code change.
+ *
+ * Same shape of skip rule as videoSchema(): Google requires title, description,
+ * thumbnail_loc, and one of content_loc / player_loc, and a record missing any
+ * of them is skipped rather than emitted half-built. One deliberate difference —
+ * uploadDate is required for a VideoObject but publication_date is optional in a
+ * video sitemap, so a record without one still earns an entry here.
+ *
+ * Every string is passed through xmlEscape(): Next.js does not escape sitemap
+ * fields, and unescaped API text invalidates the whole document. The JSON-LD
+ * path needs no such treatment — JSON.stringify handles its own escaping.
+ *
+ * Field choices worth knowing:
+ * - `player_loc`, not `content_loc`. content_loc must point at a raw media file
+ *   we serve; these clips are on YouTube, so the embed URL is the honest answer.
+ * - `duration` is omitted, not guessed, when the ISO string does not parse or
+ *   falls outside the 1–28800s Google accepts (HR-2).
+ * - `family_friendly` is omitted deliberately. Nobody rated these clips, and
+ *   omitting is what Google already assumes — asserting it would be a number
+ *   with no basis.
+ */
 export function videoSitemapEntry(video: RecipeVideo): Videos | null {
   if (!video.title || !video.why || !video.thumbnailUrl || !video.youtubeId) return null;
 
   const secs = durationSeconds(video.duration);
 
   return {
-    title: video.title,
-    description: video.why,
-    thumbnail_loc: video.thumbnailUrl,
-    player_loc: `https://www.youtube.com/embed/${video.youtubeId}`,
+    title: xmlEscape(video.title),
+    description: xmlEscape(video.why),
+    thumbnail_loc: xmlEscape(video.thumbnailUrl),
+    player_loc: xmlEscape(`https://www.youtube.com/embed/${video.youtubeId}`),
     ...(secs !== null && secs >= 1 && secs <= 28800 ? { duration: secs } : {}),
-    ...(video.uploadDate ? { publication_date: video.uploadDate } : {}),
+    ...(video.uploadDate ? { publication_date: xmlEscape(video.uploadDate) } : {}),
     ...(video.channel
-      ? { uploader: { content: video.channel, ...(video.channelUrl ? { info: video.channelUrl } : {}) } }
+      ? {
+          uploader: {
+            content: xmlEscape(video.channel),
+            ...(video.channelUrl ? { info: xmlEscape(video.channelUrl) } : {}),
+          },
+        }
       : {}),
   };
 }
