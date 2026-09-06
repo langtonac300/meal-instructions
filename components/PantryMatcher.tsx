@@ -119,20 +119,34 @@ function cutLabel(family: ProteinFamily, id: string): string {
 
 interface ChipProps {
   on: boolean;
+  /**
+   * Tapped, but nothing chosen underneath yet — a protein family whose cut list
+   * is open. Without this the multi-cut families read as dead: tapping "Chicken"
+   * opens the cut list further down the page and leaves the chip looking
+   * untouched, while a single-cut family toggles straight to `on` and goes
+   * black. Same gesture, two different-looking outcomes.
+   */
+  open?: boolean;
   onClick: () => void;
   size?: 'md' | 'lg';
   children: React.ReactNode;
 }
 
-function Chip({ on, onClick, size = 'md', children }: ChipProps) {
+function Chip({ on, open = false, onClick, size = 'md', children }: ChipProps) {
+  const state = on
+    ? 'bg-ink text-paper border-ink'
+    : open
+      ? 'bg-paper-200 text-ink border-ink border-2 -m-px'
+      : 'bg-paper-50 text-ink border-hairline hover:border-ink';
   return (
     <button
       type="button"
       aria-pressed={on}
+      aria-expanded={open || undefined}
       onClick={onClick}
       className={`inline-flex items-center gap-2 border leading-none cursor-pointer select-none transition-colors ${
         size === 'lg' ? 'px-[18px] py-[13px] text-[17px]' : 'px-3 py-[9px] text-[14px]'
-      } ${on ? 'bg-ink text-paper border-ink' : 'bg-paper-50 text-ink border-hairline hover:border-ink'}`}
+      } ${state}`}
     >
       {on && (
         <Check
@@ -501,7 +515,13 @@ export default function PantryMatcher({ recipes, basics }: PantryMatcherProps) {
             {families.map((family) => {
               const ticked = family.items.filter((id) => haveSet.has(id)).length;
               return (
-                <Chip key={family.id} size="lg" on={ticked > 0} onClick={() => tapFamily(family)}>
+                <Chip
+                  key={family.id}
+                  size="lg"
+                  on={ticked > 0}
+                  open={ticked === 0 && openFamilies.includes(family.id)}
+                  onClick={() => tapFamily(family)}
+                >
                   {family.label}
                   {ticked > 0 && family.items.length > 1 ? (
                     <span className="font-mono text-[13px] opacity-80">· {ticked}</span>
