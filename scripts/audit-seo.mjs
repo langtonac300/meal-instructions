@@ -136,6 +136,88 @@ if (!fs.existsSync(recipesJsonPath)) {
   console.log(`Audited ${auditedCount} recipe HTML pages for canonicals, dual-mode SSR, and JSON-LD.`);
 }
 
+// ─── 3b. Video sitemap coverage ──────────────────────────────────────────────
+
+// The VideoObject on the page makes it *eligible* for the video badge; the
+// sitemap entry is how Google finds out the clip exists. Shipping one without
+// the other is the work done and half the benefit dropped, so assert both.
+// Driven off data/recipe-videos.json, so a new batch of clips is covered the
+// moment it lands — no edit needed here.
+{
+  const videosJsonPath = path.join(ROOT, 'data/recipe-videos.json');
+  const recipesJsonPath2 = path.join(ROOT, 'data/recipes.json');
+
+  if (fs.existsSync(videosJsonPath) && fs.existsSync(recipesJsonPath2)) {
+    const videos = JSON.parse(fs.readFileSync(videosJsonPath, 'utf-8'));
+    const recipeSlugs = new Set(
+      JSON.parse(fs.readFileSync(recipesJsonPath2, 'utf-8')).map((r) => r.slug)
+    );
+
+    // Next.js writes app/sitemap.ts output next to the other route bodies.
+    const sitemapCandidates = [
+      path.join(nextAppServerDir, 'sitemap.xml.body'),
+      path.join(nextAppServerDir, 'sitemap/route.body'),
+      path.join(nextAppServerDir, 'sitemap.xml/route.body'),
+    ];
+    const sitemapFile = sitemapCandidates.find((f) => fs.existsSync(f));
+
+    if (!sitemapFile) {
+      errors.push(
+        `Built sitemap not found. Looked in: ${sitemapCandidates
+          .map((f) => path.relative(ROOT, f))
+          .join(', ')}`
+      );
+    } else {
+      const xml = fs.readFileSync(sitemapFile, 'utf-8');
+      const expected = videos.filter((v) => recipeSlugs.has(v.slug));
+      const orphans = videos.filter((v) => !recipeSlugs.has(v.slug));
+      let covered = 0;
+
+      if (expected.length > 0 && !xml.includes('http://www.google.com/schemas/sitemap-video/1.1')) {
+        errors.push(
+          'Sitemap has video entries but never declares the video namespace — Google will ignore every one of them.'
+        );
+      }
+
+      for (const v of expected) {
+        const loc = `/recipes/${v.slug}`;
+        if (!xml.includes(loc)) {
+          errors.push(`[${v.slug}] Has a curated video but the recipe URL is not in the sitemap.`);
+          continue;
+        }
+        if (!xml.includes(v.youtubeId)) {
+          errors.push(
+            `[${v.slug}] Curated video ${v.youtubeId} has no <video:video> entry in the sitemap.`
+          );
+          continue;
+        }
+        covered++;
+      }
+
+      // Not fatal: a clip can be curated before its recipe ships. Say so loudly
+      // rather than silently dropping it, so the pick is not lost.
+      for (const v of orphans) {
+        console.log(`⚠️  Video pick "${v.slug}" has no matching recipe — not in the sitemap.`);
+      }
+
+      // Google truncates <video:title> at 100 characters. Titles are verbatim
+      // from the API (HR-2), so this is a heads-up to reconsider the pick, not
+      // a licence to rewrite the data.
+      for (const v of expected) {
+        if (v.title && v.title.length >= 100) {
+          console.log(
+            `⚠️  Video title for "${v.slug}" is ${v.title.length} chars — Google truncates <video:title> at 100.`
+          );
+        }
+      }
+
+      console.log(
+        `Video sitemap: ${covered}/${expected.length} curated clip(s) present as <video:video> entries.`
+      );
+    }
+  }
+}
+
 // ─── 4. Tool pages ───────────────────────────────────────────────────────────
 
 const toolRoutes = [
