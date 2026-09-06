@@ -301,6 +301,7 @@ Remaining unlinked (14): Frozen chicken tenders, boneless chicken breast (AF), b
 | SEO-030 | Video sitemap entries for every curated clip | **DONE** 2026-09-06 | 59/59 clips emit `<video:video>`; audit proven by stripping them from the built sitemap |
 | SEO-031 | Escape XML in sitemap video fields — SEO-030 shipped an invalid sitemap | **DONE** 2026-09-06 | built sitemap parses; audit fails on any unescaped `&`/`<` |
 | SEO-032 | Mass datasheet expansion: 378 → 683 | **DONE** 2026-09-06 | 305 records merged; all gates exit 0 |
+| SEO-033 | Mass datasheet expansion round 2: 683 → 1,225 | **DONE** 2026-09-06 | 542 records merged; all gates exit 0 |
 
 **SEO-030 — The clips were markup-only, so Google had no way to find them.**
 
@@ -413,6 +414,42 @@ still caught.
 appliances (skillet 31, dutch-oven 31) over well-stocked ones (oven 41), so the depth
 spread is still uneven after merge.
 
+**SEO-033 — Round 2, uncapped: 683 → 1,225.**
+
+Round 1 closed 8% of the gap because the brief asked for 300–500 and got 308. Round 2
+removed the ceiling and made sourcing the stop condition instead: author until a real
+source or HR-3 physical validity runs out, then report where you stopped. It returned
+542.
+
+**Audited before merge.** The checks that caught round 1's problems all came back clean
+this time, including the one round 1 failed:
+
+| Check | Round 1 | Round 2 |
+|---|---|---|
+| Missing `verificationBasis` | 0 | 0 |
+| Duplicate prose in batch | 0 | 0 |
+| Duplicate prose vs existing corpus | 0 | 0 |
+| **Duplicate cells** | **3 — dropped** | **0** |
+| Slug / ID collisions | 0 | 0 |
+| Fields outside the interface (HR-12) | 0 | 0 |
+| Bad enums / tempC / slug convention | 0 | 0 |
+| Sub-FSIS temps missing the USDA note | 5 | **6 — annotated** |
+
+The six were `smoker-ahi-tuna` (125°F), `smoker-halibut` (135°F) and four shrimp and
+lobster records at 140°F — correct culinary targets with real sources (NOAA FishWatch,
+Traeger, Maine Lobster Marketing Collaborative), and 29 of the batch's 35 sub-FSIS
+records already carried the note. The remaining six now do too. Prose uniqueness was
+re-verified after the edit: 542/542.
+
+**On the addressable ceiling.** The batch report estimates the true limit at roughly
+1,350–1,550 cells for the current 364 foods, since HR-3 disqualifies most of the 4,004
+mathematical combinations — nobody boils a ribeye or air-fries broth. If that estimate
+holds, 1,225 is around 80–90% saturation and further rounds against this food list will
+mostly surface invalid pairs. **This is an estimate from the authoring agent, not a
+measurement, and has not been verified here.** It is directionally consistent with what
+the audit saw, and it means round 3 should expand the food registry rather than mine the
+same matrix.
+
 ## 4. Sequencing rationale
 
 P1 outranks everything structural because fabricated review markup and 404 schema images carry **penalty and validation-failure risk** — they can actively suppress rankings, whereas a missing breadcrumb merely fails to help. P0 outranks P1 only because we cannot verify a P1 fix without a working build.
@@ -479,6 +516,7 @@ grep -rn "aggregateRating" lib/ app/
 | 2026-09-06 | SEO-030 | Video sitemap. Added `durationSeconds()` + `videoSitemapEntry()` to `lib/recipe-video.ts` and a `videos:` field on recipe URLs in `app/sitemap.ts`, both driven off `data/recipe-videos.json`. `audit:seo` now asserts every curated clip has a `<video:video>` entry and that the video namespace is declared. | pending | **0 → 59** clips in the sitemap. Proven both ways: stripping the entries from the built sitemap failed the audit with 60 errors, and a simulated 60th pick appeared on its recipe URL after a rebuild with **no code change**. |
 | 2026-09-06 | SEO-031 | **Regression fix for SEO-030.** Next.js does not escape sitemap fields, so 25 unescaped `&` from YouTube titles made the production sitemap invalid XML — Search Console rejected all 852 URLs. Added `xmlEscape()` over every string in `videoSitemapEntry()`, and an XML well-formedness assertion to `audit:seo` (the SEO-030 audit only checked entries were present, never that the file parsed). | pending | live prod sitemap failed to parse at line 2501 before the fix; rebuilt sitemap parses clean with 227/227 entries intact. Checker self-tested against the captured broken file. |
 | 2026-09-06 | SEO-032 | Mass datasheet expansion. Merged 305 externally-authored datasheets into `data/cook-times.ts`, taking the SEO engine from **378 → 683**. 3 of 308 dropped as duplicate cells; 5 sub-FSIS culinary temps annotated with the USDA delta. | pending | 14 pre-merge checks: 0 missing `verificationBasis`, 0 duplicate prose within batch or against the existing corpus, 0 slug/ID collisions, 0 bad conversions. `tsc --noEmit` clean. `audit:content` then caught 2 records with a 0-minute floor — a real Instant Pot technique, so the rule was narrowed to permit it only for `instant-pot` + `pressureMinutes: 0`, proven by seeding both failure cases. All three gates exit 0. |
+| 2026-09-06 | SEO-033 | Round 2 datasheet expansion, uncapped. Merged 542 records into `data/cook-times.ts`, taking the SEO engine from **683 → 1,225**. 6 sub-FSIS culinary temps annotated with the USDA delta before merge. | pending | 0 missing `verificationBasis`, 0 duplicate prose in-batch or against the existing 683, **0 duplicate cells** (round 1 had 3), 0 schema or enum violations, 0 bad conversions. `tsc --noEmit` clean; build + audit:content + audit:seo exit 0. |
 
 ---
 

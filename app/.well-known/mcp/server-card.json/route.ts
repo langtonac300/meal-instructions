@@ -1,31 +1,16 @@
 import { NextResponse } from 'next/server';
-import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
-import { APPLIANCES } from '@/data/appliances';
-import recipesData from '@/data/recipes.json';
+import { toolListPayload, MCP_STATS } from '@/lib/mcp/tools';
 
 /**
- * Counts and the appliance list are derived from the corpus, never typed out.
- *
- * The hand-written version drifted: it advertised "10 appliances" after `boiling`
- * became the eleventh, and omitted `boiling` from the get_cook_time argument
- * description entirely — so the appliance was live but undiscoverable to any
- * model reading this card. Deriving them means the card cannot over-promise or
- * under-report, and a new batch of datasheets updates it on the next build.
- */
-const SERVABLE_APPLIANCES: string[] = [
-  ...new Set(COOK_TIME_DATASHEETS.map((d) => d.appliance)),
-].sort();
-const APPLIANCE_COUNT = SERVABLE_APPLIANCES.length;
-const DATASHEET_COUNT = COOK_TIME_DATASHEETS.length;
-const APPLIANCE_UNION = SERVABLE_APPLIANCES.map((a) => `"${a}"`).join(' | ');
-/** Broader than SERVABLE_APPLIANCES: recipe search covers appliances that may not have datasheets yet. */
-const ALL_APPLIANCES = APPLIANCES.map((a) => a.slug);
-const RECIPE_COUNT = (recipesData as unknown[]).length;
-
-/**
- * Standard MCP Server Card
+ * Standard MCP Server Card.
  * https://smithery.ai/docs/build/publish#troubleshooting
- * Advertises metadata and tool definitions to Smithery and remote MCP registries.
+ *
+ * Advertises this server to Smithery and remote MCP registries. The tool list
+ * and the counts are derived from lib/mcp/tools.ts — the same definitions the
+ * stdio server and the HTTP endpoint serve — so the card cannot advertise a
+ * tool that does not exist, omit one that does, or report a corpus size that
+ * has moved on. A hand-written version of this file claimed "10 appliances"
+ * after boiling became the eleventh and "70 curated recipes" at 228.
  */
 export async function GET() {
   const serverCard = {
@@ -33,124 +18,20 @@ export async function GET() {
       name: 'meal-instructions',
       title: 'Meal Instructions Cooking Intelligence',
       version: '1.0.0',
-      description: `${DATASHEET_COUNT} verified cook-time datasheets across ${APPLIANCE_COUNT} appliances — every temperature and time carries a cited source. Plus dual-mode recipes, portion math, and kitchen troubleshooting.`,
+      description: `${MCP_STATS.datasheets} verified cook-time datasheets across ${MCP_STATS.appliances} appliances — every temperature and time carries a cited source. Plus dual-mode recipes, portion math, and kitchen troubleshooting.`,
     },
-    authentication: {
-      required: false,
+    authentication: { required: false },
+    tools: toolListPayload(),
+    remote: {
+      transport: 'http',
+      endpoint: 'https://www.mealinstructions.com/api/mcp',
     },
-    tools: [
-      {
-        name: 'get_cook_time',
-        description: `Get exact cooking temperatures, time ranges, flip schedules, target internal temperatures, and hardware pro tips from ${DATASHEET_COUNT} sourced datasheets across ${APPLIANCE_COUNT} appliances.`,
-        inputSchema: {
-          type: 'object',
-          properties: {
-            food: { type: 'string', description: 'Food item or slug (e.g. "salmon-fillet", "chicken-tenders-fresh", "pork-chops", "bone-in-thighs", "bacon", "ribeye")' },
-            appliance: { type: 'string', enum: SERVABLE_APPLIANCES, description: `Appliance hardware (${APPLIANCE_UNION})` },
-            state: { type: 'string', enum: ['fresh', 'frozen', 'refrigerated', 'dry'], description: 'Food state (fresh vs frozen)' },
-          },
-          required: ['food'],
-        },
-      },
-      {
-        name: 'get_recipe',
-        description: 'Retrieve a complete curated recipe from the Meal Instructions catalog by slug in "quick" or "detailed" mode with portion scaling.',
-        inputSchema: {
-          type: 'object',
-          properties: {
-            slug: { type: 'string', description: 'The recipe slug (e.g. "crispy-air-fryer-chicken-tenders", "backyard-grilled-burgers", "slow-cooker-pot-roast")' },
-            mode: { type: 'string', enum: ['quick', 'detailed'], default: 'quick', description: 'Mode ("quick" for 20-word bullets, "detailed" for full steps)' },
-            servings: { type: 'number', description: 'Desired serving count to automatically scale ingredients' },
-          },
-          required: ['slug'],
-        },
-      },
-      {
-        name: 'search_recipes',
-        description: `Search the catalog of ${RECIPE_COUNT} curated recipes by keyword, protein, appliance, category, or time budget.`,
-        inputSchema: {
-          type: 'object',
-          properties: {
-            query: { type: 'string', description: 'Search keyword matching title, ingredients, or keywords' },
-            protein: { type: 'string', enum: ['chicken', 'beef', 'pork', 'seafood', 'turkey', 'vegetarian', 'dairy-eggs', 'lamb', 'duck', 'game'] },
-            appliance: { type: 'string', enum: ALL_APPLIANCES },
-            category: { type: 'string', enum: ['15-minute', 'high-protein', 'kid-approved', 'budget', 'no-thaw', 'one-pan', 'five-ingredient', 'sides', 'snacks', 'game-day', 'breakfast', 'weekend'] },
-            max_total_minutes: { type: 'number', description: 'Maximum allowed total minutes budget' },
-          },
-        },
-      },
-      {
-        name: 'revive_leftover',
-        description: 'Optimal hardware reheating temperature, time, and anti-sogginess pro tips to restore restaurant crunch to takeout French fries, pizza, wings, burgers, etc.',
-        inputSchema: {
-          type: 'object',
-          properties: {
-            item: { type: 'string', description: 'The leftover item (e.g. "french-fries", "pizza", "fried-chicken", "chicken-wings", "cheeseburger", "steak")' },
-            appliance: { type: 'string', enum: ['air-fryer', 'skillet'], default: 'air-fryer' },
-          },
-          required: ['item'],
-        },
-      },
-      {
-        name: 'emergency_frozen_cook',
-        description: 'Check if rock-hard frozen meat can be cooked straight from freezer without defrosting + exact appliance parameters.',
-        inputSchema: {
-          type: 'object',
-          properties: {
-            item: { type: 'string', description: 'The frozen item (e.g. "chicken-breast", "chicken-wings", "ground-beef", "salmon", "pork-chops", "steak")' },
-          },
-          required: ['item'],
-        },
-      },
-      {
-        name: 'calculate_meat_math',
-        description: 'Calculate raw meat purchasing weights (lbs) for parties based on guest count, cut, bone-in ratios, and shrinkage.',
-        inputSchema: {
-          type: 'object',
-          properties: {
-            guest_count_adults: { type: 'number', description: 'Number of adults' },
-            guest_count_children: { type: 'number', default: 0, description: 'Number of children' },
-            meat_type: { type: 'string', enum: ['burgers', 'pulled-pork', 'chicken-wings', 'taco-meat', 'smoked-brisket', 'hot-dogs-brats'] },
-            eater_profile: { type: 'string', enum: ['light', 'normal', 'big_eaters'], default: 'normal' },
-            has_hearty_sides: { type: 'boolean', default: false },
-          },
-          required: ['guest_count_adults', 'meat_type'],
-        },
-      },
-      {
-        name: 'calculate_pull_temp',
-        description: 'Calculate exact thermometer pull temperature accounting for thickness and thermal carryover cooking rise.',
-        inputSchema: {
-          type: 'object',
-          properties: {
-            meat: { type: 'string', description: 'Meat cut (e.g. "thick-steak", "pork-tenderloin", "chicken-breast", "salmon", "burger")' },
-            target_doneness: { type: 'string', enum: ['rare', 'medium_rare', 'medium', 'medium_well', 'well'], default: 'medium_rare' },
-          },
-          required: ['meat'],
-        },
-      },
-      {
-        name: 'troubleshoot_cooking',
-        description: 'Instant 1-click diagnoses and fixes for common kitchen failures (smoking air fryers, gray steak, soggy veggies, peeling breading).',
-        inputSchema: {
-          type: 'object',
-          properties: {
-            symptom: { type: 'string', description: 'Problem symptom (e.g. "smoking", "gray-steak", "soggy", "peeling-breading", "dry-chicken")' },
-            appliance: { type: 'string', description: 'Cooking hardware or category' },
-          },
-          required: ['symptom'],
-        },
-      },
-    ],
-    resources: [],
-    prompts: [],
   };
 
   return NextResponse.json(serverCard, {
     headers: {
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Cache-Control': 'public, max-age=3600',
     },
   });
 }
