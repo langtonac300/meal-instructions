@@ -1,4 +1,24 @@
 import { NextResponse } from 'next/server';
+import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
+import { APPLIANCES } from '@/data/appliances';
+
+/**
+ * Counts and the appliance list are derived from the corpus, never typed out.
+ *
+ * The hand-written version drifted: it advertised "10 appliances" after `boiling`
+ * became the eleventh, and omitted `boiling` from the get_cook_time argument
+ * description entirely — so the appliance was live but undiscoverable to any
+ * model reading this card. Deriving them means the card cannot over-promise or
+ * under-report, and a new batch of datasheets updates it on the next build.
+ */
+const SERVABLE_APPLIANCES: string[] = [
+  ...new Set(COOK_TIME_DATASHEETS.map((d) => d.appliance)),
+].sort();
+const APPLIANCE_COUNT = SERVABLE_APPLIANCES.length;
+const DATASHEET_COUNT = COOK_TIME_DATASHEETS.length;
+const APPLIANCE_UNION = SERVABLE_APPLIANCES.map((a) => `"${a}"`).join(' | ');
+/** Broader than SERVABLE_APPLIANCES: recipe search covers appliances that may not have datasheets yet. */
+const ALL_APPLIANCES = APPLIANCES.map((a) => a.slug);
 
 /**
  * Standard MCP Server Card
@@ -11,7 +31,7 @@ export async function GET() {
       name: 'meal-instructions',
       title: 'Meal Instructions Cooking Intelligence',
       version: '1.0.0',
-      description: 'No-fluff culinary physics, cook times across 10 appliances, dual-mode recipes, and kitchen troubleshooting tools.',
+      description: `${DATASHEET_COUNT} verified cook-time datasheets across ${APPLIANCE_COUNT} appliances — every temperature and time carries a cited source. Plus dual-mode recipes, portion math, and kitchen troubleshooting.`,
     },
     authentication: {
       required: false,
@@ -19,12 +39,12 @@ export async function GET() {
     tools: [
       {
         name: 'get_cook_time',
-        description: 'Get exact cooking temperatures, time ranges, flip schedules, target internal temperatures, and hardware pro tips across 10 appliances.',
+        description: `Get exact cooking temperatures, time ranges, flip schedules, target internal temperatures, and hardware pro tips from ${DATASHEET_COUNT} sourced datasheets across ${APPLIANCE_COUNT} appliances.`,
         inputSchema: {
           type: 'object',
           properties: {
             food: { type: 'string', description: 'Food item or slug (e.g. "salmon-fillet", "chicken-tenders-fresh", "pork-chops", "bone-in-thighs", "bacon", "ribeye")' },
-            appliance: { type: 'string', description: 'Appliance hardware ("air-fryer" | "oven" | "instant-pot" | "skillet" | "sheet-pan" | "cast-iron" | "grill" | "dutch-oven" | "slow-cooker" | "smoker")' },
+            appliance: { type: 'string', enum: SERVABLE_APPLIANCES, description: `Appliance hardware (${APPLIANCE_UNION})` },
             state: { type: 'string', enum: ['fresh', 'frozen', 'refrigerated', 'dry'], description: 'Food state (fresh vs frozen)' },
           },
           required: ['food'],
@@ -51,7 +71,7 @@ export async function GET() {
           properties: {
             query: { type: 'string', description: 'Search keyword matching title, ingredients, or keywords' },
             protein: { type: 'string', enum: ['chicken', 'beef', 'pork', 'seafood', 'turkey', 'vegetarian', 'dairy-eggs', 'lamb', 'duck', 'game'] },
-            appliance: { type: 'string', enum: ['air-fryer', 'oven', 'instant-pot', 'skillet', 'sheet-pan', 'cast-iron', 'grill', 'dutch-oven', 'slow-cooker', 'smoker', 'boiling'] },
+            appliance: { type: 'string', enum: ALL_APPLIANCES },
             category: { type: 'string', enum: ['15-minute', 'high-protein', 'kid-approved', 'budget', 'no-thaw', 'one-pan', 'five-ingredient', 'sides', 'snacks', 'game-day', 'breakfast', 'weekend'] },
             max_total_minutes: { type: 'number', description: 'Maximum allowed total minutes budget' },
           },

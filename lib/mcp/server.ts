@@ -3,7 +3,33 @@ import { z } from 'zod';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import recipesData from '@/data/recipes.json';
 import type { Recipe, CookTimeDatasheet } from '@/lib/types';
+import { APPLIANCES } from '@/data/appliances';
 import { absoluteUrl } from '@/lib/site';
+
+/**
+ * The appliances these tools can actually answer for, derived from the datasheet
+ * corpus rather than typed out.
+ *
+ * A hand-maintained list went stale: `boiling` was added to the corpus and works
+ * end to end, but three of the five places that enumerate appliances never
+ * mentioned it. A model reading the schema would therefore never ask for it — a
+ * whole appliance was live and undiscoverable. Deriving the list means what we
+ * document is exactly what we can serve, and appliance twelve documents itself.
+ */
+const SERVABLE_APPLIANCES: string[] = [
+  ...new Set(COOK_TIME_DATASHEETS.map((d) => d.appliance)),
+].sort();
+const APPLIANCE_UNION = SERVABLE_APPLIANCES.map((a) => `"${a}"`).join(' | ');
+const APPLIANCE_CSV = SERVABLE_APPLIANCES.join(', ');
+
+/**
+ * Every appliance the catalogue knows about, for tools that search *recipes*
+ * rather than datasheets — a recipe can exist for an appliance that has no
+ * cook-time datasheet yet, so this list is deliberately broader than
+ * SERVABLE_APPLIANCES above. Sourced from data/appliances.ts, which matches the
+ * Appliance union in lib/types.ts (HR-12: type unions are the contract).
+ */
+const ALL_APPLIANCES = APPLIANCES.map((a) => a.slug) as [string, ...string[]];
 import {
   REHEAT_ITEMS,
   FROZEN_ITEMS,
@@ -32,7 +58,7 @@ export function createDadMealsMcpServer() {
     'Get exact cooking temperatures, time ranges, flip schedules, target internal temperatures, and hardware pro tips for meat, seafood, and vegetables across oven, air fryer, Instant Pot, skillet, grill, smoker, slow cooker, Dutch oven, cast iron, and sheet pan.',
     {
       food: z.string().describe('Food item or slug (e.g. "salmon-fillet", "chicken-tenders-fresh", "pork-chops", "bone-in-thighs", "bacon", "broccoli", "ribeye", "burgers")'),
-      appliance: z.string().optional().describe('Appliance: "air-fryer" | "oven" | "instant-pot" | "skillet" | "sheet-pan" | "cast-iron" | "grill" | "dutch-oven" | "slow-cooker" | "smoker"'),
+      appliance: z.string().optional().describe(`Appliance: ${APPLIANCE_UNION}`),
       state: z.enum(['fresh', 'frozen', 'refrigerated', 'dry']).optional().describe('Food state (fresh vs frozen)'),
     },
     async ({ food, appliance, state }) => {
@@ -81,7 +107,7 @@ export function createDadMealsMcpServer() {
               text: JSON.stringify(
                 {
                   status: 'not_found',
-                  message: `No exact cook-time datasheet found for "${food}". Available appliances: air-fryer, oven, instant-pot, skillet, sheet-pan, cast-iron, grill, dutch-oven, slow-cooker, smoker.`,
+                  message: `No exact cook-time datasheet found for "${food}". Available appliances: ${APPLIANCE_CSV}.`,
                   sampleSuggestions: [
                     'air-fryer: chicken-tenders-fresh, chicken-wings-fresh, salmon-fillet, pork-chops-bone-in, bacon, frozen-french-fries',
                     'oven: chicken-breast-boneless, salmon-fillet, baked-potato, bacon-sheet-pan, pork-chops-bone-in',
@@ -232,7 +258,7 @@ export function createDadMealsMcpServer() {
     {
       query: z.string().optional().describe('Search keyword matching title, tagline, ingredients, or keywords (e.g. "tacos", "steak", "pasta", "cauliflower")'),
       protein: z.enum(['chicken', 'beef', 'pork', 'seafood', 'turkey', 'vegetarian', 'dairy-eggs', 'lamb', 'duck', 'game']).optional().describe('Protein category'),
-      appliance: z.enum(['air-fryer', 'oven', 'instant-pot', 'skillet', 'sheet-pan', 'cast-iron', 'grill', 'dutch-oven', 'slow-cooker', 'smoker', 'boiling']).optional().describe('Cooking appliance hardware'),
+      appliance: z.enum(ALL_APPLIANCES).optional().describe('Cooking appliance hardware'),
       category: z.enum(['15-minute', 'high-protein', 'kid-approved', 'budget', 'no-thaw', 'one-pan', 'five-ingredient', 'sides', 'snacks', 'game-day', 'breakfast', 'weekend']).optional().describe('Intent / constraint category'),
       max_total_minutes: z.number().optional().describe('Maximum allowed prep + cook time in minutes (e.g. 15 for lightning meals, 30 for standard weeknight)'),
     },
