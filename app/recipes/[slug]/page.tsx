@@ -7,6 +7,7 @@ import { generateRecipeSchema } from '@/lib/recipe-utils';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { resolveRecipeImage, resolveRecipeImageAbsolute } from '@/lib/recipe-image';
+import { getRecipeVideo } from '@/lib/recipe-video';
 import RecipeClientView from './RecipeClientView';
 import { mealsConfigured } from '@/lib/supabase-admin';
 import { resolveIngredients } from '@/lib/kroger/matches';
@@ -68,7 +69,8 @@ export default async function RecipePage({ params }: RecipePageProps) {
 
   const resolvedImage = resolveRecipeImage(recipe.image);
   const resolvedImageAbs = resolveRecipeImageAbsolute(recipe.image);
-  const schemaJsonLd = generateRecipeSchema(recipe, { imageUrl: resolvedImageAbs });
+  const video = getRecipeVideo(recipe.slug);
+  const schemaJsonLd = generateRecipeSchema(recipe, { imageUrl: resolvedImageAbs, video });
   const breadcrumbs = generateBreadcrumbSchema([
     { name: recipe.title, path: `/recipes/${recipe.slug}` },
   ]);
@@ -100,6 +102,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
         mealsEnabled={mealsConfigured()}
         relatedDatasheets={relatedDatasheets}
         resolvedImage={resolvedImage}
+        video={video}
       />
     </>
   );

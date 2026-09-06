@@ -1,6 +1,7 @@
 import { Recipe, Ingredient } from './types';
 import { RECIPES } from '@/data/recipes';
 import { SITE_URL, SITE_NAME, abs } from './site';
+import { videoSchema, type RecipeVideo } from './recipe-video';
 
 export function getAllRecipes(): Recipe[] {
   return RECIPES;
@@ -73,7 +74,10 @@ ${recipe.quickVersion.bullets.map((b, i) => `${i + 1}. ${b}`).join('\n')}
 🔗 Full recipe: ${abs(`/recipes/${recipe.slug}`)}`;
 }
 
-export function generateRecipeSchema(recipe: Recipe, opts: { imageUrl?: string } = {}) {
+export function generateRecipeSchema(
+  recipe: Recipe,
+  opts: { imageUrl?: string; video?: RecipeVideo } = {}
+) {
   const imageUrl = opts.imageUrl ?? abs('/opengraph-image.png');
   const schema: any = {
     '@context': 'https://schema.org',
@@ -126,6 +130,14 @@ export function generateRecipeSchema(recipe: Recipe, opts: { imageUrl?: string }
     // structured data policy and is manual-action eligible. Do not re-add
     // this with randomised values — that is the same violation.
   };
+
+  // A curated clip, when this recipe has one. videoSchema() returns null rather
+  // than a half-built object if any field Google requires is missing: incomplete
+  // markup fails validation on a page that would otherwise pass.
+  if (opts.video) {
+    const video = videoSchema(opts.video);
+    if (video) schema.video = video;
+  }
 
   if (recipe.nutrition) {
     schema.nutrition = {
