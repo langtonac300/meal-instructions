@@ -7,6 +7,7 @@ import { PANTRY_GROUPS, PANTRY_ITEMS } from '@/data/pantry';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { pantryIndex } from '@/lib/pantry-index';
+import { costIndex } from '@/lib/ingredient-prices';
 import { basicsFor, labelFor, MAX_MISSING, MIN_ASK } from '@/lib/pantry-match';
 import PantryMatcher from '@/components/PantryMatcher';
 
@@ -119,7 +120,8 @@ export default function WhatCanIMakePage() {
       </header>
 
       {/* ── The tool ── */}
-      <PantryMatcher recipes={index} basics={basics} />
+      <PantryMatcher costIndex={costIndex(RECIPES)}
+        recipes={index} basics={basics} />
 
       {/* ── How it decides ── */}
       <section className="pt-14" aria-labelledby="rules-heading">

@@ -46,10 +46,21 @@ for (const [raw, list] of Object.entries(matches)) {
 }
 
 const byReason = new Map<UncostableReason, Map<string, number>>();
+/**
+ * How many RECIPES each unpriced major ingredient blocks.
+ *
+ * The line counts below say what is missing; this says what it costs us. One
+ * unpriced major ingredient suppresses the whole recipe's number (see
+ * `costFor`), so an ingredient in two recipes matters less than a line count
+ * suggests, and one in twenty matters far more. This list is the work queue.
+ */
+const blockers = new Map<string, Set<string>>();
 let costed = 0;
 let total = 0;
+let recipesShowable = 0;
 
 for (const recipe of recipes) {
+  let majorMissing = 0;
   for (const ingredient of recipe.ingredients ?? []) {
     total += 1;
     const line = costLine(ingredient, prices);
@@ -57,17 +68,34 @@ for (const recipe of recipes) {
       costed += 1;
       continue;
     }
+    if (line.isMajor) {
+      majorMissing += 1;
+      if (!blockers.has(line.canonical)) blockers.set(line.canonical, new Set());
+      blockers.get(line.canonical)!.add(recipe.slug);
+    }
     const reason = line.reason as UncostableReason;
     if (!byReason.has(reason)) byReason.set(reason, new Map());
     const bucket = byReason.get(reason)!;
     bucket.set(line.canonical, (bucket.get(line.canonical) ?? 0) + 1);
   }
+  if (majorMissing === 0 && (recipe.ingredients?.length ?? 0) > 0) recipesShowable += 1;
 }
 
 const pct = (n: number) => `${((n / total) * 100).toFixed(1)}%`;
 console.log(`\ningredient lines: ${total}`);
 console.log(`costable        : ${costed} (${pct(costed)})`);
-console.log(`un-costable     : ${total - costed} (${pct(total - costed)})\n`);
+console.log(`un-costable     : ${total - costed} (${pct(total - costed)})`);
+console.log(
+  `recipes able to show a cost: ${recipesShowable}/${recipes.length} ` +
+    `(${((recipesShowable / recipes.length) * 100).toFixed(1)}%) — every major line priced\n`,
+);
+
+const queue = [...blockers.entries()].sort((a, b) => b[1].size - a[1].size).slice(0, 15);
+console.log('--- top blockers: unpriced MAJOR ingredients, by recipes suppressed');
+for (const [name, slugs] of queue) {
+  console.log(`      ${String(slugs.size).padStart(3)} recipes  ${name}`);
+}
+console.log();
 
 const ordered = [...byReason.entries()].sort(
   (a, b) => sum(b[1]) - sum(a[1])

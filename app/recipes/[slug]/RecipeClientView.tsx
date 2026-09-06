@@ -16,6 +16,7 @@ import {
   ArrowUpRight,
 } from 'lucide-react';
 import { Recipe, CookTimeDatasheet } from '@/lib/types';
+import type { RecipeCostSummary } from '@/lib/ingredient-prices';
 import { RECIPES } from '@/data/recipes';
 import { formatScaledAmount, buildSmsShareText, recipeToMarkdown } from '@/lib/recipe-utils';
 import { track } from '@/lib/analytics';
@@ -31,6 +32,8 @@ import type { RecipeVideo as RecipeVideoData } from '@/lib/recipe-video';
 
 interface RecipeClientViewProps {
   recipe: Recipe;
+  /** Absent when no store has been priced — the cell is then simply not shown. */
+  cost?: RecipeCostSummary | null;
   /** Build-time Kroger product matches for this recipe's ingredients. */
   krogerIngredients?: ResolvedIngredient[];
   /** False when KROGER_CLIENT_ID is unset — the panel is hidden rather than
@@ -94,6 +97,7 @@ export default function RecipeClientView({
   recipe,
   relatedDatasheets = [],
   resolvedImage,
+  cost = null,
   krogerIngredients = [],
   krogerEnabled = false,
   mealsEnabled = false,
@@ -290,7 +294,7 @@ export default function RecipeClientView({
       (r) =>
         r.id !== recipe.id && (r.appliance === recipe.appliance || r.protein === recipe.protein),
     ).slice(0, 4);
-  }, [recipe]);
+  }, [recipe, cost]);
 
   // Spec row. Same fallback chain as the old Lean5SMatrix — internal temp →
   // flip → rest — and never an empty cell: only cells with a real value render.
@@ -331,6 +335,21 @@ export default function RecipeClientView({
         value: `${recipe.safeInternalTempF}°F`,
         sub: 'USDA safe minimum',
         accent: true,
+      });
+    }
+    // Cost sits with the other hard numbers rather than in its own panel: it
+    // is the same kind of fact as temp and time. The "+" in the value carries
+    // the caveat, and `sub` says how many lines are behind it, so a partial
+    // total can never read as a complete one.
+    if (cost) {
+      cells.push({
+        key: 'cost',
+        label: 'Cost / serving',
+        value: cost.perServing,
+        sub:
+          cost.linesMissing > 0
+            ? `${cost.total} for ${cost.servings} · ${cost.linesMissing} item${cost.linesMissing === 1 ? '' : 's'} unpriced`
+            : `${cost.total} for ${cost.servings} servings`,
       });
     }
     if (cells.length < 4 && recipe.restMinutes) {

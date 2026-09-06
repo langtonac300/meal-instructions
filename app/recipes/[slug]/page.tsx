@@ -11,6 +11,7 @@ import { getRecipeVideo } from '@/lib/recipe-video';
 import RecipeClientView from './RecipeClientView';
 import { mealsConfigured } from '@/lib/supabase-admin';
 import { resolveIngredients } from '@/lib/kroger/matches';
+import { costSummaryFor } from '@/lib/ingredient-prices';
 
 interface RecipePageProps {
   params: Promise<{ slug: string }>;
@@ -97,6 +98,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
       />
       <RecipeClientView
         recipe={recipe}
+        cost={costSummaryFor(recipe)}
         krogerIngredients={resolveIngredients(recipe.ingredients.map((i) => i.item))}
         krogerEnabled={Boolean(process.env.KROGER_CLIENT_ID)}
         mealsEnabled={mealsConfigured()}
