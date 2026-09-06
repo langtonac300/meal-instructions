@@ -24,6 +24,7 @@ import { householdServings, readProfile } from '@/lib/profile';
 
 import KrogerCartPanel from '@/components/KrogerCartPanel';
 import MealActions from '@/components/MealActions';
+import PlanFab from '@/components/PlanFab';
 import type { ResolvedIngredient } from '@/lib/kroger/matches';
 
 interface RecipeClientViewProps {
@@ -826,6 +827,10 @@ export default function RecipeClientView({
           })}
         </section>
       )}
+
+      {/* Floating "plan this" — the quick path from a recipe to a calendar
+          entry, without scrolling to the bottom or leaving the page. */}
+      {mealsEnabled && <PlanFab recipeSlug={recipe.slug} />}
 
       {/* ── 13. Save & rate ── */}
       {mealsEnabled && (

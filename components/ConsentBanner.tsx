@@ -7,6 +7,26 @@ const STORAGE_KEY = 'mi_consent_v1';
 
 type ConsentState = 'granted' | 'denied' | 'unset';
 
+/**
+ * True once the reader has answered the cookie prompt, so the banner is gone.
+ *
+ * Exported because anything else pinned to the bottom of the viewport has to
+ * stay out of the banner's way — it sits at z-50 across the full width, and a
+ * floating control landing on its Accept button is not a cosmetic problem.
+ * One definition, so a second copy cannot drift: only 'granted' and 'denied'
+ * count, exactly as the banner's own check below does. Unreadable storage
+ * counts as answered — the banner cannot render either, and hiding a feature
+ * forever is the worse failure.
+ */
+export function consentAnswered(): boolean {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored === 'granted' || stored === 'denied';
+  } catch {
+    return true;
+  }
+}
+
 declare global {
   interface Window {
     dataLayer?: unknown[];

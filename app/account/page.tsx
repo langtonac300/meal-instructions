@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { revalidatePath } from 'next/cache';
 import type { Metadata } from 'next';
-import { Printer, Star } from 'lucide-react';
+import { CalendarPlus, Printer, Star } from 'lucide-react';
 import { auth, signOut } from '@/auth';
 import {
   getUserByEmail,
@@ -13,6 +13,7 @@ import {
   listRatingsForUser,
   listSuggestionsForUser,
   getProfile,
+  getLatestPlan,
   type EditSuggestionRow,
 } from '@/lib/meals-db';
 import { getRecipeBySlug } from '@/data/recipes';
@@ -117,6 +118,16 @@ export default async function AccountPage({ searchParams }: Props) {
     }),
     searchParams,
   ]);
+
+  // Same posture as the profile read: the planner is newer than this page, and
+  // a failure there must not take the dashboard down with it.
+  const plan = await getLatestPlan(user.id).catch((err: unknown) => {
+    console.error('[account] getLatestPlan failed', err);
+    return null;
+  });
+  const plannedNights = plan?.items.length ?? 0;
+  const nextNight = plan?.items.find((i) => i.cook_date >= new Date().toISOString().slice(0, 10));
+  const nextRecipe = nextNight ? getRecipeBySlug(nextNight.recipe_slug) : undefined;
 
   const ratingBySlug = new Map(ratings.map((r) => [r.recipe_slug, r]));
   const reviews = ratings.filter((r) => r.review && r.review.trim().length > 0);
@@ -550,6 +561,41 @@ export default async function AccountPage({ searchParams }: Props) {
                 </Link>
               </>
             )}
+          </div>
+
+          {/* Week planner */}
+          <div className="bg-paper-50 border border-hairline p-6">
+            <div className="flex items-baseline justify-between gap-4">
+              <h3 className={RAIL_H3}>Week planner</h3>
+              <span className="font-mono text-[13px] uppercase tracking-[0.08em] font-bold text-ink-subtle">
+                {plannedNights === 0 ? 'Empty' : `${plannedNights} night${plannedNights === 1 ? '' : 's'}`}
+              </span>
+            </div>
+            <p className="mt-2 text-[16px] leading-[1.55] text-ink-muted">
+              {nextNight && nextRecipe ? (
+                <>
+                  Next up: <strong className="font-semibold text-ink">{nextRecipe.title}</strong> on{' '}
+                  {new Date(`${nextNight.cook_date}T12:00:00`).toLocaleDateString(undefined, {
+                    weekday: 'long',
+                    month: 'short',
+                    day: 'numeric',
+                  })}
+                  .
+                </>
+              ) : (
+                <>
+                  Pick the next few nights and push them to Google Calendar, each one carrying the
+                  ingredients, the temperature, and the steps.
+                </>
+              )}
+            </p>
+            <Link
+              href="/plan"
+              className="inline-flex items-center gap-2 mt-3 text-[16px] font-semibold hover:text-accent transition-colors"
+            >
+              <CalendarPlus className="w-4 h-4" aria-hidden="true" />
+              {plannedNights === 0 ? 'Plan the week →' : 'Open the plan →'}
+            </Link>
           </div>
 
           {/* Print packs */}
