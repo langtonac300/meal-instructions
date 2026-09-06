@@ -253,6 +253,23 @@ export interface LineCost {
   /** Dollars for this line, or null when it could not be costed. */
   dollars: number | null;
   reason?: UncostableReason;
+  /**
+   * True when this line is big enough to plausibly dominate the recipe's cost:
+   * any weight, any count, or a quarter cup or more by volume.
+   *
+   * The distinction exists because a floor built while a MAJOR line is missing
+   * is not a usable floor. Three real examples from this corpus, all of which
+   * passed a purely count-based guard:
+   *
+   *   Dutch Oven No-Knead Bread   $0.01/serving  — the flour was unpriced
+   *   Perfect Al Dente Pasta      $0.04/serving  — the pasta was unpriced
+   *   Oven Crispy Chicken Wings   $0.05/serving  — the WINGS were unpriced
+   *
+   * Each was reporting the price of its seasoning. A tsp or tbsp of anything
+   * is bounded small and can go missing without wrecking a floor; a pound of
+   * meat cannot.
+   */
+  isMajor: boolean;
 }
 
 export interface RecipeCost {
@@ -262,8 +279,18 @@ export interface RecipeCost {
   perServing: number;
   linesCosted: number;
   linesTotal: number;
+  /**
+   * Lines that cost $0 because the ingredient is free (water, ice).
+   *
+   * Tracked separately because they are costed but contribute nothing, so
+   * counting them as evidence that a total is trustworthy is exactly wrong —
+   * see `costFor` in lib/ingredient-prices.ts.
+   */
+  linesFree: number;
   /** True when some line is missing, so `dollars` is a floor, not a total. */
   isFloor: boolean;
+  /** Major lines that could not be priced. Non-zero means the floor is not usable. */
+  majorLinesUnpriced: number;
   lines: LineCost[];
 }
 
@@ -280,12 +307,25 @@ interface RecipeIngredientLike {
  * a reason rather than falling back to an assumption. The reasons are what
  * `npm run report:cost` groups by, so each one names a specific fixable gap.
  */
+/** See `LineCost.isMajor`. Unrecognised units count as major — assume it matters. */
+function isMajorLine(ingredient: RecipeIngredientLike): boolean {
+  const unit = (ingredient.unit ?? '').toLowerCase().trim();
+  const cups = VOLUME_IN_CUPS[unit];
+  if (cups === undefined) return true;
+  return (ingredient.qtyNumeric ?? 0) * cups >= 0.25;
+}
+
 export function costLine(
   ingredient: RecipeIngredientLike,
   prices: Record<string, IngredientPrice>
 ): LineCost {
   const canonical = canonicalIngredient(ingredient.item);
-  const base: LineCost = { item: ingredient.item, canonical, dollars: null };
+  const base: LineCost = {
+    item: ingredient.item,
+    canonical,
+    dollars: null,
+    isMajor: isMajorLine(ingredient),
+  };
 
   const qty = ingredient.qtyNumeric;
   if (qty == null || !Number.isFinite(qty) || qty <= 0) {
@@ -390,8 +430,10 @@ export function costRecipe(
     dollars,
     perServing: dollars / safeServings,
     linesCosted: costed.length,
+    linesFree: costed.filter((l) => l.dollars === 0).length,
     linesTotal: lines.length,
     isFloor: costed.length < lines.length,
+    majorLinesUnpriced: lines.filter((l) => l.dollars === null && l.isMajor).length,
     lines,
   };
 }

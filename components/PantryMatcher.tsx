@@ -159,7 +159,14 @@ function Chip({ on, open = false, onClick, size = 'md', children }: ChipProps) {
   );
 }
 
-function ResultRow({ verdict }: { verdict: PantryVerdict }) {
+/**
+ * Per-serving ceilings offered by the budget filter. Round numbers a reader
+ * already thinks in, not quantiles of the corpus — "under $5" is a decision
+ * someone has already made before arriving here.
+ */
+const COST_CEILINGS: (number | null)[] = [null, 3, 5, 8];
+
+function ResultRow({ verdict, perServing }: { verdict: PantryVerdict; perServing?: number }) {
   const { recipe, missing } = verdict;
   return (
     <li className="border-b border-hairline last:border-b-0">
@@ -180,6 +187,7 @@ function ResultRow({ verdict }: { verdict: PantryVerdict }) {
           </span>
           <span className="block mt-1 font-mono text-[12px] uppercase tracking-[0.06em] text-ink-muted">
             {applianceLabel(recipe.appliance)} · {recipe.totalMinutes} min
+            {perServing !== undefined && ` · $${perServing.toFixed(2)}/serving`}
           </span>
           {missing.length > 0 && (
             <span className="block mt-1 text-[13px] leading-[1.4] text-ink-muted">
@@ -260,6 +268,11 @@ interface PantryMatcherProps {
   recipes: PantryRecipe[];
   /** Assumed present until untapped; computed from the corpus on the server. */
   basics: string[];
+  /**
+   * slug -> dollars per serving. Empty until a store has been priced, which is
+   * the signal to not render the cost filter at all.
+   */
+  costIndex?: Record<string, number>;
 }
 
 /**
@@ -269,7 +282,7 @@ interface PantryMatcherProps {
  * live from the first tap. The full shelves sit behind "See all ingredients".
  * The rules live in lib/pantry-match.ts; this file is the taps and the list.
  */
-export default function PantryMatcher({ recipes, basics }: PantryMatcherProps) {
+export default function PantryMatcher({ recipes, basics, costIndex = {} }: PantryMatcherProps) {
   const basicsSet = useMemo(() => new Set(basics), [basics]);
   const families = useMemo(() => proteinFamilies(recipes), [recipes]);
 
@@ -310,6 +323,32 @@ export default function PantryMatcher({ recipes, basics }: PantryMatcherProps) {
   const results = useMemo(() => matchPantry(recipes, haveSet), [recipes, haveSet]);
   const skip = useMemo(() => new Set([...basics, ...dismissed]), [basics, dismissed]);
   const splitters = useMemo(() => pickSplitters(recipes, haveSet, skip), [recipes, haveSet, skip]);
+
+  /** Dollars-per-serving ceiling, or null for no ceiling. */
+  const [maxCost, setMaxCost] = useState<number | null>(null);
+  const costed = Object.keys(costIndex).length > 0;
+
+  /**
+   * The list actually rendered. `results` stays unfiltered so the analytics
+   * event below still reports how many meals the pantry reaches, which is a
+   * different question from how many survive a budget.
+   *
+   * A recipe with no cost is hidden while a ceiling is set, never kept: the
+   * filter says "under $5" and an unpriced meal cannot be shown to be.
+   */
+  const shown = useMemo(() => {
+    if (maxCost === null) return results;
+    const underBudget = (v: PantryVerdict) => {
+      const perServing = costIndex[v.recipe.slug];
+      return perServing !== undefined && perServing <= maxCost;
+    };
+    return {
+      ...results,
+      ready: results.ready.filter(underBudget),
+      close: results.close.filter(underBudget),
+      far: results.far.filter(underBudget),
+    };
+  }, [results, maxCost, costIndex]);
 
   const basicsOff = basics.filter((id) => !haveSet.has(id));
   // What untapping a basic costs: meals in view that now list it as a gap.
@@ -381,7 +420,7 @@ export default function PantryMatcher({ recipes, basics }: PantryMatcherProps) {
       : 'the basics',
   ];
   const summary = summaryParts.map((part, i) => (i === 0 ? part : lower(part))).join(', ');
-  const inReach = results.ready.length + results.close.length;
+  const inReach = shown.ready.length + shown.close.length;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_400px] gap-10 items-start">
@@ -391,7 +430,7 @@ export default function PantryMatcher({ recipes, basics }: PantryMatcherProps) {
         className="lg:hidden sticky top-[72px] z-20 -mx-5 sm:-mx-10 px-5 sm:px-10 py-2.5 bg-paper border-b border-ink flex items-center justify-between gap-4"
       >
         <p aria-live="polite" className="font-mono text-[14px]">
-          <strong>{inReach}</strong> in reach · <strong>{results.ready.length}</strong> ready ·{' '}
+          <strong>{inReach}</strong> in reach · <strong>{shown.ready.length}</strong> ready ·{' '}
           {have.length} tapped
         </p>
         <a
@@ -616,7 +655,7 @@ export default function PantryMatcher({ recipes, basics }: PantryMatcherProps) {
             <span className="text-[15px]">meals in reach from what you tapped</span>
             <span className="text-ink-subtle">·</span>
             <span className="text-[15px]">
-              <strong className="font-mono text-accent">{results.ready.length}</strong> with nothing
+              <strong className="font-mono text-accent">{shown.ready.length}</strong> with nothing
               missing
             </span>
           </p>
@@ -660,8 +699,36 @@ export default function PantryMatcher({ recipes, basics }: PantryMatcherProps) {
             What you can make
           </h2>
           <p className="mt-1 font-mono text-[13px] text-ink-muted">
-            {inReach} in reach · {results.ready.length} ready · {have.length} tapped
+            {inReach} in reach · {shown.ready.length} ready · {have.length} tapped
           </p>
+          {/*
+            Only rendered once a store has been priced. With no prices every
+            ceiling would empty the list, which reads as a broken filter rather
+            than an unconfigured one.
+          */}
+          {costed && (
+            <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+              <span className={`${EYEBROW} text-ink-muted mr-0.5`}>Budget</span>
+              {COST_CEILINGS.map((ceiling) => {
+                const active = maxCost === ceiling;
+                return (
+                  <button
+                    key={ceiling ?? 'any'}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => setMaxCost(ceiling)}
+                    className={`font-mono text-[12px] px-2.5 py-1 border transition-colors ${
+                      active
+                        ? 'bg-ink text-paper border-ink'
+                        : 'bg-paper-50 text-ink border-hairline hover:border-ink'
+                    }`}
+                  >
+                    {ceiling === null ? 'Any' : `Under $${ceiling}`}
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         {have.length === 0 ? (
@@ -685,37 +752,37 @@ export default function PantryMatcher({ recipes, basics }: PantryMatcherProps) {
                 </p>
               </div>
             )}
-            {results.ready.length > 0 && (
+            {shown.ready.length > 0 && (
               <section aria-labelledby="ready-heading">
                 <h3 id="ready-heading" className={`${EYEBROW} text-accent px-5 pt-4 pb-2`}>
-                  Cook now · nothing missing ({results.ready.length})
+                  Cook now · nothing missing ({shown.ready.length})
                 </h3>
                 <ul className="border-t border-hairline">
-                  {results.ready.map((v) => (
-                    <ResultRow key={v.recipe.slug} verdict={v} />
+                  {shown.ready.map((v) => (
+                    <ResultRow key={v.recipe.slug} verdict={v} perServing={costIndex[v.recipe.slug]} />
                   ))}
                 </ul>
               </section>
             )}
-            {results.close.length > 0 && (
+            {shown.close.length > 0 && (
               <section aria-labelledby="close-heading" className="border-t border-hairline">
                 <h3 id="close-heading" className={`${EYEBROW} text-ink-subtle px-5 pt-4 pb-2`}>
-                  A thing or two short ({results.close.length})
+                  A thing or two short ({shown.close.length})
                 </h3>
                 <ul className="border-t border-hairline">
-                  {results.close.map((v) => (
-                    <ResultRow key={v.recipe.slug} verdict={v} />
+                  {shown.close.map((v) => (
+                    <ResultRow key={v.recipe.slug} verdict={v} perServing={costIndex[v.recipe.slug]} />
                   ))}
                 </ul>
               </section>
             )}
-            {results.far.length > 0 && (
+            {shown.far.length > 0 && (
               <section aria-labelledby="far-heading" className="border-t border-hairline">
                 <h3
                   id="far-heading"
                   className={`${EYEBROW} text-ink-subtle px-5 pt-4 pb-2 flex items-center justify-between gap-3`}
                 >
-                  <span>Needs a proper shop ({results.far.length})</span>
+                  <span>Needs a proper shop ({shown.far.length})</span>
                   <button
                     type="button"
                     onClick={() => setShowFar((v) => !v)}
@@ -728,8 +795,8 @@ export default function PantryMatcher({ recipes, basics }: PantryMatcherProps) {
                 </h3>
                 {showFar && (
                   <ul id="far-list" className="border-t border-hairline">
-                    {results.far.map((v) => (
-                      <ResultRow key={v.recipe.slug} verdict={v} />
+                    {shown.far.map((v) => (
+                      <ResultRow key={v.recipe.slug} verdict={v} perServing={costIndex[v.recipe.slug]} />
                     ))}
                   </ul>
                 )}
