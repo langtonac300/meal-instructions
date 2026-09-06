@@ -11,7 +11,7 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Chef John demonstrates browning pork with aromatics and quickly wilting cabbage in the skillet so it retains crispness.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.818Z"
   },
   {
     "slug": "15-minute-lemon-garlic-butter-shrimp",
@@ -25,7 +25,7 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Demonstrates flash searing shrimp in a hot skillet with butter and garlic before finishing off-heat with fresh lemon juice.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.818Z"
   },
   {
     "slug": "15-minute-skillet-beef-taco-meat",
@@ -39,7 +39,49 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Demonstrates browning 85/15 ground beef in the skillet, breaking it into crumbles, and simmering with spices until glazed.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.818Z"
+  },
+  {
+    "slug": "15-minute-skillet-shrimp-tacos",
+    "youtubeId": "d-l5NB-bRXg",
+    "title": "Easy SHRIMP TACOS with Best Shrimp Taco Sauce",
+    "channel": "Natashas Kitchen",
+    "channelUrl": "https://www.youtube.com/channel/UC-pC1xsFPzcrL09DaW4jlBA",
+    "uploadDate": "2020-04-03T15:30:11Z",
+    "duration": "PT9M1S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/d-l5NB-bRXg/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Natasha demonstrates seasoning peeled shrimp, flash searing them in a hot skillet until pink, and assembling tacos.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "15-minute-skillet-turkey-sloppy-joes",
+    "youtubeId": "niJS_ojWn1g",
+    "title": "Sloppy Toms - Turkey Sloppy Joes Recipe",
+    "channel": "Food Wishes",
+    "channelUrl": "https://www.youtube.com/channel/UCRIZtPl9nb9RiXc9btSTQNw",
+    "uploadDate": "2012-01-25T05:23:21Z",
+    "duration": "PT5M15S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/niJS_ojWn1g/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Chef John demonstrates browning ground turkey with onions in a skillet and simmering with a sweet-tangy tomato glaze.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "3-ingredient-slow-cooker-salsa-chicken",
+    "youtubeId": "APa6KbFzvB0",
+    "title": "Slow Cook Salsa Chicken Recipe (3 ways!) | Meal Prep Ideas",
+    "channel": "Clean & Delicious",
+    "channelUrl": "https://www.youtube.com/channel/UCj0V0aG4LcdHmdPJ7aTtSCQ",
+    "uploadDate": "2016-10-05T15:00:01Z",
+    "duration": "PT4M5S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/APa6KbFzvB0/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Shows layering raw chicken breasts with taco seasoning and jarred salsa in the slow cooker before shredding in the juices.",
+    "verifiedAt": "2026-09-06T01:39:11.878Z"
   },
   {
     "slug": "air-fryer-10-minute-garlic-butter-salmon",
@@ -53,7 +95,21 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Demonstrates seasoning salmon fillets skin-side down, air frying without flipping, and testing for flaky doneness.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.818Z"
+  },
+  {
+    "slug": "air-fryer-bacon-no-splatter",
+    "youtubeId": "WZKQrazsMh4",
+    "title": "The BEST Air Fryer Bacon 🥓 (No Splatter, So Easy!)",
+    "channel": "Evolving Table",
+    "channelUrl": "https://www.youtube.com/channel/UCOWKwl9lasOMhuAA_r4tFiw",
+    "uploadDate": "2021-04-08T15:30:15Z",
+    "duration": "PT4M18S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/WZKQrazsMh4/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Shows arranging bacon strips in a single layer in the air fryer basket to render fat cleanly without stovetop grease splatter.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
   },
   {
     "slug": "air-fryer-bbq-chicken-drumsticks",
@@ -67,7 +123,63 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Shows air frying drumsticks until crispy before brushing with BBQ sauce for a quick caramelizing glaze.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "air-fryer-buffalo-cauliflower-bites",
+    "youtubeId": "nXpZ0iQAcqw",
+    "title": "Air Fryer Cauliflower Wings",
+    "channel": "Cooking with Coit",
+    "channelUrl": "https://www.youtube.com/channel/UCMLJDOgiikROIDK5nnvCbZw",
+    "uploadDate": "2022-11-09T21:32:15Z",
+    "duration": "PT7M48S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/nXpZ0iQAcqw/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates cutting cauliflower into uniform florets, coating in light batter, air frying until crisp, and tossing in buffalo sauce.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "air-fryer-cod-fish-sticks",
+    "youtubeId": "zXqYyzEFVBo",
+    "title": "Air Fryer Crispy Fish Sticks HOMEMADE",
+    "channel": "Air Fryer World",
+    "channelUrl": "https://www.youtube.com/channel/UCT9i4bnUNe072P62xPZR97A",
+    "uploadDate": "2023-08-21T21:24:17Z",
+    "duration": "PT2M10S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/zXqYyzEFVBo/sddefault.jpg",
+    "thumbnailWidth": 640,
+    "thumbnailHeight": 480,
+    "why": "Demonstrates slicing fresh cod into batons, dredging in seasoned panko, and air frying with oil spray until crunchy.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "air-fryer-crispy-bone-in-chicken-thighs",
+    "youtubeId": "WBlr_xPfy4U",
+    "title": "The BEST CRISPY Air Fryer Chicken Thighs Recipe",
+    "channel": "Munchy Goddess",
+    "channelUrl": "https://www.youtube.com/channel/UCxEvcMyDI1D-Z12NLkdeNbg",
+    "uploadDate": "2024-09-03T19:00:16Z",
+    "duration": "PT2M14S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/WBlr_xPfy4U/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates patting chicken thighs dry, seasoning, starting skin-down to render fat, and flipping skin-up to blister the crust.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "air-fryer-crispy-broccoli",
+    "youtubeId": "NQ9caIaDBPk",
+    "title": "Air Fryer Broccoli | How to Cook Broccoli in the Air Fryer (Fresh or Frozen!)",
+    "channel": "Detoxinista",
+    "channelUrl": "https://www.youtube.com/channel/UCJVECMwdj_k09B0LINh3Vgg",
+    "uploadDate": "2021-03-06T14:51:41Z",
+    "duration": "PT4M9S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/NQ9caIaDBPk/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Shows cutting broccoli into uniform florets, tossing with a light coating of oil, and air frying with a basket shake to avoid mushiness.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
   },
   {
     "slug": "air-fryer-crispy-garlic-parm-wings",
@@ -81,7 +193,7 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Shows seasoning the split wings, crisping them in the air fryer basket, and tossing them in melted garlic butter and parmesan cheese.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.818Z"
   },
   {
     "slug": "air-fryer-crispy-parmesan-pork-chops",
@@ -95,7 +207,21 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Shows pressing pork chops into the parmesan-panko coating, arranging them in the air fryer, and cooking until golden and crisp.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.818Z"
+  },
+  {
+    "slug": "air-fryer-frozen-chicken-nuggets-and-fries",
+    "youtubeId": "rKU9jWCwrFI",
+    "title": "Air Fryer Frozen Chicken Nuggets & Fries (chicken nuggets & chips)",
+    "channel": "Sam & Dom's KitchenGadgetsClub",
+    "channelUrl": "https://www.youtube.com/channel/UCKCAPdgqczXUDbA9BhK1qMQ",
+    "uploadDate": "2022-05-19T09:38:07Z",
+    "duration": "PT5M23S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/rKU9jWCwrFI/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates arranging frozen nuggets and fries together in the air fryer basket and shaking midway for even crisping.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
   },
   {
     "slug": "air-fryer-frozen-gyoza-potstickers",
@@ -109,7 +235,49 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Demonstrates arranging frozen potstickers in a single layer, oil spraying to prevent wrapper dryness, and air frying until crispy.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "air-fryer-frozen-mozzarella-sticks",
+    "youtubeId": "Zj80lPToTww",
+    "title": "Air Fryer Frozen Mozzarella Sticks Recipe - Crispy On The Outside, Gooey On The Inside! AMAZING!",
+    "channel": "Melanie Cooks",
+    "channelUrl": "https://www.youtube.com/channel/UCh4PkZpldMcUkMMhzxaVJCw",
+    "uploadDate": "2020-10-17T14:00:06Z",
+    "duration": "PT2M59S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/Zj80lPToTww/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Shows spacing frozen mozzarella sticks in a single layer and monitoring the bake so the cheese melts without bursting the breading.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "air-fryer-frozen-taquitos",
+    "youtubeId": "zmRxGHcNz4U",
+    "title": "Air Fryer Frozen Taquitos - How To Cook Frozen Taquitos In The Air Fryer",
+    "channel": "Melanie Cooks",
+    "channelUrl": "https://www.youtube.com/channel/UCh4PkZpldMcUkMMhzxaVJCw",
+    "uploadDate": "2020-12-06T15:00:32Z",
+    "duration": "PT2M43S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/zmRxGHcNz4U/sddefault.jpg",
+    "thumbnailWidth": 640,
+    "thumbnailHeight": 480,
+    "why": "Demonstrates laying frozen taquitos seam-side down in the air fryer basket and air frying until the shells crackle crisp.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "air-fryer-hard-boiled-eggs",
+    "youtubeId": "nhIEo6H2ejU",
+    "title": "Air Fryer Hard Boiled Eggs | Cook Time & Temp for PERFECT Easy-Peel Eggs!",
+    "channel": "MOMables - Laura Fuentes",
+    "channelUrl": "https://www.youtube.com/channel/UC0oO2ekgH83Zc3j7SOvT_2Q",
+    "uploadDate": "2023-03-31T16:15:03Z",
+    "duration": "PT2M35S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/nhIEo6H2ejU/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates placing whole cold eggs directly in the air fryer basket followed by an immediate ice water shock for clean peeling.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
   },
   {
     "slug": "air-fryer-juicy-bacon-cheeseburgers",
@@ -123,7 +291,7 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Demonstrates patty dimpling to prevent puffing, spacing patties in the air fryer basket, and topping with cheese under residual heat.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.818Z"
   },
   {
     "slug": "air-fryer-loaded-baked-potatoes",
@@ -137,7 +305,21 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Shows oiling and salting whole russet potatoes, air frying for crispy skin, and opening the steamy fluffy interior.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "air-fryer-pork-tenderloin",
+    "youtubeId": "VHkARoWhr8A",
+    "title": "Air Fryer Pork Tenderloin",
+    "channel": "The Stay At Home Chef",
+    "channelUrl": "https://www.youtube.com/channel/UC9wcnGLQE6YrD5iVxtXBgCA",
+    "uploadDate": "2023-02-19T15:30:10Z",
+    "duration": "PT3M21S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/VHkARoWhr8A/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Shows seasoning whole pork tenderloin, air frying at high heat, and checking the internal temperature at 145°F before resting.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
   },
   {
     "slug": "air-fryer-sirloin-steak-bites",
@@ -151,7 +333,49 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Shows cubing sirloin steak into uniform bites, tossing in seasoning, and air frying in a single layer for a quick sear.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.818Z"
+  },
+  {
+    "slug": "air-fryer-tater-tot-breakfast-casserole",
+    "youtubeId": "bZlA9RYUnxo",
+    "title": "Air Fryer Breakfast Casserole",
+    "channel": "Kelly's Cookin'",
+    "channelUrl": "https://www.youtube.com/channel/UCLbGj_saCOI0kN7fGEHvwxQ",
+    "uploadDate": "2020-07-12T18:30:01Z",
+    "duration": "PT3M56S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/bZlA9RYUnxo/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates layering tots, sausage, and whisked eggs in an air fryer baking pan and cooking until the custard sets.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "air-fryer-turkey-meatballs",
+    "youtubeId": "Uq-6zXARXwo",
+    "title": "Easy Air Fryer Turkey Meatballs [Step-by-Step Recipe]",
+    "channel": "Simply Air Fryer",
+    "channelUrl": "https://www.youtube.com/channel/UCc5X0zIg1Lw4oc4Vgfd27qw",
+    "uploadDate": "2024-11-21T20:15:00Z",
+    "duration": "PT3M8S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/Uq-6zXARXwo/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Shows gently mixing ground turkey with binder, rolling into uniform meatballs, and air frying with spacing to keep them juicy.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "backyard-grilled-burgers",
+    "youtubeId": "_c9Pdj8hAbA",
+    "title": "How To Grill Burgers | Weber Grills",
+    "channel": "Weber Grills",
+    "channelUrl": "https://www.youtube.com/channel/UCEBG5mwkD55WseNJryLdDSw",
+    "uploadDate": "2013-01-26T21:21:20Z",
+    "duration": "PT5M8S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/_c9Pdj8hAbA/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Weber Grills demonstrates shaping patties with an indentation, searing over direct flame without pressing, and flipping once.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
   },
   {
     "slug": "cast-iron-butter-basted-ribeye",
@@ -165,7 +389,7 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Demonstrates tilting the cast iron skillet to spoon foamy butter, garlic, and herbs continuously over the searing steak.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.818Z"
   },
   {
     "slug": "cast-iron-lacy-edge-smash-burgers",
@@ -179,7 +403,7 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Shows the two-spatula smash and the 30-second sear that gets the lacy crust.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.818Z"
   },
   {
     "slug": "crispy-air-fryer-chicken-tenders",
@@ -193,7 +417,35 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Demonstrates the egg and seasoned panko dredging setup, oil spraying for golden color, and spacing tenders in the air fryer basket.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.818Z"
+  },
+  {
+    "slug": "dads-skillet-fried-rice",
+    "youtubeId": "0-FLn-A0cnE",
+    "title": "Late Night Egg Fried Rice",
+    "channel": "J. Kenji López-Alt",
+    "channelUrl": "https://www.youtube.com/channel/UCqqJQ_cXSat0KIAVfIfKkVA",
+    "uploadDate": "2025-04-12T01:10:18Z",
+    "duration": "PT5M4S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/0-FLn-A0cnE/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Kenji demonstrates breaking up cold leftover rice in a hot pan, scrambling eggs in a side well, and tossing with soy sauce.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "dutch-oven-chicken-and-dumplings",
+    "youtubeId": "dKtySwuIZec",
+    "title": "Chicken & Dumplings - Stewed Chicken with Thyme Creme Fraiche Dumplings",
+    "channel": "Food Wishes",
+    "channelUrl": "https://www.youtube.com/channel/UCRIZtPl9nb9RiXc9btSTQNw",
+    "uploadDate": "2012-05-29T20:06:52Z",
+    "duration": "PT6M10S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/dKtySwuIZec/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Chef John shows simmering a velvety chicken stew base and dropping dumpling spoonfuls on top to steam under a tight lid.",
+    "verifiedAt": "2026-09-06T01:39:11.878Z"
   },
   {
     "slug": "dutch-oven-dad-chili",
@@ -207,7 +459,105 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Chef John demonstrates browning ground beef, blooming the chili spices directly in the rendered fat, and simmering with beans.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "grilled-bbq-chicken-breasts",
+    "youtubeId": "NQz72eoM5W8",
+    "title": "How to Grill Chicken Breasts on a Gas Grill | Tips & Techniques",
+    "channel": "allthingsbbq",
+    "channelUrl": "https://www.youtube.com/channel/UCSeKtP7bqePrJqi99UX2NSQ",
+    "uploadDate": "2022-01-14T15:00:29Z",
+    "duration": "PT7M20S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/NQz72eoM5W8/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Chef Tom demonstrates equalizing breast thickness, two-zone gas grilling, and saucing at the end to keep chicken juicy.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "grilled-brats-with-beer-onions",
+    "youtubeId": "YyaRHShWIR0",
+    "title": "The Cooking Mom's Brat Tub",
+    "channel": "The Cooking Mom",
+    "channelUrl": "https://www.youtube.com/channel/UCrb2M1BrgpwyFWggwdhwQsA",
+    "uploadDate": "2011-01-28T00:38:35Z",
+    "duration": "PT3M54S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/YyaRHShWIR0/sddefault.jpg",
+    "thumbnailWidth": 640,
+    "thumbnailHeight": 480,
+    "why": "Demonstrates searing bratwurst on the grill and holding them in a foil pan of simmering beer and onions to stay juicy.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "grilled-chicken-kebabs",
+    "youtubeId": "Ba-bfIjqzMY",
+    "title": "Juicy Marinated Grilled Chicken Kabobs",
+    "channel": "The Stay At Home Chef",
+    "channelUrl": "https://www.youtube.com/channel/UC9wcnGLQE6YrD5iVxtXBgCA",
+    "uploadDate": "2025-07-24T15:00:18Z",
+    "duration": "PT5M8S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/Ba-bfIjqzMY/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Shows threading marinated chicken cubes, peppers, and onions onto soaked skewers and grilling over direct heat with four-sided turning.",
+    "verifiedAt": "2026-09-06T01:39:11.878Z"
+  },
+  {
+    "slug": "grilled-corn-on-the-cob",
+    "youtubeId": "3YAMFn64VS4",
+    "title": "The BEST way to GRILL CORN on the COB | BBQ Butter | PK Grill (2021)",
+    "channel": "GQue BBQ - Westminster",
+    "channelUrl": "https://www.youtube.com/channel/UC4Ocw-HIiSZq03cD2hAoaxg",
+    "uploadDate": "2021-06-19T15:15:00Z",
+    "duration": "PT4M25S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/3YAMFn64VS4/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates brushing shucked corn with butter and grilling directly over hot grates with frequent quarter-turns for blistered kernels.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "grilled-reverse-sear-ribeye",
+    "youtubeId": "7rewYYjGSMM",
+    "title": "How to Reverse Sear Steak on Your Grill | Weber Grills",
+    "channel": "Weber Grills",
+    "channelUrl": "https://www.youtube.com/channel/UCEBG5mwkD55WseNJryLdDSw",
+    "uploadDate": "2025-05-26T13:00:11Z",
+    "duration": "PT2M3S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/7rewYYjGSMM/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Weber Grill Master Dustin Green demonstrates bringing a thick ribeye up to temp over indirect heat before searing over direct flame.",
+    "verifiedAt": "2026-09-06T01:39:11.878Z"
+  },
+  {
+    "slug": "grilled-turkey-burgers",
+    "youtubeId": "ErtOHhX6e7g",
+    "title": "Best Ever Juicy Turkey Burgers",
+    "channel": "The Stay At Home Chef",
+    "channelUrl": "https://www.youtube.com/channel/UC9wcnGLQE6YrD5iVxtXBgCA",
+    "uploadDate": "2021-08-26T14:30:03Z",
+    "duration": "PT3M46S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/ErtOHhX6e7g/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates incorporating aromatics and binders so lean turkey patties hold together on hot grill grates without drying out.",
+    "verifiedAt": "2026-09-06T01:39:11.878Z"
+  },
+  {
+    "slug": "one-pan-skillet-chicken-parm-no-breading",
+    "youtubeId": "PgNYokJeykY",
+    "title": "NO BREADING SKILLET CHICKEN PARMESAN ",
+    "channel": "Joanne Pimentel",
+    "channelUrl": "https://www.youtube.com/channel/UCed8WB_JqDb1dZfqU2xpquQ",
+    "uploadDate": "2026-05-19T17:44:44Z",
+    "duration": "PT7M9S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/PgNYokJeykY/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates searing unbreaded chicken cutlets golden in a skillet, topping with marinara and cheese, and covering to melt.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
   },
   {
     "slug": "sheet-pan-chicken-fajitas",
@@ -221,7 +571,35 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Shows slicing chicken and peppers into uniform strips and spreading them across the sheet pan so they roast rather than steam.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.818Z"
+  },
+  {
+    "slug": "sheet-pan-chicken-thighs-root-vegetables",
+    "youtubeId": "XTN2z-OqgPo",
+    "title": "One-Pan Chicken, Carrots, & Potatoes (Less Than 1 Hour)",
+    "channel": "The Anthony Kitchen",
+    "channelUrl": "https://www.youtube.com/channel/UCAeo4pZ2FvRbK4bFa94sD6A",
+    "uploadDate": "2023-03-05T00:00:10Z",
+    "duration": "PT3M21S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/XTN2z-OqgPo/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Shows laying seasoned carrots and potatoes across a sheet pan, perching chicken thighs on top, and roasting until crispy.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "sheet-pan-crispy-gnocchi-vegetables",
+    "youtubeId": "ApgP0sp01T4",
+    "title": "Sheet Pan Gnocchi | Easy Gnocchi Recipe (Vegetarian Recipe)",
+    "channel": "The Mediterranean Dish",
+    "channelUrl": "https://www.youtube.com/channel/UCVn4warYFHUopwaO4uR--jw",
+    "uploadDate": "2024-12-20T16:00:06Z",
+    "duration": "PT5M25S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/ApgP0sp01T4/sddefault.jpg",
+    "thumbnailWidth": 640,
+    "thumbnailHeight": 480,
+    "why": "Shows dumping shelf-stable gnocchi directly onto a sheet pan with bell peppers and tomatoes, roasting without boiling.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
   },
   {
     "slug": "sheet-pan-honey-garlic-salmon-green-beans",
@@ -235,7 +613,7 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Demonstrates arranging salmon fillets alongside trimmed green beans on a sheet pan for an even 400°F roast.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
   },
   {
     "slug": "sheet-pan-loaded-game-day-nachos",
@@ -249,7 +627,49 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Demonstrates two-tier layering of tortilla chips, seasoned beef, and cheese on a sheet pan to prevent soggy chips.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "sheet-pan-pork-chops-and-apples",
+    "youtubeId": "EO6-tS3k_iY",
+    "title": "Easy Sheet Pan Pork Chops with Apples & Onions | Elegant One-Pan Dinner Recipe",
+    "channel": "Dr. J's Kitchen",
+    "channelUrl": "https://www.youtube.com/channel/UCzSCT9T8XDz9MAU2I32h8aw",
+    "uploadDate": "2025-07-20T18:34:39Z",
+    "duration": "PT7M3S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/EO6-tS3k_iY/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates slicing apples and onions into wedges, staging alongside seasoned bone-in pork chops, and roasting on a sheet pan.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "sheet-pan-sausage-egg-breakfast-hash",
+    "youtubeId": "us0KnBsbjSg",
+    "title": "Sheet Pan Breakfast Hash & Eggs | Easy to Meal Prep!",
+    "channel": "Evolving Table",
+    "channelUrl": "https://www.youtube.com/channel/UCOWKwl9lasOMhuAA_r4tFiw",
+    "uploadDate": "2019-08-29T15:30:12Z",
+    "duration": "PT5M50S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/us0KnBsbjSg/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates roasting diced potatoes and peppers on a sheet pan, spooning wells, and cracking eggs to bake until whites set.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "sheet-pan-shrimp-boil-no-pot",
+    "youtubeId": "KXiLWV9OGvs",
+    "title": "SHEET PAN SHRIMP BOIL | A Family Favorite!",
+    "channel": "Joanne Pimentel",
+    "channelUrl": "https://www.youtube.com/channel/UCed8WB_JqDb1dZfqU2xpquQ",
+    "uploadDate": "2022-09-06T20:08:12Z",
+    "duration": "PT5M49S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/KXiLWV9OGvs/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates roasting smoked sausage, par-cooked potatoes, and corn on a sheet pan before adding shrimp tossed in Old Bay butter.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
   },
   {
     "slug": "sheet-pan-smoked-sausage-peppers-potatoes",
@@ -263,7 +683,133 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Demonstrates cutting uniform sausage coins and potatoes, spreading them flat on a sheet pan, and roasting until crisp.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.818Z"
+  },
+  {
+    "slug": "sheet-pan-turkey-meatball-sub-melts",
+    "youtubeId": "xcdGz59DemQ",
+    "title": "Ree Drummond's Meatball Subs | The Pioneer Woman | Food Network",
+    "channel": "Food Network",
+    "channelUrl": "https://www.youtube.com/channel/UC8Y-jrV8oR3s2Ix4viDkZtA",
+    "uploadDate": "2024-07-27T18:00:33Z",
+    "duration": "PT3M19S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/xcdGz59DemQ/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates toasting hoagie rolls, nestling meatballs with marinara sauce, and melting a layer of provolone under the broiler.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "skillet-black-bean-corn-quesadillas",
+    "youtubeId": "aURH4I7r80s",
+    "title": "How to Make Black Bean and Corn Quesadillas | Quesadilla Recipe | Allrecipes.com",
+    "channel": "Allrecipes",
+    "channelUrl": "https://www.youtube.com/channel/UC4tAgeVdaNB5vD_mBoxg50w",
+    "uploadDate": "2013-01-29T13:00:33Z",
+    "duration": "PT2M53S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/aURH4I7r80s/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Shows layering seasoned black beans, corn, and cheese inside tortillas in a skillet and toasting both sides until golden.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "skillet-chicken-thigh-fajita-bowls",
+    "youtubeId": "189kCfVfvPs",
+    "title": "Sizzling Skillet Chicken Fajitas",
+    "channel": "The Stay At Home Chef",
+    "channelUrl": "https://www.youtube.com/channel/UC9wcnGLQE6YrD5iVxtXBgCA",
+    "uploadDate": "2020-01-03T15:30:00Z",
+    "duration": "PT3M12S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/189kCfVfvPs/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Shows searing chicken strips in a smoking hot skillet and blistering sliced peppers and onions in the pan drippings.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "skillet-sausage-and-peppers",
+    "youtubeId": "js89monY9mg",
+    "title": "How to Make Italian Sausage with Peppers and Onions | Get Cookin' | Allrecipes",
+    "channel": "Allrecipes",
+    "channelUrl": "https://www.youtube.com/channel/UC4tAgeVdaNB5vD_mBoxg50w",
+    "uploadDate": "2023-06-21T14:00:35Z",
+    "duration": "PT3M5S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/js89monY9mg/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Shows browning Italian sausage in the skillet, sautéing sliced peppers and onions, and deglazing the pan for juicy sub filling.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "skillet-steak-bites-and-potatoes",
+    "youtubeId": "vmDu-DD9WYs",
+    "title": "Skillet Garlic Butter Steak Bites And Potatoes  | 30-Minute Dinner Recipe",
+    "channel": "Cooking With Claudy",
+    "channelUrl": "https://www.youtube.com/channel/UCABJYRw_1sOwpxK-f4bI3zg",
+    "uploadDate": "2025-03-24T17:05:54Z",
+    "duration": "PT5M56S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/vmDu-DD9WYs/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates crisping diced potatoes in a hot skillet, searing cubed steak bites, and tossing together in garlic butter.",
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
+  },
+  {
+    "slug": "slow-cooker-beef-and-broccoli",
+    "youtubeId": "O5AaNJWBdgA",
+    "title": "Slow Cooker Beef & Broccoli Recipe (Get Your Crock Pots Ready!)",
+    "channel": "Divas Can Cook",
+    "channelUrl": "https://www.youtube.com/channel/UCubwl8dqXbXc-rYE8MOSUnQ",
+    "uploadDate": "2014-12-04T23:08:44Z",
+    "duration": "PT3M1S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/O5AaNJWBdgA/sddefault.jpg",
+    "thumbnailWidth": 640,
+    "thumbnailHeight": 480,
+    "why": "Demonstrates slicing flank steak into thin strips, braising in savory soy broth, and adding broccoli florets near the end.",
+    "verifiedAt": "2026-09-06T01:39:11.878Z"
+  },
+  {
+    "slug": "slow-cooker-overnight-steel-cut-oats",
+    "youtubeId": "FfzvKqzMH_A",
+    "title": "HOW-TO COOK STEEL CUT OATMEAL | slow cooker, stove-top + overnight",
+    "channel": "Clean & Delicious",
+    "channelUrl": "https://www.youtube.com/channel/UCj0V0aG4LcdHmdPJ7aTtSCQ",
+    "uploadDate": "2019-01-11T14:50:28Z",
+    "duration": "PT6M25S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/FfzvKqzMH_A/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates greasing the slow cooker crock to prevent sticking, adding steel-cut oats with liquid, and slow cooking overnight.",
+    "verifiedAt": "2026-09-06T01:39:11.878Z"
+  },
+  {
+    "slug": "slow-cooker-pot-roast",
+    "youtubeId": "PZuS3dfRz2k",
+    "title": "SLOW COOKER POT ROAST | an easy crock pot roast for dinner",
+    "channel": "Downshiftology",
+    "channelUrl": "https://www.youtube.com/channel/UCYidQwKhM3WTDKpT8pwfJzw",
+    "uploadDate": "2021-10-23T15:32:29Z",
+    "duration": "PT8M5S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/PZuS3dfRz2k/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Lisa Bryan demonstrates searing chuck roast deeply in a skillet before nestling it over carrots and potatoes in the slow cooker.",
+    "verifiedAt": "2026-09-06T01:39:11.878Z"
+  },
+  {
+    "slug": "slow-cooker-pulled-pork",
+    "youtubeId": "bF0fZL2goQs",
+    "title": "How to Make Easy Slow-Cooker Pulled Pork - The Easiest Way",
+    "channel": "Chowhound",
+    "channelUrl": "https://www.youtube.com/channel/UCI9dGhdza3qupiV0mVNO97A",
+    "uploadDate": "2012-05-18T20:32:25Z",
+    "duration": "PT3M3S",
+    "thumbnailUrl": "https://i.ytimg.com/vi/bF0fZL2goQs/maxresdefault.jpg",
+    "thumbnailWidth": 1280,
+    "thumbnailHeight": 720,
+    "why": "Demonstrates applying a brown sugar rub to pork shoulder, cooking low and slow over onions, and shredding with two forks.",
+    "verifiedAt": "2026-09-06T01:39:11.878Z"
   },
   {
     "slug": "smoker-st-louis-pork-ribs-3-2-1",
@@ -277,6 +823,6 @@
     "thumbnailWidth": 1280,
     "thumbnailHeight": 720,
     "why": "Demonstrates the complete 3-2-1 method: smoking for bark, wrapping in foil with butter to tenderize, and finishing with BBQ glaze.",
-    "verifiedAt": "2026-09-06T01:18:17.374Z"
+    "verifiedAt": "2026-09-06T01:39:11.819Z"
   }
 ]
