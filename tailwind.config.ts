@@ -16,6 +16,14 @@ const config: Config = {
           100: "#F5F4F0",
           200: "#ECE9E1",
           300: "#DED9CD",
+          // `card` and `subtle` exist as CSS variables in globals.css but were
+          // never added here, so `bg-paper-card` and `bg-paper-subtle` compiled
+          // to nothing across 103 files — the search modal and the consent
+          // banner rendered with no background at all, just their border and
+          // text floating over the page. Values match --paper-card and
+          // --paper-subtle so the two sources agree.
+          card: "#FAF9F6",
+          subtle: "#ECE9E1",
         },
         ink: {
           DEFAULT: "#111111",
