@@ -60,24 +60,41 @@ const WEIGHT_IN_GRAMS: Record<string, number> = {
 };
 
 /**
- * Units that mean "one of the thing". They cost directly against a count-sold
- * package ("12 ct" eggs) and are un-costable against a weight-sold one,
- * because grams-per-piece is not a sourced number anywhere in this repo.
- *
- * "cloves" is here rather than in TRAILING_NOISE: a clove is a countable unit
- * of garlic, and garlic is sold by the head, so those lines stay un-costable
- * until a sourced cloves-per-head lands.
+ * Units where one unit IS one of whatever the package counts. "2 pieces"
+ * against a "12 ct" carton of eggs is two twelfths of it.
  */
-const COUNT_UNITS = new Set([
-  'piece', 'pieces', 'clove', 'cloves', 'large', 'medium', 'small', 'whole',
-  'egg', 'eggs', 'slice', 'slices', 'stalk', 'stalks', 'rib', 'ribs', 'ear',
-  'ears', 'head', 'sprig', 'sprigs', 'thigh', 'thighs', 'breast', 'breasts',
-  'fillet', 'fillets', 'bun', 'buns', 'tortilla', 'tortillas', 'wedge',
-  'wedges', 'link', 'links', 'steak', 'steaks', 'chop', 'chops', 'rack',
-  'racks', 'can', 'cans', 'leaf', 'leaves', 'roll', 'rolls', 'strip', 'strips',
-  'pepper', 'peppers', 'onion', 'onions', 'potato', 'potatoes', 'lemon',
-  'lime', 'orange', 'sheet', 'sheets', 'chunk', 'chunks', 'packet', 'packets',
+const WHOLE_ITEM_UNITS = new Set([
+  'piece', 'pieces', 'large', 'medium', 'small', 'whole', 'egg', 'eggs',
+  'ear', 'ears', 'head', 'thigh', 'thighs', 'breast', 'breasts', 'fillet',
+  'fillets', 'bun', 'buns', 'tortilla', 'tortillas', 'link', 'links',
+  'steak', 'steaks', 'chop', 'chops', 'rack', 'racks', 'can', 'cans',
+  'roll', 'rolls', 'pepper', 'peppers', 'onion', 'onions', 'potato',
+  'potatoes', 'lemon', 'lime', 'orange', 'sheet', 'sheets', 'packet',
+  'packets',
 ]);
+
+/**
+ * Units naming a PART of the thing the package counts. A clove is part of a
+ * head; a sprig is part of a bunch; a slice is part of a loaf.
+ *
+ * These must never divide into a count-sold package, because "1 ct" counts the
+ * whole item and the recipe counts its pieces. Kroger sells `Garlic Cloves` as
+ * `1 ct` — one bulb — so treating cloves as whole items priced 3 cloves at
+ * $2.55 against a $0.85 head. A 9x overcost, and silent: the build was green
+ * and the number looked ordinary. It is only wrong if you know a head has
+ * about ten cloves.
+ *
+ * How many parts are in one item is genuine produce variance that no source
+ * here publishes, so these stay un-costable against a count package rather
+ * than being divided by a guessed ratio.
+ */
+const SUB_ITEM_UNITS = new Set([
+  'clove', 'cloves', 'slice', 'slices', 'stalk', 'stalks', 'rib', 'ribs',
+  'sprig', 'sprigs', 'leaf', 'leaves', 'wedge', 'wedges', 'strip', 'strips',
+  'chunk', 'chunks',
+]);
+
+const COUNT_UNITS = new Set([...WHOLE_ITEM_UNITS, ...SUB_ITEM_UNITS]);
 
 /**
  * Ingredients that are free at the tap. `lib/kroger/normalize.ts` already
@@ -244,7 +261,8 @@ export type UncostableReason =
   | 'no-price' // nothing priced this ingredient
   | 'unparsed-package' // priced, but the package size is not a size ("1 each")
   | 'no-density' // volume line against a weight package, density not sourced
-  | 'count-vs-weight' // "2 cloves" against a package sold by the pound
+  | 'count-vs-weight' // "2 pieces" against a package sold by the pound
+  | 'sub-unit-vs-item' // "3 cloves" against a package counting whole heads
   | 'no-quantity'; // the recipe line carries no number
 
 export interface LineCost {
@@ -392,7 +410,11 @@ function packageFractionUsed(
   // package it needs a sourced grams-per-piece; where USDA publishes one, the
   // size word in the unit ("1 large onion") picks the right weight.
   if (COUNT_UNITS.has(unit)) {
-    if (pack.count) return qty / pack.count;
+    // A sub-unit never divides into a count package — see SUB_ITEM_UNITS.
+    if (pack.count) {
+      if (SUB_ITEM_UNITS.has(unit)) return 'sub-unit-vs-item';
+      return qty / pack.count;
+    }
     if (pack.grams) {
       const piece = INGREDIENT_PIECE_WEIGHTS[canonical];
       if (!piece) return 'count-vs-weight';
