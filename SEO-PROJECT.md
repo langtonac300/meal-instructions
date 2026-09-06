@@ -299,6 +299,7 @@ Remaining unlinked (14): Frozen chicken tenders, boneless chicken breast (AF), b
 | ID | Task | Status | Verify |
 |---|---|---|---|
 | SEO-030 | Video sitemap entries for every curated clip | **DONE** 2026-09-06 | 59/59 clips emit `<video:video>`; audit proven by stripping them from the built sitemap |
+| SEO-031 | Escape XML in sitemap video fields — SEO-030 shipped an invalid sitemap | **DONE** 2026-09-06 | built sitemap parses; audit fails on any unescaped `&`/`<` |
 
 **SEO-030 — The clips were markup-only, so Google had no way to find them.**
 
@@ -319,6 +320,37 @@ Field choices, all HR-2-driven:
   already Google's default. Asserting it would be a number with no basis.
 - Titles and dates stay verbatim from the API; the audit warns at the 100-char
   `<video:title>` limit rather than silently truncating curated data.
+
+**SEO-031 — SEO-030 shipped a sitemap Search Console could not read.**
+
+Next.js's sitemap serializer interpolates every field straight into the XML with
+**no escaping of its own** (`resolve-route-data.js`, the `<video:title>` /
+`<video:description>` / `<video:uploader>` lines). YouTube titles routinely contain
+an ampersand — "Sheet-pan Roasted Salmon **&** Green Beans" — so 25 raw `&`
+characters reached the document. That is not well-formed XML, and Search Console
+rejects the **entire sitemap**, not the offending entries: all 852 URLs went
+unreadable, including the 625 that have nothing to do with video.
+
+Measured on the live production sitemap before the fix:
+
+```
+PROD PARSE: FAILED -> not well-formed (invalid token): line 2501, column 64
+32 titles / 11 descriptions / 22 channel names carried XML-hostile characters
+```
+
+Fixed with `xmlEscape()` in `lib/recipe-video.ts`, applied to every string
+`videoSitemapEntry()` returns. `&` is replaced first so the other replacements are
+not double-escaped; all five entities are escaped everywhere rather than tracking
+which field lands in an attribute (`video:uploader` carries a URL in `info=`).
+
+**Why the SEO-030 audit did not catch it.** It asserted the entries were *present*
+and that the namespace was declared — never that the document *parsed*. A green
+audit over a file Google cannot read is precisely the false confidence §1 describes.
+`audit:seo` now runs a dependency-free well-formedness check before anything else
+about the sitemap is considered, and reports the offending text.
+
+*Verify:* `checkXmlWellFormed()` was run against the captured broken production
+sitemap and correctly identified the failing title, then against the rebuilt one.
 
 ## 4. Sequencing rationale
 
@@ -384,6 +416,7 @@ grep -rn "aggregateRating" lib/ app/
 | 2026-08-29 | SEO-028 | Expanded `relatedRecipeSlug` from 25 → 46 datasheets (+21 new links). All 35 unlinked datasheets cross-referenced against 70 recipes; 21 matches found, 14 have no viable recipe. Coverage: 42% → 77%. | pending | 46 HTML pages with `/how-long/` link + `isBasedOn` |
 | 2026-08-29 | SEO-029 | Blog → Datasheet cross-links: added `relatedDatasheetSlugs` to BlogPost type, populated 43/55 posts, rendered "Verified Cook-Time Datasheets" section in blog template with emerald-bordered cards. 12 posts have no match. | pending | 43 blog HTML pages with `/how-long/` links + "Verified Datasheet" text |
 | 2026-09-06 | SEO-030 | Video sitemap. Added `durationSeconds()` + `videoSitemapEntry()` to `lib/recipe-video.ts` and a `videos:` field on recipe URLs in `app/sitemap.ts`, both driven off `data/recipe-videos.json`. `audit:seo` now asserts every curated clip has a `<video:video>` entry and that the video namespace is declared. | pending | **0 → 59** clips in the sitemap. Proven both ways: stripping the entries from the built sitemap failed the audit with 60 errors, and a simulated 60th pick appeared on its recipe URL after a rebuild with **no code change**. |
+| 2026-09-06 | SEO-031 | **Regression fix for SEO-030.** Next.js does not escape sitemap fields, so 25 unescaped `&` from YouTube titles made the production sitemap invalid XML — Search Console rejected all 852 URLs. Added `xmlEscape()` over every string in `videoSitemapEntry()`, and an XML well-formedness assertion to `audit:seo` (the SEO-030 audit only checked entries were present, never that the file parsed). | pending | live prod sitemap failed to parse at line 2501 before the fix; rebuilt sitemap parses clean with 227/227 entries intact. Checker self-tested against the captured broken file. |
 
 ---
 
