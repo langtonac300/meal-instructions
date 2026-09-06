@@ -2,6 +2,24 @@ import { NextRequest, NextResponse } from 'next/server';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import recipesData from '@/data/recipes.json';
 import type { Recipe } from '@/lib/types';
+
+/**
+ * Tool metadata is derived, never typed out.
+ *
+ * This route is a second, standalone implementation of the same tool surface as
+ * lib/mcp/server.ts, so every hand-written count in it drifted independently:
+ * it advertised "10 appliances" after `boiling` became the eleventh, omitted
+ * boiling from the get_cook_time argument description entirely, and still
+ * claimed "70 curated recipes" at 228. Deriving from the data these handlers
+ * already query means the advertised surface is the served surface.
+ */
+const SERVABLE_APPLIANCES: string[] = [
+  ...new Set(COOK_TIME_DATASHEETS.map((d) => d.appliance)),
+].sort();
+const APPLIANCE_COUNT = SERVABLE_APPLIANCES.length;
+const APPLIANCE_UNION = SERVABLE_APPLIANCES.map((a) => `"${a}"`).join(' | ');
+const DATASHEET_COUNT = COOK_TIME_DATASHEETS.length;
+const RECIPE_COUNT = (recipesData as Recipe[]).length;
 import {
   REHEAT_ITEMS,
   FROZEN_ITEMS,
@@ -15,12 +33,12 @@ const RECIPES = recipesData as Recipe[];
 const TOOLS_METADATA = [
   {
     name: 'get_cook_time',
-    description: 'Get exact cooking temperatures, time ranges, flip schedules, target internal temperatures, and hardware pro tips across 10 appliances.',
+    description: `Get exact cooking temperatures, time ranges, flip schedules, target internal temperatures, and hardware pro tips from ${DATASHEET_COUNT} sourced datasheets across ${APPLIANCE_COUNT} appliances.`,
     inputSchema: {
       type: 'object',
       properties: {
         food: { type: 'string', description: 'Food item or slug (e.g. "salmon-fillet", "chicken-tenders-fresh", "pork-chops", "bone-in-thighs", "bacon", "ribeye")' },
-        appliance: { type: 'string', description: 'Appliance hardware ("air-fryer" | "oven" | "instant-pot" | "skillet" | "sheet-pan" | "cast-iron" | "grill" | "dutch-oven" | "slow-cooker" | "smoker")' },
+        appliance: { type: 'string', enum: SERVABLE_APPLIANCES, description: `Appliance hardware (${APPLIANCE_UNION})` },
         state: { type: 'string', enum: ['fresh', 'frozen', 'refrigerated', 'dry'] },
       },
       required: ['food'],
@@ -41,7 +59,7 @@ const TOOLS_METADATA = [
   },
   {
     name: 'search_recipes',
-    description: 'Search the catalog of 70 curated recipes by keyword, protein, appliance, category, or time budget.',
+    description: `Search the catalog of ${RECIPE_COUNT} curated recipes by keyword, protein, appliance, category, or time budget.`,
     inputSchema: {
       type: 'object',
       properties: {

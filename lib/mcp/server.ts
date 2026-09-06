@@ -30,6 +30,7 @@ const APPLIANCE_CSV = SERVABLE_APPLIANCES.join(', ');
  * Appliance union in lib/types.ts (HR-12: type unions are the contract).
  */
 const ALL_APPLIANCES = APPLIANCES.map((a) => a.slug) as [string, ...string[]];
+const RECIPE_COUNT = (recipesData as Recipe[]).length;
 import {
   REHEAT_ITEMS,
   FROZEN_ITEMS,
@@ -254,7 +255,7 @@ export function createDadMealsMcpServer() {
   // ─────────────────────────────────────────────────────────────
   server.tool(
     'search_recipes',
-    'Search the catalog of 70 curated recipes by keyword, protein, appliance, category, or maximum cooking time budget.',
+    `Search the catalog of ${RECIPE_COUNT} curated recipes by keyword, protein, appliance, category, or maximum cooking time budget.`,
     {
       query: z.string().optional().describe('Search keyword matching title, tagline, ingredients, or keywords (e.g. "tacos", "steak", "pasta", "cauliflower")'),
       protein: z.enum(['chicken', 'beef', 'pork', 'seafood', 'turkey', 'vegetarian', 'dairy-eggs', 'lamb', 'duck', 'game']).optional().describe('Protein category'),

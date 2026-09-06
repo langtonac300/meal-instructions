@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import { APPLIANCES } from '@/data/appliances';
+import recipesData from '@/data/recipes.json';
 
 /**
  * Counts and the appliance list are derived from the corpus, never typed out.
@@ -19,6 +20,7 @@ const DATASHEET_COUNT = COOK_TIME_DATASHEETS.length;
 const APPLIANCE_UNION = SERVABLE_APPLIANCES.map((a) => `"${a}"`).join(' | ');
 /** Broader than SERVABLE_APPLIANCES: recipe search covers appliances that may not have datasheets yet. */
 const ALL_APPLIANCES = APPLIANCES.map((a) => a.slug);
+const RECIPE_COUNT = (recipesData as unknown[]).length;
 
 /**
  * Standard MCP Server Card
@@ -65,7 +67,7 @@ export async function GET() {
       },
       {
         name: 'search_recipes',
-        description: 'Search the catalog of 70 curated recipes by keyword, protein, appliance, category, or time budget.',
+        description: `Search the catalog of ${RECIPE_COUNT} curated recipes by keyword, protein, appliance, category, or time budget.`,
         inputSchema: {
           type: 'object',
           properties: {
