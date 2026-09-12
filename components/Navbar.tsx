@@ -41,8 +41,8 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Recipes',
-    href: '/categories',
-    isActive: (p) => p.startsWith('/categories') || p.startsWith('/recipes'),
+    href: '/recipes',
+    isActive: (p) => p.startsWith('/recipes') || p.startsWith('/categories'),
   },
   {
     label: 'Cook times',

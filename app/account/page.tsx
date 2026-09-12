@@ -88,7 +88,7 @@ export default async function AccountPage({ searchParams }: Props) {
           Sign-in works, but saving, rating, and edit suggestions need the meals database
           connected. See SETUP-AUTH.md.
         </p>
-        <Link href="/categories" className="inline-block mt-6 text-[16px] font-semibold hover:text-accent transition-colors">
+        <Link href="/recipes" className="inline-block mt-6 text-[16px] font-semibold hover:text-accent transition-colors">
           Browse recipes →
         </Link>
       </div>
