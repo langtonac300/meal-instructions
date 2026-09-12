@@ -192,6 +192,23 @@ export interface CookTimeDatasheet {
   // reuses near-identical prose across every entry in a bucket — this field lets
   // a specific record override it with genuinely unique, food-specific science.
   technicalDeepDive?: string;
+  // Same idea, applied to the remaining bucketed sections in
+  // lib/datasheet-content.ts: equipmentCalibration only varies by appliance
+  // (11 distinct values reused across all 1,225 pages), sensoryCues only
+  // varies by food category (~8 buckets), and the stock faqs are food-name-
+  // swapped templates. These fields are individually authored, food-specific
+  // content layered on top of (not replacing) the bucketed defaults.
+  uniqueFailureMode?: {
+    mistake: string;
+    consequence: string;
+    prevention: string;
+  };
+  bonusFaq?: {
+    q: string;
+    a: string;
+  };
+  uniqueEquipmentNote?: string;
+  uniqueSensoryCue?: string;
 }
 
 export type BlogCategory =

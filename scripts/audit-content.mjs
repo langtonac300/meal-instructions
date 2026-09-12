@@ -141,6 +141,18 @@ for (const r of recipes) {
 const datasheetSlugs = new Set();
 const datasheetIds = new Set();
 const datasheetDeepDives = new Map();
+const datasheetFailureModes = new Map();
+const datasheetBonusFaqs = new Map();
+const datasheetEquipmentNotes = new Map();
+const datasheetSensoryCues = new Map();
+
+// Like field(), but matches at any indentation depth — for string properties
+// nested inside an object literal (uniqueFailureMode: { mistake: '...', ... }),
+// not a top-level datasheet field.
+const nestedField = (block, name) => {
+  const m = block.match(new RegExp(`\\n\\s+${name}: '((?:[^'\\\\]|\\\\.)*)'`));
+  return m ? m[1] : undefined;
+};
 
 /** Split the exported array into its top-level object literals. */
 const datasheetBlocks = [];
@@ -243,6 +255,73 @@ for (const block of datasheetBlocks) {
     datasheetDeepDives.set(deepDive, slug);
   }
 
+  // Check uniqueness of uniqueEquipmentNote and uniqueSensoryCue (HR-4).
+  //
+  // Same rationale as technicalDeepDive: equipmentCalibration only varies by
+  // appliance (11 values total) and the sensory-cue bucket only varies by
+  // food category (~8 values) — these per-record overrides exist specifically
+  // to break that duplication, so a duplicate here is a regression.
+  const equipmentNote = field(block, 'uniqueEquipmentNote');
+  if (equipmentNote) {
+    if (equipmentNote.trim().length < 40) {
+      errors.push(`[Datasheet: ${slug}] uniqueEquipmentNote is too short (${equipmentNote.trim().length} chars) to be genuinely food-specific.`);
+    }
+    if (datasheetEquipmentNotes.has(equipmentNote)) {
+      errors.push(`[Datasheet: ${slug}] Duplicate uniqueEquipmentNote shared with '${datasheetEquipmentNotes.get(equipmentNote)}'.`);
+    }
+    datasheetEquipmentNotes.set(equipmentNote, slug);
+  }
+
+  const sensoryCue = field(block, 'uniqueSensoryCue');
+  if (sensoryCue) {
+    if (sensoryCue.trim().length < 40) {
+      errors.push(`[Datasheet: ${slug}] uniqueSensoryCue is too short (${sensoryCue.trim().length} chars) to be genuinely food-specific.`);
+    }
+    if (datasheetSensoryCues.has(sensoryCue)) {
+      errors.push(`[Datasheet: ${slug}] Duplicate uniqueSensoryCue shared with '${datasheetSensoryCues.get(sensoryCue)}'.`);
+    }
+    datasheetSensoryCues.set(sensoryCue, slug);
+  }
+
+  // Check uniqueFailureMode (mistake/consequence/prevention triple) — dedup on
+  // the combined text so a batch can't satisfy uniqueness by varying only the
+  // mistake line while reusing consequence/prevention verbatim (HR-4).
+  const ufmMistake = nestedField(block, 'mistake');
+  const ufmConsequence = nestedField(block, 'consequence');
+  const ufmPrevention = nestedField(block, 'prevention');
+  if (ufmMistake || ufmConsequence || ufmPrevention) {
+    if (!ufmMistake || !ufmConsequence || !ufmPrevention) {
+      errors.push(`[Datasheet: ${slug}] uniqueFailureMode is missing one of mistake/consequence/prevention.`);
+    } else {
+      const combined = `${ufmMistake}|${ufmConsequence}|${ufmPrevention}`;
+      if (combined.length < 100) {
+        errors.push(`[Datasheet: ${slug}] uniqueFailureMode is too short (${combined.length} chars) to be genuinely food-specific.`);
+      }
+      if (datasheetFailureModes.has(combined)) {
+        errors.push(`[Datasheet: ${slug}] Duplicate uniqueFailureMode shared with '${datasheetFailureModes.get(combined)}'.`);
+      }
+      datasheetFailureModes.set(combined, slug);
+    }
+  }
+
+  // Check bonusFaq (q/a pair) — dedup on the combined text.
+  const bonusQ = nestedField(block, 'q');
+  const bonusA = nestedField(block, 'a');
+  if (bonusQ || bonusA) {
+    if (!bonusQ || !bonusA) {
+      errors.push(`[Datasheet: ${slug}] bonusFaq is missing q or a.`);
+    } else {
+      const combined = `${bonusQ}|${bonusA}`;
+      if (combined.length < 60) {
+        errors.push(`[Datasheet: ${slug}] bonusFaq is too short (${combined.length} chars) to be genuinely food-specific.`);
+      }
+      if (datasheetBonusFaqs.has(combined)) {
+        errors.push(`[Datasheet: ${slug}] Duplicate bonusFaq shared with '${datasheetBonusFaqs.get(combined)}'.`);
+      }
+      datasheetBonusFaqs.set(combined, slug);
+    }
+  }
+
   // Check safe internal temperature for poultry / ground meat.
   //
   // A pull temperature below the USDA minimum is allowed ONLY when the entry
@@ -340,6 +419,12 @@ const blogPillars = [
   'chemistry-posts.ts',
   'safety-posts.ts',
   'operations-posts.ts',
+  // These two were never in the swept set even though data/blog-posts.ts
+  // aggregates them into the live site same as the five above — found while
+  // scoping a content-depth pass on the blog corpus. 30 posts (55 -> 85) were
+  // shipping with no dedup/schema check at all.
+  'snippet-posts.ts',
+  'snippet-posts-2.ts',
 ];
 
 let totalBlogPostsCount = 0;

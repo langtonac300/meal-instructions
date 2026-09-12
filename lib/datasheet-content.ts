@@ -72,6 +72,12 @@ export function getDatasheetContent(sheet: CookTimeDatasheet): DatasheetContent 
     auditoryOrTactile = 'Egg feels solid and compact in hand; yolk achieves the specified viscosity from liquid gold to velvety fudge.';
     thermalMarker = 'Ovotransferrin (144°F) and ovalbumin (176°F) protein coagulation thresholds have been precisely achieved.';
   }
+  // uniqueSensoryCue is food-specific and layers onto the food-category bucket
+  // above rather than replacing it — the bucket still gives a sound baseline
+  // cue even where a record has no override.
+  if (sheet.uniqueSensoryCue) {
+    visual = `${visual} ${sheet.uniqueSensoryCue}`;
+  }
 
   // 2. Equipment Calibration
   let equipmentCalibration = `Ensure the ${app.replace(/-/g, ' ')} is thoroughly preheated for at least 5 to 10 minutes before loading food to establish stable radiant and convective heat.`;
@@ -91,6 +97,12 @@ export function getDatasheetContent(sheet: CookTimeDatasheet): DatasheetContent 
     equipmentCalibration = `Warm smoker to ${sheet.tempFormatted} using kiln-dried hardwood chunks or clean food-grade wood pellets. Adjust intake and exhaust dampers until the chimney produces thin, faint, translucent blue smoke rather than thick white billowing clouds.`;
   } else if (app === 'slow-cooker') {
     equipmentCalibration = `Place the ceramic crock on a heat-safe surface. Ensure the exterior of the ceramic insert is completely dry before placing it inside the heating base. Never open the lid during the first 4 hours of cooking on LOW.`;
+  }
+  // uniqueEquipmentNote is food-specific and layers on top of the appliance-level
+  // calibration above (which is deliberately generic — the same air fryer setup
+  // steps apply regardless of what's going in it).
+  if (sheet.uniqueEquipmentNote) {
+    equipmentCalibration = `${equipmentCalibration} ${sheet.uniqueEquipmentNote}`;
   }
 
   // 3. Thermal Science
@@ -122,7 +134,11 @@ export function getDatasheetContent(sheet: CookTimeDatasheet): DatasheetContent 
   }
 
   // 5. Failure Modes
+  // uniqueFailureMode, when present, leads the list — it is authored for this
+  // exact food rather than the generic overcrowding/flip-timing/resting trio
+  // below, which stays as a reliable but formulaic fallback.
   const failureModes = [
+    ...(sheet.uniqueFailureMode ? [sheet.uniqueFailureMode] : []),
     {
       mistake: `Overcrowding or overlapping ${sheet.food} in the ${app.replace(/-/g, ' ')}`,
       consequence: 'Trapped steam creates a localized 212°F humidity barrier that prevents the Maillard reaction, leaving food pale, soggy, and rubbery.',
@@ -181,6 +197,7 @@ export function getDatasheetContent(sheet: CookTimeDatasheet): DatasheetContent 
         ? `Yes. A light mist of high-smoke-point oil (avocado, canola, or ghee) provides the lipid medium necessary for rapid conductive heat transfer and crisp browning. Avoid aerosol sprays containing lecithin propellants in non-stick air fryers.`
         : `No added oil is required. The natural intramuscular fat in ${sheet.food} will render during cooking, providing all the lubricity and browning needed.`,
     },
+    ...(sheet.bonusFaq ? [sheet.bonusFaq] : []),
   ];
 
   return {
