@@ -19,6 +19,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
+      url: absoluteUrl('/recipes'),
+      changeFrequency: 'daily',
+      priority: 0.95,
+    },
+    {
+      url: absoluteUrl('/appliances'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: absoluteUrl('/charts'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: absoluteUrl('/how-long'),
       changeFrequency: 'weekly',
       priority: 0.95,
@@ -211,7 +226,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: absoluteUrl('/about'),
       changeFrequency: 'monthly',
-      priority: 0.5,
+      priority: 0.6,
+    },
+    {
+      url: absoluteUrl('/editorial-standards'),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: absoluteUrl('/test-kitchen'),
+      changeFrequency: 'monthly',
+      priority: 0.6,
     },
     {
       url: absoluteUrl('/contact'),

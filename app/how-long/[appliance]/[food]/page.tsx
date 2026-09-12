@@ -2,13 +2,14 @@ import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, Clock, Flame, ShieldCheck, Zap, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Clock, Flame, ShieldCheck, Zap, ArrowUpRight, CheckCircle2, Thermometer, AlertTriangle, Eye, HelpCircle } from 'lucide-react';
 import LeanSpecBadge from '@/components/LeanSpecBadge';
 import StartCookButton from '@/components/StartCookButton';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
 import type { CookTimeDatasheet, Appliance } from '@/lib/types';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
+import { getDatasheetContent } from '@/lib/datasheet-content';
 
 const HEAT_METHOD: Record<Appliance, string> = {
   'air-fryer': 'Convection Heat',
@@ -103,7 +104,7 @@ export async function generateMetadata({ params }: HowLongPageProps): Promise<Me
   );
 
   if (!sheet) {
-    return { title: 'Cooking Guide Not Found' };
+    return { title: 'Cooking Guide Not Found | Meal Instructions' };
   }
 
   const title = `How Long to Cook ${sheet.food} in the ${sheet.appliance.replace('-', ' ')} (${sheet.tempFormatted}, ${sheet.timeFormatted})`;
@@ -133,9 +134,10 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
   const applianceName = sheet.appliance.replace('-', ' ');
   const pageUrl = absoluteUrl(`/how-long/${sheet.appliance}/${sheet.foodSlug}`);
   const steps = getStepCopy(sheet);
+  const extraContent = getDatasheetContent(sheet);
 
   const breadcrumbs = generateBreadcrumbSchema([
-    { name: 'Cook Times', path: '/cheat-sheet' },
+    { name: 'How Long to Cook', path: '/how-long' },
     { name: sheet.food, path: `/how-long/${sheet.appliance}/${sheet.foodSlug}` },
   ]);
 
@@ -171,8 +173,21 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
     ],
   };
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: extraContent.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.a,
+      },
+    })),
+  };
+
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
+    <div className="max-w-4xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10 text-ink font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
@@ -180,6 +195,10 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Breadcrumb */}
@@ -197,25 +216,25 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
       </div>
 
       {/* Main Datasheet Header Card */}
-      <section className="bg-paper-card hairline-border p-6 sm:p-10 space-y-6">
+      <section className="bg-paper-card border border-hairline p-6 sm:p-10 space-y-6">
         <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-ink-muted uppercase">
-          <span className="px-2.5 py-1 bg-paper hairline-border font-bold text-ink">
+          <span className="px-2.5 py-1 bg-paper border border-hairline font-bold text-ink">
             {sheet.appliance}
           </span>
-          <span className="px-2.5 py-1 bg-paper hairline-border">
+          <span className="px-2.5 py-1 bg-paper border border-hairline">
             STATE: {sheet.state.toUpperCase()}
           </span>
-          <span className="px-2.5 py-1 bg-emerald-100 text-emerald-900 hairline-border font-bold">
+          <span className="px-2.5 py-1 bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold">
             VERIFIED DATASHEET
           </span>
         </div>
 
         <div className="space-y-2">
-          <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-ink font-sans uppercase">
-            How Long to Cook {sheet.food} in the {sheet.appliance.replace('-', ' ')}
+          <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-ink uppercase font-sans">
+            How Long to Cook {sheet.food} in the {applianceName}
           </h1>
-          <p className="text-sm sm:text-base text-ink-muted font-sans leading-relaxed">
-            Specification: {sheet.cutOrPrep}
+          <p className="text-sm sm:text-base text-ink-muted leading-relaxed">
+            Specification: <strong>{sheet.cutOrPrep}</strong>
           </p>
         </div>
 
@@ -256,9 +275,9 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
         )}
 
         {/* Live-cook companion entry point */}
-        <div className="flex flex-wrap items-center justify-between gap-3 hairline-border bg-paper p-4">
+        <div className="flex flex-wrap items-center justify-between gap-3 border border-hairline bg-paper p-4">
           <div className="space-y-0.5">
-            <div className="micro-label text-accent">COOK MODE</div>
+            <div className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">COOK MODE</div>
             <div className="text-xs font-mono text-ink-muted uppercase">
               Live timer · flip prompt · target temp · rest stage
             </div>
@@ -266,43 +285,75 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
           <StartCookButton appliance={sheet.appliance} foodSlug={sheet.foodSlug} />
         </div>
 
+        {/* Thermal Science & Equipment Calibration Deep Dive */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="p-5 bg-paper border border-hairline space-y-2">
+            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">
+              <Thermometer className="w-4 h-4" />
+              <span>Thermal Dynamics &amp; Chemistry</span>
+            </div>
+            <p className="text-xs sm:text-sm text-ink-muted leading-relaxed">
+              {extraContent.thermalScience}
+            </p>
+          </div>
+
+          <div className="p-5 bg-paper border border-hairline space-y-2">
+            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-ink">
+              <Zap className="w-4 h-4 text-accent" />
+              <span>Hardware Calibration Protocol</span>
+            </div>
+            <p className="text-xs sm:text-sm text-ink-muted leading-relaxed">
+              {extraContent.equipmentCalibration}
+            </p>
+          </div>
+        </div>
+
+        {extraContent.pasteurizationLethality && (
+          <div className="p-4 bg-paper-card border-l-2 border-accent text-xs font-mono text-ink space-y-1">
+            <div className="font-bold uppercase tracking-wider text-[11px]">USDA FSIS Pathogen Lethality Kinetics:</div>
+            <p className="font-sans text-xs text-ink-muted leading-relaxed">
+              {extraContent.pasteurizationLethality}
+            </p>
+          </div>
+        )}
+
         {/* Execution Directions */}
         <div className="space-y-4 font-sans text-sm">
-          <h2 className="text-base font-bold uppercase tracking-tight text-ink font-mono hairline-b pb-2">
+          <h2 className="text-base font-bold uppercase tracking-tight text-ink font-mono border-b border-hairline pb-2">
             3-Step Execution Protocol
           </h2>
 
           <div className="space-y-3">
-            <div className="flex items-start gap-3 p-4 bg-paper hairline-border">
+            <div className="flex items-start gap-3 p-4 bg-paper border border-hairline">
               <span className="w-5 h-5 rounded-full bg-ink text-paper flex items-center justify-center font-mono text-xs font-bold shrink-0 mt-0.5">
                 1
               </span>
               <div>
-                <strong className="block font-sans text-ink">Preheat & Prep</strong>
+                <strong className="block text-ink">Preheat &amp; Prep</strong>
                 <p className="text-xs text-ink-muted mt-0.5 leading-relaxed">
                   {steps.prep}
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 p-4 bg-paper hairline-border">
+            <div className="flex items-start gap-3 p-4 bg-paper border border-hairline">
               <span className="w-5 h-5 rounded-full bg-ink text-paper flex items-center justify-center font-mono text-xs font-bold shrink-0 mt-0.5">
                 2
               </span>
               <div>
-                <strong className="block font-sans text-ink">{steps.cookTitle}</strong>
+                <strong className="block text-ink">{steps.cookTitle}</strong>
                 <p className="text-xs text-ink-muted mt-0.5 leading-relaxed">
                   {steps.cook}
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 p-4 bg-paper hairline-border">
+            <div className="flex items-start gap-3 p-4 bg-paper border border-hairline">
               <span className="w-5 h-5 rounded-full bg-ink text-paper flex items-center justify-center font-mono text-xs font-bold shrink-0 mt-0.5">
                 3
               </span>
               <div>
-                <strong className="block font-sans text-ink">Check & Rest</strong>
+                <strong className="block text-ink">Check &amp; Rest</strong>
                 <p className="text-xs text-ink-muted mt-0.5 leading-relaxed">
                   {steps.rest}
                 </p>
@@ -311,24 +362,67 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
           </div>
         </div>
 
+        {/* Sensory Doneness Checkpoints */}
+        <div className="border border-hairline bg-paper p-5 space-y-3">
+          <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">
+            <Eye className="w-4 h-4" />
+            <span>Sensory Doneness Checkpoints</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
+            <div>
+              <strong className="block text-ink uppercase text-[11px]">Visual Cue:</strong>
+              <p className="text-ink-muted font-sans text-xs mt-0.5">{extraContent.sensoryCues.visual}</p>
+            </div>
+            <div>
+              <strong className="block text-ink uppercase text-[11px]">Tactile / Texture:</strong>
+              <p className="text-ink-muted font-sans text-xs mt-0.5">{extraContent.sensoryCues.auditoryOrTactile}</p>
+            </div>
+          </div>
+          {extraContent.restingPhysics && (
+            <div className="pt-2 border-t border-hairline font-sans text-xs text-ink-muted">
+              <strong className="text-ink font-mono uppercase">Resting Physics: </strong>
+              {extraContent.restingPhysics}
+            </div>
+          )}
+        </div>
+
+        {/* Failure Modes & Troubleshooting */}
+        <div className="space-y-3">
+          <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">
+            <AlertTriangle className="w-4 h-4" />
+            <span>Critical Failure Modes &amp; Fixes</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs">
+            {extraContent.failureModes.map((fm, i) => (
+              <div key={i} className="p-3 bg-paper border border-hairline space-y-1.5">
+                <strong className="block text-red-900 font-sans text-xs font-bold uppercase">{fm.mistake}</strong>
+                <p className="text-ink-muted font-sans text-[11px]">{fm.consequence}</p>
+                <div className="text-[11px] text-emerald-900 bg-emerald-50 border border-emerald-200 p-1.5 font-mono">
+                  <strong>Fix:</strong> {fm.prevention}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Technical Verification Box */}
-        <div className="bg-paper p-4 hairline-border font-mono text-xs space-y-2">
+        <div className="bg-paper p-4 border border-hairline font-mono text-xs space-y-2">
           <div className="flex items-center gap-1.5 font-bold uppercase text-ink">
             <ShieldCheck className="w-4 h-4 text-emerald-700" />
-            <span>Verification Basis & Testing Rig</span>
+            <span>Verification Basis &amp; Testing Rig</span>
           </div>
           <p className="text-xs text-ink-muted font-sans">
             {sheet.verificationBasis}
           </p>
-          <div className="pt-2 hairline-t text-[11px] text-ink-subtle">
+          <div className="pt-2 border-t border-hairline text-[11px] text-ink-subtle">
             <strong>Pro Tip:</strong> {sheet.proTip}
           </div>
         </div>
 
         {/* Related Full Recipe Link */}
         {sheet.relatedRecipeSlug && (
-          <div className="hairline-t pt-4 flex items-center justify-between font-mono text-xs">
-            <span className="text-ink-muted">Want the complete meal with seasoning & sides?</span>
+          <div className="border-t border-hairline pt-4 flex items-center justify-between font-mono text-xs">
+            <span className="text-ink-muted">Want the complete meal with seasoning &amp; sides?</span>
             <Link
               href={`/recipes/${sheet.relatedRecipeSlug}`}
               className="inline-flex items-center gap-1 px-3 py-1.5 bg-ink text-paper uppercase font-bold hover:bg-accent transition-colors"
@@ -338,13 +432,31 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
             </Link>
           </div>
         )}
+      </section>
 
+      {/* Targeted Datasheet FAQs */}
+      <section className="border-t border-ink pt-8 space-y-6">
+        <h2 className="text-[22px] font-extrabold uppercase tracking-tight">
+          Frequently Asked Questions About Cooking {sheet.food}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {extraContent.faqs.map((faq, i) => (
+            <div key={i} className="border-b border-hairline pb-4 space-y-1.5">
+              <h3 className="font-bold text-[16px] text-ink">
+                {faq.q}
+              </h3>
+              <p className="text-[14px] leading-[1.6] text-ink-muted">
+                {faq.a}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* More Cook-Time Datasheets for this appliance */}
       <section className="space-y-4">
         <h3 className="text-sm font-bold uppercase tracking-tight text-ink font-mono">
-          Related {sheet.appliance.replace('-', ' ')} Cook Times
+          Related {applianceName} Cook Times
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 font-mono text-xs">
           {COOK_TIME_DATASHEETS.filter(
@@ -355,12 +467,12 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
               <Link
                 key={other.id}
                 href={`/how-long/${other.appliance}/${other.foodSlug}`}
-                className="p-3 bg-paper-card hairline-border hover:border-ink transition-colors flex flex-col justify-between"
+                className="p-3 bg-paper-card border border-hairline hover:border-ink transition-colors flex flex-col justify-between"
               >
                 <div className="font-bold text-ink text-xs font-sans mb-1">
                   {other.food}
                 </div>
-                <div className="flex justify-between text-[11px] text-ink-muted hairline-t pt-2 mt-2">
+                <div className="flex justify-between text-[11px] text-ink-muted border-t border-hairline pt-2 mt-2">
                   <span>{other.tempFormatted}</span>
                   <span>{other.timeFormatted}</span>
                 </div>
@@ -368,7 +480,6 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
             ))}
         </div>
       </section>
-
     </div>
   );
 }

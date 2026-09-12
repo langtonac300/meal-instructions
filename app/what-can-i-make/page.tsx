@@ -19,6 +19,29 @@ export const metadata: Metadata = {
   },
 };
 
+const FAQ_ENTRIES = [
+  {
+    q: 'How does the pantry recipe matching algorithm determine dinner options?',
+    a: 'The engine uses an inverted ingredient index matching your selected items against 228 verified recipes. It executes a hierarchical tree: (1) Primary protein filter, (2) High-information-gain split questions that divide remaining candidates closest to 50/50, and (3) Tolerance ranking allowing up to 2 minor missing ingredients so you can evaluate near-misses.',
+  },
+  {
+    q: 'Which kitchen staples are automatically assumed to be in stock?',
+    a: 'Ingredients present in 25% or more of all recipes are pre-selected as universal household staples (including salt, black pepper, neutral cooking oil, olive oil, and butter). If your pantry is completely bare of any staple, tapping to uncheck that ingredient instantly recalculates the valid recipe pool.',
+  },
+  {
+    q: 'Are common culinary ingredient substitutions factored into the match?',
+    a: 'Yes. The algorithm maps standard culinary equivalencies. For example, dried garlic powder substitutes for fresh garlic cloves, lime juice for lemon juice, and sour cream for plain Greek yogurt. These functional culinary swaps satisfy recipe requirements without flagging false missing gaps.',
+  },
+  {
+    q: 'How does pantry-first cooking reduce annual household food waste?',
+    a: 'The USDA estimates that average American households discard 30% to 40% of purchased food, costing roughly $1,500 annually in spoiled produce and proteins. Matching meals to existing inventory prioritizes perishable items before their bacterial expiration windows, reducing grocery waste and preventing impulse takeout orders.',
+  },
+  {
+    q: 'Can I prioritize fast weeknight meals or specific appliances with my pantry items?',
+    a: 'Yes. Every matched recipe retains its appliance tags (Air Fryer, Cast Iron, Instant Pot, Sheet Pan) and prep time flags. Once your pantry results appear, you can filter directly by cooking duration (such as 15-minute meals) or hardware.',
+  },
+];
+
 /** How the matching decides. Each row is a rule in lib/pantry-match.ts. */
 const rules = (basics: string) => [
   {
@@ -82,6 +105,19 @@ export default function WhatCanIMakePage() {
     operatingSystem: 'All',
   };
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ_ENTRIES.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  };
+
   const index = pantryIndex();
   const basics = basicsFor(index);
   const basicsText = basics
@@ -101,6 +137,10 @@ export default function WhatCanIMakePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* ── Hero ── */}
@@ -150,6 +190,30 @@ export default function WhatCanIMakePage() {
             </li>
           ))}
         </ol>
+      </section>
+
+      {/* ── On-Page FAQs ── */}
+      <section className="pt-14" aria-labelledby="faq-heading">
+        <div className="border-b border-hairline pb-3 mb-6">
+          <div className="micro-label text-accent font-mono">E-E-A-T PANTRY MATCHING ALGORITHMS</div>
+          <h2 id="faq-heading" className="text-[24px] font-extrabold tracking-[-0.01em] uppercase text-ink font-sans">
+            Frequently Asked Questions: Pantry Inventory Matching
+          </h2>
+        </div>
+
+        <div className="space-y-6">
+          {FAQ_ENTRIES.map((faq, i) => (
+            <div key={i} className="space-y-2">
+              <h3 className="text-sm font-bold uppercase text-ink font-sans flex items-baseline gap-2">
+                <span className="text-accent font-mono text-xs">0{i + 1}.</span>
+                {faq.q}
+              </h3>
+              <p className="text-xs text-ink-muted leading-relaxed font-sans pl-5 max-w-[75ch]">
+                {faq.a}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* ── Related ── */}

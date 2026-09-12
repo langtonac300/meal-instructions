@@ -14,11 +14,12 @@ import {
   RotateCcw,
   ArrowLeft,
   ArrowUpRight,
+  Zap,
 } from 'lucide-react';
 import { Recipe, CookTimeDatasheet } from '@/lib/types';
 import type { RecipeCostSummary } from '@/lib/ingredient-prices';
 import { RECIPES } from '@/data/recipes';
-import { formatScaledAmount, buildSmsShareText, recipeToMarkdown } from '@/lib/recipe-utils';
+import { formatScaledAmount, buildSmsShareText, recipeToMarkdown, getRecipeFaqs } from '@/lib/recipe-utils';
 import { track } from '@/lib/analytics';
 import { packHref } from '@/lib/print-pack-format';
 import { householdServings, readProfile } from '@/lib/profile';
@@ -381,7 +382,7 @@ export default function RecipeClientView({
         className={`${COLUMN} pt-6 flex items-center justify-between gap-4 font-mono text-[12px] uppercase tracking-[0.08em] text-ink-muted no-print`}
       >
         <Link
-          href="/categories"
+          href="/recipes"
           className="inline-flex items-center gap-1.5 hover:text-ink transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
@@ -526,6 +527,62 @@ export default function RecipeClientView({
           <RecipeVideo video={video} />
         </div>
       )}
+
+      {/* ── 4c. News-Style TL;DR Executive Brief ("At A Glance") ── */}
+      <section className={`${COLUMN} mt-8`} aria-label="At a glance summary">
+        <div className="border-2 border-ink bg-paper-card p-5 sm:p-6 font-sans">
+          <div className="flex items-center justify-between gap-2 border-b border-hairline pb-2.5 mb-3.5">
+            <div className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">
+              <Zap className="w-3.5 h-3.5 fill-current" aria-hidden="true" />
+              <span>At A Glance // The Quick Brief</span>
+            </div>
+            <span className="font-mono text-[11px] text-ink-subtle uppercase">
+              Fluff-Free Execution
+            </span>
+          </div>
+
+          <ul className="space-y-2.5 text-[15px] sm:text-[16px] leading-[1.5] text-ink">
+            <li className="flex items-baseline gap-2.5">
+              <span className="font-mono text-[11px] font-bold text-accent uppercase shrink-0 min-w-[7.5em]">
+                Target //
+              </span>
+              <span>
+                Cook at <strong>{recipe.cookTemp}</strong> for <strong>{recipe.quickVersion.totalTime}</strong>
+                {recipe.quickVersion.flipAtMinutes ? ` (flip at ${recipe.quickVersion.flipAtMinutes} mins)` : ''}.
+              </span>
+            </li>
+            <li className="flex items-baseline gap-2.5">
+              <span className="font-mono text-[11px] font-bold text-accent uppercase shrink-0 min-w-[7.5em]">
+                Doneness //
+              </span>
+              <span>
+                {recipe.safeInternalTempF ? (
+                  <>
+                    Pull when internal temperature reaches <strong>{recipe.safeInternalTempF}°F</strong> (USDA safe minimum).
+                  </>
+                ) : (
+                  'Cook until visual doneness cue is met.'
+                )}
+                {recipe.restMinutes ? ` Rest ${recipe.restMinutes} mins before slicing.` : ''}
+              </span>
+            </li>
+            <li className="flex items-baseline gap-2.5">
+              <span className="font-mono text-[11px] font-bold text-accent uppercase shrink-0 min-w-[7.5em]">
+                Golden Rule //
+              </span>
+              <span>{recipe.dadProTip}</span>
+            </li>
+            {recipe.kidAdjustment && (
+              <li className="flex items-baseline gap-2.5">
+                <span className="font-mono text-[11px] font-bold text-accent uppercase shrink-0 min-w-[7.5em]">
+                  Family Tweak //
+                </span>
+                <span>{recipe.kidAdjustment}</span>
+              </li>
+            )}
+          </ul>
+        </div>
+      </section>
 
       {/* ── 5. Ingredients ── */}
       <section className={`${COLUMN} mt-14`} aria-labelledby="ingredients-heading">
@@ -820,6 +877,27 @@ export default function RecipeClientView({
           Cook-time basis: {recipe.basis}
         </p>
       </section>
+
+      {/* ── 11b. Frequently Asked Questions ── */}
+      {getRecipeFaqs(recipe).length > 0 && (
+        <section className={`${COLUMN} mt-14`} aria-labelledby="faqs-heading">
+          <h2 id="faqs-heading" className={`${SECTION_H2} mb-6`}>
+            Frequently Asked Questions
+          </h2>
+          <div className="border-t border-ink divide-y divide-hairline">
+            {getRecipeFaqs(recipe).map((faq, idx) => (
+              <div key={idx} className="py-5 space-y-1.5">
+                <h3 className="text-[18px] font-bold leading-snug text-ink">
+                  {faq.q}
+                </h3>
+                <p className="text-[16px] leading-[1.6] text-ink-muted">
+                  {faq.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ── 12. Datasheet cross-link ── */}
       {relatedDatasheets.length > 0 && (

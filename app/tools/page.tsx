@@ -93,12 +93,117 @@ export default function ToolsPage() {
         </div>
       </section>
 
+      {/* Engineering Standards & Calculation Methodology */}
+      <section className="space-y-8 font-sans">
+        <div className="bg-paper-card hairline-border p-6 sm:p-8 space-y-4">
+          <div className="micro-label text-accent">MATHEMATICAL RIGOR &amp; REVERSIBILITY</div>
+          <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-ink">
+            Kitchen Tool Architecture: Zero-Fluff Precision Math
+          </h2>
+          <div className="text-sm text-ink-muted leading-relaxed space-y-3">
+            <p>
+              Unlike generic recipe blogs that offer rough estimates and conversational anecdotes, the utilities in this directory are deterministic calculation engines. Each formula is built upon measured thermodynamic constants, USDA Food Safety and Inspection Service (FSIS) microbial destruction kinetics, and commercial kitchen production standards.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs pt-1">
+              <div className="p-4 bg-paper border border-hairline space-y-1">
+                <div className="font-bold text-accent">THERMODYNAMIC FORMULAS:</div>
+                <p className="font-sans text-xs text-ink-muted leading-relaxed">
+                  Convection velocity adjustments (-25°F / -20% duration), latent heat of fusion multipliers (1.5× for frozen goods), and Newton's law of cooling for thermal carryover rest intervals.
+                </p>
+              </div>
+              <div className="p-4 bg-paper border border-hairline space-y-1">
+                <div className="font-bold text-accent">BAKER'S PERCENTAGES:</div>
+                <p className="font-sans text-xs text-ink-muted leading-relaxed">
+                  Standard flour-weight normalization (flour = 100.0%) for true dough hydration, salt concentration, and levain activity without volumetric cup inaccuracies.
+                </p>
+              </div>
+              <div className="p-4 bg-paper border border-hairline space-y-1">
+                <div className="font-bold text-accent">PATHOGEN LETHALITY CURVES:</div>
+                <p className="font-sans text-xs text-ink-muted leading-relaxed">
+                  Time-temperature log-reduction integrations replacing crude single-temp thresholds with USDA 7-log10 Salmonella and 6.5-log10 E. coli pasteurization charts.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Section: Frequently Asked Questions */}
+        <div className="bg-paper-card hairline-border p-6 sm:p-8 space-y-6">
+          <div className="micro-label text-accent">ENGINEERING DIRECTORY Q&amp;A</div>
+          <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-ink">
+            Frequently Asked Questions: Kitchen Calculators
+          </h2>
+          <div className="space-y-4 divide-y divide-hairline text-sm text-ink-muted">
+            <div className="pt-4 first:pt-0 space-y-1">
+              <div className="font-mono text-xs font-bold text-ink uppercase">
+                Why are all measurements calculated by weight instead of volume?
+              </div>
+              <p className="text-xs leading-relaxed">
+                Volumetric measuring cups vary wildly based on packing density. A single cup of all-purpose flour can weigh anywhere from 115 grams (sifted) to 160 grams (packed)—a 39% variance that guarantees dry baked goods. Gram-weight scales provide absolute consistency regardless of ingredient humidity, grain size, or settling.
+              </p>
+            </div>
+            <div className="pt-4 space-y-1">
+              <div className="font-mono text-xs font-bold text-ink uppercase">
+                How do these calculators handle different oven calibrations?
+              </div>
+              <p className="text-xs leading-relaxed">
+                Consumer home ovens regularly drift by ±25°F from their digital readouts due to bimetallic thermostat cycling. Our calculators provide baseline thermal targets based on true ambient temperature; we recommend verifying your oven chamber temperature with an analog dial or digital thermocouple thermometer.
+              </p>
+            </div>
+            <div className="pt-4 space-y-1">
+              <div className="font-mono text-xs font-bold text-ink uppercase">
+                Can these tools run completely offline in the kitchen?
+              </div>
+              <p className="text-xs leading-relaxed">
+                Yes. The calculators are architected as zero-dependency client-side engines. Once the page is loaded on your mobile phone or tablet, calculations execute locally in milliseconds without network roundtrips or server latency.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'Why are all measurements calculated by weight instead of volume?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Volumetric cups vary by up to 39% based on packing density. Weight in grams provides absolute reproducibility across flour, salt, and liquids.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How do these calculators handle different oven calibrations?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Calculations assume true internal temperature. Because home ovens drift by ±25°F, using an independent thermocouple or analog thermometer is recommended.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Can these tools run completely offline in the kitchen?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes. All interactive calculation engines run locally in your browser without requiring continuous network connectivity.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
 
     </div>
   );
 }
+

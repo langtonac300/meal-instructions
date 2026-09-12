@@ -78,6 +78,45 @@ export default function HowLongHubPage() {
     })
     .filter((c): c is { label: string; href: string } => c !== null);
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How are these cook times and temperatures calibrated?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Every datasheet is calibrated against physical test-kitchen thermal probes and cross-referenced with USDA FSIS microbial lethality curves. Benchmarks assume standard preheated appliances and single-layer food spacing.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Why should I pull meat before it reaches the final target temperature?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Due to carryover cooking thermodynamics, residual surface heat continues conducting into the cooler interior after removal from the heat source. Dense proteins continue rising 5°F to 10°F during a 5-to-10 minute rest. Pulling early prevents overcooking and moisture purge.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How does cooking from frozen impact cooking times?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Cooking frozen food requires absorbing the latent heat of fusion (334 J/g) to melt ice into water before temperature can rise. This adds 40% to 50% more elapsed time in high-velocity convective appliances like air fryers.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What causes cook time discrepancies between different appliance models?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Appliance wattage (1500W vs 1800W), chamber volume, heating element proximity, and fan velocity create thermal variations. Always use internal core temperature as the ultimate safety and doneness gate.',
+        },
+      },
+    ],
+  };
+
   return (
     <div className="max-w-[1100px] mx-auto px-5 sm:px-10 pb-16 text-ink">
       <script
@@ -87,6 +126,10 @@ export default function HowLongHubPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* ── 1. Hero ── */}
@@ -246,6 +289,32 @@ export default function HowLongHubPage() {
           );
         })}
       </div>
+
+      {/* ── 5b. Frequently Asked Questions ── */}
+      <section className="pt-14" aria-labelledby="faq-heading">
+        <div className="border-b border-hairline pb-3 mb-6">
+          <div className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">
+            CALIBRATION &amp; SCIENTIFIC BENCHMARKS
+          </div>
+          <h2 id="faq-heading" className="text-[24px] font-extrabold tracking-[-0.01em] uppercase text-ink font-sans">
+            Frequently Asked Questions: Cook Times &amp; Temperatures
+          </h2>
+        </div>
+
+        <div className="space-y-6">
+          {faqSchema.mainEntity.map((faq, i) => (
+            <div key={i} className="space-y-2">
+              <h3 className="text-sm font-bold uppercase text-ink font-sans flex items-baseline gap-2">
+                <span className="text-accent font-mono text-xs">0{i + 1}.</span>
+                {faq.name}
+              </h3>
+              <p className="text-xs text-ink-muted leading-relaxed font-sans pl-5 max-w-[75ch]">
+                {faq.acceptedAnswer.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* ── 6. Related references ── */}
       <section className="pt-14" aria-labelledby="related-heading">

@@ -18,10 +18,13 @@ const COLUMNS: FooterColumn[] = [
   {
     heading: 'Recipes',
     links: [
+      { label: 'All 228 recipes', href: '/recipes' },
       { label: 'What can I make?', href: '/what-can-i-make' },
       { label: 'Plan the week', href: '/plan' },
       { label: 'All categories', href: '/categories' },
       { label: 'Cook times', href: '/how-long' },
+      { label: 'Cooking charts', href: '/charts' },
+      { label: 'Appliances matrix', href: '/appliances' },
       { label: 'Temp cheat sheet', href: '/cheat-sheet' },
       { label: 'Food storage', href: '/storage' },
     ],
@@ -32,6 +35,7 @@ const COLUMNS: FooterColumn[] = [
       { label: `All ${ALL_TOOLS.length} tools`, href: '/tools' },
       { label: 'Print pack (PDF)', href: '/print-pack' },
       { label: 'Field guides', href: '/blog' },
+      { label: 'Hardware lab', href: '/test-kitchen' },
       { label: 'Merch', href: '/shop' },
     ],
   },
@@ -39,6 +43,7 @@ const COLUMNS: FooterColumn[] = [
     heading: 'Company',
     links: [
       { label: 'About', href: '/about' },
+      { label: 'Editorial standards', href: '/editorial-standards' },
       { label: 'Contact', href: '/contact' },
       { label: 'Privacy', href: '/privacy' },
       { label: 'Terms', href: '/terms' },

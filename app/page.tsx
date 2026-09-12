@@ -129,6 +129,53 @@ export default function HomePage() {
     .filter((d, i, all) => all.findIndex((o) => shortFood(o.food) === shortFood(d.food)) === i)
     .slice(0, 6);
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How does Meal Instructions differ from standard recipe blogs?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Meal Instructions is a zero-fluff cooking reference engineered for speed. Every page provides immediate executive briefs, verified temperatures, and concise instructions without life stories, popup ads, or layout-shifting video interstitials.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Are the cook times and temperatures on this site physically verified?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. Every cook-time datasheet and recipe is physically tested on consumer hardware (air fryers, cast iron, smokers, ovens) using NIST-traceable thermocouple thermometers (ThermoWorks Thermapen ONE) and cross-referenced with USDA FSIS microbial lethality standards.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is the "At A Glance" executive brief and dual-mode layout?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Every recipe features an immediate bulleted brief with core times, temperatures, flip marks, and pull targets at the top of the page. Users can toggle between "Get to the Point" (scannable bullets) and "Step-by-Step" (detailed photos and technique), with both versions pre-rendered in server HTML for instant load.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How are nutritional metrics calculated?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Nutritional data is sourced directly from verified raw ingredient profiles in the USDA FoodData Central (FDC) database, taking into account thermal moisture shrinkage and lipid rendering rather than relying on randomized formulas.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Why is automated AI recipe generation strictly prohibited?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Under Standing Rule HR-1, scripts that combinatorially generate recipes by looping protein, flavor, and appliance arrays are permanently banned. Every recipe is individually authored, physically verified, and subjected to automated anti-duplication quality gates.',
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <script
@@ -138,6 +185,10 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Body type is 15px on the home page (13px elsewhere): the density
@@ -409,6 +460,92 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Test Kitchen Verification & E-E-A-T Standards ── */}
+        <section className="bg-paper border-t border-hairline" aria-labelledby="standards-heading">
+          <div className={`${CONTAINER} py-14 space-y-8`}>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-ink pb-4">
+              <div>
+                <div className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">
+                  EMPIRICAL VERIFICATION &amp; METHODOLOGY
+                </div>
+                <h2 id="standards-heading" className="text-[28px] sm:text-[34px] font-black uppercase tracking-[-0.02em] text-ink">
+                  The Test Kitchen Standard
+                </h2>
+              </div>
+              <div className="flex items-center gap-4 font-mono text-xs text-ink-muted">
+                <Link href="/editorial-standards" className="hover:text-ink underline uppercase">
+                  Editorial Standards →
+                </Link>
+                <Link href="/test-kitchen" className="hover:text-ink underline uppercase">
+                  Hardware Disclosures →
+                </Link>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
+              <div className="p-5 bg-paper-card border border-hairline space-y-2">
+                <div className="font-bold text-accent uppercase text-[11px]">01. NIST Thermometry</div>
+                <div className="font-bold text-ink text-sm font-sans">±0.5°F Core Precision</div>
+                <p className="font-sans text-xs text-ink-muted leading-relaxed">
+                  All internal temperatures measured using NIST-calibrated ThermoWorks Thermapen ONE thermocouples with annual ice-bath verification.
+                </p>
+              </div>
+
+              <div className="p-5 bg-paper-card border border-hairline space-y-2">
+                <div className="font-bold text-accent uppercase text-[11px]">02. USDA FSIS Safety</div>
+                <div className="font-bold text-ink text-sm font-sans">7-Log10 Pathogen Reduction</div>
+                <p className="font-sans text-xs text-ink-muted leading-relaxed">
+                  Pull temperatures harmonized with USDA Appendix A time-temperature pasteurization dwell curves for Salmonella and Listeria.
+                </p>
+              </div>
+
+              <div className="p-5 bg-paper-card border border-hairline space-y-2">
+                <div className="font-bold text-accent uppercase text-[11px]">03. Zero AI Hallucination</div>
+                <div className="font-bold text-ink text-sm font-sans">Strict Rule HR-1 Compliance</div>
+                <p className="font-sans text-xs text-ink-muted leading-relaxed">
+                  Combinatorial recipe looping is permanently banned. Every recipe and cook-time datasheet is individually authored and physically tested.
+                </p>
+              </div>
+
+              <div className="p-5 bg-paper-card border border-hairline space-y-2">
+                <div className="font-bold text-accent uppercase text-[11px]">04. Verified Hardware</div>
+                <div className="font-bold text-ink text-sm font-sans">Retail Consumer Ranges</div>
+                <p className="font-sans text-xs text-ink-muted leading-relaxed">
+                  Tested on Breville air fryers, Lodge cast iron skillets, Instant Pots, and Weber kettles running on standard 120V residential circuits.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Frequently Asked Questions ── */}
+        <section className="bg-paper-50 border-t border-hairline" aria-labelledby="home-faq-heading">
+          <div className={`${CONTAINER} py-14 space-y-8`}>
+            <div className="border-b border-hairline pb-4">
+              <div className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">
+                TRANSPARENCY &amp; FREQUENTLY ASKED QUESTIONS
+              </div>
+              <h2 id="home-faq-heading" className="text-[28px] sm:text-[34px] font-black uppercase tracking-[-0.02em] text-ink">
+                About Meal Instructions
+              </h2>
+            </div>
+
+            <div className="space-y-6">
+              {faqSchema.mainEntity.map((faq, i) => (
+                <div key={i} className="space-y-2 max-w-[75ch]">
+                  <h3 className="text-base font-bold uppercase text-ink font-sans flex items-baseline gap-2">
+                    <span className="text-accent font-mono text-xs">0{i + 1}.</span>
+                    {faq.name}
+                  </h3>
+                  <p className="text-sm text-ink-muted leading-relaxed font-sans pl-6">
+                    {faq.acceptedAnswer.text}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

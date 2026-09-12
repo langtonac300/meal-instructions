@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { RECIPES, getRecipeBySlug } from '@/data/recipes';
 import { COOK_TIME_DATASHEETS } from '@/data/cook-times';
-import { generateRecipeSchema } from '@/lib/recipe-utils';
+import { generateRecipeSchema, getRecipeFaqs } from '@/lib/recipe-utils';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { resolveRecipeImage, resolveRecipeImageAbsolute } from '@/lib/recipe-image';
@@ -73,6 +73,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
   const video = getRecipeVideo(recipe.slug);
   const schemaJsonLd = generateRecipeSchema(recipe, { imageUrl: resolvedImageAbs, video });
   const breadcrumbs = generateBreadcrumbSchema([
+    { name: 'Recipes', path: '/recipes' },
     { name: recipe.title, path: `/recipes/${recipe.slug}` },
   ]);
   const relatedDatasheets = COOK_TIME_DATASHEETS.filter(
@@ -86,6 +87,20 @@ export default async function RecipePage({ params }: RecipePageProps) {
     }));
   }
 
+  const faqs = getRecipeFaqs(recipe);
+  const faqSchema = faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.a,
+      },
+    })),
+  } : null;
+
   return (
     <>
       <script
@@ -96,6 +111,12 @@ export default async function RecipePage({ params }: RecipePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <RecipeClientView
         recipe={recipe}
         cost={costSummaryFor(recipe)}

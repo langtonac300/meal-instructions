@@ -2,12 +2,14 @@ import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, Printer } from 'lucide-react';
+import { ArrowLeft, Printer, ShieldCheck, AlertTriangle, HelpCircle, CheckCircle2, Zap } from 'lucide-react';
 import { CATEGORIES } from '@/data/categories';
 import { getRecipesByCategory } from '@/data/recipes';
+import { getCategoryGuide } from '@/data/category-guides';
 import { absoluteUrl } from '@/lib/site';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { PACK_MAX, packHref } from '@/lib/print-pack-format';
+import { Category } from '@/lib/types';
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
@@ -28,8 +30,8 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   }
 
   const count = getRecipesByCategory(category).length;
-  const title = `${catMeta.name} (${count} No-Fluff Recipes)`;
-  const description = `${catMeta.fullDescription} 100% fluff-free execution. Exact temperatures and times.`;
+  const title = `${catMeta.name} (${count} No-Fluff Recipes & Guide)`;
+  const description = `${catMeta.fullDescription} Complete weeknight logistics, golden rules, common mistakes, and ${count} verified recipes.`;
 
   return {
     title,
@@ -62,6 +64,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   }
 
   const recipes = getRecipesByCategory(category);
+  const guide = getCategoryGuide(category as Category);
 
   // Every number is derived from the recipes in this category (HR-2).
   const minutes = recipes.map((r) => r.totalMinutes);
@@ -97,8 +100,22 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   };
 
   const breadcrumbs = generateBreadcrumbSchema([
+    { name: 'Categories', path: '/categories' },
     { name: catMeta.name, path: `/categories/${category}` },
   ]);
+
+  const faqSchema = guide && guide.faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: guide.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.a,
+      },
+    })),
+  } : null;
 
   return (
     <div className="max-w-[1000px] mx-auto px-5 sm:px-10 pb-16 text-ink">
@@ -110,6 +127,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       {/* Breadcrumb */}
       <div className="pt-6 font-mono text-[12px] uppercase tracking-[0.08em] text-ink-muted">
@@ -121,10 +144,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
       {/* Header */}
       <header className="pt-7">
-        <h1 className="font-sans text-[34px] sm:text-[46px] font-black tracking-[-0.02em] leading-[1.05] uppercase">
+        <div className={EYEBROW}>CATEGORY PROTOCOL // {catMeta.heroTag}</div>
+        <h1 className="mt-1 font-sans text-[34px] sm:text-[46px] font-black tracking-[-0.02em] leading-[1.05] uppercase">
           {catMeta.name}
         </h1>
-        <p className="mt-[18px] text-[19px] sm:text-[21px] leading-[1.5] text-ink-muted max-w-[60ch]">
+        <p className="mt-[18px] text-[19px] sm:text-[21px] leading-[1.5] text-ink-muted max-w-[65ch]">
           {catMeta.fullDescription}
         </p>
       </header>
@@ -146,13 +170,88 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         ))}
       </dl>
 
+      {/* Comprehensive Category Editorial Guide */}
+      {guide && (
+        <section className="mt-12 bg-paper-card border border-hairline p-6 sm:p-8 font-sans space-y-8">
+          <div>
+            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent mb-2">
+              <ShieldCheck className="w-4 h-4" />
+              <span>Operational Blueprint</span>
+            </div>
+            <h2 className="text-[24px] sm:text-[28px] font-extrabold tracking-[-0.01em] uppercase text-ink">
+              {guide.title}
+            </h2>
+            <p className="mt-3 text-[16px] text-ink-muted leading-[1.6]">
+              {guide.overview}
+            </p>
+          </div>
+
+          {/* Logistics Protocol */}
+          <div className="border-t border-hairline pt-6">
+            <h3 className="font-mono text-[12px] uppercase tracking-[0.14em] font-bold text-ink mb-4">
+              Weeknight Execution Protocol
+            </h3>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
+              {guide.logisticsProtocol.map((item, idx) => (
+                <li key={idx} className="p-3 bg-paper border border-hairline flex items-start gap-2.5">
+                  <span className="w-4 h-4 bg-ink text-paper rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
+                    {idx + 1}
+                  </span>
+                  <span className="text-ink leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 4 Golden Rules */}
+          <div className="border-t border-hairline pt-6">
+            <h3 className="font-mono text-[12px] uppercase tracking-[0.14em] font-bold text-ink mb-4">
+              The 4 Golden Rules of {catMeta.name}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-sans">
+              {guide.goldenRules.map((rule, idx) => (
+                <div key={idx} className="p-4 bg-paper border border-hairline space-y-1.5">
+                  <div className="flex items-center gap-2 font-bold text-[15px] uppercase text-ink">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" />
+                    <span>{rule.title}</span>
+                  </div>
+                  <p className="text-[14px] text-ink-muted leading-[1.5]">
+                    {rule.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Gear & Staples */}
+          <div className="border-t border-hairline pt-6 grid grid-cols-1 sm:grid-cols-2 gap-6 font-mono text-xs">
+            <div>
+              <span className="block font-bold text-ink uppercase mb-2">Essential Hardware</span>
+              <ul className="space-y-1 text-ink-muted">
+                {guide.essentialGear.map((g, i) => (
+                  <li key={i}>• {g}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <span className="block font-bold text-ink uppercase mb-2">Pantry Anchor Staples</span>
+              <ul className="space-y-1 text-ink-muted">
+                {guide.pantryStaples.map((s, i) => (
+                  <li key={i}>• {s}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Recipe list */}
-      <section className="mt-10" aria-labelledby="recipes-heading">
+      <section className="mt-14" aria-labelledby="recipes-heading">
         <div className="flex flex-wrap items-baseline justify-between gap-4 mb-4">
           <h2 id="recipes-heading" className="text-[24px] font-extrabold tracking-[-0.01em] uppercase">
-            All {recipes.length} recipes
+            All {recipes.length} Verified {catMeta.name}
           </h2>
-          <span className="text-[15px] text-ink-muted">Sorted by index number</span>
+          <span className="text-[15px] text-ink-muted">Exact cook times and temperatures</span>
         </div>
         <ul className="border-t border-ink">
           {recipes.map((recipe) => (
@@ -184,9 +283,55 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </ul>
       </section>
 
+      {/* Failure Modes / Troubleshooting */}
+      {guide && guide.failureModes.length > 0 && (
+        <section className="mt-14 border border-hairline bg-paper p-6 sm:p-8 space-y-4 font-sans">
+          <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">
+            <AlertTriangle className="w-4 h-4" />
+            <span>Failure Mode Prevention</span>
+          </div>
+          <h3 className="text-[20px] sm:text-[24px] font-bold uppercase text-ink">
+            Top 3 Mistakes to Avoid in this Category
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 font-mono text-xs">
+            {guide.failureModes.map((fm, i) => (
+              <div key={i} className="p-4 bg-paper-card border border-hairline space-y-2">
+                <strong className="text-red-900 block font-sans text-[13px] font-bold uppercase">
+                  Mistake: {fm.mistake}
+                </strong>
+                <p className="text-ink-muted font-sans text-[13px] leading-relaxed">
+                  <span className="font-bold text-ink">The Fix:</span> {fm.fix}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Category FAQs (Schema-backed) */}
+      {guide && guide.faqs.length > 0 && (
+        <section className="mt-14 border-t border-ink pt-10 space-y-6">
+          <h2 className="text-[24px] font-extrabold uppercase tracking-tight">
+            {catMeta.name} Questions &amp; Answers
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {guide.faqs.map((faq, i) => (
+              <div key={i} className="border-b border-hairline pb-5">
+                <h3 className="font-bold text-[17px] text-ink mb-2">
+                  {faq.q}
+                </h3>
+                <p className="text-[15px] leading-[1.6] text-ink-muted">
+                  {faq.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Print this category */}
       {recipes.length > 0 && (
-        <aside className="mt-10 border border-ink p-5 sm:p-7 flex flex-wrap items-center justify-between gap-6">
+        <aside className="mt-12 border border-ink p-5 sm:p-7 flex flex-wrap items-center justify-between gap-6">
           <div className="min-w-0">
             <h3 className="text-[22px] font-bold tracking-[-0.01em]">Print this category</h3>
             <p className="mt-1.5 text-[17px] text-ink-muted">

@@ -57,6 +57,53 @@ export default function StorageHubPage() {
     },
   };
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is the USDA bacterial Danger Zone for food storage?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'The USDA defines the Danger Zone as 40°F to 140°F (4°C to 60°C). Within this window, pathogenic bacteria (Salmonella, Staphylococcus aureus, E. coli) can double every 20 minutes. Perishable cooked or raw foods must never sit at room temperature for more than 2 hours (or 1 hour if ambient heat exceeds 90°F).',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What temperature should a home refrigerator be set at?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Set home refrigerators between 34°F and 38°F (1°C to 3°C). While 40°F is the regulatory ceiling, maintaining 35°F to 37°F significantly suppresses psychrotrophic bacteria like Listeria monocytogenes without freezing delicate produce.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Does freezing meat destroy bacteria or just pause growth?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Freezing at 0°F (-18°C) halts microbial replication and enzymatic breakdown, effectively pressing pause on spoilage. However, freezing does NOT kill bacteria; microbes enter dormancy and resume rapid exponential growth once the meat thaws into the Danger Zone.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Why is leaving cooked rice at room temperature dangerous?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Raw rice frequently harbors Bacillus cereus bacterial spores that survive the boiling process. If cooked rice cools slowly at room temperature, these spores germinate and produce heat-stable cereulide enterotoxins that are not destroyed by subsequent microwave or skillet reheating.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is freezer-burned meat safe to eat?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. Freezer burn is sublimation moisture loss and lipid oxidation caused by dry air contact. While it creates leathery, discolored dry patches and stale flavors, it poses zero microbiological or food safety hazard. Trim away burned edges before or after cooking.',
+        },
+      },
+    ],
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-10">
       <script
@@ -66,6 +113,10 @@ export default function StorageHubPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Breadcrumb */}
@@ -145,6 +196,30 @@ export default function StorageHubPage() {
           );
         })}
       </div>
+
+      {/* Frequently Asked Questions */}
+      <section className="bg-paper hairline-border p-6 sm:p-8 space-y-6">
+        <div className="border-b border-hairline pb-3">
+          <div className="micro-label text-accent font-mono">USDA FSIS SAFETY BENCHMARKS</div>
+          <h2 className="text-xl font-bold uppercase text-ink font-sans">
+            Frequently Asked Questions: Food Storage &amp; Shelf Life
+          </h2>
+        </div>
+
+        <div className="space-y-6">
+          {faqSchema.mainEntity.map((faq, i) => (
+            <div key={i} className="space-y-2">
+              <h3 className="text-sm font-bold uppercase text-ink font-sans flex items-baseline gap-2">
+                <span className="text-accent font-mono text-xs">0{i + 1}.</span>
+                {faq.name}
+              </h3>
+              <p className="text-xs text-ink-muted leading-relaxed font-sans pl-5">
+                {faq.acceptedAnswer.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Cross-links */}
       <section className="bg-paper-card hairline-border p-6 space-y-4">

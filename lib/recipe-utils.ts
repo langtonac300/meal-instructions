@@ -208,3 +208,49 @@ ${recipe.kidAdjustment ? `## 👶 Kid & Picky Eater Adjustment\n${recipe.kidAdju
 ${recipe.reheatInstructions}
 `;
 }
+
+/**
+ * Derives comprehensive FAQ entries for a recipe from its verified authored fields and technical specifications.
+ */
+export function getRecipeFaqs(recipe: Recipe): { q: string; a: string }[] {
+  const faqs: { q: string; a: string }[] = [];
+
+  if (recipe.faqs && recipe.faqs.length > 0) {
+    faqs.push(...recipe.faqs);
+  }
+
+  // Reheating FAQ
+  if (recipe.reheatInstructions) {
+    faqs.push({
+      q: `How do you reheat leftover ${recipe.title.toLowerCase()} without ruining the texture?`,
+      a: recipe.reheatInstructions,
+    });
+  }
+
+  // Doneness / Internal Temp FAQ
+  if (recipe.safeInternalTempF) {
+    faqs.push({
+      q: `What is the target internal temperature for this recipe?`,
+      a: `Confirm internal core temperature reaches ${recipe.safeInternalTempF}°F using an instant-read digital probe thermometer inserted into the thickest part.${recipe.restMinutes ? ` Allow the meat to rest for ${recipe.restMinutes} minutes before slicing to let carryover heat equalize and lock in juices.` : ''}`,
+    });
+  }
+
+  // Kid / Toddler modification FAQ
+  if (recipe.kidAdjustment) {
+    faqs.push({
+      q: `How do I adapt this meal for picky kids or toddlers?`,
+      a: recipe.kidAdjustment,
+    });
+  }
+
+  // Side suggestions FAQ
+  if (recipe.sideSuggestions && recipe.sideSuggestions.length > 0) {
+    faqs.push({
+      q: `What are the best side dishes to serve with this?`,
+      a: `Recommended sides include ${recipe.sideSuggestions.join(', ')}.`,
+    });
+  }
+
+  return faqs;
+}
+
