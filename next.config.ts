@@ -15,11 +15,6 @@ const nextConfig: NextConfig = {
         destination: '/shop',
         permanent: true,
       },
-      {
-        source: '/recipes',
-        destination: '/categories',
-        permanent: true,
-      },
     ];
   },
 };
