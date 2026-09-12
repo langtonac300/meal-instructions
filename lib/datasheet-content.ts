@@ -189,7 +189,9 @@ export function getDatasheetContent(sheet: CookTimeDatasheet): DatasheetContent 
       auditoryOrTactile,
       thermalMarker,
     },
-    thermalScience,
+    // technicalDeepDive, when present, is individually authored for this exact
+    // food + appliance combo and replaces the food-category-bucketed default.
+    thermalScience: sheet.technicalDeepDive ?? thermalScience,
     pasteurizationLethality,
     equipmentCalibration,
     failureModes,

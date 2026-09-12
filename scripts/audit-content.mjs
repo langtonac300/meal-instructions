@@ -139,6 +139,8 @@ for (const r of recipes) {
 // `[\s\S]*?` regex silently runs past the end of such an object and pairs one
 // datasheet's slug with the next datasheet's temperature, so it must not be used.
 const datasheetSlugs = new Set();
+const datasheetIds = new Set();
+const datasheetDeepDives = new Map();
 
 /** Split the exported array into its top-level object literals. */
 const datasheetBlocks = [];
@@ -185,6 +187,17 @@ for (const block of datasheetBlocks) {
   }
   datasheetSlugs.add(slug);
 
+  // Check duplicate id. Found live in the wild (three CT-SP ids each reused
+  // across two unrelated food entries) — slug uniqueness alone let it through
+  // because nothing was cross-checking id.
+  const id = field(block, 'id');
+  if (id) {
+    if (datasheetIds.has(id)) {
+      errors.push(`[Datasheet: ${slug}] Duplicate id '${id}' shared with another datasheet.`);
+    }
+    datasheetIds.add(id);
+  }
+
   // Check valid appliance
   if (!appliance || !validAppliances.includes(appliance)) {
     errors.push(`[Datasheet: ${slug}] Invalid appliance '${appliance}'.`);
@@ -210,6 +223,24 @@ for (const block of datasheetBlocks) {
   // Check verification basis (HR-2)
   if (!basis || basis.trim().length === 0) {
     errors.push(`[Datasheet: ${slug}] Missing verificationBasis.`);
+  }
+
+  // Check uniqueness of technicalDeepDive (HR-4).
+  //
+  // lib/datasheet-content.ts falls back to a food-category/appliance-bucketed
+  // generator that reuses near-identical prose across every entry in a bucket.
+  // technicalDeepDive is the per-record override — if it duplicates another
+  // record's, we have reintroduced exactly the templated-prose problem this
+  // field exists to fix.
+  const deepDive = field(block, 'technicalDeepDive');
+  if (deepDive) {
+    if (deepDive.trim().length < 80) {
+      errors.push(`[Datasheet: ${slug}] technicalDeepDive is too short (${deepDive.trim().length} chars) to be genuinely food-specific.`);
+    }
+    if (datasheetDeepDives.has(deepDive)) {
+      errors.push(`[Datasheet: ${slug}] Duplicate technicalDeepDive shared with '${datasheetDeepDives.get(deepDive)}'.`);
+    }
+    datasheetDeepDives.set(deepDive, slug);
   }
 
   // Check safe internal temperature for poultry / ground meat.

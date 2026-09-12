@@ -187,6 +187,11 @@ export interface CookTimeDatasheet {
   metaDescription?: string;
   pressureMinutes?: number;
   releaseMethod?: 'natural' | 'quick' | '10-min-natural';
+  // Per-record replacement for the generic food-category/appliance template in
+  // lib/datasheet-content.ts. That function buckets by isPoultry/isBeef/etc. and
+  // reuses near-identical prose across every entry in a bucket — this field lets
+  // a specific record override it with genuinely unique, food-specific science.
+  technicalDeepDive?: string;
 }
 
 export type BlogCategory =
