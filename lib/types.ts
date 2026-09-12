@@ -197,16 +197,18 @@ export interface CookTimeDatasheet {
   // (11 distinct values reused across all 1,225 pages), sensoryCues only
   // varies by food category (~8 buckets), and the stock faqs are food-name-
   // swapped templates. These fields are individually authored, food-specific
-  // content layered on top of (not replacing) the bucketed defaults.
-  uniqueFailureMode?: {
+  // content layered on top of (not replacing) the bucketed defaults. Arrays
+  // (not a single object) so a record with more real, distinct failure modes
+  // or FAQs worth documenting isn't artificially capped at one of each.
+  uniqueFailureModes?: {
     mistake: string;
     consequence: string;
     prevention: string;
-  };
-  bonusFaq?: {
+  }[];
+  bonusFaqs?: {
     q: string;
     a: string;
-  };
+  }[];
   uniqueEquipmentNote?: string;
   uniqueSensoryCue?: string;
 }

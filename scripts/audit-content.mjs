@@ -146,12 +146,24 @@ const datasheetBonusFaqs = new Map();
 const datasheetEquipmentNotes = new Map();
 const datasheetSensoryCues = new Map();
 
-// Like field(), but matches at any indentation depth — for string properties
-// nested inside an object literal (uniqueFailureMode: { mistake: '...', ... }),
-// not a top-level datasheet field.
-const nestedField = (block, name) => {
-  const m = block.match(new RegExp(`\\n\\s+${name}: '((?:[^'\\\\]|\\\\.)*)'`));
+// Extracts the inner text of a top-level array field (uniqueFailureModes: [
+// { ... }, { ... } ],), so its item fields can be pulled out with allNested()
+// below. Relies on array items being indented deeper than the closing `],`.
+const arrayField = (block, name) => {
+  const m = block.match(new RegExp(`\\n    ${name}: \\[\\n([\\s\\S]*?)\\n    \\],`));
   return m ? m[1] : undefined;
+};
+
+// Every occurrence of a string property at any indentation depth within a
+// snippet of text (e.g. all 'mistake' values inside a uniqueFailureModes
+// array's inner text). Order matches source order, so index i across
+// allNested(text, 'mistake') / 'consequence' / 'prevention' is one item.
+const allNested = (text, name) => {
+  const re = new RegExp(`\\n\\s+${name}: '((?:[^'\\\\]|\\\\.)*)'`, 'g');
+  const out = [];
+  let mm;
+  while ((mm = re.exec(text)) !== null) out.push(mm[1]);
+  return out;
 };
 
 /** Split the exported array into its top-level object literals. */
@@ -283,42 +295,53 @@ for (const block of datasheetBlocks) {
     datasheetSensoryCues.set(sensoryCue, slug);
   }
 
-  // Check uniqueFailureMode (mistake/consequence/prevention triple) — dedup on
-  // the combined text so a batch can't satisfy uniqueness by varying only the
-  // mistake line while reusing consequence/prevention verbatim (HR-4).
-  const ufmMistake = nestedField(block, 'mistake');
-  const ufmConsequence = nestedField(block, 'consequence');
-  const ufmPrevention = nestedField(block, 'prevention');
-  if (ufmMistake || ufmConsequence || ufmPrevention) {
-    if (!ufmMistake || !ufmConsequence || !ufmPrevention) {
-      errors.push(`[Datasheet: ${slug}] uniqueFailureMode is missing one of mistake/consequence/prevention.`);
+  // Check uniqueFailureModes (array of mistake/consequence/prevention
+  // triples) — dedup each item on its combined text so a batch can't satisfy
+  // uniqueness by varying only the mistake line while reusing
+  // consequence/prevention verbatim (HR-4).
+  const ufmArrayText = arrayField(block, 'uniqueFailureModes');
+  if (ufmArrayText !== undefined) {
+    const mistakes = allNested(ufmArrayText, 'mistake');
+    const consequences = allNested(ufmArrayText, 'consequence');
+    const preventions = allNested(ufmArrayText, 'prevention');
+    if (mistakes.length !== consequences.length || mistakes.length !== preventions.length) {
+      errors.push(`[Datasheet: ${slug}] uniqueFailureModes has mismatched mistake/consequence/prevention counts (${mistakes.length}/${consequences.length}/${preventions.length}).`);
+    } else if (mistakes.length === 0) {
+      errors.push(`[Datasheet: ${slug}] uniqueFailureModes is present but empty.`);
     } else {
-      const combined = `${ufmMistake}|${ufmConsequence}|${ufmPrevention}`;
-      if (combined.length < 100) {
-        errors.push(`[Datasheet: ${slug}] uniqueFailureMode is too short (${combined.length} chars) to be genuinely food-specific.`);
+      for (let i = 0; i < mistakes.length; i++) {
+        const combined = `${mistakes[i]}|${consequences[i]}|${preventions[i]}`;
+        if (combined.length < 100) {
+          errors.push(`[Datasheet: ${slug}] uniqueFailureModes[${i}] is too short (${combined.length} chars) to be genuinely food-specific.`);
+        }
+        if (datasheetFailureModes.has(combined)) {
+          errors.push(`[Datasheet: ${slug}] Duplicate uniqueFailureModes entry shared with '${datasheetFailureModes.get(combined)}'.`);
+        }
+        datasheetFailureModes.set(combined, slug);
       }
-      if (datasheetFailureModes.has(combined)) {
-        errors.push(`[Datasheet: ${slug}] Duplicate uniqueFailureMode shared with '${datasheetFailureModes.get(combined)}'.`);
-      }
-      datasheetFailureModes.set(combined, slug);
     }
   }
 
-  // Check bonusFaq (q/a pair) — dedup on the combined text.
-  const bonusQ = nestedField(block, 'q');
-  const bonusA = nestedField(block, 'a');
-  if (bonusQ || bonusA) {
-    if (!bonusQ || !bonusA) {
-      errors.push(`[Datasheet: ${slug}] bonusFaq is missing q or a.`);
+  // Check bonusFaqs (array of q/a pairs) — dedup each pair on combined text.
+  const bfArrayText = arrayField(block, 'bonusFaqs');
+  if (bfArrayText !== undefined) {
+    const qs = allNested(bfArrayText, 'q');
+    const as = allNested(bfArrayText, 'a');
+    if (qs.length !== as.length) {
+      errors.push(`[Datasheet: ${slug}] bonusFaqs has mismatched q/a counts (${qs.length}/${as.length}).`);
+    } else if (qs.length === 0) {
+      errors.push(`[Datasheet: ${slug}] bonusFaqs is present but empty.`);
     } else {
-      const combined = `${bonusQ}|${bonusA}`;
-      if (combined.length < 60) {
-        errors.push(`[Datasheet: ${slug}] bonusFaq is too short (${combined.length} chars) to be genuinely food-specific.`);
+      for (let i = 0; i < qs.length; i++) {
+        const combined = `${qs[i]}|${as[i]}`;
+        if (combined.length < 60) {
+          errors.push(`[Datasheet: ${slug}] bonusFaqs[${i}] is too short (${combined.length} chars) to be genuinely food-specific.`);
+        }
+        if (datasheetBonusFaqs.has(combined)) {
+          errors.push(`[Datasheet: ${slug}] Duplicate bonusFaqs entry shared with '${datasheetBonusFaqs.get(combined)}'.`);
+        }
+        datasheetBonusFaqs.set(combined, slug);
       }
-      if (datasheetBonusFaqs.has(combined)) {
-        errors.push(`[Datasheet: ${slug}] Duplicate bonusFaq shared with '${datasheetBonusFaqs.get(combined)}'.`);
-      }
-      datasheetBonusFaqs.set(combined, slug);
     }
   }
 

@@ -12999,6 +12999,39 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Wrap in butcher paper at 165°F (the stall); butcher paper breathes enough to preserve crunchy bark while pushing past the stall quickly.',
     verificationBasis: 'USDA FSIS 145°F pork safety (203°F targeted for collagen conversion to gelatin); Aaron Franklin BBQ Manifesto.',
+    uniqueEquipmentNote: 'Set the water pan directly beneath the meat rather than off to the side — the added thermal mass and ambient humidity buffer the plateau and keep the surface from hardening into a shell before the bark actually sets. Run the probe in horizontally through the flat face of the shoulder, angled away from both the blade bone and the seam of trimmed fat, since either one reads noticeably off from the surrounding muscle and will throw a false doneness signal.',
+    uniqueSensoryCue: 'The rendered fat cap should have all but disappeared into the meat rather than sitting as a distinct white layer, and two forks pulled through the shoulder should separate it into long, moist strands that hold together, not the fine dry shreds of an overcooked butt or the dense clumps of one pulled before the collagen finished converting.',
+    uniqueFailureModes: [
+      {
+        mistake: 'Probing into a pocket of trimmed fat or directly against the blade bone instead of the surrounding muscle',
+        consequence: 'Fat and bone both conduct and hold heat differently than muscle, so a probe resting in either gives a reading that runs well off the meat around it, often a false 203°F pulled hours early, or a false stall that never seems to break.',
+        prevention: 'Check two or three spots away from visible fat seams and the bone itself, and trust whichever reading gives smooth, butter-like resistance rather than the single highest number on the display.',
+      },
+      {
+        mistake: 'Wrapping the instant the temperature flatlines near 165°F without checking whether the bark has actually set',
+        consequence: 'A stalled internal temperature and a set bark are two different things reached at different times; wrapping the moment the number hits 165°F can trap a surface that is still tacky and wet, steaming it soft under the paper for the rest of the cook.',
+        prevention: 'Wait for the surface to run dry and dark under a light touch even if that means the internal temperature has already pushed past 165°F — the number is a rough guide, the bark itself is the real signal.',
+      },
+      {
+        mistake: 'Pulling the shoulder apart immediately off the smoker instead of resting it',
+        consequence: 'Collagen converts to gelatin as a liquid above roughly 200°F; cutting or shredding while it is still molten lets that gelatin run out onto the board instead of being reabsorbed into the muscle fibers, leaving meat that tastes noticeably drier than the same cook rested properly.',
+        prevention: 'Hold the wrapped shoulder in a towel-lined cooler for the full 45 minutes before pulling, longer if there is time, so the gelatin has a chance to re-thicken and stay in the meat.',
+      },
+    ],
+    bonusFaqs: [
+      {
+        q: 'Should I wrap pulled pork in foil or butcher paper?',
+        a: 'Foil traps steam completely and pushes through the stall fastest, but it also braises the bark soft. Butcher paper breathes just enough to still speed past the stall while letting the bark stay firm, worth the extra time if bark texture matters more to you than shaving an hour off the cook.',
+      },
+      {
+        q: 'Why did my bark turn out soft and rubbery instead of crisp?',
+        a: 'This almost always traces back to wrapping too early, before the surface had actually dried and darkened. The paper or foil then steams whatever moisture was still on the bark instead of letting it finish setting.',
+      },
+      {
+        q: 'Does bumping the smoker temperature speed through the stall?',
+        a: 'Yes, to a point — running the chamber hotter shortens the plateau because there is more thermal energy pushing past the evaporative cooling effect, but it also cuts total smoke-exposure time and can firm the bark before the fat cap has fully rendered, so it is a real trade-off, not a free speedup.',
+      },
+    ],
     technicalDeepDive: 'A Boston butt carries the seamed connective tissue shoulder muscles build up from constant use, and that collagen needs sustained heat near water\'s boiling point to unwind into gelatin, well above the 145°F pork safety floor. Through the middle of the cook, evaporative cooling from surface moisture holds the internal temperature nearly flat for hours even with the chamber running at 250°F, a plateau that only breaks once enough of that moisture has evaporated. Trimming the fat cap to a quarter inch leaves enough insulation to slow surface drying without smothering bark formation, while the roast\'s size supplies enough thermal mass to stretch the rise across eight to ten hours.',
     keywords: ['how long to smoke pork butt for pulled pork', 'smoked pork shoulder time at 250', 'pulled pork internal temp smoker'],
     metaDescription: 'How long to smoke pork butt for pulled pork: 8–10 hours at 250°F (121°C) to 203°F (95°C). Butcher-paper wrap method for bark and juiciness.',

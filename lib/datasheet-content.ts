@@ -134,11 +134,11 @@ export function getDatasheetContent(sheet: CookTimeDatasheet): DatasheetContent 
   }
 
   // 5. Failure Modes
-  // uniqueFailureMode, when present, leads the list — it is authored for this
+  // uniqueFailureModes, when present, lead the list — authored for this
   // exact food rather than the generic overcrowding/flip-timing/resting trio
   // below, which stays as a reliable but formulaic fallback.
   const failureModes = [
-    ...(sheet.uniqueFailureMode ? [sheet.uniqueFailureMode] : []),
+    ...(sheet.uniqueFailureModes ?? []),
     {
       mistake: `Overcrowding or overlapping ${sheet.food} in the ${app.replace(/-/g, ' ')}`,
       consequence: 'Trapped steam creates a localized 212°F humidity barrier that prevents the Maillard reaction, leaving food pale, soggy, and rubbery.',
@@ -197,7 +197,7 @@ export function getDatasheetContent(sheet: CookTimeDatasheet): DatasheetContent 
         ? `Yes. A light mist of high-smoke-point oil (avocado, canola, or ghee) provides the lipid medium necessary for rapid conductive heat transfer and crisp browning. Avoid aerosol sprays containing lecithin propellants in non-stick air fryers.`
         : `No added oil is required. The natural intramuscular fat in ${sheet.food} will render during cooking, providing all the lubricity and browning needed.`,
     },
-    ...(sheet.bonusFaq ? [sheet.bonusFaq] : []),
+    ...(sheet.bonusFaqs ?? []),
   ];
 
   return {
