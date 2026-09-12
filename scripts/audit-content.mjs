@@ -419,12 +419,9 @@ const blogPillars = [
   'chemistry-posts.ts',
   'safety-posts.ts',
   'operations-posts.ts',
-  // These two were never in the swept set even though data/blog-posts.ts
-  // aggregates them into the live site same as the five above — found while
-  // scoping a content-depth pass on the blog corpus. 30 posts (55 -> 85) were
-  // shipping with no dedup/schema check at all.
   'snippet-posts.ts',
   'snippet-posts-2.ts',
+  'deep-dive-posts.ts',
 ];
 
 let totalBlogPostsCount = 0;
