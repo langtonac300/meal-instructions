@@ -19,6 +19,12 @@ export interface DatasheetContent {
     q: string;
     a: string;
   }[];
+  // Individually authored, food-specific notes layered on top of (not
+  // replacing) equipmentCalibration / sensoryCues.visual above. Rendered as
+  // their own bulleted list when present rather than crammed into those
+  // single-paragraph fields.
+  additionalEquipmentNotes: string[];
+  additionalSensoryCues: string[];
 }
 
 /**
@@ -72,12 +78,8 @@ export function getDatasheetContent(sheet: CookTimeDatasheet): DatasheetContent 
     auditoryOrTactile = 'Egg feels solid and compact in hand; yolk achieves the specified viscosity from liquid gold to velvety fudge.';
     thermalMarker = 'Ovotransferrin (144°F) and ovalbumin (176°F) protein coagulation thresholds have been precisely achieved.';
   }
-  // uniqueSensoryCue is food-specific and layers onto the food-category bucket
-  // above rather than replacing it — the bucket still gives a sound baseline
-  // cue even where a record has no override.
-  if (sheet.uniqueSensoryCue) {
-    visual = `${visual} ${sheet.uniqueSensoryCue}`;
-  }
+  // uniqueSensoryCues render as their own list (see additionalSensoryCues in
+  // the return block) rather than being crammed onto the end of `visual`.
 
   // 2. Equipment Calibration
   let equipmentCalibration = `Ensure the ${app.replace(/-/g, ' ')} is thoroughly preheated for at least 5 to 10 minutes before loading food to establish stable radiant and convective heat.`;
@@ -98,12 +100,8 @@ export function getDatasheetContent(sheet: CookTimeDatasheet): DatasheetContent 
   } else if (app === 'slow-cooker') {
     equipmentCalibration = `Place the ceramic crock on a heat-safe surface. Ensure the exterior of the ceramic insert is completely dry before placing it inside the heating base. Never open the lid during the first 4 hours of cooking on LOW.`;
   }
-  // uniqueEquipmentNote is food-specific and layers on top of the appliance-level
-  // calibration above (which is deliberately generic — the same air fryer setup
-  // steps apply regardless of what's going in it).
-  if (sheet.uniqueEquipmentNote) {
-    equipmentCalibration = `${equipmentCalibration} ${sheet.uniqueEquipmentNote}`;
-  }
+  // uniqueEquipmentNotes render as their own list (see additionalEquipmentNotes
+  // in the return block) rather than being crammed onto the end of this string.
 
   // 3. Thermal Science
   let thermalScience = `Cooking ${sheet.food} in the ${app.replace(/-/g, ' ')} at ${sheet.tempFormatted} balances surface dehydration against interior heat penetration.`;
@@ -214,5 +212,7 @@ export function getDatasheetContent(sheet: CookTimeDatasheet): DatasheetContent 
     failureModes,
     restingPhysics,
     faqs,
+    additionalEquipmentNotes: sheet.uniqueEquipmentNotes ?? [],
+    additionalSensoryCues: sheet.uniqueSensoryCues ?? [],
   };
 }

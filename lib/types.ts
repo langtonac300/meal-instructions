@@ -209,8 +209,8 @@ export interface CookTimeDatasheet {
     q: string;
     a: string;
   }[];
-  uniqueEquipmentNote?: string;
-  uniqueSensoryCue?: string;
+  uniqueEquipmentNotes?: string[];
+  uniqueSensoryCues?: string[];
 }
 
 export type BlogCategory =

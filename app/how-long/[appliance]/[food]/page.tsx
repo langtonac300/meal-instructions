@@ -386,6 +386,44 @@ export default async function HowLongPage({ params }: HowLongPageProps) {
           )}
         </div>
 
+        {/* Field Notes — individually authored, food-specific detail beyond
+            the appliance-level/food-category defaults above. Only renders
+            when a record actually has this content. */}
+        {(extraContent.additionalEquipmentNotes.length > 0 || extraContent.additionalSensoryCues.length > 0) && (
+          <div className="border border-hairline bg-paper p-5 space-y-4">
+            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">
+              <CheckCircle2 className="w-4 h-4" />
+              <span>Field Notes for {sheet.food}</span>
+            </div>
+            {extraContent.additionalEquipmentNotes.length > 0 && (
+              <div className="space-y-2">
+                <strong className="block text-ink uppercase text-[11px] font-mono">Setup &amp; Equipment</strong>
+                <ul className="space-y-1.5">
+                  {extraContent.additionalEquipmentNotes.map((note, i) => (
+                    <li key={i} className="text-xs sm:text-sm text-ink-muted leading-relaxed flex gap-2">
+                      <span className="text-accent shrink-0">—</span>
+                      <span>{note}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {extraContent.additionalSensoryCues.length > 0 && (
+              <div className="space-y-2">
+                <strong className="block text-ink uppercase text-[11px] font-mono">Additional Doneness Checkpoints</strong>
+                <ul className="space-y-1.5">
+                  {extraContent.additionalSensoryCues.map((cue, i) => (
+                    <li key={i} className="text-xs sm:text-sm text-ink-muted leading-relaxed flex gap-2">
+                      <span className="text-accent shrink-0">—</span>
+                      <span>{cue}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+
         {/* Failure Modes & Troubleshooting */}
         <div className="space-y-3">
           <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] font-bold text-accent">

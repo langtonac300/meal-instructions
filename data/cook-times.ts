@@ -12999,8 +12999,19 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
     oilSprayRequired: false,
     proTip: 'Wrap in butcher paper at 165°F (the stall); butcher paper breathes enough to preserve crunchy bark while pushing past the stall quickly.',
     verificationBasis: 'USDA FSIS 145°F pork safety (203°F targeted for collagen conversion to gelatin); Aaron Franklin BBQ Manifesto.',
-    uniqueEquipmentNote: 'Set the water pan directly beneath the meat rather than off to the side — the added thermal mass and ambient humidity buffer the plateau and keep the surface from hardening into a shell before the bark actually sets. Run the probe in horizontally through the flat face of the shoulder, angled away from both the blade bone and the seam of trimmed fat, since either one reads noticeably off from the surrounding muscle and will throw a false doneness signal.',
-    uniqueSensoryCue: 'The rendered fat cap should have all but disappeared into the meat rather than sitting as a distinct white layer, and two forks pulled through the shoulder should separate it into long, moist strands that hold together, not the fine dry shreds of an overcooked butt or the dense clumps of one pulled before the collagen finished converting.',
+    uniqueEquipmentNotes: [
+      'Set the water pan directly beneath the meat rather than off to the side — the added thermal mass and ambient humidity buffer the plateau and keep the surface from hardening into a shell before the bark actually sets.',
+      'Run the probe in horizontally through the flat face of the shoulder, angled away from both the blade bone and the seam of trimmed fat, since either one reads noticeably off from the surrounding muscle and will throw a false doneness signal.',
+      'Orient the fat cap toward whichever side the heat actually comes from — down over a direct lower heat source, up if the firebox is offset to the side — so rendering fat continuously bastes down through the meat instead of just dripping away.',
+      'Load most of the wood in during the first three to four hours: that is the window while the surface is still cool and moist enough for smoke particles to actually adhere, so continuing heavy smoke for the full eight to ten hours adds much less flavor than it seems like it should and raises the odds of a bitter, over-smoked bark.',
+      'Use a binder just thin enough to make the rub stick — mustard wiped to a thin film, not a thick coat — since a heavy binder layer traps moisture against the surface and slows the same bark formation the rub is there to help.',
+    ],
+    uniqueSensoryCues: [
+      'The rendered fat cap should have all but disappeared into the meat rather than sitting as a distinct white layer, and two forks pulled through the shoulder should separate it into long, moist strands that hold together, not the fine dry shreds of an overcooked butt or the dense clumps of one pulled before the collagen finished converting.',
+      'A thin pink band about a quarter-inch deep should sit just under the bark, distinct from the browner meat beneath it — that is the smoke ring, a purely visual confirmation smoke penetrated the surface, not a doneness signal on its own.',
+      'Lifted with insulated gloves, the whole shoulder should wobble loosely end to end like a water balloon rather than holding one rigid shape — a butt that still moves as a single stiff mass has muscle structure left to break down.',
+      'Opening the wrap should release a burst of clear steam rather than reveal a pool of visible grease underneath — pooled grease means fat rendered out and stayed out, instead of basting back into the meat as intended.',
+    ],
     uniqueFailureModes: [
       {
         mistake: 'Probing into a pocket of trimmed fat or directly against the blade bone instead of the surrounding muscle',
@@ -13017,6 +13028,21 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
         consequence: 'Collagen converts to gelatin as a liquid above roughly 200°F; cutting or shredding while it is still molten lets that gelatin run out onto the board instead of being reabsorbed into the muscle fibers, leaving meat that tastes noticeably drier than the same cook rested properly.',
         prevention: 'Hold the wrapped shoulder in a towel-lined cooler for the full 45 minutes before pulling, longer if there is time, so the gelatin has a chance to re-thicken and stay in the meat.',
       },
+      {
+        mistake: 'Running a heavy dose of a strong, resinous wood like straight mesquite for the entire eight-to-ten-hour cook',
+        consequence: 'Over a cook this long, that much prolonged smoke exposure turns acrid and bitter rather than additive, especially once a cooler, moister surface starts collecting creosote from any incomplete combustion in the fire.',
+        prevention: 'Use a milder wood for the full cook — oak, hickory, or a fruit wood — or limit a stronger wood like mesquite to just the first hour or two.',
+      },
+      {
+        mistake: 'Trimming the fat cap down past a quarter inch to try to speed up rendering',
+        consequence: 'Without enough of an insulating layer, the exposed muscle surface dries out and toughens well before the connective tissue underneath has had time to convert, especially on whichever side faces the heat source most directly.',
+        prevention: 'Leave a consistent quarter-inch fat cap rather than trimming to the muscle — it renders away almost completely by the time the shoulder is actually done.',
+      },
+      {
+        mistake: 'Trusting the smoker\'s built-in lid thermometer alone on a windy or cold day',
+        consequence: 'That thermometer reads air temperature up near the lid, which can run tens of degrees above the actual temperature at grate level in cold or windy conditions, silently stretching the real cook time well past the estimated window.',
+        prevention: 'Verify grate-level temperature with a separate probe, especially outdoors in weather that could be pulling heat out of the chamber faster than the lid thermometer shows.',
+      },
     ],
     bonusFaqs: [
       {
@@ -13030,6 +13056,18 @@ export const COOK_TIME_DATASHEETS: CookTimeDatasheet[] = [
       {
         q: 'Does bumping the smoker temperature speed through the stall?',
         a: 'Yes, to a point — running the chamber hotter shortens the plateau because there is more thermal energy pushing past the evaporative cooling effect, but it also cuts total smoke-exposure time and can firm the bark before the fat cap has fully rendered, so it is a real trade-off, not a free speedup.',
+      },
+      {
+        q: 'What is the best wood for smoking pulled pork?',
+        a: 'Oak and hickory are the traditional choices for a cook this long — assertive enough to hold up over eight to ten hours without turning bitter. Fruit woods like apple or cherry run milder and slightly sweet. Save something stronger like mesquite for shorter, hotter cooks; over this many hours it tends to turn acrid rather than more flavorful.',
+      },
+      {
+        q: 'Should I inject the pork butt before smoking?',
+        a: 'It is optional, not necessary — a butt this size already carries enough internal fat to stay moist through a proper low-and-slow cook. Injecting matters more on leaner cuts or when running hotter and faster than the standard 250°F window used here.',
+      },
+      {
+        q: 'Why is there a pink ring just under the bark that looks undercooked?',
+        a: 'That is the smoke ring, formed when combustion gases bond with proteins near the surface early in the cook. It is purely cosmetic and has no bearing on doneness or safety — judge readiness by internal temperature and probe feel, not the ring\'s color.',
       },
     ],
     technicalDeepDive: 'A Boston butt carries the seamed connective tissue shoulder muscles build up from constant use, and that collagen needs sustained heat near water\'s boiling point to unwind into gelatin, well above the 145°F pork safety floor. Through the middle of the cook, evaporative cooling from surface moisture holds the internal temperature nearly flat for hours even with the chamber running at 250°F, a plateau that only breaks once enough of that moisture has evaporated. Trimming the fat cap to a quarter inch leaves enough insulation to slow surface drying without smothering bark formation, while the roast\'s size supplies enough thermal mass to stretch the rise across eight to ten hours.',

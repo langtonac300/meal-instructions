@@ -154,6 +154,18 @@ const arrayField = (block, name) => {
   return m ? m[1] : undefined;
 };
 
+// Extracts every quoted string inside a top-level array of plain strings
+// (uniqueEquipmentNotes: ['...', '...'],) — one array item per string, in order.
+const stringArrayField = (block, name) => {
+  const m = block.match(new RegExp(`\\n    ${name}: \\[([\\s\\S]*?)\\n    \\],`));
+  if (!m) return undefined;
+  const re = /'((?:[^'\\]|\\.)*)'/g;
+  const out = [];
+  let mm;
+  while ((mm = re.exec(m[1])) !== null) out.push(mm[1]);
+  return out;
+};
+
 // Every occurrence of a string property at any indentation depth within a
 // snippet of text (e.g. all 'mistake' values inside a uniqueFailureModes
 // array's inner text). Order matches source order, so index i across
@@ -267,32 +279,37 @@ for (const block of datasheetBlocks) {
     datasheetDeepDives.set(deepDive, slug);
   }
 
-  // Check uniqueness of uniqueEquipmentNote and uniqueSensoryCue (HR-4).
+  // Check uniqueness of uniqueEquipmentNotes and uniqueSensoryCues (HR-4).
   //
   // Same rationale as technicalDeepDive: equipmentCalibration only varies by
   // appliance (11 values total) and the sensory-cue bucket only varies by
   // food category (~8 values) — these per-record overrides exist specifically
-  // to break that duplication, so a duplicate here is a regression.
-  const equipmentNote = field(block, 'uniqueEquipmentNote');
-  if (equipmentNote) {
-    if (equipmentNote.trim().length < 40) {
-      errors.push(`[Datasheet: ${slug}] uniqueEquipmentNote is too short (${equipmentNote.trim().length} chars) to be genuinely food-specific.`);
-    }
-    if (datasheetEquipmentNotes.has(equipmentNote)) {
-      errors.push(`[Datasheet: ${slug}] Duplicate uniqueEquipmentNote shared with '${datasheetEquipmentNotes.get(equipmentNote)}'.`);
-    }
-    datasheetEquipmentNotes.set(equipmentNote, slug);
+  // to break that duplication, so a duplicate here is a regression. Arrays,
+  // so each individual note/cue is checked and deduped independently.
+  const equipmentNotes = stringArrayField(block, 'uniqueEquipmentNotes');
+  if (equipmentNotes) {
+    equipmentNotes.forEach((note, i) => {
+      if (note.trim().length < 40) {
+        errors.push(`[Datasheet: ${slug}] uniqueEquipmentNotes[${i}] is too short (${note.trim().length} chars) to be genuinely food-specific.`);
+      }
+      if (datasheetEquipmentNotes.has(note)) {
+        errors.push(`[Datasheet: ${slug}] Duplicate uniqueEquipmentNotes entry shared with '${datasheetEquipmentNotes.get(note)}'.`);
+      }
+      datasheetEquipmentNotes.set(note, slug);
+    });
   }
 
-  const sensoryCue = field(block, 'uniqueSensoryCue');
-  if (sensoryCue) {
-    if (sensoryCue.trim().length < 40) {
-      errors.push(`[Datasheet: ${slug}] uniqueSensoryCue is too short (${sensoryCue.trim().length} chars) to be genuinely food-specific.`);
-    }
-    if (datasheetSensoryCues.has(sensoryCue)) {
-      errors.push(`[Datasheet: ${slug}] Duplicate uniqueSensoryCue shared with '${datasheetSensoryCues.get(sensoryCue)}'.`);
-    }
-    datasheetSensoryCues.set(sensoryCue, slug);
+  const sensoryCues = stringArrayField(block, 'uniqueSensoryCues');
+  if (sensoryCues) {
+    sensoryCues.forEach((cue, i) => {
+      if (cue.trim().length < 40) {
+        errors.push(`[Datasheet: ${slug}] uniqueSensoryCues[${i}] is too short (${cue.trim().length} chars) to be genuinely food-specific.`);
+      }
+      if (datasheetSensoryCues.has(cue)) {
+        errors.push(`[Datasheet: ${slug}] Duplicate uniqueSensoryCues entry shared with '${datasheetSensoryCues.get(cue)}'.`);
+      }
+      datasheetSensoryCues.set(cue, slug);
+    });
   }
 
   // Check uniqueFailureModes (array of mistake/consequence/prevention
